@@ -20,6 +20,8 @@ class SearchScan:
         self.view_s=view_s; self.required=negative_frames; self.index=0
         self.phase='navigate'; self.view_start=None; self.last_stamp=0; self.negative=0
         self.completed=[]; self.failures=[]; self.position=None
+        self.evidence_ready=None  # Optional stationary-view evidence predicate.
+        self.supplement_s=3.0
 
     def status(self):
         return dict(task_id=self.task_id,target=self.target,state=self.phase,
@@ -37,7 +39,10 @@ class SearchScan:
         if now>=self.deadline:
             self.phase='incomplete'; self.failures.append('search_timeout')
         elif self.phase=='observe' and now-self.view_start>=self.view_s:
-            self.advance('observation_timeout')
+            # Bounded supplemental capture; never renew the session deadline.
+            if (self.evidence_ready is None or self.evidence_ready(now) or
+                    now-self.view_start>=self.view_s+self.supplement_s):
+                self.advance('observation_timeout')
         return self.status()
 
     def advance(self,failure=None):

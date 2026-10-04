@@ -30,7 +30,9 @@ class SearchPointSequence:
         evidence=row.get('view_evidence',{}) if isinstance(row,dict) else {}
         if not isinstance(evidence,dict) or evidence.get('schema')!='handyman-view-evidence-v1':
             evidence={}
-        stamps=evidence.get('negative_stamps',[])
+        stamps=evidence.get('continuation_stamps',evidence.get('negative_stamps',[]))
+        if 'continuation_stamps' in evidence and evidence.get('continuation_scope')!='view_only_not_room_absence':
+            stamps=[]
         arrival=evidence.get('arrival_stamp_ns')
         after_arrival=(type(arrival) is int and arrival>0 and isinstance(stamps,list) and
                        all(type(v) is int and v>arrival for v in stamps))

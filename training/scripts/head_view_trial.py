@@ -17,6 +17,7 @@ COMMAND='/hsrb/head_trajectory_controller/command'
 # Fixed 20 ms bound; do not learn arbitrary offsets or rewrite sensor stamps.
 # Freshness (300 ms), ordering, and both stationary windows remain unchanged.
 MAX_FUTURE_SKEW_NS=20_000_000
+SEARCH_FEEDBACK_MAX_S=.5
 
 
 def target(pan,tilt):
@@ -26,7 +27,10 @@ def target(pan,tilt):
 
 
 class Settling:
-    def __init__(self,goal):
+    def __init__(self,goal,max_feedback_s=.3):
+        if not math.isfinite(max_feedback_s) or not 0<max_feedback_s<=.5:
+            raise ValueError('invalid_feedback_limit')
+        self.max_feedback_s=max_feedback_s
         self.goal=target(*goal)
         self.reset()
 
@@ -41,9 +45,9 @@ class Settling:
             pose=tuple(positions[names.index(k)] for k in JOINTS)
             if (not all(math.isfinite(v) for v in (*pose,now)) or
                 type(stamp) is not int or type(sensor_now) is not int or
-                stamp<=self.last_stamp or not -MAX_FUTURE_SKEW_NS<=sensor_now-stamp<=300_000_000):
+                stamp<=self.last_stamp or not -MAX_FUTURE_SKEW_NS<=sensor_now-stamp<=int(self.max_feedback_s*1e9)):
                 raise ValueError('stale_or_invalid_feedback')
-            gap=self.last_now is not None and (not 0<now-self.last_now<=.3 or stamp-self.last_stamp>300_000_000)
+            gap=self.last_now is not None and (not 0<now-self.last_now<=self.max_feedback_s or stamp-self.last_stamp>int(self.max_feedback_s*1e9))
             self.last_stamp=stamp;self.last_now=now
             if gap or any(abs(v-g)>.03 for v,g in zip(pose,self.goal)):
                 self.reason='feedback_gap' if gap else 'outside_target_tolerance'

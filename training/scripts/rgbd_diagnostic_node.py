@@ -23,9 +23,15 @@ def main():
     parser.add_argument('--pixi',required=True)
     parser.add_argument('--weights',required=True)
     parser.add_argument('--seconds',type=float,default=30)
+    parser.add_argument('--session-budget-seconds',type=float)
     parser.add_argument('--target',default='canned_juice')
     parser.add_argument('--camera-audit',type=Path,help='Exact reviewed report; diagnostics only')
     args=parser.parse_args()
+    session_deadline=None
+    if args.session_budget_seconds is not None:
+        from search_timing import session_budget
+        try:session_deadline=time.monotonic()+session_budget(args.session_budget_seconds)
+        except ValueError as exc:parser.error(str(exc))
     audited=load_audit(args.camera_audit)
     if not 0<args.seconds<=120: parser.error('seconds must be in (0,120]')
     args.output.mkdir(parents=True,exist_ok=False)
@@ -59,17 +65,23 @@ def main():
                 if rclpy.ok(): raise
     log=(args.output/'worker.log').open('w')
     worker=None
+    stop_reason='exception'
     try:
-        worker=subprocess.Popen([args.pixi,'run','python',str(Path(__file__).with_name('rgbd_inference_worker.py')),'--spool',str(args.output),'--weights',args.weights],cwd=args.repo,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
-        startup=time.monotonic()+120
+        worker_command=[args.pixi,'run','python',str(Path(__file__).with_name('rgbd_inference_worker.py')),'--spool',str(args.output),'--weights',args.weights]
+        if session_deadline is not None:
+            worker_command+=['--deadline-monotonic',str(session_deadline)]
+        worker=subprocess.Popen(worker_command,cwd=args.repo,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
+        startup=min(time.monotonic()+120,session_deadline) if session_deadline is not None else time.monotonic()+120
         while rclpy.ok() and not (args.output/'ready.json').exists():
             rclpy.spin_once(node,timeout_sec=.05)
             if worker.poll() is not None or time.monotonic()>startup: raise RuntimeError('worker_startup_failed; see worker.log')
         print('READY live diagnostics, no control publishers',flush=True)
-        deadline=time.monotonic()+args.seconds
+        deadline=session_deadline if session_deadline is not None else time.monotonic()+args.seconds
         while rclpy.ok() and time.monotonic()<deadline:
             rclpy.spin_once(node,timeout_sec=.02)
-            if worker.poll() is not None: raise RuntimeError('worker_exited')
+            if worker.poll() is not None:
+                stop_reason='worker_exited'
+                raise RuntimeError('worker_exited')
             if pending:
                 folder,a,b,sent=pending
                 if (folder/'result.json').exists():
@@ -91,6 +103,7 @@ def main():
                               tf_wait_status=tf_status,tf_wait_ms=(time.monotonic()-tf_wait.started)*1000,inference=result))
                     pending=None; tf_wait=None; last_report=time.monotonic()
                 elif time.monotonic()-sent>5:
+                    stop_reason='inference_timeout'
                     emit({'quality':gate.reject('inference_timeout')}); break
             if not pending and all(queues.values()) and len(infos)==2:
                 pairs=[(a,b) for a in queues['rgb'] for b in queues['depth'] if stamp(a)>last[0] and stamp(b)>last[1] and abs(stamp(a)-stamp(b))<=50_000_000]
@@ -105,11 +118,14 @@ def main():
                     pending=(folder,a,b,time.monotonic())
             if time.monotonic()-last_report>2:
                 emit({'quality':gate.reject('waiting_for_fresh_result')}); last_report=time.monotonic()
+        else:
+            stop_reason='deadline_reached' if time.monotonic()>=deadline else 'ros_shutdown'
     except (KeyboardInterrupt,ExternalShutdownException):
-        pass
+        stop_reason='interrupted_or_ros_shutdown'
     finally:
         errors=cleanup_steps([
-            ('stop_record',lambda:emit({'quality':gate.reject('diagnostic_stopped')})),
+            ('stop_record',lambda:emit({'quality':gate.reject('diagnostic_stopped'),'stop_reason':stop_reason,
+                                      'monotonic_s':time.monotonic(),'session_deadline_monotonic':session_deadline})),
             ('stop_signal',lambda:(args.output/'stop').touch()),
             ('worker',lambda:stop_worker(worker)),
             ('worker_log',log.close),

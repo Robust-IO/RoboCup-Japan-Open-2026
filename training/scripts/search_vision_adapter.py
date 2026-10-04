@@ -53,10 +53,18 @@ class SearchVisionAdapter:
                 return reject('mismatched_localization')
             point=q['position_m']
             if len(point)!=3 or not all(math.isfinite(v) for v in point): return reject('invalid_position')
+            room_check=getattr(self.scan,'room_check',None)
+            if room_check is not None:
+                room=room_check(point,depth)
+                if room.get('state')!='inside':
+                    return dict(reject('target_room_'+room.get('state','unverified')),room_membership=room)
             if any(math.dist(point,p)>.02 for p in self.streak): self.streak=[]
             self.streak.append(tuple(point)); self.streak=self.streak[-3:]
             state=self.scan.observe(self.view_id,self.scan.target,depth,now,True,
                 stable=len(self.streak)==3,position=point)
+            if state.get('state')=='found' and room_check is not None:
+                self.scan.room_membership=room
             return dict(state,adapter_reason='fresh_stable_target' if len(self.streak)==3 else 'accumulating_new_view',
-                        fresh_view_count=len(self.streak))
+                        fresh_view_count=len(self.streak),
+                        **({'room_membership':room} if room_check is not None else {}))
         except (KeyError,TypeError,ValueError,OverflowError): return reject('malformed_diagnostic')

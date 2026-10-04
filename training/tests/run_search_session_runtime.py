@@ -7,6 +7,7 @@ import math
 import os
 from pathlib import Path
 import signal
+import shutil
 import sqlite3
 import subprocess
 import sys
@@ -24,6 +25,9 @@ def main():
     p.add_argument('--exhaust-points',action='store_true')
     p.add_argument('--expire-during-second',action='store_true')
     p.add_argument('--auto-head',action='store_true')
+    p.add_argument('--active-ring',action='store_true',help='Generated eight-view ring in isolated temporary package only')
+    p.add_argument('--bound-ring',action='store_true',help='Real task bundle and runtime binding with synthetic private owner')
+    p.add_argument('--replay-bound',action='store_true',help='Restart runtime with same journal and replay consumed task')
     p.add_argument('--session-budget-seconds',type=float)
     p.add_argument('--slow-navigation',action='store_true',help='Simulate 65 s healthy navigation beyond all old short cutoffs')
     p.add_argument('--budget-stop',choices=('event','expiry'))
@@ -31,8 +35,25 @@ def main():
                    help='Drop synthetic TF after head-ready, require re-observation without a second motion')
     p.add_argument('--head-skew-ms',type=int,choices=(0,14),default=0,
                    help='Synthetic head-only clock offset; domain 73 only')
+    p.add_argument('--room-case',choices=('inside','lobby','boundary'),
+                   help='Living-room target ownership regression; synthetic geometry, domain 73 only')
+    p.add_argument('--supplement-points',type=int,choices=(0,1,2),default=0)
+    p.add_argument('--turn-only',action='store_true',help='Verify per-goal BT selection; fake navigation does not simulate rotation')
+    p.add_argument('--turn-tf-delay',action='store_true',help='Delay new-worker TF to reproduce live startup race')
+    p.add_argument('--outside-room-ring',action='store_true')
     p.add_argument('--head-fault',choices=('missing_feedback','wrong_angle','cancel_during_motion','stop_feedback_lost','stop_ignored'))
     a=p.parse_args()
+    if (a.supplement_points or a.outside_room_ring) and not (a.bound_ring and a.exhaust_points):
+        p.error('supplement/outside ring requires bound ring exhaustion')
+    if a.room_case and (a.case!='sequence' or a.multi_point or a.vision_log or a.head_fault or a.head_tf_recovery):
+        p.error('room-case requires simple single-point sequence')
+    if a.bound_ring and not a.active_ring:p.error('bound-ring requires active-ring')
+    if a.turn_only and not a.bound_ring:p.error('turn-only requires bound-ring')
+    if a.turn_tf_delay and not a.turn_only:p.error('turn-tf-delay requires turn-only')
+    if a.replay_bound and (not a.bound_ring or not a.exhaust_points):p.error('replay-bound requires bound ring exhaustion')
+    if a.active_ring and (not a.multi_point or not a.auto_head or a.session_budget_seconds is None
+                          or not (a.exhaust_points or a.cancel_at_transition)):
+        p.error('active-ring requires multi-point, auto-head, session budget and exhaust-points or cancel-at-transition')
     if (a.slow_navigation or a.budget_stop) and (a.session_budget_seconds is None or a.case!='sequence' or a.multi_point):
         p.error('budget scenarios require single-point sequence and explicit session budget')
     if a.head_tf_recovery and (not a.auto_head or a.case!='sequence' or a.multi_point or a.head_fault or a.vision_log):
@@ -58,7 +79,7 @@ def main():
     from handyman_msgs.msg import HandymanMsg
     from geometry_msgs.msg import TransformStamped
     from nav_msgs.msg import OccupancyGrid
-    from nav2_msgs.action import NavigateToPose
+    from nav2_msgs.action import NavigateToPose,ComputePathToPose
     from rclpy.action import ActionServer,CancelResponse,GoalResponse
     from rclpy.callback_groups import ReentrantCallbackGroup
     from rclpy.executors import MultiThreadedExecutor
@@ -70,10 +91,54 @@ def main():
     from rgbd_localization import AUDIT_SHA256
     share=root/'src/handyman_rebuild_ros2';binary=Path('/tmp/handyman-search-nav-install/handyman_rebuild_ros2/lib/handyman_rebuild_ros2')
     decoder=Path('/tmp/handyman-map-snapshot-build/map_snapshot')
-    search_points=yaml.safe_load((share/'config/environments/layout_a.yaml').read_text())['rooms']['kitchen']['search_points']
+    environment=yaml.safe_load((share/'config/environments/layout_a.yaml').read_text())
+    task_room='living_room' if a.room_case else 'kitchen'
+    search_points=environment['rooms'][task_room]['search_points']
+    from search_room_gate import RoomGate
+    regions={name:room['region'] for name,room in environment['rooms'].items()}
+    def interior(name):
+        gate=RoomGate(regions,name);vertices=regions[name]
+        for ix in range(1,40):
+            for iy in range(1,40):
+                p=[min(v[0] for v in vertices)+(max(v[0] for v in vertices)-min(v[0] for v in vertices))*ix/40,
+                   min(v[1] for v in vertices)+(max(v[1] for v in vertices)-min(v[1] for v in vertices))*iy/40,1.]
+                if gate.classify(p,[0,0,0],[0,0,0,1])['state']=='inside':return p
+        raise AssertionError('no_unambiguous_room_fixture')
+    target_position=interior('lobby' if a.room_case=='lobby' else task_room)
+    if a.room_case=='boundary':target_position=[*regions[task_room][0],1.]
     pose=dict(search_points[0])
     map_msg,_=decode(share/'maps/LayoutA/map.yaml',decoder)
     out=Path(tempfile.mkdtemp(prefix='search-session-runtime-'));print('OUTPUT',out,flush=True)
+    fixture_env=dict(os.environ)
+    bound_manifest=None
+    if a.active_ring:
+        from build_active_search_points import build
+        generated=build(root)
+        layout=next(r for r in generated['reports'] if r['layout']=='LayoutA')
+        room=next(r for r in layout['rooms'] if r['room']=='kitchen')
+        assert room['status']=='proposed' and len(room['views'])==8
+        prefix=out/'isolated-install'
+        temporary_share=prefix/'share/handyman_rebuild_ros2'
+        shutil.copytree(share/'config',temporary_share/'config')
+        shutil.copytree(share/'maps',temporary_share/'maps')
+        marker=prefix/'share/ament_index/resource_index/packages/handyman_rebuild_ros2'
+        marker.parent.mkdir(parents=True);marker.touch()
+        share=temporary_share
+        envpath=share/'config/environments/layout_a.yaml'
+        environment=yaml.safe_load(envpath.read_text())
+        search_points=[{k:v[k] for k in ('x','y','yaw')} for v in room['views']]
+        environment['rooms']['kitchen']['search_points']=search_points
+        envpath.write_text(yaml.safe_dump(environment))
+        pose=dict(search_points[0])
+        fixture_env['AMENT_PREFIX_PATH']=str(prefix)+os.pathsep+fixture_env.get('AMENT_PREFIX_PATH','')
+        (out/'active-ring-plan.json').write_text(json.dumps(room,indent=2))
+        if a.bound_ring:
+            from prepare_active_search import snapshot
+            bound_manifest=out/'bound-bundle/manifest.json'
+            bound=snapshot(root,bound_manifest.parent,'LayoutA','kitchen','apple',generated,a.supplement_points)
+            share=Path(bound['package_share'])
+            search_points=[p['pose'] for p in bound['request']['points']]
+    if a.outside_room_ring:target_position=interior('lobby')
     runtime_directory=out/'runtime';journal=out/'dispatch.sqlite3'
     def persisted():
         if not journal.exists():return []
@@ -82,6 +147,12 @@ def main():
     goals=[];cancelled=[];events=[];results=[];requests=[];statuses=[];stop=threading.Event()
     receipts=[];untracked=[];dropped_acceptances=[];runtime_killed=False
     def accept(goal):
+        if a.turn_only:
+            index=len(goals)
+            from search_turn_policy import same_search_position
+            should_turn=index>0 and same_search_position({'pose':search_points[index-1]},{'pose':search_points[index]})
+            expected=str(root/'src/handyman_rebuild_ros2/behavior_trees/search_turn.xml') if should_turn else ''
+            assert goal.behavior_tree==expected,(index,goal.behavior_tree,expected)
         receipts.append({key for key,status in persisted()})
         if a.case=='reject_once' and len(receipts)==1:return GoalResponse.REJECT
         if a.case=='delayed_accept':time.sleep(1.2)
@@ -104,6 +175,16 @@ def main():
         return NavigateToPose.Result()
     server=ActionServer(server_node,NavigateToPose,'/handyman_test/navigate_to_pose',execute_callback=execute,
         goal_callback=accept,cancel_callback=lambda h:CancelResponse.ACCEPT,callback_group=ReentrantCallbackGroup())
+    planner=None;planning_calls=[]
+    if a.bound_ring:
+        def compute_path(handle):
+            planning_calls.append(handle.request.use_start)
+            result=ComputePathToPose.Result()
+            result.path.header.frame_id='map'
+            result.path.poses=[copy.deepcopy(handle.request.goal)]
+            handle.succeed();return result
+        planner=ActionServer(server_node,ComputePathToPose,'/compute_path_to_pose',execute_callback=compute_path,
+                             callback_group=ReentrantCallbackGroup())
     executor=MultiThreadedExecutor(num_threads=3);executor.add_node(server_node)
     thread=threading.Thread(target=executor.spin,daemon=True);thread.start()
     moderator=node.create_publisher(HandymanMsg,'/handyman_test/session_to_robot',10)
@@ -113,6 +194,19 @@ def main():
         node.create_subscription(HandymanMsg,'/handyman_test/session_result',lambda m:results.append(yaml.safe_load(m.detail)),10),
         node.create_subscription(HandymanMsg,'/handyman_test/session_status',lambda m:statuses.append(dict(event=m.message,data=yaml.safe_load(m.detail))),10),
         node.create_subscription(HandymanMsg,'/handyman_test/session_request',lambda m:requests.append(dict(event=m.message,data=yaml.safe_load(m.detail))),QoSProfile(depth=10,durability=DurabilityPolicy.TRANSIENT_LOCAL))]
+    if a.bound_ring:
+        subscriptions.append(node.create_subscription(HandymanMsg,'/handyman_test/session_to_robot',lambda m:None,10))
+        def owner_cancel(reason):
+            import uuid
+            m=HandymanMsg();m.message='search_cancelled'
+            m.detail=yaml.safe_dump(dict(schema='handyman-search-request-v1',task_id=bound['task_id'],
+                                        cancel_id=uuid.uuid4().hex,reason=reason))
+            replay.publish(m)
+        def owner_status(msg):
+            row=yaml.safe_load(msg.detail)
+            if row.get('task_id')==bound['task_id'] and msg.message=='search_stop_requested':
+                owner_cancel('search_stop:observation_terminal')
+        subscriptions.append(node.create_subscription(HandymanMsg,'/handyman_test/session_status',owner_status,10))
     relays={}
     def relay(msg):
         if msg.message=='owned_goal_accepted':dropped_acceptances.append(msg.detail);return
@@ -140,6 +234,10 @@ def main():
         nonlocal recorded_index
         stamp=node.get_clock().now();ns=stamp.nanoseconds
         suppress_tf=False;recovered=False
+        if a.turn_tf_delay:
+            starts=[r for r in runtime_rows() if r['event']=='observer_started']
+            if len(starts)>1 and time.monotonic()-starts[-1]['time']<1.5:
+                suppress_tf=True
         if a.head_tf_recovery:
             paths=list(runtime_directory.rglob('observer.jsonl')) if runtime_directory.exists() else []
             if paths:
@@ -168,7 +266,7 @@ def main():
         if not suppress_tf:broadcaster.sendTransform([base,t])
         map_pub.publish(map_msg)
         row=dict(target='apple',geometry_verified=True,audit_sha256=AUDIT_SHA256,rgb_stamp_ns=ns,depth_stamp_ns=ns,
-            tf_wait_status='ready',tf_at_depth_stamp={},quality=dict(stable=True,position_m=[1.,2.,3.],frame_id='odom',target='apple',stamp_ns=ns),
+            tf_wait_status='ready',tf_at_depth_stamp={},quality=dict(stable=True,position_m=target_position,frame_id='odom',target='apple',stamp_ns=ns),
             inference=dict(detections=[dict(name='apple')],class_conflicts=[],view_health=dict(schema='handyman-view-health-v1',data_usable=True)))
         if a.case=='no_target' or (a.head_tf_recovery and not recovered):
             row['inference']['detections']=[]
@@ -178,7 +276,7 @@ def main():
             row['rgb_stamp_ns']=ns;row['depth_stamp_ns']=ns
             if 'stamp_ns' in row['quality']:row['quality']['stamp_ns']=ns
             row['replay_scope']='recorded_detections_and_positions_synthetic_timing_and_navigation'
-        if a.multi_point and (len(goals)<2 or a.exhaust_points or a.expire_during_second):
+        if a.multi_point and not a.outside_room_ring and (len(goals)<2 or a.exhaust_points or a.expire_during_second):
             row['inference']['detections']=[];row['quality']={'stable':False}
         msg=String();msg.data=json.dumps(row);vision.publish(msg)
     timer=node.create_timer(.05,tick)
@@ -204,13 +302,14 @@ def main():
         os.kill(child,signal.SIGKILL)
     with (out/'console.log').open('w') as log:
         try:
-            coordinator=subprocess.Popen([str(binary/'handyman_coordinator'),'--ros-args','-p','search.publish_requests:=true',
+            coordinator_command=[str(binary/'handyman_coordinator'),'--ros-args','-p','search.publish_requests:=true',
                 '-p','navigation.action_name:=/handyman_test/unused_session_nav',
                 '-r','/handyman/message/to_robot:=/handyman_test/session_to_robot',
                 '-r','/handyman/message/to_moderator:=/handyman_test/session_to_moderator',
                 '-r','/handyman/search/request:=/handyman_test/session_request',
-                '-r','/handyman/search/execution_status:=/handyman_test/session_status'],stdout=log,stderr=subprocess.STDOUT)
-            worker=binary/'handyman_search_worker';runtime_env=dict(os.environ)
+                '-r','/handyman/search/execution_status:=/handyman_test/session_status']
+            if not a.bound_ring:coordinator=subprocess.Popen(coordinator_command,env=fixture_env,stdout=log,stderr=subprocess.STDOUT)
+            worker=binary/'handyman_search_worker';runtime_env=dict(fixture_env)
             if a.case in ('before_send','recovery_unknown','accepted_lost'):
                 worker=root/'training/tests/dispatch_worker_fixture.py'
                 runtime_env['HANDYMAN_DISPATCH_TEST_MODE']='drop_accepted' if a.case=='accepted_lost' else 'hold_ack'
@@ -222,11 +321,14 @@ def main():
                 '--status-topic','/handyman_test/session_status','--result-topic','/handyman_test/session_result',
                 '--private-prefix','/handyman_test/session_runtime']
             if a.verify_continuation:runtime_command+=['--view-seconds','2']
+            if a.room_case:runtime_command+=['--view-seconds','3']
             if a.auto_head:runtime_command+=['--head-tilt','-0.25']
             if a.session_budget_seconds is not None:
                 runtime_command+=['--session-budget-seconds',str(a.session_budget_seconds),
                                   '--session-event-topic','/handyman_test/budget_stop','--view-seconds','5']
             if a.multi_point:runtime_command+=['--view-seconds','2','--multi-point']
+            if a.bound_ring:runtime_command+=['--active-bundle',str(bound_manifest),'--check-current-path']
+            if a.turn_only:runtime_command+=['--turn-behavior-tree',str(root/'src/handyman_rebuild_ros2/behavior_trees/search_turn.xml')]
             if a.expire_during_second:runtime_command[runtime_command.index('--observation-seconds')+1]='25'
             runtime=subprocess.Popen(runtime_command,env=runtime_env,stdout=log,stderr=subprocess.STDOUT)
             wait(lambda:runtime_rows() and moderator.get_subscription_count()>0)
@@ -242,14 +344,19 @@ def main():
                 assert not any(r['event']=='session_stop_event' for r in runtime_rows())
             rounds=2 if a.case=='sequence' and not a.multi_point and not a.head_fault and a.session_budget_seconds is None else 1
             for i in range(rounds):
-                for attempt in range(30):
-                    send('Environment','LayoutA');send('Are_you_ready?');spin(.1)
-                    if events.count('I_am_ready')==i+1:break
-                assert events.count('I_am_ready')==i+1
+                if not a.bound_ring:
+                    for attempt in range(30):
+                        send('Environment','LayoutA');send('Are_you_ready?');spin(.1)
+                        if events.count('I_am_ready')==i+1:break
+                    assert events.count('I_am_ready')==i+1
                 if a.case=='journal_write_failure':
                     storage_lock=sqlite3.connect(journal);storage_lock.execute('BEGIN IMMEDIATE')
                 item='canned juice' if recorded else 'apple'
-                send('Instruction','Go to the kitchen, grasp the '+item+' and bring it to the dining table.')
+                if a.bound_ring:
+                    msg=HandymanMsg();msg.message='search_requested'
+                    msg.detail=yaml.safe_dump(dict(bound['request'],stamp_ns=node.get_clock().now().nanoseconds))
+                    replay.publish(msg)
+                else:send('Instruction','Go to the '+task_room.replace('_',' ')+', grasp the '+item+' and bring it to the dining table.')
                 if a.case=='journal_write_failure':
                     wait(lambda:any(r['event']=='search_cancel_status' and r['data'].get('state')=='cancel_failed' for r in statuses))
                     storage_lock.rollback();storage_lock.close();storage_lock=None
@@ -292,7 +399,8 @@ def main():
                     continue
                 if a.cancel_at_transition:
                     wait(lambda:any(r['event']=='point_transition_started' for r in runtime_rows()))
-                    send('Task_failed')
+                    if a.bound_ring:owner_cancel('fixture_external_cancel')
+                    else:send('Task_failed')
                     wait(lambda:any(r['event']=='session_retired' for r in runtime_rows()))
                     spin(.3)
                     assert len(goals)==1 and not results
@@ -328,14 +436,19 @@ def main():
                     replay_msg=HandymanMsg();replay_msg.message='search_cancelled';replay_msg.detail=yaml.safe_dump(old)
                     replay.publish(replay_msg)
                 if a.case in ('sequence','no_target','reject_once'):
-                    wait(lambda:len(results)==i+1,seconds=80 if a.slow_navigation else (29 if a.exhaust_points else 15))
+                    wait(lambda:len(results)==i+1,seconds=260 if a.active_ring else (80 if a.slow_navigation else (29 if a.exhaust_points else 15)))
                     row=results[-1];assert row['cleanup_verified']
-                    if a.case!='no_target' and not a.exhaust_points:
+                    if a.case!='no_target' and not a.exhaust_points and a.room_case not in ('lobby','boundary'):
                         assert row['state']=='found'
-                        expected=[r['quality']['position_m'] for r in recorded if r['quality'].get('stable')] if recorded else [[1.,2.,3.]]
+                        expected=[r['quality']['position_m'] for r in recorded if r['quality'].get('stable')] if recorded else [target_position]
                         assert row['position_m'] in expected
                     else:assert row['state']=='incomplete' and 'position_m' not in row
                     assert row['does_not_exist_authorized'] is False
+                    if a.room_case:
+                        observations=[json.loads(line) for path in runtime_directory.rglob('observer.jsonl') for line in path.read_text().splitlines()]
+                        expected_room_state={'inside':'inside','lobby':'outside_target_room','boundary':'boundary_uncertain'}[a.room_case]
+                        assert any(r.get('room_membership',{}).get('state')==expected_room_state for r in observations)
+                        if a.room_case=='inside':assert row['room_membership']['target_room']=='living_room'
                     if a.multi_point:
                         expected_goals=len(search_points) if a.exhaust_points else 2
                         assert len(goals)==expected_goals and len(set(goals))==expected_goals
@@ -401,7 +514,7 @@ def main():
                     ready=next(r for r in records if r.get('observer_reason')=='head_ready_for_observation')
                     assert arrived['monotonic_s']<=command['time']<ready['monotonic_s']
                     assert command['positions']==[0.,-.25]
-                    assert records[-1]['state']=='found'
+                    assert records[-1]['state']==('incomplete' if a.active_ring or a.room_case in ('lobby','boundary') else 'found')
                     assert ready['head_stamp_ns']>=arrived['arrival_stamp_ns']
                     if a.head_tf_recovery:
                         reopened=[r for r in records if r.get('observer_reason')=='head_ready_for_observation']
@@ -418,6 +531,32 @@ def main():
             result.update(auto_head=a.auto_head,head_commands=head_commands,head_fault=a.head_fault,
                           head_tf_recovery=a.head_tf_recovery,head_skew_ms=a.head_skew_ms)
             result.update(session_budget_seconds=a.session_budget_seconds,slow_navigation=a.slow_navigation,budget_stop=a.budget_stop)
+            result['active_ring']=a.active_ring
+            result['bound_ring']=a.bound_ring
+            if a.bound_ring:
+                result['scope']='real runtime/observer/worker/bundle binding; synthetic private owner, TF/Nav2/RGBD/head; no Unity'
+                with sqlite3.connect(journal) as db:
+                    claims=db.execute('SELECT task,bundle_sha256 FROM active_requests').fetchall()
+                assert len(claims)==1 and claims[0][0]==bound['task_id']
+                result['persistent_task_claims']=claims
+                assert planning_calls==[False],planning_calls
+                result['current_path_preflight_calls']=len(planning_calls)
+                if a.replay_bound:
+                    goal_count=len(goals)
+                    runtime.send_signal(signal.SIGINT);runtime.wait(timeout=8)
+                    assert runtime.returncode==0
+                    runtime_directory=out/'runtime-replay'
+                    runtime_command[runtime_command.index('--output')+1]=str(runtime_directory)
+                    runtime=subprocess.Popen(runtime_command,env=runtime_env,stdout=log,stderr=subprocess.STDOUT)
+                    wait(lambda:any(r['event']=='runtime_ready' for r in runtime_rows()))
+                    msg=HandymanMsg();msg.message='search_requested'
+                    msg.detail=yaml.safe_dump(dict(bound['request'],stamp_ns=node.get_clock().now().nanoseconds))
+                    replay.publish(msg)
+                    wait(lambda:any(r['event']=='request_rejected' and r.get('reason')=='active_request_previously_consumed' for r in runtime_rows()))
+                    spin(.3)
+                    assert len(goals)==goal_count
+                    assert not any(r['event']=='worker_started' for r in runtime_rows())
+                    result['replay_after_restart']=dict(passed=True,new_goals=0,events=runtime_rows())
             (out/'summary.json').write_text(json.dumps(result,indent=2));print(json.dumps(result),flush=True)
         finally:
             if storage_lock is not None:storage_lock.rollback();storage_lock.close()
@@ -427,7 +566,9 @@ def main():
                 try:runtime.wait(timeout=8)
                 except subprocess.TimeoutExpired:forced=True;runtime.kill();runtime.wait(timeout=3)
             if coordinator and coordinator.poll() is None:send('Mission_complete');spin(.2);coordinator.terminate();coordinator.wait(timeout=3)
-            stop.set();executor.shutdown();thread.join(timeout=2);server.destroy();server_node.destroy_node();node.destroy_node();rclpy.try_shutdown()
+            stop.set();executor.shutdown();thread.join(timeout=2);server.destroy()
+            if planner:planner.destroy()
+            server_node.destroy_node();node.destroy_node();rclpy.try_shutdown()
             remaining=[]
             all_rows=[json.loads(line) for path in out.glob('*/events.jsonl') for line in path.read_text().splitlines()]
             for row in all_rows:

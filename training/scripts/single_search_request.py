@@ -35,6 +35,8 @@ def request_body(share,task,point_index=2):
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--package-share',type=Path,required=True)
+    p.add_argument('--active-bundle',type=Path,help='Use the bundle task and ring; preflight only until live ring is enabled')
+    p.add_argument('--enable-active-ring',action='store_true')
     p.add_argument('--run',action='store_true');p.add_argument('--confirm-motion',action='store_true')
     p.add_argument('--output',type=Path,required=True)
     p.add_argument('--point-index',type=int,default=2,
@@ -42,7 +44,14 @@ def main():
     p.add_argument('--session-budget-seconds',type=float,help='Actual remaining session time, replaces 32 s owner wait')
     p.add_argument('--session-event-topic',default='/handyman/message/to_robot')
     args=p.parse_args();task=uuid.uuid4().hex
-    try:body=request_body(args.package_share,task,args.point_index)
+    binding=None
+    try:
+        if args.active_bundle:
+            from active_run_binding import ActiveRunBinding
+            binding=ActiveRunBinding(args.active_bundle,args.package_share)
+            if args.point_index!=0:p.error('active-bundle requires explicit --point-index 0')
+            body=dict(binding.bundle['request']);task=body['task_id']
+        else:body=request_body(args.package_share,task,args.point_index)
     except ValueError as exc:p.error(str(exc))
     point=selected_point(body,args.point_index)
     if args.session_budget_seconds is not None:
@@ -50,12 +59,15 @@ def main():
         except ValueError as exc:p.error(str(exc))
     if not args.run:
         print(json.dumps(dict(preflight=True,target=body['target'],selected_point=point,
+                             active_bundle=bool(binding),point_count=len(body['points']),
                              required_runtime_point_index=args.point_index,motion_started=False,
                              session_budget_seconds=args.session_budget_seconds)));return
     if not args.confirm_motion:p.error('--run requires --confirm-motion')
+    if bool(binding)!=args.enable_active_ring:p.error('live ring requires both active-bundle and enable-active-ring')
     if args.session_budget_seconds is None:p.error('live run requires explicit remaining --session-budget-seconds')
     import os
     if os.environ.get('ROS_DOMAIN_ID')!='71':p.error('This manual live owner requires domain 71')
+    if binding and os.environ.get('ROS_LOCALHOST_ONLY')!='1':p.error('live ring requires localhost-only DDS')
     import rclpy
     from rclpy.qos import QoSProfile,DurabilityPolicy
     from handyman_msgs.msg import HandymanMsg
@@ -94,7 +106,9 @@ def main():
                 elif row.get('state')=='cancel_failed':failed=True
             elif m.message=='search_observation':
                 context=row.get('observer_context',{})
-                if (row.get('cleanup_verified') is True and row.get('target')==body['target'] and
+                if binding:
+                    if binding.result_matches(row):result=row
+                elif (row.get('cleanup_verified') is True and row.get('target')==body['target'] and
                     context.get('point_id')==point['id'] and context.get('task_id')==task and
                     row.get('actionable') is False and row.get('does_not_exist_authorized') is False):result=row
         subscriptions=[node.create_subscription(HandymanMsg,prefix+'/status',receive,10),
@@ -112,6 +126,7 @@ def main():
             while pub.get_subscription_count()!=1 and time.monotonic()<end and not interrupted:rclpy.spin_once(node,timeout_sec=.05)
             if interrupted:raise KeyboardInterrupt()
             if pub.get_subscription_count()!=1:raise RuntimeError('Need exactly one private runtime request subscriber')
+            if binding:binding.check()
             body['stamp_ns']=node.get_clock().now().nanoseconds
             send('search_requested',body);sent=True;log('request_sent',task_id=task,point_id=point['id'])
             end=time.monotonic()+args.session_budget_seconds

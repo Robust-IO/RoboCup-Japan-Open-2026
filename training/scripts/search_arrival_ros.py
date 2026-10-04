@@ -119,6 +119,8 @@ def main():
     for name in ('x', 'y', 'yaw'):
         p.add_argument('--'+name, type=float, required=True)
     p.add_argument('--target', default='canned_juice')
+    p.add_argument('--target-room')
+    p.add_argument('--room-regions',help='JSON room polygons in map coordinates, from bound environment')
     p.add_argument('--action-status-topic',default='/navigate_to_pose/_action/status')
     p.add_argument('--odom-topic', default='/odom')
     p.add_argument('--motion-source', choices=('odom','tf'), default='odom')
@@ -132,6 +134,11 @@ def main():
     p.add_argument('--head-proof',type=Path,help='Private runtime head stage proof')
     p.add_argument('--head-tilt',type=float)
     a = p.parse_args()
+    room_gate=None
+    if a.target_room or a.room_regions:
+        from search_room_gate import RoomGate
+        try:room_gate=RoomGate(json.loads(a.room_regions),a.target_room)
+        except (ValueError,TypeError,AttributeError):p.error('invalid room regions or target room')
     if a.head_proof is not None:
         import os
         from head_view_trial import target
@@ -171,21 +178,30 @@ def main():
     scan = SearchScan(a.task_id or 'ros-observer', a.target, [dict(x=a.x,y=a.y,yaw=a.yaw)], start,
                       timeout_s=a.seconds, view_s=a.view_seconds or a.seconds)
     evidence=ViewEvidence()
+    scan.evidence_ready=lambda now:evidence.snapshot(now)['view_data_usable']
     arrival = SearchArrival(scan, status_gate.goal_id)
-    tf_observer = TfSearchObserver(arrival, start, recover_transient_tf=a.recover_transient_tf)
+    tf_observer = TfSearchObserver(arrival, start, recover_transient_tf=a.recover_transient_tf, max_gap_s=.5)
     # Exclusive log creation preserves prior runs.
     stream = a.output.open('x')
     rclpy.init()
     node = Node('handyman_search_arrival_readonly')
     buffer = Buffer()
     listener = TransformListener(buffer,node)
+    def room_check(point,stamp_ns):
+        try:
+            tf=buffer.lookup_transform('map','odom',Time(nanoseconds=stamp_ns))
+            t,q=tf.transform.translation,tf.transform.rotation
+            return room_gate.classify(point,[t.x,t.y,t.z],[q.x,q.y,q.z,q.w])
+        except (TransformException,ValueError,TypeError):
+            return dict(state='transform_unavailable',target_room=a.target_room)
+    if room_gate is not None:scan.room_check=room_check
     last_pose = None
     subs = []
     head_gate=None;head_latest=None;head_open=False
     if a.head_proof is not None:
-        from head_view_trial import Settling
+        from head_view_trial import Settling,SEARCH_FEEDBACK_MAX_S
         from sensor_msgs.msg import JointState
-        head_gate=Settling((0.,a.head_tilt))
+        head_gate=Settling((0.,a.head_tilt),SEARCH_FEEDBACK_MAX_S)
 
         def head_cb(msg):
             nonlocal head_latest
@@ -212,6 +228,7 @@ def main():
         value.update(terminal=terminal,observer_context=dict(task_id=a.task_id,point_id=a.point_id,map_sha256=a.map_sha256))
         if value.get('state')=='found' and scan.position is not None:
             value.update(position_m=list(scan.position),position_frame='odom')
+            if room_gate is not None:value['room_membership']=scan.room_membership
         line = json.dumps(value,allow_nan=False)
         stream.write(line+'\n'); stream.flush()
         print(line,flush=True)
@@ -302,7 +319,7 @@ def main():
             invalidate('odometry_stream_timeout'); return
         if head_gate is not None:
             now=time.monotonic()
-            if head_latest is None or not head_latest[2] or now-head_latest[0]>.3:
+            if head_latest is None or not head_latest[2] or now-head_latest[0]>SEARCH_FEEDBACK_MAX_S:
                 if head_open:invalidate('head_not_stable_during_observation')
                 return
             if not head_open:
@@ -372,10 +389,12 @@ def main():
             scan=SearchScan(a.task_id,a.target,[dict(x=a.x,y=a.y,yaw=a.yaw)],time.monotonic(),
                 timeout_s=remaining,view_s=min(a.view_seconds or remaining,remaining))
             evidence.reset()
+            scan.evidence_ready=lambda now:evidence.snapshot(now)['view_data_usable']
+            if room_gate is not None:scan.room_check=room_check
             status_gate=GoalStatusGate(binding['goal_id'])
             status_gate.active=True  # Actual action acceptance supplied by executor callback.
             arrival=SearchArrival(scan,status_gate.goal_id)
-            tf_observer=TfSearchObserver(arrival,time.monotonic(), recover_transient_tf=a.recover_transient_tf)
+            tf_observer=TfSearchObserver(arrival,time.monotonic(), recover_transient_tf=a.recover_transient_tf, max_gap_s=.5)
             bound=True
             waiting_retry=False
             last_pose=None

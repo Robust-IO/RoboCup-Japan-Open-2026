@@ -20,12 +20,17 @@
   <depend>tf2_geometry_msgs</depend>
   <depend>tf2_ros</depend>
   <depend>yaml_cpp_vendor</depend>
+  <depend>behaviortree_cpp_v3</depend>
+  <depend>nav2_core</depend>
+  <depend>nav2_util</depend>
+  <depend>pluginlib</depend>
+  <depend>nav2_behaviors</depend>
+  <depend>nav2_behavior_tree</depend>
 
   <exec_depend>handyman_ros2</exec_depend>
   <exec_depend>launch</exec_depend>
   <exec_depend>launch_ros</exec_depend>
   <exec_depend>nav2_amcl</exec_depend>
-  <exec_depend>nav2_behaviors</exec_depend>
   <exec_depend>nav2_bt_navigator</exec_depend>
   <exec_depend>nav2_controller</exec_depend>
   <exec_depend>nav2_lifecycle_manager</exec_depend>

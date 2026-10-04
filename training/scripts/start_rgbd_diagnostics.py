@@ -26,6 +26,7 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--run',action='store_true',help='Requires Unity running; omitted means preflight only')
     p.add_argument('--seconds',type=int,default=15)
+    p.add_argument('--session-budget-seconds',type=float,help='Remaining session budget including model startup; replaces short capture duration')
     p.add_argument('--domain',type=int,help='Defaults to inherited ROS_DOMAIN_ID, otherwise 71')
     p.add_argument('--rosbridge-port',type=int,default=9090)
     p.add_argument('--sigverse-port',type=int,default=50001)
@@ -33,6 +34,10 @@ def main():
     p.add_argument('--camera-audit',type=Path,default=Path('/mnt/c/Users/wpb15/Downloads/handyman-camera-audit.json'))
     args=p.parse_args()
     if not 1<=args.seconds<=120: p.error('seconds must be 1..120')
+    if args.session_budget_seconds is not None:
+        from search_timing import session_budget
+        try:args.session_budget_seconds=session_budget(args.session_budget_seconds)
+        except ValueError as exc:p.error(str(exc))
     if not all(1<=port<=65535 for port in (args.rosbridge_port,args.sigverse_port)) or args.rosbridge_port==args.sigverse_port:
         p.error('bridge ports must be distinct and in 1..65535')
     try: env=diagnostic_environment(os.environ,args.domain)
@@ -56,6 +61,8 @@ def main():
     command=['/usr/bin/python3',str(Path(__file__).with_name('rgbd_diagnostic_node.py')),
         '--repo',str(repo),'--pixi',str(pixi),'--weights',str(weights),'--camera-audit',str(args.camera_audit.resolve()),
         '--output',str(output),'--seconds',str(args.seconds),'--target',args.target]
+    if args.session_budget_seconds is not None:
+        command+=['--session-budget-seconds',str(args.session_budget_seconds)]
     print('Output: '+str(output),flush=True)
     print('Unity must now be running. Ctrl+C stops diagnostics; bridges are not stopped.',flush=True)
     # Positional arguments avoid interpolating user paths into shell code.

@@ -24,6 +24,7 @@ class DispatchJournal:
             if self.db.execute('PRAGMA quick_check').fetchone()[0]!='ok':raise ValueError('corrupt journal')
             with self.db:
                 self.db.execute('CREATE TABLE IF NOT EXISTS intents (goal TEXT PRIMARY KEY, payload TEXT NOT NULL, checksum TEXT NOT NULL, terminal INTEGER)')
+                self.db.execute('CREATE TABLE IF NOT EXISTS active_requests (task TEXT PRIMARY KEY, bundle_sha256 TEXT NOT NULL)')
                 self.db.execute('PRAGMA user_version=1')
             directory=os.open(str(self.path.parent),os.O_RDONLY|os.O_DIRECTORY)
             try:os.fsync(directory)
@@ -32,6 +33,17 @@ class DispatchJournal:
         except BaseException:
             if hasattr(self,'db'):self.db.close()
             self.lock.close();raise
+
+    def claim_active_request(self,task,bundle_sha256):
+        if not valid_id(task) or not isinstance(bundle_sha256,str) or len(bundle_sha256)!=64 or any(c not in '0123456789abcdef' for c in bundle_sha256):
+            raise ValueError('invalid_active_request_claim')
+        try:
+            with self.db:
+                self.db.execute('INSERT INTO active_requests VALUES (?,?)',(task,bundle_sha256))
+        except sqlite3.IntegrityError as exc:
+            raise ValueError('active_request_previously_consumed') from exc
+        # Committed before any navigation dispatch. A failed run still consumes
+        # the task: retries require a new task, never deletion of this record.
 
     @staticmethod
     def payload(row,action):

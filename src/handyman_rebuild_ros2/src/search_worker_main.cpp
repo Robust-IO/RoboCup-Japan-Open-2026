@@ -27,6 +27,8 @@ int main(int argc,char ** argv) {
       throw std::invalid_argument("unknown environment/room/search point");
     handyman_rebuild_ros2::NavigationSettings settings;
     settings.action_name=node->declare_parameter<std::string>("navigation.action_name","navigate_to_pose");
+    settings.search_behavior_tree=node->declare_parameter<std::string>("navigation.search_behavior_tree","");
+    if (!settings.search_behavior_tree.empty()) settings.maximum_attempts=1;
     // In session-budget mode there is no separate 60 s goal timer cutting off
     // healthy navigation. The worker/session deadline and progress/lease guards
     // remain authoritative; phase-3 NavigationExecutor defaults are unchanged.
@@ -78,6 +80,13 @@ int main(int argc,char ** argv) {
             },[&](const auto & result) {
               RCLCPP_INFO(node->get_logger(),"Search navigation completed=%d reason=%s; retaining task ownership",
                 result.success,result.reason.c_str());
+              if (!result.success) {
+                YAML::Node row;row["schema"]="handyman-search-worker-fault-v1";
+                row["task_id"]=task;row["reason"]="search_navigation_failed";
+                row["detail"]=result.reason;
+                handyman_msgs::msg::HandymanMsg msg;
+                msg.message="search_worker_fault";msg.detail=YAML::Dump(row);status->publish(msg);
+              }
             })) throw std::runtime_error("guard rejected dispatch");
       }
       std::this_thread::sleep_for(std::chrono::milliseconds(20));

@@ -155,6 +155,34 @@ void NavigationExecutor::sendCurrentGoal()
   const Pose2D & target_pose = is_route_waypoint ?
     candidate->route_waypoints[route_waypoint_index_] : candidate->pose;
   NavigateToPose::Goal goal;
+  if (target_ == NavigationTarget::kSearchPoint && !is_route_waypoint &&
+    !settings_.search_behavior_tree.empty())
+  {
+    const auto current_pose = lookupRobotPose();
+    if (!current_pose) {
+      const double waited = std::chrono::duration<double>(
+        std::chrono::steady_clock::now()-server_wait_started_).count();
+      if (waited >= settings_.server_wait_timeout_sec) {
+        finish(false, "Search turn TF unavailable before startup deadline");
+        return;
+      }
+      RCLCPP_INFO_THROTTLE(node_->get_logger(), *node_->get_clock(), 1000,
+        "Waiting for first search-turn TF before dispatch");
+      retry_timer_ = node_->create_wall_timer(std::chrono::milliseconds(100), [this]() {
+          retry_timer_->cancel();
+          retry_timer_.reset();
+          sendCurrentGoal();
+        });
+      return;
+    }
+    const double distance = std::hypot(current_pose->x-target_pose.x, current_pose->y-target_pose.y);
+    if (distance <= 0.14) {
+      goal.behavior_tree = settings_.search_behavior_tree;
+    } else {
+      RCLCPP_WARN(node_->get_logger(),
+        "Search ring position drift %.3f m: using normal navigation to recenter", distance);
+    }
+  }
   goal.pose.header.frame_id = settings_.map_frame;
   goal.pose.header.stamp = node_->now();
   goal.pose.pose.position.x = target_pose.x;

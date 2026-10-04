@@ -12,7 +12,10 @@ def angle(a,b):
 
 
 class TfMotionGate:
-    def __init__(self):
+    def __init__(self, max_gap_s=.3):
+        if not math.isfinite(max_gap_s) or not 0<max_gap_s<=.5:
+            raise ValueError('invalid_tf_gap_limit')
+        self.max_gap_s=max_gap_s
         self.samples=deque(maxlen=64)
         self.last_stamp=0
         self.last_now=None
@@ -33,11 +36,11 @@ class TfMotionGate:
             if not all(type(v) is int for v in (stamp_ns,sensor_now_ns)):return reject('invalid_stamp')
             if stamp_ns<=self.last_stamp or not 0<=sensor_now_ns-stamp_ns<=500_000_000:
                 return reject('stale_or_reversed_tf')
-            gap=self.last_now is not None and (now<=self.last_now or now-self.last_now>.3 or stamp_ns-self.last_stamp>300_000_000)
+            gap=self.last_now is not None and (now<=self.last_now or now-self.last_now>self.max_gap_s or stamp_ns-self.last_stamp>int(self.max_gap_s*1e9))
             self.last_stamp=stamp_ns;self.last_now=now
             if gap:self.reset()
             self.samples.append((stamp_ns,now,x,y,yaw))
-            while (len(self.samples)>1 and stamp_ns-self.samples[1][0]>=1_000_000_000
+            while (len(self.samples)>6 and stamp_ns-self.samples[1][0]>=1_000_000_000
                    and now-self.samples[1][1]+1e-9>=1.):
                 self.samples.popleft()
             if len(self.samples)<6 or stamp_ns-self.samples[0][0]<1_000_000_000 or now-self.samples[0][1]+1e-9<1.:
@@ -58,9 +61,9 @@ class TfMotionGate:
 
 class TfSearchArrival:
     """Offline adapter. Caller must supply map pose at exactly the TF stamp."""
-    def __init__(self,arrival):
+    def __init__(self,arrival, max_gap_s=.3):
         self.arrival=arrival
-        self.motion=TfMotionGate()
+        self.motion=TfMotionGate(max_gap_s)
 
     def sample(self,odom_pose,map_pose,stamp_ns,map_stamp_ns,sensor_now_ns,now):
         if self.arrival.scan.phase!='navigate':
@@ -79,9 +82,10 @@ class TfSearchArrival:
 
 class TfSearchObserver:
     """Arrival plus observation watchdog; never emits robot/protocol commands."""
-    def __init__(self, arrival, now, *, recover_transient_tf=False):
+    def __init__(self, arrival, now, *, recover_transient_tf=False, max_gap_s=.3):
         self.arrival = arrival
-        self.adapter = TfSearchArrival(arrival)
+        self.adapter = TfSearchArrival(arrival,max_gap_s)
+        self.max_gap_s=max_gap_s
         self.last_valid = now
         self.recover_transient_tf = recover_transient_tf
         self.recovery_used = False
@@ -110,11 +114,11 @@ class TfSearchObserver:
                 scan.position = None
                 scan.failures.append('tf_stream_timeout')
                 return self.invalidate('tf_stream_timeout')
-            if now-self.last_valid > .3:
+            if now-self.last_valid > self.max_gap_s:
                 self.adapter.motion.reset()
                 self.arrival.reset()
             return None
-        if now-self.last_valid > .3:
+        if now-self.last_valid > self.max_gap_s:
             if scan.phase == 'observe' and self.recover_transient_tf and not self.recovery_used:
                 self.recovery_used = True
                 self.recovery_deadline = min(scan.deadline, now+4.)

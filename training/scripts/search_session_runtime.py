@@ -29,6 +29,10 @@ class SearchRuntime:
         from nav_msgs.msg import OccupancyGrid
         from rclpy.qos import QoSProfile,DurabilityPolicy
         self.node,self.args,self.Msg=node,args,HandymanMsg
+        self.active_binding=None
+        if getattr(args,'active_bundle',None):
+            from active_run_binding import ActiveRunBinding
+            self.active_binding=ActiveRunBinding(args.active_bundle,args.package_share)
         # A restarted runtime must never renew an old worker's lease or ACK its
         # pending messages, even if a fresh transient request reuses the task ID.
         self.namespace=args.private_prefix+'/run_'+uuid.uuid4().hex
@@ -106,6 +110,7 @@ class SearchRuntime:
             if msg.message!='search_requested':return
             if self.locked or self.stopping:raise ValueError('runtime_locked_or_stopping')
             if self.session is not None:raise ValueError('previous_session_not_retired')
+            if self.active_binding:self.active_binding.accept(row,self.journal)
             prepared=self.consumer.receive(msg.message,row,self.node.get_clock().now().nanoseconds,time.monotonic())
             if self.session_deadline is not None:
                 remaining(self.session_deadline,time.monotonic())
@@ -125,7 +130,7 @@ class SearchRuntime:
                 s['sequence']=SearchPointSequence(task,row['target'],prepared['map_bundle_sha256'],
                     [p['id'] for p in prepared['points'][self.args.point_index:]])
             self.session=s
-            self.job=self.pool.submit(decode,Path(prepared['map_path']),self.args.decoder)
+            self.job=self.pool.submit(self.prepare_execution,s)
             self.log('request_prepared',task_id=task,point_id=point['id'])
         except Exception as exc:
             self.log('request_rejected',reason=str(exc))
@@ -134,6 +139,12 @@ class SearchRuntime:
                 self.locked=True
                 self.publish(self.status,'search_worker_fault',dict(schema='handyman-search-worker-fault-v1',
                     task_id=row['task_id'],reason='search_runtime_failed'))
+
+    def prepare_execution(self,s):
+        if getattr(self.args,'enable_active_ring',False) or getattr(self.args,'check_current_path',False):
+            from active_live_entry import plan_current_path
+            plan_current_path(self.active_binding,s['directory']/'current-path.json')
+        return decode(Path(s['prepared']['map_path']),self.args.decoder)
 
     def fail(self,reason):
         s=self.session
@@ -168,6 +179,9 @@ class SearchRuntime:
             '--vision-topic',self.args.vision_topic,'--seconds',str(observer_seconds),
             '--max-bound-attempts','3','--output',str(s['directory']/'observer.jsonl')]
         for key in ('x','y','yaw'):command+=['--'+key,str(p[key])]
+        env=yaml.safe_load(Path(s['prepared']['environment_path']).read_text())
+        command+=['--target-room',s['raw']['room'],'--room-regions',
+                  json.dumps({name:room['region'] for name,room in env['rooms'].items()})]
         if self.args.view_seconds is not None:command+=['--view-seconds',str(self.args.view_seconds)]
         if self.session_deadline is not None:command+=['--session-budget-mode']
         if self.args.head_tilt is not None:
@@ -183,6 +197,7 @@ class SearchRuntime:
         return s['records'].finished(s['observer'])
 
     def start_worker(self,s):
+        if self.active_binding:self.active_binding.check()
         from owned_goal_registry import OwnedGoalRegistry,RegisteredGoalsCanceller
         from search_map_responder import SearchMapResponder
         from search_process_supervisor import SearchProcessSupervisor
@@ -206,6 +221,8 @@ class SearchRuntime:
             'map_sha256':s['prepared']['map_bundle_sha256'],'navigation.action_name':self.args.action_name,
             'lifetime_sec':str(worker_lifetime)}
         if self.session_deadline is not None:params['navigation.use_session_budget']='true'
+        if s.get('turn_only'):
+            params['navigation.search_behavior_tree']=str(self.args.turn_behavior_tree)
         command=[str(self.args.worker),'--ros-args']
         for key,value in params.items():command+=['-p',key+':='+value]
         for suffix in ('map_check/request','map_check/reply','lease/request','lease/reply','owned_goals',
@@ -313,6 +330,7 @@ class SearchRuntime:
             self.log('runtime_exception',reason=str(exc));self.fail('search_runtime_failed')
 
     def next_point(self,s):
+        if self.active_binding:self.active_binding.check()
         # Consumer/map checks remain live throughout the private drain. Never
         # renew the original 30-second request lease just to permit more points.
         active=self.consumer.active
@@ -336,9 +354,18 @@ class SearchRuntime:
             cancel=None,cancel_time=None,candidate=None,fault=None,started=time.monotonic(),handles=[],
             records=ObserverRecords(s['task'],point['id'],s['prepared']['map_bundle_sha256'],s['raw']['target']))
         self.session=fresh
+        from search_turn_policy import same_search_position
+        fresh['turn_only']=bool(getattr(self.args,'turn_behavior_tree',None) and
+                                same_search_position(s['point'],point))
+        self.log('point_motion_mode',point_id=point['id'],
+                 mode='turn_only' if fresh['turn_only'] else 'navigate')
         self.log('next_point_prepared',task_id=s['task'],point_id=point['id'],point_index=index)
 
     def finish(self,s):
+        if self.active_binding:
+            self.active_binding.check()
+            if s['candidate'] is not None and not self.active_binding.result_matches(dict(s['candidate'],cleanup_verified=True)):
+                self.fail('active_result_binding_mismatch');return
         self.publish(self.status,'search_cancel_status',dict(schema='handyman-search-cancel-status-v1',
             task_id=s['task'],cancel_id=s['cancel']['cancel_id'],state='cancel_drained'))
         if s['candidate'] is not None:
@@ -396,8 +423,13 @@ def main():
     p.add_argument('--result-topic',default='/handyman/search/result')
     p.add_argument('--private-prefix',default='/handyman/search/runtime')
     p.add_argument('--point-index',type=int,default=0)
+    p.add_argument('--active-bundle',type=Path,help='Bind exact task and eight-point snapshot; does not enable live multi-point mode')
+    p.add_argument('--enable-active-ring',action='store_true',help='Explicit bound live ring; requires private topics and current path preflight')
+    p.add_argument('--check-current-path',action='store_true',help='Also exercise bound read-only planner preflight in isolated tests')
     p.add_argument('--multi-point',action='store_true',help='Experimental domain-73-only automatic continuation')
     p.add_argument('--head-tilt',type=float,help='Opt-in automatic head stage; live requires allow-live and domain 71')
+    p.add_argument('--turn-behavior-tree',type=Path,
+                   help='Opt-in search-only turn BT for consecutive colocated ring views')
     p.add_argument('--observation-seconds',type=float,default=20.)
     p.add_argument('--view-seconds',type=float,help='Separate per-view observation deadline; does not enable multi-point execution')
     p.add_argument('--seconds',type=float,default=600.)
@@ -405,6 +437,13 @@ def main():
                    help='Actual remaining session time; replaces short 25/30/35 s navigation limits')
     p.add_argument('--session-event-topic',default='/handyman/message/to_robot')
     a=p.parse_args()
+    if a.turn_behavior_tree:
+        if not a.active_bundle or not a.multi_point or not a.turn_behavior_tree.is_file():
+            p.error('turn behavior requires an existing BT file and bound multi-point ring')
+        a.turn_behavior_tree=a.turn_behavior_tree.resolve()
+    if a.check_current_path and not a.active_bundle:p.error('current path check requires active-bundle')
+    if a.active_bundle and (not a.multi_point or a.point_index!=0 or a.session_budget_seconds is None):
+        p.error('active-bundle requires multi-point, index zero and session budget')
     if not a.execute:print('Search runtime disabled; pass --execute explicitly.');return
     if a.journal is None:p.error('--journal is required for execution/recovery')
     if a.allow_live and a.session_budget_seconds is None:
@@ -412,14 +451,18 @@ def main():
     if a.session_budget_seconds is not None:
         try:a.session_budget_seconds=session_budget(a.session_budget_seconds)
         except ValueError as exc:p.error(str(exc))
-        if a.multi_point or a.view_seconds is None:p.error('session budget requires single point and explicit view-seconds')
+        if a.view_seconds is None:p.error('session budget requires explicit view-seconds')
         a.seconds=a.session_budget_seconds
     if a.head_tilt is not None:
         from head_view_trial import target
         from search_head_stage import validate_environment
         target(0.,a.head_tilt)
         validate_environment(os.environ.get('ROS_DOMAIN_ID'),os.environ.get('ROS_LOCALHOST_ONLY'),a.allow_live)
-    if a.multi_point and (a.allow_live or os.environ.get('ROS_DOMAIN_ID')!='73' or
+    if a.enable_active_ring:
+        from active_live_entry import validate_live_ring
+        try:validate_live_ring(a,os.environ)
+        except ValueError as exc:p.error(str(exc))
+    if a.multi_point and not a.enable_active_ring and (a.allow_live or os.environ.get('ROS_DOMAIN_ID')!='73' or
         os.environ.get('ROS_LOCALHOST_ONLY')!='1' or a.action_name!='/handyman_test/navigate_to_pose'):
         p.error('multi-point is isolated-test-only')
     if a.multi_point and a.view_seconds is None:p.error('multi-point requires an explicit view-seconds')

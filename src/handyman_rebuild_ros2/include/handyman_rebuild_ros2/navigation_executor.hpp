@@ -48,6 +48,8 @@ struct NavigationSettings
   std::string map_frame{"map"};
   std::string robot_frame{"base_footprint"};
   std::string action_name{"navigate_to_pose"};
+  // Search-only final-goal override; route waypoints retain normal navigation.
+  std::string search_behavior_tree{};
 };
 
 class NavigationExecutor

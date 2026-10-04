@@ -6,7 +6,7 @@ Proof file is private to a task/point directory, never reused across sessions.
 import json
 import math
 import time
-from head_view_trial import Settling,JOINTS,COMMAND,target,MAX_FUTURE_SKEW_NS
+from head_view_trial import Settling,JOINTS,COMMAND,target,MAX_FUTURE_SKEW_NS,SEARCH_FEEDBACK_MAX_S
 
 
 def validate_environment(domain,localhost,allow_live):
@@ -24,7 +24,7 @@ def proof_valid(row,task,point,tilt,now_ns):
 class StopConfirmation:
     """Fresh post-hold feedback, never elapsed-time-only completion."""
     def __init__(self,pose,stamp_ns,now):
-        self.gate=Settling(pose)
+        self.gate=Settling(pose,SEARCH_FEEDBACK_MAX_S)
         # Even the earliest possible acquisition time must be AFTER the hold.
         self.cutoff=stamp_ns+MAX_FUTURE_SKEW_NS;self.started=now;self.latest=None
 
@@ -36,7 +36,7 @@ class StopConfirmation:
 
     def verified(self,now):
         return (self.latest is not None and self.latest[2] and
-                0<=now-self.latest[0]<=.3 and now-self.started>=.2)
+                0<=now-self.latest[0]<=SEARCH_FEEDBACK_MAX_S and now-self.started>=.2)
 
 
 class HeadStage:
@@ -47,7 +47,7 @@ class HeadStage:
         from sensor_msgs.msg import JointState
         from rclpy.qos import qos_profile_sensor_data
         self.node=node;self.task=task;self.point=point;self.goal=target(0.,tilt);self.path=path
-        self.gate=Settling(self.goal);self.latest=None;self.sent=None;self.armed=None
+        self.gate=Settling(self.goal,SEARCH_FEEDBACK_MAX_S);self.latest=None;self.sent=None;self.armed=None
         self.ready=False;self.failed=None;self.cancelled=False
         self.stop=None;self.stop_recorded=False
         self.trace_count=0;self.previous_receive=None;self.last_wait=None
@@ -108,7 +108,9 @@ class HeadStage:
                 self.stop.sample(list(msg.name),list(msg.position),ns,self.node.get_clock().now().nanoseconds,now)
             return
         if self.failed:return
-        if self.ready and not ok:self.fail('head_changed_after_ready')
+        if self.ready and not ok:
+            self.fail('head_feedback_invalid_after_ready' if pose is None or self.gate.reason=='feedback_gap'
+                      else 'head_changed_after_ready')
         if self.sent is not None and now>=self.sent+2. and ok:
             # A task-scoped, feedback-backed readiness lease, not a one-shot
             # historical certificate. TF reacquisition must see recent evidence.
@@ -127,10 +129,10 @@ class HeadStage:
         if self.armed is None:return
         if now-self.armed>8 and not self.ready:self.fail('head_stage_timeout');return
         if self.ready:
-            if self.latest is None or now-self.latest[0]>.3:self.fail('head_feedback_timeout')
+            if self.latest is None or now-self.latest[0]>SEARCH_FEEDBACK_MAX_S:self.fail('head_feedback_timeout')
             return
         if self.sent is not None:return
-        if self.latest is None or now-self.latest[0]>.3:
+        if self.latest is None or now-self.latest[0]>SEARCH_FEEDBACK_MAX_S:
             self.wait('fresh_feedback_required');return
         if self.pub.get_subscription_count()!=1 or self.node.count_publishers(COMMAND)!=1:
             self.wait('exclusive_command_channel_required');return
@@ -146,7 +148,7 @@ class HeadStage:
     def try_hold(self):
         if self.sent is None or self.stop is not None or self.latest is None:return
         now=time.monotonic()
-        if (now-self.latest[0]>.3 or self.pub.get_subscription_count()!=1
+        if (now-self.latest[0]>SEARCH_FEEDBACK_MAX_S or self.pub.get_subscription_count()!=1
                 or self.node.count_publishers(COMMAND)!=1):
             self.wait('hold_requires_fresh_feedback_and_exclusive_channel');return
         pose=self.latest[2]

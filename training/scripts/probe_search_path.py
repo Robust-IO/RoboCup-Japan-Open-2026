@@ -1,16 +1,31 @@
 """Bounded ComputePathToPose probe. No NavigateToPose or velocity publishers."""
 import argparse
+import hashlib
 import json
 import math
 from pathlib import Path
 import time
 
 
+def path_valid(status,frame,points,target):
+    return (status==4 and frame=='map' and bool(points)
+            and all(len(point)==2 and all(math.isfinite(v) for v in point) for point in points)
+            and math.dist(points[-1],target)<=.15)
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--output',type=Path,required=True)
-    for k in ('x','y','yaw'):p.add_argument('--'+k,type=float,required=True)
+    for k in ('x','y','yaw'):p.add_argument('--'+k,type=float)
+    p.add_argument('--active-bundle',type=Path,help='Read-only planning toward the bound ring main point; no execution permission')
     a=p.parse_args()
+    bundle=None;bundle_bytes=None
+    if a.active_bundle:
+        if any(v is not None for v in (a.x,a.y,a.yaw)):p.error('bundle and explicit pose are mutually exclusive')
+        from prepare_active_search import validate_bundle
+        bundle_bytes=a.active_bundle.read_bytes();bundle=validate_bundle(a.active_bundle)
+        a.x,a.y,a.yaw=(bundle['main'][k] for k in ('x','y','yaw'))
+    if any(v is None for v in (a.x,a.y,a.yaw)):p.error('pose or active-bundle required')
     if not all(math.isfinite(v) for v in (a.x,a.y,a.yaw)):p.error('finite pose required')
     import rclpy
     from rclpy.action import ActionClient
@@ -34,10 +49,19 @@ def main():
             if not handle.accepted:raise RuntimeError('planning rejected')
             result=wait(handle.get_result_async(),10.)
             path=result.result.path;points=[[v.pose.position.x,v.pose.position.y] for v in path.poses]
+            endpoint_error=math.dist(points[-1],[a.x,a.y]) if points else None
+            valid_points=all(all(math.isfinite(v) for v in point) for point in points)
+            if not valid_points:raise ValueError('nonfinite_planner_path')
+            if bundle:
+                validate_bundle(a.active_bundle)
+                if a.active_bundle.read_bytes()!=bundle_bytes:raise ValueError('bundle_changed_during_planning')
+                report.update(task_id=bundle['task_id'],map_bundle_sha256=bundle['map_bundle_sha256'],
+                              bundle_sha256=hashlib.sha256(bundle_bytes).hexdigest(),
+                              live_map_identity_verified=False,motion_authorized=False)
             report.update(action_status=result.status,frame_id=path.header.frame_id,path_xy=points,
                 path_length_m=sum(math.dist(x,y) for x,y in zip(points,points[1:])),
                 endpoint_error_m=math.dist(points[-1],[a.x,a.y]) if points else None,
-                success=result.status==4 and bool(points) and path.header.frame_id=='map',
+                success=path_valid(result.status,path.header.frame_id,points,[a.x,a.y]),
                 target=dict(x=a.x,y=a.y,yaw=a.yaw),start_source='current_robot_tf',
                 scope='global static/inflation costmap only; no local dynamic obstacle or visibility proof')
         except Exception as exc:

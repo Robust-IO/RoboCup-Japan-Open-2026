@@ -7,6 +7,7 @@ import numpy as np
 from ultralytics import YOLO
 from predict_rgb_readonly import merge_scales, validate_registry
 from view_health import assess_view
+from rgbd_worker_lifetime import worker_deadline
 
 def atomic_json(path, value):
     temporary=path.with_suffix('.tmp')
@@ -32,15 +33,19 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--spool',type=Path,required=True)
     parser.add_argument('--weights',required=True)
+    parser.add_argument('--deadline-monotonic',type=float)
     args=parser.parse_args()
+    if args.deadline_monotonic is not None:
+        worker_deadline(args.deadline_monotonic,time.monotonic())
     model=YOLO(args.weights); validate_registry(model.names)
     for size in [640,1280]:
         model.predict(np.zeros((480,640,3),np.uint8),imgsz=size,device=0,retina_masks=True,verbose=False)
     atomic_json(args.spool/'ready.json',{'ready':True})
     seen=set()
-    deadline=time.monotonic()+300
+    deadline=worker_deadline(args.deadline_monotonic,time.monotonic())
     while time.monotonic()<deadline and not (args.spool/'stop').exists():
         for request in sorted(args.spool.glob('*/request.json')):
+            if time.monotonic()>=deadline or (args.spool/'stop').exists(): break
             if request in seen: continue
             seen.add(request)
             try:
@@ -67,5 +72,7 @@ def main():
             except Exception as exc:
                 atomic_json(request.parent/'result.json',{'error':str(exc)})
         time.sleep(.03)
+    atomic_json(args.spool/'worker-exit.json',{'reason':'stop_requested' if (args.spool/'stop').exists() else 'deadline_reached',
+                                            'deadline_monotonic':deadline,'monotonic_s':time.monotonic()})
 
 if __name__=='__main__': main()

@@ -95,7 +95,7 @@ class HeadTraceTests(unittest.TestCase):
     def test_feedback_gap_does_not_renew(self):
         self.prepare_ready();before=self.h.path.read_bytes();self.stable(15)
         self.assertEqual(self.h.path.read_bytes(),before)
-        self.assertEqual(self.h.failed,'head_changed_after_ready')
+        self.assertEqual(self.h.failed,'head_feedback_invalid_after_ready')
     def test_no_feedback_expires_proof(self):
         self.prepare_ready();before=self.h.path.read_bytes()
         with patch('search_head_stage.time.monotonic',return_value=5.):self.h.tick(True)
@@ -145,7 +145,7 @@ class StopTests(unittest.TestCase):
         self.assertTrue(self.g.verified(.95))
     def test_expired_feedback_rejected(self):
         for i in range(1,10):self.feed(i)
-        self.assertFalse(self.g.verified(1.21))
+        self.assertFalse(self.g.verified(1.41))
     def test_moving_rejected(self):
         for i in range(1,10):self.feed(i,(0.,-.25+i*.01))
         self.assertFalse(self.g.verified(.95))
