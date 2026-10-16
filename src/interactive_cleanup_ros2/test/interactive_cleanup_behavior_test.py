@@ -16,108 +16,58 @@ class InteractiveCleanupBehaviorTest(unittest.TestCase):
     def setUpClass(cls):
         cls.source = SOURCE_FILE.read_text()
 
-    def test_controller_uses_new_perception_topics(self):
-        self.assertIn('/cleanup_perception/mode', self.source)
-        self.assertIn('/cleanup_perception/head/avatar', self.source)
-        self.assertIn('/cleanup_perception/head/objects', self.source)
-        self.assertIn('/cleanup_perception/head/pointing', self.source)
-        self.assertIn('/cleanup_perception/hand/target_alignment', self.source)
+    def test_controller_uses_validated_cleanup_perception_topics(self):
+        self.assertIn('/cleanup_vision/enable', self.source)
+        self.assertIn('/cleanup_vision/detected_objects', self.source)
+        self.assertIn('/cleanup_vision/pointing_direction', self.source)
 
-    def test_state_machine_uses_new_resolution_and_approach_phases(self):
+    def test_protocol_waits_for_pick_and_destination_cues(self):
         for state_name in (
-            'WaitForPickTrackAvatar',
-            'ResolvePickTarget',
-            'WaitForCleanTrackAvatar',
-            'ResolvePlaceDestination',
-            'PlanPregrasp',
-            'NavigateToPregrasp',
-            'DeployArmForApproach',
-            'HandCameraApproach',
-            'CloseAndVerifyGrasp',
+            'WaitForPickCommand',
+            'ObserveTarget',
+            'WaitForCleanCommand',
+            'ObserveDestination',
+            'MoveToObject',
+            'GraspObject',
+            'MoveToDestination',
+            'ReleaseObject',
         ):
             self.assertIn(state_name, self.source)
-        self.assertNotIn('RecoverAvatarViewAfterPick', self.source)
+        self.assertIn('received_clean_command_', self.source)
+        self.assertIn('changeStep(WaitForCleanCommand);', self.source)
 
-    def test_old_head_scan_flow_is_removed(self):
-        self.assertNotIn('beginObservationScan', self.source)
-        self.assertNotIn('headScanStep(', self.source)
-        self.assertNotIn('SCAN_LOCAL', self.source)
-        self.assertNotIn('SCAN_WIDE', self.source)
+    def test_nav2_can_be_disabled_without_disabling_direct_motion(self):
+        self.assertIn('declare_parameter<bool>("use_nav2", true)', self.source)
+        self.assertIn('Nav2 disabled; using direct approach', self.source)
+        self.assertIn('/hsrb/command_velocity', self.source)
 
-    def test_wait_states_track_avatar_with_small_yaw_corrections(self):
-        self.assertIn('computeAvatarTrackCommand(', self.source)
-        self.assertIn('TRACK_AVATAR', self.source)
+    def test_target_selection_uses_temporal_and_spatial_evidence(self):
+        self.assertIn('selectStablePointedTarget()', self.source)
+        self.assertIn('STABLE_TARGET_MIN_FRAMES = 6', self.source)
+        self.assertIn('STABLE_TARGET_MIN_CONFIDENCE = 0.25', self.source)
+        self.assertIn('const std::string spatial_key', self.source)
 
-    def test_pick_resolution_uses_bounded_head_micro_sweep_after_base_alignment(self):
-        resolve_pick = self._extract_case_block(
-            'ResolvePickTarget', 'WaitForCleanTrackAvatar')
-        self.assertIn('beginObservationAlignment("ResolvePickTarget"', resolve_pick)
-        self.assertIn('runPointingAlignment("ResolvePickTarget")', resolve_pick)
-        self.assertIn('beginPickHeadSweep("ResolvePickTarget")', resolve_pick)
-        self.assertIn('runPickHeadSweep("ResolvePickTarget")', resolve_pick)
-        self.assertIn('PICK_HEAD_SWEEP_TILT = -0.20', self.source)
+    def test_frontal_pointing_depth_ambiguity_is_bounded(self):
+        self.assertIn('forward_support == 0', self.source)
+        self.assertIn('reverse_support >= STABLE_TARGET_MIN_FRAMES', self.source)
+        self.assertIn('Resolving frontal pointing depth ambiguity', self.source)
 
-    def test_pick_reobservation_alignment_can_reuse_latched_pick_pointings(self):
-        alignment_helper = self._extract_function_block(
-            'std::vector<interactive_cleanup::PointingObservation> collectRecentAlignmentPointings() const')
-        self.assertIn('observe_align_seed_pointings_', alignment_helper)
-        self.assertIn('latched_pick_pointings_', self.source)
+    def test_floor_grasp_aligns_real_finger_collision_midpoint(self):
+        self.assertIn('getGripperMidpoint(', self.source)
+        self.assertIn('GRIPPER_ALIGN_STABLE_CYCLES = 3', self.source)
+        self.assertIn('Fingertip midpoint aligned', self.source)
+        self.assertIn('Lowered fingertip height verified', self.source)
 
-    def test_active_pick_resolution_merges_latched_and_reobserved_pointings(self):
-        merge_helper = self._extract_function_block(
-            'std::vector<TimedPointingSample> collectPickResolutionPointings() const')
-        self.assertIn('latched_pick_pointings_', merge_helper)
-        self.assertIn('obs_pointings_', merge_helper)
-        resolve_pick = self._extract_case_block(
-            'ResolvePickTarget', 'ResolvePlaceDestination')
-        self.assertIn('resolvePickFromObservations(', resolve_pick)
-        self.assertIn('obs_objects_', resolve_pick)
-        self.assertIn('collectPickResolutionPointings()', resolve_pick)
+    def test_release_uses_destination_profile_and_verified_pose(self):
+        self.assertIn('PlacementProfile getPlacementProfile(', self.source)
+        self.assertIn('RELEASE_ALIGN_STABLE_CYCLES = 3', self.source)
+        self.assertIn('Verified placement pose', self.source)
 
-    def test_avatar_cues_are_latched_before_resolution(self):
-        self.assertIn('CUE_CAPTURE_WINDOW_SEC', self.source)
-        self.assertIn('latchPickCueFromRecentObservations(', self.source)
-        self.assertIn('latchPlaceCueFromRecentObservations(', self.source)
-        self.assertIn('pruneCueCaptureWindow(', self.source)
-        self.assertIn('latched_pick_objects_', self.source)
-        self.assertIn('latched_place_objects_', self.source)
-
-    def test_cleanup_flow_waits_for_both_latched_cues_before_resolving(self):
-        self.assertIn('changeStep(WaitForCleanTrackAvatar);', self.source)
-        self.assertIn('changeStep(ResolvePickTarget);', self.source)
-        self.assertIn('changeStep(ResolvePlaceDestination);', self.source)
-        self.assertNotIn('pre_pick_avatar_yaw_', self.source)
-        self.assertNotIn('changeStep(RecoverAvatarViewAfterPick);', self.source)
-
-    def test_target_and_destination_resolution_use_pure_resolvers(self):
-        self.assertIn('resolvePickTarget(', self.source)
-        self.assertIn('resolvePlaceDestination(', self.source)
-        self.assertIn('loadDestinationRegions(', self.source)
-
-    def test_grasp_path_uses_pregrasp_planner_and_hand_servo(self):
-        self.assertIn('planPregrasp(', self.source)
-        self.assertIn('computeHandServoCommand(', self.source)
-        self.assertIn('shouldRetryHandApproach(', self.source)
-
-    def test_hand_camera_approach_combines_base_and_arm_vertical_servo(self):
-        hand_approach = self._extract_case_block(
-            'HandCameraApproach', 'CloseAndVerifyGrasp')
-        self.assertIn('moveBase(command.linear_x, command.linear_y, 0.0);', hand_approach)
-        self.assertIn('applyHandServoLiftDelta(command.lift_delta);', hand_approach)
-
-    def test_object_grasped_transition_is_gated_by_verification(self):
-        self.assertIn('if (grasp_verified_)', self.source)
+    def test_success_messages_follow_grasp_and_release_states(self):
+        self.assertIn('MSG_OBJECT_GRASPED   = "Object_grasped"', self.source)
+        self.assertIn('MSG_TASK_FINISHED    = "Task_finished"', self.source)
         self.assertIn('changeStep(SendObjectGrasped);', self.source)
-
-    def _extract_case_block(self, case_name: str, next_case_name: str) -> str:
-        start = self.source.index(f'case {case_name}: {{')
-        end = self.source.index(f'case {next_case_name}: {{', start)
-        return self.source[start:end]
-
-    def _extract_function_block(self, signature: str) -> str:
-        start = self.source.index(signature)
-        end = self.source.index('\n\n  void ', start)
-        return self.source[start:end]
+        self.assertIn('changeStep(SendTaskFinished);', self.source)
 
 
 if __name__ == '__main__':
