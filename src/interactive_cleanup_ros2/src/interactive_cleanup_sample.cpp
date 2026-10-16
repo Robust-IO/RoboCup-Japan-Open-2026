@@ -239,7 +239,11 @@ private:
   static constexpr double VISUAL_SERVO_CENTER_TOLERANCE = 0.10;
   static constexpr double TARGET_EARLY_CONFIRM_DELAY = 1.2;
   static constexpr int    STABLE_TARGET_MIN_FRAMES = 6;
-  static constexpr double STABLE_TARGET_MIN_CONFIDENCE = 0.45;
+  // The vision node intentionally publishes the dedicated 13-class model
+  // down to 0.25 confidence.  A second 0.45 gate here silently discarded
+  // repeatable detections (the failed run saw bear_doll in all 30 frames).
+  // Temporal persistence and ray distance provide the stronger safeguards.
+  static constexpr double STABLE_TARGET_MIN_CONFIDENCE = 0.25;
   static constexpr double STABLE_TARGET_MAX_RAY_2D_PX = 100.0;
   // Allow for the simulated avatar's fingertip/pose-ray error while keeping
   // the target well inside the wider 1.5 m per-sample rejection radius.
@@ -1223,8 +1227,16 @@ private:
           ray_sign * locked_pointing_.direction.z);
         if (ray_distance > 1.5) continue;
 
+        // Keep separate instances of the same class separate.  The failed
+        // run contained two bear_doll detections per frame; grouping only by
+        // class produced 60 "frames" from a 30-frame window and averaged two
+        // physical positions into a nonexistent target between them.
+        const std::string spatial_key =
+          obj.class_name + "_" +
+          std::to_string(std::lround(obj.position_3d.x * 2.0)) + "_" +
+          std::to_string(std::lround(obj.position_3d.y * 2.0));
         auto result = candidates.emplace(
-          obj.class_name,
+          spatial_key,
           Candidate{obj.class_name, obj.position_3d.x, obj.position_3d.y,
                     obj.position_3d.z, 0, 0.0, 0.0,
                     std::numeric_limits<double>::infinity()});
