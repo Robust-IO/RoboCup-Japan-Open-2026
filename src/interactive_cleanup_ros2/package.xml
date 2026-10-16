@@ -23,6 +23,7 @@
   <build_depend>tf2_geometry_msgs</build_depend>
   <build_depend>nav2_msgs</build_depend>
   <build_depend>action_msgs</build_depend>
+  <build_depend>yaml_cpp_vendor</build_depend>
   <build_depend>cleanup_vision_ros2</build_depend>
   <build_depend>interactive_cleanup_msgs</build_depend>
 
@@ -39,9 +40,12 @@
   <exec_depend>tf2_geometry_msgs</exec_depend>
   <exec_depend>nav2_msgs</exec_depend>
   <exec_depend>action_msgs</exec_depend>
+  <exec_depend>yaml_cpp_vendor</exec_depend>
   <exec_depend>cleanup_vision_ros2</exec_depend>
   <exec_depend>interactive_cleanup_msgs</exec_depend>
   <exec_depend>nav2_bringup</exec_depend>
+
+  <test_depend>ament_cmake_gtest</test_depend>
 
   <export>
     <build_type>ament_cmake</build_type>

@@ -1,0 +1,21 @@
+regions:
+  - name: trash_box_for_recycle
+    center: {x: -4.620, y: -5.170}
+  - name: trash_box_for_burnable
+    center: {x: -2.830, y: -5.170}
+  - name: trash_box_for_bottle_can
+    center: {x: -1.000, y: -5.170}
+  - name: square_low_table
+    center: {x: -5.397, y: -3.129}
+  - name: wagon_1
+    center: {x: -5.026, y: -1.117}
+  - name: wagon_2
+    center: {x: -5.380, y: 0.814}
+  - name: white_side_table_1
+    center: {x: 1.110, y: -2.280}
+  - name: white_side_table_2
+    center: {x: -0.740, y: 1.416}
+  - name: cardboard_box
+    center: {x: 1.098, y: -0.324}
+  - name: wooden_shelf
+    center: {x: -3.094, y: 1.530}

@@ -1,4 +1,32 @@
 #include "sigverse_ros_bridge.hpp"
+#include <chrono>
+#include <iomanip>
+#include <mutex>
+
+namespace {
+struct ImageAudit {
+  uint64_t received{0}, started{0}, completed{0}, bson_bytes{0};
+  std::chrono::steady_clock::time_point last_log{};
+};
+std::mutex image_audit_mutex;
+void log_image_audit(const char * phase, int fd, pid_t tid,
+  const std::string & topic, const ImageAudit & audit,
+  const sensor_msgs::msg::Image & image, size_t binary_bytes,
+  size_t subscribers, double publish_ms)
+{
+  std::ostringstream line;
+  line << "HANDYMAN_IMAGE_AUDIT phase=" << phase
+       << " fd=" << fd << " tid=" << tid << " topic=" << std::quoted(topic)
+       << " received=" << audit.received << " started=" << audit.started
+       << " completed=" << audit.completed << " bson_bytes=" << audit.bson_bytes
+       << " width=" << image.width << " height=" << image.height
+       << " step=" << image.step << " encoding=" << std::quoted(image.encoding)
+       << " binary_bytes=" << binary_bytes << " data_bytes=" << image.data.size()
+       << " subscribers=" << subscribers << " publish_ms=" << publish_ms;
+  std::lock_guard<std::mutex> lock(image_audit_mutex);
+  std::cout << line.str() << std::endl;
+}
+}  // namespace
 
 int  SIGVerseROSBridge::syncTimeCnt;
 int  SIGVerseROSBridge::syncTimeMaxNum;
@@ -81,6 +109,9 @@ void * SIGVerseROSBridge::receiving_thread(void *param)
   std::map<std::string, rclcpp::Publisher<sensor_msgs::msg::CameraInfo>::SharedPtr> cameraInfoPublisherMap;
   std::map<std::string, rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr> imagePublisherMap;
   std::map<std::string, rclcpp::Publisher<sensor_msgs::msg::LaserScan>::SharedPtr> laserScanPublisherMap;
+  const char * audit_setting = std::getenv("HANDYMAN_IMAGE_AUDIT");
+  const bool audit_images = audit_setting && std::string(audit_setting) == "1";
+  std::map<std::string, ImageAudit> image_audits;
 
   std::cout << "Socket open. tid=" << get_tid() << std::endl;
 
@@ -232,9 +263,8 @@ void * SIGVerseROSBridge::receiving_thread(void *param)
     {
       sensor_msgs::msg::CameraInfo cameraInfo;
 
-      int32_t sec  = bsonView["msg"]["header"]["stamp"]["sec"]    .get_int32();
-      int32_t nsec = bsonView["msg"]["header"]["stamp"]["nanosec"].get_int32(); // get_uint32() is not available; use get_int32() and cast if safe.
-      cameraInfo.header.stamp = rclcpp::Time(static_cast<uint64_t>(sec) * 1000000000ULL + static_cast<uint64_t>(nsec));
+      // Always use wall-clock time (ignore Unity timestamps to avoid time-sync issues)
+      cameraInfo.header.stamp = node->get_clock()->now();
       cameraInfo.header.frame_id   = std::string(bsonView["msg"]["header"]["frame_id"].get_string().value);
 
       cameraInfo.height            = (uint32_t)  bsonView["msg"]["height"].get_int32();
@@ -262,11 +292,13 @@ void * SIGVerseROSBridge::receiving_thread(void *param)
     // Image
     else if(typeValue==TYPE_IMAGE)
     {
+      // Reached only after the complete BSON document and type/topic were read.
+      ImageAudit * audit = audit_images ? &image_audits[topicValue] : nullptr;
+      if (audit) { ++audit->received; audit->bson_bytes += msgSize; }
       sensor_msgs::msg::Image image;
 
-      int32_t sec  = bsonView["msg"]["header"]["stamp"]["sec"]    .get_int32();
-      int32_t nsec = bsonView["msg"]["header"]["stamp"]["nanosec"].get_int32(); // get_uint32() is not available; use get_int32() and cast if safe.
-      image.header.stamp = rclcpp::Time(static_cast<uint64_t>(sec) * 1000000000ULL + static_cast<uint64_t>(nsec));
+      // Always use wall-clock time
+      image.header.stamp = node->get_clock()->now();
       image.header.frame_id   = std::string(bsonView["msg"]["header"]["frame_id"].get_string().value);
       image.height            = (uint32_t)  bsonView["msg"]["height"]      .get_int32();
       image.width             = (uint32_t)  bsonView["msg"]["width"]       .get_int32();
@@ -278,16 +310,39 @@ void * SIGVerseROSBridge::receiving_thread(void *param)
       image.data.resize(sizet);
       memcpy(&image.data[0], bsonView["msg"]["data"].get_binary().bytes, sizet);
 
+      bool emit_audit = false;
+      std::chrono::steady_clock::time_point publish_start;
+      if (audit) {
+        publish_start = std::chrono::steady_clock::now();
+        emit_audit = audit->received <= 3 ||
+          std::chrono::duration<double>(publish_start - audit->last_log).count() >= 1.0;
+        ++audit->started;
+        if (emit_audit) {
+          audit->last_log = publish_start;
+          log_image_audit("before_publish", dstSocket, get_tid(), topicValue, *audit,
+            image, bsonView["msg"]["data"].get_binary().size,
+            imagePublisherMap[topicValue]->get_subscription_count(), 0.0);
+        }
+      }
       imagePublisherMap[topicValue]->publish(image);
+      if (audit) {
+        ++audit->completed;
+        if (emit_audit) {
+          const double ms = std::chrono::duration<double, std::milli>(
+            std::chrono::steady_clock::now() - publish_start).count();
+          log_image_audit("after_publish", dstSocket, get_tid(), topicValue, *audit,
+            image, bsonView["msg"]["data"].get_binary().size,
+            imagePublisherMap[topicValue]->get_subscription_count(), ms);
+        }
+      }
     }
     // LaserScan
     else if(typeValue==TYPE_LASER_SCAN)
     {
       sensor_msgs::msg::LaserScan laserScan;
 
-      int32_t sec  = bsonView["msg"]["header"]["stamp"]["sec"]    .get_int32();
-      int32_t nsec = bsonView["msg"]["header"]["stamp"]["nanosec"].get_int32(); // get_uint32() is not available; use get_int32() and cast if safe.
-      laserScan.header.stamp = rclcpp::Time(static_cast<uint64_t>(sec) * 1000000000ULL + static_cast<uint64_t>(nsec));
+      // Always use wall-clock time
+      laserScan.header.stamp = node->get_clock()->now();
       laserScan.header.frame_id   = std::string(bsonView["msg"]["header"]["frame_id"].get_string().value);
 
       laserScan.angle_min       = (float)bsonView["msg"]["angle_min"]      .get_double();
@@ -351,17 +406,12 @@ void * SIGVerseROSBridge::receiving_thread(void *param)
       for(auto itr = tfArrayView.cbegin(); itr != tfArrayView.cend(); ++itr)
       {
         std::string frameId      = std::string((*itr)["header"]["frame_id"].get_string().value);
-        int32_t sec              =             (*itr)["header"]["stamp"]["sec"]    .get_int32();
-        int32_t nsec             =             (*itr)["header"]["stamp"]["nanosec"].get_int32(); // get_uint32() is not available; use get_int32() and cast if safe.
         std::string childFrameId = std::string((*itr)["child_frame_id"]    .get_string().value);
 
         geometry_msgs::msg::TransformStamped stampedTransform;
 
-        if (sec == 0) {
-          stampedTransform.header.stamp = node->get_clock()->now();
-        } else {
-          stampedTransform.header.stamp = rclcpp::Time(static_cast<uint64_t>(sec) * 1000000000ULL + static_cast<uint64_t>(nsec));
-        }
+        // Always use wall-clock time to avoid time-sync issues with Nav2
+        stampedTransform.header.stamp = node->get_clock()->now();
         stampedTransform.header.frame_id = frameId;
         stampedTransform.child_frame_id = childFrameId;
 
@@ -478,4 +528,3 @@ int main(int argc, char **argv)
 
   rclcpp::shutdown();
 };
-

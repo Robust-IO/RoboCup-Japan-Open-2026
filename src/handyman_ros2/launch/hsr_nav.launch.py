@@ -1,76 +1,81 @@
-#!/usr/bin/env python3
-"""HSR Navigation launch (handyman_sample + vision + rviz2) — ROS 2 Humble
-   Replaces the original hsr_nav.launch XML.
-   Mirrors original: launches handyman_sample, object_detection_node, rviz2, rosbridge.
-   All original args preserved including sub_laser_scan_topic_name, sigverse_ros_bridge_port.
-"""
+import os
+from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
+from launch.launch_description_sources import AnyLaunchDescriptionSource
 
 
 def generate_launch_description():
-    handyman_pkg = FindPackageShare('handyman_ros2')
+    sigverse_ros_bridge_port = LaunchConfiguration('sigverse_ros_bridge_port', default='50001')
+    ros_bridge_port = LaunchConfiguration('ros_bridge_port', default='9090')
 
-    args = [
-        DeclareLaunchArgument('sub_msg_to_robot_topic_name',
-            default_value='/handyman/message/to_robot'),
-        DeclareLaunchArgument('pub_msg_to_moderator_topic_name',
-            default_value='/handyman/message/to_moderator'),
-        DeclareLaunchArgument('pub_base_twist_topic_name',
-            default_value='/hsrb/command_velocity'),
-        DeclareLaunchArgument('pub_arm_trajectory_topic_name',
-            default_value='/hsrb/arm_trajectory_controller/command'),
-        DeclareLaunchArgument('pub_gripper_trajectory_topic_name',
-            default_value='/hsrb/gripper_controller/command'),
-        DeclareLaunchArgument('sub_laser_scan_topic_name',
-            default_value='/hsrb/base_scan'),
-        DeclareLaunchArgument('rgbd_camera',
-            default_value='head_rgbd_sensor'),
-        DeclareLaunchArgument('sigverse_ros_bridge_port', default_value='50001'),
-        DeclareLaunchArgument('ros_bridge_port',          default_value='9090'),
-    ]
+    pkg_share = get_package_share_directory('handyman_ros2')
+    rviz_config = os.path.join(pkg_share, 'launch', 'hsr.rviz')
 
-    handyman_node = Node(
+    handyman_sample_node = Node(
         package='handyman_ros2',
         executable='handyman_sample',
         name='handyman_sample',
         output='screen',
-        parameters=[{
-            'sub_msg_to_robot_topic_name':
-                LaunchConfiguration('sub_msg_to_robot_topic_name'),
-            'pub_msg_to_moderator_topic_name':
-                LaunchConfiguration('pub_msg_to_moderator_topic_name'),
-            'pub_base_twist_topic_name':
-                LaunchConfiguration('pub_base_twist_topic_name'),
-            'pub_arm_trajectory_topic_name':
-                LaunchConfiguration('pub_arm_trajectory_topic_name'),
-            'pub_gripper_trajectory_topic_name':
-                LaunchConfiguration('pub_gripper_trajectory_topic_name'),
-        }],
     )
 
     vision_node = Node(
-        package='vision_ros2',
+        package='handyman_vision_ros2',
         executable='object_detection_node',
         name='vision',
         output='screen',
     )
 
-    rviz_node = Node(
+    rviz2_node = Node(
         package='rviz2',
         executable='rviz2',
-        name='rviz2',
-        arguments=['-d', PathJoinSubstitution([handyman_pkg, 'launch', 'hsr.rviz'])],
+        name='rviz',
+        arguments=['-d', rviz_config],
+        output='screen',
     )
 
-    rosbridge_node = Node(
-        package='rosbridge_server',
-        executable='rosbridge_websocket',
-        name='rosbridge_websocket',
-        parameters=[{'port': LaunchConfiguration('ros_bridge_port')}],
+    sigverse_ros_bridge_node = Node(
+        package='sigverse_ros_bridge',
+        executable='sigverse_ros_bridge',
+        name='sigverse_ros_bridge',
+        arguments=[sigverse_ros_bridge_port],
+        output='screen',
     )
 
-    return LaunchDescription(args + [handyman_node, vision_node, rviz_node, rosbridge_node])
+    rosbridge_websocket = IncludeLaunchDescription(
+        AnyLaunchDescriptionSource(
+            PathJoinSubstitution([
+                FindPackageShare('rosbridge_server'),
+                'launch',
+                'rosbridge_websocket_launch.xml',
+            ])
+        ),
+        launch_arguments={
+            'port': ros_bridge_port,
+            'default_call_service_timeout': '5.0',
+            'call_services_in_new_thread': 'true',
+            'send_action_goals_in_new_thread': 'true',
+        }.items(),
+    )
+
+    ld = LaunchDescription()
+
+    ld.add_action(DeclareLaunchArgument(
+        'sigverse_ros_bridge_port', default_value='50001',
+        description='Port for sigverse_ros_bridge.',
+    ))
+    ld.add_action(DeclareLaunchArgument(
+        'ros_bridge_port', default_value='9090',
+        description='Port for rosbridge websocket.',
+    ))
+
+    ld.add_action(rosbridge_websocket)
+    ld.add_action(sigverse_ros_bridge_node)
+    ld.add_action(rviz2_node)
+    ld.add_action(vision_node)
+    ld.add_action(handyman_sample_node)
+
+    return ld

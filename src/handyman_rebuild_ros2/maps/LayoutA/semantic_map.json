@@ -1,0 +1,1365 @@
+{
+    "schema_version": 2,
+    "scene": "Assets/Competition/Handyman/Handyman.unity",
+    "environment": "LayoutA",
+    "unity_version": "6000.0.62f1",
+    "coordinate_system": "ros_map",
+    "coordinate_rule": "ros_x=unity_z, ros_y=-unity_x, ros_yaw=-unity_yaw",
+    "robot_initial_pose": {
+        "x": 1.184000015258789,
+        "y": 0.0,
+        "yaw": 0.0
+    },
+    "rooms": [
+        {
+            "id": "living_room",
+            "source_name": "LivingArea",
+            "polygon": [
+                {
+                    "x": -0.5199999809265137,
+                    "y": 6.720000267028809
+                },
+                {
+                    "x": -0.5199999809265137,
+                    "y": -1.2085599899291993
+                },
+                {
+                    "x": 6.079999923706055,
+                    "y": -1.2085599899291993
+                },
+                {
+                    "x": 6.079999923706055,
+                    "y": 6.720000267028809
+                }
+            ]
+        },
+        {
+            "id": "kitchen",
+            "source_name": "KitchenArea",
+            "polygon": [
+                {
+                    "x": 6.289999961853027,
+                    "y": 6.760000228881836
+                },
+                {
+                    "x": 6.289999961853027,
+                    "y": 0.7376899719238281
+                },
+                {
+                    "x": 11.489999771118164,
+                    "y": 0.7376899719238281
+                },
+                {
+                    "x": 11.489999771118164,
+                    "y": 6.760000228881836
+                }
+            ]
+        },
+        {
+            "id": "bedroom",
+            "source_name": "BedRoomArea",
+            "polygon": [
+                {
+                    "x": 6.289999961853027,
+                    "y": -1.5
+                },
+                {
+                    "x": 6.289999961853027,
+                    "y": -7.342038154602051
+                },
+                {
+                    "x": 11.489999771118164,
+                    "y": -7.342038154602051
+                },
+                {
+                    "x": 11.489999771118164,
+                    "y": -1.5
+                }
+            ]
+        },
+        {
+            "id": "lobby",
+            "source_name": "LobbyArea",
+            "polygon": [
+                {
+                    "x": -0.5099997520446777,
+                    "y": -1.5088043212890626
+                },
+                {
+                    "x": -0.5099997520446777,
+                    "y": -7.289999961853027
+                },
+                {
+                    "x": 4.321784973144531,
+                    "y": -7.289999961853027
+                },
+                {
+                    "x": 4.321784973144531,
+                    "y": -1.5088043212890626
+                }
+            ]
+        }
+    ],
+    "doorways": [
+        {
+            "id": "living_room_entrance_1",
+            "room": "living_room",
+            "connected_room": "lobby",
+            "center": {
+                "x": 0.5299999713897705,
+                "y": -1.2085599899291993,
+                "yaw": 1.5707963705062867
+            },
+            "width": 2.1499998569488527,
+            "outside_pose": {
+                "x": 0.5299999713897705,
+                "y": -1.908560037612915,
+                "yaw": 1.5707963705062867
+            },
+            "inside_pose": {
+                "x": 0.5299999713897705,
+                "y": -0.5085600018501282,
+                "yaw": 1.5707963705062867
+            }
+        },
+        {
+            "id": "living_room_entrance_2",
+            "room": "living_room",
+            "connected_room": "",
+            "center": {
+                "x": 5.329999923706055,
+                "y": -1.2085599899291993,
+                "yaw": 1.5707963705062867
+            },
+            "width": 1.4499995708465577,
+            "outside_pose": {
+                "x": 5.329999923706055,
+                "y": -1.908560037612915,
+                "yaw": 1.5707963705062867
+            },
+            "inside_pose": {
+                "x": 5.329999923706055,
+                "y": -0.5085600018501282,
+                "yaw": 1.5707963705062867
+            }
+        },
+        {
+            "id": "living_room_entrance_3",
+            "room": "living_room",
+            "connected_room": "",
+            "center": {
+                "x": 6.079999923706055,
+                "y": -0.3857848644256592,
+                "yaw": 3.1415927410125734
+            },
+            "width": 1.5958199501037598,
+            "outside_pose": {
+                "x": 6.779999732971191,
+                "y": -0.3857848644256592,
+                "yaw": 3.1415927410125734
+            },
+            "inside_pose": {
+                "x": 5.380000114440918,
+                "y": -0.3857848644256592,
+                "yaw": 3.1415927410125734
+            }
+        },
+        {
+            "id": "living_room_entrance_4",
+            "room": "living_room",
+            "connected_room": "kitchen",
+            "center": {
+                "x": 6.079999923706055,
+                "y": 5.099382400512695,
+                "yaw": 3.1415927410125734
+            },
+            "width": 3.191504716873169,
+            "outside_pose": {
+                "x": 6.779999732971191,
+                "y": 5.099382400512695,
+                "yaw": 3.1415927410125734
+            },
+            "inside_pose": {
+                "x": 5.380000114440918,
+                "y": 5.099382400512695,
+                "yaw": 3.1415927410125734
+            }
+        },
+        {
+            "id": "kitchen_entrance_1",
+            "room": "kitchen",
+            "connected_room": "living_room",
+            "center": {
+                "x": 6.289999961853027,
+                "y": 5.0926666259765629,
+                "yaw": 0.0
+            },
+            "width": 3.1855828762054445,
+            "outside_pose": {
+                "x": 5.590000152587891,
+                "y": 5.0926666259765629,
+                "yaw": 0.0
+            },
+            "inside_pose": {
+                "x": 6.989999771118164,
+                "y": 5.0926666259765629,
+                "yaw": 0.0
+            }
+        },
+        {
+            "id": "kitchen_entrance_2",
+            "room": "kitchen",
+            "connected_room": "",
+            "center": {
+                "x": 9.389999389648438,
+                "y": 0.7376899719238281,
+                "yaw": 1.5707963705062867
+            },
+            "width": 2.6499996185302736,
+            "outside_pose": {
+                "x": 9.389999389648438,
+                "y": 0.03768998384475708,
+                "yaw": 1.5707963705062867
+            },
+            "inside_pose": {
+                "x": 9.389999389648438,
+                "y": 1.437690019607544,
+                "yaw": 1.5707963705062867
+            }
+        },
+        {
+            "id": "bedroom_entrance_1",
+            "room": "bedroom",
+            "connected_room": "",
+            "center": {
+                "x": 6.289999961853027,
+                "y": -6.243535041809082,
+                "yaw": 0.0
+            },
+            "width": 2.0472779273986818,
+            "outside_pose": {
+                "x": 5.590000152587891,
+                "y": -6.243535041809082,
+                "yaw": 0.0
+            },
+            "inside_pose": {
+                "x": 6.989999771118164,
+                "y": -6.243535041809082,
+                "yaw": 0.0
+            }
+        },
+        {
+            "id": "lobby_entrance_1",
+            "room": "lobby",
+            "connected_room": "",
+            "center": {
+                "x": 4.321784973144531,
+                "y": -6.268322944641113,
+                "yaw": 3.1415927410125734
+            },
+            "width": 2.093353509902954,
+            "outside_pose": {
+                "x": 5.021784782409668,
+                "y": -6.268322944641113,
+                "yaw": 3.1415927410125734
+            },
+            "inside_pose": {
+                "x": 3.6217849254608156,
+                "y": -6.268322944641113,
+                "yaw": 3.1415927410125734
+            }
+        },
+        {
+            "id": "lobby_entrance_2",
+            "room": "lobby",
+            "connected_room": "living_room",
+            "center": {
+                "x": 0.511150598526001,
+                "y": -1.5088043212890626,
+                "yaw": -1.5707963705062867
+            },
+            "width": 2.0923006534576418,
+            "outside_pose": {
+                "x": 0.511150598526001,
+                "y": -0.8088043332099915,
+                "yaw": -1.5707963705062867
+            },
+            "inside_pose": {
+                "x": 0.511150598526001,
+                "y": -2.2088043689727785,
+                "yaw": -1.5707963705062867
+            }
+        }
+    ],
+    "destinations": [
+        {
+            "id": "armchair#lobby",
+            "semantic_class": "armchair",
+            "room": "lobby",
+            "pose": {
+                "x": 3.3320000171661379,
+                "y": -2.319999933242798,
+                "yaw": -1.5707964897155762
+            },
+            "axis_aligned_bounds": {
+                "center": {
+                    "x": 3.3320000171661379,
+                    "y": -2.2709851264953615
+                },
+                "size": {
+                    "x": 0.9098858833312988,
+                    "y": 1.1305809020996094
+                }
+            },
+            "model_pose": {
+                "x": 3.3320000171661379,
+                "y": -2.319999933242798,
+                "yaw": -1.5707964897155762
+            },
+            "oriented_bounds": {
+                "center": {
+                    "x": 3.3320000171661379,
+                    "y": -2.2709851264953615
+                },
+                "size": {
+                    "x": 1.1305811405181885,
+                    "y": 0.9098861217498779
+                },
+                "yaw": -1.5707964897155762
+            },
+            "front_yaw": -1.5707964897155762,
+            "front_source": "model_transform_forward",
+            "marker_path": "LayoutA/DestinationCandidates/armchair#lobby",
+            "model_path": "LayoutA/DestinationCandidates/armchair#lobby",
+            "model_center_distance": 0.04901480674743652,
+            "prefab_guid": "",
+            "asset_path": ""
+        },
+        {
+            "id": "cardboard_box#bedroom",
+            "semantic_class": "cardboard_box",
+            "room": "bedroom",
+            "pose": {
+                "x": 10.850000381469727,
+                "y": -4.970000267028809,
+                "yaw": 0.0
+            },
+            "axis_aligned_bounds": {
+                "center": {
+                    "x": 10.850834846496582,
+                    "y": -4.84031867980957
+                },
+                "size": {
+                    "x": 0.6246662139892578,
+                    "y": 0.8150577545166016
+                }
+            },
+            "model_pose": {
+                "x": 10.850000381469727,
+                "y": -4.970000267028809,
+                "yaw": 0.0
+            },
+            "oriented_bounds": {
+                "center": {
+                    "x": 10.850834846496582,
+                    "y": -4.84031867980957
+                },
+                "size": {
+                    "x": 0.6246662139892578,
+                    "y": 0.8150577545166016
+                },
+                "yaw": 0.0
+            },
+            "front_yaw": 0.0,
+            "front_source": "model_transform_forward",
+            "marker_path": "LayoutA/DestinationCandidates/cardboard_box#bedroom",
+            "model_path": "LayoutA/DestinationCandidates/cardboard_box#bedroom",
+            "model_center_distance": 0.12968426942825318,
+            "prefab_guid": "",
+            "asset_path": ""
+        },
+        {
+            "id": "corner_sofa#lobby",
+            "semantic_class": "corner_sofa",
+            "room": "lobby",
+            "pose": {
+                "x": 0.9270000457763672,
+                "y": -6.64900016784668,
+                "yaw": 0.0
+            },
+            "axis_aligned_bounds": {
+                "center": {
+                    "x": 0.038839101791381839,
+                    "y": -4.624000072479248
+                },
+                "size": {
+                    "x": 0.946876049041748,
+                    "y": 2.303999900817871
+                }
+            },
+            "model_pose": {
+                "x": -0.032000064849853519,
+                "y": -4.624000072479248,
+                "yaw": 0.0
+            },
+            "oriented_bounds": {
+                "center": {
+                    "x": 0.038839101791381839,
+                    "y": -4.624000072479248
+                },
+                "size": {
+                    "x": 0.946876049041748,
+                    "y": 2.303999900817871
+                },
+                "yaw": 0.0
+            },
+            "front_yaw": 0.0,
+            "front_source": "model_transform_forward",
+            "marker_path": "LayoutA/DestinationCandidates/corner_sofa#lobby",
+            "model_path": "LayoutA/SIGVerseHouse/lobby/sofa",
+            "model_center_distance": 2.2112112045288088,
+            "prefab_guid": "",
+            "asset_path": ""
+        },
+        {
+            "id": "dining_table#kitchen",
+            "semantic_class": "dining_table",
+            "room": "kitchen",
+            "pose": {
+                "x": 8.191999435424805,
+                "y": 2.9079999923706056,
+                "yaw": 0.0
+            },
+            "axis_aligned_bounds": {
+                "center": {
+                    "x": 8.191999435424805,
+                    "y": 2.9079999923706056
+                },
+                "size": {
+                    "x": 1.0406074523925782,
+                    "y": 2.3118791580200197
+                }
+            },
+            "model_pose": {
+                "x": 8.191999435424805,
+                "y": 2.9079999923706056,
+                "yaw": 0.0
+            },
+            "oriented_bounds": {
+                "center": {
+                    "x": 8.191999435424805,
+                    "y": 2.9079999923706056
+                },
+                "size": {
+                    "x": 1.0406074523925782,
+                    "y": 2.3118791580200197
+                },
+                "yaw": 0.0
+            },
+            "front_yaw": 0.0,
+            "front_source": "model_transform_forward",
+            "marker_path": "LayoutA/DestinationCandidates/dining_table#kitchen",
+            "model_path": "LayoutA/DestinationCandidates/dining_table#kitchen",
+            "model_center_distance": 0.0,
+            "prefab_guid": "",
+            "asset_path": ""
+        },
+        {
+            "id": "square_low_table#living_room",
+            "semantic_class": "square_low_table",
+            "room": "living_room",
+            "pose": {
+                "x": 1.9709999561309815,
+                "y": 4.02400016784668,
+                "yaw": 0.0
+            },
+            "axis_aligned_bounds": {
+                "center": {
+                    "x": 1.9709999561309815,
+                    "y": 4.02400016784668
+                },
+                "size": {
+                    "x": 0.7199997901916504,
+                    "y": 1.1999998092651368
+                }
+            },
+            "model_pose": {
+                "x": 1.9709999561309815,
+                "y": 4.02400016784668,
+                "yaw": 0.0
+            },
+            "oriented_bounds": {
+                "center": {
+                    "x": 1.9709999561309815,
+                    "y": 4.02400016784668
+                },
+                "size": {
+                    "x": 0.7199997901916504,
+                    "y": 1.1999998092651368
+                },
+                "yaw": 0.0
+            },
+            "front_yaw": 0.0,
+            "front_source": "model_transform_forward",
+            "marker_path": "LayoutA/DestinationCandidates/square_low_table#living_room",
+            "model_path": "LayoutA/DestinationCandidates/square_low_table#living_room",
+            "model_center_distance": 0.0,
+            "prefab_guid": "",
+            "asset_path": ""
+        },
+        {
+            "id": "trash_box_for_bottle_can#living_room",
+            "semantic_class": "trash_box_for_bottle_can",
+            "room": "living_room",
+            "pose": {
+                "x": 2.138000011444092,
+                "y": -0.6800000071525574,
+                "yaw": 1.5707964897155762
+            },
+            "axis_aligned_bounds": {
+                "center": {
+                    "x": 2.137988805770874,
+                    "y": -0.6799998879432678
+                },
+                "size": {
+                    "x": 0.6000223159790039,
+                    "y": 0.5000003576278687
+                }
+            },
+            "model_pose": {
+                "x": 2.138000011444092,
+                "y": -0.6800000071525574,
+                "yaw": 1.5707964897155762
+            },
+            "oriented_bounds": {
+                "center": {
+                    "x": 2.137988805770874,
+                    "y": -0.6799998879432678
+                },
+                "size": {
+                    "x": 0.5000005960464478,
+                    "y": 0.6000224351882935
+                },
+                "yaw": 1.5707964897155762
+            },
+            "front_yaw": 1.5707964897155762,
+            "front_source": "model_transform_forward",
+            "marker_path": "LayoutA/DestinationCandidates/trash_box_for_bottle_can#living_room",
+            "model_path": "LayoutA/DestinationCandidates/trash_box_for_bottle_can#living_room/trashbox_c03.001",
+            "model_center_distance": 0.000011206307135580573,
+            "prefab_guid": "",
+            "asset_path": ""
+        },
+        {
+            "id": "trash_box_for_burnable#living_room",
+            "semantic_class": "trash_box_for_burnable",
+            "room": "living_room",
+            "pose": {
+                "x": -0.07000017166137696,
+                "y": 2.4100000858306886,
+                "yaw": 0.0
+            },
+            "axis_aligned_bounds": {
+                "center": {
+                    "x": -0.07000017166137696,
+                    "y": 2.4100112915039064
+                },
+                "size": {
+                    "x": 0.5,
+                    "y": 0.6000223159790039
+                }
+            },
+            "model_pose": {
+                "x": -0.07000017166137696,
+                "y": 2.4100000858306886,
+                "yaw": 0.0
+            },
+            "oriented_bounds": {
+                "center": {
+                    "x": -0.07000017166137696,
+                    "y": 2.4100112915039064
+                },
+                "size": {
+                    "x": 0.5000000596046448,
+                    "y": 0.6000223159790039
+                },
+                "yaw": 0.0
+            },
+            "front_yaw": 0.0,
+            "front_source": "model_transform_forward",
+            "marker_path": "LayoutA/DestinationCandidates/trash_box_for_burnable#living_room",
+            "model_path": "LayoutA/DestinationCandidates/trash_box_for_burnable#living_room/trashbox_c02.001",
+            "model_center_distance": 0.000011205673217773438,
+            "prefab_guid": "",
+            "asset_path": ""
+        },
+        {
+            "id": "trash_box_for_recycle#living_room",
+            "semantic_class": "trash_box_for_recycle",
+            "room": "living_room",
+            "pose": {
+                "x": -0.07000017166137696,
+                "y": 1.2000000476837159,
+                "yaw": 0.0
+            },
+            "axis_aligned_bounds": {
+                "center": {
+                    "x": -0.07000017166137696,
+                    "y": 1.2000112533569337
+                },
+                "size": {
+                    "x": 0.5,
+                    "y": 0.6000223159790039
+                }
+            },
+            "model_pose": {
+                "x": -0.07000017166137696,
+                "y": 1.2000000476837159,
+                "yaw": 0.0
+            },
+            "oriented_bounds": {
+                "center": {
+                    "x": -0.07000017166137696,
+                    "y": 1.2000112533569337
+                },
+                "size": {
+                    "x": 0.5000001192092896,
+                    "y": 0.6000223159790039
+                },
+                "yaw": 0.0
+            },
+            "front_yaw": 0.0,
+            "front_source": "model_transform_forward",
+            "marker_path": "LayoutA/DestinationCandidates/trash_box_for_recycle#living_room",
+            "model_path": "LayoutA/DestinationCandidates/trash_box_for_recycle#living_room/trashbox_c01.001",
+            "model_center_distance": 0.000011205673217773438,
+            "prefab_guid": "",
+            "asset_path": ""
+        },
+        {
+            "id": "wagon#bedroom",
+            "semantic_class": "wagon",
+            "room": "bedroom",
+            "pose": {
+                "x": 9.279999732971192,
+                "y": -2.1600000858306886,
+                "yaw": 0.0
+            },
+            "axis_aligned_bounds": {
+                "center": {
+                    "x": 9.305927276611329,
+                    "y": -2.1599998474121095
+                },
+                "size": {
+                    "x": 0.6455917358398438,
+                    "y": 0.6059398651123047
+                }
+            },
+            "model_pose": {
+                "x": 9.279999732971192,
+                "y": -2.1600000858306886,
+                "yaw": 0.0
+            },
+            "oriented_bounds": {
+                "center": {
+                    "x": 9.305927276611329,
+                    "y": -2.1599998474121095
+                },
+                "size": {
+                    "x": 0.6455917358398438,
+                    "y": 0.6059398651123047
+                },
+                "yaw": 0.0
+            },
+            "front_yaw": 0.0,
+            "front_source": "model_transform_forward",
+            "marker_path": "LayoutA/DestinationCandidates/wagon#bedroom",
+            "model_path": "LayoutA/DestinationCandidates/wagon#bedroom",
+            "model_center_distance": 0.02592754364013672,
+            "prefab_guid": "",
+            "asset_path": ""
+        },
+        {
+            "id": "white_side_table#bedroom_1",
+            "semantic_class": "white_side_table",
+            "room": "bedroom",
+            "pose": {
+                "x": 11.00286865234375,
+                "y": -6.408999919891357,
+                "yaw": 0.0
+            },
+            "axis_aligned_bounds": {
+                "center": {
+                    "x": 11.00286865234375,
+                    "y": -6.408999919891357
+                },
+                "size": {
+                    "x": 0.720001220703125,
+                    "y": 1.5600004196166993
+                }
+            },
+            "model_pose": {
+                "x": 11.00286865234375,
+                "y": -6.408999919891357,
+                "yaw": 0.0
+            },
+            "oriented_bounds": {
+                "center": {
+                    "x": 11.00286865234375,
+                    "y": -6.408999919891357
+                },
+                "size": {
+                    "x": 0.720001220703125,
+                    "y": 1.5600004196166993
+                },
+                "yaw": 0.0
+            },
+            "front_yaw": 0.0,
+            "front_source": "model_transform_forward",
+            "marker_path": "LayoutA/DestinationCandidates/white_side_table#bedroom_1",
+            "model_path": "LayoutA/DestinationCandidates/white_side_table#bedroom_1",
+            "model_center_distance": 0.0,
+            "prefab_guid": "",
+            "asset_path": ""
+        },
+        {
+            "id": "white_side_table#bedroom_2",
+            "semantic_class": "white_side_table",
+            "room": "bedroom",
+            "pose": {
+                "x": 10.536999702453614,
+                "y": -2.0399999618530275,
+                "yaw": -1.5707964897155762
+            },
+            "axis_aligned_bounds": {
+                "center": {
+                    "x": 10.536999702453614,
+                    "y": -2.0399999618530275
+                },
+                "size": {
+                    "x": 1.5599994659423829,
+                    "y": 0.7200002670288086
+                }
+            },
+            "model_pose": {
+                "x": 10.536999702453614,
+                "y": -2.0399999618530275,
+                "yaw": -1.5707964897155762
+            },
+            "oriented_bounds": {
+                "center": {
+                    "x": 10.536999702453614,
+                    "y": -2.0399999618530275
+                },
+                "size": {
+                    "x": 0.7200005650520325,
+                    "y": 1.559999704360962
+                },
+                "yaw": -1.5707964897155762
+            },
+            "front_yaw": -1.5707964897155762,
+            "front_source": "model_transform_forward",
+            "marker_path": "LayoutA/DestinationCandidates/white_side_table#bedroom_2",
+            "model_path": "LayoutA/DestinationCandidates/white_side_table#bedroom_2",
+            "model_center_distance": 0.0,
+            "prefab_guid": "",
+            "asset_path": ""
+        },
+        {
+            "id": "white_side_table#kitchen",
+            "semantic_class": "white_side_table",
+            "room": "kitchen",
+            "pose": {
+                "x": 11.119999885559082,
+                "y": 1.4590001106262208,
+                "yaw": 0.0
+            },
+            "axis_aligned_bounds": {
+                "center": {
+                    "x": 11.119999885559082,
+                    "y": 1.4590001106262208
+                },
+                "size": {
+                    "x": 0.7199993133544922,
+                    "y": 1.559999942779541
+                }
+            },
+            "model_pose": {
+                "x": 11.119999885559082,
+                "y": 1.4590001106262208,
+                "yaw": 0.0
+            },
+            "oriented_bounds": {
+                "center": {
+                    "x": 11.119999885559082,
+                    "y": 1.4590001106262208
+                },
+                "size": {
+                    "x": 0.7199993133544922,
+                    "y": 1.559999942779541
+                },
+                "yaw": 0.0
+            },
+            "front_yaw": 0.0,
+            "front_source": "model_transform_forward",
+            "marker_path": "LayoutA/DestinationCandidates/white_side_table#kitchen",
+            "model_path": "LayoutA/DestinationCandidates/white_side_table#kitchen",
+            "model_center_distance": 0.0,
+            "prefab_guid": "",
+            "asset_path": ""
+        },
+        {
+            "id": "white_side_table#living_room",
+            "semantic_class": "white_side_table",
+            "room": "living_room",
+            "pose": {
+                "x": 3.353868007659912,
+                "y": -0.6399999856948853,
+                "yaw": -1.5707964897155762
+            },
+            "axis_aligned_bounds": {
+                "center": {
+                    "x": 3.353868007659912,
+                    "y": -0.6399999856948853
+                },
+                "size": {
+                    "x": 1.5600004196166993,
+                    "y": 0.7200002670288086
+                }
+            },
+            "model_pose": {
+                "x": 3.353868007659912,
+                "y": -0.6399999856948853,
+                "yaw": -1.5707964897155762
+            },
+            "oriented_bounds": {
+                "center": {
+                    "x": 3.353868007659912,
+                    "y": -0.6399999856948853
+                },
+                "size": {
+                    "x": 0.7200005650520325,
+                    "y": 1.5600006580352784
+                },
+                "yaw": -1.5707964897155762
+            },
+            "front_yaw": -1.5707964897155762,
+            "front_source": "model_transform_forward",
+            "marker_path": "LayoutA/DestinationCandidates/white_side_table#living_room",
+            "model_path": "LayoutA/DestinationCandidates/white_side_table#living_room",
+            "model_center_distance": 0.0,
+            "prefab_guid": "",
+            "asset_path": ""
+        },
+        {
+            "id": "white_side_table#lobby",
+            "semantic_class": "white_side_table",
+            "room": "lobby",
+            "pose": {
+                "x": 2.379999876022339,
+                "y": -6.815000057220459,
+                "yaw": -1.5707964897155762
+            },
+            "axis_aligned_bounds": {
+                "center": {
+                    "x": 2.3799996376037599,
+                    "y": -6.815000057220459
+                },
+                "size": {
+                    "x": 1.5600004196166993,
+                    "y": 0.7200002670288086
+                }
+            },
+            "model_pose": {
+                "x": 2.379999876022339,
+                "y": -6.815000057220459,
+                "yaw": -1.5707964897155762
+            },
+            "oriented_bounds": {
+                "center": {
+                    "x": 2.3799996376037599,
+                    "y": -6.815000057220459
+                },
+                "size": {
+                    "x": 0.7200005650520325,
+                    "y": 1.5600006580352784
+                },
+                "yaw": -1.5707964897155762
+            },
+            "front_yaw": -1.5707964897155762,
+            "front_source": "model_transform_forward",
+            "marker_path": "LayoutA/DestinationCandidates/white_side_table#lobby",
+            "model_path": "LayoutA/DestinationCandidates/white_side_table#lobby",
+            "model_center_distance": 2.384185791015625e-7,
+            "prefab_guid": "",
+            "asset_path": ""
+        },
+        {
+            "id": "wooden_bed#bedroom",
+            "semantic_class": "wooden_bed",
+            "room": "bedroom",
+            "pose": {
+                "x": 8.074999809265137,
+                "y": -2.0899999141693117,
+                "yaw": -1.5707964897155762
+            },
+            "axis_aligned_bounds": {
+                "center": {
+                    "x": 8.074999809265137,
+                    "y": -3.057849407196045
+                },
+                "size": {
+                    "x": 1.7046418190002442,
+                    "y": 2.164065361022949
+                }
+            },
+            "model_pose": {
+                "x": 8.074999809265137,
+                "y": -2.0899999141693117,
+                "yaw": -1.5707964897155762
+            },
+            "oriented_bounds": {
+                "center": {
+                    "x": 8.074999809265137,
+                    "y": -3.057849407196045
+                },
+                "size": {
+                    "x": 2.1640655994415285,
+                    "y": 1.7046418190002442
+                },
+                "yaw": -1.5707964897155762
+            },
+            "front_yaw": -1.5707964897155762,
+            "front_source": "model_transform_forward",
+            "marker_path": "LayoutA/DestinationCandidates/wooden_bed#bedroom",
+            "model_path": "LayoutA/DestinationCandidates/wooden_bed#bedroom/default",
+            "model_center_distance": 0.9678494930267334,
+            "prefab_guid": "",
+            "asset_path": ""
+        }
+    ],
+    "object_spawn_candidates": [
+        {
+            "id": "GraspingCandidatesPosition01",
+            "room": "bedroom",
+            "pose": {
+                "x": 7.441999912261963,
+                "y": -3.930999994277954,
+                "yaw": -1.5707964897155762
+            },
+            "height": 0.6000000238418579
+        },
+        {
+            "id": "GraspingCandidatesPosition02",
+            "room": "bedroom",
+            "pose": {
+                "x": 8.57699966430664,
+                "y": -3.9670000076293947,
+                "yaw": -1.5707964897155762
+            },
+            "height": 0.6000000238418579
+        },
+        {
+            "id": "GraspingCandidatesPosition03",
+            "room": "bedroom",
+            "pose": {
+                "x": 9.455999374389649,
+                "y": -2.321000099182129,
+                "yaw": -1.5707964897155762
+            },
+            "height": 0.7749999761581421
+        },
+        {
+            "id": "GraspingCandidatesPosition04",
+            "room": "bedroom",
+            "pose": {
+                "x": 9.96399974822998,
+                "y": -2.2649998664855959,
+                "yaw": -1.5707964897155762
+            },
+            "height": 0.5450000166893005
+        },
+        {
+            "id": "GraspingCandidatesPosition05",
+            "room": "bedroom",
+            "pose": {
+                "x": 10.545999526977539,
+                "y": -2.257999897003174,
+                "yaw": -1.5707964897155762
+            },
+            "height": 0.5450000166893005
+        },
+        {
+            "id": "GraspingCandidatesPosition06",
+            "room": "bedroom",
+            "pose": {
+                "x": 10.954000473022461,
+                "y": -2.2890000343322756,
+                "yaw": -1.5707964897155762
+            },
+            "height": 0.5450000166893005
+        },
+        {
+            "id": "GraspingCandidatesPosition07",
+            "room": "bedroom",
+            "pose": {
+                "x": 10.767999649047852,
+                "y": -5.7789998054504398,
+                "yaw": -3.1415927410125734
+            },
+            "height": 0.5450000166893005
+        },
+        {
+            "id": "GraspingCandidatesPosition08",
+            "room": "bedroom",
+            "pose": {
+                "x": 10.76300048828125,
+                "y": -6.324999809265137,
+                "yaw": -3.1415927410125734
+            },
+            "height": 0.5450000166893005
+        },
+        {
+            "id": "GraspingCandidatesPosition09",
+            "room": "bedroom",
+            "pose": {
+                "x": 10.76300048828125,
+                "y": -6.794000148773193,
+                "yaw": -3.1415927410125734
+            },
+            "height": 0.5450000166893005
+        },
+        {
+            "id": "GraspingCandidatesPosition11",
+            "room": "kitchen",
+            "pose": {
+                "x": 10.865999221801758,
+                "y": 1.2660000324249268,
+                "yaw": -3.1415927410125734
+            },
+            "height": 0.5450000166893005
+        },
+        {
+            "id": "GraspingCandidatesPosition12",
+            "room": "kitchen",
+            "pose": {
+                "x": 10.868999481201172,
+                "y": 1.88100004196167,
+                "yaw": -3.1415927410125734
+            },
+            "height": 0.5450000166893005
+        },
+        {
+            "id": "GraspingCandidatesPosition13",
+            "room": "kitchen",
+            "pose": {
+                "x": 10.911999702453614,
+                "y": 2.4739999771118166,
+                "yaw": -3.1415927410125734
+            },
+            "height": 0.7599999904632568
+        },
+        {
+            "id": "GraspingCandidatesPosition14",
+            "room": "kitchen",
+            "pose": {
+                "x": 10.347999572753907,
+                "y": 3.989999771118164,
+                "yaw": -2.3561947345733644
+            },
+            "height": 0.9049999713897705
+        },
+        {
+            "id": "GraspingCandidatesPosition15",
+            "room": "kitchen",
+            "pose": {
+                "x": 10.367000579833985,
+                "y": 4.910999774932861,
+                "yaw": -3.1415927410125734
+            },
+            "height": 0.9049999713897705
+        },
+        {
+            "id": "GraspingCandidatesPosition16",
+            "room": "kitchen",
+            "pose": {
+                "x": 7.823999881744385,
+                "y": 3.7899999618530275,
+                "yaw": -3.1415927410125734
+            },
+            "height": 0.7950000166893005
+        },
+        {
+            "id": "GraspingCandidatesPosition17",
+            "room": "kitchen",
+            "pose": {
+                "x": 8.583000183105469,
+                "y": 3.4089999198913576,
+                "yaw": 0.0
+            },
+            "height": 0.7950000166893005
+        },
+        {
+            "id": "GraspingCandidatesPosition18",
+            "room": "kitchen",
+            "pose": {
+                "x": 7.819000244140625,
+                "y": 2.9539999961853029,
+                "yaw": -3.1415927410125734
+            },
+            "height": 0.7950000166893005
+        },
+        {
+            "id": "GraspingCandidatesPosition19",
+            "room": "kitchen",
+            "pose": {
+                "x": 7.8339996337890629,
+                "y": 2.072000026702881,
+                "yaw": -3.1415927410125734
+            },
+            "height": 0.7950000166893005
+        },
+        {
+            "id": "GraspingCandidatesPosition21",
+            "room": "living_room",
+            "pose": {
+                "x": 4.453000068664551,
+                "y": 4.4710001945495609,
+                "yaw": 0.0
+            },
+            "height": 0.8090000152587891
+        },
+        {
+            "id": "GraspingCandidatesPosition22",
+            "room": "living_room",
+            "pose": {
+                "x": 3.9719998836517336,
+                "y": 3.492000102996826,
+                "yaw": -1.5707964897155762
+            },
+            "height": 0.8090000152587891
+        },
+        {
+            "id": "GraspingCandidatesPosition23",
+            "room": "living_room",
+            "pose": {
+                "x": 2.2289998531341554,
+                "y": 3.576000213623047,
+                "yaw": 0.0
+            },
+            "height": 0.49300000071525576
+        },
+        {
+            "id": "GraspingCandidatesPosition24",
+            "room": "living_room",
+            "pose": {
+                "x": 2.2149999141693117,
+                "y": 4.513999938964844,
+                "yaw": 0.0
+            },
+            "height": 0.49300000071525576
+        },
+        {
+            "id": "GraspingCandidatesPosition25",
+            "room": "living_room",
+            "pose": {
+                "x": 2.7860000133514406,
+                "y": 5.9039998054504398,
+                "yaw": -1.5707964897155762
+            },
+            "height": 0.8149999976158142
+        },
+        {
+            "id": "GraspingCandidatesPosition26",
+            "room": "living_room",
+            "pose": {
+                "x": 1.7019999027252198,
+                "y": 3.559999942779541,
+                "yaw": -1.5707964897155762
+            },
+            "height": 0.49300000071525576
+        },
+        {
+            "id": "GraspingCandidatesPosition27",
+            "room": "living_room",
+            "pose": {
+                "x": 2.744999885559082,
+                "y": -0.4140000343322754,
+                "yaw": 1.5707964897155762
+            },
+            "height": 0.5450000166893005
+        },
+        {
+            "id": "GraspingCandidatesPosition28",
+            "room": "living_room",
+            "pose": {
+                "x": 3.3519997596740724,
+                "y": -0.45399999618530276,
+                "yaw": 1.5707964897155762
+            },
+            "height": 0.5450000166893005
+        },
+        {
+            "id": "GraspingCandidatesPosition29",
+            "room": "living_room",
+            "pose": {
+                "x": 3.8909997940063478,
+                "y": -0.44599997997283938,
+                "yaw": 0.0
+            },
+            "height": 0.5450000166893005
+        },
+        {
+            "id": "GraspingCandidatesPosition31",
+            "room": "lobby",
+            "pose": {
+                "x": 3.190999984741211,
+                "y": -2.6490001678466799,
+                "yaw": -1.5707964897155762
+            },
+            "height": 0.6069999933242798
+        },
+        {
+            "id": "GraspingCandidatesPosition32",
+            "room": "lobby",
+            "pose": {
+                "x": 3.5260000228881838,
+                "y": -2.6399998664855959,
+                "yaw": -1.5707964897155762
+            },
+            "height": 0.6039999723434448
+        },
+        {
+            "id": "GraspingCandidatesPosition33",
+            "room": "lobby",
+            "pose": {
+                "x": 3.0119998455047609,
+                "y": -6.775000095367432,
+                "yaw": 0.0
+            },
+            "height": 0.5450000166893005
+        },
+        {
+            "id": "GraspingCandidatesPosition34",
+            "room": "lobby",
+            "pose": {
+                "x": 2.363999843597412,
+                "y": -6.607999801635742,
+                "yaw": 1.5707964897155762
+            },
+            "height": 0.5450000166893005
+        },
+        {
+            "id": "GraspingCandidatesPosition35",
+            "room": "lobby",
+            "pose": {
+                "x": 1.0439996719360352,
+                "y": -6.540999889373779,
+                "yaw": 1.5707964897155762
+            },
+            "height": 0.5210000276565552
+        },
+        {
+            "id": "GraspingCandidatesPosition36",
+            "room": "lobby",
+            "pose": {
+                "x": 0.28100013732910159,
+                "y": -4.658999919891357,
+                "yaw": 0.0
+            },
+            "height": 0.5120000243186951
+        },
+        {
+            "id": "GraspingCandidatesPosition37",
+            "room": "lobby",
+            "pose": {
+                "x": 0.06500005722045899,
+                "y": -3.1430001258850099,
+                "yaw": 0.0
+            },
+            "height": 0.7059999704360962
+        },
+        {
+            "id": "GraspingCandidatesPosition38",
+            "room": "lobby",
+            "pose": {
+                "x": 0.07599973678588867,
+                "y": -2.941999912261963,
+                "yaw": 0.0
+            },
+            "height": 1.0360000133514405
+        },
+        {
+            "id": "GraspingCandidatesPosition39",
+            "room": "lobby",
+            "pose": {
+                "x": 0.07999992370605469,
+                "y": -2.7319998741149904,
+                "yaw": 0.0
+            },
+            "height": 0.37599998712539675
+        }
+    ],
+    "messages": [
+        {
+            "severity": "warning",
+            "text": "Destination model has no prefab source: LayoutA/DestinationCandidates/armchair#lobby"
+        },
+        {
+            "severity": "warning",
+            "text": "Destination model has no prefab source: LayoutA/DestinationCandidates/cardboard_box#bedroom"
+        },
+        {
+            "severity": "warning",
+            "text": "Destination model has no prefab source: LayoutA/SIGVerseHouse/lobby/sofa"
+        },
+        {
+            "severity": "warning",
+            "text": "Destination model has no prefab source: LayoutA/DestinationCandidates/dining_table#kitchen"
+        },
+        {
+            "severity": "warning",
+            "text": "Destination model has no prefab source: LayoutA/DestinationCandidates/square_low_table#living_room"
+        },
+        {
+            "severity": "warning",
+            "text": "Destination model has no prefab source: LayoutA/DestinationCandidates/trash_box_for_bottle_can#living_room/trashbox_c03.001"
+        },
+        {
+            "severity": "warning",
+            "text": "Destination model has no prefab source: LayoutA/DestinationCandidates/trash_box_for_burnable#living_room/trashbox_c02.001"
+        },
+        {
+            "severity": "warning",
+            "text": "Destination model has no prefab source: LayoutA/DestinationCandidates/trash_box_for_recycle#living_room/trashbox_c01.001"
+        },
+        {
+            "severity": "warning",
+            "text": "Destination model has no prefab source: LayoutA/DestinationCandidates/wagon#bedroom"
+        },
+        {
+            "severity": "warning",
+            "text": "Destination model has no prefab source: LayoutA/DestinationCandidates/white_side_table#bedroom_1"
+        },
+        {
+            "severity": "warning",
+            "text": "Destination model has no prefab source: LayoutA/DestinationCandidates/white_side_table#bedroom_2"
+        },
+        {
+            "severity": "warning",
+            "text": "Destination model has no prefab source: LayoutA/DestinationCandidates/white_side_table#kitchen"
+        },
+        {
+            "severity": "warning",
+            "text": "Destination model has no prefab source: LayoutA/DestinationCandidates/white_side_table#living_room"
+        },
+        {
+            "severity": "warning",
+            "text": "Destination model has no prefab source: LayoutA/DestinationCandidates/white_side_table#lobby"
+        },
+        {
+            "severity": "warning",
+            "text": "Destination model has no prefab source: LayoutA/DestinationCandidates/wooden_bed#bedroom/default"
+        }
+    ]
+}

@@ -1,97 +1,89 @@
-#!/usr/bin/env python3
-"""Map-making launch (slam_toolbox / teleop_key) — ROS 2 Humble
-   Replaces original make_map.launch (gmapping).
-   Uses slam_toolbox (the ROS2 SLAM standard) instead of gmapping.
-"""
+import os
+from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
+from launch.launch_description_sources import AnyLaunchDescriptionSource
 
 
 def generate_launch_description():
-    args = [
-        DeclareLaunchArgument('sub_msg_to_robot_topic_name',
-            default_value='/handyman/message/to_robot'),
-        DeclareLaunchArgument('pub_msg_to_moderator_topic_name',
-            default_value='/handyman/message/to_moderator'),
-        DeclareLaunchArgument('sub_joint_state_topic_name',
-            default_value='/hsrb/joint_states'),
-        DeclareLaunchArgument('sub_laser_scan_topic_name',
-            default_value='/hsrb/base_scan'),
-        DeclareLaunchArgument('rgbd_camera',
-            default_value='head_rgbd_sensor'),
-        DeclareLaunchArgument('pub_base_twist_topic_name',
-            default_value='/hsrb/opt_command_velocity'),
-        DeclareLaunchArgument('pub_base_trajectory_topic_name',
-            default_value='/hsrb/omni_base_controller/command'),
-        DeclareLaunchArgument('pub_arm_trajectory_topic_name',
-            default_value='/hsrb/arm_trajectory_controller/command'),
-        DeclareLaunchArgument('pub_gripper_trajectory_topic_name',
-            default_value='/hsrb/gripper_trajectory_controller/command'),
-        DeclareLaunchArgument('sigverse_ros_bridge_port', default_value='50001'),
-        DeclareLaunchArgument('sync_time_num',             default_value='1'),
-        DeclareLaunchArgument('ros_bridge_port',           default_value='9090'),
-    ]
+    scan_topic = LaunchConfiguration('scan_topic', default='/hsrb/base_scan')
+    sigverse_ros_bridge_port = LaunchConfiguration('sigverse_ros_bridge_port', default='50001')
+    ros_bridge_port = LaunchConfiguration('ros_bridge_port', default='9090')
 
-    teleop_node = Node(
+    pkg_share = get_package_share_directory('handyman_ros2')
+    rviz_config = os.path.join(pkg_share, 'launch', 'hsr.rviz')
+
+    teleop_key_node = Node(
         package='handyman_ros2',
         executable='teleop_key_handyman',
         name='teleop_key_handyman',
         output='screen',
-        prefix='xterm -e',
-        parameters=[{
-            'sub_msg_to_robot_topic_name':
-                LaunchConfiguration('sub_msg_to_robot_topic_name'),
-            'pub_msg_to_moderator_topic_name':
-                LaunchConfiguration('pub_msg_to_moderator_topic_name'),
-            'sub_joint_state_topic_name':
-                LaunchConfiguration('sub_joint_state_topic_name'),
-            'pub_base_twist_topic_name':
-                LaunchConfiguration('pub_base_twist_topic_name'),
-            'pub_base_trajectory_topic_name':
-                LaunchConfiguration('pub_base_trajectory_topic_name'),
-            'pub_arm_trajectory_topic_name':
-                LaunchConfiguration('pub_arm_trajectory_topic_name'),
-            'pub_gripper_trajectory_topic_name':
-                LaunchConfiguration('pub_gripper_trajectory_topic_name'),
-        }],
     )
 
-    # slam_toolbox online async mapper (replaces gmapping)
-    slam_node = Node(
+    slam_toolbox_node = Node(
         package='slam_toolbox',
         executable='async_slam_toolbox_node',
         name='slam_toolbox',
         output='screen',
         parameters=[{
-            'base_frame':           'base_footprint',
-            'odom_frame':           'odom',
-            'map_update_interval':  0.1,
-            'max_laser_range':      4.0,
+            'base_frame': 'base_footprint',
+            'odom_frame': 'odom',
+            'map_update_interval': 0.1,
+            'max_laser_range': 4.0,
             'minimum_travel_distance': 0.2,
-            'minimum_travel_heading':  0.2,
-            'scan_buffer_size':     10,
-            'use_sim_time':         False,
+            'minimum_travel_heading': 0.2,
+            'resolution': 0.05,
         }],
-        remappings=[('scan', LaunchConfiguration('sub_laser_scan_topic_name'))],
+        remappings=[
+            ('scan', scan_topic),
+        ],
     )
 
-    rviz_node = Node(
+    rviz2_node = Node(
         package='rviz2',
         executable='rviz2',
-        name='rviz2',
-        arguments=['-d',
-            PathJoinSubstitution(
-                [FindPackageShare('handyman_ros2'), 'launch', 'hsr.rviz'])],
+        name='rviz',
+        arguments=['-d', rviz_config],
+        output='screen',
     )
 
-    rosbridge_node = Node(
-        package='rosbridge_server',
-        executable='rosbridge_websocket',
-        name='rosbridge_websocket',
-        parameters=[{'port': LaunchConfiguration('ros_bridge_port')}],
+    sigverse_ros_bridge_node = Node(
+        package='sigverse_ros_bridge',
+        executable='sigverse_ros_bridge',
+        name='sigverse_ros_bridge',
+        arguments=[sigverse_ros_bridge_port],
+        output='screen',
     )
 
-    return LaunchDescription(args + [teleop_node, slam_node, rviz_node, rosbridge_node])
+    rosbridge_websocket = IncludeLaunchDescription(
+        AnyLaunchDescriptionSource(
+            PathJoinSubstitution([
+                FindPackageShare('rosbridge_server'),
+                'launch',
+                'rosbridge_websocket_launch.xml',
+            ])
+        ),
+        launch_arguments={
+            'port': ros_bridge_port,
+            'default_call_service_timeout': '5.0',
+            'call_services_in_new_thread': 'true',
+            'send_action_goals_in_new_thread': 'true',
+        }.items(),
+    )
+
+    ld = LaunchDescription()
+
+    ld.add_action(DeclareLaunchArgument('scan_topic', default_value='/hsrb/base_scan'))
+    ld.add_action(DeclareLaunchArgument('sigverse_ros_bridge_port', default_value='50001'))
+    ld.add_action(DeclareLaunchArgument('ros_bridge_port', default_value='9090'))
+
+    ld.add_action(rosbridge_websocket)
+    ld.add_action(sigverse_ros_bridge_node)
+    ld.add_action(rviz2_node)
+    ld.add_action(slam_toolbox_node)
+    ld.add_action(teleop_key_node)
+
+    return ld

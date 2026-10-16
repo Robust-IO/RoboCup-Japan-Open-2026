@@ -1,7 +1,3 @@
-# costmap_common_params_hsr.yaml — preserved for reference
-# In ROS2 these settings are folded into nav2_params.yaml
-# This file is kept for compatibility documentation only.
-
 obstacle_range: 2.5
 raytrace_range: 3.5
 footprint: [[-0.205, -0.145], [-0.205, 0.145], [0.077, 0.145], [0.077, -0.145]]
@@ -11,15 +7,11 @@ inflation_radius: 0.45
 cost_scaling_factor: 1.0
 transform_tolerance: 10
 observation_sources: base_scan
-base_scan:
-  data_type: LaserScan
-  topic: /hsrb/base_scan
-  marking: true
-  clearing: true
-  observation_persistence: 0.0
-  max_obstacle_height: 2.0
+base_scan: {data_type: LaserScan, topic: /hsrb/base_scan, marking: true, clearing: true, observation_persistence: 0.0, max_obstacle_height: 2.0}
+#sensor_frame:
 
+# 显式指定代价地图插件
 plugins:
-  - {name: static_layer,  type: "nav2_costmap_2d::StaticLayer"}
-  - {name: obstacles,     type: "nav2_costmap_2d::ObstacleLayer"}
-  - {name: inflater,      type: "nav2_costmap_2d::InflationLayer"}
+  - {name: static_layer, type: "costmap_2d::StaticLayer"}
+  - {name: obstacles, type: "costmap_2d::ObstacleLayer"}
+  - {name: inflater, type: "costmap_2d::InflationLayer"}

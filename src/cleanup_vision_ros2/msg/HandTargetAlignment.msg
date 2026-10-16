@@ -1,0 +1,11 @@
+std_msgs/Header header
+bool is_target_found
+string target_class
+float32 pixel_error_x
+float32 pixel_error_y
+float32 bbox_area_ratio
+bool in_grasp_window
+float32 recommended_linear_x
+float32 recommended_linear_y
+float32 recommended_lift_delta
+float32 confidence

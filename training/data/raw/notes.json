@@ -1,0 +1,36 @@
+{
+  "categories": [
+    {"id": "0", "name": "apple"},
+    {"id": "1", "name": "bear_doll"},
+    {"id": "2", "name": "camera"},
+    {"id": "3", "name": "canned_juice"},
+    {"id": "4", "name": "cigarette"},
+    {"id": "5", "name": "cubic_clock"},
+    {"id": "6", "name": "dog_doll"},
+    {"id": "7", "name": "empty_ketchup"},
+    {"id": "8", "name": "empty_plastic_bottle"},
+    {"id": "9", "name": "filled_ketchup"},
+    {"id": "10", "name": "filled_plastic_bottle"},
+    {"id": "11", "name": "ground_pepper"},
+    {"id": "12", "name": "hourglass"},
+    {"id": "13", "name": "nursing_bottle"},
+    {"id": "14", "name": "pink_cup"},
+    {"id": "15", "name": "rabbit_doll"},
+    {"id": "16", "name": "rubiks_cube"},
+    {"id": "17", "name": "salt"},
+    {"id": "18", "name": "sauce"},
+    {"id": "19", "name": "soysauce"},
+    {"id": "20", "name": "spray_bottle"},
+    {"id": "21", "name": "sugar"},
+    {"id": "22", "name": "toy_car"},
+    {"id": "23", "name": "toy_duck"},
+    {"id": "24", "name": "toy_penguin"},
+    {"id": "25", "name": "tumbler"},
+    {"id": "26", "name": "white_cup"}
+  ],
+  "info": {
+    "year": 2026,
+    "version": "1.0",
+    "contributor": "Label Studio"
+  }
+}

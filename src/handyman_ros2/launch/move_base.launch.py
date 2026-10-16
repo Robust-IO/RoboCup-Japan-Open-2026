@@ -1,32 +1,28 @@
-#!/usr/bin/env python3
-"""Nav2 navigation stack launch — ROS 2 Humble
-   Replaces original move_base.launch XML.
-   Loads all original param files (DWA planner, costmaps, etc.).
-"""
+import os
+from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
-from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
-    pkg = FindPackageShare('handyman_ros2')
+    cmd_vel_topic = LaunchConfiguration('cmd_vel_topic', default='/hsrb/command_velocity')
 
-    args = [
-        DeclareLaunchArgument('cmd_vel_topic',
-            default_value='/hsrb/command_velocity'),
-    ]
-
-    nav2_params = PathJoinSubstitution([pkg, 'param', 'nav2_params.yaml'])
+    pkg_share = get_package_share_directory('handyman_ros2')
+    nav2_params_file = os.path.join(pkg_share, 'param', 'nav2_params.yaml')
+    nav_to_pose_bt = os.path.join(
+        pkg_share, 'behavior_trees', 'navigate_w_recovery.xml')
 
     controller_server = Node(
         package='nav2_controller',
         executable='controller_server',
         name='controller_server',
         output='screen',
-        parameters=[nav2_params],
-        remappings=[('cmd_vel', LaunchConfiguration('cmd_vel_topic'))],
+        parameters=[nav2_params_file],
+        remappings=[
+            ('cmd_vel', cmd_vel_topic),
+        ],
     )
 
     planner_server = Node(
@@ -34,7 +30,18 @@ def generate_launch_description():
         executable='planner_server',
         name='planner_server',
         output='screen',
-        parameters=[nav2_params],
+        parameters=[nav2_params_file],
+    )
+
+    behavior_server = Node(
+        package='nav2_behaviors',
+        executable='behavior_server',
+        name='behavior_server',
+        output='screen',
+        parameters=[nav2_params_file],
+        remappings=[
+            ('cmd_vel', cmd_vel_topic),
+        ],
     )
 
     bt_navigator = Node(
@@ -42,15 +49,9 @@ def generate_launch_description():
         executable='bt_navigator',
         name='bt_navigator',
         output='screen',
-        parameters=[nav2_params],
-    )
-
-    recoveries_server = Node(
-        package='nav2_behaviors',
-        executable='behavior_server',
-        name='behavior_server',
-        output='screen',
-        parameters=[nav2_params],
+        parameters=[nav2_params_file, {
+            'default_nav_to_pose_bt_xml': nav_to_pose_bt,
+        }],
     )
 
     lifecycle_manager = Node(
@@ -59,14 +60,26 @@ def generate_launch_description():
         name='lifecycle_manager_navigation',
         output='screen',
         parameters=[{
-            'use_sim_time':  False,
-            'autostart':     True,
-            'node_names':    ['controller_server','planner_server',
-                              'bt_navigator','behavior_server'],
+            'autostart': True,
+            'node_names': [
+                'controller_server',
+                'planner_server',
+                'behavior_server',
+                'bt_navigator',
+            ],
         }],
     )
 
-    return LaunchDescription(
-        args + [controller_server, planner_server, bt_navigator,
-                recoveries_server, lifecycle_manager]
-    )
+    ld = LaunchDescription()
+
+    ld.add_action(DeclareLaunchArgument(
+        'cmd_vel_topic', default_value='/hsrb/command_velocity',
+    ))
+
+    ld.add_action(controller_server)
+    ld.add_action(planner_server)
+    ld.add_action(behavior_server)
+    ld.add_action(bt_navigator)
+    ld.add_action(lifecycle_manager)
+
+    return ld

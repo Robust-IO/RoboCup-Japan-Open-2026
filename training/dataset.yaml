@@ -1,0 +1,33 @@
+path: training
+train: data/images/train
+val: data/images/val
+test: data/images/test
+
+names:
+  0: apple
+  1: bear_doll
+  2: camera
+  3: canned_juice
+  4: cigarette
+  5: cubic_clock
+  6: dog_doll
+  7: empty_ketchup
+  8: empty_plastic_bottle
+  9: filled_ketchup
+  10: filled_plastic_bottle
+  11: ground_pepper
+  12: hourglass
+  13: nursing_bottle
+  14: pink_cup
+  15: rabbit_doll
+  16: rubiks_cube
+  17: salt
+  18: sauce
+  19: soysauce
+  20: spray_bottle
+  21: sugar
+  22: toy_car
+  23: toy_duck
+  24: toy_penguin
+  25: tumbler
+  26: white_cup

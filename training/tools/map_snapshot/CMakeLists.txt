@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.8)
+project(handyman_map_snapshot)
+find_package(ament_cmake REQUIRED)
+find_package(nav2_map_server REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(nav_msgs REQUIRED)
+add_executable(map_snapshot map_snapshot.cpp)
+ament_target_dependencies(map_snapshot nav2_map_server rclcpp nav_msgs)

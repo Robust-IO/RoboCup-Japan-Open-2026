@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "source": "/mnt/c/Users/wpb15/handyman-export-v2-20260906-1747",
+  "layouts": [
+    {
+      "layout": "LayoutA",
+      "environment": "LayoutA",
+      "grid": {
+        "width": 281,
+        "height": 323,
+        "resolution": 0.05,
+        "free_components": [
+          49913
+        ]
+      },
+      "initial_pose_snapped": false,
+      "room_region_inset_m": 0.05,
+      "robot_component": 0,
+      "room_components": {
+        "bedroom": 0,
+        "kitchen": 0,
+        "living_room": 0,
+        "lobby": 0
+      },
+      "rooms_disconnected_from_robot": [],
+      "search_point_counts": {
+        "living_room": 4,
+        "kitchen": 4,
+        "bedroom": 4,
+        "lobby": 4
+      },
+      "route_waypoint_counts": {
+        "bedroom->kitchen": 2,
+        "bedroom->living_room": 3,
+        "bedroom->lobby": 2,
+        "kitchen->bedroom": 1,
+        "kitchen->living_room": 3,
+        "kitchen->lobby": 2,
+        "living_room->bedroom": 1,
+        "living_room->kitchen": 2,
+        "living_room->lobby": 2,
+        "lobby->bedroom": 1,
+        "lobby->kitchen": 2,
+        "lobby->living_room": 3
+      },
+      "doorway_counts": {
+        "living_room": 4,
+        "kitchen": 2,
+        "bedroom": 1,
+        "lobby": 2
+      },
+      "destination_approach_counts": {
+        "armchair#lobby": 3,
+        "cardboard_box#bedroom": 3,
+        "corner_sofa#lobby": 3,
+        "dining_table#kitchen": 3,
+        "square_low_table#living_room": 3,
+        "trash_box_for_bottle_can#living_room": 3,
+        "trash_box_for_burnable#living_room": 3,
+        "trash_box_for_recycle#living_room": 3,
+        "wagon#bedroom": 3,
+        "white_side_table#bedroom_1": 3,
+        "white_side_table#bedroom_2": 3,
+        "white_side_table#kitchen": 3,
+        "white_side_table#living_room": 3,
+        "white_side_table#lobby": 3,
+        "wooden_bed#bedroom": 3
+      }
+    },
+    {
+      "layout": "LayoutB",
+      "environment": "LayoutB",
+      "grid": {
+        "width": 519,
+        "height": 300,
+        "resolution": 0.05,
+        "free_components": [
+          40722,
+          13402
+        ]
+      },
+      "initial_pose_snapped": false,
+      "room_region_inset_m": 0.05,
+      "robot_component": 0,
+      "room_components": {
+        "bedroom": 0,
+        "kitchen": 0,
+        "living_room": 0,
+        "lobby": 1
+      },
+      "rooms_disconnected_from_robot": [
+        "lobby"
+      ],
+      "search_point_counts": {
+        "living_room": 4,
+        "kitchen": 4,
+        "bedroom": 4,
+        "lobby": 4
+      },
+      "route_waypoint_counts": {
+        "bedroom->kitchen": 1,
+        "bedroom->living_room": 1,
+        "bedroom->lobby": 0,
+        "kitchen->bedroom": 1,
+        "kitchen->living_room": 1,
+        "kitchen->lobby": 0,
+        "living_room->bedroom": 1,
+        "living_room->kitchen": 1,
+        "living_room->lobby": 0,
+        "lobby->bedroom": 0,
+        "lobby->kitchen": 0,
+        "lobby->living_room": 0
+      },
+      "doorway_counts": {
+        "living_room": 2,
+        "kitchen": 1,
+        "bedroom": 1,
+        "lobby": 0
+      },
+      "destination_approach_counts": {
+        "cardboard_box#bedroom": 3,
+        "iron_bed#bedroom": 3,
+        "round_low_table#living_room": 3,
+        "trash_box_for_bottle_can#kitchen": 3,
+        "trash_box_for_bottle_can#living_room": 3,
+        "trash_box_for_burnable#living_room": 3,
+        "white_side_table#bedroom_1": 3,
+        "white_side_table#living_room_1": 3,
+        "white_side_table#living_room_2": 3,
+        "wooden_shelf#bedroom": 3,
+        "wooden_side_table#kitchen": 3,
+        "wooden_side_table#living_room": 3
+      }
+    },
+    {
+      "layout": "LayoutC",
+      "environment": "LayoutC",
+      "grid": {
+        "width": 281,
+        "height": 487,
+        "resolution": 0.05,
+        "free_components": [
+          35917,
+          16272
+        ]
+      },
+      "initial_pose_snapped": false,
+      "room_region_inset_m": 0.05,
+      "robot_component": 1,
+      "room_components": {
+        "bedroom": 1,
+        "kitchen": 0,
+        "living_room": 1,
+        "lobby": 1
+      },
+      "rooms_disconnected_from_robot": [
+        "kitchen"
+      ],
+      "search_point_counts": {
+        "living_room": 4,
+        "kitchen": 4,
+        "bedroom": 4,
+        "lobby": 4
+      },
+      "route_waypoint_counts": {
+        "bedroom->kitchen": 0,
+        "bedroom->living_room": 1,
+        "bedroom->lobby": 1,
+        "kitchen->bedroom": 0,
+        "kitchen->living_room": 0,
+        "kitchen->lobby": 0,
+        "living_room->bedroom": 1,
+        "living_room->kitchen": 0,
+        "living_room->lobby": 1,
+        "lobby->bedroom": 1,
+        "lobby->kitchen": 0,
+        "lobby->living_room": 1
+      },
+      "doorway_counts": {
+        "living_room": 1,
+        "kitchen": 0,
+        "bedroom": 1,
+        "lobby": 2
+      },
+      "destination_approach_counts": {
+        "armchair#lobby_1": 3,
+        "armchair#lobby_2": 3,
+        "cardboard_box#bedroom": 3,
+        "corner_sofa#living_room": 3,
+        "dining_table#living_room": 3,
+        "dining_table#lobby": 3,
+        "trash_box_for_burnable#living_room": 3,
+        "trash_box_for_burnable#lobby": 3,
+        "wagon#bedroom": 3,
+        "wagon#living_room": 3,
+        "white_side_table#bedroom_1": 3,
+        "white_side_table#living_room": 3,
+        "white_side_table#lobby": 3,
+        "wooden_bed#bedroom": 3
+      }
+    },
+    {
+      "layout": "LayoutD",
+      "environment": "LayoutD",
+      "grid": {
+        "width": 281,
+        "height": 460,
+        "resolution": 0.05,
+        "free_components": [
+          53957
+        ]
+      },
+      "initial_pose_snapped": false,
+      "room_region_inset_m": 0.05,
+      "robot_component": 0,
+      "room_components": {
+        "bedroom": 0,
+        "kitchen": 0,
+        "living_room": 0,
+        "lobby": 0
+      },
+      "rooms_disconnected_from_robot": [],
+      "search_point_counts": {
+        "living_room": 4,
+        "kitchen": 4,
+        "bedroom": 4,
+        "lobby": 4
+      },
+      "route_waypoint_counts": {
+        "bedroom->kitchen": 1,
+        "bedroom->living_room": 3,
+        "bedroom->lobby": 1,
+        "kitchen->bedroom": 1,
+        "kitchen->living_room": 1,
+        "kitchen->lobby": 1,
+        "living_room->bedroom": 1,
+        "living_room->kitchen": 1,
+        "living_room->lobby": 1,
+        "lobby->bedroom": 1,
+        "lobby->kitchen": 1,
+        "lobby->living_room": 1
+      },
+      "doorway_counts": {
+        "living_room": 3,
+        "kitchen": 1,
+        "bedroom": 1,
+        "lobby": 1
+      },
+      "destination_approach_counts": {
+        "armchair#lobby": 3,
+        "cardboard_box#lobby": 3,
+        "dining_table#lobby": 3,
+        "iron_bed#bedroom": 3,
+        "round_low_table#living_room": 3,
+        "square_low_table#living_room": 3,
+        "trash_box_for_bottle_can#bedroom": 3,
+        "trash_box_for_burnable#kitchen": 3,
+        "trash_box_for_burnable#living_room": 3,
+        "trash_box_for_recycle#kitchen": 3,
+        "wagon#bedroom": 3,
+        "white_side_table#bedroom": 3,
+        "white_side_table#living_room": 3,
+        "white_side_table#lobby": 3,
+        "wooden_shelf#living_room": 3,
+        "wooden_shelf#lobby": 3,
+        "wooden_side_table#kitchen": 3,
+        "wooden_side_table#lobby": 3
+      }
+    }
+  ]
+}

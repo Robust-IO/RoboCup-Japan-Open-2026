@@ -1,24 +1,76 @@
+#Docker配置文件
 Dockerfile
-log/*
-build/*
-install/*
+
+# 本地文档参考内容
 docs/*
 picture/*
 reference/*
+*.md
+!readme.md
+!Interactive-cleanup-overview.md
+!Handyman-overview.md
+!src/handyman_rebuild_ros2/阶段3导航.md
 
-# pixi environments
+# 本地日志，编译，安装文件
+log/*
+build/*
+install/*
+.worktrees/
+
+# pixi 环境
 .pixi/*
 !.pixi/config.toml
-.claude/*
-unsolved.md
 
-# model weights
+
+# 模型权重
 *.pt
 *.task
-# Keep the compact 13-class model required by Interactive Cleanup reproducible.
+# Interactive Cleanup runtime requires its compact 13-class detector.
 !src/cleanup_vision_ros2/models/cleanup_model.pt
-PROJECT_CONTEXT.md
 
-# Python bytecode/cache
-__pycache__/
-*.py[cod]
+# Cursor 和Coding Agent本地配置
+.cursorignore
+.cursorrules
+.cursor/*
+.claude/*
+
+# training 目录：保留脚本、测试、配置和文档；忽略数据、权重与训练结果
+!training/README.md
+!training/DATA_COLLECTION.md
+!training/classes.txt
+!training/dataset.yaml
+!training/scripts/
+!training/scripts/**
+!training/tests/
+!training/tests/**
+
+# training 原始数据与划分数据
+training/data/raw/**
+!training/data/raw/**/
+!training/data/raw/**/.gitkeep
+!training/data/raw/README.md
+training/data/images/**
+!training/data/images/**/
+!training/data/images/**/.gitkeep
+training/data/labels/**
+!training/data/labels/**/
+!training/data/labels/**/.gitkeep
+
+# training 训练输出、导出产物和本地权重
+training/runs/**
+!training/runs/**/
+!training/runs/**/.gitkeep
+training/exports/**
+!training/exports/**/
+!training/exports/**/.gitkeep
+training/weights/**
+!training/weights/**/
+!training/weights/**/.gitkeep
+
+# training Python 缓存
+**/__pycache__/
+training/scripts/__pycache__/
+training/tests/__pycache__/
+
+#b本地输出日志
+log.txt

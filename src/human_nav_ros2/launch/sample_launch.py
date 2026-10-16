@@ -1,42 +1,22 @@
 # 原 ROS1: launch/sample.launch -> ROS2: launch/sample_launch.py
 # 等价迁移：启动 human_navigation_sample 节点
 # 按照官方 competition_test_tools 标准，包含 sigverse_ros_bridge 和 rosbridge_websocket
+# 启动 human_navigation_sample（deterministic guidance only）
 
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, OpaqueFunction
+from launch.launch_description_sources import AnyLaunchDescriptionSource
+from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
-from launch.actions import IncludeLaunchDescription
-from launch.launch_description_sources import AnyLaunchDescriptionSource
-from launch.substitutions import PathJoinSubstitution
 
 
-def generate_launch_description():
-    # 官方标准端口参数
-    sigverse_ros_bridge_port = LaunchConfiguration(
-        "sigverse_ros_bridge_port", default="50001"
-    )
-    ros_bridge_port = LaunchConfiguration("ros_bridge_port", default="9090")
+def _launch_setup(context, *args, **kwargs):
+    sigverse_ros_bridge_port = LaunchConfiguration("sigverse_ros_bridge_port").perform(context)
+    ros_bridge_port = LaunchConfiguration("ros_bridge_port").perform(context)
 
-    # human_navigation_sample 节点
-    human_navigation_sample_node = Node(
-        package="human_nav_ros2",
-        executable="human_navigation_sample",
-        name="human_navigation_sample",
-        output="screen",
-    )
+    direction_hint_interval = float(LaunchConfiguration("direction_hint_interval_sec").perform(context))
 
-    # sigverse_ros_bridge 节点（官方标准必需组件）
-    sigverse_ros_bridge_node = Node(
-        package="sigverse_ros_bridge",
-        executable="sigverse_ros_bridge",
-        name="sigverse_ros_bridge",
-        arguments=[sigverse_ros_bridge_port],
-        output="screen",
-    )
-
-    # rosbridge_websocket（使用官方 launch.xml 并带标准参数）
     rosbridge_websocket = IncludeLaunchDescription(
         AnyLaunchDescriptionSource(
             PathJoinSubstitution([
@@ -53,27 +33,54 @@ def generate_launch_description():
         }.items(),
     )
 
-    ld = LaunchDescription()
-
-    # 声明参数
-    ld.add_action(
-        DeclareLaunchArgument(
-            "sigverse_ros_bridge_port",
-            default_value="50001",
-            description="Port for sigverse_ros_bridge.",
-        )
-    )
-    ld.add_action(
-        DeclareLaunchArgument(
-            "ros_bridge_port",
-            default_value="9090",
-            description="Port for rosbridge websocket.",
-        )
+    sigverse_ros_bridge_node = Node(
+        package="sigverse_ros_bridge",
+        executable="sigverse_ros_bridge",
+        name="sigverse_ros_bridge",
+        arguments=[sigverse_ros_bridge_port],
+        output="screen",
     )
 
-    # 添加节点（按官方标准顺序）
-    ld.add_action(rosbridge_websocket)
-    ld.add_action(sigverse_ros_bridge_node)
-    ld.add_action(human_navigation_sample_node)
+    actions = [
+        rosbridge_websocket,
+        sigverse_ros_bridge_node,
+    ]
 
-    return ld
+    actions.append(
+        Node(
+            package="human_nav_ros2",
+            executable="human_navigation_sample",
+            name="human_navigation_sample",
+            output="screen",
+            parameters=[
+                {
+                    "direction_hint_interval_sec": direction_hint_interval,
+                }
+            ],
+        )
+    )
+
+    return actions
+
+
+def generate_launch_description():
+    return LaunchDescription(
+        [
+            DeclareLaunchArgument(
+                "sigverse_ros_bridge_port",
+                default_value="50001",
+                description="Port for sigverse_ros_bridge.",
+            ),
+            DeclareLaunchArgument(
+                "ros_bridge_port",
+                default_value="9090",
+                description="Port for rosbridge websocket.",
+            ),
+            DeclareLaunchArgument(
+                "direction_hint_interval_sec",
+                default_value="10.0",
+                description="Interval (seconds) between directional hints (Forward/Left/Right/Backward).",
+            ),
+            OpaqueFunction(function=_launch_setup),
+        ]
+    )

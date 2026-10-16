@@ -104,7 +104,7 @@ Visualization Manager:
 
     - Class: rviz_default_plugins/Image
       Enabled: true
-      Name: RGB Camera
+      Name: Head RGB Camera
       Value: true
       Max Value: 1
       Median window: 5
@@ -116,6 +116,21 @@ Visualization Manager:
         History Policy: Keep Last
         Reliability Policy: Best Effort
         Value: /hsrb/head_rgbd_sensor/rgb/image_raw
+
+    - Class: rviz_default_plugins/Image
+      Enabled: true
+      Name: Hand RGB Camera
+      Value: true
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Normalize Range: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /hsrb/hand_camera/image_raw
 
     - Class: rviz_default_plugins/Image
       Enabled: false
@@ -133,9 +148,9 @@ Visualization Manager:
         Value: /hsrb/head_rgbd_sensor/depth/image_raw
 
     - Class: rviz_default_plugins/Image
-      Enabled: false
-      Name: Debug Image
-      Value: false
+      Enabled: true
+      Name: Head Debug Image
+      Value: true
       Max Value: 1
       Median window: 5
       Min Value: 0
@@ -145,7 +160,50 @@ Visualization Manager:
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Best Effort
-        Value: /cleanup_vision/debug_image
+        Value: /cleanup_perception/debug/head_image
+
+    - Class: rviz_default_plugins/Image
+      Enabled: true
+      Name: Hand Debug Image
+      Value: true
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Normalize Range: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /cleanup_perception/debug/hand_image
+
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Head Perception Markers
+      Namespaces:
+        {}
+      Queue Size: 10
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /cleanup_perception/debug/head_markers
+      Value: true
+
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Hand Perception Markers
+      Namespaces:
+        {}
+      Queue Size: 10
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /cleanup_perception/debug/hand_markers
+      Value: true
 
     - Class: rviz_default_plugins/Map
       Enabled: true
@@ -294,11 +352,13 @@ Window Geometry:
   Height: 900
   Hide Left Dock: false
   Hide Right Dock: true
-  RGB Camera:
+  Head RGB Camera:
     collapsed: false
   Depth Camera:
     collapsed: false
-  Debug Image:
+  Head Debug Image:
+    collapsed: false
+  Hand Debug Image:
     collapsed: false
   Views:
     collapsed: true

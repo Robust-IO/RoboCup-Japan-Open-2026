@@ -1,6 +1,3 @@
-# global_costmap_params.yaml — ROS2 Humble
-# Kept as standalone reference; primary config is nav2_params.yaml
-
 global_costmap:
   global_frame: map
   robot_base_frame: base_footprint
@@ -9,5 +6,7 @@ global_costmap:
   rolling_window: false
   transform_tolerance: 10
   always_send_full_costmap: true
+  
+  # Static layer specific parameters
   static_layer:
     static_map: true

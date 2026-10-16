@@ -1,0 +1,55 @@
+2026-09-17：真实视觉记录与搜索运行器联调
+
+run_search_session_runtime.py 新增可选 --vision-log，仅可用于隔离域 73 / localhost
+的 sequence 和 no_target 场景。默认测试行为不变；未改正式搜索运行器。
+
+接线已存在：search_session_runtime.py 通过 --vision-topic 把诊断主题交给
+search_arrival_ros.py，后者检查目标绑定、导航终态和 TF 停稳，再用视觉适配器
+消费新的稳定帧。终态由运行器在清理完成后上报，不发送抓取或比赛完成消息。
+
+回放保留真实模型检测、深度定位和质量结果，但循环读取记录并重新赋予当前
+时间戳；导航、TF 和时序均为合成。这只验证进程接线和状态流转，不验证物体
+相对模拟搜索点的几何关系、真实网络时延或真实机器人导航。
+
+sequence：两轮请求都应 found，返回位置必须来自输入记录，旧任务取消不得
+影响新任务，观察器和执行器退出码为 0，cleanup_verified=true。
+no_target：使用已移除饮料罐的原始记录，不人为删检测；应 incomplete 且无
+position_m，不授权 Does_not_exist。测试中不发送 Task_finished/Object_grasped。
+
+限制：目前运行器一次只执行一个指定搜索点；完整房间多点调度、覆盖证明和
+正式比赛结果回传尚不能据此宣告完成。实时当前位置 found 已另行验证，但
+“真实导航到点 + 在线视觉”的一体化实测仍待进行。
+
+续搜证据接入：search_arrival_ros.py 终态新增 view_evidence，只有真实观察器的
+arrived_and_settled 事件才记录到达。连续健康且已通过视觉适配器校验的未检出
+帧记录深度时间戳；错误、目标出现、重试或超过 0.5 秒数据空档会清除或重建
+这一连续记录。它不是房间覆盖证明，也不是独立的传感器/地图认证。
+
+运行器可选 --view-seconds，必须短于 --observation-seconds；默认不变。
+前者从到点观察开始计时，后者仍是观察器包括到达等待在内的总体期限。
+只有 observation_timeout、到达证据、近期至少三条连续未检出帧和已验证清理
+同时满足时，search_point_sequence.py 的 complete_observation 才准许下一点。
+
+隔离测试 --case no_target --verify-continuation --vision-log <移除记录> 验证了
+运行器真实终态结果能触发下一点规则；该测试仅生成 next-point-policy-only
+决策，没有派发第二个导航目标。在线多点执行尚未启用。
+
+后续更新：运行器新增 --multi-point 实验入口，必须同时设置 --view-seconds，
+仅允许 domain 73、localhost 和 /handyman_test/navigate_to_pose，禁止 --allow-live。
+默认单点模式保持不变。第一点未发现时执行私有取消/退出流程，不向协调器
+宣告整个任务结束；确认旧进程退出和已登记目标全部终态后，才建立下一点。
+下一点使用独立私有主题和目录，复用已核验的同一任务与地图，不延长原请求
+30 秒有效期。取消发生在切换期间会阻止下一目标；地图失效和故障也禁止续搜。
+
+隔离实测：--case sequence --multi-point 派发两个不同 UUID，第一点未发现，
+第二点 found；--cancel-at-transition 在私有清理期间取消，只派发第一点且无
+结果；原 --case sequence 两轮单点回归通过。以上使用合成 TF/导航/视觉，
+并非真实 Unity 多点导航实测。全房间耗尽、跨点超时和更多故障组合仍待测试，
+正式 Unity 多点模式继续禁止，不授权 Does_not_exist。
+
+边界验证更新：--exhaust-points 遍历 LayoutA 厨房全部 4 点，4 个不同 UUID，
+最终 incomplete，无物体坐标、无 Does_not_exist，退出无残留子进程。
+--expire-during-second 将第二点模拟导航延迟 40 秒，原任务从请求准备起约
+30 秒过期；第二个 UUID 被精确取消并记录 CANCELED，没有第三个目标、没有
+found 或不存在结果。任务过期进入故障锁定，不因换点自动续期或自动重启。
+这两项仍是隔离模拟，不代表真实地图搜索覆盖已经完成。
