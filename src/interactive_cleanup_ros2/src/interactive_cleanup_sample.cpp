@@ -164,7 +164,6 @@ private:
   const std::vector<double> ARM_GRASP_LOW     = {0.00, -2.20,  0.0,  0.35,  0.0};
   const std::vector<double> ARM_CARRY         = {0.3,   0.0,   0.0, -1.57,  0.0};
   const std::vector<double> ARM_RELEASE_READY = {0.2,  -0.8,   0.0, -1.0,   0.0};
-  const std::vector<double> ARM_RELEASE_LOW   = {0.05, -1.0,   0.0, -0.5,   0.0};
 
   // =========================================================================
   // Head scan patterns
@@ -195,7 +194,7 @@ private:
   static constexpr double TIMEOUT_POINTING_WAIT = 15.0;
   static constexpr double TIMEOUT_MOVE         =  60.0;
   static constexpr double TIMEOUT_GRASP        =  30.0;
-  static constexpr double TIMEOUT_RELEASE      =  30.0;
+  static constexpr double TIMEOUT_RELEASE      =  45.0;
   static constexpr double TIMEOUT_WAIT_RESULT  =  60.0;
   static constexpr double READY_ACK_RESEND_INTERVAL = 0.5;
   static constexpr double POINTING_MAX_AGE_SEC =   1.5;
@@ -225,6 +224,16 @@ private:
   static constexpr double GRIPPER_ALIGN_LATERAL_TOLERANCE = 0.012;
   static constexpr int    GRIPPER_ALIGN_STABLE_CYCLES = 3;
   static constexpr double GRIPPER_MAX_HEIGHT_ABOVE_TARGET = 0.08;
+  // Destination motion has two distinct stages.  The base first stops where
+  // carried-object collisions are unlikely, then the real finger collision
+  // midpoint is servoed onto a point inside Unity's placement trigger.
+  static constexpr double DESTINATION_COARSE_STOP_DIST = 0.78;
+  static constexpr double DESTINATION_MIN_BASE_CLEARANCE = 0.48;
+  static constexpr double RELEASE_ALIGN_TIMEOUT = 20.0;
+  static constexpr double RELEASE_ALIGN_FORWARD_TOLERANCE = 0.030;
+  static constexpr double RELEASE_ALIGN_LATERAL_TOLERANCE = 0.025;
+  static constexpr int    RELEASE_ALIGN_STABLE_CYCLES = 3;
+  static constexpr double RELEASE_HEIGHT_TOLERANCE = 0.060;
   static constexpr double TURN_THRESHOLD       = 0.15;
   static constexpr double VISUAL_SERVO_TIMEOUT = 12.0;
   static constexpr double VISUAL_SERVO_CENTER_TOLERANCE = 0.10;
@@ -237,9 +246,14 @@ private:
   static constexpr double STABLE_TARGET_MAX_RAY_3D_M = 1.25;
 
   // =========================================================================
-  // Known destination coordinates (from environment config)
+  // Destination coordinates in the Unity world frame (X/Z), copied from the
+  // official EnvironmentInfo01.json.  They must not be used directly as ROS
+  // odom X/Y: the HSR starts at Unity (-2.0, -3.5), with ROS +X along Unity
+  // +Z and ROS +Y along Unity -X.
   // =========================================================================
-  const std::map<std::string, std::pair<double, double>> KNOWN_DESTINATIONS = {
+  static constexpr double HSR_INITIAL_UNITY_X = -2.0;
+  static constexpr double HSR_INITIAL_UNITY_Z = -3.5;
+  const std::map<std::string, std::pair<double, double>> KNOWN_DESTINATIONS_UNITY = {
       {"trash_box_for_recycle",    {-4.620, -5.170}},
       {"trash_box_for_burnable",   {-2.830, -5.170}},
       {"trash_box_for_bottle_can", {-1.000, -5.170}},
@@ -250,6 +264,17 @@ private:
       {"white_side_table_2",       {-0.740,  1.416}},
       {"cardboard_box",            { 1.098, -0.324}},
       {"wooden_shelf",             {-3.094,  1.530}},
+  };
+
+  struct PlacementProfile {
+    // Height of the grasped-object/finger midpoint in odom.  Values are
+    // centred in the official JudgeTriggerOn volume, or immediately above an
+    // open JudgeTriggerIn container so gravity carries the object inside.
+    double release_height;
+    double surface_inset;
+    double center_offset_x;
+    double center_offset_y;
+    bool drop_in;
   };
 
   // =========================================================================
@@ -281,7 +306,15 @@ private:
   bool observe_align_active_ = false;
   bool observe_scan_active_ = false;
   int grasp_align_stable_cycles_ = 0;
+  int release_align_stable_cycles_ = 0;
+  int release_height_adjustments_ = 0;
+  int target_view_recovery_count_ = 0;
   bool fine_target_seen_ = false;
+  bool target_aim_pose_valid_ = false;
+  double target_aim_origin_pan_ = 0.0;
+  double target_aim_origin_tilt_ = 0.0;
+  double target_aim_pan_ = 0.0;
+  double target_aim_tilt_ = 0.0;
 
   // Joint state
   std::mutex joint_mutex_;
@@ -324,6 +357,9 @@ private:
   geometry_msgs::msg::Point dest_position_;
   bool   dest_valid_ = false;
   std::string dest_class_;
+  geometry_msgs::msg::Point placement_position_;
+  PlacementProfile placement_profile_{0.65, 0.12, 0.0, 0.0, false};
+  bool placement_ready_ = false;
 
   // =========================================================================
   // ROS handles
@@ -503,7 +539,6 @@ private:
   void armGraspLow()     { moveArm(ARM_GRASP_LOW, 1.5); }
   void armCarry()        { moveArm(ARM_CARRY, 1.5); }
   void armReleaseReady() { moveArm(ARM_RELEASE_READY, 1.5); }
-  void armReleaseLow()   { moveArm(ARM_RELEASE_LOW, 1.5); }
 
   // =========================================================================
   // Head control
@@ -576,6 +611,11 @@ private:
     const double current_tilt = getJointPosition("head_tilt_joint");
     const double target_pan = std::clamp(current_pan - image_yaw, -1.2, 1.2);
     const double target_tilt = std::clamp(current_tilt - image_pitch, -1.05, 0.35);
+    target_aim_origin_pan_ = current_pan;
+    target_aim_origin_tilt_ = current_tilt;
+    target_aim_pan_ = target_pan;
+    target_aim_tilt_ = target_tilt;
+    target_aim_pose_valid_ = true;
     moveHead(target_pan, target_tilt, 0.8);
     RCLCPP_INFO(this->get_logger(),
                 "[ObserveTarget] One-shot finger-directed head aim: "
@@ -780,32 +820,16 @@ private:
   /**
    * Select a destination from the Avatar's finger ray.
    *
-   * The vision node publishes an index-finger PIP→tip ray in odom.  Each ray
-   * is transformed to map when available and scored against the fixed
-   * destination coordinates.  Requiring repeated, forward-facing rays stops
-   * the old behaviour of choosing a bin merely because it is near the Avatar.
+   * The vision node publishes an index-finger PIP→tip ray in odom.  The
+   * environment file publishes Unity-world X/Z coordinates, so every known
+   * destination is first converted into the HSR's odom frame.  Requiring
+   * repeated, forward-facing rays stops the old behaviour of choosing a bin
+   * merely because it is near the Avatar.
    */
   bool selectDestinationByPointingRay()
   {
     struct DestinationVote { int samples{0}; double ray_distance_sum{0.0}; };
     std::map<std::string, DestinationVote> votes;
-
-    bool use_map_tf = false;
-    geometry_msgs::msg::TransformStamped odom_to_map;
-    if (tf_buffer_->canTransform("map", "odom", tf2::TimePointZero,
-                                 tf2::durationFromSec(0.0))) {
-      try {
-        odom_to_map = tf_buffer_->lookupTransform(
-          "map", "odom", tf2::TimePointZero, tf2::durationFromSec(0.0));
-        use_map_tf = true;
-      } catch (const tf2::TransformException &ex) {
-        RCLCPP_WARN(this->get_logger(),
-                    "[PointDest] odom→map TF failed (%s), assuming odom≈map", ex.what());
-      }
-    } else {
-      RCLCPP_WARN(this->get_logger(),
-                  "[PointDest] odom→map TF unavailable, assuming odom≈map");
-    }
 
     int valid_ray_count = 0;
     // The object observations were cleared as soon as the target was locked,
@@ -829,36 +853,16 @@ private:
         pt.direction.z * pt.direction.z);
       if (direction_norm < 1e-3) continue;
 
-      geometry_msgs::msg::PointStamped origin_odom, endpoint_odom;
-      origin_odom.header.frame_id = "odom";
-      origin_odom.point = pt.origin;
-      endpoint_odom.header.frame_id = "odom";
-      endpoint_odom.point.x = pt.origin.x + pt.direction.x;
-      endpoint_odom.point.y = pt.origin.y + pt.direction.y;
-      endpoint_odom.point.z = pt.origin.z + pt.direction.z;
-
-      geometry_msgs::msg::PointStamped origin_map = origin_odom;
-      geometry_msgs::msg::PointStamped endpoint_map = endpoint_odom;
-      if (use_map_tf) {
-        try {
-          tf2::doTransform(origin_odom, origin_map, odom_to_map);
-          tf2::doTransform(endpoint_odom, endpoint_map, odom_to_map);
-        } catch (const tf2::TransformException &ex) {
-          RCLCPP_WARN(this->get_logger(),
-                      "[PointDest] Point transform failed (%s)", ex.what());
-          continue;
-        }
-      }
-
-      const double ray_dx = endpoint_map.point.x - origin_map.point.x;
-      const double ray_dy = endpoint_map.point.y - origin_map.point.y;
+      const double ray_dx = pt.direction.x;
+      const double ray_dy = pt.direction.y;
       if (std::hypot(ray_dx, ray_dy) < 1e-3) continue;
       valid_ray_count++;
 
-      for (const auto &[name, coordinate] : KNOWN_DESTINATIONS) {
+      for (const auto &[name, unity_coordinate] : KNOWN_DESTINATIONS_UNITY) {
+        const double odom_x = unity_coordinate.second - HSR_INITIAL_UNITY_Z;
+        const double odom_y = -(unity_coordinate.first - HSR_INITIAL_UNITY_X);
         const double distance = pointRayDist2D(
-          coordinate.first, coordinate.second,
-          origin_map.point.x, origin_map.point.y, ray_dx, ray_dy);
+          odom_x, odom_y, pt.origin.x, pt.origin.y, ray_dx, ray_dy);
         if (distance < 9998.0) {
           auto &vote = votes[name];
           vote.samples++;
@@ -897,15 +901,17 @@ private:
       return false;
     }
 
-    const auto &coordinate = KNOWN_DESTINATIONS.at(best_name);
-    dest_position_.x = coordinate.first;
-    dest_position_.y = coordinate.second;
+    const auto &unity_coordinate = KNOWN_DESTINATIONS_UNITY.at(best_name);
+    dest_position_.x = unity_coordinate.second - HSR_INITIAL_UNITY_Z;
+    dest_position_.y = -(unity_coordinate.first - HSR_INITIAL_UNITY_X);
     dest_position_.z = 0.0;
     dest_valid_ = true;
     dest_class_ = best_name;
     RCLCPP_INFO(this->get_logger(),
-                "[PointDest] Selected '%s' at (%.2f, %.2f): ray=%.2fm from %d samples",
+                "[PointDest] Selected '%s' at odom=(%.2f, %.2f), "
+                "Unity=(%.2f, %.2f): ray=%.2fm from %d samples",
                 dest_class_.c_str(), dest_position_.x, dest_position_.y,
+                unity_coordinate.first, unity_coordinate.second,
                 best_average_distance, best_samples);
     return true;
   }
@@ -1229,6 +1235,16 @@ private:
                 oss.str().c_str());
   }
 
+  bool hasObservedNonPersonObject() const
+  {
+    for (const auto &frame : obs_objects_) {
+      for (const auto &obj : frame.objects) {
+        if (obj.class_name != "person") return true;
+      }
+    }
+    return false;
+  }
+
   void logPointingRayDiagnostics(const char *label) const
   {
     if (!has_locked_pointing_) {
@@ -1357,6 +1373,68 @@ private:
         "Gripper TF unavailable: %s", ex.what());
       return false;
     }
+  }
+
+  PlacementProfile getPlacementProfile(const std::string &name) const
+  {
+    // These heights come from the JudgeTriggerOn/JudgeTriggerIn child
+    // colliders in the official Layout2019IC01 prefab.  The cardboard-box
+    // trigger is also offset from its root; all other trigger centres are
+    // horizontally coincident with the configured destination coordinate.
+    if (name == "square_low_table") {
+      return {0.59, 0.12, 0.0, 0.0, false};
+    }
+    if (name == "wagon_1" || name == "wagon_2") {
+      return {0.88, 0.10, 0.0, 0.0, false};
+    }
+    if (name == "white_side_table_1" || name == "white_side_table_2") {
+      return {0.66, 0.14, 0.0, 0.0, false};
+    }
+    if (name == "wooden_shelf") {
+      return {0.82, 0.10, 0.0, 0.0, false};
+    }
+    if (name == "cardboard_box") {
+      // Unity local (-0.135, *, +0.001), rotated +10 degrees at the root,
+      // gives world (dX,dZ)=(-0.133,+0.024).  Unity X/Z vectors map to
+      // odom (dX,dY)=(dZ,-dX).
+      return {0.32, 0.0, 0.024, 0.133, true};
+    }
+    if (name.rfind("trash_box_for_", 0) == 0) {
+      return {0.55, 0.0, 0.0, 0.0, true};
+    }
+    return {0.65, 0.12, 0.0, 0.0, false};
+  }
+
+  bool preparePlacementTarget()
+  {
+    const auto robot = getRobotPose();
+    if (!dest_valid_ || !robot.valid) return false;
+
+    placement_profile_ = getPlacementProfile(dest_class_);
+    const double center_x = dest_position_.x + placement_profile_.center_offset_x;
+    const double center_y = dest_position_.y + placement_profile_.center_offset_y;
+    const double from_center_x = robot.x - center_x;
+    const double from_center_y = robot.y - center_y;
+    const double norm = std::hypot(from_center_x, from_center_y);
+    const double ux = norm > 1e-6 ? from_center_x / norm : 1.0;
+    const double uy = norm > 1e-6 ? from_center_y / norm : 0.0;
+
+    // On a surface, use a point slightly toward the robot.  It remains well
+    // inside even the smallest official tabletop trigger and shortens the
+    // required reach.  Containers must use their exact opening centre.
+    placement_position_.x =
+      center_x + placement_profile_.surface_inset * ux;
+    placement_position_.y =
+      center_y + placement_profile_.surface_inset * uy;
+    placement_position_.z = placement_profile_.release_height;
+    placement_ready_ = true;
+    RCLCPP_INFO(
+      this->get_logger(),
+      "[Placement] '%s' target=(%.2f, %.2f, %.2f) mode=%s",
+      dest_class_.c_str(), placement_position_.x, placement_position_.y,
+      placement_position_.z,
+      placement_profile_.drop_in ? "drop-in" : "surface");
+    return true;
   }
 
   static double normalizeAngle(double angle)
@@ -1602,6 +1680,11 @@ private:
     has_locked_pointing_ = false;
     target_valid_ = false;
     dest_valid_ = false;
+    placement_ready_ = false;
+    release_align_stable_cycles_ = 0;
+    release_height_adjustments_ = 0;
+    target_view_recovery_count_ = 0;
+    target_aim_pose_valid_ = false;
     person_hint_valid_ = false;
     obs_objects_.clear();
     obs_pointings_.clear();
@@ -1708,6 +1791,8 @@ private:
         obs_objects_.clear();
         obs_pointings_.clear();
         scan_index_ = 0;
+        target_view_recovery_count_ = 0;
+        target_aim_pose_valid_ = false;
         changeStep(ObserveTarget);
       } else if (state_timer_initialized_ && elapsed() > TIMEOUT_WAIT_COMMAND) {
         giveUp();
@@ -1761,11 +1846,39 @@ private:
         beginPointingHold("ObserveTarget");
         state_enter_time_ = std::chrono::steady_clock::now();
         sub_step_ = 2;
+      } else if (sub_step_ == 2 && elapsed() >= 3.0 &&
+                 !hasObservedNonPersonObject() &&
+                 target_aim_pose_valid_ && target_view_recovery_count_ == 0) {
+        // A noisy 2-D finger extension can put the first one-shot view just
+        // beyond the object.  Only when that view is completely empty, move
+        // once to the midpoint of the same directed motion and include more
+        // floor.  This is deliberately not the old symmetric left/right scan.
+        const double recovery_pan =
+          0.5 * (target_aim_origin_pan_ + target_aim_pan_);
+        const double recovery_tilt = std::min(
+          0.5 * (target_aim_origin_tilt_ + target_aim_tilt_), -0.25);
+        moveHead(recovery_pan, recovery_tilt, 0.8);
+        target_view_recovery_count_ = 1;
+        obs_objects_.clear();
+        RCLCPP_WARN(
+          this->get_logger(),
+          "[ObserveTarget] Directed view contains no objects; "
+          "trying one reduced same-direction view pan=%.2f tilt=%.2f",
+          recovery_pan, recovery_tilt);
+        sub_step_ = 6;
+        enterTimedState();
+      } else if (sub_step_ == 6 && elapsed() >= 1.0) {
+        // Discard frames produced while the recovery trajectory was moving.
+        obs_objects_.clear();
+        beginPointingHold("ObserveTarget");
+        sub_step_ = 7;
+        enterTimedState();
       }
 
       // Confirm as soon as a short multi-frame vote is stable while retaining
       // the exact view in which the finger and candidate objects were seen.
-      if (sub_step_ == 2 && elapsed() >= TARGET_EARLY_CONFIRM_DELAY &&
+      if ((sub_step_ == 2 || sub_step_ == 7) &&
+          elapsed() >= TARGET_EARLY_CONFIRM_DELAY &&
           selectStablePointedTarget()) {
         stopBase();
         if (has_locked_pointing_) {
@@ -1789,7 +1902,8 @@ private:
       }
 
       const double target_observe_timeout =
-        (sub_step_ == 4) ? TIMEOUT_POINTING_WAIT : TIMEOUT_OBSERVE;
+        (sub_step_ == 4) ? TIMEOUT_POINTING_WAIT :
+        (sub_step_ == 7) ? 5.0 : TIMEOUT_OBSERVE;
       if (elapsed() >= target_observe_timeout) {
         stopBase();
         logObservationSummary("ObserveTarget");
@@ -2248,9 +2362,30 @@ private:
           headCenter();
           RCLCPP_INFO(this->get_logger(), "[MoveToDest] Heading to destination...");
 
+          if (!preparePlacementTarget()) {
+            RCLCPP_ERROR(this->get_logger(),
+                         "[MoveToDest] Cannot prepare placement target");
+            giveUp();
+            changeStep(WaitForResult);
+            break;
+          }
+
           if (dest_valid_) {
-            double yaw = angleToPoint(dest_position_.x, dest_position_.y);
-            sendNavGoal(dest_position_.x, dest_position_.y, yaw);
+            // Nav2 must target an approach pose, never the furniture/bin
+            // centre.  Direct drive below uses the same stand-off.
+            const auto robot = getRobotPose();
+            const double dx = robot.x - dest_position_.x;
+            const double dy = robot.y - dest_position_.y;
+            const double norm = std::hypot(dx, dy);
+            const double ux = norm > 1e-6 ? dx / norm : 1.0;
+            const double uy = norm > 1e-6 ? dy / norm : 0.0;
+            const double goal_x =
+              dest_position_.x + DESTINATION_COARSE_STOP_DIST * ux;
+            const double goal_y =
+              dest_position_.y + DESTINATION_COARSE_STOP_DIST * uy;
+            const double yaw = std::atan2(
+              dest_position_.y - goal_y, dest_position_.x - goal_x);
+            sendNavGoal(goal_x, goal_y, yaw);
           }
           sub_step_ = 1;
           enterTimedState();
@@ -2285,7 +2420,7 @@ private:
           double dist = distToPoint(dest_position_.x, dest_position_.y);
           double angle = angleToPoint(dest_position_.x, dest_position_.y);
 
-          if (dist > APPROACH_STOP_DIST) {
+          if (dist > DESTINATION_COARSE_STOP_DIST) {
             if (std::abs(angle) > TURN_THRESHOLD) {
               moveBase(0.05, 0.0, std::clamp(angle * 1.5, -0.5, 0.5));
             } else {
@@ -2313,24 +2448,163 @@ private:
       }
 
       switch (sub_step_) {
-        case 0:
+        case 0: {
+          if (!placement_ready_ && !preparePlacementTarget()) {
+            RCLCPP_ERROR(this->get_logger(),
+                         "[Release] Placement target unavailable");
+            giveUp();
+            changeStep(WaitForResult);
+            break;
+          }
           armReleaseReady(); headLookDown();
+          release_align_stable_cycles_ = 0;
+          release_height_adjustments_ = 0;
           sub_step_ = 1; enterTimedState(); break;
+        }
         case 1:
-          if (elapsed() > 2.0) { armReleaseLow(); sub_step_ = 2; enterTimedState(); }
+          if (elapsed() > 2.0) { sub_step_ = 5; enterTimedState(); }
           break;
-        case 2:
-          if (elapsed() > 2.0) { gripperOpen(); sub_step_ = 3; enterTimedState(); }
+        case 5: {
+          geometry_msgs::msg::Point gripper;
+          const auto robot = getRobotPose();
+          if (!robot.valid || !getGripperMidpoint(gripper)) {
+            stopBase();
+            RCLCPP_ERROR(this->get_logger(),
+                         "[Release] Gripper alignment TF unavailable");
+            giveUp();
+            changeStep(WaitForResult);
+            break;
+          }
+
+          const double world_dx = placement_position_.x - gripper.x;
+          const double world_dy = placement_position_.y - gripper.y;
+          double forward = std::cos(robot.yaw) * world_dx +
+                           std::sin(robot.yaw) * world_dy;
+          const double lateral = -std::sin(robot.yaw) * world_dx +
+                                  std::cos(robot.yaw) * world_dy;
+          const double error = std::hypot(world_dx, world_dy);
+          const bool aligned =
+            std::abs(forward) <= RELEASE_ALIGN_FORWARD_TOLERANCE &&
+            std::abs(lateral) <= RELEASE_ALIGN_LATERAL_TOLERANCE;
+          release_align_stable_cycles_ = aligned
+            ? release_align_stable_cycles_ + 1 : 0;
+          RCLCPP_INFO_THROTTLE(
+            this->get_logger(), *this->get_clock(), 1000,
+            "[Release] Aligning gripper=(%.2f,%.2f,%.2f) "
+            "target=(%.2f,%.2f,%.2f) forward=%.3f lateral=%.3f",
+            gripper.x, gripper.y, gripper.z,
+            placement_position_.x, placement_position_.y,
+            placement_position_.z, forward, lateral);
+
+          if (release_align_stable_cycles_ >= RELEASE_ALIGN_STABLE_CYCLES) {
+            stopBase();
+            const double current_lift =
+              getJointPosition("arm_lift_joint", ARM_RELEASE_READY[0]);
+            const double desired_lift = std::clamp(
+              current_lift + placement_position_.z - gripper.z, 0.0, 0.69);
+            auto pose = ARM_RELEASE_READY;
+            pose[0] = desired_lift;
+            moveArm(pose, 1.5);
+            release_height_adjustments_ = 1;
+            RCLCPP_INFO(
+              this->get_logger(),
+              "[Release] XY aligned forward=%.3fm lateral=%.3fm total=%.3fm; "
+              "height %.3f->%.3fm (lift=%.3f)",
+              forward, lateral, error, gripper.z, placement_position_.z,
+              desired_lift);
+            sub_step_ = 2;
+            enterTimedState();
+            break;
+          }
+
+          if (elapsed() >= RELEASE_ALIGN_TIMEOUT) {
+            stopBase();
+            RCLCPP_ERROR(
+              this->get_logger(),
+              "[Release] Could not align gripper with placement point: "
+              "forward=%.3fm lateral=%.3fm total=%.3fm",
+              forward, lateral, error);
+            giveUp();
+            changeStep(WaitForResult);
+            break;
+          }
+
+          const double base_distance = distToPoint(
+            dest_position_.x, dest_position_.y);
+          if (base_distance <= DESTINATION_MIN_BASE_CLEARANCE && forward > 0.0) {
+            forward = 0.0;
+          }
+          moveBase(std::clamp(forward * 0.45, -0.035, 0.035),
+                   std::clamp(lateral * 0.45, -0.035, 0.035), 0.0);
           break;
+        }
+        case 2: {
+          if (elapsed() <= 2.0) break;
+          geometry_msgs::msg::Point gripper;
+          if (!getGripperMidpoint(gripper)) {
+            RCLCPP_ERROR(this->get_logger(),
+                         "[Release] Cannot verify release height");
+            giveUp();
+            changeStep(WaitForResult);
+            break;
+          }
+          const double height_error = placement_position_.z - gripper.z;
+          if (std::abs(height_error) > RELEASE_HEIGHT_TOLERANCE &&
+              release_height_adjustments_ < 3) {
+            const double current_lift =
+              getJointPosition("arm_lift_joint", ARM_RELEASE_READY[0]);
+            const double desired_lift = std::clamp(
+              current_lift + height_error, 0.0, 0.69);
+            auto pose = ARM_RELEASE_READY;
+            pose[0] = desired_lift;
+            moveArm(pose, 1.2);
+            release_height_adjustments_++;
+            RCLCPP_INFO(
+              this->get_logger(),
+              "[Release] Correcting height: actual=%.3fm target=%.3fm "
+              "lift=%.3f attempt=%d",
+              gripper.z, placement_position_.z, desired_lift,
+              release_height_adjustments_);
+            enterTimedState();
+            break;
+          }
+          if (std::abs(height_error) > RELEASE_HEIGHT_TOLERANCE) {
+            RCLCPP_ERROR(
+              this->get_logger(),
+              "[Release] Release height unreachable: actual=%.3fm "
+              "target=%.3fm error=%.3fm",
+              gripper.z, placement_position_.z, height_error);
+            giveUp();
+            changeStep(WaitForResult);
+            break;
+          }
+          RCLCPP_INFO(this->get_logger(),
+                      "[Release] Verified placement pose at "
+                      "(%.2f, %.2f, %.2f); opening gripper",
+                      gripper.x, gripper.y, gripper.z);
+          gripperOpen();
+          sub_step_ = 3;
+          enterTimedState();
+          break;
+        }
         case 3:
           if (elapsed() > 3.0) {
-            armInitial(); headCenter();
+            // Back away with the arm held still.  Retracting next to the
+            // released object can sweep it out of the placement trigger.
             sub_step_ = 4; enterTimedState();
           }
           break;
         case 4:
-          if (elapsed() < 2.0) { driveForward(-0.1); }
-          else { stopBase(); changeStep(SendTaskFinished); }
+          if (elapsed() < 1.5) {
+            driveForward(-0.08);
+          } else {
+            stopBase();
+            armInitial(); headCenter();
+            sub_step_ = 6; enterTimedState();
+          }
+          break;
+        case 6:
+          if (elapsed() > 2.0) { changeStep(SendTaskFinished); }
           break;
       }
       break;
