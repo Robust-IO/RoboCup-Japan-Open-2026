@@ -549,6 +549,20 @@ class CleanupDetectionNode(Node):
                 continue
         return None
 
+    def _mediapipe_world_vector_to_odom(self, direction):
+        """Rotate a MediaPipe world direction into odom.
+
+        MediaPipe world landmarks use an image-aligned coordinate system in
+        which negative Z points towards the camera.  ROS optical frames use
+        positive Z away from the camera, so the depth component must be
+        inverted before applying the camera TF rotation.
+        """
+        vector = np.asarray(direction, dtype=float).copy()
+        if vector.shape != (3,):
+            return None
+        vector[2] *= -1.0
+        return self._cam_vector_to_odom(vector)
+
     # ------------------------------------------------------------------
     # Avatar pointing estimation
     # ------------------------------------------------------------------
@@ -576,6 +590,10 @@ class CleanupDetectionNode(Node):
         best_score = -1.0
         person_center = None
         for pose_index, lm in enumerate(results.pose_landmarks):
+            world_pose = None
+            if pose_index < len(results.pose_world_landmarks):
+                world_pose = results.pose_world_landmarks[pose_index]
+
             visible_torso = [
                 lm[index] for index in (_L_SHOULDER, _R_SHOULDER)
                 if _landmark_visibility(lm[index]) >= 0.3
@@ -587,13 +605,21 @@ class CleanupDetectionNode(Node):
                 )
 
             def _pointing_arm(s, e, wr):
-                """Return a deliberately extended, near-horizontal arm only."""
+                """Return an intentionally extended arm in image or 3-D.
+
+                An arm pointing towards/away from the camera is foreshortened
+                in the image.  Requiring a long 2-D shoulder-to-wrist segment
+                therefore rejects exactly the frontal poses used in some
+                Interactive Cleanup layouts.  Pose-world geometry supplies
+                the missing depth evidence while the vertical-ratio test
+                continues to reject a naturally hanging arm.
+                """
                 vis = min(
                     _landmark_visibility(lm[s]),
                     _landmark_visibility(lm[e]),
                     _landmark_visibility(lm[wr]),
                 )
-                if vis < 0.3:
+                if vis < 0.25:
                     return None
                 upper_x, upper_y = lm[e].x - lm[s].x, lm[e].y - lm[s].y
                 lower_x, lower_y = lm[wr].x - lm[e].x, lm[wr].y - lm[e].y
@@ -601,18 +627,69 @@ class CleanupDetectionNode(Node):
                 lower_len = math.hypot(lower_x, lower_y)
                 shoulder_wrist = math.hypot(
                     lm[wr].x - lm[s].x, lm[wr].y - lm[s].y)
-                if upper_len < 0.03 or lower_len < 0.03 or shoulder_wrist < 0.12:
+                image_valid = False
+                straightness_2d = -1.0
+                if upper_len >= 0.02 and lower_len >= 0.02:
+                    straightness_2d = (
+                        upper_x * lower_x + upper_y * lower_y) / (
+                            upper_len * lower_len)
+                    horizontalness = (
+                        abs(lm[wr].y - lm[s].y) /
+                        max(shoulder_wrist, 1e-6))
+                    image_valid = (
+                        shoulder_wrist >= 0.10 and
+                        straightness_2d >= 0.62 and
+                        horizontalness <= 0.68)
+
+                world_valid = False
+                world_reach_ratio = 0.0
+                straightness_3d = -1.0
+                if world_pose is not None:
+                    shoulder = np.array([
+                        world_pose[s].x, world_pose[s].y, world_pose[s].z])
+                    elbow_point = np.array([
+                        world_pose[e].x, world_pose[e].y, world_pose[e].z])
+                    wrist_point = np.array([
+                        world_pose[wr].x, world_pose[wr].y, world_pose[wr].z])
+                    upper_3d = elbow_point - shoulder
+                    lower_3d = wrist_point - elbow_point
+                    upper_3d_len = np.linalg.norm(upper_3d)
+                    lower_3d_len = np.linalg.norm(lower_3d)
+                    reach_3d = np.linalg.norm(wrist_point - shoulder)
+                    shoulder_width = np.linalg.norm(np.array([
+                        world_pose[_L_SHOULDER].x -
+                        world_pose[_R_SHOULDER].x,
+                        world_pose[_L_SHOULDER].y -
+                        world_pose[_R_SHOULDER].y,
+                        world_pose[_L_SHOULDER].z -
+                        world_pose[_R_SHOULDER].z,
+                    ]))
+                    if upper_3d_len >= 0.08 and lower_3d_len >= 0.08:
+                        straightness_3d = float(np.dot(
+                            upper_3d, lower_3d) /
+                            (upper_3d_len * lower_3d_len))
+                        vertical_ratio = (
+                            abs(wrist_point[1] - shoulder[1]) /
+                            max(reach_3d, 1e-6))
+                        world_reach_ratio = (
+                            reach_3d / max(shoulder_width, 0.20))
+                        world_valid = (
+                            reach_3d >= 0.22 and
+                            straightness_3d >= 0.52 and
+                            vertical_ratio <= 0.82 and
+                            world_reach_ratio >= 0.72)
+
+                if not image_valid and not world_valid:
                     return None
 
-                # A natural hanging arm is usually straight too, so extension
-                # alone is insufficient.  The Interactive Cleanup pointing
-                # animation holds the arm roughly level with the shoulder.
-                straightness = (upper_x * lower_x + upper_y * lower_y) / (
-                    upper_len * lower_len)
-                horizontalness = abs(lm[wr].y - lm[s].y) / shoulder_wrist
-                if straightness < 0.70 or horizontalness > 0.55:
-                    return None
-                return shoulder_wrist, lower_len, vis, straightness
+                # The score only ranks the two arms of the same person.  Give
+                # a real 3-D extension enough weight to beat a foreshortened
+                # or naturally hanging arm in frontal views.
+                geometry_score = max(
+                    shoulder_wrist,
+                    min(world_reach_ratio, 2.0) * 0.18)
+                straightness = max(straightness_2d, straightness_3d, 0.0)
+                return geometry_score, max(lower_len, 0.03), vis, straightness
 
             left_arm = _pointing_arm(_L_SHOULDER, _L_ELBOW, _L_WRIST)
             right_arm = _pointing_arm(_R_SHOULDER, _R_ELBOW, _R_WRIST)
@@ -652,7 +729,16 @@ class CleanupDetectionNode(Node):
 
             length = math.hypot(pu - wu, pv - wv)
             if length < 1.0:
-                continue
+                # A true arm pointing almost along the optical axis can
+                # collapse to a sub-pixel segment.  Keep a minimal segment so
+                # the valid 3-D pose-world direction can still be published;
+                # the controller deliberately refuses to aim the head from
+                # such a short and noisy 2-D arrow.
+                if world_pose is None:
+                    continue
+                pixel_norm = max(math.hypot(du * w, dv * h), 1e-6)
+                pu = wu + du * w / pixel_norm
+                pv = wv + dv * h / pixel_norm
 
             score = ((ext_score + forearm_score) * arm_vis *
                      straightness * max(conf, 0.0))
@@ -672,12 +758,12 @@ class CleanupDetectionNode(Node):
                     (lm[wrist].x - lm[elbow].x) * w,
                     (lm[wrist].y - lm[elbow].y) * h),
             }
-            if pose_index < len(results.pose_world_landmarks):
-                world_pose = results.pose_world_landmarks[pose_index]
+            if world_pose is not None:
+                direction_endpoint = idx if index_conf >= 0.2 else wrist
                 candidate['pose_world_direction'] = np.array([
-                    world_pose[idx].x - world_pose[elbow].x,
-                    world_pose[idx].y - world_pose[elbow].y,
-                    world_pose[idx].z - world_pose[elbow].z,
+                    world_pose[direction_endpoint].x - world_pose[elbow].x,
+                    world_pose[direction_endpoint].y - world_pose[elbow].y,
+                    world_pose[direction_endpoint].z - world_pose[elbow].z,
                 ])
             if score > best_score:
                 best = candidate
@@ -773,25 +859,27 @@ class CleanupDetectionNode(Node):
         # Prefer the same long-baseline forearm→fingertip ray used by Unity.
         origin_3d = None
         dir_3d = None
+        forearm_cam = self._foreground_pixel_to_cam3d(
+            best['wu'], best['wv'])
+        if forearm_cam is not None:
+            origin_3d = self._cam3d_to_odom(
+                forearm_cam[0], forearm_cam[1], forearm_cam[2])
+
         if best.get('joint_refined', False):
-            forearm_cam = self._foreground_pixel_to_cam3d(
-                best['wu'], best['wv'])
             tip_cam = self._foreground_pixel_to_cam3d(
                 best['pu'], best['pv'])
-            if forearm_cam is not None:
-                origin_3d = self._cam3d_to_odom(
-                    forearm_cam[0], forearm_cam[1], forearm_cam[2])
             if forearm_cam is not None and tip_cam is not None:
                 depth_direction = (
                     np.array(tip_cam[:3]) - np.array(forearm_cam[:3]))
                 depth_length = np.linalg.norm(depth_direction)
                 if 0.05 <= depth_length <= 1.2:
                     dir_3d = self._cam_vector_to_odom(depth_direction)
-            if dir_3d is None and best.get('pose_world_direction') is not None:
-                dir_3d = self._cam_vector_to_odom(
-                    best['pose_world_direction'])
-            if dir_3d is None and finger_world_direction is not None:
-                dir_3d = self._cam_vector_to_odom(finger_world_direction)
+        if dir_3d is None and best.get('pose_world_direction') is not None:
+            dir_3d = self._mediapipe_world_vector_to_odom(
+                best['pose_world_direction'])
+        if dir_3d is None and finger_world_direction is not None:
+            dir_3d = self._mediapipe_world_vector_to_odom(
+                finger_world_direction)
 
         # Final fallback: use the camera bearing through the extended 2-D
         # finger/forearm line. It remains useful, but is lower precision.

@@ -603,14 +603,26 @@ private:
     // Look slightly beyond the old image boundary.  Capping the extrapolation
     // prevents a noisy short finger segment from commanding a joint limit.
     edge_scale = std::clamp(edge_scale + 0.35, 0.5, 10.0);
-    const double look_u = pointing.point_pixel_x + edge_scale * dx;
-    const double look_v = pointing.point_pixel_y + edge_scale * dy;
+    // A nearly frontal arm has very little 2-D extent, so a few pixels of
+    // landmark noise can extrapolate far outside the image (one recorded run
+    // produced u=-689 and drove the head directly to its joint limit).  Keep
+    // the directed motion, but bound both the virtual pixel and the change
+    // from the current head pose.  The successful side-on behaviour remains
+    // unchanged because its commands are already inside these bounds.
+    const double look_u = std::clamp(
+      pointing.point_pixel_x + edge_scale * dx,
+      -0.25 * width, 1.25 * width);
+    const double look_v = std::clamp(
+      pointing.point_pixel_y + edge_scale * dy,
+      -0.20 * height, 1.20 * height);
     const double image_yaw = std::atan2(look_u - cx, fx);
     const double image_pitch = std::atan2(look_v - cy, fy);
     const double current_pan = getJointPosition("head_pan_joint");
     const double current_tilt = getJointPosition("head_tilt_joint");
-    const double target_pan = std::clamp(current_pan - image_yaw, -1.2, 1.2);
-    const double target_tilt = std::clamp(current_tilt - image_pitch, -1.05, 0.35);
+    const double target_pan = std::clamp(
+      current_pan + std::clamp(-image_yaw, -0.70, 0.70), -1.2, 1.2);
+    const double target_tilt = std::clamp(
+      current_tilt + std::clamp(-image_pitch, -0.55, 0.55), -1.05, 0.35);
     target_aim_origin_pan_ = current_pan;
     target_aim_origin_tilt_ = current_tilt;
     target_aim_pan_ = target_pan;
@@ -832,6 +844,8 @@ private:
     std::map<std::string, DestinationVote> votes;
 
     int valid_ray_count = 0;
+    int reversed_ray_count = 0;
+    constexpr double MAX_DEST_RAY_DISTANCE_M = 1.0;
     // The object observations were cleared as soon as the target was locked,
     // so the newest high-confidence rays now belong to the destination
     // gesture. MediaPipe can insert invalid frames between good estimates;
@@ -858,11 +872,33 @@ private:
       if (std::hypot(ray_dx, ray_dy) < 1e-3) continue;
       valid_ray_count++;
 
+      double best_forward_distance = std::numeric_limits<double>::infinity();
+      double best_reverse_distance = std::numeric_limits<double>::infinity();
+      for (const auto &[name, unity_coordinate] : KNOWN_DESTINATIONS_UNITY) {
+        (void)name;
+        const double odom_x = unity_coordinate.second - HSR_INITIAL_UNITY_Z;
+        const double odom_y = -(unity_coordinate.first - HSR_INITIAL_UNITY_X);
+        best_forward_distance = std::min(
+          best_forward_distance,
+          pointRayDist2D(
+            odom_x, odom_y, pt.origin.x, pt.origin.y, ray_dx, ray_dy));
+        best_reverse_distance = std::min(
+          best_reverse_distance,
+          pointRayDist2D(
+            odom_x, odom_y, pt.origin.x, pt.origin.y, -ray_dx, -ray_dy));
+      }
+      const bool reverse_ray =
+        best_forward_distance > MAX_DEST_RAY_DISTANCE_M &&
+        best_reverse_distance <= MAX_DEST_RAY_DISTANCE_M;
+      const double ray_sign = reverse_ray ? -1.0 : 1.0;
+      if (reverse_ray) ++reversed_ray_count;
+
       for (const auto &[name, unity_coordinate] : KNOWN_DESTINATIONS_UNITY) {
         const double odom_x = unity_coordinate.second - HSR_INITIAL_UNITY_Z;
         const double odom_y = -(unity_coordinate.first - HSR_INITIAL_UNITY_X);
         const double distance = pointRayDist2D(
-          odom_x, odom_y, pt.origin.x, pt.origin.y, ray_dx, ray_dy);
+          odom_x, odom_y, pt.origin.x, pt.origin.y,
+          ray_sign * ray_dx, ray_sign * ray_dy);
         if (distance < 9998.0) {
           auto &vote = votes[name];
           vote.samples++;
@@ -879,7 +915,6 @@ private:
     }
 
     constexpr int MIN_DEST_POINT_SAMPLES = 1;
-    constexpr double MAX_DEST_RAY_DISTANCE_M = 1.0;
     std::string best_name;
     double best_average_distance = std::numeric_limits<double>::infinity();
     int best_samples = 0;
@@ -907,6 +942,12 @@ private:
     dest_position_.z = 0.0;
     dest_valid_ = true;
     dest_class_ = best_name;
+    if (reversed_ray_count > 0) {
+      RCLCPP_WARN(
+        this->get_logger(),
+        "[PointDest] Resolved depth-direction ambiguity for %d/%d rays",
+        reversed_ray_count, valid_ray_count);
+    }
     RCLCPP_INFO(this->get_logger(),
                 "[PointDest] Selected '%s' at odom=(%.2f, %.2f), "
                 "Unity=(%.2f, %.2f): ray=%.2fm from %d samples",
@@ -1122,6 +1163,48 @@ private:
     };
     std::map<std::string, Candidate> candidates;
 
+    // MediaPipe's depth axis and a camera optical frame have opposite Z
+    // conventions.  The vision node now converts that explicitly, but depth
+    // fallbacks can still be ambiguous for a nearly frontal, foreshortened
+    // finger.  Only reverse a ray when the published direction has zero
+    // portable-object support and its opposite has stable multi-frame
+    // support.  This handles the observed all-9999m failure without turning
+    // the pointing ray into an unrestricted line.
+    int forward_support = 0;
+    int reverse_support = 0;
+    for (const auto &frame : obs_objects_) {
+      if (!has_locked_pointing_) continue;
+      for (const auto &obj : frame.objects) {
+        if (obj.class_name == "person" || !obj.has_3d_position ||
+            obj.confidence < STABLE_TARGET_MIN_CONFIDENCE ||
+            !isLikelyPortableClass(obj.class_name)) {
+          continue;
+        }
+        const double forward_distance = pointRayDist3D(
+          obj.position_3d.x, obj.position_3d.y, obj.position_3d.z,
+          locked_pointing_.origin.x, locked_pointing_.origin.y,
+          locked_pointing_.origin.z, locked_pointing_.direction.x,
+          locked_pointing_.direction.y, locked_pointing_.direction.z);
+        const double reverse_distance = pointRayDist3D(
+          obj.position_3d.x, obj.position_3d.y, obj.position_3d.z,
+          locked_pointing_.origin.x, locked_pointing_.origin.y,
+          locked_pointing_.origin.z, -locked_pointing_.direction.x,
+          -locked_pointing_.direction.y, -locked_pointing_.direction.z);
+        if (forward_distance <= 1.5) ++forward_support;
+        if (reverse_distance <= 1.5) ++reverse_support;
+      }
+    }
+    const bool reverse_ray =
+      forward_support == 0 && reverse_support >= STABLE_TARGET_MIN_FRAMES;
+    const double ray_sign = reverse_ray ? -1.0 : 1.0;
+    if (reverse_ray) {
+      RCLCPP_WARN(
+        this->get_logger(),
+        "[ObserveTarget] Resolving frontal pointing depth ambiguity: "
+        "forward support=%d, reverse support=%d",
+        forward_support, reverse_support);
+    }
+
     for (const auto &frame : obs_objects_) {
       if (!has_locked_pointing_) continue;
       for (const auto &obj : frame.objects) {
@@ -1134,8 +1217,10 @@ private:
         const double ray_distance = pointRayDist3D(
           obj.position_3d.x, obj.position_3d.y, obj.position_3d.z,
           locked_pointing_.origin.x, locked_pointing_.origin.y,
-          locked_pointing_.origin.z, locked_pointing_.direction.x,
-          locked_pointing_.direction.y, locked_pointing_.direction.z);
+          locked_pointing_.origin.z,
+          ray_sign * locked_pointing_.direction.x,
+          ray_sign * locked_pointing_.direction.y,
+          ray_sign * locked_pointing_.direction.z);
         if (ray_distance > 1.5) continue;
 
         auto result = candidates.emplace(
