@@ -17,7 +17,7 @@ def parse_args():
     )
     parser.add_argument(
         '--model',
-        default='src/vision_ros2/models/yolo12n.pt',
+        default='src/cleanup_vision_ros2/models/cleanup_model.pt',
         help='Base model checkpoint.',
     )
     parser.add_argument('--epochs', type=int, default=120)

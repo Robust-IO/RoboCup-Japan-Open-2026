@@ -55,6 +55,7 @@ def generate_launch_description():
         output='screen',
         parameters=[{
             'use_sim_time': LaunchConfiguration('use_sim_time'),
+            'use_nav2': LaunchConfiguration('use_nav2'),
         }],
     )
 
