@@ -2,6 +2,11 @@ std_msgs/Header header
 # 3D pointing in odom frame
 geometry_msgs/Point origin
 geometry_msgs/Vector3 direction
+# MediaPipe pose-world arm direction transformed to odom. Unlike direction,
+# this cue does not subtract two foreground depth samples. The cleanup
+# controller uses it only for the second (destination) gesture.
+geometry_msgs/Vector3 pose_direction
+bool pose_direction_valid
 # 2D pointing in image space (pixels)
 float32 wrist_pixel_x
 float32 wrist_pixel_y

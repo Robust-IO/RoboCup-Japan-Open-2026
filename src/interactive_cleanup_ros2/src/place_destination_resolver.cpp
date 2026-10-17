@@ -6,6 +6,7 @@
 #include <cmath>
 #include <cctype>
 #include <limits>
+#include <numeric>
 #include <stdexcept>
 
 namespace interactive_cleanup
@@ -16,7 +17,12 @@ namespace
 
 constexpr double kPi = 3.14159265358979323846;
 constexpr double kInvalidDistance = 9999.0;
-constexpr double kMinPointingConfidence = 0.35;
+constexpr double kMinPointingConfidence = 0.25;
+constexpr double kDirectionClusterHalfAngle = 35.0 * kPi / 180.0;
+constexpr double kMinAlongDistance = 0.15;
+constexpr double kAmbiguityMargin = 0.12;
+constexpr double kCameraFocalLengthPx = 554.0;
+constexpr double kMaxAnchoredImageAngle = 8.0 * kPi / 180.0;
 
 std::string toLower(std::string value)
 {
@@ -26,41 +32,51 @@ std::string toLower(std::string value)
   return value;
 }
 
-bool containsToken(const std::string &name, const char *token)
+double pointRayDist3D(
+  double px,
+  double py,
+  double pz,
+  double ox,
+  double oy,
+  double oz,
+  double dx,
+  double dy,
+  double dz,
+  double *along = nullptr)
 {
-  return toLower(name).find(token) != std::string::npos;
-}
-
-double normalizeAngle(double angle)
-{
-  while (angle > kPi) {
-    angle -= 2.0 * kPi;
+  const double len = std::sqrt(dx * dx + dy * dy + dz * dz);
+  if (len < 1e-6) {
+    return kInvalidDistance;
   }
-  while (angle < -kPi) {
-    angle += 2.0 * kPi;
-  }
-  return angle;
-}
 
-double angleDistance(double lhs, double rhs)
-{
-  return std::abs(normalizeAngle(lhs - rhs));
+  dx /= len;
+  dy /= len;
+  dz /= len;
+  const double vx = px - ox;
+  const double vy = py - oy;
+  const double vz = pz - oz;
+  const double proj = vx * dx + vy * dy + vz * dz;
+  if (along != nullptr) {
+    *along = proj;
+  }
+  if (proj < 0.0) {
+    return kInvalidDistance;
+  }
+
+  const double perp_x = vx - proj * dx;
+  const double perp_y = vy - proj * dy;
+  const double perp_z = vz - proj * dz;
+  return std::sqrt(perp_x * perp_x + perp_y * perp_y + perp_z * perp_z);
 }
 
 double pointRayDist2D(
-  double px,
-  double py,
-  double ox,
-  double oy,
-  double dx,
-  double dy,
-  double *along = nullptr)
+  double px, double py, double ox, double oy,
+  double dx, double dy, double *along = nullptr)
 {
   const double len = std::hypot(dx, dy);
   if (len < 1e-6) {
     return kInvalidDistance;
   }
-
   dx /= len;
   dy /= len;
   const double vx = px - ox;
@@ -72,71 +88,104 @@ double pointRayDist2D(
   if (proj < 0.0) {
     return kInvalidDistance;
   }
-
-  const double perp_x = vx - proj * dx;
-  const double perp_y = vy - proj * dy;
-  return std::hypot(perp_x, perp_y);
+  return std::hypot(vx - proj * dx, vy - proj * dy);
 }
 
-struct AggregatedPointing
+struct NormalizedPointing
 {
-  bool valid{false};
   geometry_msgs::msg::Point origin;
-  double yaw{0.0};
-  double angular_stability{0.0};
+  geometry_msgs::msg::Vector3 direction;
+  double confidence{0.0};
 };
 
-AggregatedPointing aggregatePointings(const std::vector<PointingObservation> &pointings)
+double planarDirectionDot(const NormalizedPointing &lhs, const NormalizedPointing &rhs)
 {
-  AggregatedPointing aggregate;
-  double origin_sum_x = 0.0;
-  double origin_sum_y = 0.0;
-  double dir_sum_x = 0.0;
-  double dir_sum_y = 0.0;
-  std::vector<double> sample_yaws;
-  std::vector<double> sample_weights;
-  double weight_sum = 0.0;
+  const double lhs_norm = std::hypot(lhs.direction.x, lhs.direction.y);
+  const double rhs_norm = std::hypot(rhs.direction.x, rhs.direction.y);
+  if (lhs_norm < 1e-6 || rhs_norm < 1e-6) {
+    return 0.0;
+  }
+  return (lhs.direction.x * rhs.direction.x +
+          lhs.direction.y * rhs.direction.y) / (lhs_norm * rhs_norm);
+}
+
+std::vector<NormalizedPointing> coherentPointingCluster(
+  const std::vector<PointingObservation> &pointings)
+{
+  std::vector<NormalizedPointing> normalized;
 
   for (const auto &pointing : pointings) {
     if (!pointing.is_valid || pointing.confidence < kMinPointingConfidence) {
       continue;
     }
 
-    const double planar_norm = std::hypot(pointing.direction.x, pointing.direction.y);
-    if (planar_norm < 1e-6) {
+    const double norm = std::sqrt(
+      pointing.direction.x * pointing.direction.x +
+      pointing.direction.y * pointing.direction.y +
+      pointing.direction.z * pointing.direction.z);
+    if (norm < 1e-6) {
       continue;
     }
-
-    const double weight = std::clamp(pointing.confidence, 0.0, 1.0);
-    weight_sum += weight;
-    origin_sum_x += pointing.origin.x * weight;
-    origin_sum_y += pointing.origin.y * weight;
-    dir_sum_x += (pointing.direction.x / planar_norm) * weight;
-    dir_sum_y += (pointing.direction.y / planar_norm) * weight;
-    sample_yaws.push_back(std::atan2(pointing.direction.y, pointing.direction.x));
-    sample_weights.push_back(weight);
+    NormalizedPointing sample;
+    sample.origin = pointing.origin;
+    sample.direction.x = pointing.direction.x / norm;
+    sample.direction.y = pointing.direction.y / norm;
+    sample.direction.z = pointing.direction.z / norm;
+    sample.confidence = std::clamp(pointing.confidence, 0.0, 1.0);
+    normalized.push_back(sample);
   }
 
-  if (sample_yaws.empty() || weight_sum <= 1e-6) {
-    return aggregate;
+  if (normalized.empty()) {
+    return {};
   }
 
-  const double avg_dir_norm = std::hypot(dir_sum_x, dir_sum_y);
-  if (avg_dir_norm < 1e-6) {
-    return aggregate;
+  // Cluster by the pointing axis.  MediaPipe can reverse depth polarity for
+  // frontal poses, so polarity is resolved once for the complete gesture.
+  const double min_dot = std::cos(kDirectionClusterHalfAngle);
+  std::size_t best_seed = 0;
+  int best_support = 0;
+  for (std::size_t seed = 0; seed < normalized.size(); ++seed) {
+    int support = 0;
+    for (const auto &sample : normalized) {
+      if (std::abs(planarDirectionDot(normalized[seed], sample)) >= min_dot) {
+        ++support;
+      }
+    }
+    if (support > best_support) {
+      best_support = support;
+      best_seed = seed;
+    }
   }
 
-  aggregate.valid = true;
-  aggregate.origin.x = origin_sum_x / weight_sum;
-  aggregate.origin.y = origin_sum_y / weight_sum;
-  aggregate.yaw = std::atan2(dir_sum_y, dir_sum_x);
-
-  double total_error = 0.0;
-  for (std::size_t index = 0; index < sample_yaws.size(); ++index) {
-    total_error += angleDistance(sample_yaws[index], aggregate.yaw) * sample_weights[index];
+  std::vector<NormalizedPointing> cluster;
+  for (auto sample : normalized) {
+    const double dot = planarDirectionDot(normalized[best_seed], sample);
+    if (std::abs(dot) < min_dot) {
+      continue;
+    }
+    if (dot < 0.0) {
+      sample.direction.x *= -1.0;
+      sample.direction.y *= -1.0;
+      sample.direction.z *= -1.0;
+    }
+    cluster.push_back(sample);
   }
-  aggregate.angular_stability = total_error / weight_sum;
-  return aggregate;
+  return cluster;
+}
+
+double median(std::vector<double> values)
+{
+  if (values.empty()) {
+    return kInvalidDistance;
+  }
+  const std::size_t middle = values.size() / 2;
+  std::nth_element(values.begin(), values.begin() + middle, values.end());
+  double result = values[middle];
+  if (values.size() % 2 == 0) {
+    result = 0.5 * (
+      result + *std::max_element(values.begin(), values.begin() + middle));
+  }
+  return result;
 }
 
 std::string inferDestinationType(const std::string &name)
@@ -194,39 +243,6 @@ std::string defaultPlacementModeForType(const std::string &type)
 double defaultPreferredFacingYaw(double center_x, double center_y)
 {
   return std::atan2(-center_y, -center_x);
-}
-
-double taskPriorForRegionType(const std::string &type, const std::string &target_class)
-{
-  const std::string lowered = toLower(target_class);
-  if (lowered.empty()) {
-    return 0.0;
-  }
-
-  if (type == "trash_box" &&
-      (containsToken(lowered, "can") || containsToken(lowered, "bottle"))) {
-    return 0.25;
-  }
-
-  if ((type == "table" || type == "wagon") && containsToken(lowered, "soysauce")) {
-    return 0.10;
-  }
-
-  return 0.0;
-}
-
-double sectorCompatibility(const DestinationRegion &region, double bearing_yaw)
-{
-  if (region.sector_half_width >= kPi - 1e-3) {
-    return 1.0;
-  }
-
-  const double delta = angleDistance(bearing_yaw, region.sector_center_yaw);
-  if (delta <= region.sector_half_width) {
-    return 1.0;
-  }
-
-  return std::max(0.0, 1.0 - (delta - region.sector_half_width) / (kPi * 0.5));
 }
 
 DestinationRegion regionFromYaml(const YAML::Node &node)
@@ -322,68 +338,177 @@ DestinationResolution resolvePlaceDestination(
   const std::vector<PointingObservation> &pointings,
   const std::string &target_class)
 {
+  (void)target_class;
   DestinationResolution result;
-  const auto aggregate = aggregatePointings(pointings);
-  if (!aggregate.valid) {
+  const auto cluster = coherentPointingCluster(pointings);
+  result.usable_samples = static_cast<int>(cluster.size());
+  if (cluster.empty()) {
+    result.rejection_reason = "no valid pointing ray";
     return result;
   }
 
-  const double ray_dx = std::cos(aggregate.yaw);
-  const double ray_dy = std::sin(aggregate.yaw);
-  const double stability_score = 1.0 / (1.0 + aggregate.angular_stability / 0.35);
-  double best_score = -std::numeric_limits<double>::infinity();
-
+  struct Candidate
+  {
+    const DestinationRegion *region{nullptr};
+    double cost{kInvalidDistance};
+    double median_planar_ray{kInvalidDistance};
+    double median_three_d_ray{kInvalidDistance};
+    double median_surface_intersection{kInvalidDistance};
+    double image_ray_distance_px{kInvalidDistance};
+    double median_along{kInvalidDistance};
+    int support{0};
+    bool reversed{false};
+  };
+  std::vector<Candidate> candidates;
+  const int required_support = std::max(
+    1, static_cast<int>(std::ceil(cluster.size() * 0.50)));
+  double best_image_distance = kInvalidDistance;
   for (const auto &region : regions) {
-    double along = 0.0;
-    const double ray_distance = pointRayDist2D(
-      region.center.x,
-      region.center.y,
-      aggregate.origin.x,
-      aggregate.origin.y,
-      ray_dx,
-      ray_dy,
-      &along);
-    if (ray_distance >= kInvalidDistance - 1.0 || along <= 0.0) {
-      continue;
+    if (region.image_projection_valid) {
+      best_image_distance = std::min(
+        best_image_distance, region.image_ray_distance_px);
     }
+  }
+  // An image line is useful only when it actually passes close to at least
+  // one mapped destination. If every candidate is far from that line (as in
+  // task 1 with all relevant places outside the image), extrapolating it for
+  // thousands of pixels amplifies a small landmark error and must not
+  // override the depth-independent pose-world arm direction.
+  const bool use_image_evidence =
+    std::atan2(best_image_distance, kCameraFocalLengthPx) <=
+    kMaxAnchoredImageAngle;
 
-    const double avatar_distance = std::hypot(
-      region.center.x - aggregate.origin.x,
-      region.center.y - aggregate.origin.y);
-    const double bearing = std::atan2(
-      region.center.y - aggregate.origin.y,
-      region.center.x - aggregate.origin.x);
-    const double region_scale = std::max(0.10, region.allowed_radius);
-    const double alignment_score = 4.0 / (1.0 + ray_distance / region_scale);
-    const double membership_score =
-      ray_distance <= region.allowed_radius ?
-      2.0 :
-      2.0 / (1.0 + ray_distance / region_scale);
-    const double distance_score =
-      avatar_distance < 0.35 ? 0.0 : 1.0 / (1.0 + std::abs(avatar_distance - 2.5) / 2.0);
-    const double sector_score = sectorCompatibility(region, bearing);
-    const double task_prior = taskPriorForRegionType(region.type, target_class);
+  // Evaluate both polarities globally.  The previous controller flipped each
+  // frame independently toward whichever known region happened to be close,
+  // which allowed a mixed gesture to manufacture a false consensus.
+  for (int sign : {1, -1}) {
+    for (const auto &region : regions) {
+      std::vector<double> planar_ray_distances;
+      std::vector<double> three_d_ray_distances;
+      std::vector<double> surface_intersection_distances;
+      std::vector<double> along_distances;
+      for (const auto &sample : cluster) {
+        double planar_along = 0.0;
+        const double planar_ray_distance = pointRayDist2D(
+          region.center.x, region.center.y,
+          sample.origin.x, sample.origin.y,
+          sign * sample.direction.x,
+          sign * sample.direction.y,
+          &planar_along);
+        if (planar_along < kMinAlongDistance) {
+          continue;
+        }
+        const double three_d_ray_distance = pointRayDist3D(
+          region.center.x, region.center.y, region.center.z,
+          sample.origin.x, sample.origin.y, sample.origin.z,
+          sign * sample.direction.x,
+          sign * sample.direction.y,
+          sign * sample.direction.z);
+        planar_ray_distances.push_back(planar_ray_distance);
+        three_d_ray_distances.push_back(three_d_ray_distance);
+        along_distances.push_back(planar_along);
 
-    const double score =
-      alignment_score +
-      membership_score +
-      0.75 * sector_score +
-      0.5 * distance_score +
-      0.5 * stability_score +
-      task_prior;
+        // A perpendicular distance to an infinite horizontal ray cannot
+        // distinguish destinations that are almost collinear (notably the
+        // white side table and cardboard box).  Intersect the 3-D gesture
+        // with each destination's actual placement height and compare the
+        // landing point in XY.  This uses the full arm elevation without
+        // imposing another pass/fail threshold; noisy samples are handled by
+        // the median below.
+        const double signed_dz = sign * sample.direction.z;
+        if (std::abs(signed_dz) > 1e-3) {
+          const double t = (region.center.z - sample.origin.z) / signed_dz;
+          if (t > 0.0) {
+            const double hit_x = sample.origin.x +
+              t * sign * sample.direction.x;
+            const double hit_y = sample.origin.y +
+              t * sign * sample.direction.y;
+            surface_intersection_distances.push_back(
+              std::hypot(region.center.x - hit_x, region.center.y - hit_y));
+          }
+        }
+      }
+      if (static_cast<int>(planar_ray_distances.size()) < required_support) {
+        continue;
+      }
 
-    if (score <= best_score) {
-      continue;
+      const double median_planar_ray = median(planar_ray_distances);
+      const double median_three_d_ray = median(three_d_ray_distances);
+      const double median_surface_intersection =
+        median(surface_intersection_distances);
+      const double median_along = median(along_distances);
+      const double mean_planar_ray = std::accumulate(
+        planar_ray_distances.begin(), planar_ray_distances.end(), 0.0) /
+        static_cast<double>(planar_ray_distances.size());
+      // Prefer the physical landing point when elevation is available.  For
+      // a nearly horizontal gesture, fall back to ordinary 3-D/planar ray
+      // distance.  Distances remain soft costs rather than brittle gates.
+      const bool has_surface_intersection =
+        median_surface_intersection < kInvalidDistance;
+      const double world_cost = has_surface_intersection
+        ? median_planar_ray + 0.30 * median_surface_intersection +
+          0.10 * median_three_d_ray + 0.05 * mean_planar_ray
+        : median_three_d_ray + 0.25 * median_planar_ray +
+          0.05 * mean_planar_ray;
+      double cost = world_cost;
+      if (use_image_evidence && region.image_projection_valid) {
+        // Depth sampled on a thin synthetic arm is easily contaminated by
+        // the wall or furniture behind it.  The 2-D arm line itself remains
+        // stable, so compare it with the known region projected into the same
+        // held camera view. Convert pixels to an angular error and make that
+        // the primary cue while retaining world geometry as a soft tie-break.
+        const double image_angle = std::atan2(
+          std::max(0.0, region.image_ray_distance_px),
+          kCameraFocalLengthPx);
+        cost = 4.0 * image_angle + 0.20 * world_cost;
+      }
+      candidates.push_back(Candidate{
+        &region, cost, median_planar_ray, median_three_d_ray,
+        median_surface_intersection,
+        region.image_projection_valid
+          ? region.image_ray_distance_px : kInvalidDistance,
+        median_along,
+        static_cast<int>(planar_ray_distances.size()), sign < 0});
     }
-
-    best_score = score;
-    result.valid = true;
-    result.name = region.name;
-    result.position = region.center;
-    result.placement_mode = region.placement_mode;
-    result.score = score;
   }
 
+  if (candidates.empty()) {
+    result.rejection_reason = "no region has enough horizontal-ray support";
+    return result;
+  }
+
+  std::sort(
+    candidates.begin(), candidates.end(),
+    [](const Candidate &lhs, const Candidate &rhs) { return lhs.cost < rhs.cost; });
+  const Candidate &best = candidates.front();
+  const auto second = std::find_if(
+    candidates.begin() + 1, candidates.end(),
+    [&best](const Candidate &candidate) {
+      return candidate.region->name != best.region->name;
+    });
+  if (second != candidates.end()) {
+    result.runner_up_name = second->region->name;
+    result.runner_up_cost = second->cost;
+  }
+  if (second != candidates.end() && second->cost - best.cost < kAmbiguityMargin) {
+    result.rejection_reason = "best and second-best destination rays are ambiguous: " +
+      best.region->name + " vs " + second->region->name;
+    return result;
+  }
+
+  result.valid = true;
+  result.name = best.region->name;
+  result.position = best.region->center;
+  result.placement_mode = best.region->placement_mode;
+  result.score = 1.0 / (1.0 + best.cost);
+  result.ray_distance = best.median_planar_ray;
+  result.three_d_ray_distance = best.median_three_d_ray;
+  result.surface_intersection_distance = best.median_surface_intersection;
+  result.image_ray_distance_px = best.image_ray_distance_px;
+  result.along_distance = best.median_along;
+  result.supporting_samples = best.support;
+  result.image_evidence_used = use_image_evidence;
+  result.reversed = best.reversed;
   return result;
 }
 

@@ -859,6 +859,10 @@ class CleanupDetectionNode(Node):
         # Prefer the same long-baseline forearm→fingertip ray used by Unity.
         origin_3d = None
         dir_3d = None
+        pose_dir_3d = None
+        if best.get('pose_world_direction') is not None:
+            pose_dir_3d = self._mediapipe_world_vector_to_odom(
+                best['pose_world_direction'])
         forearm_cam = self._foreground_pixel_to_cam3d(
             best['wu'], best['wv'])
         if forearm_cam is not None:
@@ -875,8 +879,7 @@ class CleanupDetectionNode(Node):
                 if 0.05 <= depth_length <= 1.2:
                     dir_3d = self._cam_vector_to_odom(depth_direction)
         if dir_3d is None and best.get('pose_world_direction') is not None:
-            dir_3d = self._mediapipe_world_vector_to_odom(
-                best['pose_world_direction'])
+            dir_3d = pose_dir_3d
         if dir_3d is None and finger_world_direction is not None:
             dir_3d = self._mediapipe_world_vector_to_odom(
                 finger_world_direction)
@@ -906,6 +909,7 @@ class CleanupDetectionNode(Node):
             'is_pointing': True,
             'origin_3d': origin_3d,
             'dir_3d': dir_3d,
+            'pose_dir_3d': pose_dir_3d,
         }
 
     # ------------------------------------------------------------------
@@ -977,6 +981,7 @@ class CleanupDetectionNode(Node):
         pt_msg.header.frame_id = 'odom'
         pt_msg.is_valid = False
         pt_msg.person_is_valid = False
+        pt_msg.pose_direction_valid = False
         pt_msg.confidence = 0.0
 
         info = self._estimate_pointing(pointing_bgr)
@@ -1012,6 +1017,12 @@ class CleanupDetectionNode(Node):
                     x=info['dir_3d'][0],
                     y=info['dir_3d'][1],
                     z=info['dir_3d'][2])
+            if info['pose_dir_3d'] is not None:
+                pt_msg.pose_direction = Vector3(
+                    x=info['pose_dir_3d'][0],
+                    y=info['pose_dir_3d'][1],
+                    z=info['pose_dir_3d'][2])
+                pt_msg.pose_direction_valid = True
 
             # Red means Pose fallback; yellow means the arrow follows the
             # actual index-finger PIP→tip segment.
