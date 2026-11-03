@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import unittest
+import re
 from pathlib import Path
 
 
@@ -57,11 +58,15 @@ class InteractiveCleanupBehaviorTest(unittest.TestCase):
         self.assertIn('STABLE_TARGET_MIN_FRAMES = 6', self.source)
         self.assertIn('STABLE_TARGET_MIN_CONFIDENCE = 0.25', self.source)
         self.assertIn('const std::string spatial_key', self.source)
+        self.assertIn('STABLE_TARGET_MAX_AVG_RAY_3D_M = 0.55', self.source)
 
-    def test_frontal_pointing_depth_ambiguity_is_bounded(self):
-        self.assertIn('forward_support == 0', self.source)
-        self.assertIn('reverse_support >= STABLE_TARGET_MIN_FRAMES', self.source)
-        self.assertIn('Resolving frontal pointing depth ambiguity', self.source)
+    def test_destination_prefers_validated_depth_geometry(self):
+        self.assertIn('pt.depth_direction_valid', self.source)
+        self.assertIn('? pt.direction', self.source)
+
+    def test_candidate_locations_cannot_reverse_observed_gesture(self):
+        self.assertNotIn('reverse_support', self.source)
+        self.assertIn('pointingPlaneAngle(', self.source)
 
     def test_target_selection_has_one_bounded_decision_path(self):
         self.assertIn('candidate.frames < STABLE_TARGET_MIN_FRAMES', self.source)
@@ -97,27 +102,189 @@ class InteractiveCleanupBehaviorTest(unittest.TestCase):
         self.assertIn('Ignoring out-of-phase Pick_it_up!', self.source)
 
     def test_clean_command_closes_destination_capture_window(self):
-        self.assertIn('destination_capture_closed_ = true;', self.source)
+        self.assertIn('destination_window_.close(perception_stamp_clock_.now().nanoseconds());', self.source)
+        self.assertIn(
+            'destination_window_.accepts(rclcpp::Time(msg->header.stamp).nanoseconds())',
+            self.source)
 
-    def test_destination_capture_starts_only_after_first_gesture_release(self):
+    def test_destination_capture_uses_protocol_boundary_and_settled_view(self):
         self.assertNotIn('elapsed() >= 0.75', self.source)
+        self.assertNotIn('DESTINATION_RELEASE_INVALID_FRAMES', self.source)
+        self.assertNotIn('destination_capture_armed_', self.source)
+        self.assertNotIn('isDistinctFromPickupGesture', self.source)
         self.assertIn(
-            'DESTINATION_RELEASE_INVALID_FRAMES = 3', self.source)
-        self.assertIn('destination_capture_armed_', self.source)
+            'destination_window_.open(perception_stamp_clock_.now().nanoseconds());', self.source)
+        self.assertIn('destination_camera_ready_time_', self.source)
         self.assertIn(
-            'First gesture released; destination capture armed', self.source)
-        self.assertIn(
-            'Destination gesture started; holding Avatar view', self.source)
-        self.assertIn(
-            '!destination_capture_armed_ || '
-            '!destination_gesture_started_', self.source)
+            'Destination gesture captured in settled tracked view', self.source)
         state_machine = self.source.index('void runStateMachine()')
         clean_state = self.source.index(
             'case WaitForCleanCommand:', state_machine)
         move_state = self.source.index('case MoveToObject:', clean_state)
         clean_block = self.source[clean_state:move_state]
-        self.assertIn('Frozen pre-Clean destination gesture', clean_block)
-        self.assertIn('changeStep(WaitForResult);', clean_block)
+        self.assertIn('destination_pointing_history_.empty()', clean_block)
+        self.assertIn('Settled pre-Clean destination gesture', clean_block)
+        self.assertIn('continuing with pickup-only scoring', clean_block)
+        self.assertIn('changeStep(MoveToObject);', clean_block)
+
+    def test_avatar_tracking_continues_and_invalidates_pre_motion_gesture(self):
+        tracker_start = self.source.index('bool trackAvatarWithHead()')
+        tracker_end = self.source.index(
+            'bool hasRecentVisibleAvatar', tracker_start)
+        tracker = self.source[tracker_start:tracker_end]
+        self.assertIn('AVATAR_TRACK_DEADBAND_RAD', tracker)
+        self.assertIn('moveHead(target_pan, target_tilt, 0.3);', tracker)
+        self.assertIn(
+            'invalidatePickupPointingForHeadMotion(now_time, 0.3);',
+            tracker)
+
+        state_machine = self.source.index('void runStateMachine()')
+        wait_pick = self.source.index(
+            'case WaitForPickCommand:', state_machine)
+        observe = self.source.index('case ObserveTarget:', wait_pick)
+        wait_clean = self.source.index('case WaitForCleanCommand:', observe)
+        move_object = self.source.index('case MoveToObject:', wait_clean)
+        self.assertIn(
+            'trackAvatarWithHead();', self.source[wait_pick:observe])
+        self.assertIn(
+            'reacquireAvatarForDestination();',
+            self.source[wait_clean:move_object])
+
+    def test_wait_for_pick_searches_before_gesture_when_avatar_is_missing(self):
+        self.assertIn('void searchAvatarWithHead()', self.source)
+        self.assertIn('[AvatarSearch] No recent person observation', self.source)
+        state_machine = self.source.index('void runStateMachine()')
+        wait_pick = self.source.index(
+            'case WaitForPickCommand:', state_machine)
+        observe = self.source.index('case ObserveTarget:', wait_pick)
+        wait_block = self.source[wait_pick:observe]
+        self.assertIn('hasRecentVisibleAvatar()', wait_block)
+        self.assertIn('trackAvatarWithHead();', wait_block)
+        self.assertIn('searchAvatarWithHead();', wait_block)
+
+    def test_pickup_ray_is_accepted_after_settled_person_tracking(self):
+        self.assertIn('pointing_camera_ready_time_', self.source)
+        self.assertIn('pickup_camera_settled', self.source)
+        self.assertIn('pickup_has_recent_person', self.source)
+        self.assertNotIn('pickup_person_centered', self.source)
+        self.assertIn(
+            'void invalidatePickupPointingForHeadMotion(', self.source)
+        invalidator_start = self.source.index(
+            'void invalidatePickupPointingForHeadMotion(')
+        tracker_start = self.source.index(
+            'bool trackAvatarWithHead()', invalidator_start)
+        invalidator = self.source[invalidator_start:tracker_start]
+        self.assertIn('has_last_valid_pointing_ = false;', invalidator)
+        self.assertIn('pickup_pointing_history_.clear();', invalidator)
+        self.assertIn('obs_pointings_.clear();', invalidator)
+
+    def test_avatar_search_leaves_a_real_settled_observation_window(self):
+        def constant(name):
+            match = re.search(
+                rf'{name}\s*=\s*([0-9]+(?:\.[0-9]+)?)', self.source)
+            self.assertIsNotNone(match, name)
+            return float(match.group(1))
+
+        search_interval = constant('AVATAR_SEARCH_INTERVAL_SEC')
+        search_motion = constant('AVATAR_SEARCH_MOTION_SEC')
+        settle = constant('DESTINATION_HEAD_SETTLE_SEC')
+        self.assertGreater(
+            search_interval, search_motion + settle,
+            'search restarts before the camera can produce a settled ray')
+
+        close_interval = constant('CLOSE_GESTURE_SEARCH_INTERVAL_SEC')
+        close_motion = constant('CLOSE_GESTURE_SEARCH_MOTION_SEC')
+        self.assertGreater(
+            close_interval, close_motion + settle,
+            'close-person sweep restarts before its settled observation window')
+
+    def test_visible_close_avatar_gets_bounded_gesture_search(self):
+        self.assertIn('void searchGestureAroundVisibleAvatar()', self.source)
+        self.assertIn('[CloseGestureSearch]', self.source)
+        state_machine = self.source.index('void runStateMachine()')
+        wait_pick = self.source.index(
+            'case WaitForPickCommand:', state_machine)
+        observe = self.source.index('case ObserveTarget:', wait_pick)
+        wait_block = self.source[wait_pick:observe]
+        self.assertIn('searchGestureAroundVisibleAvatar();', wait_block)
+        self.assertIn('hasRecentRawPointing()', wait_block)
+        search_start = self.source.index(
+            'void searchGestureAroundVisibleAvatar()')
+        search_end = self.source.index(
+            'void searchAvatarWithHead()', search_start)
+        close_search = self.source[search_start:search_end]
+        self.assertIn('last_person_pixel_x_', close_search)
+        self.assertIn('last_person_pixel_y_', close_search)
+        self.assertIn('current_pan - image_yaw', close_search)
+
+    def test_destination_tracking_preserves_captured_world_geometry(self):
+        self.assertIn('personOutsideGestureCaptureEnvelope()', self.source)
+        reacquire_start = self.source.index(
+            'void reacquireAvatarForDestination()')
+        reacquire_end = self.source.index(
+            '// =========================================================================\n'
+            '  // Gripper', reacquire_start)
+        reacquire = self.source[reacquire_start:reacquire_end]
+        self.assertIn('const bool tracked = trackAvatarWithHead();', reacquire)
+        self.assertIn('if (!tracked && !hasRecentRawPointing())', reacquire)
+        self.assertNotIn('destination_pointing_history_.clear()', reacquire)
+
+    def test_short_pose_only_ray_cannot_be_locked_as_pickup(self):
+        lock_start = self.source.index('bool lockRecentPointing()')
+        lock_end = self.source.index(
+            'bool hasRecentImagePointing', lock_start)
+        lock = self.source[lock_start:lock_end]
+        self.assertIn('image_length < MIN_PICKUP_IMAGE_SEGMENT', lock)
+        self.assertIn('!pt.depth_direction_valid', lock)
+        self.assertIn('pt.depth_direction_samples < 4', lock)
+        self.assertIn('Frontal gesture aimed from measured RGB-D ray', self.source)
+
+    def test_single_negative_pose_frame_does_not_erase_avatar_track(self):
+        callback_start = self.source.index('void pointingCallback(')
+        callback_end = self.source.index(
+            '// =========================================================================\n'
+            '  // Joint helpers', callback_start)
+        callback = self.source[callback_start:callback_end]
+        self.assertIn('if (msg->person_is_valid && capturedAfterHeadMotion(msg->header.stamp)) {', callback)
+        self.assertIn('has_person_observation_ = true;', callback)
+        self.assertNotIn('has_person_observation_ = false;', callback)
+
+        recent_start = self.source.index('bool hasRecentVisibleAvatar(')
+        recent_end = self.source.index(
+            'void searchAvatarWithHead()', recent_start)
+        recent = self.source[recent_start:recent_end]
+        self.assertIn('has_person_observation_', recent)
+        self.assertIn('last_person_observation_time_', recent)
+
+    def test_destination_world_vote_survives_camera_tracking_motion(self):
+        self.assertIn('DESTINATION_HEAD_SETTLE_SEC = 0.35', self.source)
+        self.assertIn('destination_camera_settled', self.source)
+        self.assertIn('destination_camera_ready_time_', self.source)
+        self.assertIn(
+            '[WaitForClean] Following moving Avatar; resetting destination image samples',
+            self.source)
+        tracker_start = self.source.index('bool trackAvatarWithHead()')
+        tracker_end = self.source.index(
+            'bool hasRecentVisibleAvatar', tracker_start)
+        tracker = self.source[tracker_start:tracker_end]
+        self.assertIn('destination_image_pointing_history_.clear();', tracker)
+        self.assertNotIn('destination_pointing_history_.clear();', tracker)
+        self.assertNotIn('destination_gesture_started_ = false;', tracker)
+
+    def test_destination_failure_does_not_discard_pickup_score(self):
+        state_machine = self.source.index('void runStateMachine()')
+        grasped_state = self.source.index(
+            'case SendObjectGrasped:', state_machine)
+        destination_state = self.source.index(
+            'case MoveToDestination:', grasped_state)
+        grasped_block = self.source[grasped_state:destination_state]
+        self.assertIn('sendMessage(MSG_OBJECT_GRASPED);', grasped_block)
+        self.assertIn('if (dest_valid_)', grasped_block)
+        self.assertIn('preserving grasp before Give_up', grasped_block)
+        self.assertIn('sendMessage(MSG_GIVE_UP);', grasped_block)
+        self.assertLess(
+            grasped_block.index('sendMessage(MSG_OBJECT_GRASPED);'),
+            grasped_block.index('sendMessage(MSG_GIVE_UP);'))
 
     def test_target_confirmation_returns_camera_to_avatar(self):
         confirmation = self.source.index(

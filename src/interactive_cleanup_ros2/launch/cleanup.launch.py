@@ -30,7 +30,10 @@ def generate_launch_description():
         DeclareLaunchArgument(
             'ros_bridge_port', default_value='9090'),
         DeclareLaunchArgument(
-            'use_sim_time', default_value='true'),
+            'use_sim_time', default_value='false'),
+        DeclareLaunchArgument(
+            'timestamp_mode', default_value='source',
+            description='Bridge source Unix stamps; receive is diagnostic compatibility mode'),
         DeclareLaunchArgument(
             'use_nav2', default_value='true',
             description='Launch Nav2 navigation stack'),
@@ -64,12 +67,18 @@ def generate_launch_description():
         executable='cleanup_detection_node',
         name='cleanup_detection_node',
         output='screen',
+        parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}],
     )
 
     sigverse_bridge = Node(
         package='sigverse_ros_bridge',
         executable='sigverse_ros_bridge',
         arguments=[LaunchConfiguration('sigverse_ros_bridge_port')],
+        output='screen',
+        parameters=[{
+            'timestamp_mode': LaunchConfiguration('timestamp_mode'),
+            'use_sim_time': LaunchConfiguration('use_sim_time'),
+        }],
     )
 
     rosbridge = IncludeLaunchDescription(
