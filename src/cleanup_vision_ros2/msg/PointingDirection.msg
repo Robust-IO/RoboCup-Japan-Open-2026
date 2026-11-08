@@ -43,3 +43,7 @@ geometry_msgs/Vector3 arm_ray_direction
 # Baseline used for geometry: arm (elbow to index), hand (finger only), unknown.
 # confidence is an observation weight, NOT a calibrated angular probability.
 string geometry_source
+
+# CLOCK_MONOTONIC at local RGB callback entry, before conversion/inference.
+# Same-host phase ordering only; NOT sensor capture time or a TF timestamp.
+int64 received_steady_ns

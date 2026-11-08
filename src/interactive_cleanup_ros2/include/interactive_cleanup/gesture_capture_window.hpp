@@ -38,7 +38,8 @@ inline bool stablePickupPreview(
   return support >= 3 && ns(last)-oldest >= 600000000LL;
 }
 
-// Capture timestamps, rather than inference completion order, determine phase.
+// Caller supplies one consistent clock domain. Runtime uses local RGB ingress
+// and protocol receipt on CLOCK_MONOTONIC, never inference completion time.
 struct GestureCaptureWindow
 {
   int64_t begin_ns{0};

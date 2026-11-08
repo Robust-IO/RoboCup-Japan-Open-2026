@@ -102,9 +102,9 @@ class InteractiveCleanupBehaviorTest(unittest.TestCase):
         self.assertIn('Ignoring out-of-phase Pick_it_up!', self.source)
 
     def test_clean_command_closes_destination_capture_window(self):
-        self.assertIn('destination_window_.close(perception_stamp_clock_.now().nanoseconds());', self.source)
+        self.assertIn('destination_window_.close(ingressNowNs());', self.source)
         self.assertIn(
-            'destination_window_.accepts(rclcpp::Time(msg->header.stamp).nanoseconds())',
+            'destination_window_.accepts(msg->received_steady_ns)',
             self.source)
 
     def test_destination_capture_uses_protocol_boundary_and_settled_view(self):
@@ -113,7 +113,7 @@ class InteractiveCleanupBehaviorTest(unittest.TestCase):
         self.assertNotIn('destination_capture_armed_', self.source)
         self.assertNotIn('isDistinctFromPickupGesture', self.source)
         self.assertIn(
-            'destination_window_.open(perception_stamp_clock_.now().nanoseconds());', self.source)
+            'destination_window_.open(ingressNowNs());', self.source)
         self.assertIn('destination_camera_ready_time_', self.source)
         self.assertIn(
             'Destination gesture captured in settled tracked view', self.source)
@@ -245,7 +245,7 @@ class InteractiveCleanupBehaviorTest(unittest.TestCase):
             '// =========================================================================\n'
             '  // Joint helpers', callback_start)
         callback = self.source[callback_start:callback_end]
-        self.assertIn('if (msg->person_is_valid && capturedAfterHeadMotion(msg->header.stamp)) {', callback)
+        self.assertIn('if (msg->person_is_valid && receivedAfterHeadMotion(msg->received_steady_ns)) {', callback)
         self.assertIn('has_person_observation_ = true;', callback)
         self.assertNotIn('has_person_observation_ = false;', callback)
 

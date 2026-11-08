@@ -32,7 +32,7 @@ import numpy as np
 
 import rclpy
 from rclpy.node import Node
-from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy
+from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy, QoSDurabilityPolicy
 
 from sensor_msgs.msg import Image, CameraInfo
 from std_msgs.msg import Bool
@@ -337,6 +337,23 @@ class CleanupDetectionNode(Node):
         self.last_detect_time = time.monotonic()
         self.detect_interval_sec = 0.2  # 5 Hz
 
+        self.ready_pub = self.create_publisher(
+            Bool, '/cleanup_vision/ready',
+            QoSProfile(depth=1, durability=QoSDurabilityPolicy.TRANSIENT_LOCAL))
+        # Loading weights does not initialize the inference backend. Exercise
+        # the production image pyramid before allowing the competition to start.
+        if self.model is None or self.pose_detector is None:
+            raise RuntimeError('Required vision models unavailable; cannot declare ready')
+        warmup_start = time.monotonic()
+        blank = np.zeros((480, 640, 3), dtype=np.uint8)
+        self._detect_object_boxes(blank)
+        warmup_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=blank)
+        self.pose_detector.detect_for_video(warmup_image, 0)
+        if self.hand_detector is not None:
+            self.hand_detector.detect(warmup_image)
+        self.get_logger().info(
+            f'Vision inference warmup completed in {time.monotonic()-warmup_start:.2f}s')
+        self.ready_pub.publish(Bool(data=True))
         self.get_logger().info('CleanupDetectionNode ready')
 
     def destroy_node(self):
@@ -358,13 +375,14 @@ class CleanupDetectionNode(Node):
     # Sensor callbacks
     # ------------------------------------------------------------------
     def _rgb_cb(self, msg: Image):
+        received_steady = time.monotonic()
         try:
             self.rgb_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
             self.rgb_stamp = rclpy.time.Time.from_msg(msg.header.stamp)
             self.img_h, self.img_w = self.rgb_image.shape[:2]
             self.rgb_frames.append((
                 self.rgb_stamp.nanoseconds, self.rgb_stamp,
-                self.rgb_image, time.monotonic()))
+                self.rgb_image, received_steady))
         except Exception as e:
             self.get_logger().error(f'RGB error: {e}')
 
@@ -1471,6 +1489,7 @@ class CleanupDetectionNode(Node):
 
         # --- YOLO detection ---
         obj_array = DetectedObjectArray()
+        obj_array.received_steady_ns = int(rgb_frame[3] * 1_000_000_000)
         obj_array.header.stamp = stamp
         obj_array.header.frame_id = 'odom'
 
@@ -1525,6 +1544,7 @@ class CleanupDetectionNode(Node):
 
         # --- Avatar pointing ---
         pt_msg = PointingDirection()
+        pt_msg.received_steady_ns = int(rgb_frame[3] * 1_000_000_000)
         pt_msg.header.stamp = stamp
         pt_msg.header.frame_id = 'odom'
         pt_msg.is_valid = False
@@ -1663,6 +1683,7 @@ class CleanupDetectionNode(Node):
             record = {
                 'phase': self.diagnostic_capture_index,
                 'wall_ns': wall_ns, 'monotonic_ns': time.monotonic_ns(),
+                'received_steady_ns': pt_msg.received_steady_ns,
                 'wall_reversed': previous is not None and wall_ns < previous,
                 'rgb_stamp_ns': rgb_stamp_ns,
                 'depth_stamp_ns': depth_time.nanoseconds,

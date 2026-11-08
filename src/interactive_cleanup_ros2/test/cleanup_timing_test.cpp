@@ -6,6 +6,97 @@
 // connecting to the simulator. All command publishers use test-only topics.
 struct CleanupTimingAccess
 {
+  static void readinessHandshake()
+  {
+    auto n=make(); n->step_=n->Ready;
+    n->arm_joint_trajectory_.points.resize(1);
+    n->pub_arm_trajectory_=n->create_publisher<trajectory_msgs::msg::JointTrajectory>("/cleanup_timing_test/arm",10);
+    n->pub_msg_=n->create_publisher<interactive_cleanup_msgs::msg::InteractiveCleanupMsg>("/cleanup_timing_test/moderator",10);
+    n->pub_msg_human_=n->create_publisher<interactive_cleanup_msgs::msg::InteractiveCleanupMsg>("/cleanup_timing_test/human",10);
+    n->pub_hsr_msg_=n->create_publisher<std_msgs::msg::String>("/cleanup_timing_test/hsr",10);
+    n->handleIncomingMessage("Are_you_ready?", "", "test");
+    EXPECT_TRUE(n->is_started_);
+    EXPECT_FALSE(n->ready_ack_sent_);
+    n->runStateMachine();
+    EXPECT_EQ(n->step_, n->Ready);
+    n->vision_ready_=true;
+    n->runStateMachine();
+    EXPECT_EQ(n->step_, n->WaitForPickCommand);
+    EXPECT_TRUE(n->ready_ack_sent_);
+    n->reset(); EXPECT_TRUE(n->vision_ready_);
+  }
+  static void futureCaptureDuringMotion()
+  {
+    auto n=make(); n->step_=n->ObserveTarget;
+    const auto start=std::chrono::steady_clock::now();
+    n->moveHead(1.5,0,0.3); // joint-speed limit extends the requested duration
+    EXPECT_GE(std::chrono::duration<double>(n->head_motion_ready_time_-start).count(),1.5);
+    auto p=gesture(n->head_observation_not_before_ns_+2000000000LL);
+    // Reproduce source stamps ahead of the host and an expired caller timer.
+    n->pointing_camera_ready_time_={};
+    n->pointingCallback(std::make_shared<PointingDirection>(p));
+    EXPECT_FALSE(n->has_person_observation_);
+    EXPECT_FALSE(n->has_last_valid_pointing_);
+    auto objects=std::make_shared<DetectedObjectArray>();
+    objects->header.stamp=p.header.stamp;
+    objects->received_steady_ns=p.received_steady_ns;
+    n->objectsCallback(objects);
+    EXPECT_TRUE(n->obs_objects_.empty());
+    n->head_motion_ready_time_={};
+    p.received_steady_ns=n->head_observation_not_before_ns_+1;
+    objects->received_steady_ns=p.received_steady_ns;
+    n->pointingCallback(std::make_shared<PointingDirection>(p));
+    n->objectsCallback(objects);
+    EXPECT_TRUE(n->has_person_observation_);
+    EXPECT_TRUE(n->has_last_valid_pointing_);
+    EXPECT_EQ(n->obs_objects_.size(),1u);
+    n->reset();
+    EXPECT_EQ(n->head_motion_ready_time_.time_since_epoch().count(),0);
+  }
+  static void visibleDuringMotionDoesNotRestartSearch()
+  {
+    auto n=make();
+    n->moveHead(0,0,1);
+    auto p=gesture(n->head_observation_not_before_ns_-1);
+    n->pointingCallback(std::make_shared<PointingDirection>(p));
+    EXPECT_FALSE(n->has_person_observation_);
+    EXPECT_FALSE(n->has_last_valid_pointing_);
+    n->searchAvatarWithHead();
+    EXPECT_EQ(n->avatar_search_pose_index_,0);
+    // Motion finishes before a usable settled frame arrives. Visibility must
+    // still prevent restarting the scan and throwing away that next frame.
+    n->head_motion_ready_time_={}; n->pointing_camera_ready_time_={};
+    n->searchAvatarWithHead();
+    EXPECT_EQ(n->avatar_search_pose_index_,0);
+    n->last_person_seen_time_=std::chrono::steady_clock::now()-std::chrono::seconds(30);
+    n->searchAvatarWithHead();
+    EXPECT_EQ(n->avatar_search_pose_index_,1);
+    n->reset();
+    EXPECT_EQ(n->last_person_seen_time_.time_since_epoch().count(),0);
+  }
+  static void phaseIgnoresSourceClock()
+  {
+    auto n=make();
+    n->handleIncomingMessage("Pick_it_up!", "", "test");
+    n->step_=n->WaitForCleanCommand;
+    n->handleIncomingMessage("Clean_up!", "", "test");
+    for (int64_t source : {1000000000LL, 1793930619000000000LL}) {
+      auto p=gesture(source); p.plane_valid=true;
+      p.received_steady_ns=n->destination_window_.begin_ns-1;
+      n->pointingCallback(std::make_shared<PointingDirection>(p));
+      EXPECT_TRUE(n->destination_pointing_history_.empty());
+      p.received_steady_ns=n->destination_window_.begin_ns;
+      n->pointingCallback(std::make_shared<PointingDirection>(p));
+      EXPECT_EQ(n->destination_pointing_history_.size(),1u);
+      n->destination_pointing_history_.clear();
+      p.received_steady_ns=n->destination_window_.end_ns+1;
+      n->pointingCallback(std::make_shared<PointingDirection>(p));
+      EXPECT_TRUE(n->destination_pointing_history_.empty());
+      p.received_steady_ns=0;
+      n->pointingCallback(std::make_shared<PointingDirection>(p));
+      EXPECT_TRUE(n->destination_pointing_history_.empty());
+    }
+  }
   static void captureBarrier()
   {
     auto n=make(); n->step_=n->ObserveTarget;
@@ -14,24 +105,29 @@ struct CleanupTimingAccess
     // Arrives after motion, but was captured during it.
     n->pointing_camera_ready_time_={};
     auto old=gesture(boundary-1);
+    old.received_steady_ns=boundary-1;
     n->pointingCallback(std::make_shared<PointingDirection>(old));
     EXPECT_FALSE(n->has_last_valid_pointing_);
     EXPECT_FALSE(n->has_person_observation_);
     auto objects=std::make_shared<DetectedObjectArray>();
     objects->header.stamp=old.header.stamp;
+    objects->received_steady_ns=old.received_steady_ns;
     n->objectsCallback(objects);
     EXPECT_TRUE(n->obs_objects_.empty());
+    n->head_motion_ready_time_ = {};
     auto fresh=gesture(boundary+1);
+    fresh.received_steady_ns=boundary+1;
     n->pointingCallback(std::make_shared<PointingDirection>(fresh));
     EXPECT_TRUE(n->has_last_valid_pointing_);
     objects->header.stamp=fresh.header.stamp;
+    objects->received_steady_ns=fresh.received_steady_ns;
     n->objectsCallback(objects);
     EXPECT_EQ(n->obs_objects_.size(),1u);
   }
   static void revisableHypotheses(bool conflict)
   {
     auto n=make();
-    const auto now=rclcpp::Clock(RCL_SYSTEM_TIME).now().nanoseconds();
+    const auto now=InteractiveCleanupSample::ingressNowNs();
     auto good=gesture(now-1000000000LL);
     good.origin.x=0; good.origin.z=0.1;
     good.direction.x=1; good.direction.y=0; good.direction.z=0;
@@ -626,6 +722,7 @@ struct CleanupTimingAccess
   {
     PointingDirection p;
     p.header.stamp = rclcpp::Time(ns);
+    p.received_steady_ns = InteractiveCleanupSample::ingressNowNs();
     p.is_valid = true; p.confidence = 0.9; p.person_is_valid = true;
     p.person_pixel_x = 320; p.person_pixel_y = 240;
     p.wrist_pixel_x = 300; p.wrist_pixel_y = 200;
@@ -651,10 +748,12 @@ struct CleanupTimingAccess
     }
     n->runStateMachine(); // Existing one-shot head aim.
     n->state_enter_time_ = std::chrono::steady_clock::now()-std::chrono::seconds(2);
+    n->head_motion_ready_time_ = {}; // Advance the monotonic motion gate too.
     n->runStateMachine(); // Settle.
     for (int i = 0; i < 6; ++i) {
       auto frame = std::make_shared<DetectedObjectArray>();
       frame->header.stamp = rclcpp::Time(n->head_observation_not_before_ns_+i+1);
+      frame->received_steady_ns = n->head_observation_not_before_ns_+i+1;
       DetectedObject obj;
       obj.class_name = "bear_doll"; obj.confidence = 0.9;
       obj.has_3d_position = true;
@@ -693,10 +792,13 @@ struct CleanupTimingAccess
     n->handleIncomingMessage("Clean_up!", "", "test");
     auto p = gesture(n->destination_window_.end_ns);
     p.plane_valid = true;
-    // Result delivered after Clean but captured at/before its cutoff.
+    p.received_steady_ns = n->destination_window_.end_ns;
+    // Result delivered after Clean, RGB entered at/before its cutoff.
     n->pointingCallback(std::make_shared<PointingDirection>(p));
     ASSERT_EQ(n->destination_pointing_history_.size(), 1u);
-    p.header.stamp = rclcpp::Time(n->destination_window_.end_ns+1);
+    p.received_steady_ns = n->destination_window_.end_ns+1;
+    // Source clock moves backwards, but must not admit a post-Clean frame.
+    p.header.stamp = rclcpp::Time(int64_t(1000000000));
     n->pointingCallback(std::make_shared<PointingDirection>(p));
     EXPECT_EQ(n->destination_pointing_history_.size(), 1u);
     n->runStateMachine();
@@ -838,3 +940,15 @@ TEST(CleanupTiming, HeadTrackingUsesActuatorRangeAndMotionDuration)
   EXPECT_DOUBLE_EQ(limit.tilt,-1.570);
   EXPECT_GE(limit.duration,1.745);
 }
+
+TEST(CleanupTiming, HandshakeWaitsForVisionAndReadinessSurvivesTaskReset)
+{ CleanupTimingAccess::readinessHandshake(); }
+
+TEST(CleanupTiming, FutureSourceStampCannotBypassActualHeadMotion)
+{ CleanupTimingAccess::futureCaptureDuringMotion(); }
+
+TEST(CleanupTiming, VisiblePersonDuringMotionSuppressesBlindScanUntilLost)
+{ CleanupTimingAccess::visibleDuringMotionDoesNotRestartSearch(); }
+
+TEST(CleanupTiming, PhaseMembershipUsesIngressDespiteSourceClockOffset)
+{ CleanupTimingAccess::phaseIgnoresSourceClock(); }

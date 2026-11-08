@@ -92,6 +92,10 @@ public:
         "/cleanup_vision/pointing_direction", 10,
         std::bind(&InteractiveCleanupSample::pointingCallback, this, std::placeholders::_1));
 
+    sub_vision_ready_ = this->create_subscription<std_msgs::msg::Bool>(
+      "/cleanup_vision/ready", rclcpp::QoS(1).transient_local(),
+      [this](std_msgs::msg::Bool::SharedPtr msg) { vision_ready_ = msg->data; });
+
     // ---- TF ----
     tf_buffer_ = std::make_shared<tf2_ros::Buffer>(this->get_clock());
     tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
@@ -329,7 +333,10 @@ private:
     // centred in the official JudgeTriggerOn volume, or immediately above an
     // open JudgeTriggerIn container so gravity carries the object inside.
     double release_height;
-    double surface_inset;
+    // Move the release point from the trigger/container centre toward the
+    // robot. This keeps the fingers inside the destination while preserving
+    // base clearance at narrow containers and furniture edges.
+    double approach_inset;
     double center_offset_x;
     double center_offset_y;
     bool drop_in;
@@ -340,27 +347,37 @@ private:
   // =========================================================================
   int step_;
   bool is_started_  = false;
+  bool vision_ready_ = false; // Process readiness survives task reset.
+  rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr sub_vision_ready_;
   bool is_finished_ = false;
   bool is_failed_   = false;
   std::string failed_detail_;
   bool received_pick_command_  = false;
   bool received_clean_command_ = false;
+  size_t clean_continuation_frame_count_ = 0;
   bool early_pick_attempted_ = false;
   bool early_pick_observing_ = false;
   bool preconfirmed_target_ = false;
   std::chrono::steady_clock::time_point preconfirmed_target_time_;
   std::chrono::steady_clock::time_point clean_drain_deadline_;
-  interactive_cleanup::GestureCaptureWindow destination_window_;
-  // SIGVerse bridge stamps RGB/depth with system time, independently of
-  // this controller's use_sim_time. Protocol cutoffs must use that same
-  // domain; the ROS clock may be zero when /clock is not published.
-  rclcpp::Clock perception_stamp_clock_{RCL_SYSTEM_TIME};
-  int64_t head_observation_not_before_ns_ = 0;
-
-  bool capturedAfterHeadMotion(const builtin_interfaces::msg::Time &stamp) const
+  // Same-host RGB ingress and protocol receipt share CLOCK_MONOTONIC.
+  // Source timestamps remain exclusively responsible for sensor geometry.
+  static int64_t ingressNowNs()
   {
-    const auto ns = rclcpp::Time(stamp).nanoseconds();
-    return ns > 0 && ns >= head_observation_not_before_ns_;
+    return std::chrono::duration_cast<std::chrono::nanoseconds>(
+      std::chrono::steady_clock::now().time_since_epoch()).count();
+  }
+  interactive_cleanup::GestureCaptureWindow destination_window_;
+  // Source stamps are for TF/RGB-D only. Motion and protocol admission use
+  // the shared host monotonic clock, unaffected by host wall-clock steps.
+  rclcpp::Clock perception_stamp_clock_{RCL_SYSTEM_TIME}; // Log throttling only.
+  int64_t head_observation_not_before_ns_ = 0; // RGB ingress, CLOCK_MONOTONIC.
+  std::chrono::steady_clock::time_point head_motion_ready_time_{};
+
+  bool receivedAfterHeadMotion(int64_t ingress_ns) const
+  {
+    return ingress_ns > 0 && ingress_ns >= head_observation_not_before_ns_ &&
+      std::chrono::steady_clock::now() >= head_motion_ready_time_;
   }
   bool received_yes_ = false;
   bool received_no_  = false;
@@ -430,6 +447,7 @@ private:
   // World-space hypotheses from the pickup gesture survive view changes.
   // A head-aim ray is provisional until object evidence supports it.
   std::vector<PointingDirection> pickup_ray_hypotheses_;
+  std::chrono::steady_clock::time_point last_person_seen_time_{};
   bool has_person_observation_ = false;
   double last_person_pixel_x_ = 320.0;
   double last_person_pixel_y_ = 240.0;
@@ -517,7 +535,8 @@ private:
     if (message == MSG_ARE_YOU_READY) {
       if (step_ == Ready) {
         is_started_ = true;
-        sendReadyAck("initial handshake");
+        if (vision_ready_) sendReadyAck("initial handshake");
+        else RCLCPP_INFO(this->get_logger(), "Waiting for vision inference readiness before I_am_ready");
       } else if (step_ == WaitForPickCommand) {
         sendReadyAck("moderator retried handshake");
       } else {
@@ -531,7 +550,7 @@ private:
       if (step_ == WaitForPickCommand ||
           (step_ == ObserveTarget && early_pick_observing_)) {
         received_pick_command_ = true;
-        destination_window_.open(perception_stamp_clock_.now().nanoseconds());
+        destination_window_.open(ingressNowNs());
         if (early_pick_observing_) {
           early_pick_observing_ = false;
           state_enter_time_ = std::chrono::steady_clock::now();
@@ -544,14 +563,15 @@ private:
       }
     }
     else if (message == MSG_CLEAN_UP) {
-      // ObserveTarget is accepted only as a phase-boundary signal.  The state
-      // machine must either finish from the already collected target frames
-      // or fail; frames after this command belong to the destination gesture.
+      // Clean_up! closes destination capture. A short drain may retain only
+      // frames that continue the final pre-command world ray; it cannot start
+      // a new gesture or change the selected direction.
       if (step_ == ObserveTarget || step_ == WaitForCleanCommand) {
         if (!received_clean_command_) {
-          destination_window_.close(perception_stamp_clock_.now().nanoseconds());
+          destination_window_.close(ingressNowNs());
           clean_drain_deadline_ = std::chrono::steady_clock::now() +
             std::chrono::seconds(2);
+          clean_continuation_frame_count_ = 0;
         }
         received_clean_command_ = true;
         if (step_ == WaitForCleanCommand) {
@@ -591,8 +611,44 @@ private:
     latest_objects_ = *msg;
     has_new_objects_ = true;
     if ((step_ == ObserveTarget || step_ == WaitForCleanCommand) &&
-        capturedAfterHeadMotion(msg->header.stamp))
+        receivedAfterHeadMotion(msg->received_steady_ns))
       obs_objects_.push_back(*msg);
+  }
+
+  bool continuesFinalPreCleanRay(const PointingDirection &candidate) const
+  {
+    constexpr int64_t MAX_PRE_CLEAN_RAY_AGE_NS = 500000000LL;
+    constexpr double MAX_CONTINUATION_ANGLE_RAD = 12.0 * M_PI / 180.0;
+    if (!received_clean_command_ || destination_window_.end_ns <= 0 ||
+        std::chrono::steady_clock::now() >= clean_drain_deadline_ ||
+        candidate.received_steady_ns <= destination_window_.end_ns ||
+        !candidate.is_valid || !candidate.person_is_valid ||
+        !candidate.depth_direction_valid || !candidate.plane_valid) return false;
+
+    const PointingDirection *anchor = nullptr;
+    for (const auto &pointing : destination_pointing_history_) {
+      if (pointing.received_steady_ns <= destination_window_.end_ns &&
+          pointing.is_valid && pointing.person_is_valid &&
+          pointing.depth_direction_valid && pointing.plane_valid &&
+          (anchor == nullptr || pointing.received_steady_ns >
+            anchor->received_steady_ns)) {
+        anchor = &pointing;
+      }
+    }
+    if (anchor == nullptr ||
+        destination_window_.end_ns - anchor->received_steady_ns < 0 ||
+        destination_window_.end_ns - anchor->received_steady_ns >
+          MAX_PRE_CLEAN_RAY_AGE_NS) return false;
+
+    const auto &a = anchor->direction;
+    const auto &b = candidate.direction;
+    const double norm_a = std::sqrt(a.x*a.x + a.y*a.y + a.z*a.z);
+    const double norm_b = std::sqrt(b.x*b.x + b.y*b.y + b.z*b.z);
+    if (!std::isfinite(norm_a) || !std::isfinite(norm_b) ||
+        norm_a < 1e-6 || norm_b < 1e-6) return false;
+    const double dot = (a.x*b.x + a.y*b.y + a.z*b.z) / (norm_a*norm_b);
+    return std::isfinite(dot) &&
+      dot >= std::cos(MAX_CONTINUATION_ANGLE_RAD);
   }
 
   void pointingCallback(const PointingDirection::SharedPtr msg)
@@ -601,10 +657,15 @@ private:
     has_new_pointing_ = true;
     last_pointing_recv_time_ = std::chrono::steady_clock::now();
 
+    // Visibility can suppress a blind scan even while geometry is unsettled.
+    // Do not use these pixels for tracking until the existing motion gate passes.
+    if (msg->person_is_valid && rclcpp::Time(msg->header.stamp).nanoseconds() > 0)
+      last_person_seen_time_ = last_pointing_recv_time_;
+
     // Pose inference can miss isolated frames while the Avatar is plainly
     // visible. Keep the most recent positive torso observation instead of
     // letting one negative frame immediately restart the head search.
-    if (msg->person_is_valid && capturedAfterHeadMotion(msg->header.stamp)) {
+    if (msg->person_is_valid && receivedAfterHeadMotion(msg->received_steady_ns)) {
       has_person_observation_ = true;
       last_person_pixel_x_ = msg->person_pixel_x;
       last_person_pixel_y_ = msg->person_pixel_y;
@@ -639,10 +700,17 @@ private:
       step_ == WaitForPickCommand || step_ == ObserveTarget;
     // An odom ray survives head movement. Keep full-arm evidence separate
     // from cropped fingers; a later crop must not erase the first gesture.
-    // After Pick, only delayed inference captured before Pick can update it.
+    // After Pick, only inference whose RGB entered this host before Pick may update it.
     const auto capture_ns = rclcpp::Time(msg->header.stamp).nanoseconds();
     const bool before_pick = destination_window_.begin_ns == 0 ||
-      capture_ns <= destination_window_.begin_ns;
+      (msg->received_steady_ns > 0 && msg->received_steady_ns <= destination_window_.begin_ns);
+    // Pick_it_up! can arrive before the Avatar has formed the target gesture.
+    // Keep accepting target-ray samples through the Pick..Clean_up interval;
+    // the cutoff prevents delayed destination-gesture frames from entering
+    // the pickup history after Clean_up! closes that interval.
+    const bool inside_target_capture_window = destination_window_.end_ns <= 0 ||
+      (msg->received_steady_ns > 0 &&
+       msg->received_steady_ns <= destination_window_.end_ns);
     if (pickup_phase && msg->is_valid &&
         msg->arm_ray_valid && capture_ns > 0 && before_pick &&
         (!has_retained_arm_pointing_ || capture_ns >
@@ -662,7 +730,7 @@ private:
       }
     }
     const bool pickup_camera_settled =
-      capturedAfterHeadMotion(msg->header.stamp) &&
+      receivedAfterHeadMotion(msg->received_steady_ns) &&
       (pointing_camera_ready_time_.time_since_epoch().count() == 0 ||
        last_pointing_recv_time_ >= pointing_camera_ready_time_);
     // Preserve the original successful behavior: a valid pointing ray may be
@@ -681,7 +749,7 @@ private:
       pickup_camera_settled, accept_valid_gesture, msg->depth_direction_valid,
       msg->confidence, pickup_pointing_history_.size(), has_locked_pointing_);
     if (accept_valid_gesture) {
-      if (pickup_phase && before_pick) {
+      if (pickup_phase && inside_target_capture_window) {
         pickup_pointing_history_.push_back(*msg);
         if (pickup_pointing_history_.size() > 8) {
           pickup_pointing_history_.erase(pickup_pointing_history_.begin());
@@ -704,13 +772,21 @@ private:
     if (step_ == ObserveTarget || step_ == WaitForCleanCommand)
       obs_pointings_.push_back(*msg);
     const bool destination_camera_settled =
-      capturedAfterHeadMotion(msg->header.stamp) &&
+      receivedAfterHeadMotion(msg->received_steady_ns) &&
       (destination_camera_ready_time_.time_since_epoch().count() == 0 ||
        last_pointing_recv_time_ >= destination_camera_ready_time_);
+    const bool in_destination_capture_window =
+      destination_window_.accepts(msg->received_steady_ns);
+    const bool clean_ray_continuation =
+      !in_destination_capture_window && continuesFinalPreCleanRay(*msg);
     if (accept_valid_gesture &&
-        destination_window_.accepts(rclcpp::Time(msg->header.stamp).nanoseconds()) &&
+        (in_destination_capture_window || clean_ray_continuation) &&
         step_ == WaitForCleanCommand &&
         (destination_camera_settled || msg->plane_valid)) {
+      if (clean_ray_continuation && clean_continuation_frame_count_ == 0) {
+        RCLCPP_INFO(this->get_logger(),
+          "[WaitForClean] Draining frames that continue the final pre-command world ray");
+      }
       if (!destination_gesture_started_) {
         destination_gesture_started_ = true;
         RCLCPP_INFO(
@@ -718,9 +794,10 @@ private:
           "[WaitForClean] Destination gesture captured in settled tracked view");
       }
       destination_pointing_history_.push_back(*msg);
-      if (destination_camera_settled) {
+      if (destination_camera_settled && !clean_ray_continuation) {
         destination_image_pointing_history_.push_back(*msg);
       }
+      if (clean_ray_continuation) ++clean_continuation_frame_count_;
       constexpr size_t MAX_DESTINATION_POINTING_HISTORY = 60;
       if (destination_pointing_history_.size() > MAX_DESTINATION_POINTING_HISTORY) {
         destination_pointing_history_.erase(destination_pointing_history_.begin());
@@ -837,10 +914,15 @@ private:
       getJointPosition("head_pan_joint"), getJointPosition("head_tilt_joint"),
       pan, tilt, dur);
     pan = motion.pan; tilt = motion.tilt; dur = motion.duration;
-    // Image and TF stamps now share the sender's synchronized Unix clock.
-    // Apply this for every head command, irrespective of which state owns it.
-    head_observation_not_before_ns_ = perception_stamp_clock_.now().nanoseconds() +
-      static_cast<int64_t>((dur + DESTINATION_HEAD_SETTLE_SEC) * 1e9);
+    // Use the limit-adjusted duration for both execution and observation.
+    // RGB ingress before this deadline remains ineligible even if inference
+    // finishes later. This is a local receipt barrier, not capture-time proof.
+    head_motion_ready_time_ = std::chrono::steady_clock::now() +
+      std::chrono::duration_cast<std::chrono::steady_clock::duration>(
+        std::chrono::duration<double>(dur + DESTINATION_HEAD_SETTLE_SEC));
+    head_observation_not_before_ns_ =
+      std::chrono::duration_cast<std::chrono::nanoseconds>(
+        head_motion_ready_time_.time_since_epoch()).count();
     trajectory_msgs::msg::JointTrajectory jt;
     jt.joint_names = {"head_pan_joint", "head_tilt_joint"};
     trajectory_msgs::msg::JointTrajectoryPoint p;
@@ -1198,6 +1280,10 @@ private:
   void searchAvatarWithHead()
   {
     const auto now_time = std::chrono::steady_clock::now();
+    if (now_time < head_motion_ready_time_ ||
+        (last_person_seen_time_.time_since_epoch().count() != 0 &&
+         std::chrono::duration<double>(now_time-last_person_seen_time_).count() <=
+           AVATAR_OBSERVATION_MEMORY_SEC)) return;
     // A brief pose dropout during a local sweep must not immediately replace
     // that trajectory with a centre-facing global search.
     if (now_time < pointing_camera_ready_time_ ||
@@ -1799,14 +1885,19 @@ private:
     const bool original_valid = target_valid_;
     std::vector<PointingDirection> hypotheses;
     const auto reference_ns = destination_window_.begin_ns > 0
-      ? destination_window_.begin_ns : perception_stamp_clock_.now().nanoseconds();
+      ? destination_window_.begin_ns : ingressNowNs();
     for (const auto &ray : pickup_ray_hypotheses_) {
-      const auto ns = rclcpp::Time(ray.header.stamp).nanoseconds();
-      if (ns <= reference_ns && reference_ns-ns <= static_cast<int64_t>(POINTING_MEMORY_SEC*1e9))
+      const auto ns = ray.received_steady_ns;
+      if (ns > 0 && ns <= reference_ns && reference_ns-ns <= static_cast<int64_t>(POINTING_MEMORY_SEC*1e9))
         hypotheses.push_back(ray);
     }
-    const bool use_original = original_lock && (destination_window_.begin_ns == 0 ||
-      rclcpp::Time(original_ray.header.stamp).nanoseconds() <= destination_window_.begin_ns);
+    // The live target gesture may begin after Pick_it_up!; it remains target
+    // evidence until Clean_up! closes the capture window. A ray arriving after
+    // that boundary belongs to the destination gesture and must not vote here.
+    const bool original_ray_in_target_window = destination_window_.end_ns <= 0 ||
+      (original_ray.received_steady_ns > 0 &&
+       original_ray.received_steady_ns <= destination_window_.end_ns);
+    const bool use_original = original_lock && original_ray_in_target_window;
     if (use_original) hypotheses.insert(hypotheses.begin(), original_ray);
     bool found = false, conflict = false;
     PointingDirection winner;
@@ -1862,7 +1953,28 @@ private:
       double ray_distance_sum;
       double best_ray_distance;
     };
+    // Keep a compact per-class account of every candidate and each gate it
+    // fails. Detection counts alone are not evidence that an object matched
+    // the gesture; these aggregates make that distinction visible in logs.
+    struct GeometryAudit {
+      int seen = 0;
+      int with_3d = 0;
+      int low_confidence = 0;
+      int non_portable = 0;
+      int unreachable_height = 0;
+      int plane_angle_rejected = 0;
+      int halfspace_rejected = 0;
+      int ray_rejected = 0;
+      int accepted = 0;
+      double z_sum = 0.0;
+      double depth_mm_sum = 0.0;
+      double ray_sum = 0.0;
+      double ray_best = std::numeric_limits<double>::infinity();
+      double along_sum = 0.0;
+      double plane_sum = 0.0;
+    };
     std::map<std::string, Candidate> candidates;
+    std::map<std::string, GeometryAudit> geometry_audit;
 
     for (const auto &frame : obs_objects_) {
       if (!has_locked_pointing_) continue;
@@ -1873,17 +1985,18 @@ private:
       // inference loops ran at different rates.
       std::set<std::string> updated_in_frame;
       for (const auto &obj : frame.objects) {
-        if (obj.class_name == "person" || !obj.has_3d_position ||
-            obj.confidence < STABLE_TARGET_MIN_CONFIDENCE ||
-            !isLikelyPortableClass(obj.class_name) ||
-            !isReachableGraspHeight(obj.position_3d.z)) {
-          if (diagnose && &frame == &obs_objects_.back()) RCLCPP_INFO(this->get_logger(),
-            "[TargetAudit] rejected basic filters class=%s has3d=%d confidence=%.3f portable=%d reachable=%d",
-            obj.class_name.c_str(), obj.has_3d_position, obj.confidence,
-            isLikelyPortableClass(obj.class_name), isReachableGraspHeight(obj.position_3d.z));
+        if (obj.class_name == "person") continue;
+        auto &audit = geometry_audit[obj.class_name];
+        audit.seen++;
+        const bool portable = isLikelyPortableClass(obj.class_name);
+        const bool reachable = obj.has_3d_position &&
+          isReachableGraspHeight(obj.position_3d.z);
+        if (!obj.has_3d_position) {
           continue;
         }
-
+        audit.with_3d++;
+        audit.z_sum += obj.position_3d.z;
+        audit.depth_mm_sum += obj.depth_mm;
         const double world_ray_distance = pointRayDist3D(
           obj.position_3d.x, obj.position_3d.y, obj.position_3d.z,
           locked_pointing_.origin.x, locked_pointing_.origin.y,
@@ -1895,12 +2008,34 @@ private:
           ? interactive_cleanup::pointingPlaneAngle(
               obj.position_3d, locked_pointing_.plane_origin,
               locked_pointing_.plane_normal) : 0.0;
+        const double ray_along =
+          (obj.position_3d.x - locked_pointing_.origin.x) * locked_pointing_.direction.x +
+          (obj.position_3d.y - locked_pointing_.origin.y) * locked_pointing_.direction.y +
+          (obj.position_3d.z - locked_pointing_.origin.z) * locked_pointing_.direction.z;
+        audit.ray_sum += world_ray_distance;
+        audit.ray_best = std::min(audit.ray_best, world_ray_distance);
+        audit.along_sum += ray_along;
+        audit.plane_sum += plane_angle;
+        if (obj.confidence < STABLE_TARGET_MIN_CONFIDENCE) audit.low_confidence++;
+        if (!portable) audit.non_portable++;
+        if (!reachable) audit.unreachable_height++;
+        if (obj.confidence < STABLE_TARGET_MIN_CONFIDENCE || !portable || !reachable) {
+          if (diagnose && &frame == &obs_objects_.back()) RCLCPP_INFO(this->get_logger(),
+            "[TargetAudit] rejected basic filters class=%s xyz=(%.3f,%.3f,%.3f) "
+            "depth_mm=%.1f confidence=%.3f portable=%d reachable=%d "
+            "height_range=[%.2f,%.2f]",
+            obj.class_name.c_str(), obj.position_3d.x, obj.position_3d.y,
+            obj.position_3d.z, obj.depth_mm, obj.confidence, portable, reachable,
+            TARGET_MIN_GRASP_HEIGHT, TARGET_MAX_GRASP_HEIGHT);
+          continue;
+        }
+
         if (diagnose && &frame == &obs_objects_.back()) {
           RCLCPP_INFO(this->get_logger(),
-            "[TargetAudit] class=%s xyz=(%.3f,%.3f,%.3f) confidence=%.3f "
-            "ray=%.3f plane=%.4f depth=%d plane_valid=%d",
+            "[TargetAudit] class=%s xyz=(%.3f,%.3f,%.3f) depth_mm=%.1f "
+            "confidence=%.3f ray=%.3f plane=%.4f depth_ray_valid=%d plane_valid=%d",
             obj.class_name.c_str(), obj.position_3d.x, obj.position_3d.y,
-            obj.position_3d.z, obj.confidence, world_ray_distance, plane_angle,
+            obj.position_3d.z, obj.depth_mm, obj.confidence, world_ray_distance, plane_angle,
             locked_pointing_.depth_direction_valid, locked_pointing_.plane_valid);
           RCLCPP_INFO(this->get_logger(),
             "[TargetAudit] class=%s plane_pass=%d forward_pass=%d camera_pass=%d",
@@ -1913,18 +2048,27 @@ private:
         // An image line constrains a plane, never an invented camera ray.
         // With measured arm depth both constraints must agree. Without arm
         // depth use the plane plus depth-localized objects, rejecting ties.
-        if (locked_pointing_.plane_valid && plane_angle > 0.12) continue;
+        if (locked_pointing_.plane_valid && plane_angle > 0.12) {
+          audit.plane_angle_rejected++;
+          continue;
+        }
         if (locked_pointing_.plane_valid &&
             (!interactive_cleanup::pointingHalfspaceContains(
                obj.position_3d, locked_pointing_.plane_origin,
                locked_pointing_.plane_forward, 0.03) ||
              !interactive_cleanup::pointingHalfspaceContains(
                obj.position_3d, locked_pointing_.plane_origin,
-               locked_pointing_.camera_forward))) continue;
+               locked_pointing_.camera_forward))) {
+          audit.halfspace_rejected++;
+          continue;
+        }
         const double ray_distance = locked_pointing_.depth_direction_valid
           ? world_ray_distance
           : (locked_pointing_.plane_valid ? plane_angle * 3.0 : world_ray_distance);
-        if (ray_distance > 1.5) continue;
+        if (ray_distance > 1.5) {
+          audit.ray_rejected++;
+          continue;
+        }
 
         // Keep separate instances of the same class separate.  The failed
         // run contained two bear_doll detections per frame; grouping only by
@@ -1936,6 +2080,7 @@ private:
           std::to_string(std::lround(obj.position_3d.y * 2.0));
         if (updated_in_frame.count(spatial_key) != 0) continue;
         updated_in_frame.insert(spatial_key);
+        audit.accepted++;
         auto result = candidates.emplace(
           spatial_key,
           Candidate{obj.class_name, obj.position_3d.x, obj.position_3d.y,
@@ -1959,16 +2104,39 @@ private:
     double best_geometry = std::numeric_limits<double>::infinity();
     double runner_up_geometry = std::numeric_limits<double>::infinity();
     double best_score = -1.0;
+    if (diagnose) {
+      for (const auto &[class_name, audit] : geometry_audit) {
+        const double n3d = static_cast<double>(std::max(1, audit.with_3d));
+        RCLCPP_INFO(this->get_logger(),
+          "[TargetGeometryAudit] class=%s seen=%d with_3d=%d xyz_z_mean=%.3f depth_mm_mean=%.1f "
+          "ray_mean=%.3f ray_best=%.3f along_mean=%.3f plane_angle_mean=%.4f "
+          "reject_conf=%d reject_class=%d reject_height=%d reject_plane=%d "
+          "reject_halfspace=%d reject_ray=%d accepted=%d",
+          class_name.c_str(), audit.seen, audit.with_3d,
+          audit.z_sum / n3d, audit.with_3d ? audit.depth_mm_sum / n3d : -1.0,
+          audit.with_3d ? audit.ray_sum / n3d : -1.0,
+          audit.with_3d ? audit.ray_best : -1.0,
+          audit.with_3d ? audit.along_sum / n3d : -1.0,
+          audit.with_3d ? audit.plane_sum / n3d : -1.0,
+          audit.low_confidence, audit.non_portable, audit.unreachable_height,
+          audit.plane_angle_rejected, audit.halfspace_rejected,
+          audit.ray_rejected, audit.accepted);
+      }
+    }
     for (const auto &[key, candidate] : candidates) {
+      const double candidate_average_ray =
+        candidate.ray_distance_sum / candidate.frames;
       if (diagnose) RCLCPP_INFO(this->get_logger(),
-        "[TargetVoteAudit] key=%s frames=%d best_ray=%.3f avg_ray=%.3f",
-        key.c_str(), candidate.frames, candidate.best_ray_distance,
-        candidate.ray_distance_sum / candidate.frames);
+        "[TargetVoteAudit] key=%s class=%s frames=%d required_frames=%d "
+        "best_ray=%.3f max_best=%.3f avg_ray=%.3f max_avg=%.3f",
+        key.c_str(), candidate.name.c_str(), candidate.frames,
+        STABLE_TARGET_MIN_FRAMES, candidate.best_ray_distance,
+        STABLE_TARGET_MAX_BEST_RAY_3D_M, candidate_average_ray,
+        STABLE_TARGET_MAX_AVG_RAY_3D_M);
       if (candidate.frames < STABLE_TARGET_MIN_FRAMES) continue;
       const double average_confidence =
         candidate.confidence_sum / candidate.frames;
-      const double average_ray_distance =
-        candidate.ray_distance_sum / candidate.frames;
+      const double average_ray_distance = candidate_average_ray;
       if (candidate.best_ray_distance > STABLE_TARGET_MAX_BEST_RAY_3D_M ||
           average_ray_distance > STABLE_TARGET_MAX_AVG_RAY_3D_M) {
         continue;
@@ -2301,7 +2469,11 @@ private:
       return {0.32, 0.0, 0.024, 0.133, true};
     }
     if (name.rfind("trash_box_for_", 0) == 0) {
-      return {0.55, 0.0, 0.0, 0.0, true};
+      // The bin outer footprint is about 0.50 x 0.60 m. An 8 cm
+      // approach-side offset stays within that footprint and covers the
+      // 6.2 cm residual seen when the base-clearance guard stopped the last
+      // release attempt.
+      return {0.55, 0.08, 0.0, 0.0, true};
     }
     return {0.65, 0.12, 0.0, 0.0, false};
   }
@@ -2320,21 +2492,21 @@ private:
     const double ux = norm > 1e-6 ? from_center_x / norm : 1.0;
     const double uy = norm > 1e-6 ? from_center_y / norm : 0.0;
 
-    // On a surface, use a point slightly toward the robot.  It remains well
-    // inside even the smallest official tabletop trigger and shortens the
-    // required reach.  Containers must use their exact opening centre.
+    // Use a point slightly toward the robot. It remains inside the placement
+    // region while shortening the reach from the safe approach pose.
     placement_position_.x =
-      center_x + placement_profile_.surface_inset * ux;
+      center_x + placement_profile_.approach_inset * ux;
     placement_position_.y =
-      center_y + placement_profile_.surface_inset * uy;
+      center_y + placement_profile_.approach_inset * uy;
     placement_position_.z = placement_profile_.release_height;
     placement_ready_ = true;
     RCLCPP_INFO(
       this->get_logger(),
-      "[Placement] '%s' target=(%.2f, %.2f, %.2f) mode=%s",
+      "[Placement] '%s' target=(%.2f, %.2f, %.2f) mode=%s approach_inset=%.2fm",
       dest_class_.c_str(), placement_position_.x, placement_position_.y,
       placement_position_.z,
-      placement_profile_.drop_in ? "drop-in" : "surface");
+      placement_profile_.drop_in ? "drop-in" : "surface",
+      placement_profile_.approach_inset);
     return true;
   }
 
@@ -2462,7 +2634,10 @@ private:
           rclcpp::Time(sample.header.stamp)).seconds());
         const double dot = pt.direction.x*sample.direction.x +
           pt.direction.y*sample.direction.y + pt.direction.z*sample.direction.z;
-        if (age > 1.5 || dot < std::cos(0.35)) continue;
+        // Pose/hand inference can be spaced 2–3 s apart in the simulator.
+        // Keep a short multi-frame confirmation window long enough to contain
+        // two distinct depth fits without relaxing the angular agreement.
+        if (age > 4.0 || dot < std::cos(0.35)) continue;
         ++support;
       }
       // A single frame with low fit error is not temporal confirmation.
@@ -2705,8 +2880,10 @@ private:
     pickup_pointing_history_.clear();
     pickup_ray_hypotheses_.clear();
     head_observation_not_before_ns_ = 0;
+    head_motion_ready_time_ = {};
     has_locked_pointing_ = false;
     has_person_observation_ = false;
+    last_person_seen_time_ = {};
     last_person_observation_time_ = {};
     last_raw_pointing_time_ = {};
     last_close_gesture_search_time_ = {};
@@ -2816,7 +2993,7 @@ private:
 
     // -----------------------------------------------------------------
     case Ready: {
-      if (is_started_) {
+      if (is_started_ && vision_ready_) {
         armObserve();
         headCenter();
         pointing_camera_ready_time_ = std::chrono::steady_clock::now() +

@@ -18,8 +18,9 @@ for package in ('interactive_cleanup', 'cleanup_vision_ros2',
     if not prefix.startswith(root):
         raise SystemExit(f'Wrong workspace for {package}: {prefix}')
     print(f'{package}: {prefix}')
-from cleanup_vision_ros2.msg import PointingDirection
-assert {'arm_ray_valid', 'geometry_source'} <= PointingDirection.get_fields_and_field_types().keys(), 'Rebuild cleanup_vision_ros2 first'
+from cleanup_vision_ros2.msg import PointingDirection, DetectedObjectArray
+assert {'arm_ray_valid', 'geometry_source', 'received_steady_ns'} <= PointingDirection.get_fields_and_field_types().keys(), 'Rebuild cleanup_vision_ros2 first'
+assert 'received_steady_ns' in DetectedObjectArray.get_fields_and_field_types(), 'Rebuild cleanup_vision_ros2 first'
 PY
 echo "Working tree base (with local fixes): $(git rev-parse HEAD)"
 echo "Installed controller / detector / bridge fingerprints:"
