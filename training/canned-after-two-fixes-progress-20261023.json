@@ -1,0 +1,99 @@
+{
+  "status": "can_transfer_completed_after_tilt_and_release_timing_fixes",
+  "saved_ns": 1792759653134869266,
+  "boot_id": "03e2ce8b-528d-4517-a5f5-5aa905f81a77",
+  "branch": "feat/handyman-phase5-grasping",
+  "object": "canned_juice",
+  "layout": "LayoutA",
+  "source": "white_side_table#bedroom_1",
+  "destination": "square_low_table#living_room",
+  "first_unified_run": "D:/handyman-training-runs/can-auto-live-20261023-01",
+  "reviewed_carry_place": "D:/handyman-training-runs/can-reviewed-carry-place-20261023-01",
+  "final_release_and_cleanup": "D:/handyman-training-runs/can-reviewed-carry-place-20261023-01/place-release-only-01",
+  "physical_transfer_completed": true,
+  "uninterrupted_full_transfer_verified": false,
+  "supervised_development_corrections": [
+    "actual13.7degree_grasped_can_axis_and_side_depth_tracking",
+    "reuse_just_acquired_feedback_and_renew_expired_release_observation_before_publication"
+  ],
+  "original_failed_verdicts_preserved": true,
+  "real_grasp_close_commands": 1,
+  "real_release_commands": 1,
+  "grasp_approaches": 1,
+  "placement_approaches": 1,
+  "grasp_navigation_preparation_approach_replayed_during_release_continuation": false,
+  "can_axis_base_m_at_grasp": [
+    -0.08007793122785078,
+    0.2231330345237405,
+    0.9714932700922302
+  ],
+  "can_surface_radius_m": 0.036791577922147205,
+  "can_projected_support_radius_m": 0.05159677481588303,
+  "radius_limits_relaxed": false,
+  "source_age_limit_s": 0.4,
+  "extra_joint_wait_before_release_removed": true,
+  "final_three_current_depth_frames_verified": true,
+  "final_can_center_map_m": [
+    1.7929696006774067,
+    3.5441444688222408,
+    0.5023321622501375
+  ],
+  "final_center_spread_m": 0.0005705677365275002,
+  "final_outer_support_clearance_lower_estimate_m": 0.06671270269382337,
+  "final_rgb_capture": "D:/handyman-training-runs/can-reviewed-carry-place-20261023-01/place-release-only-01/captures/008-final-02",
+  "robot_ready_for_next_task": true,
+  "last_measured_robot_state": {
+    "joints": [
+      0.0,
+      0.0,
+      0.0,
+      -1.5707963146269321,
+      0.0,
+      0.6499999859074279
+    ],
+    "poses": {
+      "map": [
+        1.9317263239468865,
+        2.6392475629944636,
+        1.6518611962839975
+      ],
+      "odom": [
+        0.7478476762771606,
+        2.6385374069213867,
+        1.6518065986401658
+      ]
+    },
+    "stamp_ns": 1792759545326000000
+  },
+  "last_state_is_a_record_not_future_action_authorization": true,
+  "tests": 566,
+  "latest_expected_hashes": {
+    "run_canned_grasp_trial.py": "b5f2069c7d45ed4acdfb7121c6f246901c0287784981bc2439e6f77fedab005a",
+    "run_canned_carry_trial.py": "eaafdca975ac703b2b14e07a6be4a958f062de7996c6d44d9cb0029b22d757f8",
+    "run_canned_place_trial.py": "077d88f39f43a17b1d28e098d5cbf48682aeb8180c4c493b6830854fcd1edcc9",
+    "can_transfer_context.py": "6fa7295ad35c788ab9143d338bc9bf745c143359aed8e308eb126f9ba678f900",
+    "can_transfer_automation.py": "171abbef8fcd610e89942069b5ba831cedd43f802d9021e86cca58b116850622",
+    "run_object_transfer.py": "6230e3f820297f104c3c167e421795c6f27c7469cb39c3588bdd39d226e536c5",
+    "test_can_transfer_automation.py": "d16de88a548b2e635962153bf12ca04d319557e5a33be7c58ee6c19f7a826329",
+    "run_object_transfer.sh": "4162cb1f2608e0f53aba557a244f7f3014667d440545fa994a81db17fe40ab48",
+    "OBJECT_TRANSFER.txt": "89794883b7e599bbab4ce3159ca1f38c4f8e0a3eef04a35611981ffbe63fc8b9",
+    "canned_grasp_geometry.py": "a7f620be97a08566df8161b4daa32019e633225f42ee06df024c8075810125d1",
+    "canned_carry_geometry.py": "ccd7b5b979a35067f8e97534bdf05e8fbd8f49a61b79b84a628fc9f600bb6ced",
+    "held_can_appearance.py": "fd3095b82b1694597d4b7ee6da4df3900cd99419f3ff95bcf7921e6ba3b043bb",
+    "canned_place_geometry.py": "b1d26edd861ff03ac8e4d802841d7ddc5ff2e1caa56870de98db43ed55fa2dd0",
+    "tracked_can_cap_geometry.py": "9a1bbfd8458f6963eca894f44a8a069f6d3e878ad620f3855aeec1ef75f3281b",
+    "test_tracked_can_cap_geometry.py": "7dd732821c0abdac846874732ea9f7d6831c048f758c15c15ceaf048b7f1c569",
+    "can_release_timing.py": "da5fca38b57d092dd410bd9ea24a6bbd56682a8a0db3c486ceb973ef7b1d281a",
+    "test_can_release_timing.py": "f7895c16fd760ba74f50a574b5e8369a4cfd6ce8faafd95b2e7ffefd020fa34a"
+  },
+  "model_map_navigation_route_tolerances_unchanged": true,
+  "task_finished_sent": false,
+  "success_rate_not_measured": true,
+  "next": [
+    "Can is RELEASED on living_room square_low_table. Robot is empty-handed and tucked. Do NOT repeat any held/release continuation.",
+    "Read latest_expected_hashes from this checkpoint; the original continuous-entry manifest is superseded for changed can modules.",
+    "The first uninterrupted test remains FAILED; actual object transfer completed after two reviewed code corrections without new grasp/close/approach commands.",
+    "After user resets Unity session1, initial robot pose and upright canned_juice on bedroom white_side_table, run a NEW whole trial with run_object_transfer.sh and NEW D output.",
+    "Only success from that new whole run may establish uninterrupted automation; keep all earlier evidence and failures."
+  ]
+}

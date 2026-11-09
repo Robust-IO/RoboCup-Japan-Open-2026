@@ -1,0 +1,95 @@
+{
+  "status": "User-requested placement cap REMOVED; table gap3cm+1cm;279 tests and5 offline replans passed. SUBSEQUENT r11b LIVE single33.88cm placement PASSED after NEW reviewed1280 grasp continuation. Default960 full run FAILED before closure; uninterrupted full success NOT established. Read latest_live_validation_checkpoint FIRST.",
+  "latest_live_validation_checkpoint": "D:/handyman-training-runs/apple-placement-policy-live-progress-20261018.json",
+  "implementation_revision": "20261018-placement-policy-r11b on navigation-feedback-r10/gate-pruning-r9b",
+  "branch": "feat/handyman-phase5-grasping",
+  "runtime": "D:/handyman-tools/apple-transfer-auto-v1",
+  "module_source": "/home/crazylearner/RoboCup-Japan-Open-2026/training/automation/apple_transfer_v1",
+  "config": "D:/handyman-tools/apple-transfer-auto-v1/config/apple_transfer_auto_v1.json",
+  "previous_live_checkpoint": "D:/handyman-training-runs/apple-navigation-feedback-progress-20261018.json",
+  "policy": {
+    "placement_approach_mode": "single",
+    "max_placement_step_m": null,
+    "null_means": "No fixed single-placement translation cap, NOT a replacement1m or other numerical cap.",
+    "minimum_object_outer_gap_m": 0.03,
+    "additional_position_settling_allowance_m": 0.01,
+    "minimum_outer_clearance_estimate_m": 0.04,
+    "previous_outer_gap_and_allowance_m_historical": [0.05, 0.02],
+    "object_radius_still_accounted": true,
+    "raster_and_planning_alignment_reserves_retained": true,
+    "closest_safe_clear_patch_preferred_not_deepest_table_point": true
+  },
+  "removed_active_single_placement_limits": [
+    "Planner distance<=.6m candidate filter",
+    "Live placement-step distance<=.6m veto",
+    "Adapter total single-placement distance<=.6m veto",
+    "Explicit horizontal held single-placement endpoint/finite-duration translation<=.6m bound",
+    "Fixed25s parent deadline for single-placement child; child still observes its own distance-derived finite duration/endpoints",
+    "60s duration-packing restriction, a hidden distance cap; valid positive representable ROS Duration remains required"
+  ],
+  "retained_and_scope": [
+    "Only explicit forward horizontal holding SINGLE placement gains unlimited translation; normal retreat/source grasp approach and legacy segmented-mode bounds remain",
+    "Actual speed envelopes unchanged; duration grows with actual distance, including baseline-mode explicit unlimited placement",
+    "One placement command, no automatic split/correction/action retry",
+    "Finite values, correct holding/arm posture, current RGBD/joints/TF, exclusive control, actual endpoint check",
+    "Observed destination table/free patch/height and edge checks at planning, actual release and final landing",
+    "Old5cm+2cm plans require new planning; never silently reinterpret old plans or overwrite historical recordings/results",
+    "No collision-free guarantee or resolution of previous tipped pink-cup issue"
+  ],
+  "patch": {
+    "archive": "D:/handyman-training-runs/apple-placement-policy-r11b-20261018-patch.tar.gz",
+    "sha256": "a26d90edfbc05173331179dc96290a003e8c0b5c38c40afded0ad4dc7b4d73a6",
+    "deployment": "D:/handyman-training-runs/apple-placement-policy-r11b-20261018-deployment.json",
+    "original_pre_r11_code_config_backup": "D:/handyman-training-runs/apple-before-placement-policy-r11-20261018.tar.gz",
+    "pre_final_r11b_backup_including_old_segment_test": "D:/handyman-training-runs/apple-before-placement-policy-r11b-20261018.tar.gz",
+    "changed_files": [
+      "config/apple_transfer_auto_v1.json", "apple_transfer_auto_plan.py", "apple_transfer_auto_backend.py",
+      "reviewed_carry_adjustment.py", "motion_speed.py", "tabletop_support.py", "table_release_gate.py",
+      "replay_placement_policy_r11.py", "test_motion_speed.py", "test_reviewed_carry_adjustment.py",
+      "test_tabletop_support.py", "test_apple_transfer_auto_backend.py", "test_segmented_apple_placement.py",
+      "APPLE_TRANSFER_AUTOMATION.txt"
+    ],
+    "copies_hash_verified": 3
+  },
+  "verification": {
+    "focused_local_tests_passed": 128,
+    "final_input_validation_addition_local_segment_tests_passed": 11,
+    "ubuntu_all_runtime_tests_passed": 279,
+    "ubuntu_test_log": "D:/handyman-training-runs/apple-placement-policy-r11b-20261018-tests.log",
+    "file_input_preflight": "D:/handyman-training-runs/apple-placement-policy-r11b-20261018-inputs.json",
+    "test_cases_include": ["1.25m adapter approach is ONE command", "8m speed-derived duration exceeds60s and packs correctly", "no single-placement fixed25s parent cutoff", "NaN/Inf/backward/wrong-holding still rejected", "ordinary retreat/legacy segmented limits unchanged", "3cm+1cm used in support/planning/release/final checks"],
+    "first_all_test_result_preserved": "D:/handyman-training-runs/apple-placement-policy-r11-20261018-deployment.json",
+    "first_all_test_failure": "One old segment test still expected single mode to reject>60cm. Updated that test to distinguish now-allowed long forward target from still-invalid backward/nonfinite targets; no motion was attempted."
+  },
+  "recorded_replanning": {
+    "directory": "D:/handyman-training-runs/apple-placement-policy-r11b-recorded-20261018-01",
+    "frames": 5,
+    "all_passed": true,
+    "planned_distances_m": [0.32114276256412627, 0.32012884171666367, 0.3218633910692058, 0.3220327907967123, 0.320931136930289],
+    "release_xy_map_m": [1.9625000000000001, 3.5325],
+    "outer_clearance_estimates_m": [0.06278489563482094, 0.06344459765718838, 0.06278489563482094, 0.06278489563482094, 0.06344459765718838],
+    "original_images_depth_snapshots_and_failed_result_hashes_unchanged": true,
+    "historical_stamps_preserved": true,
+    "robot_commands_sent": false,
+    "staging_adjustment_executed": false,
+    "warning": "OFFLINE current-policy plans only; no live lease/new placement acceptance. Recorded predicted horizontal reach is not a current measured held target."
+  },
+  "last_recorded_robot_state_not_live_lease": {
+    "unchanged_by_this_code_only_revision": true,
+    "source": "D:/handyman-training-runs/apple-reviewed-staging8cm-place-20261018-01/placed-final/000006",
+    "holding_object": false,
+    "arm_is_tucked": true,
+    "hand_motor": 0.6499999859074279,
+    "apple_location": "Already placed on living_room square_low_table under previous r10 policy, NOT a new r11b live placement",
+    "map_pose_estimated_at_previous_final_capture": [2.1650999988981336, 2.881474798359643, 1.6487029840893874],
+    "fresh_state_required_before_new_actions": true
+  },
+  "robot_commands_sent_this_revision": false,
+  "unity_or_model_or_map_or_navigation_tolerances_changed": false,
+  "new_policy_live_placement_verified": true,
+  "full_uninterrupted_transfer_verified": false,
+  "task_finished_sent": false,
+  "does_not_exist_sent": false,
+  "git_commit_or_push_performed": false,
+  "next": "Read latest_live_validation_checkpoint FIRST: r11b placement now LIVE passed, apple already placed, empty/open/tucked. Original code-only no-action details above are historical deployment facts, not current physical state. Default960 full trial stopped before closure on near-source identity loss; NEW reviewed1280 continuation then grasped/carried/placed successfully. Address automatic near-source observation before NEW uninterrupted full regression. No old action/anchor replay."
+}

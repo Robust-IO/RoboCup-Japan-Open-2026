@@ -1,0 +1,264 @@
+{
+  "status": "explicit_can_grasp_trial_deployed_not_executed",
+  "saved_ns": 1792733321290882841,
+  "branch": "feat/handyman-phase5-grasping",
+  "scope": "Can-only fixed-source explicit grasp/lift experiment, not a complete generic mover.",
+  "new_live_entry": "run_canned_grasp_trial.py --run --simulation-ignore-collision --output NEW_D_DIRECTORY",
+  "generic_full_transfer_enabled": false,
+  "can_grasp_lift_carry_placement_verified": false,
+  "new_model_observation": "/mnt/d/handyman-training-runs/canned-grasp-v1-20261023-observe-02/result.json",
+  "maximum_measured_corrections": 5,
+  "maximum_close_commands": 1,
+  "apple_legacy_entry_unchanged": true,
+  "model_or_navigation_changed": false,
+  "runtime_tests": 479,
+  "candidate_tests": 479,
+  "recorded_replay": {
+    "status": "actual_can_rgbd_replay_and_apple_numeric_replay_passed",
+    "apple_legacy_numeric_result_identical": true,
+    "can_three_actual_rgbd_frames_validated": true,
+    "source_run": "/mnt/d/handyman-training-runs/canned-source-observation-20261023-01",
+    "cached_detections": "/mnt/d/handyman-training-runs/canned-source-analysis-20261023-02",
+    "model_sha256": "83e6ceb9650e6da78d05404a5ead9654278d502ce06d812a6b2b70673c513763",
+    "rows": [
+      {
+        "frame": "000000",
+        "detection": {
+          "name": "canned_juice",
+          "class_id": 3,
+          "confidence": 0.9844337701797485,
+          "box": [
+            232.92710876464844,
+            196.42355346679688,
+            287.009033203125,
+            285.4980773925781
+          ]
+        },
+        "geometry": {
+          "shape": "upright_cylinder",
+          "center_m": [
+            0.8189287634454301,
+            0.11645819734815667,
+            0.5584733925917086
+          ],
+          "height_m": 0.12506792828069327,
+          "footprint_size_m": [
+            0.07535477876577629,
+            0.07535477876577629
+          ],
+          "footprint_radius_m": 0.03767738938288814,
+          "estimated_grasp_width_m": 0.07535477876577629,
+          "footprint_yaw_rad": null,
+          "support_plane_base": [
+            0.0014274243480801117,
+            -1.3259512381458283e-05,
+            0.4947720137739865
+          ],
+          "support_height_m": 0.49593942845136196,
+          "support_plane_residual_p95_m": 0.0005264838650823056,
+          "cylinder_side_residual_p95_m": 0.00048109147251280656,
+          "observed_side_arc_rad": 3.141747401413773,
+          "surface_points": 3949,
+          "top_points": 813,
+          "side_points": 2205,
+          "center_semantics": "support_constrained_upright_cylinder_model_fit",
+          "hidden_surfaces_measured": false,
+          "dimension_envelope_is_provisional": true,
+          "geometry_fit_is_not_total_uncertainty": true,
+          "motion_authorized": false,
+          "identity_confirmed": false,
+          "grasp_center_verified": false,
+          "limitation": "Upright opaque-can model proposal. Not measured hidden back surface, contact proof, grasp center calibration or a successful grasp.",
+          "surface_segmentation": {
+            "depth_component_count": 1,
+            "discarded_background_points": 72,
+            "max_neighbor_jump_m": 0.02,
+            "selection": "unique_depth_connected_surface_through_detector_center"
+          },
+          "adapter": "upright_cylinder_rgbd",
+          "class_name": "canned_juice",
+          "source": "rgbd",
+          "frame_id": "base_link",
+          "stamp_ns": 1792731793915156250,
+          "confidence": 0.9844337701797485,
+          "depth_valid": true,
+          "support_consistent": true,
+          "room_confirmed": false,
+          "ready_for_motion": false
+        },
+        "center_map_m": [
+          10.677874877938132,
+          -6.532571973996979,
+          0.5580494980556449
+        ],
+        "room_membership": [
+          "bedroom"
+        ]
+      },
+      {
+        "frame": "000001",
+        "detection": {
+          "name": "canned_juice",
+          "class_id": 3,
+          "confidence": 0.9844337701797485,
+          "box": [
+            232.92710876464844,
+            196.42355346679688,
+            287.009033203125,
+            285.4980773925781
+          ]
+        },
+        "geometry": {
+          "shape": "upright_cylinder",
+          "center_m": [
+            0.8189287634454301,
+            0.11645819734815667,
+            0.5584733925917086
+          ],
+          "height_m": 0.12506792828069327,
+          "footprint_size_m": [
+            0.07535477876577629,
+            0.07535477876577629
+          ],
+          "footprint_radius_m": 0.03767738938288814,
+          "estimated_grasp_width_m": 0.07535477876577629,
+          "footprint_yaw_rad": null,
+          "support_plane_base": [
+            0.0014274243480801117,
+            -1.3259512381458283e-05,
+            0.4947720137739865
+          ],
+          "support_height_m": 0.49593942845136196,
+          "support_plane_residual_p95_m": 0.0005264838650823056,
+          "cylinder_side_residual_p95_m": 0.00048109147251280656,
+          "observed_side_arc_rad": 3.141747401413773,
+          "surface_points": 3949,
+          "top_points": 813,
+          "side_points": 2205,
+          "center_semantics": "support_constrained_upright_cylinder_model_fit",
+          "hidden_surfaces_measured": false,
+          "dimension_envelope_is_provisional": true,
+          "geometry_fit_is_not_total_uncertainty": true,
+          "motion_authorized": false,
+          "identity_confirmed": false,
+          "grasp_center_verified": false,
+          "limitation": "Upright opaque-can model proposal. Not measured hidden back surface, contact proof, grasp center calibration or a successful grasp.",
+          "surface_segmentation": {
+            "depth_component_count": 1,
+            "discarded_background_points": 72,
+            "max_neighbor_jump_m": 0.02,
+            "selection": "unique_depth_connected_surface_through_detector_center"
+          },
+          "adapter": "upright_cylinder_rgbd",
+          "class_name": "canned_juice",
+          "source": "rgbd",
+          "frame_id": "base_link",
+          "stamp_ns": 1792731794580962714,
+          "confidence": 0.9844337701797485,
+          "depth_valid": true,
+          "support_consistent": true,
+          "room_confirmed": false,
+          "ready_for_motion": false
+        },
+        "center_map_m": [
+          10.67751572180375,
+          -6.532645545112223,
+          0.5580495719744197
+        ],
+        "room_membership": [
+          "bedroom"
+        ]
+      },
+      {
+        "frame": "000002",
+        "detection": {
+          "name": "canned_juice",
+          "class_id": 3,
+          "confidence": 0.9844337701797485,
+          "box": [
+            232.92710876464844,
+            196.42355346679688,
+            287.009033203125,
+            285.4980773925781
+          ]
+        },
+        "geometry": {
+          "shape": "upright_cylinder",
+          "center_m": [
+            0.8189287634454301,
+            0.11645819734815667,
+            0.5584733925917086
+          ],
+          "height_m": 0.12506792828069327,
+          "footprint_size_m": [
+            0.07535477876577629,
+            0.07535477876577629
+          ],
+          "footprint_radius_m": 0.03767738938288814,
+          "estimated_grasp_width_m": 0.07535477876577629,
+          "footprint_yaw_rad": null,
+          "support_plane_base": [
+            0.0014274243480801117,
+            -1.3259512381458283e-05,
+            0.4947720137739865
+          ],
+          "support_height_m": 0.49593942845136196,
+          "support_plane_residual_p95_m": 0.0005264838650823056,
+          "cylinder_side_residual_p95_m": 0.00048109147251280656,
+          "observed_side_arc_rad": 3.141747401413773,
+          "surface_points": 3949,
+          "top_points": 813,
+          "side_points": 2205,
+          "center_semantics": "support_constrained_upright_cylinder_model_fit",
+          "hidden_surfaces_measured": false,
+          "dimension_envelope_is_provisional": true,
+          "geometry_fit_is_not_total_uncertainty": true,
+          "motion_authorized": false,
+          "identity_confirmed": false,
+          "grasp_center_verified": false,
+          "limitation": "Upright opaque-can model proposal. Not measured hidden back surface, contact proof, grasp center calibration or a successful grasp.",
+          "surface_segmentation": {
+            "depth_component_count": 1,
+            "discarded_background_points": 72,
+            "max_neighbor_jump_m": 0.02,
+            "selection": "unique_depth_connected_surface_through_detector_center"
+          },
+          "adapter": "upright_cylinder_rgbd",
+          "class_name": "canned_juice",
+          "source": "rgbd",
+          "frame_id": "base_link",
+          "stamp_ns": 1792731795427059773,
+          "confidence": 0.9844337701797485,
+          "depth_valid": true,
+          "support_consistent": true,
+          "room_confirmed": false,
+          "ready_for_motion": false
+        },
+        "center_map_m": [
+          10.678172067571,
+          -6.532166641663728,
+          0.5580493868212161
+        ],
+        "room_membership": [
+          "bedroom"
+        ]
+      }
+    ],
+    "center_spread_radius_m": 0.0004334746903866915,
+    "source_recordings_unchanged": true,
+    "previous_radius_rejections_retained": true,
+    "robot_commands_sent": false,
+    "not_a_fresh_motion_lease": true,
+    "physical_grasp_or_transfer_verified": false
+  },
+  "deployment": "/mnt/d/handyman-training-runs/canned-grasp-v1-20261023-deployment.json",
+  "files": [
+    "canned_grasp_geometry.py",
+    "canned_grasp_runtime.py",
+    "run_canned_grasp_trial.py",
+    "test_canned_grasp_geometry.py",
+    "CANNED_GRASP_TRIAL.txt"
+  ],
+  "robot_commands_sent": false,
+  "next": "Run the new explicit can trial from the current empty tucked bedroom table observation pose. The entry acquires NEW model detections/RGBD/TF, prepares the horizontal arm, makes one full approach plus at most five measured corrections, closes once, lifts only on stable contact and verifies actual can/palm depth following. On failure do not auto-replay or release; audit actual state. No automatic navigation, placement or Task_finished."
+}

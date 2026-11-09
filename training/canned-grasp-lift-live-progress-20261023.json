@@ -1,0 +1,912 @@
+{
+  "status": "one_can_grasp_and_lift_verified_not_yet_carried_or_placed",
+  "saved_ns": 1792734035904546910,
+  "branch": "feat/handyman-phase5-grasping",
+  "scope": "One simulated upright canned_juice grasp/lift, NOT a completed transfer or success-rate estimate.",
+  "can_grasp_and_lift_verified": true,
+  "can_carry_and_placement_verified": false,
+  "generic_full_transfer_enabled": false,
+  "source_approach": "D:/handyman-training-runs/canned-grasp-v1-live-20261023-01",
+  "actual_close_and_lift": "D:/handyman-training-runs/canned-close-lift-continuation-20261023-01",
+  "independent_all_recorded_frames_verification": "/mnt/d/handyman-training-runs/canned-grasp-robust-v2-20261023-validation-01/recorded-checks/result.json",
+  "current_held_verification": "D:/handyman-training-runs/canned-current-held-verification-20261023-01/result.json",
+  "maximum_new_measured_corrections": 5,
+  "total_coarse_approaches": 1,
+  "total_close_commands": 1,
+  "total_lifts": 1,
+  "preparation_or_approach_replayed": false,
+  "hand_released": false,
+  "held_opening_rad": 0.480518213081389,
+  "last_measured_robot_state": {
+    "joints": [
+      0.3812755346298218,
+      -1.7000001065434844,
+      0.0,
+      0.1292036754032555,
+      0.0,
+      0.480518213081389
+    ],
+    "poses": {
+      "map": [
+        9.983493816604854,
+        -6.553418076209721,
+        -0.0830239041364079
+      ],
+      "odom": [
+        8.799113273620605,
+        -6.554567813873291,
+        -0.08307849554475072
+      ]
+    },
+    "stamp_ns": 1792733954021000000
+  },
+  "held_center_minus_palm_base_m": [
+    0.06655129582440844,
+    0.0002322477522304911,
+    0.0006584104449369743
+  ],
+  "held_center_minus_palm_odom_m": [
+    0.0663416750575827,
+    -0.005282772819713344,
+    0.0006609698401437436
+  ],
+  "estimated_upright_bottom_below_palm_m": 0.061875553695390564,
+  "state_verified_at_ns": 1792733954021000000,
+  "boot_id": "03e2ce8b-528d-4517-a5f5-5aa905f81a77",
+  "current_pose_is_not_a_new_motion_lease": true,
+  "can_height_m": 0.12506792828065508,
+  "can_footprint_radius_m": 0.03767738938288809,
+  "cylinder_half_height_is_not_radius": true,
+  "held_upright_observation_strategy": "actual_visible_upper_side_70_to_95_percent_and_cap",
+  "apple_legacy_entry_unchanged": true,
+  "model_or_navigation_changed": false,
+  "runtime_tests": 483,
+  "candidate_tests": 483,
+  "recorded_replay": {
+    "status": "independent_actual_can_grasp_lift_verified",
+    "can_recorded_lift_follow_verified": true,
+    "can_three_actual_rgbd_frames_validated": true,
+    "actual_postlift_frames": 13,
+    "source_trial": "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01",
+    "before_capture": "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/preclose",
+    "before_measurement": {
+      "class_name": "canned_juice",
+      "shape": "upright_cylinder",
+      "center_m": [
+        0.693177666989311,
+        0.0764513918260928,
+        0.5586287294023016
+      ],
+      "footprint_radius_m": 0.03653324854576647,
+      "height_m": 0.12506792828065508,
+      "observed_top_z_m": 0.6211626935426291,
+      "estimated_bottom_z_m": 0.49609476526197405,
+      "side_points": 908,
+      "top_points": 1268,
+      "cylinder_side_residual_p95_m": 0.0021855493730714793,
+      "observed_side_arc_rad": 3.507299339285505,
+      "stamp_ns": 1792733622449392431,
+      "dimension_source": "precontact_rgbd",
+      "observed_side_height_fraction": [
+        0.7,
+        0.95
+      ],
+      "hidden_bottom_measured": false,
+      "position_source": "new_depth_cap_and_side_fit",
+      "detector_reran": false,
+      "identity_confirmed": false,
+      "motion_authorized": false
+    },
+    "held_opening_rad": 0.480518213081389,
+    "rows": [
+      {
+        "object_delta_odom_m": [
+          0.0003551999631472569,
+          0.002224586627750824,
+          0.100468035778839
+        ],
+        "palm_delta_odom_m": [
+          -0.00032931287065629533,
+          0.0005016530708390476,
+          0.09996866192952525
+        ],
+        "joint_lift_m": 0.09999996423721313,
+        "object_palm_follow_error_m": 0.0019200083600216101,
+        "center_odom_m": [
+          9.496724309481865,
+          -6.5333263404975215,
+          0.6591648761852138
+        ],
+        "center_minus_palm_odom_m": [
+          0.06633950673452738,
+          -0.005271117648883106,
+          0.0006603421629481909
+        ],
+        "observed_opening_rad": 0.480518213081389,
+        "stamp_ns": 1792733633467266920,
+        "functional_lift_follow_verified": true,
+        "placement_verified": false,
+        "capture": "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-00",
+        "measurement": {
+          "class_name": "canned_juice",
+          "shape": "upright_cylinder",
+          "center_m": [
+            0.6937175487985926,
+            0.07823275905143177,
+            0.6591315944305706
+          ],
+          "footprint_radius_m": 0.036596309964610045,
+          "height_m": 0.12506792828065508,
+          "observed_top_z_m": 0.7216655585708981,
+          "estimated_bottom_z_m": 0.596597630290243,
+          "side_points": 944,
+          "top_points": 1258,
+          "cylinder_side_residual_p95_m": 0.0022157896078925723,
+          "observed_side_arc_rad": 3.4147386430573654,
+          "stamp_ns": 1792733633467266920,
+          "dimension_source": "precontact_rgbd",
+          "observed_side_height_fraction": [
+            0.7,
+            0.95
+          ],
+          "hidden_bottom_measured": false,
+          "position_source": "new_depth_cap_and_side_fit",
+          "detector_reran": false,
+          "identity_confirmed": false,
+          "motion_authorized": false
+        }
+      },
+      {
+        "object_delta_odom_m": [
+          -0.00047667859754163544,
+          0.0021495641379907227,
+          0.10046889790507074
+        ],
+        "palm_delta_odom_m": [
+          -0.0011612813189483262,
+          0.0004254480356822299,
+          0.09996911600974168
+        ],
+        "joint_lift_m": 0.09999996423721313,
+        "object_palm_follow_error_m": 0.001921207735591232,
+        "center_odom_m": [
+          9.495892430921176,
+          -6.533401362987282,
+          0.6591657383114455
+        ],
+        "center_minus_palm_odom_m": [
+          0.06633959662213051,
+          -0.0052699351034863895,
+          0.0006607502089635009
+        ],
+        "observed_opening_rad": 0.480518213081389,
+        "stamp_ns": 1792733633594804887,
+        "functional_lift_follow_verified": true,
+        "placement_verified": false,
+        "capture": "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-01",
+        "measurement": {
+          "class_name": "canned_juice",
+          "shape": "upright_cylinder",
+          "center_m": [
+            0.6937175487985926,
+            0.07823275905143177,
+            0.6591315944305706
+          ],
+          "footprint_radius_m": 0.036596309964610045,
+          "height_m": 0.12506792828065508,
+          "observed_top_z_m": 0.7216655585708981,
+          "estimated_bottom_z_m": 0.596597630290243,
+          "side_points": 944,
+          "top_points": 1258,
+          "cylinder_side_residual_p95_m": 0.0022157896078925723,
+          "observed_side_arc_rad": 3.4147386430573654,
+          "stamp_ns": 1792733633594804887,
+          "dimension_source": "precontact_rgbd",
+          "observed_side_height_fraction": [
+            0.7,
+            0.95
+          ],
+          "hidden_bottom_measured": false,
+          "position_source": "new_depth_cap_and_side_fit",
+          "detector_reran": false,
+          "identity_confirmed": false,
+          "motion_authorized": false
+        }
+      },
+      {
+        "object_delta_odom_m": [
+          0.0002230356805306144,
+          0.0011879257537197319,
+          0.10045645645475532
+        ],
+        "palm_delta_odom_m": [
+          -0.0004608537265085033,
+          -0.0005279270920288681,
+          0.09995754721737216
+        ],
+        "joint_lift_m": 0.09999996423721313,
+        "object_palm_follow_error_m": 0.0019133128694675452,
+        "center_odom_m": [
+          9.496592145199248,
+          -6.534363001371553,
+          0.6591532968611301
+        ],
+        "center_minus_palm_odom_m": [
+          0.06633888330776294,
+          -0.005278198360046282,
+          0.0006598775510175958
+        ],
+        "observed_opening_rad": 0.480518213081389,
+        "stamp_ns": 1792733633874836087,
+        "functional_lift_follow_verified": true,
+        "placement_verified": false,
+        "capture": "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-02",
+        "measurement": {
+          "class_name": "canned_juice",
+          "shape": "upright_cylinder",
+          "center_m": [
+            0.6937174957894247,
+            0.07822888412092872,
+            0.6591317555657348
+          ],
+          "footprint_radius_m": 0.036593670424552985,
+          "height_m": 0.12506792828065508,
+          "observed_top_z_m": 0.7216657197060623,
+          "estimated_bottom_z_m": 0.5965977914254073,
+          "side_points": 944,
+          "top_points": 1258,
+          "cylinder_side_residual_p95_m": 0.0022151537051787466,
+          "observed_side_arc_rad": 3.414752342692827,
+          "stamp_ns": 1792733633874836087,
+          "dimension_source": "precontact_rgbd",
+          "observed_side_height_fraction": [
+            0.7,
+            0.95
+          ],
+          "hidden_bottom_measured": false,
+          "position_source": "new_depth_cap_and_side_fit",
+          "detector_reran": false,
+          "identity_confirmed": false,
+          "motion_authorized": false
+        }
+      },
+      {
+        "object_delta_odom_m": [
+          -0.00028054044169323333,
+          0.0026042410431070806,
+          0.100467540768993
+        ],
+        "palm_delta_odom_m": [
+          -0.0009642925015729276,
+          0.0008909169403965578,
+          0.09996851479617275
+        ],
+        "joint_lift_m": 0.09999996423721313,
+        "object_palm_follow_error_m": 0.0019110267611594939,
+        "center_odom_m": [
+          9.496088569077024,
+          -6.532946686082165,
+          0.6591643811753678
+        ],
+        "center_minus_palm_odom_m": [
+          0.06633874596060352,
+          -0.0052807271030843594,
+          0.0006599942864546904
+        ],
+        "observed_opening_rad": 0.480518213081389,
+        "stamp_ns": 1792733633981457492,
+        "functional_lift_follow_verified": true,
+        "placement_verified": false,
+        "capture": "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-03",
+        "measurement": {
+          "class_name": "canned_juice",
+          "shape": "upright_cylinder",
+          "center_m": [
+            0.6937175487985926,
+            0.07823275905143177,
+            0.6591315944305706
+          ],
+          "footprint_radius_m": 0.036596309964610045,
+          "height_m": 0.12506792828065508,
+          "observed_top_z_m": 0.7216655585708981,
+          "estimated_bottom_z_m": 0.596597630290243,
+          "side_points": 944,
+          "top_points": 1258,
+          "cylinder_side_residual_p95_m": 0.0022157896078925723,
+          "observed_side_arc_rad": 3.4147386430573654,
+          "stamp_ns": 1792733633981457492,
+          "dimension_source": "precontact_rgbd",
+          "observed_side_height_fraction": [
+            0.7,
+            0.95
+          ],
+          "hidden_bottom_measured": false,
+          "position_source": "new_depth_cap_and_side_fit",
+          "detector_reran": false,
+          "identity_confirmed": false,
+          "motion_authorized": false
+        }
+      },
+      {
+        "object_delta_odom_m": [
+          0.0002902333863588069,
+          0.0015922158080075022,
+          0.10045730916269069
+        ],
+        "palm_delta_odom_m": [
+          -0.0003974476729347032,
+          -0.00013150627622415811,
+          0.09995833100870866
+        ],
+        "joint_lift_m": 0.09999996423721313,
+        "object_palm_follow_error_m": 0.0019217445879019148,
+        "center_odom_m": [
+          9.496659342905076,
+          -6.533958711317265,
+          0.6591541495690655
+        ],
+        "center_minus_palm_odom_m": [
+          0.06634267496001733,
+          -0.005270329121563222,
+          0.0006599464676164679
+        ],
+        "observed_opening_rad": 0.480518213081389,
+        "stamp_ns": 1792733634121706386,
+        "functional_lift_follow_verified": true,
+        "placement_verified": false,
+        "capture": "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-04",
+        "measurement": {
+          "class_name": "canned_juice",
+          "shape": "upright_cylinder",
+          "center_m": [
+            0.6937206409008861,
+            0.0782322493615559,
+            0.6591317555657348
+          ],
+          "footprint_radius_m": 0.03659777132516612,
+          "height_m": 0.12506792828065508,
+          "observed_top_z_m": 0.7216657197060623,
+          "estimated_bottom_z_m": 0.5965977914254073,
+          "side_points": 944,
+          "top_points": 1258,
+          "cylinder_side_residual_p95_m": 0.0022141437506613855,
+          "observed_side_arc_rad": 3.4145762504056503,
+          "stamp_ns": 1792733634121706386,
+          "dimension_source": "precontact_rgbd",
+          "observed_side_height_fraction": [
+            0.7,
+            0.95
+          ],
+          "hidden_bottom_measured": false,
+          "position_source": "new_depth_cap_and_side_fit",
+          "detector_reran": false,
+          "identity_confirmed": false,
+          "motion_authorized": false
+        }
+      },
+      {
+        "object_delta_odom_m": [
+          -5.3073906656209147e-05,
+          0.002359360480720163,
+          0.10043610263605562
+        ],
+        "palm_delta_odom_m": [
+          -0.0007381324769113462,
+          0.0006300746438459015,
+          0.09994089217925406
+        ],
+        "joint_lift_m": 0.09999996423721313,
+        "object_palm_follow_error_m": 0.0019248293812230584,
+        "center_odom_m": [
+          9.496316035612061,
+          -6.533191566644552,
+          0.6591329430424304
+        ],
+        "center_minus_palm_odom_m": [
+          0.06634005247097896,
+          -0.005264765368920621,
+          0.000656178770436
+        ],
+        "observed_opening_rad": 0.480518213081389,
+        "stamp_ns": 1792733634683999566,
+        "functional_lift_follow_verified": true,
+        "placement_verified": false,
+        "capture": "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-05",
+        "measurement": {
+          "class_name": "canned_juice",
+          "shape": "upright_cylinder",
+          "center_m": [
+            0.6937175487985926,
+            0.07823275905143177,
+            0.6591315944305706
+          ],
+          "footprint_radius_m": 0.036596309964610045,
+          "height_m": 0.12506792828065508,
+          "observed_top_z_m": 0.7216655585708981,
+          "estimated_bottom_z_m": 0.596597630290243,
+          "side_points": 944,
+          "top_points": 1258,
+          "cylinder_side_residual_p95_m": 0.0022157896078925723,
+          "observed_side_arc_rad": 3.4147386430573654,
+          "stamp_ns": 1792733634683999566,
+          "dimension_source": "precontact_rgbd",
+          "observed_side_height_fraction": [
+            0.7,
+            0.95
+          ],
+          "hidden_bottom_measured": false,
+          "position_source": "new_depth_cap_and_side_fit",
+          "detector_reran": false,
+          "identity_confirmed": false,
+          "motion_authorized": false
+        }
+      },
+      {
+        "object_delta_odom_m": [
+          0.0003414939679178275,
+          0.0018731944654550858,
+          0.10045472689882484
+        ],
+        "palm_delta_odom_m": [
+          -0.0003414894440787464,
+          0.00016956855933436543,
+          0.09995610971660851
+        ],
+        "joint_lift_m": 0.09999996423721313,
+        "object_palm_follow_error_m": 0.0019019533809926789,
+        "center_odom_m": [
+          9.496710603486635,
+          -6.533677732659817,
+          0.6591515673051996
+        ],
+        "center_minus_palm_odom_m": [
+          0.0663379773127204,
+          -0.005290425299674162,
+          0.0006595854958507674
+        ],
+        "observed_opening_rad": 0.480518213081389,
+        "stamp_ns": 1792733635551443164,
+        "functional_lift_follow_verified": true,
+        "placement_verified": false,
+        "capture": "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-06",
+        "measurement": {
+          "class_name": "canned_juice",
+          "shape": "upright_cylinder",
+          "center_m": [
+            0.6937175487985926,
+            0.07823275905143177,
+            0.6591315944305706
+          ],
+          "footprint_radius_m": 0.036596309964610045,
+          "height_m": 0.12506792828065508,
+          "observed_top_z_m": 0.7216655585708981,
+          "estimated_bottom_z_m": 0.596597630290243,
+          "side_points": 944,
+          "top_points": 1258,
+          "cylinder_side_residual_p95_m": 0.0022157896078925723,
+          "observed_side_arc_rad": 3.4147386430573654,
+          "stamp_ns": 1792733635551443164,
+          "dimension_source": "precontact_rgbd",
+          "observed_side_height_fraction": [
+            0.7,
+            0.95
+          ],
+          "hidden_bottom_measured": false,
+          "position_source": "new_depth_cap_and_side_fit",
+          "detector_reran": false,
+          "identity_confirmed": false,
+          "motion_authorized": false
+        }
+      },
+      {
+        "object_delta_odom_m": [
+          0.0002985216553259562,
+          0.0020761544662484255,
+          0.10046783322244601
+        ],
+        "palm_delta_odom_m": [
+          -0.00038304495761742885,
+          0.000342962865595986,
+          0.09996881146082381
+        ],
+        "joint_lift_m": 0.09999996423721313,
+        "object_palm_follow_error_m": 0.0019280842541299396,
+        "center_odom_m": [
+          9.496667631174043,
+          -6.533474772659024,
+          0.6591646736288208
+        ],
+        "center_minus_palm_odom_m": [
+          0.06633656051366721,
+          -0.005260859605142443,
+          0.0006599900752566334
+        ],
+        "observed_opening_rad": 0.480518213081389,
+        "stamp_ns": 1792733635729480938,
+        "functional_lift_follow_verified": true,
+        "placement_verified": false,
+        "capture": "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-07",
+        "measurement": {
+          "class_name": "canned_juice",
+          "shape": "upright_cylinder",
+          "center_m": [
+            0.6937137954951575,
+            0.0782330633824054,
+            0.6591315944305706
+          ],
+          "footprint_radius_m": 0.0365943666673297,
+          "height_m": 0.12506792828065508,
+          "observed_top_z_m": 0.7216655585708981,
+          "estimated_bottom_z_m": 0.596597630290243,
+          "side_points": 944,
+          "top_points": 1258,
+          "cylinder_side_residual_p95_m": 0.0022176054216313133,
+          "observed_side_arc_rad": 3.4149366394292215,
+          "stamp_ns": 1792733635729480938,
+          "dimension_source": "precontact_rgbd",
+          "observed_side_height_fraction": [
+            0.7,
+            0.95
+          ],
+          "hidden_bottom_measured": false,
+          "position_source": "new_depth_cap_and_side_fit",
+          "detector_reran": false,
+          "identity_confirmed": false,
+          "motion_authorized": false
+        }
+      },
+      {
+        "object_delta_odom_m": [
+          0.0003517255227407645,
+          0.0022289820143717165,
+          0.10045973637420824
+        ],
+        "palm_delta_odom_m": [
+          -0.0003327274317044271,
+          0.000506879908312996,
+          0.09996098470126269
+        ],
+        "joint_lift_m": 0.09999996423721313,
+        "object_palm_follow_error_m": 0.0019190791390160593,
+        "center_odom_m": [
+          9.496720835041458,
+          -6.533321945110901,
+          0.659156576780583
+        ],
+        "center_minus_palm_odom_m": [
+          0.06633944685516902,
+          -0.005271949099736162,
+          0.0006597199865799874
+        ],
+        "observed_opening_rad": 0.480518213081389,
+        "stamp_ns": 1792733637759496106,
+        "functional_lift_follow_verified": true,
+        "placement_verified": false,
+        "capture": "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-08",
+        "measurement": {
+          "class_name": "canned_juice",
+          "shape": "upright_cylinder",
+          "center_m": [
+            0.6937175487985926,
+            0.07823275905143177,
+            0.6591315944305706
+          ],
+          "footprint_radius_m": 0.036596309964610045,
+          "height_m": 0.12506792828065508,
+          "observed_top_z_m": 0.7216655585708981,
+          "estimated_bottom_z_m": 0.596597630290243,
+          "side_points": 944,
+          "top_points": 1258,
+          "cylinder_side_residual_p95_m": 0.0022157896078925723,
+          "observed_side_arc_rad": 3.4147386430573654,
+          "stamp_ns": 1792733637759496106,
+          "dimension_source": "precontact_rgbd",
+          "observed_side_height_fraction": [
+            0.7,
+            0.95
+          ],
+          "hidden_bottom_measured": false,
+          "position_source": "new_depth_cap_and_side_fit",
+          "detector_reran": false,
+          "identity_confirmed": false,
+          "motion_authorized": false
+        }
+      },
+      {
+        "object_delta_odom_m": [
+          9.205672501622075e-05,
+          0.002798927409373597,
+          0.10043613623209269
+        ],
+        "palm_delta_odom_m": [
+          -0.0005929205475823096,
+          0.0010706612126334392,
+          0.0999408882841748
+        ],
+        "joint_lift_m": 0.09999996423721313,
+        "object_palm_follow_error_m": 0.0019238940825024881,
+        "center_odom_m": [
+          9.496461166243733,
+          -6.532751999715899,
+          0.6591329766384675
+        ],
+        "center_minus_palm_odom_m": [
+          0.06633997117332235,
+          -0.005265785009054724,
+          0.0006562162615523226
+        ],
+        "observed_opening_rad": 0.480518213081389,
+        "stamp_ns": 1792733638778896116,
+        "functional_lift_follow_verified": true,
+        "placement_verified": false,
+        "capture": "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-09",
+        "measurement": {
+          "class_name": "canned_juice",
+          "shape": "upright_cylinder",
+          "center_m": [
+            0.6937175487985926,
+            0.07823275905143177,
+            0.6591315944305706
+          ],
+          "footprint_radius_m": 0.036596309964610045,
+          "height_m": 0.12506792828065508,
+          "observed_top_z_m": 0.7216655585708981,
+          "estimated_bottom_z_m": 0.596597630290243,
+          "side_points": 944,
+          "top_points": 1258,
+          "cylinder_side_residual_p95_m": 0.0022157896078925723,
+          "observed_side_arc_rad": 3.4147386430573654,
+          "stamp_ns": 1792733638778896116,
+          "dimension_source": "precontact_rgbd",
+          "observed_side_height_fraction": [
+            0.7,
+            0.95
+          ],
+          "hidden_bottom_measured": false,
+          "position_source": "new_depth_cap_and_side_fit",
+          "detector_reran": false,
+          "identity_confirmed": false,
+          "motion_authorized": false
+        }
+      },
+      {
+        "object_delta_odom_m": [
+          0.0005737447493672221,
+          0.002045651850449026,
+          0.10046503250012917
+        ],
+        "palm_delta_odom_m": [
+          -0.00010666334753217654,
+          0.0003269688630833656,
+          0.09996537728875576
+        ],
+        "joint_lift_m": 0.09999996423721313,
+        "object_palm_follow_error_m": 0.0019148059221861147,
+        "center_odom_m": [
+          9.496942854268084,
+          -6.533505275274823,
+          0.659161872906504
+        ],
+        "center_minus_palm_odom_m": [
+          0.06633540199762322,
+          -0.005275368218429222,
+          0.0006606235250078418
+        ],
+        "observed_opening_rad": 0.480518213081389,
+        "stamp_ns": 1792733639349436284,
+        "functional_lift_follow_verified": true,
+        "placement_verified": false,
+        "capture": "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-10",
+        "measurement": {
+          "class_name": "canned_juice",
+          "shape": "upright_cylinder",
+          "center_m": [
+            0.6937137954951575,
+            0.0782330633824054,
+            0.6591315944305706
+          ],
+          "footprint_radius_m": 0.0365943666673297,
+          "height_m": 0.12506792828065508,
+          "observed_top_z_m": 0.7216655585708981,
+          "estimated_bottom_z_m": 0.596597630290243,
+          "side_points": 944,
+          "top_points": 1258,
+          "cylinder_side_residual_p95_m": 0.0022176054216313133,
+          "observed_side_arc_rad": 3.4149366394292215,
+          "stamp_ns": 1792733639349436284,
+          "dimension_source": "precontact_rgbd",
+          "observed_side_height_fraction": [
+            0.7,
+            0.95
+          ],
+          "hidden_bottom_measured": false,
+          "position_source": "new_depth_cap_and_side_fit",
+          "detector_reran": false,
+          "identity_confirmed": false,
+          "motion_authorized": false
+        }
+      },
+      {
+        "object_delta_odom_m": [
+          -0.0002773244670439823,
+          0.0011087475559863336,
+          0.10046731980155299
+        ],
+        "palm_delta_odom_m": [
+          -0.0009624265047900593,
+          -0.0006215490705541171,
+          0.0999684052280625
+        ],
+        "joint_lift_m": 0.09999996423721313,
+        "object_palm_follow_error_m": 0.001926708844008947,
+        "center_odom_m": [
+          9.496091785051673,
+          -6.534442179569286,
+          0.6591641602079278
+        ],
+        "center_minus_palm_odom_m": [
+          0.0663400959384699,
+          -0.005263754579254432,
+          0.0006598828871249296
+        ],
+        "observed_opening_rad": 0.480518213081389,
+        "stamp_ns": 1792733639908417127,
+        "functional_lift_follow_verified": true,
+        "placement_verified": false,
+        "capture": "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-11",
+        "measurement": {
+          "class_name": "canned_juice",
+          "shape": "upright_cylinder",
+          "center_m": [
+            0.6937175487985926,
+            0.07823275905143177,
+            0.6591315944305706
+          ],
+          "footprint_radius_m": 0.036596309964610045,
+          "height_m": 0.12506792828065508,
+          "observed_top_z_m": 0.7216655585708981,
+          "estimated_bottom_z_m": 0.596597630290243,
+          "side_points": 944,
+          "top_points": 1258,
+          "cylinder_side_residual_p95_m": 0.0022157896078925723,
+          "observed_side_arc_rad": 3.4147386430573654,
+          "stamp_ns": 1792733639908417127,
+          "dimension_source": "precontact_rgbd",
+          "observed_side_height_fraction": [
+            0.7,
+            0.95
+          ],
+          "hidden_bottom_measured": false,
+          "position_source": "new_depth_cap_and_side_fit",
+          "detector_reran": false,
+          "identity_confirmed": false,
+          "motion_authorized": false
+        }
+      },
+      {
+        "object_delta_odom_m": [
+          0.000997343343509982,
+          0.002313073858847048,
+          0.100467646656765
+        ],
+        "palm_delta_odom_m": [
+          0.0003153511686697641,
+          0.0005744006243553201,
+          0.09996772749336724
+        ],
+        "joint_lift_m": 0.09999996423721313,
+        "object_palm_follow_error_m": 0.0019333952293345321,
+        "center_odom_m": [
+          9.497366452862227,
+          -6.533237853266425,
+          0.6591644870631398
+        ],
+        "center_minus_palm_odom_m": [
+          0.06633698607556404,
+          -0.0052553779713031545,
+          0.0006608874770321904
+        ],
+        "observed_opening_rad": 0.480518213081389,
+        "stamp_ns": 1792733641015770726,
+        "functional_lift_follow_verified": true,
+        "placement_verified": false,
+        "capture": "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-12",
+        "measurement": {
+          "class_name": "canned_juice",
+          "shape": "upright_cylinder",
+          "center_m": [
+            0.6937137954951575,
+            0.0782330633824054,
+            0.6591315944305706
+          ],
+          "footprint_radius_m": 0.0365943666673297,
+          "height_m": 0.12506792828065508,
+          "observed_top_z_m": 0.7216655585708981,
+          "estimated_bottom_z_m": 0.596597630290243,
+          "side_points": 944,
+          "top_points": 1258,
+          "cylinder_side_residual_p95_m": 0.0022176054216313133,
+          "observed_side_arc_rad": 3.4149366394292215,
+          "stamp_ns": 1792733641015770726,
+          "dimension_source": "precontact_rgbd",
+          "observed_side_height_fraction": [
+            0.7,
+            0.95
+          ],
+          "hidden_bottom_measured": false,
+          "position_source": "new_depth_cap_and_side_fit",
+          "detector_reran": false,
+          "identity_confirmed": false,
+          "motion_authorized": false
+        }
+      }
+    ],
+    "center_palm_relative_spread_m": 1.97866447836312e-05,
+    "maximum_object_palm_follow_error_m": 0.0019333952293345321,
+    "minimum_object_rise_m": 0.10043610263605562,
+    "maximum_object_rise_m": 0.10046889790507074,
+    "original_failed_verdict_and_rgbd_retained": true,
+    "source_sha256": {
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/result.json": "ffda25a1c5c9ad92dc1a972c0c7f0dff7152c05b371cd1f095309c664505f313",
+      "/mnt/d/handyman-training-runs/canned-grasp-v1-live-20261023-01/locked-can-reference.json": "86cdf9a9a18b4a8515989a05c6b34b0cb1b3b72c585944eb5abbb616c55ff802",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/preclose/rgb.png": "95c33744ff94e3be64f5fc3dc085eb48c8ff5425873f3a7f9f9e0626eb466584",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/preclose/depth_m.npy": "74c5f4429587799fdb5a64781b653033d0e0779630b103480a30dc84c4af684b",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/preclose/snapshot.json": "fe4ac12a95c9cf37a7c61a980f97c616de1bf37ed592ee89ed1d65932eb0825f",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-00/rgb.png": "731029b0433dfe30b271d9526171ab3ee5a4a3a75c31d8edf060dacdefb79ef1",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-00/depth_m.npy": "1909e93147df75544857e911925e52ccd7f509069fdf82a3ed39672dceb4ae67",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-00/snapshot.json": "ed175e34219c449bd64a3ca2b8f5d13e19be822145e33d779b0424f45fee5199",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-01/rgb.png": "75483efefd18b93a5daee932c500a0a27a848d1e25af6f8bd89df96e81c42155",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-01/depth_m.npy": "2c45efb1981ab3d4fe042d9bc8fc79fe8cfd49df9a55e1910df29dc438a235ce",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-01/snapshot.json": "0095d4becef8bb333a67c4b07fba35ce572324b551756d6fe31505a3e74d7e25",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-02/rgb.png": "fffcf5d4e18073a34620a286a9089a428b6a25ad7c542906297e5778b27f743d",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-02/depth_m.npy": "1f78aa5b5c08fc6200decb99b5d2c6acd2e3a30c01a54fd521376939f6c6e1bb",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-02/snapshot.json": "f17100fd7c8e6d68c522525c2651baf8255e028542e5c6cf6b0b82dd00285d33",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-03/rgb.png": "6d4e9fa4f095119568fef409866d47bb7f9f52e55513e69b1f614189290092e2",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-03/depth_m.npy": "a5edb95d823232ac1b81ab71e6b0d2ed38b5a41d016863d92e7d46afdf9a7557",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-03/snapshot.json": "9a4c96f0105cacd42eae3cf66aaf047d95089a21f4e5b12b5d6efe1efc61e735",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-04/rgb.png": "b5c0fdd52777e4292a2f3da069c7671db9ce24d47ba88016a46150ed475b5920",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-04/depth_m.npy": "06e297536033ecd827f0ddf5604241b82e96a6c07d0428b7a52aa9919dd066f4",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-04/snapshot.json": "fe22c15f31edd512ffc4d3301b8051c3fa391d09cf5b89df9dc9978d83c61941",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-05/rgb.png": "5790c5a0af4c6dfceb9a93fd28e2504599bf5b280626785ba05d90e506713ba4",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-05/depth_m.npy": "0ae8bebd1006c5804ca704282b4644181d504164f57118f2cf7bed88b697c068",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-05/snapshot.json": "1f910a7362f618ef88e2df9e10d784ac3880865183460421fa7cbede6ca42733",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-06/rgb.png": "520bfe10954fc863f5df4f92e9cfc604e3af53570c0bbd77b8bac7234d72eda4",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-06/depth_m.npy": "4547de43cd96d2e959fae519844d4c0254b0cf74c17af4371cc54545cdf816a2",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-06/snapshot.json": "c1c031d5a9da5014843999e2d94c48566dcac3411be7ae7fc3ba542e8dd0af67",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-07/rgb.png": "43770a8bc1a39970da1b824f76cfec1ffe4c982b6705b5ffa9a6934348206a59",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-07/depth_m.npy": "e549ccba25d0ef0fa23d03bcfc004a600c09240238413b7f8557e2a6063f0428",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-07/snapshot.json": "c9f21d902ec8a2c2a44065320de8622632755d9d11b9e4f7bca45b2a0ff0e42a",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-08/rgb.png": "40d6035523b6bb57ca28040792ea4957b0ead7aae1496a49269579c6617c12d7",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-08/depth_m.npy": "93474334c74d413cf08347371406f437bfdebb14a43659cab407ab1c0dddf267",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-08/snapshot.json": "cc6cd443d2839566a93988bd2785fe874c4d1ecf85f85801e18aca9ad41a4b2c",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-09/rgb.png": "5b35827e9a74ea67287c719f69460c6d8d4ef99d467c03cd791bfefa30f260f2",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-09/depth_m.npy": "9d97d50af6219b1df1602e09128f445899decf574f3eae11bb601e7bfdaaee4a",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-09/snapshot.json": "fac0023707a873226ddd11409a0cc490c1398bb925035113731597281da8624f",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-10/rgb.png": "ab25851badfc9d116dc8af66e6ce57e84bbf832de24d3b9edd9154e4b844c0ab",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-10/depth_m.npy": "bcaa11352ae3774cca405b67b630f5cb4ccbb39f03c327171525c9bddde82742",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-10/snapshot.json": "263207a3a58806bb30e0a10a47eaed65654453cda682848ce0ea17df87755439",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-11/rgb.png": "2dd7486ff61ab9c9dfc1d1428d816c6718c9e52650bdabc41c93d1cf9efa127b",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-11/depth_m.npy": "b60d26f7f518daabf16ebe36dea471425a957e5c76c6958c1ec85aaa3e7b7693",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-11/snapshot.json": "458ef0c2ce24814b41bb7f1a8021592252260ef73e26a38d3af4f8ed2a0bdb4f",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-12/rgb.png": "75d4608e1404c73e27148eab59a8e0b45919f49f679ff61bf214cd6c640b588d",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-12/depth_m.npy": "9f4b7f6fb0edca72adcfa2420781a77b8ebe63d3c0fd21922abe26040c744c7b",
+      "/mnt/d/handyman-training-runs/canned-close-lift-continuation-20261023-01/captures/after-lift-rejected-12/snapshot.json": "24532759bb6482a75160bab54c11a8d46a000a2d5a230a9e6a9c5265be20bdea"
+    },
+    "robot_commands_sent": false,
+    "not_a_new_motion_authorization": true,
+    "placement_verified": false,
+    "successful_grasp_cases": 1,
+    "success_rate_not_measured": true
+  },
+  "deployment": "/mnt/d/handyman-training-runs/canned-grasp-robust-v2-20261023-deployment.json",
+  "files": [
+    "canned_grasp_geometry.py",
+    "canned_grasp_runtime.py",
+    "run_canned_grasp_trial.py",
+    "test_canned_grasp_geometry.py",
+    "CANNED_GRASP_TRIAL.txt"
+  ],
+  "robot_commands_sent": true,
+  "task_finished_sent": false,
+  "next": "The can remains held in the extended horizontal arm after one real10cm verification lift. Do NOT re-run the full grasp entry, reopen, re-close or repeat the approach. Reacquire fresh RGBD/joints before any next action. Next develop can-specific held tracking through folding and use the original navigation; placement must use cylinder half-height rather than horizontal radius for bottom clearance. No carry/placement verified yet. Single-frame near failures now reacquire NEW depth only (max5), never replay a command. Original failed verdicts remain preserved as diagnostic records; independent evidence and current held depth establish success."
+}

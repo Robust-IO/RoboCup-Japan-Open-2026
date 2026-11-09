@@ -1,0 +1,1207 @@
+{
+  "status": "full_trial_stopped",
+  "recorded_ns": 1792323616614843492,
+  "branch": "feat/handyman-phase5-grasping",
+  "revision": "close-handoff-r14 over capture-budget-r13c/near-geometry-r12b",
+  "deployments": {
+    "r13": {
+      "status": "deployed_tests_passed",
+      "revision": "capture-budget-r13",
+      "patch": "/mnt/d/handyman-training-runs/apple-capture-budget-r13-20261018-patch.tar.gz",
+      "sha256": "407ac4cabc0c5d69d4da8415d72bd3828f4f9edbe24838592f250c742a575f5b",
+      "backup": "/mnt/d/handyman-training-runs/apple-before-capture-budget-r13-20261018.tar.gz",
+      "copies_hash_verified": 3,
+      "hashes": {
+        "capture_processing_budget.py": "ce93bb0c9f33a9dcfc011efdbdaf067c809e4ad281feb212a958bf115d589624",
+        "capture_grasp_scene.py": "bf8a7d740cbdda540d4e97b75b810b6a3be51346ebf764fe2473c7942ee840af",
+        "test_capture_processing_budget.py": "a387c2a2799887fc2d4988f5621b379ab0c8dcdae1d246fa3933927fe60edc06",
+        "APPLE_TRANSFER_AUTOMATION.txt": "3055314703d2ea47b45ec9bc64a814eb5f636795fa0ba850f648c1ca6711e5f5"
+      },
+      "original_code_hashes": {
+        "runtime": {
+          "test_capture_processing_budget.py": null,
+          "capture_grasp_scene.py": "7ff70043eb483b85be4a510e8bb4bc754e9601cc4eb63edc34fd326eae81a2d3",
+          "APPLE_TRANSFER_AUTOMATION.txt": "561f5ff9e9e597b2109d67f692f459aa6d9cf7df3a778f89aa561a662529a907",
+          "capture_processing_budget.py": null
+        },
+        "training": {
+          "test_capture_processing_budget.py": null,
+          "capture_grasp_scene.py": "7ff70043eb483b85be4a510e8bb4bc754e9601cc4eb63edc34fd326eae81a2d3",
+          "APPLE_TRANSFER_AUTOMATION.txt": "561f5ff9e9e597b2109d67f692f459aa6d9cf7df3a778f89aa561a662529a907",
+          "capture_processing_budget.py": null
+        },
+        "module": {
+          "test_capture_processing_budget.py": null,
+          "capture_grasp_scene.py": "7ff70043eb483b85be4a510e8bb4bc754e9601cc4eb63edc34fd326eae81a2d3",
+          "APPLE_TRANSFER_AUTOMATION.txt": "561f5ff9e9e597b2109d67f692f459aa6d9cf7df3a778f89aa561a662529a907",
+          "capture_processing_budget.py": null
+        }
+      },
+      "candidate_tests": {
+        "exit": 0,
+        "count": 309,
+        "log": "/mnt/d/handyman-training-runs/apple-capture-budget-r13-20261018-candidate-tests.log"
+      },
+      "runtime_tests": {
+        "exit": 0,
+        "count": 309,
+        "log": "/mnt/d/handyman-training-runs/apple-capture-budget-r13-20261018-runtime-tests.log"
+      },
+      "input_preflight_exit": 0,
+      "robot_commands_sent": false,
+      "new_live_observation_validated": false,
+      "final_freshness_max_s": 0.4,
+      "original_source_stamps_preserved": true,
+      "model_maps_navigation_grasp_placement_policy_changed": false
+    },
+    "r13b": {
+      "status": "deployed_tests_passed",
+      "revision": "capture-budget-r13b",
+      "patch": "/mnt/d/handyman-training-runs/apple-capture-budget-r13b-20261018-patch.tar.gz",
+      "sha256": "f90ef53fbe6a2be2554c5fc9c09afae636dc69587aa31e280d81b8a915a89d3c",
+      "backup": "/mnt/d/handyman-training-runs/apple-before-capture-budget-r13b-20261018.tar.gz",
+      "copies_hash_verified": 3,
+      "hashes": {
+        "apple_inference_worker.py": "ca37182763e934c9881d7526dac8e872a641f6be7c09bab972e7deda9ff6273f",
+        "test_apple_inference_reuse.py": "b1f5ce1def087f4d7b54e3d60010f681bce8ef9f873473ed3608f0e5e36472ef",
+        "apple_rgbd_candidate.py": "b174b51e476b39e542115da26a2026ac136255dbf2163973414d589d3764545b",
+        "apple_support_surface.py": "26a91db2f9d6f83b76e432cf0b8019adb0e9bfd1116d5fae0a93e425e639352c",
+        "rgbd_pixel_window.py": "3ed9ee66c1fff45624761214648c11c20596af24d752f8276d1dbc255c5493e1",
+        "test_rgbd_pixel_window.py": "c757533d86effc6cbf7194003cb55c260c2ac4b588c14365d82dbf829f6a35e3",
+        "capture_file_writer.py": "a7cefebb0868541596dbd4bd7398c81071bd414d23bf7f037002dae0f8da7606",
+        "test_capture_file_writer.py": "806bc90b96e857ca8de3edafd9b07349e74e440cbf399d2797ee361230d674cd",
+        "capture_grasp_scene.py": "8e8f199beda61dd3fd96cbc5fff7f5a8e2a1a57f24ce39503cc4c4bdcb29c96a",
+        "APPLE_TRANSFER_AUTOMATION.txt": "26d823009d612ec33e8120530e7c935fc3b10f6e5a60e08c80330d8f0d20c6bd"
+      },
+      "original_code_hashes": {
+        "runtime": {
+          "apple_inference_worker.py": "1135dc67ecba48ec57aa30ee2e36b6f7e1ff32862ad1e073d56bee72ac14e259",
+          "capture_grasp_scene.py": "bf8a7d740cbdda540d4e97b75b810b6a3be51346ebf764fe2473c7942ee840af",
+          "capture_file_writer.py": null,
+          "rgbd_pixel_window.py": null,
+          "APPLE_TRANSFER_AUTOMATION.txt": "3055314703d2ea47b45ec9bc64a814eb5f636795fa0ba850f648c1ca6711e5f5",
+          "test_apple_inference_reuse.py": null,
+          "test_capture_file_writer.py": null,
+          "test_rgbd_pixel_window.py": null,
+          "apple_rgbd_candidate.py": "6610ee7b00487a9f7b0304529a1fe8d932b5e6e5bb8579874dc32c409bbd3d00",
+          "apple_support_surface.py": "c8d0d8e4ec8e73486bf084f80300ded49e180c1177311226bf3d6f0fb38bf183"
+        },
+        "training": {
+          "apple_inference_worker.py": "1135dc67ecba48ec57aa30ee2e36b6f7e1ff32862ad1e073d56bee72ac14e259",
+          "capture_grasp_scene.py": "bf8a7d740cbdda540d4e97b75b810b6a3be51346ebf764fe2473c7942ee840af",
+          "capture_file_writer.py": null,
+          "rgbd_pixel_window.py": null,
+          "APPLE_TRANSFER_AUTOMATION.txt": "3055314703d2ea47b45ec9bc64a814eb5f636795fa0ba850f648c1ca6711e5f5",
+          "test_apple_inference_reuse.py": null,
+          "test_capture_file_writer.py": null,
+          "test_rgbd_pixel_window.py": null,
+          "apple_rgbd_candidate.py": null,
+          "apple_support_surface.py": null
+        },
+        "module": {
+          "apple_inference_worker.py": "1135dc67ecba48ec57aa30ee2e36b6f7e1ff32862ad1e073d56bee72ac14e259",
+          "capture_grasp_scene.py": "bf8a7d740cbdda540d4e97b75b810b6a3be51346ebf764fe2473c7942ee840af",
+          "capture_file_writer.py": null,
+          "rgbd_pixel_window.py": null,
+          "APPLE_TRANSFER_AUTOMATION.txt": "3055314703d2ea47b45ec9bc64a814eb5f636795fa0ba850f648c1ca6711e5f5",
+          "test_apple_inference_reuse.py": null,
+          "test_capture_file_writer.py": null,
+          "test_rgbd_pixel_window.py": null,
+          "apple_rgbd_candidate.py": "6610ee7b00487a9f7b0304529a1fe8d932b5e6e5bb8579874dc32c409bbd3d00",
+          "apple_support_surface.py": "c8d0d8e4ec8e73486bf084f80300ded49e180c1177311226bf3d6f0fb38bf183"
+        }
+      },
+      "candidate_tests": {
+        "exit": 0,
+        "count": 320,
+        "log": "/mnt/d/handyman-training-runs/apple-capture-budget-r13b-20261018-candidate-tests.log"
+      },
+      "runtime_tests": {
+        "exit": 0,
+        "count": 320,
+        "log": "/mnt/d/handyman-training-runs/apple-capture-budget-r13b-20261018-runtime-tests.log"
+      },
+      "input_preflight_exit": 0,
+      "robot_commands_sent": false,
+      "new_live_observation_validated": false,
+      "final_freshness_max_s": 0.4,
+      "original_source_stamps_preserved": true,
+      "model_maps_navigation_grasp_placement_policy_changed": false
+    },
+    "r13c": {
+      "status": "deployed_tests_passed",
+      "revision": "capture-budget-r13c",
+      "patch": "/mnt/d/handyman-training-runs/apple-capture-budget-r13c-20261018-patch.tar.gz",
+      "sha256": "c590b27e52025c45a8ab3ad6f86be4a01f4f3fd5bf91c61e961f345355deadb4",
+      "backup": "/mnt/d/handyman-training-runs/apple-before-capture-budget-r13c-20261018.tar.gz",
+      "copies_hash_verified": 3,
+      "hashes": {
+        "capture_processing_budget.py": "a636b24a45a163325a99cb56f74fdf599473de9c0b0d1eca3e78b02301018bc3",
+        "capture_grasp_scene.py": "d83824ce51aa13f135975eeeb0aef1b9655c000e697b815523e486680729a487",
+        "test_capture_processing_budget.py": "689c6bc51182bee2a84702cfcf9631bcbe29cf186b2e74491a6fede9a5251923",
+        "APPLE_TRANSFER_AUTOMATION.txt": "dd5d3f0932aadcc2263b9462a1ba01d42cb4690181b9f31b8d6bf273d3fb1c6c"
+      },
+      "original_code_hashes": {
+        "runtime": {
+          "capture_processing_budget.py": "ce93bb0c9f33a9dcfc011efdbdaf067c809e4ad281feb212a958bf115d589624",
+          "APPLE_TRANSFER_AUTOMATION.txt": "26d823009d612ec33e8120530e7c935fc3b10f6e5a60e08c80330d8f0d20c6bd",
+          "capture_grasp_scene.py": "8e8f199beda61dd3fd96cbc5fff7f5a8e2a1a57f24ce39503cc4c4bdcb29c96a",
+          "test_capture_processing_budget.py": "a387c2a2799887fc2d4988f5621b379ab0c8dcdae1d246fa3933927fe60edc06"
+        },
+        "training": {
+          "capture_processing_budget.py": "ce93bb0c9f33a9dcfc011efdbdaf067c809e4ad281feb212a958bf115d589624",
+          "APPLE_TRANSFER_AUTOMATION.txt": "26d823009d612ec33e8120530e7c935fc3b10f6e5a60e08c80330d8f0d20c6bd",
+          "capture_grasp_scene.py": "8e8f199beda61dd3fd96cbc5fff7f5a8e2a1a57f24ce39503cc4c4bdcb29c96a",
+          "test_capture_processing_budget.py": "a387c2a2799887fc2d4988f5621b379ab0c8dcdae1d246fa3933927fe60edc06"
+        },
+        "module": {
+          "capture_processing_budget.py": "ce93bb0c9f33a9dcfc011efdbdaf067c809e4ad281feb212a958bf115d589624",
+          "APPLE_TRANSFER_AUTOMATION.txt": "26d823009d612ec33e8120530e7c935fc3b10f6e5a60e08c80330d8f0d20c6bd",
+          "capture_grasp_scene.py": "8e8f199beda61dd3fd96cbc5fff7f5a8e2a1a57f24ce39503cc4c4bdcb29c96a",
+          "test_capture_processing_budget.py": "a387c2a2799887fc2d4988f5621b379ab0c8dcdae1d246fa3933927fe60edc06"
+        }
+      },
+      "candidate_tests": {
+        "exit": 0,
+        "count": 325,
+        "log": "/mnt/d/handyman-training-runs/apple-capture-budget-r13c-20261018-candidate-tests.log"
+      },
+      "runtime_tests": {
+        "exit": 0,
+        "count": 325,
+        "log": "/mnt/d/handyman-training-runs/apple-capture-budget-r13c-20261018-runtime-tests.log"
+      },
+      "input_preflight_exit": 0,
+      "robot_commands_sent": false,
+      "new_live_observation_validated": false,
+      "final_freshness_max_s": 0.4,
+      "original_source_stamps_preserved": true,
+      "model_maps_navigation_grasp_placement_policy_changed": false
+    },
+    "r14": {
+      "status": "deployed_tests_passed",
+      "revision": "close-handoff-r14",
+      "patch": "/mnt/d/handyman-training-runs/apple-close-handoff-r14-20261018-patch.tar.gz",
+      "sha256": "0dc0bab5859473b39d1910aa5efe14a0aefe8b0e9bc1e7f4395aa92d6d13cff6",
+      "backup": "/mnt/d/handyman-training-runs/apple-before-close-handoff-r14-20261018.tar.gz",
+      "copies_hash_verified": 3,
+      "hashes": {
+        "apple_approach_lease.py": "7e051675605fd9d2cd4921a85579b8c4f37dcd96bc797f1bef3c16320b1158bc",
+        "run_bedroom_apple_regrasp.py": "96088b83a3cf79349eea5dbd2256c61d4a114dea05463095488b690ea10f36b4",
+        "test_forward_approach_handoff.py": "aa92a8458d2d208230c84e214c8b438c214fd02962a9af647a5e7a03b83d5c9c",
+        "APPLE_TRANSFER_AUTOMATION.txt": "2b68026091fbf6ec37b64031ff7f1bc560e04301444050911d6e38f0a2453c36"
+      },
+      "original_code_hashes": {
+        "runtime": {
+          "test_forward_approach_handoff.py": null,
+          "apple_approach_lease.py": "be69b35c0e7fee663b0b0d4ebb2bd5de0d8eeed69afb3f91cd3c5cd406e5c93b",
+          "APPLE_TRANSFER_AUTOMATION.txt": "dd5d3f0932aadcc2263b9462a1ba01d42cb4690181b9f31b8d6bf273d3fb1c6c",
+          "run_bedroom_apple_regrasp.py": "7c142c4d87b21003aca53a28edb268d19f9d928eaaa156aeb59cdd5c88a43eee"
+        },
+        "training": {
+          "test_forward_approach_handoff.py": null,
+          "apple_approach_lease.py": "be69b35c0e7fee663b0b0d4ebb2bd5de0d8eeed69afb3f91cd3c5cd406e5c93b",
+          "APPLE_TRANSFER_AUTOMATION.txt": "dd5d3f0932aadcc2263b9462a1ba01d42cb4690181b9f31b8d6bf273d3fb1c6c",
+          "run_bedroom_apple_regrasp.py": "7c142c4d87b21003aca53a28edb268d19f9d928eaaa156aeb59cdd5c88a43eee"
+        },
+        "module": {
+          "test_forward_approach_handoff.py": null,
+          "apple_approach_lease.py": "be69b35c0e7fee663b0b0d4ebb2bd5de0d8eeed69afb3f91cd3c5cd406e5c93b",
+          "APPLE_TRANSFER_AUTOMATION.txt": "dd5d3f0932aadcc2263b9462a1ba01d42cb4690181b9f31b8d6bf273d3fb1c6c",
+          "run_bedroom_apple_regrasp.py": "7c142c4d87b21003aca53a28edb268d19f9d928eaaa156aeb59cdd5c88a43eee"
+        }
+      },
+      "candidate_tests": {
+        "exit": 0,
+        "count": 332,
+        "log": "/mnt/d/handyman-training-runs/apple-close-handoff-r14-20261018-candidate-tests.log"
+      },
+      "runtime_tests": {
+        "exit": 0,
+        "count": 332,
+        "log": "/mnt/d/handyman-training-runs/apple-close-handoff-r14-20261018-runtime-tests.log"
+      },
+      "input_preflight_exit": 0,
+      "robot_commands_sent": false,
+      "new_live_observation_validated": false,
+      "final_freshness_max_s": 0.4,
+      "original_source_stamps_preserved": true,
+      "model_maps_navigation_grasp_placement_policy_changed": false
+    }
+  },
+  "changes": [
+    "Measured detector/geometry scheduling costs instead of fixed200ms reserve; genuine400ms final checks remain",
+    "Same-frame geometry/support computed once; local ROI pixels exactly equal old full-frame predicates",
+    "Decode RGB once; same BGR pixels/model/resolution/confidence",
+    "Parallel lossless D-drive saves; all writes complete before inference/index",
+    "Bounded250ms preference for a new original joint message,30ms publication/consumer headroom; no post-inference joint replacement"
+  ],
+  "recorded_equivalence_benchmark": {
+    "status": "recorded_frame_equivalence_and_latency_measured",
+    "robot_commands_sent": false,
+    "original_inputs_unchanged": true,
+    "results_exactly_equal": true,
+    "tests_passed": true,
+    "worker_medians_s": {
+      "old": 0.07937939399926108,
+      "new": 0.06314022800142993
+    },
+    "save_medians_s": {
+      "serial": 0.0647376360011549,
+      "parallel": 0.026562727998680202
+    }
+  },
+  "failed_readonly_runs_preserved": [
+    "/mnt/d/handyman-training-runs/apple-capture-budget-r13-source-readonly-20261018-01/result.json",
+    "/mnt/d/handyman-training-runs/apple-capture-budget-r13b-source-readonly-20261018-01/result.json",
+    "/mnt/d/handyman-training-runs/apple-capture-budget-r13c-source-readonly-20261018-01/result.json"
+  ],
+  "source_clock": {
+    "before_sync_joint_receipt": {
+      "messages": 67,
+      "minimum_age_s": 0.292123842,
+      "median_age_s": 0.29535839,
+      "maximum_age_s": 0.335270611,
+      "robot_commands_sent": false
+    },
+    "user_triggered_unity_should_synchronize": true,
+    "after_sync_readonly": {
+      "status": "source_timing_readonly_passed",
+      "robot_commands_sent": false,
+      "grasp_commands_sent": false,
+      "protocol_task_finished_sent": false,
+      "whole_transfer_verified": false,
+      "scope": "Current source timing/identity handoff while idle ONLY; NOT grasp eligibility",
+      "samples": 5,
+      "min_joint_age_s": 0.12504408,
+      "max_joint_age_s": 0.205329013,
+      "max_image_age_s": 0.322048133,
+      "max_rgb_depth_delta_s": 0.028733535,
+      "pose_before": [
+        9.85985076766982,
+        -6.59512528130011,
+        -0.07446619282077464
+      ],
+      "pose_after": [
+        9.860632147347655,
+        -6.594914459827317,
+        -0.07445999850840643
+      ],
+      "publishers_before": {
+        "/hsrb/command_velocity": 0,
+        "/hsrb/omni_base_controller/command": 0,
+        "/hsrb/arm_trajectory_controller/command": 0,
+        "/hsrb/gripper_controller/command": 0,
+        "/hsrb/head_trajectory_controller/command": 0
+      },
+      "publishers_after": {
+        "/hsrb/command_velocity": 0,
+        "/hsrb/omni_base_controller/command": 0,
+        "/hsrb/arm_trajectory_controller/command": 0,
+        "/hsrb/gripper_controller/command": 0,
+        "/hsrb/head_trajectory_controller/command": 0
+      },
+      "all_grasp_plans_eligible": true,
+      "grasp_plan_rejections": [],
+      "original_stamps_preserved": true,
+      "freshness_thresholds_changed": false,
+      "rows": [
+        {
+          "capture": "/mnt/d/handyman-training-runs/apple-capture-budget-r13c-source-readonly-20261018-02-after-sync/source-observe/000002",
+          "depth_stamp_ns": 1792322674124620898,
+          "joint_stamp_ns": 1792322674233000000,
+          "checked_ns": 1792322674358044080,
+          "oldest_image_age_s": 0.238595733,
+          "joint_age_s": 0.12504408,
+          "rgb_depth_delta_s": 0.005172551,
+          "identity_confirmed": true,
+          "pipeline_timing": {
+            "capture_to_result_age_s": 0.207166841,
+            "processing_including_save_s": 0.08244229499905487,
+            "joint_age_at_result_s": 0.093615188,
+            "original_joint_stamp_ns": 1792322674233000000,
+            "freshness_checked_ns": 1792322674326615188,
+            "rgbd_freshness_passed": true,
+            "joint_freshness_passed": true,
+            "freshness_passed": true,
+            "max_data_age_s": 0.4,
+            "original_snapshot_stamps_preserved": true,
+            "motion_authorized": false,
+            "basis": "oldest_rgb_or_depth_stamp",
+            "selection_now_ns": 1792322674244177181,
+            "request_roundtrip_s": 0.04943206099960662,
+            "sampling_budget": {
+              "mode": "detector",
+              "estimated_processing_reserve_ns": 164030749,
+              "applied_processing_reserve_ns": 194030749,
+              "publication_consumer_scheduling_headroom_ns": 30000000,
+              "forecast_fallback_used": false,
+              "bounded_new_feedback_wait": false,
+              "maximum_feedback_wait_s": 0.25,
+              "bootstrap": false,
+              "final_original_stamp_freshness_required": true
+            },
+            "oldest_image_age_at_selection_s": 0.124728834,
+            "joint_age_at_selection_s": 0.011177181,
+            "image_and_depth_save_s": 0.032716554000217,
+            "upstream_stamp_caveat": "Images/TF currently bridge-receipt time; joints Unity source time. Source synchronization must be checked independently."
+          },
+          "grasp_plan_eligible": true,
+          "grasp_plan_rejection": null,
+          "measured_grasp_palm_height_m": 0.530029459132704
+        },
+        {
+          "capture": "/mnt/d/handyman-training-runs/apple-capture-budget-r13c-source-readonly-20261018-02-after-sync/source-observe/000003",
+          "depth_stamp_ns": 1792322674212636858,
+          "joint_stamp_ns": 1792322674343000000,
+          "checked_ns": 1792322674502450234,
+          "oldest_image_age_s": 0.307168607,
+          "joint_age_s": 0.159450234,
+          "rgb_depth_delta_s": 0.017355231,
+          "identity_confirmed": true,
+          "pipeline_timing": {
+            "capture_to_result_age_s": 0.286276592,
+            "processing_including_save_s": 0.09406358700107376,
+            "joint_age_at_result_s": 0.138558219,
+            "original_joint_stamp_ns": 1792322674343000000,
+            "freshness_checked_ns": 1792322674481558219,
+            "rgbd_freshness_passed": true,
+            "joint_freshness_passed": true,
+            "freshness_passed": true,
+            "max_data_age_s": 0.4,
+            "original_snapshot_stamps_preserved": true,
+            "motion_authorized": false,
+            "basis": "oldest_rgb_or_depth_stamp",
+            "selection_now_ns": 1792322674387501235,
+            "request_roundtrip_s": 0.06073691100027645,
+            "sampling_budget": {
+              "mode": "detector",
+              "estimated_processing_reserve_ns": 164030749,
+              "applied_processing_reserve_ns": 194030749,
+              "publication_consumer_scheduling_headroom_ns": 30000000,
+              "forecast_fallback_used": false,
+              "bounded_new_feedback_wait": false,
+              "maximum_feedback_wait_s": 0.25,
+              "bootstrap": false,
+              "final_original_stamp_freshness_required": true
+            },
+            "oldest_image_age_at_selection_s": 0.192219608,
+            "joint_age_at_selection_s": 0.044501235,
+            "image_and_depth_save_s": 0.03303406800114317,
+            "upstream_stamp_caveat": "Images/TF currently bridge-receipt time; joints Unity source time. Source synchronization must be checked independently."
+          },
+          "grasp_plan_eligible": true,
+          "grasp_plan_rejection": null,
+          "measured_grasp_palm_height_m": 0.530029459132704
+        },
+        {
+          "capture": "/mnt/d/handyman-training-runs/apple-capture-budget-r13c-source-readonly-20261018-02-after-sync/source-observe/000004",
+          "depth_stamp_ns": 1792322674754014415,
+          "joint_stamp_ns": 1792322674842000000,
+          "checked_ns": 1792322675047329013,
+          "oldest_image_age_s": 0.322048133,
+          "joint_age_s": 0.205329013,
+          "rgb_depth_delta_s": 0.028733535,
+          "identity_confirmed": true,
+          "pipeline_timing": {
+            "capture_to_result_age_s": 0.291688038,
+            "processing_including_save_s": 0.08582200499949977,
+            "joint_age_at_result_s": 0.174968918,
+            "original_joint_stamp_ns": 1792322674842000000,
+            "freshness_checked_ns": 1792322675016968918,
+            "rgbd_freshness_passed": true,
+            "joint_freshness_passed": true,
+            "freshness_passed": true,
+            "max_data_age_s": 0.4,
+            "original_snapshot_stamps_preserved": true,
+            "motion_authorized": false,
+            "basis": "oldest_rgb_or_depth_stamp",
+            "selection_now_ns": 1792322674931151833,
+            "request_roundtrip_s": 0.0507717969994701,
+            "sampling_budget": {
+              "mode": "detector",
+              "estimated_processing_reserve_ns": 164030749,
+              "applied_processing_reserve_ns": 194030749,
+              "publication_consumer_scheduling_headroom_ns": 30000000,
+              "forecast_fallback_used": false,
+              "bounded_new_feedback_wait": false,
+              "maximum_feedback_wait_s": 0.25,
+              "bootstrap": false,
+              "final_original_stamp_freshness_required": true
+            },
+            "oldest_image_age_at_selection_s": 0.205870953,
+            "joint_age_at_selection_s": 0.089151833,
+            "image_and_depth_save_s": 0.034761037000862416,
+            "upstream_stamp_caveat": "Images/TF currently bridge-receipt time; joints Unity source time. Source synchronization must be checked independently."
+          },
+          "grasp_plan_eligible": true,
+          "grasp_plan_rejection": null,
+          "measured_grasp_palm_height_m": 0.530029459132704
+        },
+        {
+          "capture": "/mnt/d/handyman-training-runs/apple-capture-budget-r13c-source-readonly-20261018-02-after-sync/source-observe/000005",
+          "depth_stamp_ns": 1792322675624696372,
+          "joint_stamp_ns": 1792322675675000000,
+          "checked_ns": 1792322675800641777,
+          "oldest_image_age_s": 0.191644507,
+          "joint_age_s": 0.125641777,
+          "rgb_depth_delta_s": 0.015699102,
+          "identity_confirmed": true,
+          "pipeline_timing": {
+            "capture_to_result_age_s": 0.173361152,
+            "processing_including_save_s": 0.08862491499894531,
+            "joint_age_at_result_s": 0.107358422,
+            "original_joint_stamp_ns": 1792322675675000000,
+            "freshness_checked_ns": 1792322675782358422,
+            "rgbd_freshness_passed": true,
+            "joint_freshness_passed": true,
+            "freshness_passed": true,
+            "max_data_age_s": 0.4,
+            "original_snapshot_stamps_preserved": true,
+            "motion_authorized": false,
+            "basis": "oldest_rgb_or_depth_stamp",
+            "selection_now_ns": 1792322675693741071,
+            "request_roundtrip_s": 0.05482833299902268,
+            "sampling_budget": {
+              "mode": "detector",
+              "estimated_processing_reserve_ns": 164030749,
+              "applied_processing_reserve_ns": 194030749,
+              "publication_consumer_scheduling_headroom_ns": 30000000,
+              "forecast_fallback_used": false,
+              "bounded_new_feedback_wait": false,
+              "maximum_feedback_wait_s": 0.25,
+              "bootstrap": false,
+              "final_original_stamp_freshness_required": true
+            },
+            "oldest_image_age_at_selection_s": 0.084743801,
+            "joint_age_at_selection_s": 0.018741071,
+            "image_and_depth_save_s": 0.033418230999814114,
+            "upstream_stamp_caveat": "Images/TF currently bridge-receipt time; joints Unity source time. Source synchronization must be checked independently."
+          },
+          "grasp_plan_eligible": true,
+          "grasp_plan_rejection": null,
+          "measured_grasp_palm_height_m": 0.530029459132704
+        },
+        {
+          "capture": "/mnt/d/handyman-training-runs/apple-capture-budget-r13c-source-readonly-20261018-02-after-sync/source-observe/000006",
+          "depth_stamp_ns": 1792322675771987809,
+          "joint_stamp_ns": 1792322675778000000,
+          "checked_ns": 1792322675939736041,
+          "oldest_image_age_s": 0.173115263,
+          "joint_age_s": 0.161736041,
+          "rgb_depth_delta_s": 0.005367031,
+          "identity_confirmed": true,
+          "pipeline_timing": {
+            "capture_to_result_age_s": 0.14390028,
+            "processing_including_save_s": 0.07867539800099621,
+            "joint_age_at_result_s": 0.132521058,
+            "original_joint_stamp_ns": 1792322675778000000,
+            "freshness_checked_ns": 1792322675910521058,
+            "rgbd_freshness_passed": true,
+            "joint_freshness_passed": true,
+            "freshness_passed": true,
+            "max_data_age_s": 0.4,
+            "original_snapshot_stamps_preserved": true,
+            "motion_authorized": false,
+            "basis": "oldest_rgb_or_depth_stamp",
+            "selection_now_ns": 1792322675831850910,
+            "request_roundtrip_s": 0.04551248900133942,
+            "sampling_budget": {
+              "mode": "detector",
+              "estimated_processing_reserve_ns": 164030749,
+              "applied_processing_reserve_ns": 194030749,
+              "publication_consumer_scheduling_headroom_ns": 30000000,
+              "forecast_fallback_used": false,
+              "bounded_new_feedback_wait": false,
+              "maximum_feedback_wait_s": 0.25,
+              "bootstrap": false,
+              "final_original_stamp_freshness_required": true
+            },
+            "oldest_image_age_at_selection_s": 0.065230132,
+            "joint_age_at_selection_s": 0.05385091,
+            "image_and_depth_save_s": 0.03281659900130762,
+            "upstream_stamp_caveat": "Images/TF currently bridge-receipt time; joints Unity source time. Source synchronization must be checked independently."
+          },
+          "grasp_plan_eligible": true,
+          "grasp_plan_rejection": null,
+          "measured_grasp_palm_height_m": 0.530029459132704
+        }
+      ]
+    },
+    "threshold_widened": false,
+    "historical_stamps_rewritten": false,
+    "system_clocks_changed": false,
+    "caveat": "Historical same issue recovered after Should Synchronize. No proof that all pre-sync age was transport or pure clock skew. Bridge image/TF receipt restamping remains."
+  },
+  "localization": {
+    "audit": {
+      "scans": [
+        {
+          "stamp_ns": 1792322700278810285,
+          "old_pose": [
+            9.860473298960253,
+            -6.59479513875567,
+            -0.0745387144294055
+          ],
+          "old_score": 0.20370230078697205,
+          "old_inlier_fraction": 0.1806853582554517,
+          "new_pose": [
+            9.53047329896025,
+            -6.969795138755663,
+            -0.14953871442940542
+          ],
+          "new_score": 0.0014529479667544365,
+          "new_inlier_fraction": 0.9657320872274143,
+          "pose_difference": [
+            -0.3300000000000036,
+            -0.3749999999999938,
+            -0.07499999999999991
+          ],
+          "odom_from_base": {
+            "translation": [
+              8.424486074336468,
+              -6.9710616196611275,
+              1.7181038856506348e-05
+            ],
+            "quaternion": [
+              -1.5109853118387114e-05,
+              -2.7712048269872323e-06,
+              -0.0585169622473213,
+              0.9982864142586326
+            ],
+            "stamp_ns": 1792322700278810285
+          }
+        },
+        {
+          "stamp_ns": 1792322700546666100,
+          "old_pose": [
+            9.86075424773648,
+            -6.594347257712833,
+            -0.07449022207276282
+          ],
+          "old_score": 0.20378345251083374,
+          "old_inlier_fraction": 0.1806853582554517,
+          "new_pose": [
+            9.533254247736476,
+            -6.971847257712827,
+            -0.14699022207276274
+          ],
+          "new_score": 0.0012945792404934764,
+          "new_inlier_fraction": 0.9657320872274143,
+          "pose_difference": [
+            -0.3275000000000041,
+            -0.3774999999999942,
+            -0.07249999999999993
+          ],
+          "odom_from_base": {
+            "translation": [
+              8.424785825682193,
+              -6.970626098393986,
+              1.7181038856506348e-05
+            ],
+            "quaternion": [
+              -1.510992038305544e-05,
+              -2.7708384945240435e-06,
+              -0.058492757599697257,
+              0.9982878327778997
+            ],
+            "stamp_ns": 1792322700546666100
+          }
+        },
+        {
+          "stamp_ns": 1792322700606840005,
+          "old_pose": [
+            9.860619114374655,
+            -6.594648589552307,
+            -0.07440347722410989
+          ],
+          "old_score": 0.20367777347564697,
+          "old_inlier_fraction": 0.1806853582554517,
+          "new_pose": [
+            9.533119114374651,
+            -6.972148589552301,
+            -0.14690347722410982
+          ],
+          "new_score": 0.0014964321162551641,
+          "new_inlier_fraction": 0.9657320872274143,
+          "pose_difference": [
+            -0.3275000000000041,
+            -0.3774999999999942,
+            -0.07249999999999993
+          ],
+          "odom_from_base": {
+            "translation": [
+              8.42463799325564,
+              -6.970921407514431,
+              1.7181038856506348e-05
+            ],
+            "quaternion": [
+              -1.5110040657313444e-05,
+              -2.7701831272907196e-06,
+              -0.058449459381192184,
+              0.9982903688116295
+            ],
+            "stamp_ns": 1792322700606840005
+          }
+        }
+      ],
+      "best": {
+        "score": 0.0014964321162551641,
+        "pose": [
+          9.533119114374651,
+          -6.972148589552301,
+          -0.14690347722410982
+        ],
+        "inlier_fraction": 0.9657320872274143
+      },
+      "odom_from_base": {
+        "translation": [
+          8.42463799325564,
+          -6.970921407514431,
+          1.7181038856506348e-05
+        ],
+        "quaternion": [
+          -1.5110040657313444e-05,
+          -2.7701831272907196e-06,
+          -0.058449459381192184,
+          0.9982903688116295
+        ],
+        "stamp_ns": 1792322700606840005
+      },
+      "map_origin": [
+        -1.52,
+        -8.342038
+      ],
+      "resolution": 0.05,
+      "room": "bedroom",
+      "map_tf_published": false,
+      "robot_commands_sent": false,
+      "source_scan_file": "D:/handyman-training-runs/apple-r13c-live-precheck-20261018-01/scans.json",
+      "limitation": "Local laser/map estimate, not ground truth; no transform applied by this audit."
+    },
+    "completion": {
+      "status": "current_idle_localization_correction_published_and_readiness_verified",
+      "old_parent_pid": 5371,
+      "old_child_pid": null,
+      "old_parent_command": "/usr/bin/python3 /mnt/d/handyman-training-runs/publish_r12b_reviewed_map_anchor_20261018.py --run --match /mnt/d/handyman-training-runs/apple-r12b-current-localization-audit-20261018.json --output /mnt/d/handyman-training-runs/apple-r12b-current-localization-20261018-01/corrected-map-anchor.json ",
+      "old_child_command": "not_applicable_static_single_process",
+      "new_command": [
+        "/usr/bin/python3",
+        "/mnt/d/handyman-training-runs/publish_r13c_reviewed_map_anchor_20261018.py",
+        "--run",
+        "--match",
+        "/mnt/d/handyman-training-runs/apple-r13c-bedroom-localization-audit-20261018.json",
+        "--output",
+        "/mnt/d/handyman-training-runs/apple-r13c-current-localization-20261018-01/corrected-map-anchor.json"
+      ],
+      "robot_commands_sent": false,
+      "navigation_parameters_changed": false,
+      "old_numeric_anchor_restored": false,
+      "new_anchor_pid": 6862,
+      "alignment": "/mnt/d/handyman-training-runs/apple-r13c-current-localization-20261018-01/corrected-map-anchor.json",
+      "new_scans": "/mnt/d/handyman-training-runs/apple-r13c-current-localization-20261018-01/new-scans.json",
+      "requires_new_scan_map_check_before_full_trial": true
+    },
+    "previous_anchor5371_stopped": true,
+    "current_anchor_pid": 6862,
+    "fresh_three_scan_check_required": true,
+    "continuous_laser_localization": false,
+    "warning": "Current-scene measurement only; never restore numeric anchor after Unity restart/manual relocation"
+  },
+  "after_alignment_source_readonly": {
+    "status": "source_timing_readonly_passed",
+    "robot_commands_sent": false,
+    "grasp_commands_sent": false,
+    "protocol_task_finished_sent": false,
+    "whole_transfer_verified": false,
+    "scope": "Current source timing/identity handoff while idle ONLY; NOT grasp eligibility",
+    "samples": 5,
+    "min_joint_age_s": 0.162013952,
+    "max_joint_age_s": 0.202257447,
+    "max_image_age_s": 0.305312964,
+    "max_rgb_depth_delta_s": 0.016195939,
+    "pose_before": [
+      9.532495317785967,
+      -6.97168969976117,
+      -0.1471328883904518
+    ],
+    "pose_after": [
+      9.532665308406802,
+      -6.97273571556677,
+      -0.1471743077661816
+    ],
+    "publishers_before": {
+      "/hsrb/command_velocity": 0,
+      "/hsrb/omni_base_controller/command": 0,
+      "/hsrb/arm_trajectory_controller/command": 0,
+      "/hsrb/gripper_controller/command": 0,
+      "/hsrb/head_trajectory_controller/command": 0
+    },
+    "publishers_after": {
+      "/hsrb/command_velocity": 0,
+      "/hsrb/omni_base_controller/command": 0,
+      "/hsrb/arm_trajectory_controller/command": 0,
+      "/hsrb/gripper_controller/command": 0,
+      "/hsrb/head_trajectory_controller/command": 0
+    },
+    "all_grasp_plans_eligible": true,
+    "grasp_plan_rejections": [],
+    "original_stamps_preserved": true,
+    "freshness_thresholds_changed": false,
+    "rows": [
+      {
+        "capture": "/mnt/d/handyman-training-runs/apple-capture-budget-r13c-source-readonly-20261018-03-after-alignment/source-observe/000002",
+        "depth_stamp_ns": 1792323040048485622,
+        "joint_stamp_ns": 1792323040040000000,
+        "checked_ns": 1792323040229271717,
+        "oldest_image_age_s": 0.196982034,
+        "joint_age_s": 0.189271717,
+        "rgb_depth_delta_s": 0.016195939,
+        "identity_confirmed": true,
+        "pipeline_timing": {
+          "capture_to_result_age_s": 0.157795711,
+          "processing_including_save_s": 0.08011936299953959,
+          "joint_age_at_result_s": 0.150085394,
+          "original_joint_stamp_ns": 1792323040040000000,
+          "freshness_checked_ns": 1792323040190085394,
+          "rgbd_freshness_passed": true,
+          "joint_freshness_passed": true,
+          "freshness_passed": true,
+          "max_data_age_s": 0.4,
+          "original_snapshot_stamps_preserved": true,
+          "motion_authorized": false,
+          "basis": "oldest_rgb_or_depth_stamp",
+          "selection_now_ns": 1792323040109971692,
+          "request_roundtrip_s": 0.051593812997452915,
+          "sampling_budget": {
+            "mode": "detector",
+            "estimated_processing_reserve_ns": 146071872,
+            "applied_processing_reserve_ns": 176071872,
+            "publication_consumer_scheduling_headroom_ns": 30000000,
+            "forecast_fallback_used": false,
+            "bounded_new_feedback_wait": false,
+            "maximum_feedback_wait_s": 0.25,
+            "bootstrap": false,
+            "final_original_stamp_freshness_required": true
+          },
+          "oldest_image_age_at_selection_s": 0.077682009,
+          "joint_age_at_selection_s": 0.069971692,
+          "image_and_depth_save_s": 0.028209117001097184,
+          "upstream_stamp_caveat": "Images/TF currently bridge-receipt time; joints Unity source time. Source synchronization must be checked independently."
+        },
+        "grasp_plan_eligible": true,
+        "grasp_plan_rejection": null,
+        "measured_grasp_palm_height_m": 0.530029459132704
+      },
+      {
+        "capture": "/mnt/d/handyman-training-runs/apple-capture-budget-r13c-source-readonly-20261018-03-after-alignment/source-observe/000003",
+        "depth_stamp_ns": 1792323040414615456,
+        "joint_stamp_ns": 1792323040519000000,
+        "checked_ns": 1792323040682091112,
+        "oldest_image_age_s": 0.28272395,
+        "joint_age_s": 0.163091112,
+        "rgb_depth_delta_s": 0.015248294,
+        "identity_confirmed": true,
+        "pipeline_timing": {
+          "capture_to_result_age_s": 0.245079936,
+          "processing_including_save_s": 0.08126269199783565,
+          "joint_age_at_result_s": 0.125447098,
+          "original_joint_stamp_ns": 1792323040519000000,
+          "freshness_checked_ns": 1792323040644447098,
+          "rgbd_freshness_passed": true,
+          "joint_freshness_passed": true,
+          "freshness_passed": true,
+          "max_data_age_s": 0.4,
+          "original_snapshot_stamps_preserved": true,
+          "motion_authorized": false,
+          "basis": "oldest_rgb_or_depth_stamp",
+          "selection_now_ns": 1792323040563190337,
+          "request_roundtrip_s": 0.05191404300057911,
+          "sampling_budget": {
+            "mode": "detector",
+            "estimated_processing_reserve_ns": 146071872,
+            "applied_processing_reserve_ns": 176071872,
+            "publication_consumer_scheduling_headroom_ns": 30000000,
+            "forecast_fallback_used": false,
+            "bounded_new_feedback_wait": false,
+            "maximum_feedback_wait_s": 0.25,
+            "bootstrap": false,
+            "final_original_stamp_freshness_required": true
+          },
+          "oldest_image_age_at_selection_s": 0.163823175,
+          "joint_age_at_selection_s": 0.044190337,
+          "image_and_depth_save_s": 0.029068555999401724,
+          "upstream_stamp_caveat": "Images/TF currently bridge-receipt time; joints Unity source time. Source synchronization must be checked independently."
+        },
+        "grasp_plan_eligible": true,
+        "grasp_plan_rejection": null,
+        "measured_grasp_palm_height_m": 0.530029459132704
+      },
+      {
+        "capture": "/mnt/d/handyman-training-runs/apple-capture-budget-r13c-source-readonly-20261018-03-after-alignment/source-observe/000004",
+        "depth_stamp_ns": 1792323040546543610,
+        "joint_stamp_ns": 1792323040620000000,
+        "checked_ns": 1792323040782013952,
+        "oldest_image_age_s": 0.248705048,
+        "joint_age_s": 0.162013952,
+        "rgb_depth_delta_s": 0.013234706,
+        "identity_confirmed": true,
+        "pipeline_timing": {
+          "capture_to_result_age_s": 0.209057982,
+          "processing_including_save_s": 0.0734442749999289,
+          "joint_age_at_result_s": 0.122366886,
+          "original_joint_stamp_ns": 1792323040620000000,
+          "freshness_checked_ns": 1792323040742366886,
+          "rgbd_freshness_passed": true,
+          "joint_freshness_passed": true,
+          "freshness_passed": true,
+          "max_data_age_s": 0.4,
+          "original_snapshot_stamps_preserved": true,
+          "motion_authorized": false,
+          "basis": "oldest_rgb_or_depth_stamp",
+          "selection_now_ns": 1792323040668928833,
+          "request_roundtrip_s": 0.04698303800250869,
+          "sampling_budget": {
+            "mode": "detector",
+            "estimated_processing_reserve_ns": 146071872,
+            "applied_processing_reserve_ns": 176071872,
+            "publication_consumer_scheduling_headroom_ns": 30000000,
+            "forecast_fallback_used": false,
+            "bounded_new_feedback_wait": false,
+            "maximum_feedback_wait_s": 0.25,
+            "bootstrap": false,
+            "final_original_stamp_freshness_required": true
+          },
+          "oldest_image_age_at_selection_s": 0.135619929,
+          "joint_age_at_selection_s": 0.048928833,
+          "image_and_depth_save_s": 0.02611780299776001,
+          "upstream_stamp_caveat": "Images/TF currently bridge-receipt time; joints Unity source time. Source synchronization must be checked independently."
+        },
+        "grasp_plan_eligible": true,
+        "grasp_plan_rejection": null,
+        "measured_grasp_palm_height_m": 0.530029459132704
+      },
+      {
+        "capture": "/mnt/d/handyman-training-runs/apple-capture-budget-r13c-source-readonly-20261018-03-after-alignment/source-observe/000005",
+        "depth_stamp_ns": 1792323040647656553,
+        "joint_stamp_ns": 1792323040737000000,
+        "checked_ns": 1792323040938131530,
+        "oldest_image_age_s": 0.305312964,
+        "joint_age_s": 0.20113153,
+        "rgb_depth_delta_s": 0.014837987,
+        "identity_confirmed": true,
+        "pipeline_timing": {
+          "capture_to_result_age_s": 0.283947656,
+          "processing_including_save_s": 0.0921565879980335,
+          "joint_age_at_result_s": 0.179766222,
+          "original_joint_stamp_ns": 1792323040737000000,
+          "freshness_checked_ns": 1792323040916766222,
+          "rgbd_freshness_passed": true,
+          "joint_freshness_passed": true,
+          "freshness_passed": true,
+          "max_data_age_s": 0.4,
+          "original_snapshot_stamps_preserved": true,
+          "motion_authorized": false,
+          "basis": "oldest_rgb_or_depth_stamp",
+          "selection_now_ns": 1792323040824625765,
+          "request_roundtrip_s": 0.056619231996592134,
+          "sampling_budget": {
+            "mode": "detector",
+            "estimated_processing_reserve_ns": 146071872,
+            "applied_processing_reserve_ns": 176071872,
+            "publication_consumer_scheduling_headroom_ns": 30000000,
+            "forecast_fallback_used": false,
+            "bounded_new_feedback_wait": false,
+            "maximum_feedback_wait_s": 0.25,
+            "bootstrap": false,
+            "final_original_stamp_freshness_required": true
+          },
+          "oldest_image_age_at_selection_s": 0.191807199,
+          "joint_age_at_selection_s": 0.087625765,
+          "image_and_depth_save_s": 0.03528205899783643,
+          "upstream_stamp_caveat": "Images/TF currently bridge-receipt time; joints Unity source time. Source synchronization must be checked independently."
+        },
+        "grasp_plan_eligible": true,
+        "grasp_plan_rejection": null,
+        "measured_grasp_palm_height_m": 0.530029459132704
+      },
+      {
+        "capture": "/mnt/d/handyman-training-runs/apple-capture-budget-r13c-source-readonly-20261018-03-after-alignment/source-observe/000006",
+        "depth_stamp_ns": 1792323040812402696,
+        "joint_stamp_ns": 1792323040839000000,
+        "checked_ns": 1792323041041257447,
+        "oldest_image_age_s": 0.234068697,
+        "joint_age_s": 0.202257447,
+        "rgb_depth_delta_s": 0.005213946,
+        "identity_confirmed": true,
+        "pipeline_timing": {
+          "capture_to_result_age_s": 0.218446051,
+          "processing_including_save_s": 0.07991437199962093,
+          "joint_age_at_result_s": 0.186634801,
+          "original_joint_stamp_ns": 1792323040839000000,
+          "freshness_checked_ns": 1792323041025634801,
+          "rgbd_freshness_passed": true,
+          "joint_freshness_passed": true,
+          "freshness_passed": true,
+          "max_data_age_s": 0.4,
+          "original_snapshot_stamps_preserved": true,
+          "motion_authorized": false,
+          "basis": "oldest_rgb_or_depth_stamp",
+          "selection_now_ns": 1792323040945728605,
+          "request_roundtrip_s": 0.047650409000198124,
+          "sampling_budget": {
+            "mode": "detector",
+            "estimated_processing_reserve_ns": 146071872,
+            "applied_processing_reserve_ns": 176071872,
+            "publication_consumer_scheduling_headroom_ns": 30000000,
+            "forecast_fallback_used": false,
+            "bounded_new_feedback_wait": false,
+            "maximum_feedback_wait_s": 0.25,
+            "bootstrap": false,
+            "final_original_stamp_freshness_required": true
+          },
+          "oldest_image_age_at_selection_s": 0.138539855,
+          "joint_age_at_selection_s": 0.106728605,
+          "image_and_depth_save_s": 0.03191490799872554,
+          "upstream_stamp_caveat": "Images/TF currently bridge-receipt time; joints Unity source time. Source synchronization must be checked independently."
+        },
+        "grasp_plan_eligible": true,
+        "grasp_plan_rejection": null,
+        "measured_grasp_palm_height_m": 0.530029459132704
+      }
+    ]
+  },
+  "full_run": {
+    "status": "stopped",
+    "task_id": "apple-r13c-auto-7b41c15900c6454d9c1db52e737310fc",
+    "profile": "layouta_bedroom_apple_to_square_table",
+    "confirmed_stages": [
+      "preflight",
+      "navigate_source",
+      "head_view",
+      "observe_source",
+      "prepare_grasp"
+    ],
+    "task_finished_sent": false,
+    "does_not_exist_sent": false,
+    "automatic_action_retry": false,
+    "automatic_resume": false,
+    "mode": "live",
+    "run_kind": "full_transfer",
+    "stage": "grasp_and_lift",
+    "reason": "child_action_failed:/mnt/d/handyman-training-runs/automatic-apple-r13c-20261018-01/grasp/result.json:requires_reviewed_reposition_not_forward_approach",
+    "placement_verified": false,
+    "requires_fresh_state_audit": true
+  },
+  "full_directory": "/mnt/d/handyman-training-runs/automatic-apple-r13c-20261018-01",
+  "source_navigation": {
+    "target": [
+      9.905,
+      -6.61,
+      0.0
+    ],
+    "grip_commands_sent": false,
+    "goal_precision_changed": false,
+    "parameters_changed": false,
+    "motion_profile": "balanced_v1",
+    "speed_contexts": [
+      {
+        "waypoint": 0,
+        "start_distance_m": 0.5194042678630336,
+        "requested_caps": [
+          0.2,
+          0.2,
+          0.2
+        ]
+      }
+    ],
+    "last_verified_feedback": {
+      "pose": [
+        9.950870213772525,
+        -6.646263903689346,
+        0.0794530977204375
+      ],
+      "ages_s": {
+        "joints": 0.203490185,
+        "scan": 0.251760692,
+        "tf": 0.235587438
+      },
+      "checked_ns": 1792323180904548977
+    },
+    "start": [
+      9.533179277018998,
+      -6.971885259870823,
+      -0.14703393605076642
+    ],
+    "current_precision": [
+      0.06,
+      0.08,
+      0.06
+    ],
+    "reached": [
+      {
+        "index": 0,
+        "target": [
+          9.905,
+          -6.61,
+          0.0
+        ],
+        "actual": [
+          9.950870213772525,
+          -6.646263903689346,
+          0.0794530977204375
+        ],
+        "error_m": 0.05847347451902733,
+        "yaw_error_rad": 0.0794530977204375,
+        "status": 4
+      }
+    ],
+    "feedback_fault": {
+      "ages_s": {
+        "joints": 0.340646391,
+        "scan": 0.411703409,
+        "tf": 0.723642152
+      },
+      "checked_ns": 1792323096995743345,
+      "stamps_ns": {
+        "joints": 1792323096655000000,
+        "scan": 1792323096583961687
+      }
+    },
+    "feedback_acquisitions": [
+      {
+        "checked_ns": 1792323096979309925,
+        "event": "waiting_for_new_sample",
+        "reason": "stale_navigation_feedback:tf",
+        "age_s": 0.707082973,
+        "budget_s": 0.15,
+        "existing_goal_paused": false
+      },
+      {
+        "checked_ns": 1792323096998471072,
+        "event": "new_fresh_sample_received",
+        "waited_s": 0.01916512399839121
+      }
+    ],
+    "action_status": 4,
+    "final_pose": [
+      9.950870213772525,
+      -6.646263903689346,
+      0.0794530977204375
+    ],
+    "position_error_m": 0.05847347451902733,
+    "last_completed_waypoint_pose": [
+      9.950870213772525,
+      -6.646263903689346,
+      0.0794530977204375
+    ],
+    "status": "arrived",
+    "nav_reset": true,
+    "speed_parameters_restored": true,
+    "speed_parameters_changed": false
+  },
+  "destination_navigation": null,
+  "live_near_geometry": {
+    "frames": 4,
+    "first": "/mnt/d/handyman-training-runs/automatic-apple-r13c-20261018-01/source-observe/000072",
+    "reached": true,
+    "whole_transfer_verified": false
+  },
+  "current_robot": {
+    "capture": "/mnt/d/handyman-training-runs/apple-r13c-post-run-20261018-01/cameras/000005",
+    "depth_stamp_ns": 1792323273722607105,
+    "base_map_pose": [
+      10.117167658659158,
+      -6.715677500374963,
+      0.06711308321302689
+    ],
+    "arm": [
+      0.2525409460067749,
+      -1.7000001065434844,
+      0.0,
+      0.1292036754032555,
+      0.0
+    ],
+    "hand_motor": 0.6499999859074279,
+    "head": [
+      0.0,
+      -0.49999996867370555
+    ],
+    "arm_is_tucked": false,
+    "holding_object": false,
+    "readiness": false,
+    "readiness_reason": "empty_tucked_start_required",
+    "command_publishers": null,
+    "stale_after_restart_or_manual_robot_move": true,
+    "fresh_state_required_before_next_action": true,
+    "room": "bedroom",
+    "apple_location": "Still visually on source white_side_table; r13c did NOT close/lift/release; confirm current RGB before action"
+  },
+  "post_run_audit": {
+    "status": "current_post_run_idle_evidence_collected",
+    "child_exit_codes": {
+      "cameras": 0,
+      "ready": 1
+    },
+    "last_capture": "/mnt/d/handyman-training-runs/apple-r13c-post-run-20261018-01/cameras/000005",
+    "readiness": {
+      "ready": false,
+      "robot_commands_sent": false,
+      "feedback_ages_s": {
+        "joints": 0.120615615,
+        "map_tf": 0.077557774
+      },
+      "joint_stamp_ns": 1792323271381000000,
+      "map_stamp_ns": 1792323271424057841,
+      "feedback_checked_ns": 1792323271501615615,
+      "reason": "empty_tucked_start_required"
+    },
+    "robot_commands_sent": false
+  },
+  "placement_verification": null,
+  "uninterrupted_full_transfer_verified": false,
+  "model_or_map_or_unity_files_changed": false,
+  "navigation_tolerances_unchanged": [
+    0.06,
+    0.08,
+    0.06
+  ],
+  "placement_mode": "single_unlimited",
+  "edge_margin_m": 0.03,
+  "edge_uncertainty_m": 0.01,
+  "task_finished_sent": false,
+  "does_not_exist_sent": false,
+  "git_commit_or_push_performed": false,
+  "scope": "One reviewed simulated LayoutA apple transfer; NOT generic30-class grasp/place or competition success-rate acceptance",
+  "next": "Read this checkpoint FIRST. CURRENT EMPTY/OPEN/TUCKED in living_room; apple ALREADY PLACED on square_low_table. Do not repeat close/lift/carry/release. Next is a NEW uninterrupted full-entry regression from genuinely restored initial Session1/LayoutA/source-apple state, with fresh source synchronization/localization/readiness. The completed reviewed continuation is NOT the previously stopped full r13c run becoming successful.",
+  "close_handoff_fix": {
+    "revision": "r14",
+    "deployed": true,
+    "live_tested": false,
+    "last_recorded_near_frame_target_base_m": [
+      0.7027987227410115,
+      0.07279410526853293,
+      0.538142458345037
+    ],
+    "last_recorded_near_frame_close_error_xyz_m": [
+      0.0135035042410115,
+      -0.00520589473146707,
+      0.0084037300675673
+    ],
+    "exact_loop_rejection_input_was_not_logged": true,
+    "original_close_limits_unchanged_m": [
+      0.02,
+      0.012,
+      0.02
+    ],
+    "meaning": "Check existing close region before demanding another coarse forward step. Still reacquire/refit/validate at actual close publication.",
+    "grasp_closure_sent_in_r13c": false,
+    "lift_or_release_sent_in_r13c": false
+  },
+  "latest_validation_checkpoint": "D:/handyman-training-runs/apple-carry-place-live-progress-20261018.json",
+  "latest_live_validation_checkpoint": "D:/handyman-training-runs/apple-carry-place-live-progress-20261018.json",
+  "current_state_authoritative_checkpoint": "D:/handyman-training-runs/apple-carry-place-live-progress-20261018.json",
+  "r15_latest_status": "reviewed_single_close_and_10cm_lift_verified_with_corrected_settled_window",
+  "older_current_fields_are_historical": true,
+  "latest_carry_placement_status": "reviewed_r15_carry_and_edge_safe_placement_verified"
+}

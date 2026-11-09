@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "name": "toy_penguin_bedroom_to_living_room",
+  "layout": "LayoutA",
+  "object": "toy_penguin",
+  "source": {
+    "room": "bedroom",
+    "table_id": "white_side_table#bedroom_1",
+    "observation_pose": [9.905, -6.61, 0.0],
+    "head_pose": [0.0, -0.5]
+  },
+  "destination": {
+    "room": "living_room",
+    "table_id": "square_low_table#living_room",
+    "observation_pose": [2.05, 2.55, 1.5707963267948966]
+  }
+}

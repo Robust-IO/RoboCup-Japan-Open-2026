@@ -1,0 +1,32 @@
+{
+  "status": "can_retraction_navigation_entry_deployed_not_yet_executed",
+  "saved_ns": 1792744182541883021,
+  "branch": "feat/handyman-phase5-grasping",
+  "scope": "Can-only retraction and optional original navigation. No grasp, closure, release, placement or Task_finished.",
+  "runtime_tests": 499,
+  "candidate_tests": 499,
+  "deployment": "/mnt/d/handyman-training-runs/canned-carry-v1-20261023-deployment.json",
+  "files": [
+    "canned_grasp_runtime.py",
+    "canned_carry_geometry.py",
+    "run_canned_carry_trial.py",
+    "test_canned_carry_geometry.py",
+    "CANNED_CARRY_TRIAL.txt"
+  ],
+  "live_entry": "run_canned_carry_trial.py --run --navigate-destination --output NEW_D_DIRECTORY",
+  "grasp_capture_default_processing_reserve_ns": 200000000,
+  "carry_without_detector_processing_reserve_ns": 0,
+  "final_sample_age_limit_s": 0.4,
+  "navigation_tolerances": [
+    0.06,
+    0.08,
+    0.06
+  ],
+  "route_and_speed_policy_unchanged": true,
+  "last_readonly_scene": "D:/handyman-training-runs/can-before-carry-20261023-05/result.json",
+  "previous_grasp": "D:/handyman-training-runs/canned-grasp-lift-live-progress-20261023.json",
+  "can_carry_live_verified": false,
+  "can_placement_verified": false,
+  "robot_commands_sent": false,
+  "next": "Run the explicit new carry entry from currently held extended arm. Observe current can depth, preserve grip during folding/lowering, verify actual tucked held can, then follow the ORIGINAL bedroom-to-living_room route to square_low_table staging and verify actual held can again. Never re-run grasp or release a held hand. On any action failure do not replay automatically; audit physical state."
+}

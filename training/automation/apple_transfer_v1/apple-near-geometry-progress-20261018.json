@@ -1,0 +1,140 @@
+{
+  "status": "Near precontact identity-to-geometry handoff IMPLEMENTED/ENABLED/DEPLOYED to3 copies;297 runtime tests and124 original failure-frame replay PASSED. No robot commands this revision; NEW live/full-run acceptance pending.",
+  "implementation_revision": "20261018-near-geometry-r12b on placement-policy-r11b/navigation-feedback-r10",
+  "latest_live_validation_checkpoint": "D:/handyman-training-runs/apple-carry-place-live-progress-20261018.json",
+  "later_live_note": "NEW full r12b trial reached bedroom but stopped at observe_source with0 frames: fixed200ms sampling reserve rejects newly arriving joints with minimum age209ms. Handoff NOT reached. Current EMPTY/OPEN/TUCKED in BEDROOM, apple visible on source table. Earlier living_room physical state below is historical. No runtime change yet; next fix sample budgeting then no-motion observation validation.",
+  "branch": "feat/handyman-phase5-grasping",
+  "runtime": "D:/handyman-tools/apple-transfer-auto-v1",
+  "module_source": "/home/crazylearner/RoboCup-Japan-Open-2026/training/automation/apple_transfer_v1",
+  "config": "D:/handyman-tools/apple-transfer-auto-v1/config/apple_transfer_auto_v1.json",
+  "previous_live_checkpoint": "D:/handyman-training-runs/apple-placement-policy-live-progress-20261018.json",
+  "configuration": {
+    "policy.near_grasp_geometry_handoff": true,
+    "policy.near_grasp_geometry_gap_m": 0.15,
+    "meaning": "Remaining forward distance to planned contact point, not camera depth or base-center/object distance",
+    "contact_xy_base_m": [
+      0.6892952185,
+      0.078
+    ],
+    "standalone_capture_flags": [
+      "--near-apple-geometry",
+      "--near-apple-gap-m",
+      "0.15"
+    ],
+    "source_full_observer_default_imgsz_unchanged": 960,
+    "legacy_standalone_observers_not_opted_in_remain_unchanged": true
+  },
+  "behavior": [
+    "Original3 high-confidence>=.8 frames confirm identity before handoff; original full image/ROI scores and records remain unchanged",
+    "Initial source-table, room, measured support/height and preparation still required",
+    "When horizontal/open precontact arm is ready and remaining gap<=15cm, immutable same-task/epoch odom position/radius bounds a current-image local query",
+    "Near geometry mode SKIPS YOLO inference entirely; no full image detection or current classification confidence required",
+    "One unique current red RGBD surface supplies independently fitted apple center/radius; anchor/prediction never substitutes for measured center",
+    "New status near_geometry_tracked retains historical identity, identity_reclassified=false; detections=[] and confidence=null, never invented/high confidence",
+    "Actual depth, frame/TF binding, freshness, room and radius/position association remain; fixed anchor prevents accumulating drift",
+    "Missing/ambiguous geometry, inconsistent position/radius or closed/lifted arm invalidates handoff; no motion lease for that frame; next frame returns to normal classification",
+    "Before approach/closure publication, re-fit current saved RGBD and recheck actual three original identity seed files in the same recording; disk/refit duration counts against the original freshness budget",
+    "Canonical and independent lift audits can read preclose geometry without a YOLO box; real closure contact and measured lift-follow remain mandatory"
+  ],
+  "scope_and_limits": [
+    "APPLE-ONLY red-surface/sphere association in the current reviewed LayoutA transfer, not generic30-class identity-free localization",
+    "Not using Unity object coordinates or open-world color identity",
+    "Original fresh RGBD<=.4s / RGB-depth<=30ms, joint freshness, task/epoch, actual endpoint/control checks remain",
+    "Position association<=2.5cm to immutable anchor and radius change<=8mm; queries never walk off via accumulated prediction",
+    "No automatic action replay, retry, split placement correction, Task_finished or Does_not_exist",
+    "No navigation precision/speed policy, model, map, Unity scene or placement-policy changes"
+  ],
+  "deployment": {
+    "archive": "D:/handyman-training-runs/apple-near-geometry-r12b-20261018-patch.tar.gz",
+    "sha256": "ccd7e68ee8a0967a0c4105dbe1dafd611fc594babf6050421daa097a0408cd14",
+    "backup": "D:/handyman-training-runs/apple-before-near-geometry-r12b-20261018.tar.gz",
+    "report": "D:/handyman-training-runs/apple-near-geometry-r12b-20261018-deployment.json",
+    "copies_hash_verified": 3,
+    "files": [
+      "near_apple_geometry.py",
+      "apple_tracking_observer.py",
+      "capture_grasp_scene.py",
+      "apple_approach_lease.py",
+      "verify_apple_lift_sequence.py",
+      "audit_preclose_identity_lift_follow.py",
+      "apple_transfer_auto_backend.py",
+      "apple_transfer_auto_plan.py",
+      "config/apple_transfer_auto_v1.json",
+      "run_apple_close_lift_trial.py",
+      "test_near_apple_geometry.py",
+      "test_apple_transfer_auto_backend.py",
+      "test_run_apple_close_lift_trial.py",
+      "replay_near_apple_geometry.py",
+      "APPLE_TRANSFER_AUTOMATION.txt"
+    ],
+    "unrelated_changes_preserved": true,
+    "first_r12_candidate_and_validation_retained": true
+  },
+  "verification": {
+    "isolated_candidate_tests": 297,
+    "actual_runtime_tests": 297,
+    "failures": 0,
+    "runtime_test_log": "D:/handyman-training-runs/apple-near-geometry-r12b-20261018-runtime-tests.log",
+    "candidate_validation": "D:/handyman-training-runs/apple-near-geometry-r12b-20261018-candidate-validation.json",
+    "file_input_preflight_passed": true,
+    "new_tests_include": [
+      "No YOLO box / null classification confidence",
+      "No one/two-frame identity seed",
+      "Far target does not switch",
+      "Current depth changes measured center",
+      "No accumulated anchor drift",
+      "Missing/flat depth or two surfaces rejected",
+      "Stale RGB/joints, epoch, timestamp, arm/contact change invalidate",
+      "Room constraint retained",
+      "Original seed files binding and tamper checks",
+      "Recompute pixels rather than trust saved center",
+      "Closure read/refit latency counted",
+      "Geometry-only preclose and detector-missing postlift can still pass independent actual lift verification"
+    ]
+  },
+  "recorded_failure_replay": {
+    "directory": "D:/handyman-training-runs/apple-near-geometry-r12b-recorded-20261018-01",
+    "source": "D:/handyman-training-runs/automatic-apple-r11b-20261018-01/source-observe",
+    "frames": 124,
+    "first_handoff_frame": "000066",
+    "geometry_frames_without_inference": 58,
+    "original_no_apple_detection_frames_rescued": 20,
+    "last_frame": "000123",
+    "old_last_status": "reobserve:missing_or_ambiguous_association",
+    "new_last_status": "near_geometry_tracked",
+    "new_last_measured_center_base_m": [
+      0.7042366006480926,
+      0.07744907938627098,
+      0.5393258419439326
+    ],
+    "new_last_radius_m": 0.029756296793561905,
+    "new_last_current_surface_pixels": 1274,
+    "last_frame_existing_closure_geometry_passed": true,
+    "historical_clock_explicit": true,
+    "source_stamps_rewritten": false,
+    "all_original_rgb_depth_snapshots_observations_and_failed_result_hashes_unchanged": true,
+    "robot_commands_sent": false,
+    "warning": "Replay is not a live action lease or live timing/motion/full-run acceptance; previous failed full trial remains failed."
+  },
+  "last_recorded_physical_state_not_live_lease": {
+    "unchanged_by_this_code_only_revision": true,
+    "capture": "D:/handyman-training-runs/apple-r11b-reviewed1280-transfer-20261018-01/placed-final/000005",
+    "holding_object": false,
+    "arm_is_tucked": true,
+    "gripper_open": true,
+    "apple_location": "Already placed on living_room square_low_table in previous reviewed r11b transfer",
+    "fresh_state_required_before_actions": true,
+    "no_old_grasp_or_release_replay": true
+  },
+  "robot_commands_sent_this_revision": false,
+  "new_r12_live_motion_validated": false,
+  "full_uninterrupted_transfer_verified": false,
+  "git_commit_or_push_performed": false,
+  "next": "Read this checkpoint FIRST. CURRENT EMPTY/OPEN/TUCKED in living_room; apple ALREADY PLACED on square_low_table. Do not repeat close/lift/carry/release. Next is a NEW uninterrupted full-entry regression from genuinely restored initial Session1/LayoutA/source-apple state, with fresh source synchronization/localization/readiness. The completed reviewed continuation is NOT the previously stopped full r13c run becoming successful.",
+  "latest_validation_checkpoint": "D:/handyman-training-runs/apple-carry-place-live-progress-20261018.json",
+  "capture_budget_r13c_latest_status": "full_trial_stopped",
+  "current_state_authoritative_checkpoint": "D:/handyman-training-runs/apple-carry-place-live-progress-20261018.json",
+  "r15_latest_status": "reviewed_single_close_and_10cm_lift_verified_with_corrected_settled_window",
+  "older_current_fields_are_historical": true,
+  "latest_carry_placement_status": "reviewed_r15_carry_and_edge_safe_placement_verified"
+}

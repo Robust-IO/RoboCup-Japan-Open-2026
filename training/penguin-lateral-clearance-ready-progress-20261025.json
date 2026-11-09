@@ -1,0 +1,275 @@
+{
+  "status": "penguin_observed_wing_lateral_clearance_ready_pending_live",
+  "saved_ns": 1792924711552313871,
+  "branch": "feat/handyman-phase5-grasping",
+  "boot_id": "03e2ce8b-528d-4517-a5f5-5aa905f81a77",
+  "layout": "LayoutA",
+  "class_name": "ground_pepper",
+  "completed_forward_rounds": 3,
+  "requested_forward_rounds": 3,
+  "remaining_forward_rounds": 0,
+  "new_completed_rounds_after_resume": 2,
+  "rounds": [
+    {
+      "round": 1,
+      "output": "/mnt/d/handyman-training-runs/pepper-automatic-rounds-20261025-02/legs/01-round-1",
+      "elapsed_s": 259.69328752,
+      "close_commands_sent": 1,
+      "release_commands_sent": 1,
+      "uninterrupted_application_run": true,
+      "minimum_table_outer_clearance_m": 0.06428844683808488,
+      "maximum_bottom_gap_m": 0.0005130218154379973,
+      "center_spread_m": 0.0004424472144995717,
+      "navigation": [
+        {
+          "name": "source-navigation.json",
+          "feedback_recoveries": 0,
+          "precision": [
+            0.06,
+            0.08,
+            0.06
+          ],
+          "final_pose": [
+            9.854809408178353,
+            -6.581614280640004,
+            -0.07861223771692517
+          ]
+        },
+        {
+          "name": "destination-navigation.json",
+          "feedback_recoveries": 1,
+          "precision": [
+            0.06,
+            0.08,
+            0.06
+          ],
+          "final_pose": [
+            2.0887611320600774,
+            2.508323088114225,
+            1.6489691453359054
+          ]
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "output": "/mnt/d/handyman-training-runs/pepper-resume-forward-round-2-20261025-02",
+      "elapsed_s": 424.051548988,
+      "close_commands_sent": 1,
+      "release_commands_sent": 1,
+      "uninterrupted_application_run": true,
+      "minimum_table_outer_clearance_m": 0.04760680373240431,
+      "maximum_bottom_gap_m": 0.0007736814515352797,
+      "center_spread_m": 0.0006201459218269606,
+      "navigation": [
+        {
+          "name": "source-navigation.json",
+          "feedback_recoveries": 0,
+          "precision": [
+            0.06,
+            0.08,
+            0.06
+          ],
+          "final_pose": [
+            9.854684958040956,
+            -6.59046486386166,
+            -0.07994473686675035
+          ]
+        },
+        {
+          "name": "destination-navigation.json",
+          "feedback_recoveries": 0,
+          "precision": [
+            0.06,
+            0.08,
+            0.06
+          ],
+          "final_pose": [
+            2.0901190447091866,
+            2.508285966652961,
+            1.6470473381475137
+          ]
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "output": "/mnt/d/handyman-training-runs/pepper-final-uninterrupted-round-20261025-01/legs/01-round-1",
+      "elapsed_s": 276.518347207,
+      "close_commands_sent": 1,
+      "release_commands_sent": 1,
+      "uninterrupted_application_run": true,
+      "minimum_table_outer_clearance_m": 0.06311180572209009,
+      "maximum_bottom_gap_m": 0.0005175171310699,
+      "center_spread_m": 0.0008101038960259433,
+      "navigation": [
+        {
+          "name": "source-navigation.json",
+          "feedback_recoveries": 0,
+          "precision": [
+            0.06,
+            0.08,
+            0.06
+          ],
+          "final_pose": [
+            9.859541094965214,
+            -6.573496825276142,
+            -0.07540616314233095
+          ]
+        },
+        {
+          "name": "destination-navigation.json",
+          "feedback_recoveries": 0,
+          "precision": [
+            0.06,
+            0.08,
+            0.06
+          ],
+          "final_pose": [
+            2.1027176864625092,
+            2.522332846673369,
+            1.6468401620841375
+          ]
+        }
+      ]
+    }
+  ],
+  "verified_automatic_final_reset": {
+    "output": "/mnt/d/handyman-training-runs/pepper-final-uninterrupted-round-20261025-01/legs/00-initial-reset",
+    "elapsed_s": 305.306611639,
+    "counted_as_uninterrupted_full_transfer": true
+  },
+  "consecutive_in_one_unity_session": false,
+  "all_three_individually_uninterrupted_application_runs": true,
+  "manual_object_reposition_required": false,
+  "statistical_success_rate_established": false,
+  "robot_holding_object": false,
+  "hand_open": true,
+  "robot_empty_tucked": true,
+  "robot_ready_for_next_task": true,
+  "object_at_destination": "square_low_table#living_room",
+  "last_verified_robot_state": {
+    "joints": [
+      0.0,
+      0.0,
+      0.0,
+      -1.5707963146269321,
+      0.0,
+      0.6499999859074279
+    ],
+    "poses": {
+      "map": [
+        1.9731592684527357,
+        2.590638895575586,
+        1.6471116186827235
+      ],
+      "odom": [
+        0.789277970790863,
+        2.5899264812469482,
+        1.6470570119302848
+      ]
+    },
+    "stamp_ns": 1792920437524000000
+  },
+  "last_state_is_historical_not_motion_permission": true,
+  "task_finished_sent": false,
+  "tests_passed": 695,
+  "latest_expected_hashes": {
+    "run_canned_grasp_trial.py": "68f6e4be97c4f7e8e9b41b5701fdd91f1962d4835ea2b7e7e384be2e92c8da88",
+    "run_canned_carry_trial.py": "eaafdca975ac703b2b14e07a6be4a958f062de7996c6d44d9cb0029b22d757f8",
+    "run_canned_place_trial.py": "cdacc984f33272acc12cc08ef5e73e0ef7d7699d6ccf4f1eae0236c9de33bc84",
+    "can_transfer_context.py": "6fa7295ad35c788ab9143d338bc9bf745c143359aed8e308eb126f9ba678f900",
+    "can_transfer_automation.py": "171abbef8fcd610e89942069b5ba831cedd43f802d9021e86cca58b116850622",
+    "run_object_transfer.py": "489faf9be26d7cb5db40887ebe3e86a506dce86ea4f147f2821ac6005799f353",
+    "test_can_transfer_automation.py": "d16de88a548b2e635962153bf12ca04d319557e5a33be7c58ee6c19f7a826329",
+    "run_object_transfer.sh": "4162cb1f2608e0f53aba557a244f7f3014667d440545fa994a81db17fe40ab48",
+    "OBJECT_TRANSFER.txt": "1ebacddf667128914da74237a90a8d5f29a1731f439f36a70243f35c30b0b0dc",
+    "canned_grasp_geometry.py": "e8235692df98f697a624371e64a44d392eb0da645e3057ac7f60d7d8ac822824",
+    "canned_carry_geometry.py": "250bbdef3103417e41178bce5357cebfe1cea25a91d537ce79bc6262e64646b4",
+    "held_can_appearance.py": "c27828aff5de8e34f6190b30cb4f35c0549e0129c2bde42745ac2d86c2daac3f",
+    "canned_place_geometry.py": "b1d26edd861ff03ac8e4d802841d7ddc5ff2e1caa56870de98db43ed55fa2dd0",
+    "tracked_can_cap_geometry.py": "e3fff021adaa5f158ce9cfed87743473ded16680c472eb4d97f64161da7c3f16",
+    "test_tracked_can_cap_geometry.py": "f6974c5ec5d26f33f49c50e6888685b6d6d6222fb0cd98326cc0825b411f1b9f",
+    "can_release_timing.py": "da5fca38b57d092dd410bd9ea24a6bbd56682a8a0db3c486ceb973ef7b1d281a",
+    "test_can_release_timing.py": "f7895c16fd760ba74f50a574b5e8369a4cfd6ce8faafd95b2e7ffefd020fa34a",
+    "can_destination_surface.py": "2f64b65b3b0cabc3c2f21c1708bde6863380521073f40c4938f31a83337ad12a",
+    "test_can_destination_surface.py": "e5227acc86464c611cafb038d3ec3f199752dad6ea3132aeb5a04752166ef85c",
+    "can_identity_selection.py": "11f8df847fcc15e432d83285018abe6f10d83f411a89e0f12e995045fcb17bb1",
+    "test_can_identity_selection.py": "20595a2a3226bed9910b99861935492ab82d049c08e1eff52e9352a27cb335cd",
+    "canned_grasp_runtime.py": "6eb656dd84cf36369c162c73094ffed8934cf8d5f7de1e7c0c2aa5a3aa77ae7e",
+    "test_canned_grasp_geometry.py": "b1751c44ddd707d2cfd11fe839eaa501a35aa77d6015d0ef49d3dc095e09c58c",
+    "pregrasp_raised_trial.py": "9b2c48c882bc4a5d295fa93ebb7a1dc23239ae8ceb81cb50b0836a28abe63017",
+    "can_arm_startup.py": "186d1ec0ce96098bc618f547c9ebdcea4f121a6032b93008f63db246ec6605c6",
+    "test_can_arm_startup.py": "8a29e5789e48c141f8f0207ac7722b22bab1cb953316d20cc9c093a4f309468d",
+    "can_approach_plan.py": "a5e75d6b08f7b9783ddda0ba7a463fc9c8b48bb05d97cde99c95472feb46cf36",
+    "test_can_approach_plan.py": "6e40ca3472c5edcefda2fa083712e2a71ccb51d167df37a488b8da7c4a746eaf",
+    "pepper_geometry.py": "e2f0fd9321f702778ccf95994b891c56cb667dd7dcf6f8e13f5767936d47379b",
+    "pepper_hold.py": "43a250e5fbf70f666c3bb3c1ca221ed634595194806d5ac2b3e4ab97e0418205",
+    "pepper_place.py": "7624e23274f8ade10d7303385a70d620b597ce9f93f0a6b98ac637011ae67e8e",
+    "pepper_runtime.py": "a150054c8fc5b4a5dccef739f8c375dc223042f1e4bfdad1a962fbcb7b55d47a",
+    "pepper_transfer_automation.py": "3aa4c46f162abc172736d2f8f27f9952e17b9b97245f55098b76e8d972c565f0",
+    "replay_pepper_reference.py": "868113d76141881bf6f4c3e58d029a57c07ee07568f986d088efc7ed6233cba7",
+    "test_pepper_geometry.py": "45cd599e458d22279173412e9675486b499c8ad3ab07d5eb3de7e75f7566ff0d",
+    "test_pepper_transfer.py": "9660d6ccb2e9495bbe776432f7c3810f64c3c50c76a74e9a2ef2838930531251",
+    "manipulation_profiles.py": "e4c349738ad571e1394ffac3804f55716ab918d611eadeb8f93a5be79173657c",
+    "config/manipulation_objects_v1.json": "e306269d4c5e09f332c7a0e072d015ce0145ec95d1775e29b9dca72ae84483e9",
+    "object_surface_geometry.py": "acc0a3e983b39145ea88c8d567757f321871fe2bb3e7c04cd91c3ea0fa91798f",
+    "generic_transfer_template.py": "a43c16dcb046c7ec84f77ab03e51a54c994e05174393bd90e7d8f47b5926e1ab",
+    "inspect_manipulation_capture.py": "70f8bf7429bf2c73f5613fe9a1e76d3ae7decf6bc52f0e06b2e70e76fc6917cc",
+    "reviewed_carry_adjustment.py": "1fcdefdb23fb208676e2beb2f53562e6609c2b8c5684ab5d860f50e7c6c1f065",
+    "synced_capture_selection.py": "6474dc2023e17f6c044e54ffbe1952f0ad4fef3af269cffba9d943b794d3dfa8",
+    "apple_transfer_auto_backend.py": "43505df9eb56f83fae8e12abab08707fc38309b7794fac14781d49ccbb995b29",
+    "inspect_transfer_ready.py": "f158adf62ae5af7eb3faf8bef617ce72e71458bea73701439a4f789ee471b104",
+    "pepper_tasks.py": "617ac6443be2f01dc49bbe59bb76921076bea597434b2de1917a466ae8e2a7c9",
+    "pepper_regression.py": "e9a2707e932765194b5b709f155d1f6bbfbabf43378a36936354b292aea0bfcb",
+    "test_pepper_tasks.py": "e9013801242d1b3c63857b42484ceec7fa8590439cfb6c41d62da3f052b10a77",
+    "test_pepper_regression.py": "c634f8936c4c9fbf86672057fc71178f222477adafc7be13a0e44f95c46de721",
+    "config/pepper_bedroom_to_living_room.json": "a16d2ca9a2426e2a98dc5ebf616bda8e4fb30c3ef5701763d704e6491d50a72c",
+    "config/pepper_living_room_to_bedroom.json": "05952988b70b617642c3a9ae1801385f1461637916928e88b7eccc12f300a6e0",
+    "navigation_feedback_gate.py": "9666ce8496c4414ff1452445a3eac344bc22daa3400a2597e0fa86c64034c878",
+    "navigate_carry_trial.py": "c6bb046ed8e4d8b20209218694a31868de54bd7d545c5b1e6ce33b78b7cb7c4f",
+    "test_navigation_feedback_gate.py": "f0ef479b7def58e20cf52602c5094f9d368156b4ef82ace30c1ff7b8fad509e4",
+    "pepper_source_observation.py": "5fb684be516934b65c37bc04efb6831cb6d5026e6711d831178f7cc9175aefdc",
+    "test_pepper_source_observation.py": "d9fef4419d7482aa8ef4515410d9bc0065045c8d232fe0be91d266e5a4260e85",
+    "navigation_feedback_recovery.py": "741a03b1d234257960c70fb56efbdd085e634d8e858db05595fabb4fbd4f868c",
+    "test_navigation_feedback_recovery.py": "87ccf9acd64f49928a15c3f88318076d0e55b8a68a25c3b92f061b9b05e5964b",
+    "test_pepper_navigation_resume.py": "48b281c8d5a79b4ca6d7fb28ef3ce64684f579420e057ffa6976c2a7b4bca8e9",
+    "test_pepper_source_support.py": "8cf38538a19c69468932153c3da58048f753f05eee9bde93d59a72cc1bd554ea",
+    "test_pepper_lifted_hold_resume.py": "66d31a6da05d2174a318b681e8438817c0653fd82a7a678cb28d1de27e87132d",
+    "test_pepper_partial_body_resume.py": "356fe014b0c7547fdcfab1a90564e613e031e47ae87c76e11f36998714cfe255",
+    "penguin_geometry.py": "9f4e691d78868abef5566cab62b85d9923fef617f366799d47a4201858e277e8",
+    "penguin_hold.py": "5a38d86763ee7ed6aa6c55cb6c64368bd708d1de6626845b6b66ac3f39f90580",
+    "penguin_place.py": "ec34824ce7f1b4f6ebf91e59e99c5250cc4e1fa3add21c020e58b6c76d3daf39",
+    "penguin_runtime.py": "29f2a1a64fe0939586b78ac53a56fec536a5b7064b56f8e6519a52affa0b76df",
+    "penguin_tasks.py": "3839166270b226f5a87c5fece39168d60ed0f3b3e466b424a1ff6d7874516e7e",
+    "penguin_transfer_automation.py": "3298b2f776f63264eb5cb4f10be820eb743337e95ea31847f93b0e0ce38e15cd",
+    "test_penguin_geometry.py": "0842bca96727b94c87e6cb7dedd2015ee4220e12d0df452f0a9b55fa9e8d602a",
+    "config/penguin_bedroom_to_living_room.json": "0908683b58dce136a68e28e4defa8bedb16903c2ce4166237ef7121f0422d329",
+    "config/penguin_living_room_to_bedroom.json": "d83f1ab8194067e05449512059af7c7960659e278eb504d5b83a1ae30dbc987d",
+    "apple_transfer_auto_plan.py": "59293e0d4bb3630936ec8cedf8dfffb9a91fb1316b022996142e6d576e2a7c60"
+  },
+  "three_deployed_copies_verified": true,
+  "navigation_speed_route_goal_precision_unchanged": true,
+  "pause_checkpoint_superseded": "/mnt/d/handyman-training-runs/ground-pepper-phase5-pause-checkpoint-20261025.json",
+  "resume_readonly_probe": "pepper-resume-readonly-20261025-01",
+  "startup_failed_before_robot_motion": "pepper-resume-forward-round-2-20261025-01",
+  "startup_connection_cleanup": "rosbridge-old-connection-shutdown-verified-20261025.json",
+  "startup_neutral_control_handshake": "rosbridge-pending-subscriber-prime-20261025-02/result.json",
+  "transport_interrupted_extra_transfer": {
+    "source": "pepper-resume-forward-round-3-20261025-01",
+    "cleanup": "pepper-third-round-open-cleanup-20261025-01",
+    "not_counted_in_three_uninterrupted_runs": true
+  },
+  "detached_final_launcher": "pepper-final-uninterrupted-detached-launch-20261025.json",
+  "fixes_after_resume": [
+    "Removed redundant complete-body check immediately after three-frame lift proof",
+    "New cap-only real-depth continuation for a previously verified lifted grasp; no inferred body XYZ",
+    "Occluded body uses additional real points in a bounded2mm curved band; all sphere quality limits unchanged",
+    "Continue already-horizontal placement without replaying navigation or preparation",
+    "Run final regression detached with D-drive file logs, independent of SSH stdout"
+  ],
+  "next": "Verify another LayoutA object already on source furniture using the same route; read actual native position and select its geometry adapter. No manual reposition by default.",
+  "latest_validation_directory": "/mnt/d/handyman-training-runs/penguin-lateral-clearance-v1-20261025-validation",
+  "robot_commands_sent": false,
+  "current_robot_state_not_queried": true
+}

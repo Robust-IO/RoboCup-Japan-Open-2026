@@ -1,0 +1,129 @@
+{
+  "status": "desktop_rviz_visible_waiting_for_unity",
+  "saved_ns": 1792654706899422370,
+  "wsl_boot_id": "f5a81b08-d674-42cb-b127-184016e5d4b2",
+  "gui_restart": {
+    "Session": 8,
+    "Status": "desktop_rviz_window_verified",
+    "RestartAuthorized": true,
+    "RobotActionsStarted": false,
+    "RvizWindowVisible": true,
+    "ShutdownExitCode": 0,
+    "GuiLauncherPid": 94184,
+    "RvizWindowHandles": [
+      133468
+    ],
+    "DisplayClients": [
+      {
+        "ProcessId": 94612,
+        "SessionId": 8
+      }
+    ]
+  },
+  "bridges": {
+    "status": "bridges_listening",
+    "pids": {
+      "rosbridge": 143,
+      "sigverse": 144
+    },
+    "commands": {
+      "rosbridge": [
+        "ros2",
+        "launch",
+        "rosbridge_server",
+        "rosbridge_websocket_launch.xml",
+        "port:=9090"
+      ],
+      "sigverse": [
+        "/mnt/d/handyman-training-runs/bridge-framing-install-20261010/sigverse_ros_bridge/lib/sigverse_ros_bridge/sigverse_ros_bridge",
+        "50001",
+        "65535"
+      ]
+    },
+    "domain": 71,
+    "robot_motion_or_protocol_node_started": false,
+    "unity_data_verified": false,
+    "logs": "/mnt/d/handyman-training-runs/restart-camera-bridges-20261022-02"
+  },
+  "camera_check": {
+    "images": {},
+    "publishers": {
+      "head": 0,
+      "hand": 0
+    },
+    "latest_image_age_s": {},
+    "motion_command_publishers": {
+      "/hsrb/command_velocity": 0,
+      "/hsrb/omni_base_controller/command": 0,
+      "/hsrb/arm_trajectory_controller/command": 0,
+      "/hsrb/gripper_controller/command": 0,
+      "/hsrb/head_trajectory_controller/command": 0
+    },
+    "both_cameras_received": false,
+    "robot_commands_sent": false,
+    "wsl_boot_id": "f5a81b08-d674-42cb-b127-184016e5d4b2"
+  },
+  "current_robot": {
+    "state": "EMPTY_OPEN_TUCKED_IN_LIVING_ROOM",
+    "holding_object": false,
+    "arm_is_tucked": true,
+    "joints": {
+      "arm_lift_joint": 0.0,
+      "arm_flex_joint": 0.0,
+      "arm_roll_joint": 0.0,
+      "wrist_flex_joint": -1.5707963146269321,
+      "wrist_roll_joint": 0.0,
+      "head_pan_joint": 0.0,
+      "head_tilt_joint": -0.49999996867370555,
+      "torso_lift_joint": 0.0,
+      "hand_motor_joint": 0.6499999859074279,
+      "hand_l_proximal_joint": 0.6499999859074279,
+      "hand_l_spring_proximal_joint": 0.0,
+      "hand_l_mimic_distal_joint": 0.0,
+      "hand_l_distal_joint": 5.633185405758354,
+      "hand_r_proximal_joint": -5.633185405758354,
+      "hand_r_spring_proximal_joint": 0.0,
+      "hand_r_mimic_distal_joint": 0.0,
+      "hand_r_distal_joint": -0.6499999859074279
+    },
+    "base_map_pose": [
+      1.981961548952809,
+      2.599389851659963,
+      1.6542710807110856
+    ],
+    "room": "living_room",
+    "capture": "/mnt/d/handyman-training-runs/apple-r19-post-full-live-20261022-01/cameras/000000",
+    "depth_stamp_ns": 1792663759572333430,
+    "command_publishers": {
+      "/hsrb/command_velocity": 0,
+      "/hsrb/omni_base_controller/command": 0,
+      "/hsrb/arm_trajectory_controller/command": 0,
+      "/hsrb/gripper_controller/command": 0,
+      "/hsrb/head_trajectory_controller/command": 0
+    },
+    "controller_state": 1,
+    "apple_location": "Verified on square_low_table#living_room; no longer at bedroom white_side_table",
+    "fresh_state_required_before_next_action": true,
+    "last_state_is_not_future_motion_lease": true
+  },
+  "robot_commands_sent": false,
+  "task_finished_sent": false,
+  "does_not_exist_sent": false,
+  "navigation_or_localization_started": false,
+  "old_map_anchor_restored": false,
+  "policy_revision": "outcome-r16b",
+  "code_hashes_still_match_deployment": true,
+  "model_maps_unity_and_navigation_parameters_changed": false,
+  "latest_policy_checkpoint": "D:/handyman-training-runs/apple-outcome-policy-progress-20261018.json",
+  "next": "Read this NEW full-r19 checkpoint FIRST. One NEW uninterrupted full-entry LayoutA apple transfer completed ALL17 stages, with no human motion interventions. Normal r19 source carry fold (not lower-only continuation) passed live; source terminal corrections=1. CURRENT EMPTY/OPEN/TUCKED in living_room; apple is on square_low_table, NOT bedroom source. The start was actual empty/open/tucked living_room pose, not configured spawn, so do not claim a same-start speedup over r16b. Whole time is journal begin to terminal event; internal checks and waits included, external prep separate. No automatic action retry/resume, no old interrupted journal replay and no competition Task_finished. Navigation/speeds/maps/model unchanged. One apple trial is not30-class generalization,80/85percent statistical acceptance or generic Moderator integration. Before another test, inspect fresh robot/RGBD/localization and genuinely restore source apple when needed. If Unity restarted, freshly validate localization rather than reusing an old numeric anchor or identity lease.",
+  "latest_full_live_validation_checkpoint": "D:/handyman-training-runs/apple-r19-full-live-progress-20261022.json",
+  "latest_live_validation_checkpoint": "D:/handyman-training-runs/apple-r19-full-live-progress-20261022.json",
+  "current_state_authoritative_checkpoint": "D:/handyman-training-runs/apple-r19-full-live-progress-20261022.json",
+  "latest_validation_checkpoint": "D:/handyman-training-runs/apple-r19-full-live-progress-20261022.json",
+  "latest_full_live_status": "r19_new_uninterrupted_full_apple_transfer_verified",
+  "older_current_fields_are_historical": true,
+  "latest_efficiency_checkpoint": "D:/handyman-training-runs/apple-efficiency-r17-progress-20261022.json",
+  "current_code_revision": "held-carry-r19",
+  "latest_terminal_correction_checkpoint": "D:/handyman-training-runs/apple-terminal-r18-progress-20261022.json",
+  "latest_full_live_duration_s": 420.144510206
+}

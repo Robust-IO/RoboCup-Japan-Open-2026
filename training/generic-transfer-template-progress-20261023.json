@@ -1,0 +1,97 @@
+{
+  "status": "generic_offline_template_and_cube_observation_adapter_deployed",
+  "saved_ns": 1792728537446668083,
+  "branch": "feat/handyman-phase5-grasping",
+  "scope": "First additive genericization step, not a live generic mover.",
+  "supported_observation_profiles": [
+    "apple",
+    "rubiks_cube"
+  ],
+  "generic_live_motion_enabled": false,
+  "cube_real_rgbd_validated": false,
+  "cube_grasp_lift_carry_placement_verified": false,
+  "apple_legacy_entry_unchanged": true,
+  "apple_previous_full_live_seconds": 420.144510206,
+  "last_physical_state_checkpoint": "D:/handyman-training-runs/apple-r19-full-live-progress-20261022.json",
+  "runtime_tests": 446,
+  "candidate_tests": 446,
+  "recorded_replay": {
+    "status": "recorded_apple_numeric_replay_and_current_model_rgb_checks_complete",
+    "apple_legacy_numeric_result_identical": true,
+    "apple_capture": "/mnt/d/handyman-training-runs/automatic-apple-r19-20261022-01/source-observe/000002",
+    "apple_center_m": [
+      0.8323083897283895,
+      0.04495685924183152,
+      0.5363831078475136
+    ],
+    "model_sha256": "83e6ceb9650e6da78d05404a5ead9654278d502ce06d812a6b2b70673c513763",
+    "imgsz": 960,
+    "rubiks_rgb_checks": [
+      {
+        "case": "rubiks01",
+        "source": "/mnt/d/handyman-training-runs/live30-20261004/rubiks01/000001.png",
+        "source_sha256": "12862c4a5288aabbf8a4b52f22ed31edc9e732a6dba55348fa3424907edb8adf",
+        "detections": [
+          {
+            "name": "rubiks_cube",
+            "class_id": 16,
+            "confidence": 0.9766839146614075,
+            "box": [
+              289.6988830566406,
+              364.7138366699219,
+              310.3302917480469,
+              388.597900390625
+            ]
+          }
+        ],
+        "target_detections": 1,
+        "maximum_target_score": 0.9766839146614075,
+        "current_rgb_recognition_passed": true,
+        "rgbd_geometry_validated": false,
+        "reason": "Historical source has RGB only, no depth_m.npy or calibrated snapshot."
+      },
+      {
+        "case": "rubiks02",
+        "source": "/mnt/d/handyman-training-runs/live30-20261004/rubiks02/000001.png",
+        "source_sha256": "9176e8439baa2e323de73c6cb5db229a304b4076525777fc26df10718f1b2f69",
+        "detections": [
+          {
+            "name": "rubiks_cube",
+            "class_id": 16,
+            "confidence": 0.9837160110473633,
+            "box": [
+              286.480712890625,
+              364.3085632324219,
+              313.2327575683594,
+              389.0970458984375
+            ]
+          }
+        ],
+        "target_detections": 1,
+        "maximum_target_score": 0.9837160110473633,
+        "current_rgb_recognition_passed": true,
+        "rgbd_geometry_validated": false,
+        "reason": "Historical source has RGB only, no depth_m.npy or calibrated snapshot."
+      }
+    ],
+    "cube_real_rgbd_validation": false,
+    "cube_live_transfer_verified": false,
+    "robot_commands_sent": false,
+    "source_recordings_unchanged": true,
+    "model_registry_and_weights_unchanged": true
+  },
+  "deployment": "/mnt/d/handyman-training-runs/generic-transfer-v1-20261023-deployment.json",
+  "files": [
+    "manipulation_profiles.py",
+    "object_surface_geometry.py",
+    "generic_transfer_template.py",
+    "inspect_manipulation_capture.py",
+    "object_observation_sequence.py",
+    "test_generic_transfer_template.py",
+    "GENERIC_TRANSFER_TEMPLATE.txt",
+    "config/manipulation_objects_v1.json"
+  ],
+  "robot_commands_sent": false,
+  "model_or_navigation_changed": false,
+  "next": "Need a NEW Unity head RGBD observation of an upright rubiks_cube. Prior RGB-only images cannot validate3D. First inspect near/far/rotated views and room/table ownership, then implement cube-specific near tracking, contact/lift and held-object/place adapters. Keep original apple baseline/route/speed/model. No old numeric pose or motion receipt is a new authorization."
+}

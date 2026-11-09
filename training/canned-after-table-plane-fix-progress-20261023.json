@@ -1,0 +1,94 @@
+{
+  "status": "run02_physical_transfer_completed_after_table_plane_fix",
+  "saved_ns": 1792767025425920594,
+  "branch": "feat/handyman-phase5-grasping",
+  "boot_id": "03e2ce8b-528d-4517-a5f5-5aa905f81a77",
+  "object": "canned_juice",
+  "layout": "LayoutA",
+  "source": "white_side_table#bedroom_1",
+  "destination": "square_low_table#living_room",
+  "original_unified_trial": "D:/handyman-training-runs/can-auto-live-20261023-02",
+  "actual_final_placement": "D:/handyman-training-runs/can-auto-live-20261023-02/place-after-table-fix-01",
+  "whole_run_before_table_fix_elapsed_s": 389.64181297,
+  "grasp_lift_retraction_and_round_trip_navigation_continuously_verified": true,
+  "tilt_tracking_fix_automatically_passed": true,
+  "release_time_frame_renewal_automatically_passed": true,
+  "table_plane_fix": "Dominant depth-plane seed excludes near-height tabletop clutter before fitting. Original4mm residual limit retained.",
+  "original_failed_table_measurement_preserved": true,
+  "physical_transfer_completed": true,
+  "uninterrupted_full_transfer_verified": false,
+  "robot_ready_for_next_task": true,
+  "actual_close_commands": 1,
+  "actual_release_commands": 1,
+  "grasp_approaches": 1,
+  "placement_approaches": 1,
+  "automatic_release_frame_renewals": 3,
+  "final_three_current_depth_frames_verified": true,
+  "final_can_center_map_m": [
+    2.0163631630907513,
+    3.540866714123516,
+    0.5022699759366508
+  ],
+  "final_center_spread_m": 0.0006666491659199259,
+  "final_outer_support_clearance_lower_estimate_m": 0.06755012276495659,
+  "final_rgb_capture": "D:/handyman-training-runs/can-auto-live-20261023-02/place-after-table-fix-01/captures/016-final-02",
+  "last_measured_robot_state": {
+    "joints": [
+      0.0,
+      0.0,
+      0.0,
+      -1.5707963146269321,
+      0.0,
+      0.6499999859074279
+    ],
+    "poses": {
+      "map": [
+        2.1681678842117584,
+        2.6040770365413346,
+        1.6506613198345987
+      ],
+      "odom": [
+        0.9842873215675354,
+        2.603353977203369,
+        1.6506067157679347
+      ]
+    },
+    "stamp_ns": 1792766902966000000
+  },
+  "last_state_is_record_not_future_motion_authorization": true,
+  "latest_expected_hashes": {
+    "run_canned_grasp_trial.py": "b5f2069c7d45ed4acdfb7121c6f246901c0287784981bc2439e6f77fedab005a",
+    "run_canned_carry_trial.py": "eaafdca975ac703b2b14e07a6be4a958f062de7996c6d44d9cb0029b22d757f8",
+    "run_canned_place_trial.py": "cdacc984f33272acc12cc08ef5e73e0ef7d7699d6ccf4f1eae0236c9de33bc84",
+    "can_transfer_context.py": "6fa7295ad35c788ab9143d338bc9bf745c143359aed8e308eb126f9ba678f900",
+    "can_transfer_automation.py": "171abbef8fcd610e89942069b5ba831cedd43f802d9021e86cca58b116850622",
+    "run_object_transfer.py": "6230e3f820297f104c3c167e421795c6f27c7469cb39c3588bdd39d226e536c5",
+    "test_can_transfer_automation.py": "d16de88a548b2e635962153bf12ca04d319557e5a33be7c58ee6c19f7a826329",
+    "run_object_transfer.sh": "4162cb1f2608e0f53aba557a244f7f3014667d440545fa994a81db17fe40ab48",
+    "OBJECT_TRANSFER.txt": "89794883b7e599bbab4ce3159ca1f38c4f8e0a3eef04a35611981ffbe63fc8b9",
+    "canned_grasp_geometry.py": "a7f620be97a08566df8161b4daa32019e633225f42ee06df024c8075810125d1",
+    "canned_carry_geometry.py": "ccd7b5b979a35067f8e97534bdf05e8fbd8f49a61b79b84a628fc9f600bb6ced",
+    "held_can_appearance.py": "fd3095b82b1694597d4b7ee6da4df3900cd99419f3ff95bcf7921e6ba3b043bb",
+    "canned_place_geometry.py": "b1d26edd861ff03ac8e4d802841d7ddc5ff2e1caa56870de98db43ed55fa2dd0",
+    "tracked_can_cap_geometry.py": "9a1bbfd8458f6963eca894f44a8a069f6d3e878ad620f3855aeec1ef75f3281b",
+    "test_tracked_can_cap_geometry.py": "7dd732821c0abdac846874732ea9f7d6831c048f758c15c15ceaf048b7f1c569",
+    "can_release_timing.py": "da5fca38b57d092dd410bd9ea24a6bbd56682a8a0db3c486ceb973ef7b1d281a",
+    "test_can_release_timing.py": "f7895c16fd760ba74f50a574b5e8369a4cfd6ce8faafd95b2e7ffefd020fa34a",
+    "can_destination_surface.py": "2f64b65b3b0cabc3c2f21c1708bde6863380521073f40c4938f31a83337ad12a",
+    "test_can_destination_surface.py": "e5227acc86464c611cafb038d3ec3f199752dad6ea3132aeb5a04752166ef85c"
+  },
+  "tests": 571,
+  "latest_deployment": "D:/handyman-training-runs/can-table-plane-v1-20261023-deployment.json",
+  "original_apple_model_map_navigation_route_tolerances_unchanged": true,
+  "task_finished_sent": false,
+  "success_rate_not_measured": true,
+  "next": [
+    "Can is RELEASED on living_room square_low_table; robot is empty-handed and tucked. Never repeat held/release continuations.",
+    "Run02 passed grasp/lift/retraction/both navigations continuously, then stopped at its first tabletop measurement. No placement action had started.",
+    "New can-only dominant-plane extraction passed5 originally failed real frames plus3 older successful frames and571 tests. Only placement was then executed, without repeated grasp/navigation.",
+    "Source-age renewals before release worked automatically; one physical release, final3 RGBD frames stable, cleanup complete.",
+    "Read latest_expected_hashes here (table-plane update supersedes previous entry hashes).",
+    "After user resets Unity session1, initial robot pose and upright canned_juice on bedroom white_side_table, run NEW can-auto-live-20261023-03 with the unified entry.",
+    "Keep run01/run02 failed parent verdicts. Only a genuinely new complete whole run may claim uninterrupted automation."
+  ]
+}
