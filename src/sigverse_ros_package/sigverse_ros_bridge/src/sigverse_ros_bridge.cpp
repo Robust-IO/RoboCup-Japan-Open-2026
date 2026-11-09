@@ -1,4 +1,5 @@
 #include "sigverse_ros_bridge.hpp"
+#include "source_stamp.hpp"
 #include <chrono>
 #include <iomanip>
 #include <mutex>
@@ -117,6 +118,16 @@ void * SIGVerseROSBridge::receiving_thread(void *param)
 
   auto node = rclcpp::Node::make_shared("sigverse_ros_bridge_" + std::to_string(get_tid()));
 
+  const auto timestamp_mode = node->declare_parameter<std::string>("timestamp_mode", "receive");
+  if (timestamp_mode != "source" && timestamp_mode != "receive") {
+    RCLCPP_ERROR(node->get_logger(), "timestamp_mode must be source or receive");
+    close(dstSocket);
+    delete[] buf;
+    return nullptr;
+  }
+  RCLCPP_INFO(node->get_logger(), "Timestamp contract: %s", timestamp_mode.c_str());
+  std::map<std::string, std::chrono::steady_clock::time_point> stamp_audit_times;
+  rclcpp::Clock audit_clock(RCL_STEADY_TIME);
   rclcpp::Rate loop_rate(100);
 
   while(rclcpp::ok())
@@ -181,6 +192,7 @@ void * SIGVerseROSBridge::receiving_thread(void *param)
       continue;
     };
 
+    const auto receive_stamp = node->get_clock()->now();
     bsoncxx::document::view bsonView((const uint8_t*)buf, (std::size_t)msgSize);
 
     bsoncxx::builder::core bsonCore(false);
@@ -196,6 +208,28 @@ void * SIGVerseROSBridge::receiving_thread(void *param)
 //    std::cout << "tp:" << topicValue << std::endl;
 //    std::cout << "tv:" << typeValue << std::endl;
 
+    auto message_stamp = [&](bsoncxx::document::view header) {
+      builtin_interfaces::msg::Time source;
+      bool valid = true;
+      try { source = sigverse_bridge::sourceStamp(header); }
+      catch (const std::exception &) {
+        valid = false;
+        if (timestamp_mode == "source") throw;
+      }
+      const auto tick = std::chrono::steady_clock::now();
+      if (tick - stamp_audit_times[topicValue] >= std::chrono::seconds(5)) {
+        stamp_audit_times[topicValue] = tick;
+        RCLCPP_INFO(node->get_logger(),
+          "[StampAudit] topic=%s mode=%s source_valid=%d source_ns=%lld receive_ns=%lld delta_ms=%.3f",
+          topicValue.c_str(), timestamp_mode.c_str(), valid,
+          static_cast<long long>(rclcpp::Time(source).nanoseconds()),
+          static_cast<long long>(receive_stamp.nanoseconds()),
+          valid ? (receive_stamp.nanoseconds()-rclcpp::Time(source).nanoseconds())/1e6 : 0.0);
+      }
+      return timestamp_mode == "source" ? source : static_cast<builtin_interfaces::msg::Time>(receive_stamp);
+    };
+    // Reject a malformed stamped packet atomically, including an entire TF batch.
+    try {
     // Create Publisher
     if(typeValue!=TYPE_TIME_SYNC && typeValue!=TYPE_TF_LIST)
     {
@@ -263,8 +297,8 @@ void * SIGVerseROSBridge::receiving_thread(void *param)
     {
       sensor_msgs::msg::CameraInfo cameraInfo;
 
-      // Always use wall-clock time (ignore Unity timestamps to avoid time-sync issues)
-      cameraInfo.header.stamp = node->get_clock()->now();
+      // Preserve the configured source/receive timestamp contract.
+      cameraInfo.header.stamp = message_stamp(bsonView["msg"]["header"].get_document().value);
       cameraInfo.header.frame_id   = std::string(bsonView["msg"]["header"]["frame_id"].get_string().value);
 
       cameraInfo.height            = (uint32_t)  bsonView["msg"]["height"].get_int32();
@@ -297,8 +331,8 @@ void * SIGVerseROSBridge::receiving_thread(void *param)
       if (audit) { ++audit->received; audit->bson_bytes += msgSize; }
       sensor_msgs::msg::Image image;
 
-      // Always use wall-clock time
-      image.header.stamp = node->get_clock()->now();
+      // Use the same timestamp policy as TF and the other sensors.
+      image.header.stamp = message_stamp(bsonView["msg"]["header"].get_document().value);
       image.header.frame_id   = std::string(bsonView["msg"]["header"]["frame_id"].get_string().value);
       image.height            = (uint32_t)  bsonView["msg"]["height"]      .get_int32();
       image.width             = (uint32_t)  bsonView["msg"]["width"]       .get_int32();
@@ -341,8 +375,8 @@ void * SIGVerseROSBridge::receiving_thread(void *param)
     {
       sensor_msgs::msg::LaserScan laserScan;
 
-      // Always use wall-clock time
-      laserScan.header.stamp = node->get_clock()->now();
+      // Use the same timestamp policy as TF and the other sensors.
+      laserScan.header.stamp = message_stamp(bsonView["msg"]["header"].get_document().value);
       laserScan.header.frame_id   = std::string(bsonView["msg"]["header"]["frame_id"].get_string().value);
 
       laserScan.angle_min       = (float)bsonView["msg"]["angle_min"]      .get_double();
@@ -410,8 +444,8 @@ void * SIGVerseROSBridge::receiving_thread(void *param)
 
         geometry_msgs::msg::TransformStamped stampedTransform;
 
-        // Always use wall-clock time to avoid time-sync issues with Nav2
-        stampedTransform.header.stamp = node->get_clock()->now();
+        // Receive mode uses one timestamp for the complete TF packet.
+        stampedTransform.header.stamp = message_stamp((*itr)["header"].get_document().value);
         stampedTransform.header.frame_id = frameId;
         stampedTransform.child_frame_id = childFrameId;
 
@@ -430,6 +464,10 @@ void * SIGVerseROSBridge::receiving_thread(void *param)
       transformBroadcaster->sendTransform(stampedTransformList);
     }
 
+    } catch (const std::exception &error) {
+      RCLCPP_ERROR_THROTTLE(node->get_logger(), audit_clock, 5000,
+        "Dropped packet topic=%s: %s", topicValue.c_str(), error.what());
+    }
 //    std::cout << "published. topic=" << topicValue << std::endl;
 
     rclcpp::spin_some(node);
