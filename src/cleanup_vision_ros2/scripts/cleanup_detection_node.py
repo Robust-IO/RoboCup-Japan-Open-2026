@@ -35,7 +35,7 @@ from rclpy.node import Node
 from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy, QoSDurabilityPolicy
 
 from sensor_msgs.msg import Image, CameraInfo
-from std_msgs.msg import Bool
+from std_msgs.msg import Bool, Float32
 from geometry_msgs.msg import Point, Vector3
 from cv_bridge import CvBridge
 
@@ -46,6 +46,7 @@ from ament_index_python.packages import get_package_share_directory
 from ultralytics import YOLO
 from pointing_utils import (
     shoulder_tracking_center,
+    person_image_height_fraction,
     merge_multiscale_boxes,
     fit_projective_depth_line,
     is_extended_index_finger,
@@ -179,6 +180,26 @@ def _landmark_visibility(landmark) -> float:
     return float(visibility) if visibility is not None else 0.0
 
 
+def draw_pose_debug(image, poses):
+    height, width = image.shape[:2]
+    edges = ((11, 12), (11, 13), (13, 15), (15, 19),
+             (12, 14), (14, 16), (16, 20), (11, 23),
+             (12, 24), (23, 24), (23, 25), (25, 27),
+             (24, 26), (26, 28))
+    for pose in poses:
+        points = {}
+        for i, landmark in enumerate(pose['image']):
+            x, y, _, visibility = landmark
+            if (visibility >= 0.3 and math.isfinite(x) and math.isfinite(y)
+                    and 0 <= x < 1 and 0 <= y < 1):
+                points[i] = (int(x * width), int(y * height))
+        for start, end in edges:
+            if start in points and end in points:
+                cv2.line(image, points[start], points[end], (255, 200, 0), 2)
+        for point in points.values():
+            cv2.circle(image, point, 3, (0, 255, 255), -1)
+
+
 class CleanupDetectionNode(Node):
     def __init__(self):
         super().__init__('cleanup_detection_node')
@@ -250,6 +271,8 @@ class CleanupDetectionNode(Node):
             DetectedObjectArray, '/cleanup_vision/detected_objects', 10)
         self.pointing_pub = self.create_publisher(
             PointingDirection, '/cleanup_vision/pointing_direction', 10)
+        self.person_height_pub = self.create_publisher(
+            Float32, '/cleanup_vision/person_height_fraction', 10)
         self.debug_pub = self.create_publisher(
             Image, '/cleanup_vision/debug_image', 1)
 
@@ -1556,6 +1579,14 @@ class CleanupDetectionNode(Node):
         pt_msg.confidence = 0.0
 
         info = self._estimate_pointing(pointing_bgr, capture_time)
+        heights = [person_image_height_fraction(pose['image'])
+                   for pose in self.gesture_audit.get('poses', [])]
+        heights = [height for height in heights if height is not None]
+        self.person_height_pub.publish(Float32(data=max(heights) if heights else -1.0))
+        try:
+            draw_pose_debug(bgr, self.gesture_audit.get('poses', []))
+        except (ValueError, TypeError, KeyError, cv2.error) as exc:
+            self.get_logger().warning(f'Pose debug drawing failed: {exc}')
         if info is not None and info.get('person_center') is not None:
             pt_msg.person_pixel_x = float(info['person_center'][0])
             pt_msg.person_pixel_y = float(info['person_center'][1])
@@ -1709,8 +1740,9 @@ class CleanupDetectionNode(Node):
 
         # Debug image
         try:
-            self.debug_pub.publish(
-                self.bridge.cv2_to_imgmsg(bgr, encoding='bgr8'))
+            debug_image = self.bridge.cv2_to_imgmsg(bgr, encoding='bgr8')
+            debug_image.header.stamp = stamp
+            self.debug_pub.publish(debug_image)
         except Exception:
             pass
 

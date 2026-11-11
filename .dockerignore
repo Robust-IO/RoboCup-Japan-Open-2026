@@ -1,0 +1,10 @@
+.git
+.omx
+.agents
+.codex
+.pixi
+build
+install
+log
+__pycache__
+*.pyc

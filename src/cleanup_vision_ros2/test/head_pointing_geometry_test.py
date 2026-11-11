@@ -17,6 +17,35 @@ import pointing_utils  # noqa: E402
 
 
 class HeadPointingGeometryTest(unittest.TestCase):
+    def test_person_height_handles_head_and_feet_clipped_by_image(self):
+        landmarks = [[0.5, 0.5, 0.0, 0.0] for _ in range(33)]
+        self.assertIsNone(pointing_utils.person_image_height_fraction(landmarks))
+        landmarks[11] = [0.5, 0.3, 0.0, 0.9]
+        landmarks[0] = [0.5, 0.1, 0.0, 0.9]
+        landmarks[28] = [0.5, 0.9, 0.0, 0.9]
+        self.assertAlmostEqual(pointing_utils.person_image_height_fraction(landmarks), 0.8)
+        landmarks[0][3] = 0.0
+        self.assertAlmostEqual(pointing_utils.person_image_height_fraction(landmarks), 0.9)
+        landmarks[0][3] = 0.9; landmarks[28][3] = 0.0
+        self.assertAlmostEqual(pointing_utils.person_image_height_fraction(landmarks), 0.9)
+        landmarks[0][3] = 0.0
+        self.assertEqual(pointing_utils.person_image_height_fraction(landmarks), 1.0)
+
+    def test_debug_pose_draws_visible_arm_without_using_invalid_landmarks(self):
+        function = next(n for n in ast.parse(DETECTION_SOURCE).body
+                        if isinstance(n, ast.FunctionDef) and n.name == 'draw_pose_debug')
+        cv2 = Mock()
+        scope = {'math': math, 'cv2': cv2}
+        exec(compile(ast.Module(body=[function], type_ignores=[]), '<debug>', 'exec'), scope)
+        landmarks = [[0.0, 0.0, 0.0, 0.0] for _ in range(33)]
+        landmarks[11] = [0.25, 0.5, 0.0, 0.9]
+        landmarks[13] = [0.5, 0.5, 0.0, 0.9]
+        landmarks[15] = [float('nan'), 0.5, 0.0, 0.9]
+        image = SimpleNamespace(shape=(480, 640, 3))
+        scope['draw_pose_debug'](image, [{'image': landmarks}])
+        cv2.line.assert_called_once_with(image, (160, 240), (320, 240), (255, 200, 0), 2)
+        self.assertEqual(cv2.circle.call_count, 2)
+
     def test_image_pyramid_merges_duplicates_without_merging_instances(self):
         boxes = [[0,0,100,100,.6,1], [1,1,101,101,.9,1],
                  [0,0,100,100,.8,2], [200,0,300,100,.7,1]]

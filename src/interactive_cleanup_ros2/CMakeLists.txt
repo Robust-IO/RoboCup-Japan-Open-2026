@@ -81,7 +81,8 @@ if(BUILD_TESTING)
   find_package(Python3 REQUIRED COMPONENTS Interpreter)
   ament_add_gtest(cleanup_timing_test
     test/cleanup_timing_test.cpp
-    src/place_destination_resolver.cpp)
+    src/place_destination_resolver.cpp
+    src/hsr_geometry.cpp)
   target_include_directories(cleanup_timing_test PRIVATE include)
   ament_target_dependencies(cleanup_timing_test
     rclcpp rclcpp_action std_msgs geometry_msgs trajectory_msgs sensor_msgs

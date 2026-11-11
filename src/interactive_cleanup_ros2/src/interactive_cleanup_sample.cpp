@@ -2,6 +2,7 @@
 #include <rclcpp_action/rclcpp_action.hpp>
 #include <std_msgs/msg/string.hpp>
 #include <std_msgs/msg/bool.hpp>
+#include <std_msgs/msg/float32.hpp>
 #include <geometry_msgs/msg/twist.hpp>
 #include <geometry_msgs/msg/pose_stamped.hpp>
 #include <geometry_msgs/msg/point_stamped.hpp>
@@ -91,6 +92,12 @@ public:
     sub_pointing_ = this->create_subscription<PointingDirection>(
         "/cleanup_vision/pointing_direction", 10,
         std::bind(&InteractiveCleanupSample::pointingCallback, this, std::placeholders::_1));
+    sub_person_height_ = this->create_subscription<std_msgs::msg::Float32>(
+        "/cleanup_vision/person_height_fraction", 10,
+        [this](std_msgs::msg::Float32::SharedPtr msg) {
+          person_height_fraction_ = msg->data;
+          person_height_time_ = std::chrono::steady_clock::now();
+        });
 
     sub_vision_ready_ = this->create_subscription<std_msgs::msg::Bool>(
       "/cleanup_vision/ready", rclcpp::QoS(1).transient_local(),
@@ -170,6 +177,7 @@ private:
   // only arm_lift while retaining the horizontal pose leaves the fingers far
   // above an object on the ground.
   const std::vector<double> ARM_GRASP_LOW     = {0.00, -2.20,  0.0,  0.35,  0.0};
+  const std::vector<double> ARM_GRASP_HIGH    = {0.00, -0.80,  0.0, -1.05,  0.0};
   const std::vector<double> ARM_CARRY         = {0.3,   0.0,   0.0, -1.57,  0.0};
   const std::vector<double> ARM_RELEASE_READY = {0.2,  -0.8,   0.0, -1.0,   0.0};
 
@@ -217,6 +225,7 @@ private:
   static constexpr double POINT_ALIGN_MAX_ANGULAR     = 0.45;
   static constexpr double AVATAR_TRACK_INTERVAL       = 0.25;
   static constexpr double AVATAR_TRACK_DEADBAND_RAD   = 0.045;
+  static constexpr auto AVATAR_GESTURE_HOLD = std::chrono::milliseconds(500);
   static constexpr double AVATAR_OBSERVATION_MEMORY_SEC = 1.50;
   static constexpr double AVATAR_SEARCH_INTERVAL_SEC  = 2.00;
   static constexpr double AVATAR_SEARCH_MOTION_SEC    = 0.60;
@@ -276,8 +285,6 @@ private:
   static constexpr double GRIPPER_PREGRASP_CLEARANCE = 0.10;
   static constexpr double GRIPPER_CONTACT_HEIGHT_OFFSET = -0.015;
   static constexpr double ARM_LIFT_MAX = 0.69;
-  static constexpr double TARGET_MIN_GRASP_HEIGHT = -0.03;
-  static constexpr double TARGET_MAX_GRASP_HEIGHT = 0.72;
   // Destination motion has two distinct stages.  The base first stops where
   // carried-object collisions are unlikely, then the real finger collision
   // midpoint is servoed onto a point inside Unity's placement trigger.
@@ -346,6 +353,9 @@ private:
   // State variables
   // =========================================================================
   int step_;
+  int task_number_ = 0;
+  bool task4_extra_turn_done_ = false;
+  double task4_turn_start_yaw_ = 0.0;
   bool is_started_  = false;
   bool vision_ready_ = false; // Process readiness survives task reset.
   rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr sub_vision_ready_;
@@ -438,6 +448,12 @@ private:
   PointingDirection   locked_pointing_;
   PointingDirection   retained_arm_pointing_;
   bool has_retained_arm_pointing_ = false;
+  float person_height_fraction_ = -1.0f;
+  std::chrono::steady_clock::time_point person_height_time_{};
+  std::chrono::steady_clock::time_point retreat_start_time_{};
+  bool avatar_retreat_active_ = false;
+  bool avatar_retreat_limited_ = false;
+  double avatar_retreat_start_x_ = 0.0, avatar_retreat_start_y_ = 0.0;
   bool locked_historical_arm_ = false;
   std::chrono::steady_clock::time_point retained_arm_time_{};
   bool has_new_objects_  = false;
@@ -505,6 +521,7 @@ private:
   rclcpp::Subscription<sensor_msgs::msg::JointState>::SharedPtr sub_joint_state_;
   rclcpp::Subscription<DetectedObjectArray>::SharedPtr sub_detected_objects_;
   rclcpp::Subscription<PointingDirection>::SharedPtr   sub_pointing_;
+  rclcpp::Subscription<std_msgs::msg::Float32>::SharedPtr sub_person_height_;
 
   std::shared_ptr<tf2_ros::Buffer> tf_buffer_;
   std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
@@ -534,6 +551,10 @@ private:
 
     if (message == MSG_ARE_YOU_READY) {
       if (step_ == Ready) {
+        if (!is_started_) {
+          ++task_number_;
+          RCLCPP_INFO(this->get_logger(), "[TaskCounter] Starting task %d", task_number_);
+        }
         is_started_ = true;
         if (vision_ready_) sendReadyAck("initial handshake");
         else RCLCPP_INFO(this->get_logger(), "Waiting for vision inference readiness before I_am_ready");
@@ -610,7 +631,7 @@ private:
   {
     latest_objects_ = *msg;
     has_new_objects_ = true;
-    if ((step_ == ObserveTarget || step_ == WaitForCleanCommand) &&
+    if (!avatar_retreat_active_ && (step_ == ObserveTarget || step_ == WaitForCleanCommand) &&
         receivedAfterHeadMotion(msg->received_steady_ns))
       obs_objects_.push_back(*msg);
   }
@@ -683,7 +704,7 @@ private:
     // local search for another four seconds on every crop detection.
     const double raw_segment = std::hypot(
       msg->point_pixel_x-msg->wrist_pixel_x, msg->point_pixel_y-msg->wrist_pixel_y);
-    if (msg->is_valid && (msg->depth_direction_valid ||
+    if (!avatar_retreat_active_ && msg->is_valid && (msg->depth_direction_valid ||
         (std::isfinite(raw_segment) && raw_segment >= MIN_PICKUP_IMAGE_SEGMENT))) {
       last_raw_pointing_time_ = last_pointing_recv_time_;
     }
@@ -711,7 +732,7 @@ private:
     const bool inside_target_capture_window = destination_window_.end_ns <= 0 ||
       (msg->received_steady_ns > 0 &&
        msg->received_steady_ns <= destination_window_.end_ns);
-    if (pickup_phase && msg->is_valid &&
+    if (pickup_phase && !avatar_retreat_active_ && msg->is_valid &&
         msg->arm_ray_valid && capture_ns > 0 && before_pick &&
         (!has_retained_arm_pointing_ || capture_ns >
           rclcpp::Time(retained_arm_pointing_.header.stamp).nanoseconds())) {
@@ -739,7 +760,7 @@ private:
     const bool pickup_has_recent_person =
       msg->person_is_valid || hasRecentVisibleAvatar();
     const bool accept_valid_gesture =
-      msg->is_valid &&
+      msg->is_valid && !avatar_retreat_active_ &&
       (!pickup_phase ||
        (pickup_camera_settled && pickup_has_recent_person));
     if (pickup_phase) RCLCPP_INFO_THROTTLE(this->get_logger(), perception_stamp_clock_, 2000,
@@ -887,9 +908,17 @@ private:
   void armObserve()      { moveArm(ARM_OBSERVE, 1.5); }
   std::vector<double> downwardGraspPoseForTipHeight(double desired_tip_z) const
   {
-    auto pose = ARM_GRASP_LOW;
+    const bool high = target_position_.z > ARM_LIFT_MAX;
+    auto pose = high ? ARM_GRASP_HIGH : ARM_GRASP_LOW;
+    double base_height = GRIPPER_DOWNWARD_BASE_HEIGHT;
+    if (high) {
+      const interactive_cleanup::HsrArmPose low{0.0, -2.20, 0.0, 0.35, 0.0};
+      const interactive_cleanup::HsrArmPose raised{0.0, -0.80, 0.0, -1.05, 0.0};
+      base_height += interactive_cleanup::estimateManipulatorPose(raised).palm.z -
+                     interactive_cleanup::estimateManipulatorPose(low).palm.z;
+    }
     pose[0] = std::clamp(
-      desired_tip_z - GRIPPER_DOWNWARD_BASE_HEIGHT, 0.0, ARM_LIFT_MAX);
+      desired_tip_z - base_height, 0.0, ARM_LIFT_MAX);
     return pose;
   }
   void armGraspReadyForTarget()
@@ -1132,7 +1161,7 @@ private:
       // a settled epoch to collect multiple frames, unless the person is
       // about to leave the image. Even then finish the current head motion.
       if (now_time < pointing_camera_ready_time_ ||
-          (now_time < pointing_camera_ready_time_ + std::chrono::milliseconds(700) &&
+          (now_time < pointing_camera_ready_time_ + AVATAR_GESTURE_HOLD &&
            !personOutsideGestureCaptureEnvelope())) return false;
     }
     // Never apply the same stale pixel error repeatedly after commanding a
@@ -1218,7 +1247,7 @@ private:
   {
     const auto now_time = std::chrono::steady_clock::now();
     if ((step_ == WaitForPickCommand || step_ == ObserveTarget) &&
-        now_time < pointing_camera_ready_time_ + std::chrono::milliseconds(700)) return;
+        now_time < pointing_camera_ready_time_ + AVATAR_GESTURE_HOLD) return;
     if (now_time < pointing_camera_ready_time_ ||
         (last_avatar_track_time_.time_since_epoch().count() != 0 &&
          std::chrono::duration<double>(now_time-last_avatar_track_time_).count() <
@@ -1372,6 +1401,7 @@ private:
   void emergencyStop()
   {
     stopBase();
+    avatar_retreat_active_ = false;
     armInitial();
     headCenter();
     enableVision(false);
@@ -1557,12 +1587,6 @@ private:
     return std::find(
       portable_classes.begin(), portable_classes.end(), class_name) !=
       portable_classes.end();
-  }
-
-  static bool isReachableGraspHeight(double z)
-  {
-    return std::isfinite(z) &&
-           z >= TARGET_MIN_GRASP_HEIGHT && z <= TARGET_MAX_GRASP_HEIGHT;
   }
 
   static bool isLikelyDestinationClass(const std::string &class_name)
@@ -1875,7 +1899,7 @@ private:
   // primary signal; 3-D ray proximity is a soft weight. This is robust to a
   // single depth outlier passing very close to the ray and to a real target
   // landing just outside a brittle hard distance threshold.
-  bool selectStablePointedTarget()
+  bool selectStablePointedTarget(bool audit_only = false)
   {
     const auto original_ray = locked_pointing_;
     const bool original_lock = has_locked_pointing_;
@@ -1899,6 +1923,9 @@ private:
        original_ray.received_steady_ns <= destination_window_.end_ns);
     const bool use_original = original_lock && original_ray_in_target_window;
     if (use_original) hypotheses.insert(hypotheses.begin(), original_ray);
+    if (audit_only) RCLCPP_INFO(this->get_logger(),
+      "[TargetFailureAudit] hypotheses=%zu object_frames=%zu original_lock=%d historical=%d",
+      hypotheses.size(), obs_objects_.size(), original_lock, original_historical);
     bool found = false, conflict = false;
     PointingDirection winner;
     geometry_msgs::msg::Point position;
@@ -1908,13 +1935,27 @@ private:
       locked_pointing_ = hypotheses[i];
       has_locked_pointing_ = true;
       locked_historical_arm_ = use_original && i == 0 && original_historical;
-      if (!selectStableTargetForRay(false)) continue;
+      if (audit_only) RCLCPP_INFO(this->get_logger(),
+        "[TargetFailureAudit] hypothesis=%zu stamp=%d.%09u source=%s confidence=%.3f depth=%d plane=%d historical=%d origin=(%.3f,%.3f,%.3f) direction=(%.3f,%.3f,%.3f)",
+        i, locked_pointing_.header.stamp.sec, locked_pointing_.header.stamp.nanosec,
+        locked_pointing_.geometry_source.c_str(), locked_pointing_.confidence,
+        locked_pointing_.depth_direction_valid, locked_pointing_.plane_valid, locked_historical_arm_,
+        locked_pointing_.origin.x, locked_pointing_.origin.y, locked_pointing_.origin.z,
+        locked_pointing_.direction.x, locked_pointing_.direction.y, locked_pointing_.direction.z);
+      if (!selectStableTargetForRay(false, audit_only)) continue;
       // Same instance definition as the object accumulator. Contradictory
       // supported hypotheses remain unresolved; iteration order cannot pick.
       if (found && (target_class_ != name ||
           std::lround(target_position_.x*2) != std::lround(position.x*2) ||
           std::lround(target_position_.y*2) != std::lround(position.y*2))) {
         conflict = true;
+        if (audit_only) {
+          RCLCPP_WARN(this->get_logger(),
+            "[TargetFailureAudit] hypothesis=%zu conflicts winner=%s(%.3f,%.3f) candidate=%s(%.3f,%.3f)",
+            i, name.c_str(), position.x, position.y, target_class_.c_str(),
+            target_position_.x, target_position_.y);
+          continue;
+        }
         break;
       }
       if (!found) {
@@ -1931,6 +1972,11 @@ private:
     target_position_ = original_position;
     target_class_ = original_class;
     target_valid_ = original_valid;
+    if (audit_only) {
+      RCLCPP_INFO(this->get_logger(), "[TargetFailureAudit] result=%s",
+        conflict ? "conflicting_hypotheses" : (found ? "candidate_found" : "no_candidate"));
+      return found && !conflict;
+    }
     if (!found || conflict) return false;
     locked_pointing_ = winner;
     has_locked_pointing_ = true;
@@ -1939,12 +1985,13 @@ private:
     return selectStableTargetForRay(true);
   }
 
-  bool selectStableTargetForRay(bool report = true)
+  bool selectStableTargetForRay(bool report = true, bool force_diagnostics = false)
   {
     static auto last_diagnostic = std::chrono::steady_clock::time_point{};
     const auto diagnostic_now = std::chrono::steady_clock::now();
-    const bool diagnose = report && diagnostic_now-last_diagnostic >= std::chrono::seconds(2);
-    if (diagnose) last_diagnostic = diagnostic_now;
+    const bool diagnose = force_diagnostics ||
+      (report && diagnostic_now-last_diagnostic >= std::chrono::seconds(2));
+    if (diagnose && !force_diagnostics) last_diagnostic = diagnostic_now;
     struct Candidate {
       std::string name;
       double x, y, z;
@@ -1961,10 +2008,11 @@ private:
       int with_3d = 0;
       int low_confidence = 0;
       int non_portable = 0;
-      int unreachable_height = 0;
+      int invalid_position = 0;
       int plane_angle_rejected = 0;
       int halfspace_rejected = 0;
       int ray_rejected = 0;
+      int duplicate = 0;
       int accepted = 0;
       double z_sum = 0.0;
       double depth_mm_sum = 0.0;
@@ -1989,8 +2037,8 @@ private:
         auto &audit = geometry_audit[obj.class_name];
         audit.seen++;
         const bool portable = isLikelyPortableClass(obj.class_name);
-        const bool reachable = obj.has_3d_position &&
-          isReachableGraspHeight(obj.position_3d.z);
+        const bool position_finite = std::isfinite(obj.position_3d.x) &&
+          std::isfinite(obj.position_3d.y) && std::isfinite(obj.position_3d.z);
         if (!obj.has_3d_position) {
           continue;
         }
@@ -2018,15 +2066,13 @@ private:
         audit.plane_sum += plane_angle;
         if (obj.confidence < STABLE_TARGET_MIN_CONFIDENCE) audit.low_confidence++;
         if (!portable) audit.non_portable++;
-        if (!reachable) audit.unreachable_height++;
-        if (obj.confidence < STABLE_TARGET_MIN_CONFIDENCE || !portable || !reachable) {
+        if (!position_finite) audit.invalid_position++;
+        if (obj.confidence < STABLE_TARGET_MIN_CONFIDENCE || !portable || !position_finite) {
           if (diagnose && &frame == &obs_objects_.back()) RCLCPP_INFO(this->get_logger(),
             "[TargetAudit] rejected basic filters class=%s xyz=(%.3f,%.3f,%.3f) "
-            "depth_mm=%.1f confidence=%.3f portable=%d reachable=%d "
-            "height_range=[%.2f,%.2f]",
+            "depth_mm=%.1f confidence=%.3f portable=%d position_finite=%d",
             obj.class_name.c_str(), obj.position_3d.x, obj.position_3d.y,
-            obj.position_3d.z, obj.depth_mm, obj.confidence, portable, reachable,
-            TARGET_MIN_GRASP_HEIGHT, TARGET_MAX_GRASP_HEIGHT);
+            obj.position_3d.z, obj.depth_mm, obj.confidence, portable, position_finite);
           continue;
         }
 
@@ -2078,7 +2124,10 @@ private:
           obj.class_name + "_" +
           std::to_string(std::lround(obj.position_3d.x * 2.0)) + "_" +
           std::to_string(std::lround(obj.position_3d.y * 2.0));
-        if (updated_in_frame.count(spatial_key) != 0) continue;
+        if (updated_in_frame.count(spatial_key) != 0) {
+          audit.duplicate++;
+          continue;
+        }
         updated_in_frame.insert(spatial_key);
         audit.accepted++;
         auto result = candidates.emplace(
@@ -2110,17 +2159,17 @@ private:
         RCLCPP_INFO(this->get_logger(),
           "[TargetGeometryAudit] class=%s seen=%d with_3d=%d xyz_z_mean=%.3f depth_mm_mean=%.1f "
           "ray_mean=%.3f ray_best=%.3f along_mean=%.3f plane_angle_mean=%.4f "
-          "reject_conf=%d reject_class=%d reject_height=%d reject_plane=%d "
-          "reject_halfspace=%d reject_ray=%d accepted=%d",
+          "missing_3d=%d reject_conf=%d reject_class=%d reject_invalid_position=%d reject_plane=%d "
+          "reject_halfspace=%d reject_ray=%d duplicate=%d accepted=%d (basic_reject_counts_overlap)",
           class_name.c_str(), audit.seen, audit.with_3d,
           audit.z_sum / n3d, audit.with_3d ? audit.depth_mm_sum / n3d : -1.0,
           audit.with_3d ? audit.ray_sum / n3d : -1.0,
           audit.with_3d ? audit.ray_best : -1.0,
           audit.with_3d ? audit.along_sum / n3d : -1.0,
           audit.with_3d ? audit.plane_sum / n3d : -1.0,
-          audit.low_confidence, audit.non_portable, audit.unreachable_height,
+          audit.seen-audit.with_3d, audit.low_confidence, audit.non_portable, audit.invalid_position,
           audit.plane_angle_rejected, audit.halfspace_rejected,
-          audit.ray_rejected, audit.accepted);
+          audit.ray_rejected, audit.duplicate, audit.accepted);
       }
     }
     for (const auto &[key, candidate] : candidates) {
@@ -2133,12 +2182,18 @@ private:
         STABLE_TARGET_MIN_FRAMES, candidate.best_ray_distance,
         STABLE_TARGET_MAX_BEST_RAY_3D_M, candidate_average_ray,
         STABLE_TARGET_MAX_AVG_RAY_3D_M);
-      if (candidate.frames < STABLE_TARGET_MIN_FRAMES) continue;
+      if (candidate.frames < STABLE_TARGET_MIN_FRAMES) {
+        if (force_diagnostics) RCLCPP_INFO(this->get_logger(),
+          "[TargetFailureAudit] key=%s reject=insufficient_frames", key.c_str());
+        continue;
+      }
       const double average_confidence =
         candidate.confidence_sum / candidate.frames;
       const double average_ray_distance = candidate_average_ray;
       if (candidate.best_ray_distance > STABLE_TARGET_MAX_BEST_RAY_3D_M ||
           average_ray_distance > STABLE_TARGET_MAX_AVG_RAY_3D_M) {
+        if (force_diagnostics) RCLCPP_INFO(this->get_logger(),
+          "[TargetFailureAudit] key=%s reject=geometry", key.c_str());
         continue;
       }
       if (average_ray_distance < best_geometry) {
@@ -2150,6 +2205,9 @@ private:
       const double score =
         std::pow(static_cast<double>(candidate.frames), 1.25) *
         average_confidence * std::exp(-average_ray_distance / 1.2);
+      if (force_diagnostics) RCLCPP_INFO(this->get_logger(),
+        "[TargetFailureAudit] key=%s accepted score=%.3f confidence=%.3f position=(%.3f,%.3f,%.3f)",
+        key.c_str(), score, average_confidence, candidate.x, candidate.y, candidate.z);
       if (score > best_score) {
         runner_up_score = best_score;
         best_score = score;
@@ -2165,7 +2223,10 @@ private:
       "[TargetDecisionAudit] best=%s score=%.3f runner_score=%.3f geometry_gap=%.3f",
       best ? best->name.c_str() : "none", best_score, runner_up_score,
       runner_up_geometry-best_geometry);
-    if (best == nullptr) return false;
+    if (best == nullptr) {
+      if (force_diagnostics) RCLCPP_INFO(this->get_logger(), "[TargetFailureAudit] reject=no_eligible_candidate");
+      return false;
+    }
     // An image-line plane can also contain objects behind the pointing hand.
     // Check this even for a unique winner: ambiguity handling below is not
     // reached when the actual target was rejected by the image-plane gate.
@@ -2218,7 +2279,12 @@ private:
             c.ray_distance_sum/c.frames > STABLE_TARGET_MAX_AVG_RAY_3D_M) continue;
         if (!(bearing(c) <= -0.5)) corroborated = false;
       }
-      if (!corroborated) return false;
+      if (!corroborated) {
+        if (force_diagnostics) RCLCPP_INFO(this->get_logger(),
+          "[TargetFailureAudit] reject=ambiguous best=%s best_score=%.3f runner_score=%.3f geometry_gap=%.3f",
+          best->name.c_str(), best_score, runner_up_score, runner_up_geometry-best_geometry);
+        return false;
+      }
       if (report) RCLCPP_INFO(this->get_logger(),
         "[ObserveTarget] Image winner corroborated by coarse arm bearing; "
         "all competing candidates are behind the hand (pose-only, not depth)");
@@ -2295,7 +2361,8 @@ private:
       for (const auto &obj : frame.objects) {
         if (!obj.has_3d_position || obj.confidence < STABLE_TARGET_MIN_CONFIDENCE ||
             !isLikelyPortableClass(obj.class_name) ||
-            !isReachableGraspHeight(obj.position_3d.z)) continue;
+            !std::isfinite(obj.position_3d.x) || !std::isfinite(obj.position_3d.y) ||
+            !std::isfinite(obj.position_3d.z)) continue;
         const auto &p = locked_pointing_;
         if (p.plane_valid) {
           if (interactive_cleanup::pointingPlaneAngle(
@@ -2398,6 +2465,58 @@ private:
     auto rp = getRobotPose();
     if (!rp.valid) return 0.0;
     return std::hypot(tx - rp.x, ty - rp.y);
+  }
+
+  void stopAvatarRetreat()
+  {
+    if (!avatar_retreat_active_) return;
+    stopBase();
+    avatar_retreat_active_ = false;
+    const auto ready = std::chrono::steady_clock::now() + std::chrono::milliseconds(500);
+    head_motion_ready_time_ = std::max(head_motion_ready_time_, ready);
+    head_observation_not_before_ns_ = std::max(head_observation_not_before_ns_,
+      std::chrono::duration_cast<std::chrono::nanoseconds>(ready.time_since_epoch()).count());
+    RCLCPP_INFO(this->get_logger(), "[AvatarRetreat] Stopped; waiting for fresh settled observations");
+  }
+
+  bool runAvatarRetreat()
+  {
+    const auto now = std::chrono::steady_clock::now();
+    const bool fresh = person_height_time_.time_since_epoch().count() != 0 &&
+      now - person_height_time_ < std::chrono::seconds(1) &&
+      std::isfinite(person_height_fraction_) && person_height_fraction_ >= 0.0f &&
+      person_height_fraction_ <= 1.0f;
+    if (!fresh || person_height_fraction_ <= 0.80f) {
+      stopAvatarRetreat();
+      if (fresh) avatar_retreat_limited_ = false;
+      return false;
+    }
+    if (avatar_retreat_limited_) return false;
+    if (!tf_buffer_) { stopAvatarRetreat(); return false; }
+    const auto robot = getRobotPose();
+    if (!robot.valid) { stopAvatarRetreat(); return false; }
+    if (!avatar_retreat_active_) {
+      avatar_retreat_active_ = true;
+      retreat_start_time_ = now;
+      avatar_retreat_start_x_ = robot.x;
+      avatar_retreat_start_y_ = robot.y;
+      has_last_valid_pointing_ = false;
+      has_retained_arm_pointing_ = false;
+      pickup_pointing_history_.clear();
+      pickup_ray_hypotheses_.clear();
+      obs_objects_.clear();
+      obs_pointings_.clear();
+      RCLCPP_INFO(this->get_logger(), "[AvatarRetreat] Avatar height=%.2f; backing away", person_height_fraction_);
+    }
+    if (std::hypot(robot.x-avatar_retreat_start_x_, robot.y-avatar_retreat_start_y_) >= 0.6 ||
+        now - retreat_start_time_ >= std::chrono::seconds(10)) {
+      avatar_retreat_limited_ = true;
+      RCLCPP_WARN(this->get_logger(), "[AvatarRetreat] Distance/time limit reached");
+      stopAvatarRetreat();
+      return false;
+    }
+    driveForward(-0.08);
+    return true;
   }
 
   bool getGripperMidpoint(geometry_msgs::msg::Point &point)
@@ -2853,6 +2972,7 @@ private:
   void reset()
   {
     is_started_ = false;
+    task4_extra_turn_done_ = false;
     is_finished_ = false;
     is_failed_ = false;
     failed_detail_ = "";
@@ -2875,6 +2995,11 @@ private:
     has_new_pointing_ = false;
     has_last_valid_pointing_ = false;
     has_retained_arm_pointing_ = false;
+    avatar_retreat_active_ = false;
+    avatar_retreat_limited_ = false;
+    person_height_fraction_ = -1.0f;
+    person_height_time_ = {};
+    retreat_start_time_ = {};
     retained_arm_time_ = {};
     locked_historical_arm_ = false;
     pickup_pointing_history_.clear();
@@ -2956,10 +3081,29 @@ private:
 
   void changeStep(int next)
   {
+    stopAvatarRetreat();
     RCLCPP_INFO(this->get_logger(), "[%s] -> [%s]",
                 stepName(step_).c_str(), stepName(next).c_str());
     step_ = next;
     enterNewState();
+  }
+
+  bool startTask4ExtraTurn()
+  {
+    // shortcut: task-4 right-turn bias assumes the current scenario; replace with general viewpoint selection.
+    if (task_number_ != 4 || task4_extra_turn_done_) return false;
+    if (!tf_buffer_) return false;
+    const auto robot = getRobotPose();
+    if (!robot.valid) {
+      RCLCPP_WARN(this->get_logger(), "[Task4Patch] Base TF unavailable; skipping extra turn");
+      return false;
+    }
+    task4_extra_turn_done_ = true;
+    task4_turn_start_yaw_ = robot.yaw;
+    sub_step_ = 8;
+    enterTimedState();
+    RCLCPP_INFO(this->get_logger(), "[Task4Patch] Turning base right 15 degrees before target observation");
+    return true;
   }
 
   // =========================================================================
@@ -2971,9 +3115,19 @@ private:
     if (is_failed_) {
       RCLCPP_WARN(this->get_logger(), "FAILED in [%s] detail='%s'",
                   stepName(step_).c_str(), failed_detail_.c_str());
+      if (step_ == ObserveTarget) selectStablePointedTarget(true);
       emergencyStop();
       step_ = Initialize;
       is_failed_ = false;
+      return;
+    }
+
+    const bool retreat_phase = step_ == WaitForPickCommand ||
+      (step_ == ObserveTarget && !has_locked_pointing_ && (sub_step_ == 0 || sub_step_ == 4));
+    if (!retreat_phase || received_clean_command_ ||
+        (step_ == WaitForPickCommand && received_pick_command_)) {
+      stopAvatarRetreat();
+    } else if (runAvatarRetreat()) {
       return;
     }
 
@@ -3078,8 +3232,10 @@ private:
         if (lockRecentPointing()) {
           if (aimHeadAlongPointing(locked_pointing_)) {
             obs_objects_.clear();
-            sub_step_ = 1;
-            enterTimedState();
+            if (!startTask4ExtraTurn()) {
+              sub_step_ = 1;
+              enterTimedState();
+            }
           } else {
             beginPointingHold("ObserveTarget");
             sub_step_ = 2;
@@ -3097,7 +3253,7 @@ private:
           state_enter_time_ = std::chrono::steady_clock::now();
           if (aimHeadAlongPointing(locked_pointing_)) {
             obs_objects_.clear();
-            sub_step_ = 1;
+            if (!startTask4ExtraTurn()) sub_step_ = 1;
           } else {
             beginPointingHold("ObserveTarget");
             sub_step_ = 2;
@@ -3115,6 +3271,31 @@ private:
             trackAvatarWithHead();
           } else {
             searchAvatarWithHead();
+          }
+        }
+      } else if (sub_step_ == 8) {
+        if (received_clean_command_) {
+          stopBase();
+        } else {
+          const auto robot = getRobotPose();
+          if (!robot.valid || elapsed() > 3.0) {
+            stopBase();
+            RCLCPP_WARN(this->get_logger(), "[Task4Patch] Turn failed or timed out");
+            giveUp(); changeStep(WaitForResult); break;
+          }
+          constexpr double extra_yaw = 15.0 * 3.14159265358979323846 / 180.0;
+          const double turned = normalizeAngle(robot.yaw - task4_turn_start_yaw_);
+          if (turned <= -extra_yaw + 0.015) {
+            stopBase();
+            obs_objects_.clear();
+            const auto ready = std::chrono::steady_clock::now() + std::chrono::milliseconds(350);
+            head_motion_ready_time_ = std::max(head_motion_ready_time_, ready);
+            head_observation_not_before_ns_ = std::max(head_observation_not_before_ns_,
+              std::chrono::duration_cast<std::chrono::nanoseconds>(ready.time_since_epoch()).count());
+            RCLCPP_INFO(this->get_logger(), "[Task4Patch] Completed base turn %.1f degrees", turned * 180.0 / 3.14159265358979323846);
+            sub_step_ = 1; enterTimedState();
+          } else {
+            turnBase(-0.25);
           }
         }
       } else if (sub_step_ == 1 && elapsed() >= 1.0) {
@@ -3210,6 +3391,7 @@ private:
       if (received_clean_command_) {
         received_clean_command_ = false;
         stopBase();
+        selectStablePointedTarget(true);
         RCLCPP_ERROR(
           this->get_logger(),
           "[ObserveTarget] Clean_up! arrived before a target was confirmed; "
@@ -3241,6 +3423,7 @@ private:
         stopBase();
         logObservationSummary("ObserveTarget");
         logPointingRayDiagnostics("ObserveTarget");
+        selectStablePointedTarget(true);
         // Interactive Cleanup requires the object indicated by the finger.
         // Do not silently substitute the highest-scoring YOLO box when no
         // stable finger/object match was obtained.
@@ -3325,12 +3508,12 @@ private:
 
       switch (sub_step_) {
         case 0: {
-          if (!target_valid_ ||
-              !isReachableGraspHeight(target_position_.z)) {
+          if (!target_valid_ || !std::isfinite(target_position_.x) ||
+              !std::isfinite(target_position_.y) || !std::isfinite(target_position_.z)) {
             RCLCPP_ERROR(this->get_logger(),
-                         "[MoveToObj] Target height %.3fm is invalid or unreachable; "
+                         "[MoveToObj] Target position (%.3f, %.3f, %.3f) is invalid; "
                          "refusing to navigate to an unverified target",
-                         target_position_.z);
+                         target_position_.x, target_position_.y, target_position_.z);
             giveUp();
             changeStep(WaitForResult);
             break;
@@ -3442,8 +3625,8 @@ private:
               if (o.class_name != target_class_) continue;
               // Image-centre proximity alone can switch to another instance
               // of the same class. Refine only near the selected world point.
-              if (!o.has_3d_position ||
-                  !isReachableGraspHeight(o.position_3d.z) ||
+              if (!o.has_3d_position || !std::isfinite(o.position_3d.x) ||
+                  !std::isfinite(o.position_3d.y) || !std::isfinite(o.position_3d.z) ||
                   std::hypot(o.position_3d.x-target_position_.x,
                              o.position_3d.y-target_position_.y) > 0.20 ||
                   std::abs(o.position_3d.z-target_position_.z) > 0.10) continue;
@@ -3557,7 +3740,37 @@ private:
           grasp_align_stable_cycles_ = 0;
           sub_step_ = 1; enterTimedState(); break;
         case 1:
-          if (elapsed() > 2.0) { sub_step_ = 5; enterTimedState(); }
+          if (elapsed() > 2.0) {
+            if (target_position_.z > ARM_LIFT_MAX) {
+              geometry_msgs::msg::Point gripper;
+              if (!getGripperMidpoint(gripper)) {
+                RCLCPP_ERROR(this->get_logger(), "[Grasp] High pregrasp TF unavailable");
+                giveUp(); changeStep(WaitForResult); break;
+              }
+              auto pose = ARM_GRASP_HIGH;
+              pose[0] = std::clamp(getJointPosition("arm_lift_joint", pose[0]) +
+                target_position_.z + GRIPPER_PREGRASP_CLEARANCE - gripper.z,
+                0.0, ARM_LIFT_MAX);
+              RCLCPP_INFO(this->get_logger(),
+                "[Grasp] High pregrasp TF correction tip_z=%.3f target_z=%.3f lift=%.3f",
+                gripper.z, target_position_.z, pose[0]);
+              moveArm(pose, 1.5); sub_step_ = 6;
+            } else {
+              sub_step_ = 5;
+            }
+            enterTimedState();
+          }
+          break;
+        case 6:
+          if (elapsed() > 2.0) {
+            geometry_msgs::msg::Point gripper;
+            if (!getGripperMidpoint(gripper) ||
+                gripper.z < target_position_.z + 0.03) {
+              RCLCPP_ERROR(this->get_logger(), "[Grasp] High pregrasp lacks 3cm fingertip clearance");
+              giveUp(); changeStep(WaitForResult); break;
+            }
+            sub_step_ = 5; enterTimedState();
+          }
           break;
         case 5: {
           geometry_msgs::msg::Point gripper;
@@ -3610,7 +3823,15 @@ private:
                         "[Grasp] Finger trigger aligned surface_forward=%.3fm "
                         "servo_forward=%.3fm lateral=%.3fm total=%.3fm; lowering",
                         surface_forward, forward, lateral, error);
-            armGraspAtTargetHeight();
+            if (target_position_.z > ARM_LIFT_MAX) {
+              auto pose = ARM_GRASP_HIGH;
+              pose[0] = std::clamp(getJointPosition("arm_lift_joint", pose[0]) +
+                target_position_.z + GRIPPER_CONTACT_HEIGHT_OFFSET - gripper.z,
+                0.0, ARM_LIFT_MAX);
+              moveArm(pose, 1.5);
+            } else {
+              armGraspAtTargetHeight();
+            }
             sub_step_ = 2;
             enterTimedState();
             break;
@@ -3687,7 +3908,20 @@ private:
           }
           break;
         case 3:
-          if (elapsed() > 3.0) { armCarry(); sub_step_ = 4; enterTimedState(); }
+          if (elapsed() > 3.0) {
+            if (target_position_.z > ARM_LIFT_MAX) {
+              sub_step_ = 7; enterTimedState();
+            } else {
+              armCarry(); sub_step_ = 4; enterTimedState();
+            }
+          }
+          break;
+        case 7:
+          if (elapsed() < 1.5) {
+            driveForward(-0.08);
+          } else {
+            stopBase(); armCarry(); sub_step_ = 4; enterTimedState();
+          }
           break;
         case 4:
           if (elapsed() > 2.0) { changeStep(SendObjectGrasped); }

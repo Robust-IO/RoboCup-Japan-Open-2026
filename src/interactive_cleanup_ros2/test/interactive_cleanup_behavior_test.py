@@ -86,7 +86,7 @@ class InteractiveCleanupBehaviorTest(unittest.TestCase):
         self.assertIn('GRIPPER_CONTACT_HEIGHT_OFFSET', self.source)
         self.assertIn('std::abs(height_error) > GRIPPER_HEIGHT_TOLERANCE', self.source)
         self.assertIn('headLookAtTarget()', self.source)
-        self.assertIn('isReachableGraspHeight', self.source)
+        self.assertNotIn('isReachableGraspHeight', self.source)
 
     def test_target_voting_uses_locked_gesture_across_async_object_frames(self):
         self.assertNotIn('nearest_dt > 0.50', self.source)

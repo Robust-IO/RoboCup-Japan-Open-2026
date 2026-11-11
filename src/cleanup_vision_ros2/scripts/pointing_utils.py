@@ -3,6 +3,20 @@
 import math
 
 
+def person_image_height_fraction(landmarks):
+    """Estimate visible head-to-foot extent, including cropped image edges."""
+    def visible_y(indices):
+        return [landmarks[i][1] for i in indices if i < len(landmarks)
+                and landmarks[i][3] >= 0.5 and math.isfinite(landmarks[i][1])]
+    if not visible_y(range(11, 27)):
+        return None
+    head = visible_y(range(0, 11))
+    feet = visible_y(range(27, 33))
+    top = max(0.0, min(1.0, min(head))) if head else 0.0
+    bottom = max(0.0, min(1.0, max(feet))) if feet else 1.0
+    return max(0.0, bottom - top)
+
+
 def shoulder_tracking_center(landmarks, width, height):
     """Keep upper-body pointing in view; hips are only a detection fallback."""
     def visible(indices, threshold):

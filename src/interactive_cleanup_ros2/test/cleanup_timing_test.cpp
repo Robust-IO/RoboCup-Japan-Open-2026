@@ -6,6 +6,107 @@
 // connecting to the simulator. All command publishers use test-only topics.
 struct CleanupTimingAccess
 {
+  static void task4ExtraTurn()
+  {
+    auto n = make();
+    n->step_ = n->Ready;
+    for (int task = 1; task <= 4; ++task) {
+      n->handleIncomingMessage("Are_you_ready?", "", "test");
+      n->handleIncomingMessage("Are_you_ready?", "", "test");
+      EXPECT_EQ(n->task_number_, task);
+      if (task < 4) { n->reset(); n->step_ = n->Ready; }
+    }
+    n->tf_buffer_ = std::make_shared<tf2_ros::Buffer>(n->get_clock());
+    geometry_msgs::msg::TransformStamped tf;
+    tf.header.frame_id = "odom"; tf.child_frame_id = "base_footprint";
+    tf.transform.rotation.w = 1.0;
+    n->tf_buffer_->setTransform(tf, "test", true);
+    n->task_number_ = 3;
+    EXPECT_FALSE(n->startTask4ExtraTurn());
+    n->task_number_ = 4; n->step_ = n->ObserveTarget;
+    ASSERT_TRUE(n->startTask4ExtraTurn());
+    EXPECT_EQ(n->sub_step_, 8);
+    tf.transform.rotation.z = std::sin(-0.27 / 2.0);
+    tf.transform.rotation.w = std::cos(-0.27 / 2.0);
+    n->tf_buffer_->setTransform(tf, "test", true);
+    n->runStateMachine();
+    EXPECT_EQ(n->sub_step_, 1);
+    EXPECT_FALSE(n->startTask4ExtraTurn());
+    n->reset();
+    EXPECT_EQ(n->task_number_, 4);
+    EXPECT_FALSE(n->task4_extra_turn_done_);
+  }
+  static void avatarRetreat()
+  {
+    auto n = make();
+    n->tf_buffer_ = std::make_shared<tf2_ros::Buffer>(n->get_clock());
+    geometry_msgs::msg::TransformStamped tf;
+    tf.header.frame_id = "odom"; tf.child_frame_id = "base_footprint";
+    tf.transform.rotation.w = 1.0;
+    n->tf_buffer_->setTransform(tf, "test", true);
+    n->person_height_fraction_ = 0.81f;
+    n->person_height_time_ = std::chrono::steady_clock::now();
+    n->runStateMachine();
+    EXPECT_TRUE(n->avatar_retreat_active_);
+    EXPECT_EQ(n->step_, n->WaitForPickCommand);
+    auto p = gesture(1000000000);
+    p.arm_ray_valid = true; p.arm_ray_direction.x = 1.0;
+    n->pointingCallback(std::make_shared<PointingDirection>(p));
+    EXPECT_TRUE(n->pickup_pointing_history_.empty());
+    EXPECT_FALSE(n->has_retained_arm_pointing_);
+    n->person_height_fraction_ = 0.79f;
+    n->runStateMachine();
+    EXPECT_FALSE(n->avatar_retreat_active_);
+    EXPECT_GT(n->head_observation_not_before_ns_, InteractiveCleanupSample::ingressNowNs());
+
+    n->person_height_fraction_ = 0.9f;
+    n->person_height_time_ = std::chrono::steady_clock::now();
+    EXPECT_TRUE(n->runAvatarRetreat());
+    n->person_height_time_ -= std::chrono::seconds(2);
+    EXPECT_FALSE(n->runAvatarRetreat());
+    EXPECT_FALSE(n->avatar_retreat_active_);
+
+    n->person_height_time_ = std::chrono::steady_clock::now();
+    EXPECT_TRUE(n->runAvatarRetreat());
+    n->retreat_start_time_ -= std::chrono::seconds(11);
+    EXPECT_FALSE(n->runAvatarRetreat());
+    EXPECT_TRUE(n->avatar_retreat_limited_);
+    EXPECT_FALSE(n->runAvatarRetreat());
+    n->person_height_fraction_ = 0.7f;
+    EXPECT_FALSE(n->runAvatarRetreat());
+    EXPECT_FALSE(n->avatar_retreat_limited_);
+    n->person_height_fraction_ = 0.9f;
+    n->person_height_time_ = std::chrono::steady_clock::now();
+    ASSERT_TRUE(n->runAvatarRetreat());
+    n->changeStep(n->ObserveTarget);
+    EXPECT_FALSE(n->avatar_retreat_active_);
+  }
+  static void highTargetSelectionAndPose()
+  {
+    auto n = make();
+    n->has_locked_pointing_ = true;
+    n->locked_pointing_.origin.z = 1.094;
+    n->locked_pointing_.direction.x = 1.0;
+    n->locked_pointing_.depth_direction_valid = true;
+    DetectedObject object;
+    object.class_name = "soysauce"; object.confidence = 0.9;
+    object.has_3d_position = true; object.position_3d.x = 1.0;
+    object.position_3d.z = 1.094;
+    DetectedObjectArray frame; frame.objects.push_back(object);
+    for (int i = 0; i < 6; ++i) n->obs_objects_.push_back(frame);
+    ASSERT_TRUE(n->selectStablePointedTarget());
+    EXPECT_NEAR(n->target_position_.z, 1.094, 1e-6);
+    const auto pre = n->downwardGraspPoseForTipHeight(1.194);
+    const auto contact = n->downwardGraspPoseForTipHeight(1.079);
+    EXPECT_DOUBLE_EQ(pre[1], -0.8);
+    EXPECT_DOUBLE_EQ(pre[3], -1.05);
+    EXPECT_LT(pre[0], 0.69);
+    EXPECT_GT(pre[0], contact[0]);
+    n->target_position_.z = 0.1;
+    const auto low = n->downwardGraspPoseForTipHeight(0.2);
+    EXPECT_DOUBLE_EQ(low[1], -2.2);
+    EXPECT_NEAR(low[0], 0.134, 1e-9);
+  }
   static void readinessHandshake()
   {
     auto n=make(); n->step_=n->Ready;
@@ -607,7 +708,7 @@ struct CleanupTimingAccess
     EXPECT_FALSE(n->trackAvatarWithHead());
     n->searchGestureAroundVisibleAvatar();
     EXPECT_EQ(n->pickup_pointing_history_.size(),1u);
-    n->pointing_camera_ready_time_=now-std::chrono::milliseconds(800);
+    n->pointing_camera_ready_time_=now-std::chrono::milliseconds(550);
     EXPECT_TRUE(n->trackAvatarWithHead());
     EXPECT_TRUE(n->pickup_pointing_history_.empty());
     // At an image edge, follow again once settled without the extra hold.
@@ -699,6 +800,9 @@ struct CleanupTimingAccess
       b.position_3d.x=4.017; b.position_3d.y=1.958; b.position_3d.z=0.093;
       frame.objects={a,b}; n->obs_objects_.push_back(frame);
     }
+    EXPECT_EQ(n->selectStablePointedTarget(true), variant == 0);
+    EXPECT_FALSE(n->target_valid_);
+    EXPECT_TRUE(n->has_locked_pointing_);
     EXPECT_EQ(n->selectStablePointedTarget(), variant == 0);
     if (variant == 0) { EXPECT_EQ(n->target_class_, "soysauce"); }
   }
@@ -865,6 +969,12 @@ struct CleanupTimingAccess
   }
 };
 TEST(CleanupTiming, CachedTargetSkipsPostCommandObservation) { CleanupTimingAccess::early(false); }
+TEST(CleanupTiming, Task4ExtraTurnCountsHandshakeAndUsesOdomYaw)
+{ CleanupTimingAccess::task4ExtraTurn(); }
+TEST(CleanupTiming, AvatarRetreatStopsOnFramingStaleDataAndLimit)
+{ CleanupTimingAccess::avatarRetreat(); }
+TEST(CleanupTiming, HighTargetPassesSelectionAndUsesRaisedPose)
+{ CleanupTimingAccess::highTargetSelectionAndPose(); }
 TEST(CleanupTiming, TransientHandDoesNotRestartSearch)
 { CleanupTimingAccess::transientHandDoesNotRestartSearch(); }
 TEST(CleanupTiming, DescentDoesNotReuseMovingServoAbortTolerance)
