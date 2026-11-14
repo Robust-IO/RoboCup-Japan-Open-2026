@@ -21,6 +21,9 @@
 #include <cleanup_vision_ros2/msg/pointing_direction.hpp>
 
 #include "interactive_cleanup/place_destination_resolver.hpp"
+#include "interactive_cleanup/gesture_capture_window.hpp"
+#include "interactive_cleanup/pointing_geometry.hpp"
+#include "interactive_cleanup/hsr_geometry.hpp"
 
 #include <string>
 #include <vector>
@@ -44,9 +47,10 @@ using PointingDirection = cleanup_vision_ros2::msg::PointingDirection;
 
 class InteractiveCleanupSample : public rclcpp::Node
 {
+  friend struct CleanupTimingAccess;
 public:
-  InteractiveCleanupSample()
-  : rclcpp::Node("interactive_cleanup_sample")
+  explicit InteractiveCleanupSample(const rclcpp::NodeOptions &options = rclcpp::NodeOptions())
+  : rclcpp::Node("interactive_cleanup_sample", options)
   {
     nav2_enabled_ = this->declare_parameter<bool>("use_nav2", true);
   }
@@ -87,6 +91,10 @@ public:
     sub_pointing_ = this->create_subscription<PointingDirection>(
         "/cleanup_vision/pointing_direction", 10,
         std::bind(&InteractiveCleanupSample::pointingCallback, this, std::placeholders::_1));
+
+    sub_vision_ready_ = this->create_subscription<std_msgs::msg::Bool>(
+      "/cleanup_vision/ready", rclcpp::QoS(1).transient_local(),
+      [this](std_msgs::msg::Bool::SharedPtr msg) { vision_ready_ = msg->data; });
 
     // ---- TF ----
     tf_buffer_ = std::make_shared<tf2_ros::Buffer>(this->get_clock());
@@ -208,11 +216,21 @@ private:
   static constexpr double POINT_REALIGN_THRESHOLD     = 0.28;
   static constexpr double POINT_ALIGN_MAX_ANGULAR     = 0.45;
   static constexpr double AVATAR_TRACK_INTERVAL       = 0.25;
+  static constexpr double AVATAR_TRACK_DEADBAND_RAD   = 0.045;
+  static constexpr double AVATAR_OBSERVATION_MEMORY_SEC = 1.50;
+  static constexpr double AVATAR_SEARCH_INTERVAL_SEC  = 2.00;
+  static constexpr double AVATAR_SEARCH_MOTION_SEC    = 0.60;
+  // Pose/hand inference in SIGVerse commonly produces one usable result only
+  // every 2--3 seconds.  Do not move the head merely because that slow stream
+  // has not refreshed inside the old two-second window.
+  static constexpr double CLOSE_GESTURE_SEARCH_INTERVAL_SEC = 4.00;
+  static constexpr double CLOSE_GESTURE_SEARCH_MOTION_SEC = 0.40;
+  // Image-space destination rays are meaningful only after the head has
+  // stopped moving.  Following the Avatar is mandatory, so discard samples
+  // collected during a tracking correction and rebuild the short vote once
+  // the camera has settled.
+  static constexpr double DESTINATION_HEAD_SETTLE_SEC = 0.35;
   static constexpr int    MAX_POINT_ALIGN_RETRY = 0;
-  // The moderator commands delimit two gestures, but the vision stream can
-  // still contain the tail of the first gesture after target confirmation.
-  // Require a short, explicit release before accepting destination rays.
-  static constexpr int DESTINATION_RELEASE_INVALID_FRAMES = 3;
 
   // HSR prefab geometry: 0.349 m main arm + 0.1405 m palm, plus fingers.
   // Stop the base outside the object and put the object at the gripper reach,
@@ -233,7 +251,25 @@ private:
   // distance around the surface, then use a tighter residual tolerance.
   static constexpr double GRIPPER_TARGET_INSERTION_DEPTH = 0.010;
   static constexpr double GRIPPER_ALIGN_FORWARD_TOLERANCE = 0.010;
+  static double graspForwardTolerance(double target_height)
+  {
+    // An elevated target's 10 mm insertion must not be swallowed by a
+    // matching 10 mm tolerance. Keep the successful floor-object window.
+    return target_height < 0.15 ? GRIPPER_ALIGN_FORWARD_TOLERANCE : 0.003;
+  }
   static constexpr double GRIPPER_ALIGN_LATERAL_TOLERANCE = 0.012;
+  static bool graspHorizontalAligned(
+    const geometry_msgs::msg::Point &target,
+    const geometry_msgs::msg::Point &gripper, double yaw)
+  {
+    const double dx=target.x-gripper.x, dy=target.y-gripper.y;
+    const double insertion=target.z < 0.15 ? 0.0 : GRIPPER_TARGET_INSERTION_DEPTH;
+    const double forward=std::cos(yaw)*dx+std::sin(yaw)*dy+insertion;
+    const double lateral=-std::sin(yaw)*dx+std::cos(yaw)*dy;
+    return std::isfinite(forward) && std::isfinite(lateral) &&
+      std::abs(forward) <= graspForwardTolerance(target.z) &&
+      std::abs(lateral) <= GRIPPER_ALIGN_LATERAL_TOLERANCE;
+  }
   static constexpr int    GRIPPER_ALIGN_STABLE_CYCLES = 3;
   static constexpr double GRIPPER_HEIGHT_TOLERANCE = 0.05;
   static constexpr double GRIPPER_DOWNWARD_BASE_HEIGHT = 0.066;
@@ -266,9 +302,11 @@ private:
   // Temporal persistence and ray distance provide the stronger safeguards.
   static constexpr double STABLE_TARGET_MIN_CONFIDENCE = 0.25;
   static constexpr double STABLE_TARGET_MAX_RAY_2D_PX = 100.0;
-  // Allow for the simulated avatar's fingertip/pose-ray error while keeping
-  // the target well inside the wider 1.5 m per-sample rejection radius.
-  static constexpr double STABLE_TARGET_MAX_RAY_3D_M = 1.25;
+  // Persistence cannot turn a geometrically unrelated object into the
+  // pointed target. Correct picks in recorded runs are normally within
+  // 0.08--0.22 m; the old 1.25 m gate admitted rabbit_doll at 1.12 m.
+  static constexpr double STABLE_TARGET_MAX_BEST_RAY_3D_M = 0.45;
+  static constexpr double STABLE_TARGET_MAX_AVG_RAY_3D_M = 0.55;
   // =========================================================================
   // Destination coordinates in the Unity world frame (X/Z), copied from the
   // official EnvironmentInfo01.json.  They must not be used directly as ROS
@@ -295,7 +333,10 @@ private:
     // centred in the official JudgeTriggerOn volume, or immediately above an
     // open JudgeTriggerIn container so gravity carries the object inside.
     double release_height;
-    double surface_inset;
+    // Move the release point from the trigger/container centre toward the
+    // robot. This keeps the fingers inside the destination while preserving
+    // base clearance at narrow containers and furniture edges.
+    double approach_inset;
     double center_offset_x;
     double center_offset_y;
     bool drop_in;
@@ -306,11 +347,38 @@ private:
   // =========================================================================
   int step_;
   bool is_started_  = false;
+  bool vision_ready_ = false; // Process readiness survives task reset.
+  rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr sub_vision_ready_;
   bool is_finished_ = false;
   bool is_failed_   = false;
   std::string failed_detail_;
   bool received_pick_command_  = false;
   bool received_clean_command_ = false;
+  size_t clean_continuation_frame_count_ = 0;
+  bool early_pick_attempted_ = false;
+  bool early_pick_observing_ = false;
+  bool preconfirmed_target_ = false;
+  std::chrono::steady_clock::time_point preconfirmed_target_time_;
+  std::chrono::steady_clock::time_point clean_drain_deadline_;
+  // Same-host RGB ingress and protocol receipt share CLOCK_MONOTONIC.
+  // Source timestamps remain exclusively responsible for sensor geometry.
+  static int64_t ingressNowNs()
+  {
+    return std::chrono::duration_cast<std::chrono::nanoseconds>(
+      std::chrono::steady_clock::now().time_since_epoch()).count();
+  }
+  interactive_cleanup::GestureCaptureWindow destination_window_;
+  // Source stamps are for TF/RGB-D only. Motion and protocol admission use
+  // the shared host monotonic clock, unaffected by host wall-clock steps.
+  rclcpp::Clock perception_stamp_clock_{RCL_SYSTEM_TIME}; // Log throttling only.
+  int64_t head_observation_not_before_ns_ = 0; // RGB ingress, CLOCK_MONOTONIC.
+  std::chrono::steady_clock::time_point head_motion_ready_time_{};
+
+  bool receivedAfterHeadMotion(int64_t ingress_ns) const
+  {
+    return ingress_ns > 0 && ingress_ns >= head_observation_not_before_ns_ &&
+      std::chrono::steady_clock::now() >= head_motion_ready_time_;
+  }
   bool received_yes_ = false;
   bool received_no_  = false;
 
@@ -326,6 +394,17 @@ private:
   std::chrono::steady_clock::time_point observe_align_start_time_;
   std::chrono::steady_clock::time_point observe_scan_start_time_;
   std::chrono::steady_clock::time_point last_avatar_track_time_;
+  std::chrono::steady_clock::time_point last_avatar_search_time_;
+  std::chrono::steady_clock::time_point last_person_observation_time_;
+  std::chrono::steady_clock::time_point last_raw_pointing_time_;
+  std::chrono::steady_clock::time_point last_close_gesture_search_time_;
+  std::chrono::steady_clock::time_point pointing_camera_ready_time_;
+  std::chrono::steady_clock::time_point destination_camera_ready_time_;
+  int avatar_search_pose_index_ = 0;
+  int close_gesture_search_index_ = 0;
+  bool close_gesture_search_active_ = false;
+  double close_gesture_anchor_pan_ = 0.0;
+  double close_gesture_anchor_tilt_ = 0.0;
   bool observe_align_active_ = false;
   bool observe_scan_active_ = false;
   int grasp_align_stable_cycles_ = 0;
@@ -357,24 +436,39 @@ private:
   PointingDirection   latest_pointing_;
   PointingDirection   last_valid_pointing_;
   PointingDirection   locked_pointing_;
+  PointingDirection   retained_arm_pointing_;
+  bool has_retained_arm_pointing_ = false;
+  bool locked_historical_arm_ = false;
+  std::chrono::steady_clock::time_point retained_arm_time_{};
   bool has_new_objects_  = false;
   bool has_new_pointing_ = false;
   bool has_last_valid_pointing_ = false;
   bool has_locked_pointing_ = false;
+  // World-space hypotheses from the pickup gesture survive view changes.
+  // A head-aim ray is provisional until object evidence supports it.
+  std::vector<PointingDirection> pickup_ray_hypotheses_;
+  std::chrono::steady_clock::time_point last_person_seen_time_{};
+  bool has_person_observation_ = false;
+  double last_person_pixel_x_ = 320.0;
+  double last_person_pixel_y_ = 240.0;
 
   // Accumulated observations for voting
   std::vector<DetectedObjectArray> obs_objects_;
   std::vector<PointingDirection>   obs_pointings_;
-  // The place cue is a distinct gesture and must never share the target
-  // observation buffer. It opens only after the first gesture is released
-  // and is frozen by the Clean_up! callback.
+  std::vector<PointingDirection>   pickup_pointing_history_;
+  // The place cue must never share the target observation buffer. Target
+  // confirmation is the protocol boundary: after the return-to-person head
+  // motion settles, every valid ray belongs to the destination phase until
+  // the Clean_up! callback closes it.
   std::vector<PointingDirection>   destination_pointing_history_;
+  // World rays are already transformed into odom at capture time and remain
+  // valid across head tracking motions. Image rays are camera-pose dependent
+  // and therefore use a separate epoch that is reset after every correction.
+  std::vector<PointingDirection>   destination_image_pointing_history_;
   // Clean_up! closes the destination capture window at callback time so
   // frames arriving before the state-machine timer runs cannot cross phases.
   bool destination_capture_closed_ = false;
-  bool destination_capture_armed_ = false;
   bool destination_gesture_started_ = false;
-  int destination_release_invalid_frames_ = 0;
 
   // Selected targets
   geometry_msgs::msg::Point target_position_;
@@ -441,7 +535,8 @@ private:
     if (message == MSG_ARE_YOU_READY) {
       if (step_ == Ready) {
         is_started_ = true;
-        sendReadyAck("initial handshake");
+        if (vision_ready_) sendReadyAck("initial handshake");
+        else RCLCPP_INFO(this->get_logger(), "Waiting for vision inference readiness before I_am_ready");
       } else if (step_ == WaitForPickCommand) {
         sendReadyAck("moderator retried handshake");
       } else {
@@ -452,8 +547,14 @@ private:
       }
     }
     else if (message == MSG_PICK_IT_UP) {
-      if (step_ == WaitForPickCommand) {
+      if (step_ == WaitForPickCommand ||
+          (step_ == ObserveTarget && early_pick_observing_)) {
         received_pick_command_ = true;
+        destination_window_.open(ingressNowNs());
+        if (early_pick_observing_) {
+          early_pick_observing_ = false;
+          state_enter_time_ = std::chrono::steady_clock::now();
+        }
       } else {
         RCLCPP_WARN(
           this->get_logger(),
@@ -462,10 +563,16 @@ private:
       }
     }
     else if (message == MSG_CLEAN_UP) {
-      // ObserveTarget is accepted only as a phase-boundary signal.  The state
-      // machine must either finish from the already collected target frames
-      // or fail; frames after this command belong to the destination gesture.
+      // Clean_up! closes destination capture. A short drain may retain only
+      // frames that continue the final pre-command world ray; it cannot start
+      // a new gesture or change the selected direction.
       if (step_ == ObserveTarget || step_ == WaitForCleanCommand) {
+        if (!received_clean_command_) {
+          destination_window_.close(ingressNowNs());
+          clean_drain_deadline_ = std::chrono::steady_clock::now() +
+            std::chrono::seconds(2);
+          clean_continuation_frame_count_ = 0;
+        }
         received_clean_command_ = true;
         if (step_ == WaitForCleanCommand) {
           destination_capture_closed_ = true;
@@ -503,8 +610,45 @@ private:
   {
     latest_objects_ = *msg;
     has_new_objects_ = true;
-    if (step_ == ObserveTarget || step_ == WaitForCleanCommand)
+    if ((step_ == ObserveTarget || step_ == WaitForCleanCommand) &&
+        receivedAfterHeadMotion(msg->received_steady_ns))
       obs_objects_.push_back(*msg);
+  }
+
+  bool continuesFinalPreCleanRay(const PointingDirection &candidate) const
+  {
+    constexpr int64_t MAX_PRE_CLEAN_RAY_AGE_NS = 500000000LL;
+    constexpr double MAX_CONTINUATION_ANGLE_RAD = 12.0 * M_PI / 180.0;
+    if (!received_clean_command_ || destination_window_.end_ns <= 0 ||
+        std::chrono::steady_clock::now() >= clean_drain_deadline_ ||
+        candidate.received_steady_ns <= destination_window_.end_ns ||
+        !candidate.is_valid || !candidate.person_is_valid ||
+        !candidate.depth_direction_valid || !candidate.plane_valid) return false;
+
+    const PointingDirection *anchor = nullptr;
+    for (const auto &pointing : destination_pointing_history_) {
+      if (pointing.received_steady_ns <= destination_window_.end_ns &&
+          pointing.is_valid && pointing.person_is_valid &&
+          pointing.depth_direction_valid && pointing.plane_valid &&
+          (anchor == nullptr || pointing.received_steady_ns >
+            anchor->received_steady_ns)) {
+        anchor = &pointing;
+      }
+    }
+    if (anchor == nullptr ||
+        destination_window_.end_ns - anchor->received_steady_ns < 0 ||
+        destination_window_.end_ns - anchor->received_steady_ns >
+          MAX_PRE_CLEAN_RAY_AGE_NS) return false;
+
+    const auto &a = anchor->direction;
+    const auto &b = candidate.direction;
+    const double norm_a = std::sqrt(a.x*a.x + a.y*a.y + a.z*a.z);
+    const double norm_b = std::sqrt(b.x*b.x + b.y*b.y + b.z*b.z);
+    if (!std::isfinite(norm_a) || !std::isfinite(norm_b) ||
+        norm_a < 1e-6 || norm_b < 1e-6) return false;
+    const double dot = (a.x*b.x + a.y*b.y + a.z*b.z) / (norm_a*norm_b);
+    return std::isfinite(dot) &&
+      dot >= std::cos(MAX_CONTINUATION_ANGLE_RAD);
   }
 
   void pointingCallback(const PointingDirection::SharedPtr msg)
@@ -513,49 +657,155 @@ private:
     has_new_pointing_ = true;
     last_pointing_recv_time_ = std::chrono::steady_clock::now();
 
-    // After locking the pickup target, first wait until the original gesture
-    // is visibly released.  Until then its trailing valid frames must neither
-    // freeze Avatar tracking nor enter the destination vote.
-    if (step_ == WaitForCleanCommand && !destination_capture_armed_) {
+    // Visibility can suppress a blind scan even while geometry is unsettled.
+    // Do not use these pixels for tracking until the existing motion gate passes.
+    if (msg->person_is_valid && rclcpp::Time(msg->header.stamp).nanoseconds() > 0)
+      last_person_seen_time_ = last_pointing_recv_time_;
+
+    // Pose inference can miss isolated frames while the Avatar is plainly
+    // visible. Keep the most recent positive torso observation instead of
+    // letting one negative frame immediately restart the head search.
+    if (msg->person_is_valid && receivedAfterHeadMotion(msg->received_steady_ns)) {
+      has_person_observation_ = true;
+      last_person_pixel_x_ = msg->person_pixel_x;
+      last_person_pixel_y_ = msg->person_pixel_y;
+      // Keep the arm/fingertip in view even when depth or TF is unavailable.
+      // Use the image gesture from this same observation, not a stale ray.
       if (msg->is_valid) {
-        destination_release_invalid_frames_ = 0;
-      } else if (++destination_release_invalid_frames_ >=
-                 DESTINATION_RELEASE_INVALID_FRAMES) {
-        destination_capture_armed_ = true;
-        destination_release_invalid_frames_ = 0;
-        destination_pointing_history_.clear();
-        obs_pointings_.clear();
-        has_last_valid_pointing_ = false;
-        has_locked_pointing_ = false;
-        RCLCPP_INFO(
-          this->get_logger(),
-          "[WaitForClean] First gesture released; destination capture armed");
+        last_person_pixel_x_ = interactive_cleanup::gestureFramingCenter(
+          msg->person_pixel_x, msg->wrist_pixel_x, msg->point_pixel_x);
+        last_person_pixel_y_ = interactive_cleanup::gestureFramingCenter(
+          msg->person_pixel_y, msg->wrist_pixel_y, msg->point_pixel_y);
       }
+      last_person_observation_time_ = last_pointing_recv_time_;
+    }
+    // A segment that the lock path already rejects must not postpone the
+    // local search for another four seconds on every crop detection.
+    const double raw_segment = std::hypot(
+      msg->point_pixel_x-msg->wrist_pixel_x, msg->point_pixel_y-msg->wrist_pixel_y);
+    if (msg->is_valid && (msg->depth_direction_valid ||
+        (std::isfinite(raw_segment) && raw_segment >= MIN_PICKUP_IMAGE_SEGMENT))) {
+      last_raw_pointing_time_ = last_pointing_recv_time_;
     }
 
+    // Keep the recovery hint attached to the moving Avatar.  The original
+    // pickup ray can be metres behind the person by the time the destination
+    // gesture begins, so it must not remain the only world-space hint.
+    if (step_ == WaitForCleanCommand && msg->is_valid && msg->person_is_valid) {
+      person_hint_position_ = msg->origin;
+      person_hint_valid_ = true;
+    }
+
+    const bool pickup_phase =
+      step_ == WaitForPickCommand || step_ == ObserveTarget;
+    // An odom ray survives head movement. Keep full-arm evidence separate
+    // from cropped fingers; a later crop must not erase the first gesture.
+    // After Pick, only inference whose RGB entered this host before Pick may update it.
+    const auto capture_ns = rclcpp::Time(msg->header.stamp).nanoseconds();
+    const bool before_pick = destination_window_.begin_ns == 0 ||
+      (msg->received_steady_ns > 0 && msg->received_steady_ns <= destination_window_.begin_ns);
+    // Pick_it_up! can arrive before the Avatar has formed the target gesture.
+    // Keep accepting target-ray samples through the Pick..Clean_up interval;
+    // the cutoff prevents delayed destination-gesture frames from entering
+    // the pickup history after Clean_up! closes that interval.
+    const bool inside_target_capture_window = destination_window_.end_ns <= 0 ||
+      (msg->received_steady_ns > 0 &&
+       msg->received_steady_ns <= destination_window_.end_ns);
+    if (pickup_phase && msg->is_valid &&
+        msg->arm_ray_valid && capture_ns > 0 && before_pick &&
+        (!has_retained_arm_pointing_ || capture_ns >
+          rclcpp::Time(retained_arm_pointing_.header.stamp).nanoseconds())) {
+      const auto &o = msg->arm_ray_origin;
+      const auto &d = msg->arm_ray_direction;
+      const double norm = std::hypot(std::hypot(d.x, d.y), d.z);
+      if (std::isfinite(o.x) && std::isfinite(o.y) && std::isfinite(o.z) &&
+          std::isfinite(norm) && norm > 1e-6) {
+        retained_arm_pointing_ = *msg;
+        retained_arm_pointing_.origin = o;
+        retained_arm_pointing_.direction.x = d.x/norm;
+        retained_arm_pointing_.direction.y = d.y/norm;
+        retained_arm_pointing_.direction.z = d.z/norm;
+        retained_arm_time_ = last_pointing_recv_time_;
+        has_retained_arm_pointing_ = true;
+      }
+    }
+    const bool pickup_camera_settled =
+      receivedAfterHeadMotion(msg->received_steady_ns) &&
+      (pointing_camera_ready_time_.time_since_epoch().count() == 0 ||
+       last_pointing_recv_time_ >= pointing_camera_ready_time_);
+    // Preserve the original successful behavior: a valid pointing ray may be
+    // off-centre because it is precisely what tells the head where to look.
+    // The only hard temporal requirement is that the camera has stopped.
+    const bool pickup_has_recent_person =
+      msg->person_is_valid || hasRecentVisibleAvatar();
     const bool accept_valid_gesture =
       msg->is_valid &&
-      !(step_ == WaitForCleanCommand && !destination_capture_armed_);
+      (!pickup_phase ||
+       (pickup_camera_settled && pickup_has_recent_person));
+    if (pickup_phase) RCLCPP_INFO_THROTTLE(this->get_logger(), perception_stamp_clock_, 2000,
+      "[GestureAudit] state=%s valid=%d person=%d settled=%d accepted=%d "
+      "depth=%d confidence=%.3f history=%zu locked=%d",
+      stepName(step_).c_str(), msg->is_valid, pickup_has_recent_person,
+      pickup_camera_settled, accept_valid_gesture, msg->depth_direction_valid,
+      msg->confidence, pickup_pointing_history_.size(), has_locked_pointing_);
     if (accept_valid_gesture) {
+      if (pickup_phase && inside_target_capture_window) {
+        pickup_pointing_history_.push_back(*msg);
+        if (pickup_pointing_history_.size() > 8) {
+          pickup_pointing_history_.erase(pickup_pointing_history_.begin());
+        }
+      }
       last_valid_pointing_ = *msg;
       has_last_valid_pointing_ = true;
       last_valid_pointing_time_ = last_pointing_recv_time_;
+      if (pickup_phase && before_pick) {
+        PointingDirection hypothesis;
+        if (buildCurrentPointing(hypothesis) &&
+            (pickup_ray_hypotheses_.empty() ||
+             pickup_ray_hypotheses_.back().header.stamp != hypothesis.header.stamp)) {
+          pickup_ray_hypotheses_.push_back(hypothesis);
+          if (pickup_ray_hypotheses_.size() > 60)
+            pickup_ray_hypotheses_.erase(pickup_ray_hypotheses_.begin());
+        }
+      }
     }
     if (step_ == ObserveTarget || step_ == WaitForCleanCommand)
       obs_pointings_.push_back(*msg);
+    const bool destination_camera_settled =
+      receivedAfterHeadMotion(msg->received_steady_ns) &&
+      (destination_camera_ready_time_.time_since_epoch().count() == 0 ||
+       last_pointing_recv_time_ >= destination_camera_ready_time_);
+    const bool in_destination_capture_window =
+      destination_window_.accepts(msg->received_steady_ns);
+    const bool clean_ray_continuation =
+      !in_destination_capture_window && continuesFinalPreCleanRay(*msg);
     if (accept_valid_gesture &&
-        !destination_capture_closed_ &&
-        step_ == WaitForCleanCommand) {
+        (in_destination_capture_window || clean_ray_continuation) &&
+        step_ == WaitForCleanCommand &&
+        (destination_camera_settled || msg->plane_valid)) {
+      if (clean_ray_continuation && clean_continuation_frame_count_ == 0) {
+        RCLCPP_INFO(this->get_logger(),
+          "[WaitForClean] Draining frames that continue the final pre-command world ray");
+      }
       if (!destination_gesture_started_) {
         destination_gesture_started_ = true;
         RCLCPP_INFO(
           this->get_logger(),
-          "[WaitForClean] Destination gesture started; holding Avatar view");
+          "[WaitForClean] Destination gesture captured in settled tracked view");
       }
       destination_pointing_history_.push_back(*msg);
+      if (destination_camera_settled && !clean_ray_continuation) {
+        destination_image_pointing_history_.push_back(*msg);
+      }
+      if (clean_ray_continuation) ++clean_continuation_frame_count_;
       constexpr size_t MAX_DESTINATION_POINTING_HISTORY = 60;
       if (destination_pointing_history_.size() > MAX_DESTINATION_POINTING_HISTORY) {
         destination_pointing_history_.erase(destination_pointing_history_.begin());
+      }
+      if (destination_image_pointing_history_.size() >
+          MAX_DESTINATION_POINTING_HISTORY) {
+        destination_image_pointing_history_.erase(
+          destination_image_pointing_history_.begin());
       }
     }
   }
@@ -585,6 +835,12 @@ private:
     std_msgs::msg::String hsr_msg;
     hsr_msg.data = message;
     pub_hsr_msg_->publish(hsr_msg);
+    if (message == MSG_TASK_FINISHED || message == MSG_OBJECT_GRASPED) {
+      RCLCPP_INFO(this->get_logger(),
+        "[ProtocolAudit] Local publish completed for '%s'; moderator-topic "
+        "subscribers=%zu. This is not a moderator acknowledgement.",
+        message.c_str(), pub_msg_->get_subscription_count());
+    }
   }
 
   void sendReadyAck(const char *reason)
@@ -654,6 +910,19 @@ private:
   // =========================================================================
   void moveHead(double pan, double tilt, double dur)
   {
+    const auto motion = interactive_cleanup::planHeadMotion(
+      getJointPosition("head_pan_joint"), getJointPosition("head_tilt_joint"),
+      pan, tilt, dur);
+    pan = motion.pan; tilt = motion.tilt; dur = motion.duration;
+    // Use the limit-adjusted duration for both execution and observation.
+    // RGB ingress before this deadline remains ineligible even if inference
+    // finishes later. This is a local receipt barrier, not capture-time proof.
+    head_motion_ready_time_ = std::chrono::steady_clock::now() +
+      std::chrono::duration_cast<std::chrono::steady_clock::duration>(
+        std::chrono::duration<double>(dur + DESTINATION_HEAD_SETTLE_SEC));
+    head_observation_not_before_ns_ =
+      std::chrono::duration_cast<std::chrono::nanoseconds>(
+        head_motion_ready_time_.time_since_epoch()).count();
     trajectory_msgs::msg::JointTrajectory jt;
     jt.joint_names = {"head_pan_joint", "head_tilt_joint"};
     trajectory_msgs::msg::JointTrajectoryPoint p;
@@ -739,9 +1008,9 @@ private:
     const double current_pan = getJointPosition("head_pan_joint");
     const double current_tilt = getJointPosition("head_tilt_joint");
     const double target_pan = std::clamp(
-      current_pan + std::clamp(-image_yaw, -0.70, 0.70), -1.2, 1.2);
+      current_pan + std::clamp(-image_yaw, -0.70, 0.70), interactive_cleanup::HSR_HEAD_PAN_MIN, interactive_cleanup::HSR_HEAD_PAN_MAX);
     const double target_tilt = std::clamp(
-      current_tilt + std::clamp(-image_pitch, -0.55, 0.55), -1.05, 0.35);
+      current_tilt + std::clamp(-image_pitch, -0.55, 0.55), interactive_cleanup::HSR_HEAD_TILT_MIN, interactive_cleanup::HSR_HEAD_TILT_MAX);
     target_aim_origin_pan_ = current_pan;
     target_aim_origin_tilt_ = current_tilt;
     target_aim_pan_ = target_pan;
@@ -755,58 +1024,309 @@ private:
     return true;
   }
 
+  static constexpr double MIN_PICKUP_IMAGE_SEGMENT = 8.0;
+
+  bool aimHeadAlongPointing(const PointingDirection &pointing)
+  {
+    if (locked_historical_arm_) {
+      // Retained image pixels belong to an earlier head pose. Start voting
+      // in the current view rather than applying that stale pixel offset.
+      RCLCPP_INFO(this->get_logger(),
+        "[PickupMemory] Holding current view for retained world-ray matching");
+      return false;
+    }
+    const double image_length = std::hypot(
+      pointing.point_pixel_x - pointing.wrist_pixel_x,
+      pointing.point_pixel_y - pointing.wrist_pixel_y);
+    if (image_length >= MIN_PICKUP_IMAGE_SEGMENT) {
+      return aimHeadAlongImagePointing(pointing);
+    }
+
+    // A frontal gesture can collapse to a tiny image segment.  It is usable
+    // only when synchronized RGB-D measured the 3-D direction; pose/image
+    // fallback alone produced the upward false ray in the 22:48 task 2.
+    if (!pointing.depth_direction_valid ||
+        pointing.depth_direction_samples < 4) {
+      RCLCPP_WARN(
+        this->get_logger(),
+        "[ObserveTarget] Rejecting short image gesture without measured "
+        "RGB-D direction");
+      return false;
+    }
+
+    const auto robot = getRobotPose();
+    if (!robot.valid) return false;
+    constexpr double projection_distance = 2.5;
+    constexpr double camera_height = 1.20;
+    const double look_x =
+      pointing.origin.x + projection_distance * pointing.direction.x;
+    const double look_y =
+      pointing.origin.y + projection_distance * pointing.direction.y;
+    const double look_z =
+      pointing.origin.z + projection_distance * pointing.direction.z;
+    const double horizontal = std::max(
+      0.20, std::hypot(look_x - robot.x, look_y - robot.y));
+    const double target_pan = std::clamp(
+      normalizeAngle(std::atan2(look_y - robot.y, look_x - robot.x) -
+                     robot.yaw),
+      interactive_cleanup::HSR_HEAD_PAN_MIN, interactive_cleanup::HSR_HEAD_PAN_MAX);
+    const double target_tilt = std::clamp(
+      std::atan2(look_z - camera_height, horizontal), interactive_cleanup::HSR_HEAD_TILT_MIN, interactive_cleanup::HSR_HEAD_TILT_MAX);
+    target_aim_origin_pan_ = getJointPosition("head_pan_joint");
+    target_aim_origin_tilt_ = getJointPosition("head_tilt_joint");
+    target_aim_pan_ = target_pan;
+    target_aim_tilt_ = target_tilt;
+    target_aim_pose_valid_ = true;
+    moveHead(target_pan, target_tilt, 0.8);
+    RCLCPP_INFO(
+      this->get_logger(),
+      "[ObserveTarget] Frontal gesture aimed from measured RGB-D ray: "
+      "pan=%.2f tilt=%.2f", target_pan, target_tilt);
+    return true;
+  }
+
   void headScanStep(const std::vector<HeadPose> &pattern, int idx)
   {
     int i = idx % static_cast<int>(pattern.size());
     moveHead(pattern[i].pan, pattern[i].tilt, 1.0);
   }
 
-  void trackAvatarWithHead()
+  void invalidatePickupPointingForHeadMotion(
+    const std::chrono::steady_clock::time_point &now_time,
+    double motion_sec)
   {
-    if (!has_new_pointing_ || !latest_pointing_.person_is_valid) return;
-
-    // Once a gesture is captured, hold the view until the delayed Unity
-    // command arrives instead of moving the camera away from the finger ray.
-    if (has_last_valid_pointing_) {
-      const double gesture_age = std::chrono::duration<double>(
-        std::chrono::steady_clock::now() - last_valid_pointing_time_).count();
-      if (gesture_age <= POINTING_MEMORY_SEC) return;
+    if (step_ != WaitForPickCommand &&
+        !(step_ == ObserveTarget && !has_locked_pointing_)) {
+      return;
     }
+    // A low depth-fit error does not establish that the arm direction is
+    // correct. Reacquire in a settled view instead of locking a transient
+    // estimate and substituting an approximate world-space head aim.
+    has_last_valid_pointing_ = false;
+    pickup_pointing_history_.clear();
+    obs_pointings_.clear();
+    pointing_camera_ready_time_ = now_time +
+      std::chrono::duration_cast<std::chrono::steady_clock::duration>(
+        std::chrono::duration<double>(
+          motion_sec + DESTINATION_HEAD_SETTLE_SEC));
+  }
+
+  bool trackAvatarWithHead()
+  {
+    if (!hasRecentVisibleAvatar()) return false;
 
     const auto now_time = std::chrono::steady_clock::now();
+    const bool collecting_pickup = step_ == WaitForPickCommand ||
+      (step_ == ObserveTarget && !has_locked_pointing_);
+    if (collecting_pickup && close_gesture_search_active_ &&
+        last_close_gesture_search_time_.time_since_epoch().count() != 0 &&
+        std::chrono::duration<double>(now_time-last_close_gesture_search_time_).count() <
+          CLOSE_GESTURE_SEARCH_INTERVAL_SEC && !personOutsideGestureCaptureEnvelope()) {
+      // Let the local search actually observe its chosen view. Otherwise
+      // torso tracking immediately centres it again before the next sample.
+      return false;
+    }
+    if (collecting_pickup &&
+        pointing_camera_ready_time_.time_since_epoch().count() != 0) {
+      // Do not restart a 0.65 s settling timer every 0.25 s. Give inference
+      // a settled epoch to collect multiple frames, unless the person is
+      // about to leave the image. Even then finish the current head motion.
+      if (now_time < pointing_camera_ready_time_ ||
+          (now_time < pointing_camera_ready_time_ + std::chrono::milliseconds(700) &&
+           !personOutsideGestureCaptureEnvelope())) return false;
+    }
+    // Never apply the same stale pixel error repeatedly after commanding a
+    // head correction. Wait for a new positive person observation first.
+    if (last_avatar_track_time_.time_since_epoch().count() != 0 &&
+        last_person_observation_time_ <= last_avatar_track_time_) {
+      return false;
+    }
     if (last_avatar_track_time_.time_since_epoch().count() != 0 &&
         std::chrono::duration<double>(now_time - last_avatar_track_time_).count() <
           AVATAR_TRACK_INTERVAL) {
-      return;
+      return false;
     }
 
     // Intrinsics reported by the current scene: fx=fy=554, cx=320, cy=240.
     // Positive image x is right while positive head pan is left. Negative
     // head tilt looks down, matching positive image y.
     constexpr double fx = 554.0, fy = 554.0, cx = 320.0, cy = 240.0;
-    const double image_yaw = std::atan2(latest_pointing_.person_pixel_x - cx, fx);
-    const double image_pitch = std::atan2(latest_pointing_.person_pixel_y - cy, fy);
+    const double image_yaw = std::atan2(last_person_pixel_x_ - cx, fx);
+    const double image_pitch = std::atan2(last_person_pixel_y_ - cy, fy);
+    if (std::abs(image_yaw) <= AVATAR_TRACK_DEADBAND_RAD &&
+        std::abs(image_pitch) <= AVATAR_TRACK_DEADBAND_RAD) {
+      return false;
+    }
     const double current_pan = getJointPosition("head_pan_joint");
     const double current_tilt = getJointPosition("head_tilt_joint");
-    const double target_pan = std::clamp(current_pan - image_yaw, -1.2, 1.2);
-    const double target_tilt = std::clamp(current_tilt - image_pitch, -0.7, 0.35);
+    const double target_pan = std::clamp(current_pan - image_yaw, interactive_cleanup::HSR_HEAD_PAN_MIN, interactive_cleanup::HSR_HEAD_PAN_MAX);
+    const double target_tilt = std::clamp(current_tilt - image_pitch, interactive_cleanup::HSR_HEAD_TILT_MIN, interactive_cleanup::HSR_HEAD_TILT_MAX);
+    if (std::abs(target_pan - current_pan) < 0.01 &&
+        std::abs(target_tilt - current_tilt) < 0.01) {
+      return false;
+    }
     moveHead(target_pan, target_tilt, 0.3);
+    invalidatePickupPointingForHeadMotion(now_time, 0.3);
     last_avatar_track_time_ = now_time;
+    RCLCPP_INFO_THROTTLE(
+      this->get_logger(), *this->get_clock(), 1000,
+      "[AvatarTrack] person_pixel=(%.0f,%.0f) head=(%.2f,%.2f)->(%.2f,%.2f)",
+      last_person_pixel_x_, last_person_pixel_y_,
+      current_pan, current_tilt, target_pan, target_tilt);
+    if (step_ == WaitForCleanCommand) {
+      // Pixel rays collected before this correction belong to a different
+      // camera pose.  Never project them through the new camera transform.
+      destination_image_pointing_history_.clear();
+      destination_camera_ready_time_ = now_time +
+        std::chrono::duration_cast<std::chrono::steady_clock::duration>(
+          std::chrono::duration<double>(0.3 + DESTINATION_HEAD_SETTLE_SEC));
+      RCLCPP_INFO_THROTTLE(
+        this->get_logger(), *this->get_clock(), 1000,
+        "[WaitForClean] Following moving Avatar; resetting destination image samples");
+    }
+    return true;
   }
 
-  bool hasRecentVisibleAvatar(double max_age_sec = 0.75) const
+  bool hasRecentVisibleAvatar(
+    double max_age_sec = AVATAR_OBSERVATION_MEMORY_SEC) const
   {
-    if (!has_new_pointing_ || !latest_pointing_.person_is_valid) return false;
+    if (!has_person_observation_) return false;
     const double age = std::chrono::duration<double>(
-      std::chrono::steady_clock::now() - last_pointing_recv_time_).count();
+      std::chrono::steady_clock::now() -
+      last_person_observation_time_).count();
     return age <= max_age_sec;
+  }
+
+  bool hasRecentRawPointing(double max_age_sec = 4.0) const
+  {
+    if (last_raw_pointing_time_.time_since_epoch().count() == 0) return false;
+    return std::chrono::duration<double>(
+      std::chrono::steady_clock::now() - last_raw_pointing_time_).count() <=
+      max_age_sec;
+  }
+
+  bool personOutsideGestureCaptureEnvelope() const
+  {
+    if (!hasRecentVisibleAvatar()) return false;
+    // Hold a settled camera epoch while the complete gesture remains safely
+    // framed, but never let that hold lose a person who walks toward an edge.
+    return last_person_pixel_x_ < 96.0 || last_person_pixel_x_ > 544.0 ||
+           last_person_pixel_y_ < 72.0 || last_person_pixel_y_ > 408.0;
+  }
+
+  void searchGestureAroundVisibleAvatar()
+  {
+    const auto now_time = std::chrono::steady_clock::now();
+    if ((step_ == WaitForPickCommand || step_ == ObserveTarget) &&
+        now_time < pointing_camera_ready_time_ + std::chrono::milliseconds(700)) return;
+    if (now_time < pointing_camera_ready_time_ ||
+        (last_avatar_track_time_.time_since_epoch().count() != 0 &&
+         std::chrono::duration<double>(now_time-last_avatar_track_time_).count() <
+           AVATAR_SEARCH_INTERVAL_SEC)) return;
+    if (last_close_gesture_search_time_.time_since_epoch().count() != 0 &&
+        std::chrono::duration<double>(
+          now_time - last_close_gesture_search_time_).count() <
+          CLOSE_GESTURE_SEARCH_INTERVAL_SEC) {
+      return;
+    }
+    if (!close_gesture_search_active_) {
+      close_gesture_search_index_ = 0;
+      close_gesture_search_active_ = true;
+    }
+    // Recompute the sweep centre from the latest Avatar/hand observation on
+    // every step. The recovery search therefore keeps following a moving
+    // nearby person rather than scanning around a stale head pose.
+    constexpr double fx = 554.0, fy = 554.0, cx = 320.0, cy = 240.0;
+    const double current_pan = getJointPosition("head_pan_joint");
+    const double current_tilt = getJointPosition("head_tilt_joint");
+    const double image_yaw = std::atan2(last_person_pixel_x_ - cx, fx);
+    const double image_pitch = std::atan2(last_person_pixel_y_ - cy, fy);
+    close_gesture_anchor_pan_ = std::clamp(
+      current_pan - image_yaw, interactive_cleanup::HSR_HEAD_PAN_MIN, interactive_cleanup::HSR_HEAD_PAN_MAX);
+    close_gesture_anchor_tilt_ = std::clamp(
+      current_tilt - image_pitch, interactive_cleanup::HSR_HEAD_TILT_MIN, interactive_cleanup::HSR_HEAD_TILT_MAX);
+    // A close Avatar can fill the image so PoseLandmarker sees the torso but
+    // the pointing hand lies just outside the frame. Cover adjacent views
+    // around the tracked person until a raw gesture appears.
+    static const std::vector<HeadPose> offsets = {
+      {0.00, 0.00}, {0.00, -0.28},
+      {0.32, -0.14}, {-0.32, -0.14}, {0.00, 0.20}
+    };
+    const auto &offset = offsets[
+      close_gesture_search_index_ % static_cast<int>(offsets.size())];
+    const double pan = std::clamp(
+      close_gesture_anchor_pan_ + offset.pan, interactive_cleanup::HSR_HEAD_PAN_MIN, interactive_cleanup::HSR_HEAD_PAN_MAX);
+    const double tilt = std::clamp(
+      close_gesture_anchor_tilt_ + offset.tilt, interactive_cleanup::HSR_HEAD_TILT_MIN, interactive_cleanup::HSR_HEAD_TILT_MAX);
+    moveHead(pan, tilt, CLOSE_GESTURE_SEARCH_MOTION_SEC);
+    invalidatePickupPointingForHeadMotion(
+      now_time, CLOSE_GESTURE_SEARCH_MOTION_SEC);
+    if (step_ == WaitForCleanCommand) {
+      destination_image_pointing_history_.clear();
+      destination_camera_ready_time_ = now_time +
+        std::chrono::duration_cast<std::chrono::steady_clock::duration>(
+          std::chrono::duration<double>(
+            CLOSE_GESTURE_SEARCH_MOTION_SEC +
+            DESTINATION_HEAD_SETTLE_SEC));
+    }
+    ++close_gesture_search_index_;
+    last_close_gesture_search_time_ = now_time;
+    RCLCPP_INFO(
+      this->get_logger(),
+      "[CloseGestureSearch] Person visible but hand gesture missing; "
+      "expanding view pan=%.2f tilt=%.2f", pan, tilt);
+  }
+
+  void searchAvatarWithHead()
+  {
+    const auto now_time = std::chrono::steady_clock::now();
+    if (now_time < head_motion_ready_time_ ||
+        (last_person_seen_time_.time_since_epoch().count() != 0 &&
+         std::chrono::duration<double>(now_time-last_person_seen_time_).count() <=
+           AVATAR_OBSERVATION_MEMORY_SEC)) return;
+    // A brief pose dropout during a local sweep must not immediately replace
+    // that trajectory with a centre-facing global search.
+    if (now_time < pointing_camera_ready_time_ ||
+        (last_close_gesture_search_time_.time_since_epoch().count() != 0 &&
+         std::chrono::duration<double>(
+           now_time-last_close_gesture_search_time_).count() <
+           CLOSE_GESTURE_SEARCH_INTERVAL_SEC)) return;
+    if (last_avatar_search_time_.time_since_epoch().count() != 0 &&
+        std::chrono::duration<double>(
+          now_time - last_avatar_search_time_).count() <
+          AVATAR_SEARCH_INTERVAL_SEC) {
+      return;
+    }
+    // Start from centre, then cover both sides without rotating the base.
+    // The moment a person observation arrives WaitForPick switches back to
+    // closed-loop tracking and this search stops.
+    static const std::vector<HeadPose> search_pattern = {
+      {0.00, 0.00}, {0.45, 0.00}, {-0.45, 0.00},
+      {0.85, -0.05}, {-0.85, -0.05}, {0.00, 0.00}
+    };
+    const auto &pose = search_pattern[
+      avatar_search_pose_index_ % static_cast<int>(search_pattern.size())];
+    moveHead(pose.pan, pose.tilt, AVATAR_SEARCH_MOTION_SEC);
+    invalidatePickupPointingForHeadMotion(
+      now_time, AVATAR_SEARCH_MOTION_SEC);
+    ++avatar_search_pose_index_;
+    last_avatar_search_time_ = now_time;
+    RCLCPP_INFO(
+      this->get_logger(),
+      "[AvatarSearch] No recent person observation; scanning head pan=%.2f tilt=%.2f",
+      pose.pan, pose.tilt);
   }
 
   void reacquireAvatarForDestination()
   {
     if (hasRecentVisibleAvatar()) {
       stopBase();
-      trackAvatarWithHead();
+      // Captured odom planes survive head motion, so following the moving
+      // person no longer competes with retaining destination evidence.
+      const bool tracked = trackAvatarWithHead();
+      if (!tracked && !hasRecentRawPointing()) {
+        searchGestureAroundVisibleAvatar();
+      }
       return;
     }
 
@@ -953,13 +1473,13 @@ private:
     // destination.  This avoids giving a candidate an accidental advantage
     // merely because fewer of the same gesture frames were evaluated for it.
     std::vector<const PointingDirection *> image_pointings;
-    for (int i = static_cast<int>(destination_pointing_history_.size()) - 1;
+    for (int i = static_cast<int>(destination_image_pointing_history_.size()) - 1;
          i >= 0 && image_pointings.size() < 10; --i) {
-      const auto &pointing = destination_pointing_history_[i];
+      const auto &pointing = destination_image_pointing_history_[i];
       const double dx = pointing.point_pixel_x - pointing.wrist_pixel_x;
       const double dy = pointing.point_pixel_y - pointing.wrist_pixel_y;
       if (pointing.is_valid && pointing.confidence >= 0.25 &&
-          std::hypot(dx, dy) >= 8.0) {
+          std::hypot(dx, dy) >= 6.0) {
         image_pointings.push_back(&pointing);
       }
     }
@@ -1081,12 +1601,17 @@ private:
         sample.is_valid = true;
         sample.confidence = pt.confidence;
         sample.origin = pt.origin;
-        // Preserve the field-tested depth-based direction for pickup target
-        // recognition. Destination selection instead prefers MediaPipe's
-        // pose-world arm direction, which is not corrupted by background
-        // depth leaking into the thin synthetic forearm/fingertip pixels.
-        sample.direction = pt.pose_direction_valid
-          ? pt.pose_direction : pt.direction;
+        sample.measured_depth = pt.depth_direction_valid;
+        sample.plane_valid = pt.plane_valid;
+        sample.plane_origin = pt.plane_origin;
+        sample.plane_normal = pt.plane_normal;
+        sample.plane_forward = pt.plane_forward;
+        sample.camera_forward = pt.camera_forward;
+        // Prefer synchronized multi-point RGB-D geometry. Pose-world remains
+        // a fallback, but never bypasses the resolver's 3-D plausibility gate.
+        sample.direction = pt.depth_direction_valid
+          ? pt.direction
+          : (pt.pose_direction_valid ? pt.pose_direction : pt.direction);
         pointings.push_back(sample);
       }
     }
@@ -1106,10 +1631,13 @@ private:
       regions.push_back(region);
     }
 
-    // The camera is held once the second gesture starts. Project every known
-    // destination into that exact view and compare it with the visible arm
-    // line. This supplies the missing depth ordering for collinear regions.
-    addDestinationImageEvidence(regions);
+    // Tracking continues throughout the second gesture. The callback keeps
+    // only samples gathered after the latest head correction has settled, so
+    // project destinations into that matching final camera view.
+    const bool captured_plane_available = std::any_of(
+      pointings.begin(), pointings.end(),
+      [](const auto &pointing) { return pointing.plane_valid; });
+    if (!captured_plane_available) addDestinationImageEvidence(regions);
 
     const auto resolution = interactive_cleanup::resolvePlaceDestination(
       regions, pointings, target_class_);
@@ -1120,6 +1648,15 @@ private:
         resolution.rejection_reason.c_str(), resolution.usable_samples);
       return false;
     }
+    if (resolution.horizontal_bearing_used) {
+      RCLCPP_INFO(this->get_logger(),
+        "[PointDest] Measured horizontal bearing consensus: '%s' support=%d/%d",
+        resolution.name.c_str(), resolution.supporting_samples, resolution.usable_samples);
+    } else if (captured_plane_available) {
+      RCLCPP_INFO(this->get_logger(),
+        "[PointDest] Capture-time image-plane/depth consensus: '%s' support=%d/%d",
+        resolution.name.c_str(), resolution.supporting_samples, resolution.usable_samples);
+    }
 
     const auto &unity_coordinate = KNOWN_DESTINATIONS_UNITY.at(resolution.name);
     dest_position_.x = unity_coordinate.second - HSR_INITIAL_UNITY_Z;
@@ -1127,12 +1664,7 @@ private:
     dest_position_.z = 0.0;
     dest_valid_ = true;
     dest_class_ = resolution.name;
-    if (resolution.reversed) {
-      RCLCPP_WARN(
-        this->get_logger(),
-        "[PointDest] Resolved one global depth-direction reversal for the gesture");
-    }
-    RCLCPP_INFO(
+    if (!captured_plane_available) RCLCPP_INFO(
       this->get_logger(),
       "[PointDest] Selected '%s' root odom=(%.2f, %.2f), "
       "3-D trigger=(%.2f, %.2f, %.2f), Unity=(%.2f, %.2f): "
@@ -1345,6 +1877,74 @@ private:
   // landing just outside a brittle hard distance threshold.
   bool selectStablePointedTarget()
   {
+    const auto original_ray = locked_pointing_;
+    const bool original_lock = has_locked_pointing_;
+    const bool original_historical = locked_historical_arm_;
+    const auto original_position = target_position_;
+    const auto original_class = target_class_;
+    const bool original_valid = target_valid_;
+    std::vector<PointingDirection> hypotheses;
+    const auto reference_ns = destination_window_.begin_ns > 0
+      ? destination_window_.begin_ns : ingressNowNs();
+    for (const auto &ray : pickup_ray_hypotheses_) {
+      const auto ns = ray.received_steady_ns;
+      if (ns > 0 && ns <= reference_ns && reference_ns-ns <= static_cast<int64_t>(POINTING_MEMORY_SEC*1e9))
+        hypotheses.push_back(ray);
+    }
+    // The live target gesture may begin after Pick_it_up!; it remains target
+    // evidence until Clean_up! closes the capture window. A ray arriving after
+    // that boundary belongs to the destination gesture and must not vote here.
+    const bool original_ray_in_target_window = destination_window_.end_ns <= 0 ||
+      (original_ray.received_steady_ns > 0 &&
+       original_ray.received_steady_ns <= destination_window_.end_ns);
+    const bool use_original = original_lock && original_ray_in_target_window;
+    if (use_original) hypotheses.insert(hypotheses.begin(), original_ray);
+    bool found = false, conflict = false;
+    PointingDirection winner;
+    geometry_msgs::msg::Point position;
+    std::string name;
+    bool historical = false;
+    for (size_t i=0; i<hypotheses.size(); ++i) {
+      locked_pointing_ = hypotheses[i];
+      has_locked_pointing_ = true;
+      locked_historical_arm_ = use_original && i == 0 && original_historical;
+      if (!selectStableTargetForRay(false)) continue;
+      // Same instance definition as the object accumulator. Contradictory
+      // supported hypotheses remain unresolved; iteration order cannot pick.
+      if (found && (target_class_ != name ||
+          std::lround(target_position_.x*2) != std::lround(position.x*2) ||
+          std::lround(target_position_.y*2) != std::lround(position.y*2))) {
+        conflict = true;
+        break;
+      }
+      if (!found) {
+        found = true;
+        winner = locked_pointing_;
+        position = target_position_;
+        name = target_class_;
+        historical = locked_historical_arm_;
+      }
+    }
+    locked_pointing_ = original_ray;
+    has_locked_pointing_ = original_lock;
+    locked_historical_arm_ = original_historical;
+    target_position_ = original_position;
+    target_class_ = original_class;
+    target_valid_ = original_valid;
+    if (!found || conflict) return false;
+    locked_pointing_ = winner;
+    has_locked_pointing_ = true;
+    locked_historical_arm_ = historical;
+    // Commit once; probes above have no externally visible decision/log.
+    return selectStableTargetForRay(true);
+  }
+
+  bool selectStableTargetForRay(bool report = true)
+  {
+    static auto last_diagnostic = std::chrono::steady_clock::time_point{};
+    const auto diagnostic_now = std::chrono::steady_clock::now();
+    const bool diagnose = report && diagnostic_now-last_diagnostic >= std::chrono::seconds(2);
+    if (diagnose) last_diagnostic = diagnostic_now;
     struct Candidate {
       std::string name;
       double x, y, z;
@@ -1353,50 +1953,28 @@ private:
       double ray_distance_sum;
       double best_ray_distance;
     };
+    // Keep a compact per-class account of every candidate and each gate it
+    // fails. Detection counts alone are not evidence that an object matched
+    // the gesture; these aggregates make that distinction visible in logs.
+    struct GeometryAudit {
+      int seen = 0;
+      int with_3d = 0;
+      int low_confidence = 0;
+      int non_portable = 0;
+      int unreachable_height = 0;
+      int plane_angle_rejected = 0;
+      int halfspace_rejected = 0;
+      int ray_rejected = 0;
+      int accepted = 0;
+      double z_sum = 0.0;
+      double depth_mm_sum = 0.0;
+      double ray_sum = 0.0;
+      double ray_best = std::numeric_limits<double>::infinity();
+      double along_sum = 0.0;
+      double plane_sum = 0.0;
+    };
     std::map<std::string, Candidate> candidates;
-
-    // MediaPipe's depth axis and a camera optical frame have opposite Z
-    // conventions.  The vision node now converts that explicitly, but depth
-    // fallbacks can still be ambiguous for a nearly frontal, foreshortened
-    // finger.  Only reverse a ray when the published direction has zero
-    // portable-object support and its opposite has stable multi-frame
-    // support.  This handles the observed all-9999m failure without turning
-    // the pointing ray into an unrestricted line.
-    int forward_support = 0;
-    int reverse_support = 0;
-    for (const auto &frame : obs_objects_) {
-      if (!has_locked_pointing_) continue;
-      for (const auto &obj : frame.objects) {
-        if (obj.class_name == "person" || !obj.has_3d_position ||
-            obj.confidence < STABLE_TARGET_MIN_CONFIDENCE ||
-            !isLikelyPortableClass(obj.class_name) ||
-            !isReachableGraspHeight(obj.position_3d.z)) {
-          continue;
-        }
-        const double forward_distance = pointRayDist3D(
-          obj.position_3d.x, obj.position_3d.y, obj.position_3d.z,
-          locked_pointing_.origin.x, locked_pointing_.origin.y,
-          locked_pointing_.origin.z, locked_pointing_.direction.x,
-          locked_pointing_.direction.y, locked_pointing_.direction.z);
-        const double reverse_distance = pointRayDist3D(
-          obj.position_3d.x, obj.position_3d.y, obj.position_3d.z,
-          locked_pointing_.origin.x, locked_pointing_.origin.y,
-          locked_pointing_.origin.z, -locked_pointing_.direction.x,
-          -locked_pointing_.direction.y, -locked_pointing_.direction.z);
-        if (forward_distance <= 1.5) ++forward_support;
-        if (reverse_distance <= 1.5) ++reverse_support;
-      }
-    }
-    const bool reverse_ray =
-      forward_support == 0 && reverse_support >= STABLE_TARGET_MIN_FRAMES;
-    const double ray_sign = reverse_ray ? -1.0 : 1.0;
-    if (reverse_ray) {
-      RCLCPP_WARN(
-        this->get_logger(),
-        "[ObserveTarget] Resolving frontal pointing depth ambiguity: "
-        "forward support=%d, reverse support=%d",
-        forward_support, reverse_support);
-    }
+    std::map<std::string, GeometryAudit> geometry_audit;
 
     for (const auto &frame : obs_objects_) {
       if (!has_locked_pointing_) continue;
@@ -1407,21 +1985,90 @@ private:
       // inference loops ran at different rates.
       std::set<std::string> updated_in_frame;
       for (const auto &obj : frame.objects) {
-        if (obj.class_name == "person" || !obj.has_3d_position ||
-            obj.confidence < STABLE_TARGET_MIN_CONFIDENCE ||
-            !isLikelyPortableClass(obj.class_name) ||
-            !isReachableGraspHeight(obj.position_3d.z)) {
+        if (obj.class_name == "person") continue;
+        auto &audit = geometry_audit[obj.class_name];
+        audit.seen++;
+        const bool portable = isLikelyPortableClass(obj.class_name);
+        const bool reachable = obj.has_3d_position &&
+          isReachableGraspHeight(obj.position_3d.z);
+        if (!obj.has_3d_position) {
           continue;
         }
-
-        const double ray_distance = pointRayDist3D(
+        audit.with_3d++;
+        audit.z_sum += obj.position_3d.z;
+        audit.depth_mm_sum += obj.depth_mm;
+        const double world_ray_distance = pointRayDist3D(
           obj.position_3d.x, obj.position_3d.y, obj.position_3d.z,
           locked_pointing_.origin.x, locked_pointing_.origin.y,
           locked_pointing_.origin.z,
-          ray_sign * locked_pointing_.direction.x,
-          ray_sign * locked_pointing_.direction.y,
-          ray_sign * locked_pointing_.direction.z);
-        if (ray_distance > 1.5) continue;
+          locked_pointing_.direction.x,
+          locked_pointing_.direction.y,
+          locked_pointing_.direction.z);
+        const double plane_angle = locked_pointing_.plane_valid
+          ? interactive_cleanup::pointingPlaneAngle(
+              obj.position_3d, locked_pointing_.plane_origin,
+              locked_pointing_.plane_normal) : 0.0;
+        const double ray_along =
+          (obj.position_3d.x - locked_pointing_.origin.x) * locked_pointing_.direction.x +
+          (obj.position_3d.y - locked_pointing_.origin.y) * locked_pointing_.direction.y +
+          (obj.position_3d.z - locked_pointing_.origin.z) * locked_pointing_.direction.z;
+        audit.ray_sum += world_ray_distance;
+        audit.ray_best = std::min(audit.ray_best, world_ray_distance);
+        audit.along_sum += ray_along;
+        audit.plane_sum += plane_angle;
+        if (obj.confidence < STABLE_TARGET_MIN_CONFIDENCE) audit.low_confidence++;
+        if (!portable) audit.non_portable++;
+        if (!reachable) audit.unreachable_height++;
+        if (obj.confidence < STABLE_TARGET_MIN_CONFIDENCE || !portable || !reachable) {
+          if (diagnose && &frame == &obs_objects_.back()) RCLCPP_INFO(this->get_logger(),
+            "[TargetAudit] rejected basic filters class=%s xyz=(%.3f,%.3f,%.3f) "
+            "depth_mm=%.1f confidence=%.3f portable=%d reachable=%d "
+            "height_range=[%.2f,%.2f]",
+            obj.class_name.c_str(), obj.position_3d.x, obj.position_3d.y,
+            obj.position_3d.z, obj.depth_mm, obj.confidence, portable, reachable,
+            TARGET_MIN_GRASP_HEIGHT, TARGET_MAX_GRASP_HEIGHT);
+          continue;
+        }
+
+        if (diagnose && &frame == &obs_objects_.back()) {
+          RCLCPP_INFO(this->get_logger(),
+            "[TargetAudit] class=%s xyz=(%.3f,%.3f,%.3f) depth_mm=%.1f "
+            "confidence=%.3f ray=%.3f plane=%.4f depth_ray_valid=%d plane_valid=%d",
+            obj.class_name.c_str(), obj.position_3d.x, obj.position_3d.y,
+            obj.position_3d.z, obj.depth_mm, obj.confidence, world_ray_distance, plane_angle,
+            locked_pointing_.depth_direction_valid, locked_pointing_.plane_valid);
+          RCLCPP_INFO(this->get_logger(),
+            "[TargetAudit] class=%s plane_pass=%d forward_pass=%d camera_pass=%d",
+            obj.class_name.c_str(), !locked_pointing_.plane_valid || plane_angle <= 0.12,
+            !locked_pointing_.plane_valid || interactive_cleanup::pointingHalfspaceContains(
+              obj.position_3d, locked_pointing_.plane_origin, locked_pointing_.plane_forward, 0.03),
+            !locked_pointing_.plane_valid || interactive_cleanup::pointingHalfspaceContains(
+              obj.position_3d, locked_pointing_.plane_origin, locked_pointing_.camera_forward));
+        }
+        // An image line constrains a plane, never an invented camera ray.
+        // With measured arm depth both constraints must agree. Without arm
+        // depth use the plane plus depth-localized objects, rejecting ties.
+        if (locked_pointing_.plane_valid && plane_angle > 0.12) {
+          audit.plane_angle_rejected++;
+          continue;
+        }
+        if (locked_pointing_.plane_valid &&
+            (!interactive_cleanup::pointingHalfspaceContains(
+               obj.position_3d, locked_pointing_.plane_origin,
+               locked_pointing_.plane_forward, 0.03) ||
+             !interactive_cleanup::pointingHalfspaceContains(
+               obj.position_3d, locked_pointing_.plane_origin,
+               locked_pointing_.camera_forward))) {
+          audit.halfspace_rejected++;
+          continue;
+        }
+        const double ray_distance = locked_pointing_.depth_direction_valid
+          ? world_ray_distance
+          : (locked_pointing_.plane_valid ? plane_angle * 3.0 : world_ray_distance);
+        if (ray_distance > 1.5) {
+          audit.ray_rejected++;
+          continue;
+        }
 
         // Keep separate instances of the same class separate.  The failed
         // run contained two bear_doll detections per frame; grouping only by
@@ -1433,6 +2080,7 @@ private:
           std::to_string(std::lround(obj.position_3d.y * 2.0));
         if (updated_in_frame.count(spatial_key) != 0) continue;
         updated_in_frame.insert(spatial_key);
+        audit.accepted++;
         auto result = candidates.emplace(
           spatial_key,
           Candidate{obj.class_name, obj.position_3d.x, obj.position_3d.y,
@@ -1452,26 +2100,129 @@ private:
     }
 
     const Candidate *best = nullptr;
+    double runner_up_score = -1.0;
+    double best_geometry = std::numeric_limits<double>::infinity();
+    double runner_up_geometry = std::numeric_limits<double>::infinity();
     double best_score = -1.0;
+    if (diagnose) {
+      for (const auto &[class_name, audit] : geometry_audit) {
+        const double n3d = static_cast<double>(std::max(1, audit.with_3d));
+        RCLCPP_INFO(this->get_logger(),
+          "[TargetGeometryAudit] class=%s seen=%d with_3d=%d xyz_z_mean=%.3f depth_mm_mean=%.1f "
+          "ray_mean=%.3f ray_best=%.3f along_mean=%.3f plane_angle_mean=%.4f "
+          "reject_conf=%d reject_class=%d reject_height=%d reject_plane=%d "
+          "reject_halfspace=%d reject_ray=%d accepted=%d",
+          class_name.c_str(), audit.seen, audit.with_3d,
+          audit.z_sum / n3d, audit.with_3d ? audit.depth_mm_sum / n3d : -1.0,
+          audit.with_3d ? audit.ray_sum / n3d : -1.0,
+          audit.with_3d ? audit.ray_best : -1.0,
+          audit.with_3d ? audit.along_sum / n3d : -1.0,
+          audit.with_3d ? audit.plane_sum / n3d : -1.0,
+          audit.low_confidence, audit.non_portable, audit.unreachable_height,
+          audit.plane_angle_rejected, audit.halfspace_rejected,
+          audit.ray_rejected, audit.accepted);
+      }
+    }
     for (const auto &[key, candidate] : candidates) {
-      if (candidate.frames < STABLE_TARGET_MIN_FRAMES ||
-          candidate.best_ray_distance > STABLE_TARGET_MAX_RAY_3D_M) continue;
+      const double candidate_average_ray =
+        candidate.ray_distance_sum / candidate.frames;
+      if (diagnose) RCLCPP_INFO(this->get_logger(),
+        "[TargetVoteAudit] key=%s class=%s frames=%d required_frames=%d "
+        "best_ray=%.3f max_best=%.3f avg_ray=%.3f max_avg=%.3f",
+        key.c_str(), candidate.name.c_str(), candidate.frames,
+        STABLE_TARGET_MIN_FRAMES, candidate.best_ray_distance,
+        STABLE_TARGET_MAX_BEST_RAY_3D_M, candidate_average_ray,
+        STABLE_TARGET_MAX_AVG_RAY_3D_M);
+      if (candidate.frames < STABLE_TARGET_MIN_FRAMES) continue;
       const double average_confidence =
         candidate.confidence_sum / candidate.frames;
-      const double average_ray_distance =
-        candidate.ray_distance_sum / candidate.frames;
+      const double average_ray_distance = candidate_average_ray;
+      if (candidate.best_ray_distance > STABLE_TARGET_MAX_BEST_RAY_3D_M ||
+          average_ray_distance > STABLE_TARGET_MAX_AVG_RAY_3D_M) {
+        continue;
+      }
+      if (average_ray_distance < best_geometry) {
+        runner_up_geometry = best_geometry;
+        best_geometry = average_ray_distance;
+      } else {
+        runner_up_geometry = std::min(runner_up_geometry, average_ray_distance);
+      }
       const double score =
         std::pow(static_cast<double>(candidate.frames), 1.25) *
         average_confidence * std::exp(-average_ray_distance / 1.2);
       if (score > best_score) {
+        runner_up_score = best_score;
         best_score = score;
         best = &candidate;
+      } else {
+        runner_up_score = std::max(runner_up_score, score);
       }
     }
     // Keep the selector used by the successful task-1 version as the only
     // decision path. Broad recovery rays can turn a merely persistent object
     // from the later destination view into a false pickup target.
+    if (diagnose) RCLCPP_INFO(this->get_logger(),
+      "[TargetDecisionAudit] best=%s score=%.3f runner_score=%.3f geometry_gap=%.3f",
+      best ? best->name.c_str() : "none", best_score, runner_up_score,
+      runner_up_geometry-best_geometry);
     if (best == nullptr) return false;
+    // An image-line plane can also contain objects behind the pointing hand.
+    // Check this even for a unique winner: ambiguity handling below is not
+    // reached when the actual target was rejected by the image-plane gate.
+    // Pose is only a coarse contradiction veto, never metric depth evidence.
+    const auto &pose = locked_pointing_.pose_direction;
+    const double pose_horizontal = std::hypot(pose.x, pose.y);
+    const double pose_norm = std::hypot(pose_horizontal, pose.z);
+    const double hand_dx = best->x - locked_pointing_.origin.x;
+    const double hand_dy = best->y - locked_pointing_.origin.y;
+    const double hand_range = std::hypot(hand_dx, hand_dy);
+    if (!locked_pointing_.depth_direction_valid && locked_pointing_.plane_valid &&
+        locked_pointing_.pose_direction_valid && std::isfinite(pose_norm) &&
+        pose_norm > 1e-6 && pose_horizontal / pose_norm >= 0.25 && hand_range >= 0.15) {
+      const double bearing = (hand_dx*pose.x + hand_dy*pose.y) /
+        (hand_range*pose_horizontal);
+      if (bearing <= -0.5) {
+        if (diagnose) RCLCPP_WARN(this->get_logger(),
+          "[TargetDecisionAudit] Rejecting image-plane winner '%s': "
+          "opposite arm bearing %.3f; gesture evidence conflicts",
+          best->name.c_str(), bearing);
+        return false;
+      }
+    }
+    const bool ambiguous =
+      (!locked_pointing_.depth_direction_valid && locked_pointing_.plane_valid &&
+       runner_up_geometry - best_geometry < 0.09) ||
+      (runner_up_score > 0.0 && runner_up_score > best_score * 0.85);
+    if (ambiguous) {
+      // A camera-origin plane can contain objects on both sides of the hand.
+      // Use pose ONLY as coarse front/back corroboration, never as measured
+      // depth or as a replacement for image ranking. Require agreement with
+      // both image rankings and reject all same-side/uncertain competitors.
+      const auto &p = locked_pointing_;
+      const double horizontal = std::hypot(p.direction.x, p.direction.y);
+      const double norm = std::hypot(horizontal, p.direction.z);
+      auto bearing = [&](const Candidate &c) {
+        const double x = c.x-p.origin.x, y = c.y-p.origin.y;
+        const double range = std::hypot(x,y);
+        if (range < 0.15 || horizontal < 1e-6) return 0.0;
+        return (x*p.direction.x+y*p.direction.y)/(range*horizontal);
+      };
+      bool corroborated = !p.depth_direction_valid && p.plane_valid &&
+        p.pose_direction_valid && p.confidence >= 0.5 &&
+        std::isfinite(norm) && norm > 1e-6 && horizontal/norm >= 0.25 &&
+        best->ray_distance_sum/best->frames <= best_geometry+1e-6 &&
+        bearing(*best) >= 0.5;
+      for (const auto &[key, c] : candidates) {
+        if (&c == best || c.frames < STABLE_TARGET_MIN_FRAMES ||
+            c.best_ray_distance > STABLE_TARGET_MAX_BEST_RAY_3D_M ||
+            c.ray_distance_sum/c.frames > STABLE_TARGET_MAX_AVG_RAY_3D_M) continue;
+        if (!(bearing(c) <= -0.5)) corroborated = false;
+      }
+      if (!corroborated) return false;
+      if (report) RCLCPP_INFO(this->get_logger(),
+        "[ObserveTarget] Image winner corroborated by coarse arm bearing; "
+        "all competing candidates are behind the hand (pose-only, not depth)");
+    }
 
 
     target_position_.x = best->x;
@@ -1479,11 +2230,14 @@ private:
     target_position_.z = best->z;
     target_valid_ = true;
     target_class_ = best->name;
-    RCLCPP_INFO(this->get_logger(),
-                "[ObserveTarget] Stable pointed target: class='%s' pos=(%.2f, %.2f, %.2f) frames=%d avg_ray=%.2fm score=%.2f",
+    if (report) RCLCPP_INFO(this->get_logger(),
+                "[ObserveTarget] Stable pointed target: class='%s' pos=(%.2f, %.2f, %.2f) frames=%d geometry_cost=%.3f evidence=%s score=%.2f",
                 target_class_.c_str(), target_position_.x, target_position_.y,
                 target_position_.z, best->frames,
-                best->ray_distance_sum / best->frames, best_score);
+                best->ray_distance_sum / best->frames,
+                locked_historical_arm_ ? "retained_full_arm" :
+                (locked_pointing_.depth_direction_valid ? "rgbd+image_plane" : "image_plane"),
+                best_score);
     return true;
   }
 
@@ -1534,9 +2288,27 @@ private:
 
   bool hasObservedNonPersonObject() const
   {
+    // A distractor must not prevent the one-shot reduced-view recovery.
+    // Keep the original locked gesture; do not reacquire a later gesture.
+    if (!has_locked_pointing_) return false;
     for (const auto &frame : obs_objects_) {
       for (const auto &obj : frame.objects) {
-        if (obj.class_name != "person") return true;
+        if (!obj.has_3d_position || obj.confidence < STABLE_TARGET_MIN_CONFIDENCE ||
+            !isLikelyPortableClass(obj.class_name) ||
+            !isReachableGraspHeight(obj.position_3d.z)) continue;
+        const auto &p = locked_pointing_;
+        if (p.plane_valid) {
+          if (interactive_cleanup::pointingPlaneAngle(
+                obj.position_3d, p.plane_origin, p.plane_normal) > 0.12 ||
+              !interactive_cleanup::pointingHalfspaceContains(
+                obj.position_3d, p.plane_origin, p.plane_forward, 0.03) ||
+              !interactive_cleanup::pointingHalfspaceContains(
+                obj.position_3d, p.plane_origin, p.camera_forward)) continue;
+          if (!p.depth_direction_valid) return true;
+        }
+        if (pointRayDist3D(obj.position_3d.x, obj.position_3d.y, obj.position_3d.z,
+              p.origin.x, p.origin.y, p.origin.z,
+              p.direction.x, p.direction.y, p.direction.z) <= 0.55) return true;
       }
     }
     return false;
@@ -1697,7 +2469,11 @@ private:
       return {0.32, 0.0, 0.024, 0.133, true};
     }
     if (name.rfind("trash_box_for_", 0) == 0) {
-      return {0.55, 0.0, 0.0, 0.0, true};
+      // The bin outer footprint is about 0.50 x 0.60 m. An 8 cm
+      // approach-side offset stays within that footprint and covers the
+      // 6.2 cm residual seen when the base-clearance guard stopped the last
+      // release attempt.
+      return {0.55, 0.08, 0.0, 0.0, true};
     }
     return {0.65, 0.12, 0.0, 0.0, false};
   }
@@ -1716,21 +2492,21 @@ private:
     const double ux = norm > 1e-6 ? from_center_x / norm : 1.0;
     const double uy = norm > 1e-6 ? from_center_y / norm : 0.0;
 
-    // On a surface, use a point slightly toward the robot.  It remains well
-    // inside even the smallest official tabletop trigger and shortens the
-    // required reach.  Containers must use their exact opening centre.
+    // Use a point slightly toward the robot. It remains inside the placement
+    // region while shortening the reach from the safe approach pose.
     placement_position_.x =
-      center_x + placement_profile_.surface_inset * ux;
+      center_x + placement_profile_.approach_inset * ux;
     placement_position_.y =
-      center_y + placement_profile_.surface_inset * uy;
+      center_y + placement_profile_.approach_inset * uy;
     placement_position_.z = placement_profile_.release_height;
     placement_ready_ = true;
     RCLCPP_INFO(
       this->get_logger(),
-      "[Placement] '%s' target=(%.2f, %.2f, %.2f) mode=%s",
+      "[Placement] '%s' target=(%.2f, %.2f, %.2f) mode=%s approach_inset=%.2fm",
       dest_class_.c_str(), placement_position_.x, placement_position_.y,
       placement_position_.z,
-      placement_profile_.drop_in ? "drop-in" : "surface");
+      placement_profile_.drop_in ? "drop-in" : "surface",
+      placement_profile_.approach_inset);
     return true;
   }
 
@@ -1755,7 +2531,7 @@ private:
 
     double ground_norm = std::hypot(
       last_valid_pointing_.direction.x, last_valid_pointing_.direction.y);
-    if (ground_norm < 1e-3) {
+    if (ground_norm < 1e-3 && !last_valid_pointing_.plane_valid) {
       return false;
     }
 
@@ -1765,12 +2541,129 @@ private:
 
   bool lockRecentPointing()
   {
-    PointingDirection pt;
-    if (!getRecentValidPointing(pt)) {
+    if (has_locked_pointing_) return true;
+    locked_historical_arm_ = false;
+    if (lockCurrentPointing()) return true;
+    // Command-driven fallback only: keep stable pre-Pick preview unchanged.
+    if (step_ != ObserveTarget || destination_window_.begin_ns == 0 ||
+        !has_retained_arm_pointing_) return false;
+    const double age = std::chrono::duration<double>(
+      std::chrono::steady_clock::now()-retained_arm_time_).count();
+    if (age > POINTING_MEMORY_SEC) return false;
+    locked_pointing_ = retained_arm_pointing_;
+    // Historical endpoint/pose geometry is an estimate, not a depth fit.
+    // Rank by spatial ray distance as d902b25 did, without the image-plane
+    // veto that becomes unstable for foreshortened full arms.
+    locked_pointing_.depth_direction_valid = false;
+    locked_pointing_.plane_valid = false;
+    has_locked_pointing_ = true;
+    locked_historical_arm_ = true;
+    // Retention is not confirmation: a walking/turning arm can be the last
+    // full-arm observation. Test it against the accumulated object frames
+    // before stopping the live gesture/head search.
+    if (!selectStableTargetForRay(false)) {
+      has_locked_pointing_ = false;
+      locked_historical_arm_ = false;
+      RCLCPP_INFO_THROTTLE(this->get_logger(), perception_stamp_clock_, 2000,
+        "[PickupMemory] Retained ray age=%.2fs has no stable object match; "
+        "continuing live gesture search", age);
       return false;
     }
+    close_gesture_search_active_ = false;
+    close_gesture_search_index_ = 0;
+    RCLCPP_INFO(this->get_logger(),
+      "[PickupMemory] Using pre-Pick full-arm estimate age=%.2fs stamp=%.9f; "
+      "confirmed by multi-frame object agreement", age,
+      rclcpp::Time(locked_pointing_.header.stamp).seconds());
+    return true;
+  }
+
+  bool buildCurrentPointing(PointingDirection &pt)
+  {
+    if (!getRecentValidPointing(pt)) {
+      if (hasRecentRawPointing()) {
+        RCLCPP_WARN_THROTTLE(
+          this->get_logger(), *this->get_clock(), 2000,
+          "[ObserveTarget] Raw gesture exists but no settled valid world ray "
+          "is retained yet");
+      }
+      return false;
+    }
+    const double image_length = std::hypot(
+      pt.point_pixel_x - pt.wrist_pixel_x,
+      pt.point_pixel_y - pt.wrist_pixel_y);
+    if ((!std::isfinite(image_length) || image_length < MIN_PICKUP_IMAGE_SEGMENT) &&
+        (!pt.depth_direction_valid || pt.depth_direction_samples < 4)) {
+      // Do not permanently lock a foreshortened pose-only estimate. Keep
+      // observing the tracked person until a real depth fit or a visible
+      // finger segment arrives.
+      RCLCPP_WARN_THROTTLE(
+        this->get_logger(), *this->get_clock(), 2000,
+        "[ObserveTarget] Rejecting foreshortened fallback ray: "
+        "image_segment=%.1fpx depth_valid=%s depth_samples=%u",
+        image_length, pt.depth_direction_valid ? "true" : "false",
+        static_cast<unsigned>(pt.depth_direction_samples));
+      has_last_valid_pointing_ = false;
+      return false;
+    }
+    if (!pt.depth_direction_valid) {
+      // A pose-only direction must not become a permanent target ray from
+      // one short-lived hand detection. Use the same temporal confirmation
+      // as pre-command observation, restricted to usable image segments.
+      std::vector<PointingDirection> samples;
+      for (const auto &sample : pickup_pointing_history_) {
+        const double length = std::hypot(
+          sample.point_pixel_x - sample.wrist_pixel_x,
+          sample.point_pixel_y - sample.wrist_pixel_y);
+        if (sample.geometry_source == pt.geometry_source &&
+            !sample.depth_direction_valid && std::isfinite(length) &&
+            length >= MIN_PICKUP_IMAGE_SEGMENT) samples.push_back(sample);
+      }
+      if (samples.empty() || samples.back().header.stamp != pt.header.stamp ||
+          !interactive_cleanup::stablePickupPreview(samples)) {
+        RCLCPP_INFO_THROTTLE(this->get_logger(), perception_stamp_clock_, 2000,
+          "[GestureAudit] image ray not locked: waiting for 3 consistent frames over 0.6s");
+        return false;
+      }
+    }
+    if (pt.depth_direction_valid) {
+      int support = 0;
+      for (const auto &sample : pickup_pointing_history_) {
+        if (!sample.depth_direction_valid || sample.geometry_source != pt.geometry_source) continue;
+        const double age = std::abs((rclcpp::Time(pt.header.stamp) -
+          rclcpp::Time(sample.header.stamp)).seconds());
+        const double dot = pt.direction.x*sample.direction.x +
+          pt.direction.y*sample.direction.y + pt.direction.z*sample.direction.z;
+        // Pose/hand inference can be spaced 2–3 s apart in the simulator.
+        // Keep a short multi-frame confirmation window long enough to contain
+        // two distinct depth fits without relaxing the angular agreement.
+        if (age > 4.0 || dot < std::cos(0.35)) continue;
+        ++support;
+      }
+      // A single frame with low fit error is not temporal confirmation.
+      if (support < 2) {
+        RCLCPP_INFO_THROTTLE(this->get_logger(), perception_stamp_clock_, 2000,
+          "[GestureAudit] depth ray not locked: support=%d required=2", support);
+        return false;
+      }
+      // History corroborates this observation; it must not manufacture a
+      // mean 3-D ray paired with a plane/pose from only the newest frame.
+      // Keep origin, depth direction and image plane from one capture.
+    }
+    return true;
+  }
+
+  bool lockCurrentPointing()
+  {
+    PointingDirection pt;
+    if (!buildCurrentPointing(pt)) return false;
     locked_pointing_ = pt;
     has_locked_pointing_ = true;
+    // This is a provisional observation direction, not a confirmed object.
+    // Only confirmed evidence completes a search. Isolated crop detections
+    // must not repeatedly restart the sweep at its first two views.
+    close_gesture_search_active_ = false;
+    close_gesture_search_index_ = 0;
     return true;
   }
 
@@ -1822,6 +2715,8 @@ private:
     observe_scan_active_ = true;
     observe_scan_start_time_ = std::chrono::steady_clock::now();
     scan_index_ = 0;
+    avatar_search_pose_index_ = 0;
+    last_avatar_search_time_ = {};
     stopBase();
     headLookDown();
     RCLCPP_INFO(this->get_logger(), "[%s] Starting local head scan", label);
@@ -1963,6 +2858,12 @@ private:
     failed_detail_ = "";
     received_pick_command_ = false;
     received_clean_command_ = false;
+    early_pick_attempted_ = false;
+    early_pick_observing_ = false;
+    preconfirmed_target_ = false;
+    preconfirmed_target_time_ = {};
+    clean_drain_deadline_ = {};
+    destination_window_ = {};
     received_yes_ = false;
     received_no_ = false;
     state_timer_initialized_ = false;
@@ -1973,7 +2874,26 @@ private:
     has_new_objects_ = false;
     has_new_pointing_ = false;
     has_last_valid_pointing_ = false;
+    has_retained_arm_pointing_ = false;
+    retained_arm_time_ = {};
+    locked_historical_arm_ = false;
+    pickup_pointing_history_.clear();
+    pickup_ray_hypotheses_.clear();
+    head_observation_not_before_ns_ = 0;
+    head_motion_ready_time_ = {};
     has_locked_pointing_ = false;
+    has_person_observation_ = false;
+    last_person_seen_time_ = {};
+    last_person_observation_time_ = {};
+    last_raw_pointing_time_ = {};
+    last_close_gesture_search_time_ = {};
+    last_person_pixel_x_ = 320.0;
+    last_person_pixel_y_ = 240.0;
+    last_avatar_track_time_ = {};
+    last_avatar_search_time_ = {};
+    avatar_search_pose_index_ = 0;
+    close_gesture_search_index_ = 0;
+    close_gesture_search_active_ = false;
     target_valid_ = false;
     dest_valid_ = false;
     placement_ready_ = false;
@@ -1985,10 +2905,11 @@ private:
     obs_objects_.clear();
     obs_pointings_.clear();
     destination_pointing_history_.clear();
+    destination_image_pointing_history_.clear();
     destination_capture_closed_ = false;
-    destination_capture_armed_ = false;
     destination_gesture_started_ = false;
-    destination_release_invalid_frames_ = 0;
+    pointing_camera_ready_time_ = {};
+    destination_camera_ready_time_ = {};
     observe_align_active_ = false;
     observe_scan_active_ = false;
     resetNavState();
@@ -2072,9 +2993,13 @@ private:
 
     // -----------------------------------------------------------------
     case Ready: {
-      if (is_started_) {
+      if (is_started_ && vision_ready_) {
         armObserve();
         headCenter();
+        pointing_camera_ready_time_ = std::chrono::steady_clock::now() +
+          std::chrono::duration_cast<std::chrono::steady_clock::duration>(
+            std::chrono::duration<double>(
+              1.0 + DESTINATION_HEAD_SETTLE_SEC));
         sendReadyAck("transition to task start");
         enableVision(true);
         changeStep(WaitForPickCommand);
@@ -2084,15 +3009,56 @@ private:
 
     // -----------------------------------------------------------------
     case WaitForPickCommand: {
-      trackAvatarWithHead();
+      // Start the existing target observation algorithm during a stable first
+      // gesture. This is perception only; no pickup or protocol claim yet.
+      if (!received_pick_command_ && !early_pick_attempted_ &&
+          hasRecentVisibleAvatar() && hasRecentRawPointing(1.5) &&
+          interactive_cleanup::stablePickupPreview(pickup_pointing_history_) &&
+          lockRecentPointing()) {
+        early_pick_attempted_ = true;
+        early_pick_observing_ = true;
+        obs_objects_.clear();
+        obs_pointings_.clear();
+        target_view_recovery_count_ = 0;
+        target_aim_pose_valid_ = false;
+        RCLCPP_INFO(this->get_logger(),
+          "[PrePick] Stable gesture for >=0.6s; observing target before command");
+        changeStep(ObserveTarget);
+        break;
+      }
+      if (hasRecentVisibleAvatar()) {
+        // A visible hand does not mean the person has stopped moving.
+        // Continue following; acquire the pickup ray once the view settles.
+        const bool tracked = trackAvatarWithHead();
+        if (!tracked && !hasRecentRawPointing() && elapsed() >= 2.0) {
+          searchGestureAroundVisibleAvatar();
+        }
+      } else {
+        searchAvatarWithHead();
+      }
       if (received_pick_command_) {
         RCLCPP_INFO(this->get_logger(), "[WaitForPick] Got Pick_it_up! → observing target");
         received_pick_command_ = false;
+        if (preconfirmed_target_ && target_valid_ &&
+            std::chrono::duration<double>(std::chrono::steady_clock::now() -
+              preconfirmed_target_time_).count() <= POINTING_MEMORY_SEC) {
+          preconfirmed_target_ = false;
+          destination_pointing_history_.clear();
+          destination_image_pointing_history_.clear();
+          destination_capture_closed_ = false;
+          destination_gesture_started_ = false;
+          RCLCPP_INFO(this->get_logger(),
+            "[PrePick] Reusing confirmed '%s'; destination capture starts immediately",
+            target_class_.c_str());
+          changeStep(WaitForCleanCommand);
+          break;
+        }
+        preconfirmed_target_ = false;
+        target_valid_ = false;
         destination_pointing_history_.clear();
+        destination_image_pointing_history_.clear();
         destination_capture_closed_ = false;
-        destination_capture_armed_ = false;
         destination_gesture_started_ = false;
-        destination_release_invalid_frames_ = 0;
         obs_objects_.clear();
         obs_pointings_.clear();
         scan_index_ = 0;
@@ -2110,7 +3076,7 @@ private:
     case ObserveTarget: {
       if (sub_step_ == 0) {
         if (lockRecentPointing()) {
-          if (aimHeadAlongImagePointing(locked_pointing_)) {
+          if (aimHeadAlongPointing(locked_pointing_)) {
             obs_objects_.clear();
             sub_step_ = 1;
             enterTimedState();
@@ -2123,19 +3089,32 @@ private:
           sub_step_ = 4;
         }
       } else if (sub_step_ == 4) {
-        trackAvatarWithHead();
         if (lockRecentPointing()) {
           RCLCPP_INFO(this->get_logger(),
                       "[ObserveTarget] Pointing acquired; holding current view");
           // Give target voting a complete window from the retained first
           // gesture and move the head once along its image-space direction.
           state_enter_time_ = std::chrono::steady_clock::now();
-          if (aimHeadAlongImagePointing(locked_pointing_)) {
+          if (aimHeadAlongPointing(locked_pointing_)) {
             obs_objects_.clear();
             sub_step_ = 1;
           } else {
             beginPointingHold("ObserveTarget");
             sub_step_ = 2;
+          }
+        } else if (hasRecentVisibleAvatar() && hasRecentRawPointing() &&
+                   personOutsideGestureCaptureEnvelope()) {
+          trackAvatarWithHead();
+        } else if (hasRecentVisibleAvatar() && !hasRecentRawPointing() &&
+                   elapsed() >= 0.5) {
+          if (!trackAvatarWithHead()) {
+            searchGestureAroundVisibleAvatar();
+          }
+        } else if (!hasRecentRawPointing()) {
+          if (hasRecentVisibleAvatar()) {
+            trackAvatarWithHead();
+          } else {
+            searchAvatarWithHead();
           }
         }
       } else if (sub_step_ == 1 && elapsed() >= 1.0) {
@@ -2156,7 +3135,7 @@ private:
         obs_objects_.clear();
         RCLCPP_WARN(
           this->get_logger(),
-          "[ObserveTarget] Directed view contains no objects; "
+          "[ObserveTarget] Directed view contains no objects consistent with the locked gesture; "
           "trying one reduced same-direction view pan=%.2f tilt=%.2f",
           recovery_pan, recovery_tilt);
         sub_step_ = 6;
@@ -2184,22 +3163,43 @@ private:
         obs_objects_.clear();
         obs_pointings_.clear();
         destination_pointing_history_.clear();
+        destination_image_pointing_history_.clear();
         destination_capture_closed_ = false;
-        destination_capture_armed_ = false;
         destination_gesture_started_ = false;
-        destination_release_invalid_frames_ = 0;
-        // Do not accept another valid ray until the first gesture has visibly
-        // ended.  This prevents its tail from becoming the destination cue.
-        has_locked_pointing_ = false;
+        // Prepare to observe the destination. Before Pick_it_up!, this is
+        // preparation only: destination_window_ still rejects those frames.
+        // destination_camera_ready_time_ below is the guard against retaining
+        // the pickup view while the head returns to the Avatar. Requiring an
+        // inferred release lost valid second gestures in real runs.
         has_last_valid_pointing_ = false;
+        has_locked_pointing_ = false;
         RCLCPP_INFO(this->get_logger(),
                     "[ObserveTarget] Target confirmed without camera scan");
         // The directed target view usually no longer contains the Avatar.
         // Return the head to the person before the second gesture begins;
-        // WaitForClean will then continue tracking and hold the view once a
-        // new valid destination gesture appears.
+        // WaitForClean then continuously follows the moving Avatar and only
+        // votes with samples captured after each correction has settled.
         headCenter();
-        changeStep(WaitForCleanCommand);
+        destination_camera_ready_time_ = std::chrono::steady_clock::now() +
+          std::chrono::duration_cast<std::chrono::steady_clock::duration>(
+            std::chrono::duration<double>(1.0 + DESTINATION_HEAD_SETTLE_SEC));
+        if (early_pick_observing_ && !received_pick_command_) {
+          invalidatePickupPointingForHeadMotion(
+            std::chrono::steady_clock::now(), 1.0);
+          early_pick_observing_ = false;
+          preconfirmed_target_ = true;
+          preconfirmed_target_time_ = std::chrono::steady_clock::now();
+          RCLCPP_INFO(this->get_logger(),
+            "[PrePick] Cached '%s'; returning to person while awaiting Pick_it_up!",
+            target_class_.c_str());
+          changeStep(WaitForPickCommand);
+        } else {
+          RCLCPP_INFO(this->get_logger(),
+            "[WaitForClean] Target confirmed; collecting post-Pick destination evidence");
+          early_pick_observing_ = false;
+          received_pick_command_ = false;
+          changeStep(WaitForCleanCommand);
+        }
         break;
       }
 
@@ -2223,6 +3223,21 @@ private:
         (sub_step_ == 4) ? TIMEOUT_POINTING_WAIT :
         (sub_step_ == 7) ? 5.0 : TIMEOUT_OBSERVE;
       if (elapsed() >= target_observe_timeout) {
+        if (early_pick_observing_ && !received_pick_command_ &&
+            !received_clean_command_) {
+          early_pick_observing_ = false;
+          has_locked_pointing_ = false;
+          has_last_valid_pointing_ = false;
+          pickup_pointing_history_.clear();
+          obs_objects_.clear();
+          headCenter();
+          invalidatePickupPointingForHeadMotion(
+            std::chrono::steady_clock::now(), 1.0);
+          RCLCPP_INFO(this->get_logger(),
+            "[PrePick] Preview inconclusive; returning to normal command-driven recognition");
+          changeStep(WaitForPickCommand);
+          break;
+        }
         stopBase();
         logObservationSummary("ObserveTarget");
         logPointingRayDiagnostics("ObserveTarget");
@@ -2243,38 +3258,57 @@ private:
 
     // -----------------------------------------------------------------
     case WaitForCleanCommand: {
-      // Keep following the Avatar until the first gesture is released. Once
-      // the distinct destination gesture starts, the pointing callback holds
-      // that view and buffers its rays until Clean_up!.
-      reacquireAvatarForDestination();
+      // Follow the Avatar for the entire transition and destination gesture.
+      // Any head correction invalidates older pixel rays; the callback starts
+      // a fresh vote after the camera settles instead of freezing the view.
+      if (!received_clean_command_) reacquireAvatarForDestination();
 
       if (received_clean_command_) {
+        // Drain inference already in flight, not new post-command gestures.
+        // pointingCallback gates every result by its capture timestamp.
+        if (std::chrono::steady_clock::now() < clean_drain_deadline_) {
+          stopBase();
+          break;
+        }
         RCLCPP_INFO(this->get_logger(),
                     "[WaitForClean] Got Clean_up! → resolving destination gesture");
         received_clean_command_ = false;
         stopBase();
 
         // Clean_up! is the end marker for the second gesture. Resolve only if
-        // the first gesture was released and a distinct second gesture began.
-        if (!destination_capture_armed_ || !destination_gesture_started_) {
+        // at least one settled ray was captured after the protocol boundary.
+        if (destination_pointing_history_.empty()) {
           RCLCPP_WARN(
             this->get_logger(),
-            "[WaitForClean] No distinct second gesture was captured before "
-            "Clean_up!");
-          giveUp();
-          changeStep(WaitForResult);
+            "[WaitForClean] No settled destination gesture was captured before "
+            "Clean_up!; continuing with pickup-only scoring");
+          // Target recognition and pickup are independently scoreable.  A
+          // missing destination must not discard the already confirmed target
+          // or prevent the robot from attempting the grasp.
+          dest_valid_ = false;
+          placement_ready_ = false;
+          enableVision(false);
+          changeStep(MoveToObject);
         } else if (selectDestinationByPointingRay()) {
           enableVision(false);
           changeStep(MoveToObject);
         } else {
           RCLCPP_WARN(this->get_logger(),
-                      "[WaitForClean] Frozen pre-Clean destination gesture "
+                      "[WaitForClean] Settled pre-Clean destination gesture "
                       "was insufficient");
           // Clean_up! closes this task's second gesture. Continuing to watch
           // after it consumes the next task's Pick/gesture, as seen in the
           // 22:48 run. Never recover across that protocol boundary.
-          giveUp();
-          changeStep(WaitForResult);
+          // Still preserve the independently scoreable pickup phase.  Do not
+          // invent a placement coordinate or alter either recognition path.
+          dest_valid_ = false;
+          placement_ready_ = false;
+          enableVision(false);
+          RCLCPP_WARN(
+            this->get_logger(),
+            "[WaitForClean] Destination unresolved; continuing with "
+            "pickup-only scoring");
+          changeStep(MoveToObject);
         }
       } else if (elapsed() > TIMEOUT_WAIT_COMMAND) {
         giveUp();
@@ -2301,7 +3335,10 @@ private:
             changeStep(WaitForResult);
             break;
           }
-          armObserve();
+          // The observation wrist pose projects the open hand across the
+          // close-range camera view (recorded floor-target occlusion).
+          // Tuck the wrist during approach; extend only for pregrasp.
+          armInitial();
           headLookDown();
           gripperOpen();
           RCLCPP_INFO(this->get_logger(), "[MoveToObj] Preparing approach...");
@@ -2403,6 +3440,13 @@ private:
             double best_dist = 9999.0;
             for (const auto &o : latest_objects_.objects) {
               if (o.class_name != target_class_) continue;
+              // Image-centre proximity alone can switch to another instance
+              // of the same class. Refine only near the selected world point.
+              if (!o.has_3d_position ||
+                  !isReachableGraspHeight(o.position_3d.z) ||
+                  std::hypot(o.position_3d.x-target_position_.x,
+                             o.position_3d.y-target_position_.y) > 0.20 ||
+                  std::abs(o.position_3d.z-target_position_.z) > 0.10) continue;
               double d = std::hypot(o.bbox_cx - 320.0, o.bbox_cy - 240.0);
               if (d < best_dist) { best_dist = d; match = &o; }
             }
@@ -2539,14 +3583,16 @@ private:
           // Positive motion advances the base.  Requiring the trigger
           // midpoint to finish slightly beyond the visible front surface
           // places the object inside the open fingers before they close.
-          double forward =
-            surface_forward + GRIPPER_TARGET_INSERTION_DEPTH;
+          // Low floor objects are easily pushed by the descending fingers.
+          // Remove the extra 1 cm insertion for this height band only;
+          // preserve the validated elevated-object grasp geometry.
+          const double insertion_depth = target_position_.z < 0.15
+            ? 0.0 : GRIPPER_TARGET_INSERTION_DEPTH;
+          double forward = surface_forward + insertion_depth;
           double lateral = -std::sin(robot.yaw) * world_dx +
                             std::cos(robot.yaw) * world_dy;
 
-          const bool aligned =
-            std::abs(forward) <= GRIPPER_ALIGN_FORWARD_TOLERANCE &&
-            std::abs(lateral) <= GRIPPER_ALIGN_LATERAL_TOLERANCE;
+          const bool aligned = graspHorizontalAligned(target_position_, gripper, robot.yaw);
           // Once the selected target has been localized, TF provides a much
           // steadier relative measurement than close-range vision.  The arm
           // commonly occludes the object at this point, so do not require a
@@ -2604,6 +3650,19 @@ private:
               changeStep(WaitForResult);
               break;
             }
+            // The 3 mm elevated insertion tolerance belongs to the moving
+            // pregrasp servo. Applying it as a new abort condition after
+            // descent regressed successful grasps. Restore the established
+            // height-checked closure and retain XY as diagnostic evidence.
+            const auto robot = getRobotPose();
+            if (robot.valid) {
+              const double dx = target_position_.x - gripper.x;
+              const double dy = target_position_.y - gripper.y;
+              RCLCPP_INFO(this->get_logger(),
+                "[Grasp] Post-lowering diagnostic: surface_forward=%.4fm lateral=%.4fm",
+                std::cos(robot.yaw)*dx + std::sin(robot.yaw)*dy,
+                -std::sin(robot.yaw)*dx + std::cos(robot.yaw)*dy);
+            }
             const double desired_tip_z = std::max(
               GRIPPER_DOWNWARD_BASE_HEIGHT,
               target_position_.z + GRIPPER_CONTACT_HEIGHT_OFFSET);
@@ -2639,8 +3698,29 @@ private:
 
     // -----------------------------------------------------------------
     case SendObjectGrasped: {
-      sendMessage(MSG_OBJECT_GRASPED);
-      changeStep(MoveToDestination);
+      if (sub_step_ == 0) {
+        // Always report the independently completed grasp before deciding
+        // whether a placement phase is available.
+        sendMessage(MSG_OBJECT_GRASPED);
+        if (dest_valid_) {
+          changeStep(MoveToDestination);
+        } else {
+          stopBase();
+          RCLCPP_WARN(
+            this->get_logger(),
+            "[SendGrasped] Pickup completed and reported, but no valid "
+            "destination is available; preserving grasp before Give_up");
+          sub_step_ = 1;
+          enterTimedState();
+        }
+      } else if (sub_step_ == 1 && elapsed() >= 1.0) {
+        // Give the moderator time to evaluate Object_grasped while the object
+        // remains in the closed gripper and the arm remains in carry pose.
+        // Sending Give_up directly avoids emergencyStop retracting the arm
+        // before that independently scoreable event has been evaluated.
+        sendMessage(MSG_GIVE_UP);
+        changeStep(WaitForResult);
+      }
       break;
     }
 
@@ -2933,6 +4013,13 @@ private:
     // -----------------------------------------------------------------
     case WaitForResult: {
       enableVision(false);
+      if (!is_finished_ && elapsed() >= 5.0 * (sub_step_ + 1)) {
+        ++sub_step_;
+        RCLCPP_WARN(this->get_logger(),
+          "[WaitResult] No moderator result after %.1fs; "
+          "moderator-topic subscribers=%zu. Not declaring success or replaying commands.",
+          elapsed(), pub_msg_->get_subscription_count());
+      }
       if (is_finished_) {
         RCLCPP_INFO(this->get_logger(), "[WaitResult] Task succeeded!");
         step_ = Initialize;
@@ -2947,6 +4034,7 @@ private:
   }
 };
 
+#ifndef CLEANUP_CONTROLLER_TEST
 int main(int argc, char **argv)
 {
   rclcpp::init(argc, argv);
@@ -2955,3 +4043,4 @@ int main(int argc, char **argv)
   rclcpp::shutdown();
   return ret;
 }
+#endif

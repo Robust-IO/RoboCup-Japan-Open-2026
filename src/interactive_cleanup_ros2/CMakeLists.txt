@@ -79,6 +79,14 @@ install(DIRECTORY
 if(BUILD_TESTING)
   find_package(ament_cmake_gtest REQUIRED)
   find_package(Python3 REQUIRED COMPONENTS Interpreter)
+  ament_add_gtest(cleanup_timing_test
+    test/cleanup_timing_test.cpp
+    src/place_destination_resolver.cpp)
+  target_include_directories(cleanup_timing_test PRIVATE include)
+  ament_target_dependencies(cleanup_timing_test
+    rclcpp rclcpp_action std_msgs geometry_msgs trajectory_msgs sensor_msgs
+    tf2 tf2_ros tf2_geometry_msgs nav2_msgs cleanup_vision_ros2 interactive_cleanup_msgs)
+  target_link_libraries(cleanup_timing_test yaml-cpp)
 
   ament_add_gtest(navigation_utils_test
     test/navigation_utils_test.cpp

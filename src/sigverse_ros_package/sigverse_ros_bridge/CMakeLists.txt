@@ -48,5 +48,13 @@ install(
   DESTINATION share/${PROJECT_NAME}
 )
 
+if(BUILD_TESTING)
+  find_package(ament_cmake_gtest REQUIRED)
+  ament_add_gtest(source_stamp_test test/source_stamp_test.cpp)
+  target_include_directories(source_stamp_test PRIVATE src)
+  target_link_libraries(source_stamp_test bsoncxx)
+  ament_target_dependencies(source_stamp_test rclcpp)
+endif()
+
 ament_package()
 

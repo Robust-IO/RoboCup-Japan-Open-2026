@@ -44,6 +44,7 @@ struct DestinationResolution
   int usable_samples{0};
   bool image_evidence_used{false};
   bool reversed{false};
+  bool horizontal_bearing_used{false};
   std::string runner_up_name;
   double runner_up_cost{0.0};
   std::string rejection_reason;
