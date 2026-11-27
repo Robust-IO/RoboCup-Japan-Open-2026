@@ -1,0 +1,43 @@
+{
+  "status": "offline_independent_laser_camera_alignment_verified",
+  "robot_commands_sent": false,
+  "map_transform_changed": false,
+  "laser_audit": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/source-laser-audit-20261101-194913",
+  "old_front": {
+    "source": "current_connected_top_and_lower_front_face_depth",
+    "source_depth_stamp_ns": 1793533228948645811,
+    "edge_points": 1378,
+    "approached_axis": 0,
+    "approached_sign": -1,
+    "observed_front_map_m": 10.96649225804284,
+    "original_front_map_m": 10.642868041992188,
+    "corrected_front_map_m": 10.95649225804284,
+    "semantic_identity_unchanged": true
+  },
+  "corrected_front": {
+    "source": "current_connected_top_and_lower_front_face_depth",
+    "source_depth_stamp_ns": 1793533228948645811,
+    "edge_points": 1429,
+    "approached_axis": 0,
+    "approached_sign": -1,
+    "observed_front_map_m": 10.658182355402944,
+    "original_front_map_m": 10.642868041992188,
+    "corrected_front_map_m": 10.648182355402945,
+    "semantic_identity_unchanged": true
+  },
+  "new_map_from_odom_estimate": {
+    "translation": [
+      0.41869338198924666,
+      -0.21138141749495443,
+      0.0005256880187599073
+    ],
+    "quaternion": [
+      3.0492687380990915e-05,
+      7.185606309248857e-06,
+      0.0325215583157526,
+      0.999471033728981
+    ]
+  },
+  "conclusion": "Original imported table boundary and RGBD front agree after independent laser pose correction. Do not deploy footprint-shrinking workaround as the localization fix.",
+  "pending": "Robot remains empty/open after lateral alignment. Correct and validate current-session localization before resuming the task; no new grasp executed."
+}

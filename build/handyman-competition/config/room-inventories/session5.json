@@ -1,0 +1,209 @@
+{
+  "schema": "handyman_room_inventory_v1",
+  "session_number": 5,
+  "layout": "LayoutD",
+  "complete": true,
+  "assumption": "preset_positions_not_randomized",
+  "source_sha256": "07b6bf856bb4f4279c4df1bc6975a67fe488a9b43d831b409b483c57c6b3e738",
+  "source_filename": "EnvironmentInfo05.json",
+  "objects": [
+    {
+      "target": "toy_duck",
+      "instance": "toy_duck#1",
+      "room": "bedroom",
+      "furniture_id": "iron_bed#bedroom",
+      "preset_position_map_m": [
+        7.326000213623047,
+        -6.5289998054504395,
+        0.6039999723434448
+      ]
+    },
+    {
+      "target": "sugar",
+      "instance": "sugar#1",
+      "room": "kitchen",
+      "furniture_id": null,
+      "preset_position_map_m": [
+        -0.9409999847412109,
+        6.080000400543213,
+        0.7109999656677246
+      ]
+    },
+    {
+      "target": "tumbler",
+      "instance": "tumbler#1",
+      "room": "lobby",
+      "furniture_id": "dining_table#lobby",
+      "preset_position_map_m": [
+        1.8819999694824219,
+        -8.145999908447266,
+        0.7459999918937683
+      ]
+    },
+    {
+      "target": "canned_juice",
+      "instance": "canned_juice#1",
+      "room": "bedroom",
+      "furniture_id": "white_side_table#bedroom",
+      "preset_position_map_m": [
+        10.052999496459961,
+        -6.934999942779541,
+        0.4960000216960907
+      ]
+    },
+    {
+      "target": "toy_penguin",
+      "instance": "toy_penguin#1",
+      "room": "kitchen",
+      "furniture_id": null,
+      "preset_position_map_m": [
+        -0.9809999465942383,
+        5.785000324249268,
+        0.7109999656677246
+      ]
+    },
+    {
+      "target": "cubic_clock",
+      "instance": "cubic_clock#1",
+      "room": "living_room",
+      "furniture_id": "wooden_shelf#living_room",
+      "preset_position_map_m": [
+        -1.0900001525878906,
+        -1.8399999141693115,
+        0.6809999942779541
+      ]
+    },
+    {
+      "target": "sauce",
+      "instance": "sauce#1",
+      "room": "lobby",
+      "furniture_id": "dining_table#lobby",
+      "preset_position_map_m": [
+        1.8779997825622559,
+        -6.329999923706055,
+        0.7459999918937683
+      ]
+    },
+    {
+      "target": "ground_pepper",
+      "instance": "ground_pepper#1",
+      "room": "bedroom",
+      "furniture_id": "white_side_table#bedroom",
+      "preset_position_map_m": [
+        9.507999420166016,
+        -6.927999973297119,
+        0.4960000216960907
+      ]
+    },
+    {
+      "target": "cigarette",
+      "instance": "cigarette#1",
+      "room": "kitchen",
+      "furniture_id": null,
+      "preset_position_map_m": [
+        -0.9260001182556152,
+        5.5370001792907715,
+        0.3009999990463257
+      ]
+    },
+    {
+      "target": "soysauce",
+      "instance": "soysauce#1",
+      "room": "living_room",
+      "furniture_id": "wooden_shelf#living_room",
+      "preset_position_map_m": [
+        -1.119999885559082,
+        -1.7299998998641968,
+        0.32100000977516174
+      ]
+    },
+    {
+      "target": "toy_car",
+      "instance": "toy_car#1",
+      "room": "lobby",
+      "furniture_id": null,
+      "preset_position_map_m": [
+        -0.6740002632141113,
+        -8.493000030517578,
+        0.4690000116825104
+      ]
+    },
+    {
+      "target": "dog_doll",
+      "instance": "dog_doll#1",
+      "room": "bedroom",
+      "furniture_id": null,
+      "preset_position_map_m": [
+        8.32699966430664,
+        -6.917999744415283,
+        0.7259999513626099
+      ]
+    },
+    {
+      "target": "bear_doll",
+      "instance": "bear_doll#1",
+      "room": "living_room",
+      "furniture_id": "square_low_table#living_room",
+      "preset_position_map_m": [
+        1.6,
+        1.6,
+        0.44
+      ]
+    },
+    {
+      "target": "rabbit_doll",
+      "instance": "rabbit_doll#1",
+      "room": "kitchen",
+      "furniture_id": "body#kitchen",
+      "preset_position_map_m": [
+        2.3389997482299805,
+        8.309999465942383,
+        0.7109999656677246
+      ]
+    },
+    {
+      "target": "canned_juice",
+      "instance": "canned_juice#2",
+      "room": "bedroom",
+      "furniture_id": "iron_bed#bedroom",
+      "preset_position_map_m": [
+        7.399999618530273,
+        -6.057999610900879,
+        0.6039999723434448
+      ]
+    },
+    {
+      "target": "filled_ketchup",
+      "instance": "filled_ketchup#1",
+      "room": "lobby",
+      "furniture_id": null,
+      "preset_position_map_m": [
+        -0.8380002975463867,
+        -11.506000518798828,
+        0.3720000088214874
+      ]
+    },
+    {
+      "target": "pink_cup",
+      "instance": "pink_cup#1",
+      "room": "bedroom",
+      "furniture_id": null,
+      "preset_position_map_m": [
+        8.066999435424805,
+        -7.013000011444092,
+        0.7259999513626099
+      ]
+    },
+    {
+      "target": "apple",
+      "instance": "apple#1",
+      "room": "kitchen",
+      "furniture_id": "wooden_side_table#kitchen",
+      "preset_position_map_m": [
+        0.8999998569488525,
+        5.400000095367432,
+        0.38499999046325684
+      ]
+    }
+  ]
+}

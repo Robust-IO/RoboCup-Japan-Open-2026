@@ -1,0 +1,25 @@
+{
+  "robot_commands_sent": false,
+  "logs": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/demo-background-20261114-203101",
+  "bridge_supervisor_pid": 17,
+  "camera_page_pid": 18,
+  "ports": {
+    "9090": true,
+    "50001": true,
+    "8766": true
+  },
+  "startup_candidates": [
+    "deploy_can_startup_20261023.py",
+    "diagnose_can06_startup_20261023.py",
+    "dynamic_pepper_runtime.py",
+    "outcome_transfer_runtime.py",
+    "validate_outcome_runtime_hotfix_20261101.py",
+    "verify_can_startup_live_20261023.py"
+  ],
+  "runtime_folders": [
+    "apple-runtime-20261017",
+    "table-localizer-runtime-20261101-200014",
+    "table-localizer-runtime-20261106-183756",
+    "table-localizer-runtime-20261107-153816"
+  ]
+}

@@ -1,0 +1,360 @@
+{
+  "robot_commands_sent": false,
+  "replay_only": true,
+  "rows": [
+    {
+      "run": "pepper-frozen-cross-object-transfer-20261026-01",
+      "capture": "002-near",
+      "valid": true,
+      "measured_center": [
+        0.979787750627146,
+        0.03226221498687393,
+        0.5236776526279673
+      ],
+      "measured_head": [
+        0.9797923008054851,
+        0.031537870214325255,
+        0.5562172715464284
+      ],
+      "processing_s": 0.010960006999084726
+    },
+    {
+      "run": "pepper-frozen-cross-object-transfer-20261026-01",
+      "capture": "003-near",
+      "static_motion": {
+        "matches": 90,
+        "inliers": 80,
+        "residual_p95_m": 0.006879941446655295,
+        "source": "current_rgbd_static_landmarks",
+        "object_depth_measured": false,
+        "motion_authorized": false,
+        "reference_depth_stamp_ns": 1793009205516423275,
+        "current_depth_stamp_ns": 1793009207801740466,
+        "odom_prediction_correction_m": 0.006485434925236182,
+        "reference_epoch": "pepper-2eb0fd4593774c6d92dfa7683204e37f-rgbd",
+        "prediction_only": true,
+        "current_object_depth_still_required": true
+      },
+      "valid": true,
+      "measured_center": [
+        0.9733057740557975,
+        0.07562200708732708,
+        0.5236567362025502
+      ],
+      "measured_head": [
+        0.9733002335316998,
+        0.07487833545600174,
+        0.5561539575837837
+      ],
+      "processing_s": 0.11247997399186715
+    },
+    {
+      "run": "pepper-frozen-cross-object-transfer-20261026-01",
+      "capture": "004-near",
+      "valid": true,
+      "measured_center": [
+        0.9733317070450173,
+        0.07562561052212262,
+        0.5237019050473858
+      ],
+      "measured_head": [
+        0.9732886147927192,
+        0.07485940071096948,
+        0.5562327506791884
+      ],
+      "processing_s": 0.0015784370189066976
+    },
+    {
+      "run": "pepper-frozen-cross-object-transfer-20261026-01",
+      "capture": "005-near",
+      "valid": false,
+      "reason": "static_background_fit_residual",
+      "processing_s": 0.05956388500635512
+    },
+    {
+      "run": "pepper-frozen-cross-object-transfer-20261026-01",
+      "capture": "006-near",
+      "valid": false,
+      "reason": "static_background_fit_residual",
+      "processing_s": 0.032306979002896696
+    },
+    {
+      "run": "pepper-frozen-cross-object-transfer-20261026-01",
+      "capture": "007-near",
+      "static_motion": {
+        "matches": 88,
+        "inliers": 70,
+        "residual_p95_m": 0.0062427843147558285,
+        "source": "current_rgbd_static_landmarks",
+        "object_depth_measured": false,
+        "motion_authorized": false,
+        "reference_depth_stamp_ns": 1793009207905842143,
+        "current_depth_stamp_ns": 1793009216277786286,
+        "odom_prediction_correction_m": 0.0159144804849137,
+        "reference_epoch": "pepper-2eb0fd4593774c6d92dfa7683204e37f-rgbd",
+        "prediction_only": true,
+        "current_object_depth_still_required": true
+      },
+      "valid": true,
+      "measured_center": [
+        0.8408641677868234,
+        0.0639184996809124,
+        0.5237922906420226
+      ],
+      "measured_head": [
+        0.8397724527065176,
+        0.06406488945921616,
+        0.556859947605246
+      ],
+      "processing_s": 0.04180738399736583
+    },
+    {
+      "run": "pepper-frozen-cross-object-transfer-20261026-01",
+      "capture": "008-near",
+      "valid": true,
+      "measured_center": [
+        0.8408811393339342,
+        0.06392226655739479,
+        0.5236592582034878
+      ],
+      "measured_head": [
+        0.8397756403741743,
+        0.06410580921108151,
+        0.5565966378413368
+      ],
+      "processing_s": 0.0018481709994375706
+    },
+    {
+      "run": "pepper-frozen-cross-object-transfer-20261026-01",
+      "capture": "009-near",
+      "static_motion": {
+        "matches": 104,
+        "inliers": 100,
+        "residual_p95_m": 0.006635079019236597,
+        "source": "current_rgbd_static_landmarks",
+        "object_depth_measured": false,
+        "motion_authorized": false,
+        "reference_depth_stamp_ns": 1793009217079564024,
+        "current_depth_stamp_ns": 1793009219328756032,
+        "odom_prediction_correction_m": 0.0016793647491984039,
+        "reference_epoch": "pepper-2eb0fd4593774c6d92dfa7683204e37f-rgbd",
+        "prediction_only": true,
+        "current_object_depth_still_required": true
+      },
+      "valid": true,
+      "measured_center": [
+        0.8386735789217236,
+        0.0781219020675816,
+        0.5236302576089017
+      ],
+      "measured_head": [
+        0.8377790824797862,
+        0.07833437359829375,
+        0.5562126308977279
+      ],
+      "processing_s": 0.0637586019875016
+    },
+    {
+      "run": "pepper-frozen-cross-object-transfer-20261026-01",
+      "capture": "010-near",
+      "valid": true,
+      "measured_center": [
+        0.8386864016280688,
+        0.07812341091111849,
+        0.523678767504295
+      ],
+      "measured_head": [
+        0.837815571767704,
+        0.0783609633806461,
+        0.556124983768294
+      ],
+      "processing_s": 0.0038879170024301857
+    },
+    {
+      "run": "pepper-frozen-cross-object-transfer-20261026-01",
+      "capture": "011-near",
+      "static_motion": {
+        "matches": 59,
+        "inliers": 55,
+        "residual_p95_m": 0.0074778503567868556,
+        "source": "current_rgbd_static_landmarks",
+        "object_depth_measured": false,
+        "motion_authorized": false,
+        "reference_depth_stamp_ns": 1793009219570167393,
+        "current_depth_stamp_ns": 1793009222284298731,
+        "odom_prediction_correction_m": 0.01980607522572319,
+        "reference_epoch": "pepper-2eb0fd4593774c6d92dfa7683204e37f-rgbd",
+        "prediction_only": true,
+        "current_object_depth_still_required": true
+      },
+      "valid": true,
+      "measured_center": [
+        0.7122561374416773,
+        0.060878205156308464,
+        0.523537491909907
+      ],
+      "measured_head": [
+        0.7120818008067373,
+        0.061269441685484,
+        0.5557748667275476
+      ],
+      "processing_s": 0.06646315997932106
+    },
+    {
+      "run": "pepper-frozen-cross-object-transfer-20261026-01",
+      "capture": "012-near",
+      "valid": true,
+      "measured_center": [
+        0.7122307180796285,
+        0.060875217723635244,
+        0.5236160236037734
+      ],
+      "measured_head": [
+        0.712100299317497,
+        0.061265491946533655,
+        0.5558550388220609
+      ],
+      "processing_s": 0.002156789996661246
+    },
+    {
+      "run": "pepper-frozen-cross-object-transfer-20261026-01",
+      "capture": "013-near",
+      "static_motion": {
+        "matches": 66,
+        "inliers": 51,
+        "residual_p95_m": 0.007940195517656375,
+        "source": "current_rgbd_static_landmarks",
+        "object_depth_measured": false,
+        "motion_authorized": false,
+        "reference_depth_stamp_ns": 1793009222782787913,
+        "current_depth_stamp_ns": 1793009226087427874,
+        "odom_prediction_correction_m": 0.019779311264002234,
+        "reference_epoch": "pepper-2eb0fd4593774c6d92dfa7683204e37f-rgbd",
+        "prediction_only": true,
+        "current_object_depth_still_required": true
+      },
+      "valid": true,
+      "measured_center": [
+        0.862240874296083,
+        0.08045465924575815,
+        0.5235784541463622
+      ],
+      "measured_head": [
+        0.8626539330913061,
+        0.08076670528697981,
+        0.5562406736278193
+      ],
+      "processing_s": 0.05964358401251957
+    },
+    {
+      "run": "pepper-compact-realign-full-transfer-20261026-01",
+      "capture": "002-near",
+      "valid": true,
+      "measured_center": [
+        0.9090830981525587,
+        0.20894388147889803,
+        0.5236742466702187
+      ],
+      "measured_head": [
+        0.9094889560776344,
+        0.20942351085458405,
+        0.5562025438638095
+      ],
+      "processing_s": 0.0017775260203052312
+    },
+    {
+      "run": "pepper-compact-realign-full-transfer-20261026-01",
+      "capture": "003-near-rejected",
+      "static_motion": {
+        "matches": 72,
+        "inliers": 53,
+        "residual_p95_m": 0.006599803283726655,
+        "source": "current_rgbd_static_landmarks",
+        "object_depth_measured": false,
+        "motion_authorized": false,
+        "reference_depth_stamp_ns": 1793010838073150828,
+        "current_depth_stamp_ns": 1793010840610982032,
+        "odom_prediction_correction_m": 0.036001527059114045,
+        "reference_epoch": "pepper-614a11fee2fc4b48ac173a2906f2b907-rgbd",
+        "prediction_only": true,
+        "current_object_depth_still_required": true
+      },
+      "valid": true,
+      "measured_center": [
+        0.9441119494903158,
+        0.08150575777789942,
+        0.5236752239714363
+      ],
+      "measured_head": [
+        0.944213269904064,
+        0.0818994555000435,
+        0.5565352468209834
+      ],
+      "processing_s": 0.06466457300120965
+    },
+    {
+      "run": "pepper-compact-realign-full-transfer-20261026-01",
+      "capture": "004-near-rejected",
+      "valid": true,
+      "measured_center": [
+        0.9441247183923139,
+        0.08150717747739746,
+        0.5236489204160185
+      ],
+      "measured_head": [
+        0.9442247433611727,
+        0.08193637845572571,
+        0.5564340769575431
+      ],
+      "processing_s": 0.0018368989985901862
+    },
+    {
+      "run": "pepper-compact-realign-full-transfer-20261026-01",
+      "capture": "005-near-rejected",
+      "valid": true,
+      "measured_center": [
+        0.9441233081419531,
+        0.08150681732668907,
+        0.5236486735346781
+      ],
+      "measured_head": [
+        0.9442821371223277,
+        0.08194690622970466,
+        0.5563439173248813
+      ],
+      "processing_s": 0.0017920249956659973
+    },
+    {
+      "run": "pepper-compact-realign-full-transfer-20261026-01",
+      "capture": "006-near-rejected",
+      "valid": true,
+      "measured_center": [
+        0.9441234011605211,
+        0.08150672420683348,
+        0.523648093696658
+      ],
+      "measured_head": [
+        0.9442604450396844,
+        0.08194002955572968,
+        0.5563026227588591
+      ],
+      "processing_s": 0.0017477399960625917
+    },
+    {
+      "run": "pepper-compact-realign-full-transfer-20261026-01",
+      "capture": "007-near-rejected",
+      "valid": true,
+      "measured_center": [
+        0.9441233081419531,
+        0.08150681732668907,
+        0.5236486735346781
+      ],
+      "measured_head": [
+        0.9442533920941916,
+        0.08193091758826201,
+        0.5562756235225632
+      ],
+      "processing_s": 0.0018365689902566373
+    }
+  ]
+}

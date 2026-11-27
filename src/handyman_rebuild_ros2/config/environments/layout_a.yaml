@@ -210,9 +210,9 @@ destinations:
     - {room: bedroom, x: 10.805, y: -3.317038, yaw: -1.540716}
     - {room: bedroom, x: 9.305, y: -4.817038, yaw: -0.015059}
   corner_sofa:
-    - {room: lobby, x: 2.305, y: -4.617038, yaw: -3.13852}
-    - {room: lobby, x: 0.505, y: -2.417038, yaw: -1.778959}
-    - {room: lobby, x: 0.305, y: -6.117038, yaw: 1.747211}
+    - {room: lobby, x: 2.205, y: -6.117038, yaw: -2.721024}
+    - {room: lobby, x: 0.905, y: -5.217038, yaw: -1.608057}
+    - {room: lobby, x: 0.305, y: -6.117038, yaw: -0.839858}
   dining_table:
     - {room: kitchen, x: 10.405, y: 2.882962, yaw: 3.130279}
     - {room: kitchen, x: 8.205, y: 5.182962, yaw: -1.576511}
@@ -222,17 +222,17 @@ destinations:
     - {room: living_room, x: 2.005, y: 2.282962, yaw: 1.590322}
     - {room: living_room, x: 2.005, y: 5.382962, yaw: -1.59581}
   trash_box_for_bottle_can:
-    - {room: living_room, x: 2.105, y: 0.682962, yaw: -1.546597}
-    - {room: living_room, x: 3.305, y: 0.082962, yaw: -2.562569}
-    - {room: living_room, x: 0.705, y: -0.717038, yaw: 0.025841}
+    - {room: living_room, x: 2.105, y: 0.682962, yaw: -1.549144}
+    - {room: living_room, x: 3.305, y: 0.082962, yaw: -2.563929}
+    - {room: living_room, x: 0.705, y: -0.717038, yaw: 0.025904}
   trash_box_for_burnable:
-    - {room: living_room, x: 1.305, y: 2.382962, yaw: 3.121923}
-    - {room: living_room, x: 0.905, y: 3.482962, yaw: -2.308402}
-    - {room: living_room, x: 0.505, y: 1.082962, yaw: 1.97967}
+    - {room: living_room, x: 1.305, y: 2.382962, yaw: 3.119398}
+    - {room: living_room, x: 0.905, y: 3.482962, yaw: -2.310016}
+    - {room: living_room, x: 0.505, y: 1.082962, yaw: 1.978717}
   trash_box_for_recycle:
-    - {room: living_room, x: 1.305, y: 1.182962, yaw: 3.129194}
-    - {room: living_room, x: 0.505, y: 2.482962, yaw: -1.99214}
-    - {room: living_room, x: -0.095, y: -0.217038, yaw: 1.553156}
+    - {room: living_room, x: 1.305, y: 1.182962, yaw: 3.126668}
+    - {room: living_room, x: 0.505, y: 2.482962, yaw: -1.993153}
+    - {room: living_room, x: -0.095, y: -0.217038, yaw: 1.553199}
   wagon:
     - {room: bedroom, x: 10.605, y: -2.817038, yaw: 2.673336}
     - {room: bedroom, x: 9.305, y: -3.617038, yaw: 1.57016}

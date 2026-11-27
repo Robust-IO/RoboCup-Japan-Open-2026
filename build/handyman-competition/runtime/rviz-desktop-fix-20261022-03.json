@@ -1,0 +1,71 @@
+﻿{
+    "Session":  8,
+    "RobotMotionStarted":  false,
+    "Attempts":  [
+                     {
+                         "Client":  92428,
+                         "Exited":  false,
+                         "BackgroundStopped":  [
+                                                   102444
+                                               ]
+                     },
+                     {
+                         "Client":  109856,
+                         "Exited":  false,
+                         "BackgroundStopped":  [
+                                                   41608
+                                               ]
+                     },
+                     {
+                         "Client":  107608,
+                         "Exited":  false,
+                         "BackgroundStopped":  [
+                                                   41004
+                                               ]
+                     },
+                     {
+                         "Client":  41688,
+                         "Exited":  false,
+                         "BackgroundStopped":  [
+                                                   41380
+                                               ]
+                     },
+                     {
+                         "Client":  101556,
+                         "Exited":  false,
+                         "BackgroundStopped":  [
+                                                   109340
+                                               ]
+                     }
+                 ],
+    "RvizWindowVisible":  false,
+    "RvizWindowHandles":  [
+
+                          ],
+    "Clients":  [
+                    {
+                        "ProcessId":  92428,
+                        "SessionId":  8
+                    },
+                    {
+                        "ProcessId":  109856,
+                        "SessionId":  8
+                    },
+                    {
+                        "ProcessId":  107608,
+                        "SessionId":  8
+                    },
+                    {
+                        "ProcessId":  41688,
+                        "SessionId":  8
+                    },
+                    {
+                        "ProcessId":  101556,
+                        "SessionId":  8
+                    },
+                    {
+                        "ProcessId":  53024,
+                        "SessionId":  0
+                    }
+                ]
+}

@@ -1,0 +1,19 @@
+{
+  "status": "stopped",
+  "reason": "AttemptFailure:requested_identity_not_unique_in_current_image",
+  "last_run": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/session2-grip-policy-resume-20261115-002337",
+  "object_last_observed": "lying_on_source_table",
+  "new_grasp_policy": "lift_and_reclose_joint_feedback",
+  "new_grasp_not_executed": true,
+  "robot_empty_hand": true,
+  "requires_reanchor": false,
+  "identity_retries": "three_head_views_and_alternate_source_candidate",
+  "task": {
+    "layout": "LayoutB",
+    "target": "canned_juice",
+    "room": "living_room",
+    "destination": "trash_box_for_bottle_can#living_room",
+    "destination_room": "living_room",
+    "source_table": "wooden_side_table#living_room"
+  }
+}

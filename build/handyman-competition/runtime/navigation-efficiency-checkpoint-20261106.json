@@ -1,0 +1,175 @@
+{
+  "status": "installed_offline_verified",
+  "created_ns": 1794040012143980403,
+  "backup": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/backups/before-navigation-efficiency-20261106-203925",
+  "candidate": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/navigation-efficiency-v1-20261106-205358",
+  "tests": 124,
+  "source_entry_hash_checks_passed": true,
+  "installed_files_verified": 27,
+  "navigation_motion_profile": "efficiency_v1",
+  "policy": {
+    "version": 1,
+    "name": "navigation_efficiency_v1",
+    "motion_profile": "efficiency_v1",
+    "ordinary_pass_radius_m": 0.15,
+    "door_pass_along_m": 0.12,
+    "door_lateral_m": 0.06,
+    "door_entry_yaw_rad": 0.15,
+    "door_match_m": 0.08,
+    "door_zone_half_length_m": 1.0,
+    "door_linear_mps": 0.2,
+    "door_angular_rps": 0.8,
+    "final_slow_distance_m": 0.6,
+    "final_precision": [
+      0.06,
+      0.08,
+      0.06
+    ],
+    "final_acceptance": [
+      0.085,
+      0.11
+    ],
+    "initial_joint_max_age_s": 0.85,
+    "joint_warning_age_s": 0.85,
+    "base_feedback_max_age_s": 0.7,
+    "future_skew_s": 0.05,
+    "controller_parameters": {
+      "FollowPath.acc_lim_theta": 0.8,
+      "FollowPath.decel_lim_theta": -0.8,
+      "FollowPath.RotateToGoal.slowing_factor": 3.0,
+      "failure_tolerance": 1.0
+    },
+    "retry_backoff_s": [
+      0.5,
+      1.0,
+      2.0,
+      5.0,
+      10.0
+    ],
+    "progress_radius_m": 0.08,
+    "progress_time_s": 25.0,
+    "task_timeout_s": null,
+    "joint_staleness_alone_cancels_navigation": false
+  },
+  "profile": {
+    "mode": "measured_duration",
+    "navigation": {
+      "empty_linear_mps": 0.3,
+      "empty_angular_rps": 1.0,
+      "holding_linear_mps": 0.3,
+      "holding_angular_rps": 1.0,
+      "short_linear_mps": 0.24,
+      "short_angular_rps": 1.0,
+      "short_segment_m": 1.6
+    },
+    "arm": {
+      "empty_lift_mps": 0.1,
+      "empty_angular_rps": 0.65,
+      "holding_lift_mps": 0.1,
+      "holding_angular_rps": 0.5,
+      "minimum_duration_s": 1.2,
+      "trajectory_allowance_s": 0.15
+    },
+    "finite_base": {
+      "empty_linear_mps": 0.12,
+      "holding_linear_mps": 0.1,
+      "near_linear_mps": 0.06,
+      "near_distance_m": 0.08,
+      "angular_rps": 0.3,
+      "minimum_duration_s": 1.0,
+      "trajectory_allowance_s": 0.15
+    }
+  },
+  "robot_commands_sent": false,
+  "live_navigation_validated": true,
+  "full_live_transfer_validated": false,
+  "rollback_command": "python3 /home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/rollback_navigation_efficiency_20261106.py --run",
+  "previous_successful_transfer": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/cigarette-full-auto-20261106-200422",
+  "next": "Read live state first. Robot is not assumed to be at initial spawn. Do not replay grasp/release.",
+  "latest_live_navigation": {
+    "status": "empty_arm_round_trip_validated",
+    "root": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/navigation-efficiency-live-20261106-205624",
+    "created_ns": 1793970076469339376,
+    "elapsed_s": 270.3939092620003,
+    "legs": [
+      {
+        "stage": "outbound",
+        "elapsed_s": 135.29098990500097,
+        "final_pose": [
+          9.851928242159888,
+          -6.586529360226455,
+          -0.07873898567326566
+        ],
+        "position_error_m": 0.05803001302445968,
+        "feedback_recoveries": 0,
+        "nav2_retries": 0,
+        "passed_landmarks": 7,
+        "door_center_nearby_lateral_max_m": 0.009578860528309356,
+        "startup_ready_s": 1.3897095689990238,
+        "speeds_seen": [
+          [
+            0.2,
+            0.2,
+            0.8
+          ],
+          [
+            0.3,
+            0.3,
+            1.0
+          ]
+        ],
+        "joint_advisories": 0,
+        "parameters_restored": true
+      },
+      {
+        "stage": "return",
+        "elapsed_s": 134.7969648620001,
+        "final_pose": [
+          3.2302201749196193,
+          3.6639251240549333,
+          3.0035028084078768
+        ],
+        "position_error_m": 0.055357328379440525,
+        "feedback_recoveries": 0,
+        "nav2_retries": 0,
+        "passed_landmarks": 7,
+        "door_center_nearby_lateral_max_m": 0.013469054241999082,
+        "startup_ready_s": 1.7975816110010783,
+        "speeds_seen": [
+          [
+            0.2,
+            0.2,
+            0.8
+          ],
+          [
+            0.3,
+            0.3,
+            1.0
+          ]
+        ],
+        "joint_advisories": 0,
+        "parameters_restored": true
+      }
+    ],
+    "live_navigation_validated": true,
+    "full_live_transfer_validated": false,
+    "holding_transport_validated_this_revision": false,
+    "grasp_commands_sent": false,
+    "release_commands_sent": false,
+    "task_finished_sent": false,
+    "final_pose": [
+      3.2302201749196193,
+      3.6639251240549333,
+      3.0035028084078768
+    ]
+  },
+  "latest_robot_state": {
+    "pose": [
+      3.2302201749196193,
+      3.6639251240549333,
+      3.0035028084078768
+    ],
+    "arm": "empty_tucked",
+    "gripper_open": true
+  }
+}

@@ -1,0 +1,10 @@
+cleanup_detection:
+  ros__parameters:
+    detection_interval_sec: 0.2
+    yolo_confidence: 0.25
+    pose_landmarker_min_pose_detection_confidence: 0.5
+    pose_landmarker_min_tracking_confidence: 0.5
+
+    head_cam_topic: "/hsrb/head_rgbd_sensor/rgb/image_raw"
+    depth_cam_topic: "/hsrb/head_rgbd_sensor/depth_registered/image_raw"
+    camera_info_topic: "/hsrb/head_rgbd_sensor/rgb/camera_info"

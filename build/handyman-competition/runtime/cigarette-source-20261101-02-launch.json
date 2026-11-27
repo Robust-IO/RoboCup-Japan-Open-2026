@@ -1,0 +1,10 @@
+{
+  "pid": 3860,
+  "started_ns": 1793526784974387149,
+  "command": [
+    "bash",
+    "-lc",
+    "source /opt/ros/humble/setup.bash; source /home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/project/install/setup.bash; export HANDYMAN_RESIDENT_MODEL=1; export ROS_LOG_DIR=/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/cigarette-source-20261101-02-roslogs; exec /usr/bin/python3 /home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/project/training/scripts/cyclone_test_env.py --domain 71 --dds-config /home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/project/training/config/cyclone_search_stack.xml --run -- /usr/bin/python3 /home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/observe_grasp_object_20261101.py --object cigarette --output /home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/cigarette-source-20261101-02"
+  ],
+  "output": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/cigarette-source-20261101-02"
+}

@@ -1,0 +1,2067 @@
+{
+    "schema": "handyman-gripper-physical-envelope-v1",
+    "unityVersion": "6000.0.62f1",
+    "robotName": "HSR-B",
+    "exportedUtc": "2026-11-01T09:19:37.9134084Z",
+    "playMode": true,
+    "paused": false,
+    "approvedForRuntime": false,
+    "frameCount": 391845,
+    "activePhysicalColliderCount": 25,
+    "defaultContactOffset": 0.0010000000474974514,
+    "maximumEnvironmentContactOffset": 0.0010000000474974514,
+    "coordinates": "Unity link-local; ROS conversion NOT applied. Recompose moving finger links before opening-sweep clearance checks.",
+    "links": [
+        {
+            "name": "wrist_flex_link",
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link",
+            "parentPath": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link",
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "localRotation": {
+                "x": 0.0,
+                "y": -0.7071068286895752,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            }
+        },
+        {
+            "name": "wrist_roll_link",
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link",
+            "parentPath": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link",
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "localRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "name": "hand_palm_link",
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link",
+            "parentPath": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link",
+            "localPosition": {
+                "x": -0.012000000104308129,
+                "y": 0.0,
+                "z": 0.1404999941587448
+            },
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "localRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0,
+                "w": 0.0
+            }
+        },
+        {
+            "name": "hand_l_proximal_link",
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_l_proximal_link",
+            "parentPath": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link",
+            "localPosition": {
+                "x": 0.01674986258149147,
+                "y": -0.02449999935925007,
+                "z": -0.017500000074505807
+            },
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "localRotation": {
+                "x": 0.27491721510887148,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.9614679217338562
+            }
+        },
+        {
+            "name": "hand_l_spring_proximal_link",
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_l_proximal_link/hand_l_spring_proximal_link",
+            "parentPath": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_l_proximal_link",
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "localRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "name": "hand_l_mimic_distal_link",
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_l_proximal_link/hand_l_spring_proximal_link/hand_l_mimic_distal_link",
+            "parentPath": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_l_proximal_link/hand_l_spring_proximal_link",
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.07000000029802323
+            },
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "localRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "name": "hand_l_distal_link",
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_l_proximal_link/hand_l_spring_proximal_link/hand_l_mimic_distal_link/hand_l_distal_link",
+            "parentPath": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_l_proximal_link/hand_l_spring_proximal_link/hand_l_mimic_distal_link",
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "localRotation": {
+                "x": -0.27491721510887148,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.9614679217338562
+            }
+        },
+        {
+            "name": "hand_motor_dummy_link",
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_motor_dummy_link",
+            "parentPath": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link",
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "localRotation": {
+                "x": 0.27491721510887148,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.9614679217338562
+            }
+        },
+        {
+            "name": "hand_r_proximal_link",
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_r_proximal_link",
+            "parentPath": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link",
+            "localPosition": {
+                "x": 0.016750000417232515,
+                "y": 0.02449999935925007,
+                "z": -0.017500000074505807
+            },
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "localRotation": {
+                "x": -0.27491721510887148,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.9614679217338562
+            }
+        },
+        {
+            "name": "hand_r_spring_proximal_link",
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_r_proximal_link/hand_r_spring_proximal_link",
+            "parentPath": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_r_proximal_link",
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "localRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "name": "hand_r_mimic_distal_link",
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_r_proximal_link/hand_r_spring_proximal_link/hand_r_mimic_distal_link",
+            "parentPath": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_r_proximal_link/hand_r_spring_proximal_link",
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.07000000029802323
+            },
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "localRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            }
+        },
+        {
+            "name": "hand_r_distal_link",
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_r_proximal_link/hand_r_spring_proximal_link/hand_r_mimic_distal_link/hand_r_distal_link",
+            "parentPath": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_r_proximal_link/hand_r_spring_proximal_link/hand_r_mimic_distal_link",
+            "localPosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "localScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "localRotation": {
+                "x": 0.27491721510887148,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.9614679217338562
+            }
+        }
+    ],
+    "parts": [
+        {
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/gkmodel0_wrist_flex_link_geom1",
+            "link": "wrist_flex_link",
+            "colliderType": "MeshCollider",
+            "enabled": true,
+            "activeInHierarchy": true,
+            "isTrigger": false,
+            "convex": true,
+            "contactOffset": 0.0010000000474974514,
+            "boundsVerticesLinkUnity": [
+                {
+                    "x": -0.01499980129301548,
+                    "y": -0.013302266597747803,
+                    "z": 0.07693367451429367
+                },
+                {
+                    "x": -0.014998555183410645,
+                    "y": -0.028868582099676133,
+                    "z": 0.013397356495261193
+                },
+                {
+                    "x": 0.01500065065920353,
+                    "y": -0.013300463557243348,
+                    "z": 0.07693382352590561
+                },
+                {
+                    "x": 0.015001896768808365,
+                    "y": -0.028866779059171678,
+                    "z": 0.013397501781582833
+                },
+                {
+                    "x": -0.015001887455582619,
+                    "y": 0.028866611421108247,
+                    "z": 0.06660235673189163
+                },
+                {
+                    "x": -0.015000643208622933,
+                    "y": 0.013300299644470215,
+                    "z": 0.0030660228803753855
+                },
+                {
+                    "x": 0.01499856449663639,
+                    "y": 0.0288684144616127,
+                    "z": 0.06660250574350357
+                },
+                {
+                    "x": 0.014999808743596077,
+                    "y": 0.01330210268497467,
+                    "z": 0.0030661690980196
+                }
+            ],
+            "linkToPalmUnityRowMajor": [
+                -1.000000238418579,
+                -9.185425857427543e-14,
+                -2.02352284234264e-12,
+                -0.011999922804534436,
+                -9.185425857427543e-14,
+                -0.9999999403953552,
+                2.415002364752894e-10,
+                -2.081409178344984e-7,
+                2.02352284234264e-12,
+                -2.415002364752894e-10,
+                1.000000238418579,
+                -0.14049988985061646,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "representation": "Conservative physics world AABB transformed to rigid link-local coordinates; not render geometry."
+        },
+        {
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link",
+            "link": "wrist_roll_link",
+            "colliderType": "MeshCollider",
+            "enabled": true,
+            "activeInHierarchy": true,
+            "isTrigger": false,
+            "convex": true,
+            "contactOffset": 0.0010000000474974514,
+            "boundsVerticesLinkUnity": [
+                {
+                    "x": -0.03149252012372017,
+                    "y": -0.04448765143752098,
+                    "z": 0.16342942416667939
+                },
+                {
+                    "x": -0.03149044141173363,
+                    "y": -0.0700971782207489,
+                    "z": 0.05890017747879028
+                },
+                {
+                    "x": 0.046929024159908298,
+                    "y": -0.044483546167612079,
+                    "z": 0.16342991590499879
+                },
+                {
+                    "x": 0.04693116247653961,
+                    "y": -0.07009307295084,
+                    "z": 0.05890067666769028
+                },
+                {
+                    "x": -0.03149806335568428,
+                    "y": 0.06404919177293778,
+                    "z": 0.13683806359767915
+                },
+                {
+                    "x": -0.03149598836898804,
+                    "y": 0.03843964636325836,
+                    "z": 0.03230878338217735
+                },
+                {
+                    "x": 0.04692348092794418,
+                    "y": 0.06405328959226608,
+                    "z": 0.13683855533599854
+                },
+                {
+                    "x": 0.0469256155192852,
+                    "y": 0.03844375163316727,
+                    "z": 0.03230927884578705
+                }
+            ],
+            "linkToPalmUnityRowMajor": [
+                -1.000000238418579,
+                -9.185425857427543e-14,
+                -2.02352284234264e-12,
+                -0.011999922804534436,
+                -9.185425857427543e-14,
+                -0.9999999403953552,
+                2.415002364752894e-10,
+                -2.081409178344984e-7,
+                2.02352284234264e-12,
+                -2.415002364752894e-10,
+                1.000000238418579,
+                -0.14049988985061646,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "representation": "Conservative physics world AABB transformed to rigid link-local coordinates; not render geometry."
+        },
+        {
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/Palm",
+            "link": "hand_palm_link",
+            "colliderType": "BoxCollider",
+            "enabled": true,
+            "activeInHierarchy": true,
+            "isTrigger": false,
+            "convex": false,
+            "contactOffset": 0.0010000000474974514,
+            "boundsVerticesLinkUnity": [
+                {
+                    "x": 0.013672841712832451,
+                    "y": 0.026512086391448976,
+                    "z": 0.01378089189529419
+                },
+                {
+                    "x": 0.01367206685245037,
+                    "y": 0.03651311248540878,
+                    "z": -0.027039825916290284
+                },
+                {
+                    "x": -0.01853054016828537,
+                    "y": 0.026510167866945268,
+                    "z": 0.013781070709228516
+                },
+                {
+                    "x": -0.018531374633312227,
+                    "y": 0.036511193960905078,
+                    "z": -0.027039676904678346
+                },
+                {
+                    "x": 0.013676000759005547,
+                    "y": -0.036460116505622867,
+                    "z": -0.0016472041606903077
+                },
+                {
+                    "x": 0.013675225898623467,
+                    "y": -0.026459097862243654,
+                    "z": -0.04246795177459717
+                },
+                {
+                    "x": -0.018527381122112275,
+                    "y": -0.03646203130483627,
+                    "z": -0.0016470551490783692
+                },
+                {
+                    "x": -0.01852821558713913,
+                    "y": -0.026461005210876466,
+                    "z": -0.04246777296066284
+                }
+            ],
+            "linkToPalmUnityRowMajor": [
+                1.000000238418579,
+                9.185425857427543e-14,
+                -2.02352284234264e-12,
+                5.433912164676258e-8,
+                9.185425857427543e-14,
+                0.9999999403953552,
+                2.415002364752894e-10,
+                -1.3319419167601155e-7,
+                -2.02352284234264e-12,
+                2.415002364752894e-10,
+                1.000000238418579,
+                -6.171345034999831e-8,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "representation": "Conservative physics world AABB transformed to rigid link-local coordinates; not render geometry."
+        },
+        {
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/Palm",
+            "link": "hand_palm_link",
+            "colliderType": "BoxCollider",
+            "enabled": true,
+            "activeInHierarchy": true,
+            "isTrigger": false,
+            "convex": false,
+            "contactOffset": 0.0010000000474974514,
+            "boundsVerticesLinkUnity": [
+                {
+                    "x": 0.018285466358065606,
+                    "y": 0.014494813978672028,
+                    "z": 0.007592201232910156
+                },
+                {
+                    "x": 0.018285049125552179,
+                    "y": 0.018291808664798738,
+                    "z": -0.007905811071395874
+                },
+                {
+                    "x": 0.013661814853549004,
+                    "y": 0.014494337141513825,
+                    "z": 0.0075921714305877689
+                },
+                {
+                    "x": 0.013661397621035576,
+                    "y": 0.01829133927822113,
+                    "z": -0.007905840873718262
+                },
+                {
+                    "x": 0.018287135288119317,
+                    "y": -0.01852983981370926,
+                    "z": -0.0004988014698028564
+                },
+                {
+                    "x": 0.018286777660250665,
+                    "y": -0.014732837677001953,
+                    "z": -0.015996813774108888
+                },
+                {
+                    "x": 0.013663483783602715,
+                    "y": -0.018530316650867463,
+                    "z": -0.0004988312721252441
+                },
+                {
+                    "x": 0.013663126155734063,
+                    "y": -0.014733314514160157,
+                    "z": -0.015996843576431276
+                }
+            ],
+            "linkToPalmUnityRowMajor": [
+                1.000000238418579,
+                9.185425857427543e-14,
+                -2.02352284234264e-12,
+                5.433912164676258e-8,
+                9.185425857427543e-14,
+                0.9999999403953552,
+                2.415002364752894e-10,
+                -1.3319419167601155e-7,
+                -2.02352284234264e-12,
+                2.415002364752894e-10,
+                1.000000238418579,
+                -6.171345034999831e-8,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "representation": "Conservative physics world AABB transformed to rigid link-local coordinates; not render geometry."
+        },
+        {
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_l_proximal_link/hand_l_spring_proximal_link/L_Proximal/Left_Proximal.004",
+            "link": "hand_l_spring_proximal_link",
+            "colliderType": "MeshCollider",
+            "enabled": true,
+            "activeInHierarchy": true,
+            "isTrigger": false,
+            "convex": true,
+            "contactOffset": 0.0010000000474974514,
+            "boundsVerticesLinkUnity": [
+                {
+                    "x": -0.0030307676643133165,
+                    "y": 0.013348869979381562,
+                    "z": 0.03230241686105728
+                },
+                {
+                    "x": -0.003031602129340172,
+                    "y": 0.00013851001858711243,
+                    "z": -0.008000538684427739
+                },
+                {
+                    "x": -0.03498673066496849,
+                    "y": 0.0133475661277771,
+                    "z": 0.032303474843502048
+                },
+                {
+                    "x": -0.034987565129995349,
+                    "y": 0.00013720383867621422,
+                    "z": -0.0079994797706604
+                },
+                {
+                    "x": -0.0030294563621282579,
+                    "y": -0.011393150314688683,
+                    "z": 0.04041227698326111
+                },
+                {
+                    "x": -0.0030302908271551134,
+                    "y": -0.024603499099612237,
+                    "z": 0.00010931026190519333
+                },
+                {
+                    "x": -0.03498541936278343,
+                    "y": -0.011394454166293145,
+                    "z": 0.04041333496570587
+                },
+                {
+                    "x": -0.03498625382781029,
+                    "y": -0.02460481785237789,
+                    "z": 0.00011037755757570267
+                }
+            ],
+            "linkToPalmUnityRowMajor": [
+                1.000000238418579,
+                -3.018815666194774e-13,
+                1.8973884963191523e-13,
+                0.016749953851103784,
+                9.185425857427543e-14,
+                0.8488410115242004,
+                -0.5286481380462647,
+                -0.024500222876667978,
+                -2.02352284234264e-12,
+                0.5286482572555542,
+                0.8488412499427795,
+                -0.017500190064311029,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "representation": "Conservative physics world AABB transformed to rigid link-local coordinates; not render geometry."
+        },
+        {
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_l_proximal_link/hand_l_spring_proximal_link/L_Proximal/Left_Proximal.005",
+            "link": "hand_l_spring_proximal_link",
+            "colliderType": "MeshCollider",
+            "enabled": true,
+            "activeInHierarchy": true,
+            "isTrigger": false,
+            "convex": true,
+            "contactOffset": 0.0010000000474974514,
+            "boundsVerticesLinkUnity": [
+                {
+                    "x": 0.0015573594719171525,
+                    "y": 0.009388739243149758,
+                    "z": 0.03394608944654465
+                },
+                {
+                    "x": 0.0015570614486932755,
+                    "y": 0.0035245344042778017,
+                    "z": 0.01605524681508541
+                },
+                {
+                    "x": -0.03500032052397728,
+                    "y": 0.009387239813804627,
+                    "z": 0.033947303891181949
+                },
+                {
+                    "x": -0.03500061854720116,
+                    "y": 0.0035230349749326708,
+                    "z": 0.01605646125972271
+                },
+                {
+                    "x": 0.001557895913720131,
+                    "y": -0.0009092316031455994,
+                    "z": 0.03732156381011009
+                },
+                {
+                    "x": 0.0015575382858514786,
+                    "y": -0.006773453205823898,
+                    "z": 0.019430693238973619
+                },
+                {
+                    "x": -0.0349997840821743,
+                    "y": -0.0009107459336519241,
+                    "z": 0.0373227521777153
+                },
+                {
+                    "x": -0.035000141710042956,
+                    "y": -0.006774968467652798,
+                    "z": 0.019431881606578828
+                }
+            ],
+            "linkToPalmUnityRowMajor": [
+                1.000000238418579,
+                -3.018815666194774e-13,
+                1.8973884963191523e-13,
+                0.016749953851103784,
+                9.185425857427543e-14,
+                0.8488410115242004,
+                -0.5286481380462647,
+                -0.024500222876667978,
+                -2.02352284234264e-12,
+                0.5286482572555542,
+                0.8488412499427795,
+                -0.017500190064311029,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "representation": "Conservative physics world AABB transformed to rigid link-local coordinates; not render geometry."
+        },
+        {
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_l_proximal_link/hand_l_spring_proximal_link/L_Proximal/Left_Proximal.009",
+            "link": "hand_l_spring_proximal_link",
+            "colliderType": "MeshCollider",
+            "enabled": true,
+            "activeInHierarchy": true,
+            "isTrigger": false,
+            "convex": true,
+            "contactOffset": 0.0010000000474974514,
+            "boundsVerticesLinkUnity": [
+                {
+                    "x": 0.0015002582222223282,
+                    "y": 0.005552981048822403,
+                    "z": 0.0572802908718586
+                },
+                {
+                    "x": 0.0014998409897089005,
+                    "y": -0.0007331855595111847,
+                    "z": 0.03810212016105652
+                },
+                {
+                    "x": -0.03499996289610863,
+                    "y": 0.005551693961024284,
+                    "z": 0.057281408458948138
+                },
+                {
+                    "x": -0.035000380128622058,
+                    "y": -0.0007344521582126617,
+                    "z": 0.03810326009988785
+                },
+                {
+                    "x": 0.0015006158500909806,
+                    "y": -0.00010919570922851563,
+                    "z": 0.05913618952035904
+                },
+                {
+                    "x": 0.0015001390129327775,
+                    "y": -0.006395336240530014,
+                    "z": 0.03995804488658905
+                },
+                {
+                    "x": -0.034999605268239978,
+                    "y": -0.00011046603322029114,
+                    "z": 0.059137336909770969
+                },
+                {
+                    "x": -0.03500008210539818,
+                    "y": -0.006396608427166939,
+                    "z": 0.03995918482542038
+                }
+            ],
+            "linkToPalmUnityRowMajor": [
+                1.000000238418579,
+                -3.018815666194774e-13,
+                1.8973884963191523e-13,
+                0.016749953851103784,
+                9.185425857427543e-14,
+                0.8488410115242004,
+                -0.5286481380462647,
+                -0.024500222876667978,
+                -2.02352284234264e-12,
+                0.5286482572555542,
+                0.8488412499427795,
+                -0.017500190064311029,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "representation": "Conservative physics world AABB transformed to rigid link-local coordinates; not render geometry."
+        },
+        {
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_l_proximal_link/hand_l_spring_proximal_link/L_Proximal/Left_Proximal.010",
+            "link": "hand_l_spring_proximal_link",
+            "colliderType": "MeshCollider",
+            "enabled": true,
+            "activeInHierarchy": true,
+            "isTrigger": false,
+            "convex": true,
+            "contactOffset": 0.0010000000474974514,
+            "boundsVerticesLinkUnity": [
+                {
+                    "x": -0.0030053313821554186,
+                    "y": 0.00782926008105278,
+                    "z": 0.07244355231523514
+                },
+                {
+                    "x": -0.0030060317367315294,
+                    "y": -0.0037736669182777406,
+                    "z": 0.03704468160867691
+                },
+                {
+                    "x": -0.034699153155088428,
+                    "y": 0.007827743887901307,
+                    "z": 0.07244470715522766
+                },
+                {
+                    "x": -0.034699853509664538,
+                    "y": -0.00377519428730011,
+                    "z": 0.037045810371637347
+                },
+                {
+                    "x": -0.0030047204345464708,
+                    "y": -0.003278486430644989,
+                    "z": 0.07608436793088913
+                },
+                {
+                    "x": -0.0030054356902837755,
+                    "y": -0.014881404116749764,
+                    "z": 0.040685512125492099
+                },
+                {
+                    "x": -0.03469854220747948,
+                    "y": -0.0032799988985061647,
+                    "z": 0.07608552277088165
+                },
+                {
+                    "x": -0.03469925746321678,
+                    "y": -0.01488291472196579,
+                    "z": 0.04068666324019432
+                }
+            ],
+            "linkToPalmUnityRowMajor": [
+                1.000000238418579,
+                -3.018815666194774e-13,
+                1.8973884963191523e-13,
+                0.016749953851103784,
+                9.185425857427543e-14,
+                0.8488410115242004,
+                -0.5286481380462647,
+                -0.024500222876667978,
+                -2.02352284234264e-12,
+                0.5286482572555542,
+                0.8488412499427795,
+                -0.017500190064311029,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "representation": "Conservative physics world AABB transformed to rigid link-local coordinates; not render geometry."
+        },
+        {
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_l_proximal_link/hand_l_spring_proximal_link/hand_l_mimic_distal_link/hand_l_distal_link/Left_Distal/Left_Distal.006",
+            "link": "hand_l_distal_link",
+            "colliderType": "MeshCollider",
+            "enabled": true,
+            "activeInHierarchy": true,
+            "isTrigger": false,
+            "convex": true,
+            "contactOffset": 0.0010000000474974514,
+            "boundsVerticesLinkUnity": [
+                {
+                    "x": -0.009250231087207795,
+                    "y": 0.005507836118340492,
+                    "z": 0.03140445053577423
+                },
+                {
+                    "x": -0.00925087183713913,
+                    "y": 0.013545154593884945,
+                    "z": -0.001401157584041357
+                },
+                {
+                    "x": -0.03273028880357742,
+                    "y": 0.005506841465830803,
+                    "z": 0.03140465170145035
+                },
+                {
+                    "x": -0.03273092955350876,
+                    "y": 0.013544170185923577,
+                    "z": -0.001400950364768505
+                },
+                {
+                    "x": -0.00924963504076004,
+                    "y": -0.005798326805233955,
+                    "z": 0.028634438291192056
+                },
+                {
+                    "x": -0.009250275790691376,
+                    "y": 0.0022390007507056,
+                    "z": -0.004171167034655809
+                },
+                {
+                    "x": -0.03272969275712967,
+                    "y": -0.0057997871190309528,
+                    "z": 0.028634529560804368
+                },
+                {
+                    "x": -0.032730333507061008,
+                    "y": 0.0022375439293682577,
+                    "z": -0.004171047359704971
+                }
+            ],
+            "linkToPalmUnityRowMajor": [
+                1.000000238418579,
+                9.185425857427543e-14,
+                -2.02352284234264e-12,
+                0.01674989052116871,
+                9.185425857427543e-14,
+                0.9999999403953552,
+                2.415002364752894e-10,
+                -0.06150553748011589,
+                -2.02352284234264e-12,
+                2.415002364752894e-10,
+                1.000000238418579,
+                0.04191889241337776,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "representation": "Conservative physics world AABB transformed to rigid link-local coordinates; not render geometry."
+        },
+        {
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_l_proximal_link/hand_l_spring_proximal_link/hand_l_mimic_distal_link/hand_l_distal_link/Left_Distal/Left_Distal.018",
+            "link": "hand_l_distal_link",
+            "colliderType": "MeshCollider",
+            "enabled": true,
+            "activeInHierarchy": true,
+            "isTrigger": false,
+            "convex": true,
+            "contactOffset": 0.0010000000474974514,
+            "boundsVerticesLinkUnity": [
+                {
+                    "x": 0.0017498675733804703,
+                    "y": -0.0014883726835250855,
+                    "z": 0.03583649918437004
+                },
+                {
+                    "x": 0.0017495695501565934,
+                    "y": 0.0026101134717464449,
+                    "z": 0.01910785585641861
+                },
+                {
+                    "x": -0.011750586330890656,
+                    "y": -0.001489296555519104,
+                    "z": 0.03583652898669243
+                },
+                {
+                    "x": -0.011750884354114533,
+                    "y": 0.0026091914623975755,
+                    "z": 0.019107922911643983
+                },
+                {
+                    "x": 0.001750582829117775,
+                    "y": -0.014844389632344246,
+                    "z": 0.03256429731845856
+                },
+                {
+                    "x": 0.0017502252012491227,
+                    "y": -0.010745896957814694,
+                    "z": 0.0158357135951519
+                },
+                {
+                    "x": -0.01174987107515335,
+                    "y": -0.014845330268144608,
+                    "z": 0.032564327120780948
+                },
+                {
+                    "x": -0.011750228703022004,
+                    "y": -0.010746839456260205,
+                    "z": 0.015835687518119813
+                }
+            ],
+            "linkToPalmUnityRowMajor": [
+                1.000000238418579,
+                9.185425857427543e-14,
+                -2.02352284234264e-12,
+                0.01674989052116871,
+                9.185425857427543e-14,
+                0.9999999403953552,
+                2.415002364752894e-10,
+                -0.06150553748011589,
+                -2.02352284234264e-12,
+                2.415002364752894e-10,
+                1.000000238418579,
+                0.04191889241337776,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "representation": "Conservative physics world AABB transformed to rigid link-local coordinates; not render geometry."
+        },
+        {
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_l_proximal_link/hand_l_spring_proximal_link/hand_l_mimic_distal_link/hand_l_distal_link/Left_Distal/Left_Distal.008",
+            "link": "hand_l_distal_link",
+            "colliderType": "MeshCollider",
+            "enabled": true,
+            "activeInHierarchy": true,
+            "isTrigger": false,
+            "convex": true,
+            "contactOffset": 0.0010000000474974514,
+            "boundsVerticesLinkUnity": [
+                {
+                    "x": 0.0027496162801980974,
+                    "y": 0.01618221588432789,
+                    "z": 0.034099679440259936
+                },
+                {
+                    "x": 0.002749437466263771,
+                    "y": 0.019596923142671586,
+                    "z": 0.020161939784884454
+                },
+                {
+                    "x": -0.03625006601214409,
+                    "y": 0.016180630773305894,
+                    "z": 0.0341000109910965
+                },
+                {
+                    "x": -0.036250244826078418,
+                    "y": 0.019595347344875337,
+                    "z": 0.020162291824817659
+                },
+                {
+                    "x": 0.002750033512711525,
+                    "y": 0.008157845586538315,
+                    "z": 0.032133713364601138
+                },
+                {
+                    "x": 0.002749854698777199,
+                    "y": 0.01157256867736578,
+                    "z": 0.018195999786257745
+                },
+                {
+                    "x": -0.03624964877963066,
+                    "y": 0.00815625675022602,
+                    "z": 0.03213406354188919
+                },
+                {
+                    "x": -0.03624982759356499,
+                    "y": 0.011570991948246956,
+                    "z": 0.01819632574915886
+                }
+            ],
+            "linkToPalmUnityRowMajor": [
+                1.000000238418579,
+                9.185425857427543e-14,
+                -2.02352284234264e-12,
+                0.01674989052116871,
+                9.185425857427543e-14,
+                0.9999999403953552,
+                2.415002364752894e-10,
+                -0.06150553748011589,
+                -2.02352284234264e-12,
+                2.415002364752894e-10,
+                1.000000238418579,
+                0.04191889241337776,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "representation": "Conservative physics world AABB transformed to rigid link-local coordinates; not render geometry."
+        },
+        {
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_l_proximal_link/hand_l_spring_proximal_link/hand_l_mimic_distal_link/hand_l_distal_link/Left_Distal/Left_Distal.019",
+            "link": "hand_l_distal_link",
+            "colliderType": "MeshCollider",
+            "enabled": true,
+            "activeInHierarchy": true,
+            "isTrigger": false,
+            "convex": true,
+            "contactOffset": 0.0010000000474974514,
+            "boundsVerticesLinkUnity": [
+                {
+                    "x": 0.002749735489487648,
+                    "y": 0.014119433239102364,
+                    "z": 0.016009341925382615
+                },
+                {
+                    "x": 0.0027496162801980974,
+                    "y": 0.01581806130707264,
+                    "z": 0.009076128713786602
+                },
+                {
+                    "x": -0.03625030443072319,
+                    "y": 0.014117853716015816,
+                    "z": 0.016009699553251268
+                },
+                {
+                    "x": -0.03625042364001274,
+                    "y": 0.015816470608115197,
+                    "z": 0.009076490066945553
+                },
+                {
+                    "x": 0.002750033512711525,
+                    "y": 0.009888182394206524,
+                    "z": 0.014972701668739319
+                },
+                {
+                    "x": 0.002749854698777199,
+                    "y": 0.011586800217628479,
+                    "z": 0.008039490319788456
+                },
+                {
+                    "x": -0.03625000640749931,
+                    "y": 0.009886607527732849,
+                    "z": 0.014973053708672524
+                },
+                {
+                    "x": -0.03625018522143364,
+                    "y": 0.011585235595703125,
+                    "z": 0.008039841428399086
+                }
+            ],
+            "linkToPalmUnityRowMajor": [
+                1.000000238418579,
+                9.185425857427543e-14,
+                -2.02352284234264e-12,
+                0.01674989052116871,
+                9.185425857427543e-14,
+                0.9999999403953552,
+                2.415002364752894e-10,
+                -0.06150553748011589,
+                -2.02352284234264e-12,
+                2.415002364752894e-10,
+                1.000000238418579,
+                0.04191889241337776,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "representation": "Conservative physics world AABB transformed to rigid link-local coordinates; not render geometry."
+        },
+        {
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_l_proximal_link/hand_l_spring_proximal_link/hand_l_mimic_distal_link/hand_l_distal_link/Left_Distal/Left_Distal.012",
+            "link": "hand_l_distal_link",
+            "colliderType": "MeshCollider",
+            "enabled": true,
+            "activeInHierarchy": true,
+            "isTrigger": false,
+            "convex": true,
+            "contactOffset": 0.0010000000474974514,
+            "boundsVerticesLinkUnity": [
+                {
+                    "x": 0.0017498079687356949,
+                    "y": 0.011066854000091553,
+                    "z": 0.0323471836745739
+                },
+                {
+                    "x": 0.0017493311315774918,
+                    "y": 0.016172369942069055,
+                    "z": 0.011508180759847165
+                },
+                {
+                    "x": -0.035249900072813037,
+                    "y": 0.011064902879297734,
+                    "z": 0.032347388565540317
+                },
+                {
+                    "x": -0.03525037690997124,
+                    "y": 0.016170427203178407,
+                    "z": 0.011508384719491005
+                },
+                {
+                    "x": 0.0017503444105386735,
+                    "y": -0.0005278624594211578,
+                    "z": 0.02950645424425602
+                },
+                {
+                    "x": 0.0017499271780252457,
+                    "y": 0.0045776646584272388,
+                    "z": 0.00866745039820671
+                },
+                {
+                    "x": -0.035249363631010059,
+                    "y": -0.0005298107862472534,
+                    "z": 0.02950672246515751
+                },
+                {
+                    "x": -0.03524978086352348,
+                    "y": 0.0045757289044559,
+                    "z": 0.0086677186191082
+                }
+            ],
+            "linkToPalmUnityRowMajor": [
+                1.000000238418579,
+                9.185425857427543e-14,
+                -2.02352284234264e-12,
+                0.01674989052116871,
+                9.185425857427543e-14,
+                0.9999999403953552,
+                2.415002364752894e-10,
+                -0.06150553748011589,
+                -2.02352284234264e-12,
+                2.415002364752894e-10,
+                1.000000238418579,
+                0.04191889241337776,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "representation": "Conservative physics world AABB transformed to rigid link-local coordinates; not render geometry."
+        },
+        {
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_l_proximal_link/hand_l_spring_proximal_link/hand_l_mimic_distal_link/hand_l_distal_link/Left_Distal/Left_Distal.014",
+            "link": "hand_l_distal_link",
+            "colliderType": "BoxCollider",
+            "enabled": true,
+            "activeInHierarchy": true,
+            "isTrigger": false,
+            "convex": false,
+            "contactOffset": 0.0010000000474974514,
+            "boundsVerticesLinkUnity": [
+                {
+                    "x": -0.0022498425096273424,
+                    "y": -0.004071474075317383,
+                    "z": 0.03563741594552994
+                },
+                {
+                    "x": -0.0022500213235616686,
+                    "y": -0.0014198292046785355,
+                    "z": 0.024814346805214883
+                },
+                {
+                    "x": -0.007250435650348663,
+                    "y": -0.004071727395057678,
+                    "z": 0.03563745319843292
+                },
+                {
+                    "x": -0.0072506144642829899,
+                    "y": -0.00142009649425745,
+                    "z": 0.024814346805214883
+                },
+                {
+                    "x": -0.002249365672469139,
+                    "y": -0.013260632753372193,
+                    "z": 0.033386096358299258
+                },
+                {
+                    "x": -0.0022495444864034654,
+                    "y": -0.010609003715217114,
+                    "z": 0.022562995553016664
+                },
+                {
+                    "x": -0.00724995881319046,
+                    "y": -0.01326090469956398,
+                    "z": 0.03338612616062164
+                },
+                {
+                    "x": -0.007250137627124786,
+                    "y": -0.01060924120247364,
+                    "z": 0.0225630234926939
+                }
+            ],
+            "linkToPalmUnityRowMajor": [
+                1.000000238418579,
+                9.185425857427543e-14,
+                -2.02352284234264e-12,
+                0.01674989052116871,
+                9.185425857427543e-14,
+                0.9999999403953552,
+                2.415002364752894e-10,
+                -0.06150553748011589,
+                -2.02352284234264e-12,
+                2.415002364752894e-10,
+                1.000000238418579,
+                0.04191889241337776,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "representation": "Conservative physics world AABB transformed to rigid link-local coordinates; not render geometry."
+        },
+        {
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_l_proximal_link/hand_l_spring_proximal_link/hand_l_mimic_distal_link/hand_l_distal_link/Left_Fingertip/Left_Fingertip.001",
+            "link": "hand_l_distal_link",
+            "colliderType": "BoxCollider",
+            "enabled": true,
+            "activeInHierarchy": true,
+            "isTrigger": false,
+            "convex": false,
+            "contactOffset": 0.0010000000474974514,
+            "boundsVerticesLinkUnity": [
+                {
+                    "x": 0.0005403701215982437,
+                    "y": 0.017999228090047838,
+                    "z": 0.038329076021909717
+                },
+                {
+                    "x": 0.0005402509123086929,
+                    "y": 0.02024773880839348,
+                    "z": 0.02915148064494133
+                },
+                {
+                    "x": -0.033959753811359408,
+                    "y": 0.017997413873672487,
+                    "z": 0.0383293442428112
+                },
+                {
+                    "x": -0.033959873020648959,
+                    "y": 0.020245924592018129,
+                    "z": 0.02915171906352043
+                },
+                {
+                    "x": 0.0005404297262430191,
+                    "y": 0.015683991834521295,
+                    "z": 0.0377618744969368
+                },
+                {
+                    "x": 0.0005403105169534683,
+                    "y": 0.017932496964931489,
+                    "z": 0.028584254905581476
+                },
+                {
+                    "x": -0.03395969420671463,
+                    "y": 0.01568218134343624,
+                    "z": 0.03776209056377411
+                },
+                {
+                    "x": -0.03395981341600418,
+                    "y": 0.017930684611201288,
+                    "z": 0.02858446165919304
+                }
+            ],
+            "linkToPalmUnityRowMajor": [
+                1.000000238418579,
+                9.185425857427543e-14,
+                -2.02352284234264e-12,
+                0.01674989052116871,
+                9.185425857427543e-14,
+                0.9999999403953552,
+                2.415002364752894e-10,
+                -0.06150553748011589,
+                -2.02352284234264e-12,
+                2.415002364752894e-10,
+                1.000000238418579,
+                0.04191889241337776,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "representation": "Conservative physics world AABB transformed to rigid link-local coordinates; not render geometry."
+        },
+        {
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_r_proximal_link/hand_r_spring_proximal_link/R_Proximal/Right_Proximal.002",
+            "link": "hand_r_spring_proximal_link",
+            "colliderType": "MeshCollider",
+            "enabled": true,
+            "activeInHierarchy": true,
+            "isTrigger": false,
+            "convex": true,
+            "contactOffset": 0.0010000000474974514,
+            "boundsVerticesLinkUnity": [
+                {
+                    "x": -0.0030204150825738909,
+                    "y": 0.00027783215045928955,
+                    "z": 0.07503943890333176
+                },
+                {
+                    "x": -0.0030210111290216448,
+                    "y": 0.025738893076777459,
+                    "z": 0.050176024436950687
+                },
+                {
+                    "x": -0.034839168190956119,
+                    "y": 0.0002759769558906555,
+                    "z": 0.07503838837146759
+                },
+                {
+                    "x": -0.03483976423740387,
+                    "y": 0.025737058371305467,
+                    "z": 0.05017495155334473
+                },
+                {
+                    "x": -0.0030191633850336076,
+                    "y": -0.017074471339583398,
+                    "z": 0.05727004632353783
+                },
+                {
+                    "x": -0.0030197594314813616,
+                    "y": 0.008386589586734772,
+                    "z": 0.032406631857156757
+                },
+                {
+                    "x": -0.03483791649341583,
+                    "y": -0.017076345160603524,
+                    "z": 0.05726901814341545
+                },
+                {
+                    "x": -0.034838512539863589,
+                    "y": 0.008384734392166138,
+                    "z": 0.03240558132529259
+                }
+            ],
+            "linkToPalmUnityRowMajor": [
+                1.000000238418579,
+                8.083820071669301e-13,
+                -4.006169094378231e-12,
+                0.01675000973045826,
+                9.185425857427543e-14,
+                0.8488410711288452,
+                0.5286480784416199,
+                0.02449989505112171,
+                -2.02352284234264e-12,
+                -0.5286482572555542,
+                0.8488413095474243,
+                -0.017499923706054689,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "representation": "Conservative physics world AABB transformed to rigid link-local coordinates; not render geometry."
+        },
+        {
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_r_proximal_link/hand_r_spring_proximal_link/R_Proximal/Right_Proximal.003",
+            "link": "hand_r_spring_proximal_link",
+            "colliderType": "MeshCollider",
+            "enabled": true,
+            "activeInHierarchy": true,
+            "isTrigger": false,
+            "convex": true,
+            "contactOffset": 0.0010000000474974514,
+            "boundsVerticesLinkUnity": [
+                {
+                    "x": 0.0014895107597112656,
+                    "y": -0.003380700945854187,
+                    "z": 0.0580860860645771
+                },
+                {
+                    "x": 0.0014891531318426133,
+                    "y": 0.01030198484659195,
+                    "z": 0.04472456872463226
+                },
+                {
+                    "x": -0.03500260412693024,
+                    "y": -0.0033828001469373705,
+                    "z": 0.05808495357632637
+                },
+                {
+                    "x": -0.03500296175479889,
+                    "y": 0.010299889370799065,
+                    "z": 0.04472343623638153
+                },
+                {
+                    "x": 0.0014901068061590195,
+                    "y": -0.012262066826224327,
+                    "z": 0.048991233110427859
+                },
+                {
+                    "x": 0.0014897491782903672,
+                    "y": 0.0014206338673830033,
+                    "z": 0.035629693418741229
+                },
+                {
+                    "x": -0.03500200808048248,
+                    "y": -0.012263815850019455,
+                    "z": 0.04899042844772339
+                },
+                {
+                    "x": -0.035002365708351138,
+                    "y": 0.001418866217136383,
+                    "z": 0.03562890738248825
+                }
+            ],
+            "linkToPalmUnityRowMajor": [
+                1.000000238418579,
+                8.083820071669301e-13,
+                -4.006169094378231e-12,
+                0.01675000973045826,
+                9.185425857427543e-14,
+                0.8488410711288452,
+                0.5286480784416199,
+                0.02449989505112171,
+                -2.02352284234264e-12,
+                -0.5286482572555542,
+                0.8488413095474243,
+                -0.017499923706054689,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "representation": "Conservative physics world AABB transformed to rigid link-local coordinates; not render geometry."
+        },
+        {
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_r_proximal_link/hand_r_spring_proximal_link/R_Proximal/Right_Proximal.009",
+            "link": "hand_r_spring_proximal_link",
+            "colliderType": "MeshCollider",
+            "enabled": true,
+            "activeInHierarchy": true,
+            "isTrigger": false,
+            "convex": true,
+            "contactOffset": 0.0010000000474974514,
+            "boundsVerticesLinkUnity": [
+                {
+                    "x": 0.001488974317908287,
+                    "y": 0.0028149448335170748,
+                    "z": 0.03716330602765083
+                },
+                {
+                    "x": 0.0014887955039739609,
+                    "y": 0.010023520328104496,
+                    "z": 0.030123945325613023
+                },
+                {
+                    "x": -0.03499479591846466,
+                    "y": 0.002813180908560753,
+                    "z": 0.037162523716688159
+                },
+                {
+                    "x": -0.03499497473239899,
+                    "y": 0.010021768510341645,
+                    "z": 0.030123135074973108
+                },
+                {
+                    "x": 0.001489868387579918,
+                    "y": -0.010416833683848381,
+                    "z": 0.023613499477505685
+                },
+                {
+                    "x": 0.0014896895736455918,
+                    "y": -0.0032082432880997659,
+                    "z": 0.016574112698435785
+                },
+                {
+                    "x": -0.03499390184879303,
+                    "y": -0.010418601334095002,
+                    "z": 0.023612715303897859
+                },
+                {
+                    "x": -0.034994080662727359,
+                    "y": -0.003210012800991535,
+                    "z": 0.016573326662182809
+                }
+            ],
+            "linkToPalmUnityRowMajor": [
+                1.000000238418579,
+                8.083820071669301e-13,
+                -4.006169094378231e-12,
+                0.01675000973045826,
+                9.185425857427543e-14,
+                0.8488410711288452,
+                0.5286480784416199,
+                0.02449989505112171,
+                -2.02352284234264e-12,
+                -0.5286482572555542,
+                0.8488413095474243,
+                -0.017499923706054689,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "representation": "Conservative physics world AABB transformed to rigid link-local coordinates; not render geometry."
+        },
+        {
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_r_proximal_link/hand_r_spring_proximal_link/R_Proximal/Right_Proximal.010",
+            "link": "hand_r_spring_proximal_link",
+            "colliderType": "MeshCollider",
+            "enabled": true,
+            "activeInHierarchy": true,
+            "isTrigger": false,
+            "convex": true,
+            "contactOffset": 0.0010000000474974514,
+            "boundsVerticesLinkUnity": [
+                {
+                    "x": -0.003207216039299965,
+                    "y": 0.005211619660258293,
+                    "z": 0.03885812312364578
+                },
+                {
+                    "x": -0.003207871690392494,
+                    "y": 0.028924262151122094,
+                    "z": 0.01570206694304943
+                },
+                {
+                    "x": -0.034982457756996158,
+                    "y": 0.005210094153881073,
+                    "z": 0.03885741904377937
+                },
+                {
+                    "x": -0.034983113408088687,
+                    "y": 0.02892274037003517,
+                    "z": 0.01570136658847332
+                },
+                {
+                    "x": -0.003205368295311928,
+                    "y": -0.02013222686946392,
+                    "z": 0.012905111536383629
+                },
+                {
+                    "x": -0.003206023946404457,
+                    "y": 0.0035804230719804765,
+                    "z": -0.010250939056277275
+                },
+                {
+                    "x": -0.03498061001300812,
+                    "y": -0.020133748650550844,
+                    "z": 0.012904410250484944
+                },
+                {
+                    "x": -0.03498126566410065,
+                    "y": 0.0035788994282484056,
+                    "z": -0.01025164220482111
+                }
+            ],
+            "linkToPalmUnityRowMajor": [
+                1.000000238418579,
+                8.083820071669301e-13,
+                -4.006169094378231e-12,
+                0.01675000973045826,
+                9.185425857427543e-14,
+                0.8488410711288452,
+                0.5286480784416199,
+                0.02449989505112171,
+                -2.02352284234264e-12,
+                -0.5286482572555542,
+                0.8488413095474243,
+                -0.017499923706054689,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "representation": "Conservative physics world AABB transformed to rigid link-local coordinates; not render geometry."
+        },
+        {
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_r_proximal_link/hand_r_spring_proximal_link/hand_r_mimic_distal_link/hand_r_distal_link/Right_Distal/Right_Distal.001",
+            "link": "hand_r_distal_link",
+            "colliderType": "MeshCollider",
+            "enabled": true,
+            "activeInHierarchy": true,
+            "isTrigger": false,
+            "convex": true,
+            "contactOffset": 0.0010000000474974514,
+            "boundsVerticesLinkUnity": [
+                {
+                    "x": 0.0027535315603017809,
+                    "y": -0.011350098997354508,
+                    "z": 0.020816126838326455
+                },
+                {
+                    "x": 0.0027533527463674547,
+                    "y": -0.008647052571177483,
+                    "z": 0.009783193469047547
+                },
+                {
+                    "x": -0.03625008463859558,
+                    "y": -0.011351686902344227,
+                    "z": 0.020816458389163019
+                },
+                {
+                    "x": -0.03625026345252991,
+                    "y": -0.00864864606410265,
+                    "z": 0.009783580899238587
+                },
+                {
+                    "x": 0.0027539487928152086,
+                    "y": -0.018865011632442476,
+                    "z": 0.018974969163537027
+                },
+                {
+                    "x": 0.0027537699788808824,
+                    "y": -0.0161619670689106,
+                    "z": 0.007942062802612782
+                },
+                {
+                    "x": -0.03624966740608215,
+                    "y": -0.01886659488081932,
+                    "z": 0.018975358456373216
+                },
+                {
+                    "x": -0.03624984622001648,
+                    "y": -0.016163546591997148,
+                    "z": 0.007942449301481247
+                }
+            ],
+            "linkToPalmUnityRowMajor": [
+                1.000000238418579,
+                9.185425857427543e-14,
+                -2.02352284234264e-12,
+                0.016750002279877664,
+                9.185425857427543e-14,
+                0.9999999403953552,
+                2.415002364752894e-10,
+                0.0615050382912159,
+                -2.02352284234264e-12,
+                2.415002364752894e-10,
+                1.000000238418579,
+                0.04191877320408821,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "representation": "Conservative physics world AABB transformed to rigid link-local coordinates; not render geometry."
+        },
+        {
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_r_proximal_link/hand_r_spring_proximal_link/hand_r_mimic_distal_link/hand_r_distal_link/Right_Distal/Right_Distal.002",
+            "link": "hand_r_distal_link",
+            "colliderType": "MeshCollider",
+            "enabled": true,
+            "activeInHierarchy": true,
+            "isTrigger": false,
+            "convex": true,
+            "contactOffset": 0.0010000000474974514,
+            "boundsVerticesLinkUnity": [
+                {
+                    "x": 0.002750193700194359,
+                    "y": -0.013097377493977547,
+                    "z": 0.040179356932640079
+                },
+                {
+                    "x": 0.002749776467680931,
+                    "y": -0.008490996435284615,
+                    "z": 0.02137766219675541
+                },
+                {
+                    "x": -0.03624984622001648,
+                    "y": -0.013099422678351403,
+                    "z": 0.04017959535121918
+                },
+                {
+                    "x": -0.03625026345252991,
+                    "y": -0.008493036031723023,
+                    "z": 0.021377932280302049
+                },
+                {
+                    "x": 0.0027504917234182359,
+                    "y": -0.02000001259148121,
+                    "z": 0.03848818689584732
+                },
+                {
+                    "x": 0.0027501340955495836,
+                    "y": -0.015393631532788277,
+                    "z": 0.019686531275510789
+                },
+                {
+                    "x": -0.0362495481967926,
+                    "y": -0.020002055913209916,
+                    "z": 0.03848846256732941
+                },
+                {
+                    "x": -0.036249905824661258,
+                    "y": -0.015395674854516983,
+                    "z": 0.01968676783144474
+                }
+            ],
+            "linkToPalmUnityRowMajor": [
+                1.000000238418579,
+                9.185425857427543e-14,
+                -2.02352284234264e-12,
+                0.016750002279877664,
+                9.185425857427543e-14,
+                0.9999999403953552,
+                2.415002364752894e-10,
+                0.0615050382912159,
+                -2.02352284234264e-12,
+                2.415002364752894e-10,
+                1.000000238418579,
+                0.04191877320408821,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "representation": "Conservative physics world AABB transformed to rigid link-local coordinates; not render geometry."
+        },
+        {
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_r_proximal_link/hand_r_spring_proximal_link/hand_r_mimic_distal_link/hand_r_distal_link/Right_Distal/Right_Distal.015",
+            "link": "hand_r_distal_link",
+            "colliderType": "MeshCollider",
+            "enabled": true,
+            "activeInHierarchy": true,
+            "isTrigger": false,
+            "convex": true,
+            "contactOffset": 0.0010000000474974514,
+            "boundsVerticesLinkUnity": [
+                {
+                    "x": 0.001749848946928978,
+                    "y": -0.009682661853730679,
+                    "z": 0.032297056168317798
+                },
+                {
+                    "x": 0.0017494913190603257,
+                    "y": -0.00424967659637332,
+                    "z": 0.01012150663882494
+                },
+                {
+                    "x": -0.03524985909461975,
+                    "y": -0.009684599936008454,
+                    "z": 0.032297324389219287
+                },
+                {
+                    "x": -0.0352502167224884,
+                    "y": -0.004251612816005945,
+                    "z": 0.01012177299708128
+                },
+                {
+                    "x": 0.0017502661794424058,
+                    "y": -0.016562603414058687,
+                    "z": 0.030611498281359674
+                },
+                {
+                    "x": 0.001749848946928978,
+                    "y": -0.011129624210298062,
+                    "z": 0.008435950614511967
+                },
+                {
+                    "x": -0.03524944186210632,
+                    "y": -0.016564542427659036,
+                    "z": 0.030611738562583925
+                },
+                {
+                    "x": -0.03524985909461975,
+                    "y": -0.011131556704640389,
+                    "z": 0.008436188101768494
+                }
+            ],
+            "linkToPalmUnityRowMajor": [
+                1.000000238418579,
+                9.185425857427543e-14,
+                -2.02352284234264e-12,
+                0.016750002279877664,
+                9.185425857427543e-14,
+                0.9999999403953552,
+                2.415002364752894e-10,
+                0.0615050382912159,
+                -2.02352284234264e-12,
+                2.415002364752894e-10,
+                1.000000238418579,
+                0.04191877320408821,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "representation": "Conservative physics world AABB transformed to rigid link-local coordinates; not render geometry."
+        },
+        {
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_r_proximal_link/hand_r_spring_proximal_link/hand_r_mimic_distal_link/hand_r_distal_link/Right_Distal/Right_Distal.016",
+            "link": "hand_r_distal_link",
+            "colliderType": "MeshCollider",
+            "enabled": true,
+            "activeInHierarchy": true,
+            "isTrigger": false,
+            "convex": true,
+            "contactOffset": 0.0010000000474974514,
+            "boundsVerticesLinkUnity": [
+                {
+                    "x": -0.0028046611696481706,
+                    "y": -0.0035014180466532709,
+                    "z": 0.028243079781532289
+                },
+                {
+                    "x": -0.0028052423149347307,
+                    "y": 0.003944622818380594,
+                    "z": -0.0021491055376827718
+                },
+                {
+                    "x": -0.026349810883402826,
+                    "y": -0.0035026520490646364,
+                    "z": 0.028243225067853929
+                },
+                {
+                    "x": -0.026350392028689386,
+                    "y": 0.003943391144275665,
+                    "z": -0.0021489618811756374
+                },
+                {
+                    "x": -0.002804005518555641,
+                    "y": -0.015938106924295427,
+                    "z": 0.025196056813001634
+                },
+                {
+                    "x": -0.0028045866638422014,
+                    "y": -0.00849207304418087,
+                    "z": -0.005196066573262215
+                },
+                {
+                    "x": -0.026349155232310296,
+                    "y": -0.01593935117125511,
+                    "z": 0.02519623562693596
+                },
+                {
+                    "x": -0.026349736377596856,
+                    "y": -0.00849330984055996,
+                    "z": -0.005195918958634138
+                }
+            ],
+            "linkToPalmUnityRowMajor": [
+                1.000000238418579,
+                9.185425857427543e-14,
+                -2.02352284234264e-12,
+                0.016750002279877664,
+                9.185425857427543e-14,
+                0.9999999403953552,
+                2.415002364752894e-10,
+                0.0615050382912159,
+                -2.02352284234264e-12,
+                2.415002364752894e-10,
+                1.000000238418579,
+                0.04191877320408821,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "representation": "Conservative physics world AABB transformed to rigid link-local coordinates; not render geometry."
+        },
+        {
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_r_proximal_link/hand_r_spring_proximal_link/hand_r_mimic_distal_link/hand_r_distal_link/Right_Fingertip/Right_Fingertip.001",
+            "link": "hand_r_distal_link",
+            "colliderType": "BoxCollider",
+            "enabled": true,
+            "activeInHierarchy": true,
+            "isTrigger": false,
+            "convex": false,
+            "contactOffset": 0.0010000000474974514,
+            "boundsVerticesLinkUnity": [
+                {
+                    "x": 0.0007051583379507065,
+                    "y": -0.01687396876513958,
+                    "z": 0.038015976548194888
+                },
+                {
+                    "x": 0.0007048603147268295,
+                    "y": -0.014390372671186924,
+                    "z": 0.027878742665052415
+                },
+                {
+                    "x": -0.03409501910209656,
+                    "y": -0.016875790432095529,
+                    "z": 0.03801615536212921
+                },
+                {
+                    "x": -0.034095317125320438,
+                    "y": -0.014392200857400895,
+                    "z": 0.027878951281309129
+                },
+                {
+                    "x": 0.0007052775472402573,
+                    "y": -0.02024562656879425,
+                    "z": 0.03718991577625275
+                },
+                {
+                    "x": 0.0007050391286611557,
+                    "y": -0.01776203326880932,
+                    "z": 0.027052711695432664
+                },
+                {
+                    "x": -0.03409489989280701,
+                    "y": -0.0202474445104599,
+                    "z": 0.03719012439250946
+                },
+                {
+                    "x": -0.03409513831138611,
+                    "y": -0.01776384748518467,
+                    "z": 0.027052920311689378
+                }
+            ],
+            "linkToPalmUnityRowMajor": [
+                1.000000238418579,
+                9.185425857427543e-14,
+                -2.02352284234264e-12,
+                0.016750002279877664,
+                9.185425857427543e-14,
+                0.9999999403953552,
+                2.415002364752894e-10,
+                0.0615050382912159,
+                -2.02352284234264e-12,
+                2.415002364752894e-10,
+                1.000000238418579,
+                0.04191877320408821,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "representation": "Conservative physics world AABB transformed to rigid link-local coordinates; not render geometry."
+        },
+        {
+            "path": "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/cigarette#1",
+            "link": "hand_palm_link",
+            "colliderType": "BoxCollider",
+            "enabled": true,
+            "activeInHierarchy": true,
+            "isTrigger": false,
+            "convex": false,
+            "contactOffset": 0.0010000000474974514,
+            "boundsVerticesLinkUnity": [
+                {
+                    "x": 0.02066635899245739,
+                    "y": 0.03848951682448387,
+                    "z": 0.11586536467075348
+                },
+                {
+                    "x": 0.02066504769027233,
+                    "y": 0.05414365977048874,
+                    "z": 0.05197055637836456
+                },
+                {
+                    "x": -0.001967792399227619,
+                    "y": 0.03848833590745926,
+                    "z": 0.11586551368236542
+                },
+                {
+                    "x": -0.0019691037014126779,
+                    "y": 0.05414247512817383,
+                    "z": 0.0519707053899765
+                },
+                {
+                    "x": 0.02067088894546032,
+                    "y": -0.05115584284067154,
+                    "z": 0.09390236437320709
+                },
+                {
+                    "x": 0.020669711753726007,
+                    "y": -0.03550169616937637,
+                    "z": 0.030007541179656984
+                },
+                {
+                    "x": -0.0019632624462246897,
+                    "y": -0.051156796514987949,
+                    "z": 0.09390254318714142
+                },
+                {
+                    "x": -0.0019644396379590036,
+                    "y": -0.03550264984369278,
+                    "z": 0.030007779598236085
+                }
+            ],
+            "linkToPalmUnityRowMajor": [
+                1.000000238418579,
+                9.185425857427543e-14,
+                -2.02352284234264e-12,
+                5.433912164676258e-8,
+                9.185425857427543e-14,
+                0.9999999403953552,
+                2.415002364752894e-10,
+                -1.3319419167601155e-7,
+                -2.02352284234264e-12,
+                2.415002364752894e-10,
+                1.000000238418579,
+                -6.171345034999831e-8,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "representation": "Conservative physics world AABB transformed to rigid link-local coordinates; not render geometry."
+        }
+    ],
+    "inactiveOrDisabled": [
+        "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_l_proximal_link/hand_l_spring_proximal_link/L_Proximal/RaySourceBox4 | BoxCollider",
+        "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_l_proximal_link/hand_l_spring_proximal_link/L_Proximal/RaySourceBox5 | BoxCollider",
+        "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_l_proximal_link/hand_l_spring_proximal_link/hand_l_mimic_distal_link/hand_l_distal_link/Left_Distal/RaySourceBox1 | BoxCollider",
+        "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_l_proximal_link/hand_l_spring_proximal_link/hand_l_mimic_distal_link/hand_l_distal_link/Left_Distal/RaySourceBox2 | BoxCollider",
+        "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_l_proximal_link/hand_l_spring_proximal_link/hand_l_mimic_distal_link/hand_l_distal_link/Left_Distal/RaySourceBox3 | BoxCollider",
+        "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_l_proximal_link/hand_l_spring_proximal_link/hand_l_mimic_distal_link/hand_l_distal_link/hand_l_finger_tip_frame/LeftFingerTrigger/Entrance | BoxCollider",
+        "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_l_proximal_link/hand_l_spring_proximal_link/hand_l_mimic_distal_link/hand_l_distal_link/hand_l_finger_tip_frame/LeftFingerTrigger/Exit | BoxCollider",
+        "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_r_proximal_link/hand_r_spring_proximal_link/R_Proximal/RaySourceBox4 | BoxCollider",
+        "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_r_proximal_link/hand_r_spring_proximal_link/R_Proximal/RaySourceBox5 | BoxCollider",
+        "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_r_proximal_link/hand_r_spring_proximal_link/hand_r_mimic_distal_link/hand_r_distal_link/Right_Distal/RaySourceBox1 | BoxCollider",
+        "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_r_proximal_link/hand_r_spring_proximal_link/hand_r_mimic_distal_link/hand_r_distal_link/Right_Distal/RaySourceBox2 | BoxCollider",
+        "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_r_proximal_link/hand_r_spring_proximal_link/hand_r_mimic_distal_link/hand_r_distal_link/Right_Distal/RaySourceBox3 | BoxCollider",
+        "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_r_proximal_link/hand_r_spring_proximal_link/hand_r_mimic_distal_link/hand_r_distal_link/hand_r_finger_tip_frame/RightFingerTrigger/Entrance | BoxCollider",
+        "HSR-B/odom/base_footprint_pos_noise/base_footprint_rigidbody/base_footprint_rot_noise/base_footprint/base_link/arm_lift_link/arm_flex_link/arm_roll_link/wrist_flex_link/wrist_roll_link/hand_palm_link/hand_r_proximal_link/hand_r_spring_proximal_link/hand_r_mimic_distal_link/hand_r_distal_link/hand_r_finger_tip_frame/RightFingerTrigger/Exit | BoxCollider"
+    ],
+    "limitations": [
+        "Single stationary scene-instance snapshot; no opening sweep is executed by this exporter.",
+        "Each collider AABB encloses the physical shape at capture; link motion must be recomposed for future postures.",
+        "Disabled colliders are inventoried; future activation changes invalidate the envelope.",
+        "Contact offsets and table measurement uncertainty must be added to geometric clearance."
+    ]
+}

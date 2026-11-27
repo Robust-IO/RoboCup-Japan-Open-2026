@@ -1,0 +1,105 @@
+{
+  "status": "recorded_geometry_replay_passed",
+  "clock": "HISTORICAL_REPLAY_ONLY_NOT_LIVE",
+  "grasp_plan": {
+    "contact_start_lift_m": 0.25260928161829777,
+    "palm_height_m": 0.5298070967868939,
+    "measured_target_base_m": [
+      0.7044593703094493,
+      0.07772153532180053,
+      0.5391860291598127
+    ],
+    "measured_target_map_m": [
+      10.871554408413802,
+      -6.5345923771807595,
+      0.5392045526605318
+    ],
+    "source_depth_stamp_ns": 1792225670323179070,
+    "source_table_id": "white_side_table#bedroom_1",
+    "motion_authorized": false
+  },
+  "placement_plan": {
+    "task_id": "apple-white-table-20261017",
+    "destination_id": "square_low_table#living_room",
+    "destination_room": "living_room",
+    "release_xy_map_m": [
+      1.9709999561309814,
+      3.6000002632141115
+    ],
+    "palm_height_m": 0.4858177127256115,
+    "plane_map": [
+      5.441528361624749e-05,
+      0.001059035294271135,
+      0.44002169296912436
+    ],
+    "table_height_at_release_m": 0.443941472828874,
+    "footprint_center": [
+      1.9709999561309814,
+      4.02400016784668
+    ],
+    "footprint_half_size": [
+      0.3599998950958252,
+      0.5999999046325684
+    ],
+    "held_center_minus_palm_m": [
+      0.07767280075196548,
+      -0.00028270217001950815,
+      0.008530201687445116
+    ],
+    "holding_opening_rad": 0.4157592239095287,
+    "radius_m": 0.030406441584182622,
+    "patch": {
+      "clear": true,
+      "table_surface_pixels": 2631,
+      "obstacle_pixels": 0,
+      "all_eight_sectors_observed": true,
+      "radius_m": 0.09
+    },
+    "checked_candidates": [
+      {
+        "xy_map_m": [
+          1.9709999561309814,
+          3.6000002632141115
+        ],
+        "clear": true,
+        "table_surface_pixels": 2631,
+        "obstacle_pixels": 0,
+        "all_eight_sectors_observed": true,
+        "radius_m": 0.09
+      }
+    ],
+    "source_depth_stamp_ns": 1792226009088033179,
+    "motion_authorized": false
+  },
+  "release_check": {
+    "capture": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-runtime-20261017/return-square-pre-release",
+    "source_stamp_ns": 1792226279873378929,
+    "center_map": [
+      1.971507722901099,
+      3.599651803609964,
+      0.49430619580922364
+    ],
+    "estimated_bottom_gap_m": 0.01984900254676747,
+    "measurement": {
+      "center_base": [
+        0.7053913763875131,
+        0.07784841655762807,
+        0.49429538363411174
+      ],
+      "radius_m": 0.03051606183432881,
+      "residual_p95_m": 0.0070278142149295415,
+      "pixels": 1325,
+      "association_error_m": 0.0005671017334119431,
+      "method": "previously_verified_apple_palm_relative_red_rgbd_surface",
+      "detector_confidence": null,
+      "new_identity_verified": false,
+      "motion_authorized": false
+    },
+    "task_id": "apple-white-table-20261017",
+    "motion_authorized": false
+  },
+  "robot_commands_sent": false,
+  "task_finished_sent": false,
+  "automatic_live_transfer_verified": false,
+  "limitation": "Checks measured geometry against previous successful captures, not live stage transitions, navigation or end-to-end autonomous execution."
+}

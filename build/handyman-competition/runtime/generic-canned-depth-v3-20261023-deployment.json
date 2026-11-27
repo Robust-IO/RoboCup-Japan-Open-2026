@@ -1,0 +1,24 @@
+{
+  "status": "can_observation_addon_update_verified",
+  "files": [
+    "object_surface_geometry.py",
+    "upright_cylinder_geometry.py",
+    "test_upright_cylinder_geometry.py",
+    "GENERIC_TRANSFER_TEMPLATE.txt"
+  ],
+  "hashes": {
+    "object_surface_geometry.py": "ad870acb33fcc19d9e144248ee689a865bd006e9d96f15491d53ed1b94d9b3fa",
+    "upright_cylinder_geometry.py": "1efcb450663f3d1d5fae484aaf2e5fdeb6524e41c6a38a24496b9a36fa053a16",
+    "test_upright_cylinder_geometry.py": "bcf48c61eb6b5c3a3bd554564a287f4f0876d528a973fb8ff4bcefefc797ee6a",
+    "GENERIC_TRANSFER_TEMPLATE.txt": "aff45670bb212b14ae2471414dc41e130a6d149c674df4cda48e61335fcca9a8"
+  },
+  "runtime_tests": 464,
+  "candidate_tests": 464,
+  "original_apple_runtime_preserved": true,
+  "source_copies": 3,
+  "checkpoint_copies": 4,
+  "checkpoint": "D:/handyman-training-runs/canned-juice-observation-live-progress-20261023.json",
+  "checkpoint_sha256": "e8dab1a8073ebef33c46f7a8f29c8d47308052051a81515349727ab852cf4af1",
+  "robot_commands_sent": false,
+  "can_live_mover_complete": false
+}

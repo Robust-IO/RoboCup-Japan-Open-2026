@@ -1,0 +1,18 @@
+﻿{
+    "Session":  8,
+    "Status":  "desktop_rviz_window_verified",
+    "RestartAuthorized":  true,
+    "RobotActionsStarted":  false,
+    "RvizWindowVisible":  true,
+    "ShutdownExitCode":  0,
+    "GuiLauncherPid":  94184,
+    "RvizWindowHandles":  [
+                              133468
+                          ],
+    "DisplayClients":  [
+                           {
+                               "ProcessId":  94612,
+                               "SessionId":  8
+                           }
+                       ]
+}

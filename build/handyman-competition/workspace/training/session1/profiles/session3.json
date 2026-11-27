@@ -1,0 +1,36 @@
+{
+  "schema": "handyman_session3_search_v1",
+  "session_number": 3,
+  "layout": "LayoutA",
+  "target": "bear_doll",
+  "expected_instruction": "Go to the lobby, grasp the bear_doll and give it to me.",
+  "corrected_instruction": "Go to the lobby, grasp the dog_doll and give it to me.",
+  "destination": {
+    "mode": "avatar_handover",
+    "furniture_id": "Moderator",
+    "room": "lobby"
+  },
+  "search": {
+    "aspect_ratio_threshold": 1.35,
+    "head_tilts": [
+      0.0,
+      -0.5235987755982988
+    ],
+    "frames_per_view": 2,
+    "candidate_confidence": 0.15,
+    "confirmed_confidence": 0.8,
+    "mode": "continuous",
+    "continuous_speed_rad_s": 0.4,
+    "continuous_bins": 12
+  },
+  "corrected_source": {
+    "room": "lobby",
+    "furniture_id": "corner_sofa#lobby",
+    "source": "user_provided"
+  },
+  "scope": "Search bear; after actual correction, grasp dog on corner_sofa, tuck, navigate to Moderator and present while holding; await official result.",
+  "source_observation": {
+    "mode": "near_furniture_front",
+    "basis": "corrected furniture geometry; static footprint and sightline validation, then shortest route"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "schema": "handyman_competition_tasks_v1",
+  "sessions": [
+    {
+      "session_number": 1,
+      "layout": "LayoutA",
+      "target": "dog_doll",
+      "source": {
+        "room": "living_room",
+        "furniture_id": "white_side_table#living_room"
+      },
+      "destination": {
+        "room": "living_room",
+        "furniture_id": "square_low_table#living_room",
+        "mode": "table_place"
+      },
+      "expected_instruction": "Go to the living room, grasp the dog_doll and put it on the square_low_table."
+    },
+    {
+      "session_number": 2,
+      "layout": "LayoutB",
+      "target": "canned_juice",
+      "source": {
+        "room": "living_room",
+        "furniture_id": "wooden_side_table#living_room"
+      },
+      "destination": {
+        "room": "living_room",
+        "furniture_id": "trash_box_for_bottle_can#living_room",
+        "mode": "container_drop",
+        "candidate_forward_shift_m": 0.2,
+        "release_approach_reduction_m": 0.07
+      },
+      "expected_instruction": "Go to the living room, grasp the canned_juice on the wooden_side_table and throw it in the trash_box_for_bottle_can in the living room."
+    },
+    {
+      "session_number": 3,
+      "layout": "LayoutA",
+      "target": "dog_doll",
+      "source": {
+        "room": "lobby",
+        "furniture_id": "corner_sofa#lobby",
+        "source": "user_provided"
+      },
+      "destination": {
+        "mode": "avatar_handover",
+        "furniture_id": "Moderator",
+        "room": "lobby"
+      },
+      "expected_instruction": "Go to the lobby, grasp the bear_doll and give it to me.",
+      "initial_target": "bear_doll",
+      "corrected_instruction": "Go to the lobby, grasp the dog_doll and give it to me."
+    },
+    {
+      "session_number": 4,
+      "layout": "LayoutC",
+      "target": "tumbler",
+      "source": {
+        "room": "lobby",
+        "furniture_id": "white_side_table#lobby"
+      },
+      "destination": {
+        "room": "lobby",
+        "furniture_id": "trash_box_for_burnable#lobby",
+        "mode": "container_drop",
+        "candidate_forward_shift_m": 0.0,
+        "release_approach_reduction_m": 0.07
+      },
+      "expected_instruction": "Go to the lobby, grasp the tumbler and throw it in the trash_box_for_burnable close to the kettle."
+    },
+    {
+      "session_number": 5,
+      "layout": "LayoutD",
+      "target": "rabbit_doll",
+      "source": {
+        "room": "kitchen",
+        "furniture_id": "body#kitchen",
+        "model_path": "LayoutD/SIGVerseHouse/kitchen/wooden_cupboard/body"
+      },
+      "destination": {
+        "room": "living_room",
+        "furniture_id": "square_low_table#living_room",
+        "mode": "table_place"
+      },
+      "expected_instruction": "Go to the kitchen, grasp the rabbit_doll and put it on the square_low_table."
+    },
+    {
+      "session_number": 6,
+      "layout": "LayoutD",
+      "target": "filled_ketchup",
+      "source": {
+        "room": "lobby",
+        "furniture_id": "dining_table#lobby"
+      },
+      "destination": {
+        "room": "living_room",
+        "furniture_id": "wooden_shelf#living_room",
+        "mode": "table_place"
+      },
+      "expected_instruction": "Go to the lobby, grasp the filled_ketchup and put the filled_ketchup on the wooden_shelf in the living room."
+    }
+  ]
+}

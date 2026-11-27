@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "selection": "verified_method_first_then_geometry",
+  "profiles": {
+    "apple": {"family": "sphere", "method": "legacy_apple", "entry": "run_object_transfer.py --object apple", "scope": "verified_configured_transfer", "local_grasp_adapter": false, "rule": "Measure sphere center and table; side grasp with calibrated seating and lift verification."},
+    "canned_juice": {"family": "upright_cylinder", "method": "legacy_upright_can", "local_grasp_adapter": true, "rule": "Fit cylinder/cap axis; align actual finger midline before straight insertion; use legacy calibrated depth; one closure and measured lift.", "unsupported_pose": "horizontal_can_not_automatically_verified"},
+    "ground_pepper": {"family": "short_wide_body", "method": "legacy_pepper", "entry": "run_object_transfer.py --object ground_pepper --grasp-only --task-config TASK", "scope": "verified_configured_transfer", "local_grasp_adapter": false, "rule": "Fit wide body separately from cap; pinch body, set height from support, not whole-image bbox center."},
+    "toy_penguin": {"family": "irregular_body", "method": "legacy_penguin", "entry": "run_object_transfer.py --object toy_penguin --grasp-only --task-config TASK", "scope": "verified_configured_transfer", "local_grasp_adapter": false, "rule": "Use established penguin geometry and measured hold verification; do not assume every head/torso orientation was verified."},
+    "cigarette": {"family": "thin_box", "method": "legacy_flat_box", "entry": "run_cigarette_transfer_20261101.py", "scope": "configured_separate_stage_coordinator", "local_grasp_adapter": false, "rule": "Choose contact height using complete finger closing envelope above table; do not drive fingers to a low box center."},
+    "tumbler": {"family": "round_body", "method": "legacy_round_body", "local_grasp_adapter": true, "rule": "Measure round body center/width and support; calibrated side grasp; verify actual surface follows palm."},
+    "toy_car": {"family": "local_parts", "method": "geometry_overhead", "local_grasp_adapter": true, "rule": "User requires overhead. Find a material-bearing narrow part; automatic side grasp success does not verify overhead lift."},
+    "game_controller": {"family": "local_parts", "method": "geometry", "local_grasp_adapter": true, "rule": "Generate local handle candidates; prior manually reviewed image anchor must not be reused as automatic evidence."}
+  },
+  "fallback": {"method": "geometry", "preferred_strategy": "side", "wide_object": "exclude side if measured minimum horizontal width exceeds physical opening; overhead still requires feasible contact and clearance"},
+  "failure_policy": "Never switch methods after an attempted closure without checking current holding state. Failed or unknown measurement is not evidence of an unsuitable pose. No automatic replay of historical XYZ."
+}

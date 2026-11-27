@@ -1,0 +1,48 @@
+{
+  "basis": "historical_grasp_surface_with_calibrated_folded_FK_offline_not_live_TF",
+  "turn_radius_m": 0.5198617527673781,
+  "poses": [
+    {
+      "pose": [
+        1.7175,
+        -5.5903,
+        -2.2364
+      ],
+      "turn_clear": true,
+      "escape": {
+        "delta": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "pose": [
+          1.7175,
+          -5.5903,
+          -2.2364
+        ],
+        "distance_m": 0.0
+      }
+    },
+    {
+      "pose": [
+        0.86484319,
+        -2.50027023,
+        -0.83649684
+      ],
+      "turn_clear": true,
+      "escape": {
+        "delta": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "pose": [
+          0.86484319,
+          -2.50027023,
+          -0.83649684
+        ],
+        "distance_m": 0.0
+      }
+    }
+  ]
+}

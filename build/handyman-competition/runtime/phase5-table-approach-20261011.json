@@ -1,0 +1,50 @@
+{
+  "motion_authorized": false,
+  "capture": "/tmp/phase5-replan-rgbd-20261011",
+  "apple_visible_surface": {
+    "samples": 1855,
+    "median_base": [
+      0.8270611965652697,
+      0.0792563206344735,
+      0.5487220547724831
+    ],
+    "depth_quantiles": [
+      0.7787000477313996,
+      0.7930000424385071,
+      0.8140000104904175
+    ],
+    "box": [
+      245,
+      25,
+      330,
+      125
+    ],
+    "red_only": true,
+    "depth_stamp_ns": 1791717447003348011
+  },
+  "table_front_plane": {
+    "normal_xy": [
+      0.9773811691278167,
+      -0.21148534283572007
+    ],
+    "offset_m": 0.49255395990260886,
+    "samples": 5948,
+    "p95_residual_m": 0.00030049871198283283
+  },
+  "surface_to_edge_horizontal_m": 0.29903852919532603,
+  "provisional_surface_alignment_translation_m": [
+    0.13776598156526965,
+    0.0012563206344735067
+  ],
+  "observation_standoff_translation_m": [
+    0.08889692310887881,
+    0.011830587776259512
+  ],
+  "current_edge_x_at_hand_y_m": 0.5208303911748725,
+  "limitations": [
+    "Manual red ROI is a diagnostic, not a production detector.",
+    "Visible surface is not target center; alignment does not guarantee enclosure.",
+    "Table front fitted to selected visible fascia, not all furniture geometry.",
+    "No collision/path authorization; screen lifted arm before further base approach."
+  ]
+}

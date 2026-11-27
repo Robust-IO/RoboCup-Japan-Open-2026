@@ -1,0 +1,27 @@
+{
+  "status": "additive_deployment_verified",
+  "files": [
+    "canned_grasp_geometry.py",
+    "canned_grasp_runtime.py",
+    "run_canned_grasp_trial.py",
+    "test_canned_grasp_geometry.py",
+    "CANNED_GRASP_TRIAL.txt"
+  ],
+  "hashes": {
+    "canned_grasp_geometry.py": "0294faaaa832da45603f3e7838e5401850fc4743644525be56fa5cdd5482f69d",
+    "canned_grasp_runtime.py": "05c4989c8ae1810f94d787395547e13dfc629badfd703424c9579cb01c8666e1",
+    "run_canned_grasp_trial.py": "7c45fd638a03f532de8f63a1afed6589b7d0a71ad776aef0b743be24792875d7",
+    "test_canned_grasp_geometry.py": "e7b9be421b1fce10efd812ced2d52a32a18d8419d647e9369adabb26fca42e99",
+    "CANNED_GRASP_TRIAL.txt": "915516c14e8d45c29659b4ed5fb1080cf21866b17c2d04b8c3209e4b4dacb0be"
+  },
+  "runtime_tests": 479,
+  "candidate_tests": 479,
+  "existing_runtime_files_preserved": 148,
+  "all_existing_apple_runtime_files_unchanged": true,
+  "source_copies": 3,
+  "checkpoint_copies": 4,
+  "checkpoint": "D:/handyman-training-runs/canned-grasp-adapter-progress-20261023.json",
+  "checkpoint_sha256": "48777e68cf8f3ba42e8299fbb63c7e16f3319e3f5ef17beb243f32e3b4602f22",
+  "robot_commands_sent": false,
+  "can_full_transfer_complete": false
+}

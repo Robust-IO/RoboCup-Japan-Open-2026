@@ -1,0 +1,40 @@
+饮料罐保持夹持收臂及原路线导航（2026-10-23）
+
+前提：canned-grasp-lift-live-progress-20261023.json记录本轮真实抓取/提起已验证。
+  每次动作前重新取当前RGBD、关节及image-time TF。检查点只提供来源、尺寸和ROI，
+  不能当成当前持物证明或动作授权。Unity/WSL重启后不能直接重放。
+  此阶段不做模型推理，因此不扣除200ms模型处理预算；原400ms有效性检查不变。
+  CanRuntime.sample默认200ms预算保持不变，原抓取入口的行为不变。
+  几何处理结束后读取新的关节反馈，分别校验原图像和当前关节400ms有效性，
+  同时比较当前与拍摄时的关节姿态。两份原始时间戳都保存，不给旧快照改时间。
+
+阶段
+  当前三帧深度确认罐体仍在手边 -> 保持夹持收臂/降臂 -> 三帧重新确认实际持物。
+  指定--navigate-destination才沿原LayoutA卧室到客厅square_low_table的穿门路线导航。
+  到位后再次验证罐体当前深度与夹持，没有观察到物品不能只凭夹爪数值判成功。
+  不重复抓取、闭爪、接近，不松手，不放置，不发Task_finished。
+
+原有代码保持不变
+  水平收臂和降臂复用pregrasp_raised_trial.py --contact-finish carry。
+  导航复用原LiveBackend.navigate及navigate_carry_trial.py，读取原环境YAML路线。
+  到位参数仍[0.06,0.08,0.06]，保留原balanced_v1持物速度策略和参数恢复。
+  有限动作或导航失败不重放；保留现场和握持，必须先做实际状态审计。
+
+文件
+  canned_carry_geometry.py：当前实际持物测量、收臂起止状态和物品相对手掌稳定性。
+  run_canned_carry_trial.py：显式动作入口及日志。
+  test_canned_carry_geometry.py：无深度、开手、滑移、无效来源等负例。
+
+默认无ROS无动作
+  python3 run_canned_carry_trial.py --navigate-destination
+
+通过domain71/Cyclone包装显式运行，仅收臂
+  python3 run_canned_carry_trial.py --run --output /mnt/d/handyman-training-runs/新的目录
+
+收臂并沿原路线到目的地（仍不放置）
+  python3 run_canned_carry_trial.py --run --navigate-destination \
+    --output /mnt/d/handyman-training-runs/新的目录
+
+限制
+  当前测量仍针对直立罐体，需要可见顶面和上部侧面；不会用预测位置补造被遮挡深度。
+  这一入口不是30类通用搬运，也未连接Moderator。圆柱半高与半径不能混用。

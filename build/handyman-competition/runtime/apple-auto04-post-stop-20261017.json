@@ -1,0 +1,5 @@
+{
+  "ready": false,
+  "robot_commands_sent": false,
+  "reason": "stale_joint_feedback"
+}

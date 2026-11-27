@@ -1,0 +1,50 @@
+{
+  "robot_commands_sent": false,
+  "rows": [
+    {
+      "capture": "001-near",
+      "status": "passed",
+      "body_delta_m": 0.0005899571260595777,
+      "head_delta_m": 0.0003869797077971141
+    },
+    {
+      "capture": "002-near",
+      "status": "passed",
+      "body_delta_m": 0.0005913908339901232,
+      "head_delta_m": 0.0005641991212451982
+    },
+    {
+      "capture": "003-near",
+      "status": "passed",
+      "body_delta_m": 0.018856002387111163,
+      "head_delta_m": 0.019008169141075056
+    },
+    {
+      "capture": "004-near",
+      "status": "passed",
+      "body_delta_m": 0.0006943078092377999,
+      "head_delta_m": 0.0005292017076424953
+    },
+    {
+      "capture": "006-near-rejected",
+      "status": "rejected",
+      "reason": "penguin_current_surface_outside_association"
+    },
+    {
+      "capture": "007-near-rejected",
+      "status": "rejected",
+      "reason": "penguin_current_surface_outside_association"
+    },
+    {
+      "capture": "008-near-rejected",
+      "status": "rejected",
+      "reason": "penguin_current_surface_outside_association"
+    },
+    {
+      "capture": "009-near-rejected",
+      "status": "rejected",
+      "reason": "penguin_current_surface_outside_association"
+    }
+  ],
+  "all_passed": false
+}

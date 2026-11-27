@@ -1,0 +1,66 @@
+{
+  "status": "deployed_tests_passed",
+  "revision": "lift-settled-r15",
+  "patch": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-lift-settled-r15-20261018-patch.tar.gz",
+  "sha256": "9b407e569b2a127bdbe1038a70f8ac2c494aebc787c3c3137eacf2834bfcc4e0",
+  "backup": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-before-lift-settled-r15-20261018.tar.gz",
+  "copies_hash_verified": 3,
+  "hashes": {
+    "lift_settled_window.py": "d02104cd9bac8474330e5bef29a91ea20337840588688c5dbbab79a5c1cc7127",
+    "test_lift_settled_window.py": "be7e18ad38566d2c9d377a28e6b6ba2d3e41f5434b6363558b8c24c3113afe05",
+    "verify_apple_lift_sequence.py": "f2b47e824eb366d7b00796722a3f517e2904a2eb7cc986e1aed56808e57ad37f",
+    "audit_preclose_identity_lift_follow.py": "13eb700a4f7b861908876a80fda531bd8186472dd4572e07178535afb6c7cba9",
+    "test_parent_bound_lift_follow.py": "86d0e5b9f8f0b0308ab8254581ff6e90c1f137c471baf47d6151023c7bab970a",
+    "test_near_apple_geometry.py": "e4faf223ed9d5a85eda0d69775f681b80f6f8b6aebe12efee487eed0ef1ad2c8",
+    "APPLE_TRANSFER_AUTOMATION.txt": "5d9025a7207cabdfcf79f709cf82331cd5af44a7b38cae5433e7faf0be78b314"
+  },
+  "original_code_hashes": {
+    "runtime": {
+      "audit_preclose_identity_lift_follow.py": "3bd64baf9bff05ad71d76f1ac32e8e6f8dd9790356055617b43937b3b88d5898",
+      "verify_apple_lift_sequence.py": "eb6d812eb812e8797b35faddd8fbafb8bdfa573c03f0f378147a4eefddc0f2ef",
+      "test_near_apple_geometry.py": "8d3c6e575ad5bba9ac1218eab3cd01811c0cbaa5ac4f3f5bbefb505076a024f3",
+      "APPLE_TRANSFER_AUTOMATION.txt": "2b68026091fbf6ec37b64031ff7f1bc560e04301444050911d6e38f0a2453c36",
+      "lift_settled_window.py": null,
+      "test_lift_settled_window.py": null,
+      "test_parent_bound_lift_follow.py": "e60d134ea6ba0a37e4e7bfd654ee11bf5485156654bf1b3a1d9b50d27f3839dd"
+    },
+    "training": {
+      "audit_preclose_identity_lift_follow.py": "3bd64baf9bff05ad71d76f1ac32e8e6f8dd9790356055617b43937b3b88d5898",
+      "verify_apple_lift_sequence.py": "eb6d812eb812e8797b35faddd8fbafb8bdfa573c03f0f378147a4eefddc0f2ef",
+      "test_near_apple_geometry.py": "8d3c6e575ad5bba9ac1218eab3cd01811c0cbaa5ac4f3f5bbefb505076a024f3",
+      "APPLE_TRANSFER_AUTOMATION.txt": "2b68026091fbf6ec37b64031ff7f1bc560e04301444050911d6e38f0a2453c36",
+      "lift_settled_window.py": null,
+      "test_lift_settled_window.py": null,
+      "test_parent_bound_lift_follow.py": "e60d134ea6ba0a37e4e7bfd654ee11bf5485156654bf1b3a1d9b50d27f3839dd"
+    },
+    "module": {
+      "audit_preclose_identity_lift_follow.py": "3bd64baf9bff05ad71d76f1ac32e8e6f8dd9790356055617b43937b3b88d5898",
+      "verify_apple_lift_sequence.py": "eb6d812eb812e8797b35faddd8fbafb8bdfa573c03f0f378147a4eefddc0f2ef",
+      "test_near_apple_geometry.py": "8d3c6e575ad5bba9ac1218eab3cd01811c0cbaa5ac4f3f5bbefb505076a024f3",
+      "APPLE_TRANSFER_AUTOMATION.txt": "2b68026091fbf6ec37b64031ff7f1bc560e04301444050911d6e38f0a2453c36",
+      "lift_settled_window.py": null,
+      "test_lift_settled_window.py": null,
+      "test_parent_bound_lift_follow.py": "e60d134ea6ba0a37e4e7bfd654ee11bf5485156654bf1b3a1d9b50d27f3839dd"
+    }
+  },
+  "candidate_tests": {
+    "exit": 0,
+    "count": 340,
+    "log": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-lift-settled-r15-20261018-candidate-tests.log"
+  },
+  "runtime_tests": {
+    "exit": 0,
+    "count": 340,
+    "log": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-lift-settled-r15-20261018-runtime-tests.log"
+  },
+  "input_preflight_exit": 0,
+  "robot_commands_sent": false,
+  "new_live_observation_validated": false,
+  "final_freshness_max_s": 0.4,
+  "original_source_stamps_preserved": true,
+  "model_maps_navigation_grasp_placement_policy_changed": false,
+  "verification_phase_selection_changed": true,
+  "recorded_actual_lift_reaudit": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-r15-r14-settled-lift-reaudit-20261018-01.json",
+  "original_failed_trial_preserved": true,
+  "stability_threshold_m_unchanged": 0.01
+}

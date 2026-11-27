@@ -1,0 +1,42 @@
+{
+  "schema": "handyman_object_grasp_profiles_v1",
+  "default": {
+    "preferred_strategy": "side",
+    "family": "auto",
+    "skip_tiny_surface_extent": false,
+    "unlimited_registration_shift": false,
+    "skip_contact_band_depth": false,
+    "trial_before_rotation_enabled": false,
+    "skip_actual_pad_overlap": false
+  },
+  "session_target_bindings": {
+    "1": "dog_doll",
+    "2": "canned_juice",
+    "3": "dog_doll",
+    "4": "tumbler",
+    "5": "rabbit_doll",
+    "6": "filled_ketchup"
+  },
+  "objects": {
+    "dog_doll": {
+      "family": "irregular_body"
+    },
+    "canned_juice": {
+      "family": "round_body"
+    },
+    "tumbler": {
+      "family": "round_body"
+    },
+    "rabbit_doll": {
+      "family": "irregular_body"
+    },
+    "filled_ketchup": {
+      "family": "neck_bottle",
+      "skip_tiny_surface_extent": true,
+      "unlimited_registration_shift": true,
+      "skip_contact_band_depth": true,
+      "trial_before_rotation_enabled": true,
+      "skip_actual_pad_overlap": true
+    }
+  }
+}

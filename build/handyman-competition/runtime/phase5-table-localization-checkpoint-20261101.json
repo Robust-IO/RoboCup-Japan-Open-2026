@@ -1,0 +1,96 @@
+{
+  "status": "requested_transfer_completed_after_code_fixes_and_readonly_review",
+  "task": "卧室白桌香烟→客厅矮方桌",
+  "mission": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/cigarette-full-auto-20261101-202514",
+  "grasp": "cigarette-grasp-20261101-15",
+  "carry": "cigarette-carry-20261101-05",
+  "place": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/cigarette-place-20261101-07",
+  "review": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/cigarette-current-placed-verify-20261101-203318",
+  "service": {
+    "status": "single_map_owner_installed",
+    "pid": 8281,
+    "output": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/table-localizer-runtime-20261101-200014",
+    "backup": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/backups/table-localizer-handoff-20261101-200014",
+    "old_owner": {
+      "pid": 573,
+      "args": [
+        "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/project/install/handyman_rebuild_ros2/lib/handyman_rebuild_ros2/handyman_initial_pose_localizer",
+        "--ros-args",
+        "-p",
+        "map_frame:=map",
+        "-p",
+        "odom_frame:=odom",
+        "-p",
+        "base_frame:=base_footprint",
+        "-p",
+        "initial_pose.x:=1.184",
+        "-p",
+        "initial_pose.y:=0.0",
+        "-p",
+        "initial_pose.yaw:=0.0"
+      ]
+    },
+    "initial_anchor": {
+      "translation": [
+        1.1840227342473193,
+        0.0006693631157929211,
+        5.338410316631785e-06
+      ],
+      "quaternion": [
+        -7.25116692891083e-05,
+        7.560598124917892e-05,
+        2.7297690234378666e-05,
+        0.9999999941403147
+      ]
+    },
+    "command": [
+      "/usr/bin/python3",
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/table_localization_service.py",
+      "--initial-anchor",
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/backups/table-localizer-handoff-20261101-200014/old-anchor.json",
+      "--activate-file",
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/table-localizer-runtime-20261101-200014/activate",
+      "--map",
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/project/install/handyman_rebuild_ros2/share/handyman_rebuild_ros2/maps/LayoutA/map.yaml",
+      "--output",
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/table-localizer-runtime-20261101-200014"
+    ],
+    "robot_commands_sent": false
+  },
+  "configuration": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/table_localization.json",
+  "final_state": {
+    "joints": [
+      0.0,
+      0.0,
+      0.0,
+      -1.5707963146269321,
+      0.0,
+      0.6499999859074279
+    ],
+    "poses": {
+      "map": [
+        3.2474520426080966,
+        4.105077277900386,
+        3.117628541376987
+      ],
+      "odom": [
+        2.169220447540283,
+        4.143710613250732,
+        3.055073971982078
+      ]
+    },
+    "stamp_ns": 1793536404331000000
+  },
+  "old_target_context_must_not_be_replayed": true,
+  "next_fresh_session_launcher": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/launch_fresh_cigarette_session_20261101.py",
+  "navigation_parameters_changed": false,
+  "model_changed": false,
+  "validation_notes": [
+    "Source navigation began at the fresh Unity initial pose.",
+    "A plane-array serialization fix required a source-pose continuation.",
+    "Post-placement review uses new actual RGBD, no repeated grasp or release.",
+    "Next acceptance task is one uninterrupted run using the final code."
+  ],
+  "validation_tests_passed": 159,
+  "robot_ready_for_next_task": true
+}

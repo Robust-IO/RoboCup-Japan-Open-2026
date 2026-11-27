@@ -1,0 +1,279 @@
+{
+  "motion_authorized": false,
+  "translation_m": [
+    0.04678,
+    -0.01356
+  ],
+  "radius_m": 0.38,
+  "margin_m": 0.03,
+  "laser": {
+    "valid_returns": 961,
+    "start_nearest_m": 0.7550732321629605,
+    "swept_nearest_m": 0.7185956980419511,
+    "flagged_samples": 0
+  },
+  "map_samples": [
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    },
+    {
+      "occupied": 0,
+      "unknown": 0,
+      "out_of_map": 0
+    }
+  ],
+  "base_map_xyz": [
+    3.1592151727210926,
+    0.2614766067597929,
+    -0.0003213428774201598
+  ],
+  "scan_stamp_ns": 1791716679980970694,
+  "limitation": "Static map plus single planar scan; conservative .41m circle, not certified physical footprint. Does not cover elevated arm, blind regions or future pedestrian motion."
+}

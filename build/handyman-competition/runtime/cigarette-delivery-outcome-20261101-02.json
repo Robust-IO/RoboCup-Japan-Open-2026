@@ -1,0 +1,19 @@
+{
+  "status": "stopped_requires_state_review",
+  "request": "卧室白桌香烟→客厅矮方桌",
+  "source_run": "cigarette-source-20261101-03",
+  "grasp": "cigarette-grasp-20261101-10",
+  "carry": "cigarette-carry-20261101-04",
+  "place": "cigarette-place-20261101-06",
+  "stages": [
+    {
+      "run": "cigarette-grasp-20261101-10",
+      "status": "stopped_requires_actual_state_review",
+      "elapsed_s": 12.810306115,
+      "reason": "thin_object_no_table_contact_height_limit"
+    }
+  ],
+  "active_stage": "cigarette-grasp-20261101-10",
+  "reason": "cigarette-grasp-20261101-10:thin_object_no_table_contact_height_limit",
+  "automatic_stage_replay": false
+}

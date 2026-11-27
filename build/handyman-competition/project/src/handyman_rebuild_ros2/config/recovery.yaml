@@ -1,0 +1,10 @@
+retries:
+  navigation: 3
+  search: 2
+  grasp: 3
+  placement: 2
+timeouts_sec:
+  navigation: 60.0
+  search: 90.0
+  grasp: 30.0
+  placement: 30.0

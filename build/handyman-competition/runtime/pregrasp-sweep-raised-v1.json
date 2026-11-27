@@ -1,0 +1,1491 @@
+{
+  "motion_authorized": false,
+  "table_source": "phase5-apple-down-scene-v1; historical visible edge estimate",
+  "table_height_m": 0.496,
+  "margin_m": 0.03,
+  "extra_lift_m": 0.1,
+  "samples_per_phase": 41,
+  "rows": [
+    {
+      "phase": "lift",
+      "fraction": 0.0,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.0,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.025,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.025,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.05,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.05,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.07500000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.07500000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.1,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.1,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.125,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.125,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.15000000000000002,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.15000000000000002,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.17500000000000002,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.17500000000000002,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.2,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.2,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.225,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.225,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.25,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.25,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.275,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.275,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.30000000000000004,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.30000000000000004,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.325,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.325,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.35000000000000003,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.35000000000000003,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.375,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.375,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.4,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.4,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.42500000000000004,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.42500000000000004,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.45,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.45,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.47500000000000003,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.47500000000000003,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.5,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.5,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.525,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.525,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.55,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.55,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.5750000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.5750000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.6000000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.6000000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.625,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.625,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.65,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.65,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.675,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.675,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.7000000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.7000000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.7250000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.7250000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.75,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.75,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.775,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.775,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.8,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.8,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.8250000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.8250000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.8500000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.8500000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.875,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.875,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.9,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.9,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.925,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.925,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.9500000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.9500000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.9750000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 0.9750000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 1.0,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "lift",
+      "fraction": 1.0,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.0,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.0,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.025,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.025,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.05,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.05,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.07500000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.07500000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.1,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.1,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.125,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.125,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.15000000000000002,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.15000000000000002,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.17500000000000002,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.17500000000000002,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.2,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.2,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.225,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.225,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.25,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.25,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.275,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.275,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.30000000000000004,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.30000000000000004,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.325,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.325,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.35000000000000003,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.35000000000000003,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.375,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.375,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.4,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.4,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.42500000000000004,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.42500000000000004,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.45,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.45,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.47500000000000003,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.47500000000000003,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.5,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.5,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.525,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.525,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.55,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.55,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.5750000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.5750000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.6000000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.6000000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.625,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.625,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.65,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.65,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.675,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.675,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.7000000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.7000000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.7250000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.7250000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.75,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.75,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.775,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.775,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.8,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.8,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.8250000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.8250000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.8500000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.8500000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.875,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.875,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.9,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.9,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.925,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.925,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.9500000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.9500000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.9750000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 0.9750000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 1.0,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "open",
+      "fraction": 1.0,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.0,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.0,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.025,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.025,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.05,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.05,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.07500000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.07500000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.1,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.1,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.125,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.125,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.15000000000000002,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.15000000000000002,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.17500000000000002,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.17500000000000002,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.2,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.2,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.225,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.225,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.25,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.25,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.275,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.275,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.30000000000000004,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.30000000000000004,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.325,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.325,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.35000000000000003,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.35000000000000003,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.375,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.375,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.4,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.4,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.42500000000000004,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.42500000000000004,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.45,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.45,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.47500000000000003,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.47500000000000003,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.5,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.5,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.525,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.525,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.55,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.55,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.5750000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.5750000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.6000000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.6000000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.625,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.625,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.65,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.65,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.675,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.675,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.7000000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.7000000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.7250000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.7250000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.75,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.75,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.775,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.775,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.8,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.8,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.8250000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.8250000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.8500000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.8500000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.875,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.875,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.9,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.9,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.925,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.925,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.9500000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.9500000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.9750000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 0.9750000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 1.0,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "extend",
+      "fraction": 1.0,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    }
+  ],
+  "limitations": [
+    "Mesh AABBs vs conservative infinite table prism, not exact collider collision.",
+    "Sampled path, not continuous sweep; scene overrides and other obstacles unverified.",
+    "No robot self-collision check. Opening 0.65 not yet live-validated."
+  ]
+}

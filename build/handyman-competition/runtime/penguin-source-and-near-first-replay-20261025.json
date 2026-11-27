@@ -1,0 +1,154 @@
+{
+  "source": {
+    "class_name": "toy_penguin",
+    "shape": "rounded_penguin_body_and_head",
+    "adapter": "penguin_two_surface_rgbd",
+    "center_m": [
+      0.8312693470165915,
+      0.27041271400530575,
+      0.5312851314230117
+    ],
+    "cap_center_m": [
+      0.8310950761877277,
+      0.27087303954524566,
+      0.5957305260593037
+    ],
+    "body_radius_m": 0.04905776455003901,
+    "cap_radius_m": 0.0231180638380121,
+    "body_fit": {
+      "points": 1862,
+      "inliers": 1769,
+      "residual_p95_m": 0.001989499092046986
+    },
+    "cap_fit": {
+      "points": 530,
+      "inliers": 528,
+      "residual_p95_m": 0.0014423925984758251
+    },
+    "footprint_radius_m": 0.07057805328741565,
+    "height_m": 0.12236465233895062,
+    "body_above_support_m": 0.03536330865397097,
+    "body_cap_distance_m": 0.06444727426161577,
+    "axis_base_m": [
+      -0.0027040837779477894,
+      0.007142668874889494,
+      0.9999708346808247
+    ],
+    "support_plane_base": [
+      0.0015004372569850336,
+      5.186530882128615e-05,
+      0.4946605302312663
+    ],
+    "support_height_m": 0.49592182276904073,
+    "support_plane_residual_p95_m": 0.0005696894086254067,
+    "head_above_support_m": 0.09980894089778108,
+    "observed_wing_top_above_support_m": 0.08183542103626802,
+    "observed_horizontal_extent_m": 0.07057805328741565,
+    "appearance": {
+      "version": 1,
+      "class_name": "toy_penguin",
+      "source": "actual_verified_toy_penguin_rgbd",
+      "body": {
+        "hue": 0,
+        "hue_tolerance": 30.0,
+        "use_hue": false,
+        "saturation_range": [
+          0.0,
+          216.0
+        ],
+        "value_range": [
+          101.0,
+          255.0
+        ],
+        "source_pixels": 1862
+      },
+      "cap": {
+        "hue": 120,
+        "hue_tolerance": 30.0,
+        "use_hue": false,
+        "saturation_range": [
+          0.0,
+          41.0
+        ],
+        "value_range": [
+          18.0,
+          130.13
+        ],
+        "source_pixels": 530
+      },
+      "new_target_identification_supported": false
+    },
+    "stamp_ns": 1792920204173847173,
+    "confidence": 0.8717318773269653,
+    "source": "rgbd",
+    "frame_id": "base_link",
+    "grasp_center_m": [
+      0.8310855402899919,
+      0.2708982280251688,
+      0.5992569033468718
+    ],
+    "head_grasp_axial_offset_m": 0.0035264801384869426,
+    "grasp_center_semantics": "observed_head_with_measured_finger_wing_clearance_offset",
+    "estimated_grasp_width_m": 0.0462361276760242,
+    "depth_valid": true,
+    "support_consistent": true,
+    "room_confirmed": false,
+    "ready_for_motion": false,
+    "hidden_surfaces_measured": false,
+    "motion_authorized": false
+  },
+  "near": {
+    "class_name": "toy_penguin",
+    "shape": "rounded_penguin_body_and_head",
+    "center_m": [
+      0.8312847753872349,
+      0.27043023987480286,
+      0.5312940305615129
+    ],
+    "cap_center_m": [
+      0.8312170204797571,
+      0.2708070342326313,
+      0.5960517023721434
+    ],
+    "grasp_center_m": [
+      0.8312133308449459,
+      0.270827552799198,
+      0.5995781208870341
+    ],
+    "body_radius_m": 0.049071151148989446,
+    "cap_radius_m": 0.022966821338203672,
+    "body_fit": {
+      "points": 1858,
+      "inliers": 1765,
+      "residual_p95_m": 0.0019874135590714805
+    },
+    "cap_fit": {
+      "points": 510,
+      "inliers": 510,
+      "residual_p95_m": 0.0013045616166656826
+    },
+    "footprint_radius_m": 0.07057805328741565,
+    "height_m": 0.12236465233895062,
+    "body_above_support_m": 0.03536330865397097,
+    "body_cap_distance_m": 0.06475880344052776,
+    "axis_base_m": [
+      -0.0010462655867323788,
+      0.005818426805468728,
+      0.9999825254662361
+    ],
+    "tilt_deg": 0.3387201720504468,
+    "estimated_lowest_point_base_m": [
+      0.8253008546158105,
+      0.3037076461660628,
+      0.4957302175233324
+    ],
+    "estimated_bottom_z_m": 0.4957302175233324,
+    "bottom_vertical_extent_m": 0.035563813038180514,
+    "horizontal_support_radius_m": 0.07057805328741565,
+    "stamp_ns": 1792920204173847173,
+    "hidden_surfaces_measured": false,
+    "predicted_center_returned": false,
+    "position_source": "current_body_and_head_sphere_depth_fits",
+    "motion_authorized": false
+  }
+}

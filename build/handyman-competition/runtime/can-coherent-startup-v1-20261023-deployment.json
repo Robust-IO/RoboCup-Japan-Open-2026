@@ -1,0 +1,32 @@
+{
+  "status": "can_coherent_startup_deployed",
+  "tests": 585,
+  "hashes": {
+    "pregrasp_raised_trial.py": "9b2c48c882bc4a5d295fa93ebb7a1dc23239ae8ceb81cb50b0836a28abe63017",
+    "canned_grasp_runtime.py": "b7321c7cacab85341af59ced0b5c16678acd3ff15b7c498f7b8791794d4fd235",
+    "can_arm_startup.py": "186d1ec0ce96098bc618f547c9ebdcea4f121a6032b93008f63db246ec6605c6",
+    "test_can_arm_startup.py": "8a29e5789e48c141f8f0207ac7722b22bab1cb953316d20cc9c093a4f309468d"
+  },
+  "previous_hashes": {
+    "pregrasp_raised_trial.py": "51da522a3d88e4e05d833720dbdb9d0e5eda208cce63cabbcf77d508cfe9002a",
+    "canned_grasp_runtime.py": "68d624849c17edb9e59e104ed87ca9df8d82dd928b6d8e2e6945fbc4f36b8e8a"
+  },
+  "model_sha256": "83e6ceb9650e6da78d05404a5ead9654278d502ce06d812a6b2b70673c513763",
+  "motion_and_feedback_functions_ast_unchanged": [
+    "expected_palm",
+    "cb",
+    "check_fresh",
+    "fresh",
+    "verify_tf",
+    "move",
+    "execute_steps"
+  ],
+  "apple_default_behavior_unchanged": true,
+  "can_only_opt_in": true,
+  "source_age_limit_s": 0.4,
+  "startup_stability_window_s": 0.15,
+  "startup_timeout_s": 5.0,
+  "motion_command_retries_added": false,
+  "navigation_parameters_changed": false,
+  "robot_commands_sent": false
+}

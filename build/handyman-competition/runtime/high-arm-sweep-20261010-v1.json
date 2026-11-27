@@ -1,0 +1,20 @@
+{
+  "motion_authorized": false,
+  "translation_m": [
+    0.09336279355,
+    -0.0299586638,
+    0.0
+  ],
+  "table_overlap_links": [],
+  "novel_aabb_samples": 16767,
+  "depth_free": 8634,
+  "near_observed_surface": 127,
+  "occluded_unknown": 1192,
+  "outside_or_invalid": 6814,
+  "limits": [
+    "Swept per-part AABBs with 1cm sampling, not continuous mesh/collider sweep.",
+    "Samples inside current robot AABBs excluded; this is not validated self masking.",
+    "Depth free classification uses 3cm optical-depth margin, not Euclidean clearance.",
+    "Historical snapshot only; unknown/near samples block motion authorization."
+  ]
+}

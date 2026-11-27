@@ -1,0 +1,38 @@
+{
+  "status": "isolated_adapter_built",
+  "adapter": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/pepper-dynamic-height-adapter-20261107-154949",
+  "backup": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/backups/before-dynamic-table-height-20261107-154949",
+  "archive": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/backups/before-dynamic-table-height-20261107-154949.tar.gz",
+  "archive_sha256": "400e90d286053b2743ce3ee6f1e84f4b0b883f8b9b11e7cb10448beb45dc36f1",
+  "predecessor": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/pepper-bedroom-kitchen-20261107-153843",
+  "files": [
+    {
+      "name": "dynamic_pepper_runtime.py",
+      "sha256": "f85e7ff731798ffc95b8d4616b554fc17c579e82599a84de27ed30e86fca0058"
+    },
+    {
+      "name": "dynamic_table_height.py",
+      "sha256": "79854c540991c76e25b3cfb0550497f9851d467ae49e2429a434e5ecf127a856"
+    },
+    {
+      "name": "inverse_table_place_plan.py",
+      "sha256": "8e742aa35b57b64b2373d49a311b6ef7c8ace02b9ab6a367f759d9f5e5d68c88"
+    },
+    {
+      "name": "pepper_runtime.py",
+      "sha256": "97bb1a06ae1f45ded48b6470b135a648bd19ef60995c110bb579865a6bfb4871"
+    },
+    {
+      "name": "pepper_transfer_automation.py",
+      "sha256": "346a5eb2a8ce4a45dbb4e7b225d723f337cb1c4b9b3a2416771f7a4ea9b273f9"
+    },
+    {
+      "name": "reviewed_carry_adjustment.py",
+      "sha256": "529f3636fcfb4f2aa6160e7e027b6fc19ca07b873bb290b5e0225ade970a78e4"
+    }
+  ],
+  "canonical_sources_changed": false,
+  "robot_commands_sent": false,
+  "live_validated": false,
+  "offline_validation": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/pepper-dynamic-height-adapter-20261107-154949/recorded-kitchen-replay.json"
+}

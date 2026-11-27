@@ -1,0 +1,66 @@
+{
+  "actual_retest_frame_model": {
+    "class_name": "cigarette",
+    "shape": "flat_cuboid",
+    "center_m": [
+      0.6426567435264587,
+      0.31163647770881653,
+      0.45487531692249744
+    ],
+    "center_base_m": [
+      0.6426567435264587,
+      0.31163647770881653,
+      0.45487531692249744
+    ],
+    "axis_base": [
+      -0.15331634879112244,
+      0.9881771802902222,
+      -0.0
+    ],
+    "length_m": 0.08415994048118591,
+    "width_m": 0.051710546016693115,
+    "height_m": 0.02243126076522786,
+    "support_plane_base": [
+      0.0007287435249389529,
+      -9.414404325669423e-06,
+      0.44319428847108405
+    ],
+    "support_height_m": 0.4436596865398835,
+    "support_plane_residual_p95_m": 0.0003073658297215897,
+    "grasp_point_base_m": [
+      0.6426567435264587,
+      0.31163647770881653,
+      0.46315968653988354
+    ],
+    "grip_above_bottom_m": 0.019500000000000003,
+    "estimated_finger_side_overlap_m": 0.02043126076522786,
+    "finger_lower_clearance_m": 0.0020000000000000018,
+    "top_points": 1607,
+    "source": "current_flat_top_and_independent_table_depth",
+    "hidden_faces_measured": false,
+    "motion_authorized": false,
+    "identity_source": "operator_confirmed_retest_and_prior_box_colour",
+    "model_detection_used": false,
+    "operator_confirmed_class": true,
+    "stamp_ns": 1793523488834363296,
+    "confidence": null,
+    "support_source": "current_whole_destination_table_plane_inliers"
+  },
+  "previous_command_reachability": {
+    "ready": false,
+    "start_xy_m": [
+      2.0976,
+      2.5751
+    ],
+    "end_xy_m": [
+      1.9778307526541257,
+      3.6604162922808277
+    ],
+    "base_radius_m": 0.22,
+    "clearance_m": 0.015,
+    "reason": "base_sweeps_destination_footprint",
+    "full_translation_m": 1.0919048158607965,
+    "fixed_distance_cap_m": null
+  },
+  "original_frame_replan_reason": "no_clear_placement_patch_reachable_from_current_side"
+}

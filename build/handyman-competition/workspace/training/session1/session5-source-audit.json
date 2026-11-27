@@ -1,0 +1,563 @@
+{
+  "source": {
+    "id": "body#kitchen",
+    "semantic_class": "wooden_cupboard_body",
+    "room": "kitchen",
+    "pose": {
+      "x": 1.819,
+      "y": 8.419,
+      "yaw": -1.5707963267948966
+    },
+    "axis_aligned_bounds": {
+      "center": {
+        "x": 1.819,
+        "y": 8.419
+      },
+      "size": {
+        "x": 1.5000000000000002,
+        "y": 0.620000000000001
+      }
+    },
+    "front_yaw": -1.5707963267948966,
+    "model_path": "LayoutD/SIGVerseHouse/kitchen/wooden_cupboard/body",
+    "support_height_m": 0.7068506000000002,
+    "provenance": {
+      "source": "static_scene_top_box_collider",
+      "transform_id": 325591229,
+      "collider_id": 325591231,
+      "scene_sha256": "a1b7cc538d85d8e03927ac41769d9f4c870f18a1525ec00b5ce87fcf0b4f5cec",
+      "object_truth_coordinates_used": false
+    }
+  },
+  "candidates": {
+    "method": "static_footprint_grid_path_and_support_sightline",
+    "footprint_radius_m": 0.26109759058979437,
+    "candidates": [
+      {
+        "index": 0,
+        "pose": [
+          1.819,
+          7.309,
+          1.5707963267948966
+        ],
+        "path_length_m": 9.118986283848328,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 1,
+        "pose": [
+          1.444,
+          7.309,
+          1.2449972115222263
+        ],
+        "path_length_m": 9.284671708797566,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 2,
+        "pose": [
+          2.194,
+          7.309,
+          1.896595442067567
+        ],
+        "path_length_m": 8.974011537017743,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 3,
+        "pose": [
+          1.819,
+          7.159,
+          1.5707963267948966
+        ],
+        "path_length_m": 8.968986283848327,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 4,
+        "pose": [
+          1.444,
+          7.159,
+          1.281525321185755
+        ],
+        "path_length_m": 9.193250352560256,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 5,
+        "pose": [
+          2.194,
+          7.159,
+          1.8600673324040382
+        ],
+        "path_length_m": 8.824011537017745,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 6,
+        "pose": [
+          1.819,
+          7.009,
+          1.5707963267948966
+        ],
+        "path_length_m": 8.818986283848329,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 7,
+        "pose": [
+          1.444,
+          7.009,
+          1.3108561866063686
+        ],
+        "path_length_m": 9.131118318204292,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 8,
+        "pose": [
+          2.194,
+          7.009,
+          1.8307364669834245
+        ],
+        "path_length_m": 8.674011537017744,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 9,
+        "pose": [
+          2.914685424949238,
+          7.323314575050762,
+          2.356194490192345
+        ],
+        "path_length_m": 8.713351365237921,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 10,
+        "pose": [
+          2.649685424949238,
+          7.058314575050762,
+          2.118893690001462
+        ],
+        "path_length_m": 8.537615433949851,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 11,
+        "pose": [
+          3.179685424949238,
+          7.588314575050763,
+          2.593495290383228
+        ],
+        "path_length_m": 8.85979797464465,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 12,
+        "pose": [
+          3.0207514421272204,
+          7.2172485578727805,
+          2.3561944901923453
+        ],
+        "path_length_m": 8.521930009000613,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 13,
+        "pose": [
+          2.7557514421272202,
+          6.95224855787278,
+          2.1391563617332596
+        ],
+        "path_length_m": 8.375483399593888,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 14,
+        "pose": [
+          3.2857514421272205,
+          7.482248557872781,
+          2.5732326186514305
+        ],
+        "path_length_m": 8.71837661840734,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 15,
+        "pose": [
+          3.1268174593052027,
+          7.111182540694798,
+          2.356194490192345
+        ],
+        "path_length_m": 8.380508652763304,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 16,
+        "pose": [
+          2.8618174593052026,
+          6.846182540694797,
+          2.1562736093963624
+        ],
+        "path_length_m": 8.234062043356579,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 17,
+        "pose": [
+          3.391817459305203,
+          7.376182540694798,
+          2.5561153709883273
+        ],
+        "path_length_m": 8.576955262170031,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 18,
+        "pose": [
+          0.7233145750507617,
+          7.323314575050762,
+          0.7853981633974482
+        ],
+        "path_length_m": 9.976093065034872,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 19,
+        "pose": [
+          0.45831457505076156,
+          7.588314575050763,
+          0.5480973632065652
+        ],
+        "path_length_m": null,
+        "view_clear": true,
+        "rejected_reason": "unreachable_on_static_footprint_grid"
+      },
+      {
+        "index": 20,
+        "pose": [
+          0.9883145750507618,
+          7.058314575050762,
+          1.022698963588331
+        ],
+        "path_length_m": 9.601828996322945,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 21,
+        "pose": [
+          0.6172485578727795,
+          7.21724855787278,
+          0.7853981633974485
+        ],
+        "path_length_m": 10.01396103067891,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 22,
+        "pose": [
+          0.3522485578727794,
+          7.482248557872779,
+          0.5683600349383635
+        ],
+        "path_length_m": 10.388225099390837,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 23,
+        "pose": [
+          0.8822485578727797,
+          6.95224855787278,
+          1.0024362918565335
+        ],
+        "path_length_m": 9.660407640085637,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 24,
+        "pose": [
+          0.5111825406947974,
+          7.111182540694798,
+          0.7853981633974484
+        ],
+        "path_length_m": 10.072539674441604,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 25,
+        "pose": [
+          0.24618254069479728,
+          7.376182540694797,
+          0.5854772826014664
+        ],
+        "path_length_m": 10.496803743153531,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 26,
+        "pose": [
+          0.7761825406947975,
+          6.846182540694798,
+          0.9853190441934305
+        ],
+        "path_length_m": 9.71898628384833,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 27,
+        "pose": [
+          3.369,
+          8.419,
+          3.141592653589793
+        ],
+        "path_length_m": null,
+        "view_clear": false,
+        "rejected_reason": "unreachable_on_static_footprint_grid"
+      },
+      {
+        "index": 28,
+        "pose": [
+          3.369,
+          8.264,
+          3.0419240010986304
+        ],
+        "path_length_m": null,
+        "view_clear": false,
+        "rejected_reason": "unreachable_on_static_footprint_grid"
+      },
+      {
+        "index": 29,
+        "pose": [
+          3.369,
+          8.574000000000002,
+          -3.0419240010986304
+        ],
+        "path_length_m": null,
+        "view_clear": false,
+        "rejected_reason": "unreachable_on_static_footprint_grid"
+      },
+      {
+        "index": 30,
+        "pose": [
+          3.519,
+          8.419,
+          3.141592653589793
+        ],
+        "path_length_m": null,
+        "view_clear": false,
+        "rejected_reason": "unreachable_on_static_footprint_grid"
+      },
+      {
+        "index": 31,
+        "pose": [
+          3.519,
+          8.264,
+          3.0506675847458338
+        ],
+        "path_length_m": null,
+        "view_clear": false,
+        "rejected_reason": "unreachable_on_static_footprint_grid"
+      },
+      {
+        "index": 32,
+        "pose": [
+          3.519,
+          8.574000000000002,
+          -3.0506675847458338
+        ],
+        "path_length_m": null,
+        "view_clear": false,
+        "rejected_reason": "unreachable_on_static_footprint_grid"
+      },
+      {
+        "index": 33,
+        "pose": [
+          3.669,
+          8.419,
+          3.141592653589793
+        ],
+        "path_length_m": 9.54411254969543,
+        "view_clear": false,
+        "rejected_reason": "view_blocked_on_static_map"
+      },
+      {
+        "index": 34,
+        "pose": [
+          3.669,
+          8.264,
+          3.058004094511327
+        ],
+        "path_length_m": 9.344112549695428,
+        "view_clear": false,
+        "rejected_reason": "view_blocked_on_static_map"
+      },
+      {
+        "index": 35,
+        "pose": [
+          3.669,
+          8.574000000000002,
+          -3.058004094511327
+        ],
+        "path_length_m": 9.694112549695433,
+        "view_clear": false,
+        "rejected_reason": "view_blocked_on_static_map"
+      },
+      {
+        "index": 36,
+        "pose": [
+          0.2689999999999997,
+          8.419,
+          0.0
+        ],
+        "path_length_m": null,
+        "view_clear": false,
+        "rejected_reason": "unreachable_on_static_footprint_grid"
+      },
+      {
+        "index": 37,
+        "pose": [
+          0.2689999999999997,
+          8.574000000000002,
+          -0.09966865249116273
+        ],
+        "path_length_m": null,
+        "view_clear": false,
+        "rejected_reason": "unreachable_on_static_footprint_grid"
+      },
+      {
+        "index": 38,
+        "pose": [
+          0.2689999999999997,
+          8.264,
+          0.09966865249116273
+        ],
+        "path_length_m": null,
+        "view_clear": false,
+        "rejected_reason": "unreachable_on_static_footprint_grid"
+      },
+      {
+        "index": 39,
+        "pose": [
+          0.11899999999999977,
+          8.419,
+          0.0
+        ],
+        "path_length_m": null,
+        "view_clear": false,
+        "rejected_reason": "unreachable_on_static_footprint_grid"
+      },
+      {
+        "index": 40,
+        "pose": [
+          0.11899999999999976,
+          8.574000000000002,
+          -0.09092506884395965
+        ],
+        "path_length_m": null,
+        "view_clear": false,
+        "rejected_reason": "unreachable_on_static_footprint_grid"
+      },
+      {
+        "index": 41,
+        "pose": [
+          0.11899999999999979,
+          8.264,
+          0.09092506884395965
+        ],
+        "path_length_m": null,
+        "view_clear": false,
+        "rejected_reason": "unreachable_on_static_footprint_grid"
+      },
+      {
+        "index": 42,
+        "pose": [
+          -0.03100000000000014,
+          8.419,
+          0.0
+        ],
+        "path_length_m": null,
+        "view_clear": false,
+        "rejected_reason": "unreachable_on_static_footprint_grid"
+      },
+      {
+        "index": 43,
+        "pose": [
+          -0.031000000000000156,
+          8.574000000000002,
+          -0.0835885590784662
+        ],
+        "path_length_m": null,
+        "view_clear": false,
+        "rejected_reason": "unreachable_on_static_footprint_grid"
+      },
+      {
+        "index": 44,
+        "pose": [
+          -0.03100000000000012,
+          8.264,
+          0.0835885590784662
+        ],
+        "path_length_m": null,
+        "view_clear": false,
+        "rejected_reason": "unreachable_on_static_footprint_grid"
+      }
+    ],
+    "ranked_indices": [
+      16,
+      13,
+      15,
+      12,
+      10,
+      17,
+      8,
+      9,
+      14,
+      6,
+      5,
+      11,
+      3,
+      2,
+      0,
+      7,
+      4,
+      1,
+      20,
+      23,
+      26,
+      18,
+      21,
+      24,
+      22,
+      25
+    ],
+    "dynamic_obstacles_evaluated": false
+  },
+  "robot_commands_sent": false
+}

@@ -1,0 +1,34 @@
+{
+  "status": "can_observation_addon_update_verified",
+  "files": [
+    "config/manipulation_objects_v1.json",
+    "manipulation_profiles.py",
+    "object_surface_geometry.py",
+    "upright_cylinder_geometry.py",
+    "generic_transfer_template.py",
+    "inspect_manipulation_capture.py",
+    "test_generic_transfer_template.py",
+    "test_upright_cylinder_geometry.py",
+    "GENERIC_TRANSFER_TEMPLATE.txt"
+  ],
+  "hashes": {
+    "config/manipulation_objects_v1.json": "925224c1df4d7699d67f94c9e4ff949fdbfa3a3619b468b9649fe61bbb748db0",
+    "manipulation_profiles.py": "57ae9dedde13cc017e3adac99023fbdb5897dc2fd6879c85a38b281ba77702a1",
+    "object_surface_geometry.py": "f11c7f4cd31054905a6cd36c4473aa0be2d7a1d3898fe2d4d71109992d80255e",
+    "upright_cylinder_geometry.py": "365c8653aecd3f5858c9964fc6746e95b8d1b6668684248fa63e74fa664916d1",
+    "generic_transfer_template.py": "65e82cd5b2f7b44f90730ec19acc1d159bd2b8d7b2fa02fd1d6db6a96af5a26b",
+    "inspect_manipulation_capture.py": "0e2d1c600e3b6c8d19ff0e65cae16c7a2ff1f7a978ce8e9a950947ab1afb7405",
+    "test_generic_transfer_template.py": "4f60af58509b276acd6afa765d12b61a60e9324b0009b88afc3f5291a519a54f",
+    "test_upright_cylinder_geometry.py": "0373415517ce65693f990fd688aad9c0bc912c0a40cda0c4f809df2fbab69cc7",
+    "GENERIC_TRANSFER_TEMPLATE.txt": "acb3a3804cc0324e8a3616fa278660fc4c34896a8df154ef86d614d6d2c06c6f"
+  },
+  "runtime_tests": 459,
+  "candidate_tests": 459,
+  "original_apple_runtime_preserved": true,
+  "source_copies": 3,
+  "checkpoint_copies": 4,
+  "checkpoint": "D:/handyman-training-runs/generic-canned-juice-progress-20261023.json",
+  "checkpoint_sha256": "35890ec2d3894e7f65d746658f43cbc1583a3a411dfa2d5ef73c59fc36e7bede",
+  "robot_commands_sent": false,
+  "can_live_mover_complete": false
+}

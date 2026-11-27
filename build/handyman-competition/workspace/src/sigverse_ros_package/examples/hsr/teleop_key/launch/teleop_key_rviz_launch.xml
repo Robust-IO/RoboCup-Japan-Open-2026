@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+	<arg name="sigverse_ros_bridge_port"        default="50001" />
+	<arg name="ros_bridge_port"                 default="9090" />
+
+	<node pkg="sigverse_hsr_teleop_key" exec="hsr_teleop_key" output="screen" launch-prefix="gnome-terminal -t 'HSR teleop key' -- ">
+		<!--
+		<remap from="/hsrb/message/to_robot"                  to="/hsrb/message/to_robot" />
+		<remap from="/hsrb/message/to_human"                  to="/hsrb/message/to_human" />
+		<remap from="/hsrb/joint_states"                      to="/hsrb/joint_states" />
+		<remap from="/hsrb/command_velocity"                  to="/hsrb/command_velocity" />
+		<remap from="/hsrb/omni_base_controller/command"      to="/hsrb/omni_base_controller/command" />
+		<remap from="/hsrb/arm_trajectory_controller/command" to="/hsrb/arm_trajectory_controller/command" />
+		<remap from="/hsrb/gripper_controller/command"        to="/hsrb/gripper_controller/command" />
+		<remap from="/hsrb/suction_control/goal"              to="/hsrb/suction_control/goal" />
+		<remap from="/hsrb/suction_control/result"            to="/hsrb/suction_control/result" />
+		-->
+	</node>
+
+	<node pkg="sigverse_ros_bridge" exec="sigverse_ros_bridge" args="$(var sigverse_ros_bridge_port)" />
+
+	<include file="$(find-pkg-share rosbridge_server)/launch/rosbridge_websocket_launch.xml" > 
+		<arg name="port" value="$(var ros_bridge_port)"/>
+		<arg name="default_call_service_timeout" value="5.0"/>
+		<arg name="call_services_in_new_thread" value="true"/>
+		<arg name="send_action_goals_in_new_thread" value="true"/>
+<!--		<arg name="bson_only_mode" value="true"/> -->
+	</include>
+
+<!--
+	<node pkg="tmc_suction" exec="suction_server" name="suction_server">
+		<remap from="/pressure_sensor_on" to="/hsrb/pressure_sensor_on" />
+		<remap from="/suction_on"         to="/hsrb/suction_on" />
+		<remap from="/suction_control"    to="/hsrb/suction_control" />
+	</node>
+-->
+	
+	<node pkg="rviz2" exec="rviz2" args="-d $(find-pkg-share sigverse_hsr_teleop_key)/launch/hsr.rviz"/>
+</launch>
+

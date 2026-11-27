@@ -1,0 +1,533 @@
+{
+  "status": "deployed_after_validation",
+  "robot_commands_sent": false,
+  "live_validation": false,
+  "created_ns": 1793529412278539160,
+  "backup": {
+    "status": "verified_backup",
+    "root": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/backups/before-outcome-policy-20261101-182352",
+    "archive": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/backups/before-outcome-policy-20261101-182352/transfer-before-changes.zip",
+    "files": 837
+  },
+  "stage": "/mnt/d/handyman-tools/outcome-policy-stage-20261101-183641",
+  "validation": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/outcome-policy-validation/20261101-183641",
+  "installed": [
+    {
+      "name": "flat_box_grasp.py",
+      "sha256": "448f1b256c2230f2481402c5c2344e3f537c7431005d99441d913a36c1a5ec01",
+      "previous_archive_key": "active/flat_box_grasp.py",
+      "supplemental": false,
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/gate-revision-v2-20261106-195833/runtime/flat_box_grasp.py"
+    },
+    {
+      "name": "flat_box_contact.py",
+      "sha256": "8ce2ce75eef624f48b8e74c0fa4ddc5a3d895c77ac1b70d07155d91791cf45b7",
+      "previous_archive_key": "active/flat_box_contact.py",
+      "supplemental": false
+    },
+    {
+      "name": "flat_box_carry.py",
+      "sha256": "2cbf77097d16877c2b75fc6fc22b46b41777f2caf999989209537c5e8447b5a3",
+      "previous_archive_key": "active/flat_box_carry.py",
+      "supplemental": false,
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/gate-revision-v2-20261106-195833/runtime/flat_box_carry.py"
+    },
+    {
+      "name": "flat_box_place.py",
+      "sha256": "2c2960c02e363e0391517160cce7f1ae8cef59b513e8e61e47638a3bb8abe2b8",
+      "previous_archive_key": "active/flat_box_place.py",
+      "supplemental": false,
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/common-placement-v1-20261107-162514/runtime/flat_box_place.py"
+    },
+    {
+      "name": "flat_box_geometry.py",
+      "sha256": "d1929ebddf2756b85f20347f7589ea6ee520388044bf55f09b1c318fe0a5a030",
+      "previous_archive_key": "active/flat_box_geometry.py",
+      "supplemental": false,
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/gate-revision-v2-20261106-195833/runtime/flat_box_geometry.py"
+    },
+    {
+      "name": "flat_box_partial_top.py",
+      "sha256": "250b086669035b2cad93d6b5e5066925f2ad0504723868ab5f803c84c5ff247c",
+      "previous_archive_key": "active/flat_box_partial_top.py",
+      "supplemental": false
+    },
+    {
+      "name": "flat_box_transport.py",
+      "sha256": "c23e364606b310eddbaf1af765b2efcda67f2a13f1f47db65a64decb9c8b5acc",
+      "previous_archive_key": "active/flat_box_transport.py",
+      "supplemental": false,
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/gate-revision-v2-20261106-195833/runtime/flat_box_transport.py"
+    },
+    {
+      "name": "flat_box_place_geometry.py",
+      "sha256": "42f48006ecb231835e470de8ee8c2226462c64209a9bb3163e980d86dc9d550c",
+      "previous_archive_key": "active/flat_box_place_geometry.py",
+      "supplemental": false,
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/gate-revision-v2-20261106-195833/runtime/flat_box_place_geometry.py"
+    },
+    {
+      "name": "head_joint_feedback.py",
+      "sha256": "dd36eabfffc099b90ca8575783673370db94c5beef8dd03d51a89055cb455459",
+      "previous_archive_key": "active/head_joint_feedback.py",
+      "supplemental": false
+    },
+    {
+      "name": "tabletop_support.py",
+      "sha256": "f9549ad39574afcd3a48e578fa20fcd293f2b62aae2a38d6e027eec4f69ae236",
+      "previous_archive_key": null,
+      "supplemental": false,
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/common-placement-v1-20261107-162514/runtime/tabletop_support.py"
+    },
+    {
+      "name": "table_approach_reachability.py",
+      "sha256": "5045d97538001802db417f15c0ebd72f53d8dd9a0b5e62809ac88356982c5b02",
+      "previous_archive_key": "active/table_approach_reachability.py",
+      "supplemental": false,
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/common-placement-v1-20261107-162514/runtime/table_approach_reachability.py"
+    },
+    {
+      "name": "outcome_transfer_policy.py",
+      "sha256": "c2bab6be06ab7cb7a9e18d950ce0d5bd59972551ced38941c3927ecfcc6cceff",
+      "previous_archive_key": null,
+      "supplemental": false,
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/gate-revision-v2-20261106-195833/runtime/outcome_transfer_policy.py"
+    },
+    {
+      "name": "outcome_transfer_policy.json",
+      "sha256": "619449bff281aab111163e355b12a11f8e4e40e96a5ec9361027677bb6ad402f",
+      "previous_archive_key": null,
+      "supplemental": false,
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/gate-revision-v2-20261106-195833/runtime/outcome_transfer_policy.json"
+    },
+    {
+      "name": "outcome_transfer_runtime.py",
+      "sha256": "8a557472ea8b4e7ebcabf4c29c5ce68c04ca8935bff25585e4b1bccd6ad54ae1",
+      "previous_archive_key": null,
+      "supplemental": false,
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/gate-revision-v2-20261106-195833/runtime/outcome_transfer_runtime.py"
+    },
+    {
+      "name": "outcome_finite_adjustment.py",
+      "sha256": "fe9a81ef12bed996813158a774751680962d2b5d16cd36da832beac31dac84ca",
+      "previous_archive_key": null,
+      "supplemental": false,
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/common-placement-v1-20261107-162514/runtime/outcome_finite_adjustment.py"
+    },
+    {
+      "name": "OUTCOME_TRANSFER_POLICY.txt",
+      "sha256": "9bf3b3c696da7806ae7f0b96d183c7bb814e74388bb61725e3754283c2ba9e85",
+      "previous_archive_key": null,
+      "supplemental": false
+    },
+    {
+      "name": "test_outcome_transfer_policy.py",
+      "sha256": "64c11ab7f038f788333ca789ac0737ab943b95dbbc892c016e24aef691de2f4a",
+      "previous_archive_key": null,
+      "supplemental": false
+    },
+    {
+      "name": "test_flat_box_geometry.py",
+      "sha256": "5f6f8798a9755862c0d9b8b80612810847e1d9ac96bc61a7f2bbafe0e70abed7",
+      "previous_archive_key": "active/test_flat_box_geometry.py",
+      "supplemental": false
+    },
+    {
+      "name": "test_flat_box_transport.py",
+      "sha256": "a33f13a15bf42072d901973bc29a6a680e1a4962023eff3317d5d044ba8f280b",
+      "previous_archive_key": "active/test_flat_box_transport.py",
+      "supplemental": false
+    },
+    {
+      "name": "test_flat_box_partial_top.py",
+      "sha256": "dd32df3538665c1b95ae4142acb6bf748a949902b8f4c87f9330825dcf850524",
+      "previous_archive_key": null,
+      "supplemental": false
+    },
+    {
+      "name": "test_flat_box_place_geometry.py",
+      "sha256": "4af84918115c86ef6a3c80b22d0137b87f8399379eafa58242bf17e901369313",
+      "previous_archive_key": "active/test_flat_box_place_geometry.py",
+      "supplemental": false
+    },
+    {
+      "name": "test_tabletop_support.py",
+      "sha256": "7f0a73f9b2a4fc1cf31e82616d874dabc5987b1a7a257fdf5d043d9fa3da5837",
+      "previous_archive_key": null,
+      "supplemental": false,
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/common-placement-v1-20261107-162514/runtime/test_tabletop_support.py"
+    },
+    {
+      "name": "test_table_approach_reachability.py",
+      "sha256": "12234f23d43f4bf7c8839dccf0adca8cebc4981866629c075503adf0a29d0e13",
+      "previous_archive_key": "active/test_table_approach_reachability.py",
+      "supplemental": false
+    },
+    {
+      "name": "test_thin_object_table_safety.py",
+      "sha256": "dad59e508b03991a016664ab5458855276477381ffd79c47ee9f73194fdd77c2",
+      "previous_archive_key": "active/test_thin_object_table_safety.py",
+      "supplemental": false
+    },
+    {
+      "name": "test_gripper_close_gate.py",
+      "sha256": "df0fefbca3bc0bd9761120816cda0d54aedc43ecb8a01af03b826efde16327fa",
+      "previous_archive_key": "active/test_gripper_close_gate.py",
+      "supplemental": false
+    },
+    {
+      "name": "test_reviewed_carry_adjustment.py",
+      "sha256": "f0900f1a8a254094fd5cb4fdc491bd739a1d7ebdabd64ad6efaf213b593f1b13",
+      "previous_archive_key": null,
+      "supplemental": false
+    },
+    {
+      "name": "test_task_outcome_policy.py",
+      "sha256": "9784cc69964211bd389622bf4275e89e5d59d0571751855afb9d1f54cd90a1bb",
+      "previous_archive_key": null,
+      "supplemental": false
+    },
+    {
+      "name": "replay_outcome_transfer_20261101.py",
+      "sha256": "75a248f20ad9e204587214e6a1f76d38f8678e3adfeebf650bcf53a424fd7e55",
+      "previous_archive_key": null,
+      "supplemental": false
+    },
+    {
+      "name": "launch_flat_box_stage_20261101.py",
+      "sha256": "9cb5ee9e5e32627bb926a9c6d4eece8e4e4c9ff9dcac4129a16b7dd8f1c35166",
+      "previous_archive_key": "active/launch_flat_box_stage_20261101.py",
+      "supplemental": false
+    },
+    {
+      "name": "restore_outcome_policy.py",
+      "sha256": "217d684b5ba6ae2ff2f8f49afb3e85f37da62533e179c11355cd10bd59ba75ce",
+      "previous_archive_key": null,
+      "supplemental": false
+    },
+    {
+      "name": "thin_box_clearance.py",
+      "previous_archive_key": "active/thin_box_clearance.py",
+      "supplemental": false,
+      "sha256": "7fe21c5c96f265477046c76fc4a1fd98d4e82c9a502c7b8c7c82a08c2f464f68"
+    },
+    {
+      "name": "test_finger_longitudinal_overlap.py",
+      "previous_archive_key": null,
+      "supplemental": false,
+      "sha256": "94ce42af2c584cfb8ed0f7ed449802ca7ed43992a8afc82a87d2417b26507a08"
+    },
+    {
+      "name": "stop_observe_act.py",
+      "previous_archive_key": null,
+      "supplemental": false,
+      "sha256": "6ac89c9eecd4ac6f768b5374ec71e1807d13cbaf832edbc62774f50f2ca2c1ba",
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/gate-revision-v2-20261106-195833/runtime/stop_observe_act.py"
+    },
+    {
+      "name": "test_stop_observe_act.py",
+      "previous_archive_key": null,
+      "supplemental": false,
+      "sha256": "2d07c83c76bdbf8bccbebccd984c5128370a5e5559b04add57f5c2879eafec60"
+    },
+    {
+      "name": "table_localization.py",
+      "previous_archive_key": null,
+      "supplemental": false,
+      "sha256": "6ddb696361161c43f99c5433cee8412e0341c961b54339a73fd0962457b4b7ff"
+    },
+    {
+      "name": "table_localization.json",
+      "previous_archive_key": null,
+      "supplemental": false,
+      "sha256": "6db3d3c0da0540db656958243822f1e66bbace94a5f35cdf65474f1e3ff586c7"
+    },
+    {
+      "name": "table_localization_service.py",
+      "previous_archive_key": null,
+      "supplemental": false,
+      "sha256": "85015da49118adf4659aed66824bfaf133f8a049fc5ac71fc83b233756a929de"
+    },
+    {
+      "name": "table_localization_client.py",
+      "previous_archive_key": null,
+      "supplemental": false,
+      "sha256": "b35dfc12a29369818699c158f4b1524fb058053fe47b953e71229d5e2c5b2ac6"
+    },
+    {
+      "name": "source_table_front.py",
+      "previous_archive_key": null,
+      "supplemental": false,
+      "sha256": "db7f2529082094057d97e9afbbc106031d45bfae700146090faf57a0b2a7f98d"
+    },
+    {
+      "name": "tracked_box_source.py",
+      "previous_archive_key": null,
+      "supplemental": false,
+      "sha256": "bba5cbe2f0d9e7bd032c7179053f9e842e4c5f4b066132ac2a2f14ca326cbb21"
+    },
+    {
+      "name": "test_source_table_front.py",
+      "previous_archive_key": null,
+      "supplemental": false,
+      "sha256": "d8ed02437a1b792592dac2aba5170c97e8d3009a7be9f1e20eb29b85e1dd5eca"
+    },
+    {
+      "name": "test_table_localization.py",
+      "previous_archive_key": null,
+      "supplemental": false,
+      "sha256": "892ce2e900bef2c1aa98b77391db590b2a76699371ced238f4de2d717f8a2949"
+    },
+    {
+      "name": "launch_flat_box_grasp_20261101.py",
+      "previous_archive_key": "active/launch_flat_box_grasp_20261101.py",
+      "supplemental": false,
+      "sha256": "d99940119542e7a481ad83b587db2c7e7d791772410f32fe745c576847df2900"
+    },
+    {
+      "name": "run_cigarette_transfer_20261101.py",
+      "previous_archive_key": null,
+      "supplemental": false,
+      "sha256": "2a9cbbff37c1caa21fe797ade39b0391322087dab292f013d33357d3faf851c6",
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/gate-revision-v2-20261106-195833/runtime/run_cigarette_transfer_20261101.py"
+    },
+    {
+      "name": "install_table_localizer_20261101.py",
+      "previous_archive_key": null,
+      "supplemental": false,
+      "sha256": "4e3b35bba5614af39de75d350b6255da74224f935f707aed7011d2455be4a209"
+    },
+    {
+      "name": "launch_table_localizer_install_20261101.py",
+      "previous_archive_key": null,
+      "supplemental": false,
+      "sha256": "717f6292251a247913c9efa6a5683887d69aeb4b2d3db28b1013a128a9311c58"
+    },
+    {
+      "name": "current_task_entry.py",
+      "sha256": "fbb4178c713c58193a89dc5950d8edbccb68980472a100f9ee154260f22780f9",
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/gate-revision-v2-20261106-195833/runtime/current_task_entry.py"
+    },
+    {
+      "name": "gate_recovery.py",
+      "sha256": "6e77a423d0a4603440dcaedc9946ab4fb0584b9dbe042a327c7482d2b4dc8aca",
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/gate-revision-v2-20261106-195833/runtime/gate_recovery.py"
+    },
+    {
+      "name": "observation_profiles.py",
+      "sha256": "ca4f0d72d9d17bb1480d116f096ee9f620a1d211397230496778069d60505e2c",
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/gate-revision-v2-20261106-195833/runtime/observation_profiles.py"
+    },
+    {
+      "name": "observe_grasp_object_20261101.py",
+      "sha256": "5152a65e802e1d6ec12cc619b8e5db0005efed2ad1ab2977e54df5302a3e6dd4",
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/gate-revision-v2-20261106-195833/runtime/observe_grasp_object_20261101.py"
+    },
+    {
+      "name": "profiled_capture.py",
+      "sha256": "e09cbafc1f6f4a990858eaec77dd40e353988657b81829b7df2334ccab6197f6",
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/penguin-contact-resume-adapter-20261107-164327/profiled_capture.py"
+    },
+    {
+      "name": "profiled_capture_writer.py",
+      "sha256": "3402b211617d4aa055333f9d993ece85532bd53850c0dff7e8f1a43fcaf9e275",
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/gate-revision-v2-20261106-195833/runtime/profiled_capture_writer.py"
+    },
+    {
+      "name": "start_fresh_cigarette_session_20261101.py",
+      "sha256": "76704c22699638078c7f13fc2ba420e81c56977f2eb84bff8a7bac0545017f2c",
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/gate-revision-v2-20261106-195833/runtime/start_fresh_cigarette_session_20261101.py"
+    },
+    {
+      "name": "source_geometry_recovery.py",
+      "sha256": "d2b826452ab0bc713b957da0a0f4123d49bc05f48218977fe17fe20b7fd1ae42",
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/gate-revision-v2-20261106-195833/runtime/source_geometry_recovery.py"
+    },
+    {
+      "name": "verify_gate_deployment_20261106.py",
+      "sha256": "526454e1fc10688087b3011232cf09db30a7feaaa38caa3ea6da005160eb1d4a",
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/navigation-efficiency-v1-20261106-205358/runtime/verify_gate_deployment_20261106.py"
+    },
+    {
+      "name": "rollback_navigation_efficiency_20261106.py",
+      "sha256": "318dd82330ca1802814a3a5da392ae0943e03ecb21e4f7abe6d5f21be494cb0c",
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/navigation-efficiency-v1-20261106-205358/runtime/rollback_navigation_efficiency_20261106.py"
+    },
+    {
+      "name": "verify_navigation_efficiency_20261106.py",
+      "sha256": "3cfdaf939ef7386040fd02a07b4d8f8262b7bcf7901e1f9f8afca3b3490c2682",
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/navigation-efficiency-v1-20261106-205358/runtime/verify_navigation_efficiency_20261106.py"
+    },
+    {
+      "name": "NAVIGATION_EFFICIENCY_V1.txt",
+      "sha256": "7ac9d7c61ae87721dc6e9ca9e44243311732294cd9812602db43d4f2251a9e29",
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/navigation-efficiency-v1-20261106-205358/runtime/NAVIGATION_EFFICIENCY_V1.txt"
+    },
+    {
+      "name": "navigate_carry_trial.py",
+      "sha256": "03d2a6374ece223b136bc51f66e0f2e56e1469aa5e876f102a11f2e84382ac68",
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/navigation-efficiency-v1-20261106-205358/runtime/navigate_carry_trial.py"
+    },
+    {
+      "name": "horizontal_can_place.py",
+      "sha256": "b09a51e8c477315b4e7a1e31a4a6df065352db4bc31e5147a3e6e082012a20fb",
+      "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/common-placement-v1-20261107-162514/runtime/horizontal_can_place.py"
+    }
+  ],
+  "tests": [
+    "test_outcome_transfer_policy",
+    "test_flat_box_geometry",
+    "test_flat_box_transport",
+    "test_flat_box_partial_top",
+    "test_flat_box_place_geometry",
+    "test_tabletop_support",
+    "test_table_approach_reachability",
+    "test_thin_object_table_safety",
+    "test_gripper_close_gate",
+    "test_reviewed_carry_adjustment",
+    "test_task_outcome_policy",
+    "test_finger_longitudinal_overlap",
+    "test_stop_observe_act",
+    "test_source_table_front",
+    "test_table_localization"
+  ],
+  "changed_navigation_parameters": false,
+  "model_changed": false,
+  "unity_files_changed": false,
+  "runtime_hotfixes": [
+    {
+      "created_ns": 1793531092682144606,
+      "backup": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/backups/before-stationary-action-age-20261101-185458",
+      "validation": "/mnt/d/handyman-tools/outcome-hotfix-validation-20261101-190441",
+      "changed_files": [
+        "flat_box_grasp.py",
+        "flat_box_contact.py",
+        "outcome_transfer_policy.py",
+        "outcome_transfer_policy.json",
+        "outcome_transfer_runtime.py",
+        "OUTCOME_TRANSFER_POLICY.txt",
+        "test_outcome_transfer_policy.py",
+        "thin_box_clearance.py",
+        "test_finger_longitudinal_overlap.py"
+      ],
+      "reason": "stationary_processing_budget_current_table_plane_and_actual_pad_overlap",
+      "robot_commands_sent": false
+    },
+    {
+      "created_ns": 1793532128521964788,
+      "backup": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/backups/before-stop-observe-act-20261101-191718",
+      "validation": "/mnt/d/handyman-tools/outcome-hotfix-validation-20261101-192158",
+      "changed_files": [
+        "flat_box_carry.py",
+        "flat_box_place.py",
+        "outcome_transfer_policy.py",
+        "outcome_transfer_policy.json",
+        "outcome_transfer_runtime.py",
+        "OUTCOME_TRANSFER_POLICY.txt",
+        "test_outcome_transfer_policy.py",
+        "stop_observe_act.py",
+        "test_stop_observe_act.py"
+      ],
+      "reason": "stop_observe_act_v1",
+      "robot_commands_sent": false
+    },
+    {
+      "created_ns": 1793532263676554002,
+      "backup": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/backups/before-stop-observe-act-20261101-191718",
+      "validation": "/mnt/d/handyman-tools/outcome-hotfix-validation-20261101-192413",
+      "changed_files": [
+        "outcome_transfer_runtime.py",
+        "test_stop_observe_act.py"
+      ],
+      "reason": "stop_observe_act_v1",
+      "robot_commands_sent": false
+    },
+    {
+      "created_ns": 1793532558381343446,
+      "backup": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/backups/before-closure-region-20261101-192754",
+      "validation": "/mnt/d/handyman-tools/outcome-hotfix-validation-20261101-192907",
+      "changed_files": [
+        "flat_box_grasp.py",
+        "outcome_transfer_policy.json",
+        "OUTCOME_TRANSFER_POLICY.txt",
+        "thin_box_clearance.py",
+        "test_finger_longitudinal_overlap.py"
+      ],
+      "reason": "actual_two_finger_closure_region",
+      "robot_commands_sent": false
+    },
+    {
+      "created_ns": 1793534405361325280,
+      "backup": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/backups/before-automatic-table-localization-20261101-195954",
+      "validation": "/mnt/d/handyman-tools/table-localization-validation-20261101-195954",
+      "changed_files": [
+        "flat_box_grasp.py",
+        "flat_box_geometry.py",
+        "flat_box_place.py",
+        "outcome_transfer_runtime.py",
+        "OUTCOME_TRANSFER_POLICY.txt",
+        "table_localization.py",
+        "table_localization.json",
+        "table_localization_service.py",
+        "table_localization_client.py",
+        "source_table_front.py",
+        "tracked_box_source.py",
+        "test_source_table_front.py",
+        "test_table_localization.py",
+        "launch_flat_box_grasp_20261101.py",
+        "run_cigarette_transfer_20261101.py",
+        "install_table_localizer_20261101.py",
+        "launch_table_localizer_install_20261101.py"
+      ],
+      "reason": "automatic_laser_table_localization_and_live_RGBD_geometry",
+      "robot_commands_sent": false
+    },
+    {
+      "created_ns": 1793534517715224854,
+      "backup": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/backups/before-automatic-table-localization-20261101-195954",
+      "validation": "/mnt/d/handyman-tools/outcome-hotfix-validation-20261101-200147",
+      "changed_files": [
+        "tracked_box_source.py"
+      ],
+      "reason": "current_depth_reacquisition_preserves_reference_confidence_separately",
+      "robot_commands_sent": false
+    },
+    {
+      "created_ns": 1793535906922634311,
+      "backup": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/backups/before-automatic-table-localization-20261101-195954",
+      "validation": "/mnt/d/handyman-tools/outcome-hotfix-validation-20261101-202456",
+      "changed_files": [
+        "flat_box_grasp.py"
+      ],
+      "reason": "normalize_measured_table_plane_array",
+      "robot_commands_sent": false
+    },
+    {
+      "created_ns": 1793536354409915119,
+      "backup": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/backups/before-automatic-table-localization-20261101-195954",
+      "validation": "/mnt/d/handyman-tools/outcome-hotfix-validation-20261101-203223",
+      "changed_files": [
+        "flat_box_place_geometry.py",
+        "OUTCOME_TRANSFER_POLICY.txt",
+        "test_flat_box_place_geometry.py"
+      ],
+      "reason": "verify_actual_settled_support_separately_from_planned_edge_gap",
+      "robot_commands_sent": false
+    }
+  ],
+  "gate_revision_v2": {
+    "backup": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/backups/before-gate-revision-20261106-193054",
+    "candidate": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/gate-revision-v2-20261106-195833",
+    "live_transfer_validated": false
+  },
+  "navigation_efficiency_v1": {
+    "candidate": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/navigation-efficiency-v1-20261106-205358",
+    "backup": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/backups/before-navigation-efficiency-20261106-203925",
+    "live_navigation_validated": false
+  },
+  "common_table_transfer_v1": {
+    "candidate": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/common-placement-v1-20261107-162514",
+    "backup": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/backups/before-common-placement-20261107-160551",
+    "full_live_transfer_validated": false
+  }
+}

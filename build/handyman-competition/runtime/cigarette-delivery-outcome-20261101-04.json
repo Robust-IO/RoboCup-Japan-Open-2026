@@ -1,0 +1,34 @@
+{
+  "status": "completed",
+  "request": "卧室白桌香烟→客厅矮方桌",
+  "source_run": "cigarette-source-20261101-03",
+  "grasp": "cigarette-contact-20261101-04",
+  "carry": "cigarette-carry-20261101-04",
+  "place": "cigarette-place-20261101-06",
+  "stages": [
+    {
+      "run": "cigarette-contact-20261101-04",
+      "status": "flat_box_grasp_and_lift_verified",
+      "elapsed_s": 11.045428974,
+      "reason": null
+    },
+    {
+      "run": "cigarette-carry-20261101-04",
+      "status": "flat_box_destination_hold_verified",
+      "elapsed_s": 215.252845469,
+      "reason": null
+    },
+    {
+      "run": "cigarette-place-20261101-06",
+      "status": "flat_box_staged_transfer_verified",
+      "elapsed_s": 52.089562928,
+      "reason": null
+    }
+  ],
+  "active_stage": "cigarette-place-20261101-06",
+  "physical_transfer_verified": true,
+  "robot_ready_for_next_task": true,
+  "close_commands": 1,
+  "release_commands": 1,
+  "task_finished_sent": false
+}

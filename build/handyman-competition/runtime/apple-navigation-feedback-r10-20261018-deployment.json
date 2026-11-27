@@ -1,0 +1,19 @@
+{
+  "status": "deployed_and_tested",
+  "revision": "20261018-navigation-feedback-r10",
+  "backup": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-before-navigation-feedback-r10-20261018.tar.gz",
+  "hashes": {
+    "navigation_feedback_gate.py": "d6a7b045757139d3ddada7bb7dd68770efc46f8710cf30d24ebd130542b635cf",
+    "navigate_carry_trial.py": "d2da63a3a08073044d966bd2b3f08ace8b9cea102ccf9cfc3a47c5989fc1b860",
+    "test_navigation_feedback_gate.py": "2216acd07da15d96596e703d51125d625879775efaca6c916dab770c18ce8e86",
+    "probe_navigation_latency.py": "3003e9ba9a5e3f2a237982aa811be9b25b2e5b780c75d480992411e54ef7e881",
+    "APPLE_TRANSFER_AUTOMATION.txt": "2b63c59a61bb9107c023d8d9aa1dea6efa610433c88b23c837e5ebed9ff6bedf"
+  },
+  "test_log": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-navigation-feedback-r10-20261018-tests.log",
+  "test_exit": 0,
+  "robot_commands_sent": false,
+  "sample_age_limit_s": 0.7,
+  "new_feedback_acquisition_budget_s": 0.15,
+  "existing_nav2_goal_runs_during_acquisition": true,
+  "navigation_tolerances_changed": false
+}

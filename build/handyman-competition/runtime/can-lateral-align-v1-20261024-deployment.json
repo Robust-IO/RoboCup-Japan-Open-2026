@@ -1,0 +1,41 @@
+{
+  "status": "can_lateral_alignment_deployed",
+  "tests": 591,
+  "hashes": {
+    "canned_grasp_runtime.py": "df65d65686c47f9c090e1f5825c41ae84165e778a7f181b937a7c7bdce8b489b",
+    "OBJECT_TRANSFER.txt": "08508a26692bd9b8708a6bf7f00bf46791e94111f9d2bd4a2f62d14364a7b4ae",
+    "can_approach_plan.py": "e84ed5cc859bdc35e76dbf1bfffa5322ecfe4448d977a1cc657572237922d2e4",
+    "test_can_approach_plan.py": "3ac40689dda02815ea0dc5dc94ebb37dfdc04eb62e90ab98ebd0cd2b02701c9c"
+  },
+  "previous_hashes": {
+    "canned_grasp_runtime.py": "b7321c7cacab85341af59ced0b5c16678acd3ff15b7c498f7b8791794d4fd235",
+    "OBJECT_TRANSFER.txt": "851096928993377f7237fc71f58d82ef90cc6b1d724d7228fa33683f20ed43f2"
+  },
+  "failed_actual_plan": [
+    0.3812773912139785,
+    -0.1339412336750701,
+    0.0
+  ],
+  "new_lateral_step": {
+    "phase": "lateral_alignment",
+    "delta": [
+      0.0,
+      -0.1339412336750701,
+      0.0
+    ]
+  },
+  "new_straight_step": {
+    "phase": "straight_contact_approach",
+    "delta": [
+      0.3812773912139785,
+      0.0,
+      0.0
+    ]
+  },
+  "forward_distance_subdivided": false,
+  "geometry_or_freshness_thresholds_relaxed": false,
+  "near_lateral_correction_clears_fingers_first": true,
+  "original_navigation_and_apple_unchanged": true,
+  "robot_commands_sent": false,
+  "live_alignment_verified": false
+}

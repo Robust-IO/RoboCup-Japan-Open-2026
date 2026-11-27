@@ -1,0 +1,27 @@
+{
+  "run": 970,
+  "failures": [
+    "test_focused_seven_schedule.FocusedTests.test_guards",
+    "test_salt_pepper_contrast.ContrastTests.test_original_modes_kept",
+    "test_small_background_schedule.SmallBackgroundSchedule.test_ground_pilot_only"
+  ],
+  "errors": [
+    {
+      "test": "test_transfer_efficiency.SharedModelTests.test_outside_run_capture_rejected_before_model_execution",
+      "last_line": "PermissionError: [Errno 1] Operation not permitted"
+    },
+    {
+      "test": "test_transfer_efficiency.SharedModelTests.test_two_clients_share_worker_and_do_not_close_owner",
+      "last_line": "PermissionError: [Errno 1] Operation not permitted"
+    },
+    {
+      "test": "test_transfer_efficiency.SharedModelTests.test_worker_failure_does_not_retry_inference",
+      "last_line": "PermissionError: [Errno 1] Operation not permitted"
+    },
+    {
+      "test": "test_transfer_efficiency.SharedModelTests.test_wrong_model_context_rejected",
+      "last_line": "PermissionError: [Errno 1] Operation not permitted"
+    }
+  ],
+  "skipped": 1
+}

@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "name": "ground_pepper_living_room_to_bedroom",
+  "layout": "LayoutA",
+  "object": "ground_pepper",
+  "source": {
+    "room": "living_room",
+    "table_id": "square_low_table#living_room",
+    "observation_pose": [2.05, 2.55, 1.5707963267948966],
+    "head_pose": [0.0, -0.5]
+  },
+  "destination": {
+    "room": "bedroom",
+    "table_id": "white_side_table#bedroom_1",
+    "observation_pose": [9.70, -6.61, 0.0]
+  }
+}

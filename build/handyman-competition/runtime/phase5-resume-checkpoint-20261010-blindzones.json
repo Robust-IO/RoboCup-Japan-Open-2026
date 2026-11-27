@@ -1,0 +1,81 @@
+{
+  "phase": "5: pregrasp base approach preparation, no grasp attempted",
+  "last_motion": "Head only: pan 0, tilt -0.8; head trial passed, three RGB frames captured",
+  "observed_arm_joints": [0, 0, 0, -1.5707963146269321, 0, 0.6499999859074279],
+  "arm_joint_order": ["arm_lift_joint", "arm_flex_joint", "arm_roll_joint", "wrist_flex_joint", "wrist_roll_joint", "hand_motor_joint"],
+  "base_has_not_executed_proposed_translation": false,
+  "latest_base_trial": {
+    "report": "D:/handyman-training-runs/phase5-finite-step-20261010-v2/result.json",
+    "command_sent": true,
+    "one_segment_only": true,
+    "observed_displacement_m": 0.014743189167120993,
+    "final_odom_pose": [1.9885026216506958, 0.299942284822464, -1.3927745619359895],
+    "target_error_m": 0.0005560009453273231,
+    "final_position_spread_m": 0.0013649700303426022,
+    "status": "monitor_failed: laser stamp newer than available TF; no second segment sent",
+    "next": "Fix time-aligned scan/TF monitoring, remeasure from current pose. Do not repeat the original total delta blindly."
+  },
+  "proposed_base_relative_translation_m": [0.09336279355, -0.0299586638],
+  "proposal_motion_authorized": false,
+  "latest_verified_base_step": {
+    "supersedes_previous_pose_records": true,
+    "report": "D:/handyman-training-runs/phase5-finite-step-20261010-v5/result.json",
+    "status": "endpoint_verified_with_observation_gap",
+    "completed_segments": 4,
+    "observed_displacement_m": 0.014927823756530383,
+    "final_odom_pose": [1.9842537641525269, 0.2553541362285614, -1.3930665312981874],
+    "target_error_m": 0.0001725365188614405,
+    "final_position_spread_m": 0.0009537227444161932,
+    "aligned_checks": 502,
+    "observation_gaps_s": [0.01590627699988545],
+    "unobserved_intervals_remain_unverified": true,
+    "head_tilt_rad": -0.8,
+    "arm": "tucked; gripper open 0.65",
+    "navigation": "still reset; map/localizer retained",
+    "next": "Remeasure current RGBD and remaining approach; no automatic fifth segment. Expand manually reviewed apple ROI if bottom goes beyond y=95."
+  },
+  "aligned_monitor": {
+    "report": "D:/handyman-training-runs/phase5-aligned-monitor-20261010-v1/result.json",
+    "read_only": true,
+    "valid_checks": 2005,
+    "previous_fresh_aligned_scan_used": 796,
+    "max_accepted_scan_age_s": 0.398209948,
+    "no_fresh_aligned_scan_checks": 13,
+    "status": "not fully passed; no further motion authorized",
+    "next": "Measure duration and source of no-fresh-aligned-data gaps. Keep 400ms validity; do not silently treat gaps as clear."
+  },
+  "navigation_handoff": {
+    "operation": "RESET=3 on /lifecycle_manager_navigation/manage_nodes",
+    "verified": true,
+    "navigation_state": "controller/planner/behavior/bt_navigator unconfigured",
+    "map_server_state": "active; initial_pose_localizer not restarted",
+    "velocity_publishers": 0,
+    "velocity_subscribers": 1,
+    "report": "D:/handyman-training-runs/phase5-base-handoff-20261010-v1.json",
+    "restore": "After microstep executor stops and its publishers disappear, STARTUP=0 on navigation manager; do not restart initial-pose localizer from table position."
+  },
+  "last_base_map_xy_approximate": [3.1743, 0.3133],
+  "capture": "D:/handyman-training-runs/phase5-blindspot-rgbd-20261010-v1",
+  "blindzone_report": "D:/handyman-training-runs/tucked-arm-blindzones-20261010-v1.json",
+  "findings": {
+    "unknown_samples": 16026,
+    "unknown_outside_0_41m_base_swept_circle": 0,
+    "unknown_max_planar_distance_to_base_path_m": 0.35936204433579044,
+    "observed_tabletop_height_median_m": 0.49599331,
+    "tabletop_roi_pixels_xyxy": [80, 100, 560, 170],
+    "tabletop_height_p05_p95_m": [0.49575344, 0.49626724]
+  },
+  "limitations": [
+    "Planar laser does not certify clearance at arm height.",
+    "Render mesh AABB samples are not physics collider continuous collision checks.",
+    "Do not treat invalid depth or out-of-view points as free space.",
+    "All snapshots require live revalidation before motion."
+  ],
+  "important_resume_notes": [
+    "Head is now -0.8, not -0.5 required by the existing segmented arm trial.",
+    "Old retract-high initial posture is no longer applicable: arm already fully retracted.",
+    "Feedback wait helper preserves 400ms validity and waits at most 1s; no cancellation of already sent trajectories.",
+    "Hand camera profile sigverse_hsr_hand_v2 supersedes erroneous old reflected profile.",
+    "Next implementation: bounded incremental base approach with live checks and zero command on stale feedback; no executor run yet."
+  ]
+}

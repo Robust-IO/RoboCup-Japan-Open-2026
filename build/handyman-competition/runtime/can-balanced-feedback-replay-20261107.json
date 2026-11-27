@@ -1,0 +1,134 @@
+[
+  {
+    "run": "can-centered-initial-return-live-20261024-09/grasp",
+    "method": "old",
+    "status": "accepted",
+    "evidence": {
+      "matches": 72,
+      "inliers": 53,
+      "residual_p95_m": 0.0030545380321275947,
+      "source": "current_rgbd_static_landmarks",
+      "object_depth_measured": false,
+      "motion_authorized": false,
+      "reference_depth_stamp_ns": 1792838343502147146,
+      "current_depth_stamp_ns": 1792838347245621139,
+      "odom_prediction_correction_m": 0.00820996885521783,
+      "reference_epoch": "can-centered-initial-return-live-20261024-09-rgbd",
+      "prediction_only": true,
+      "current_object_depth_still_required": true,
+      "controller_to_visual_angle_rad": 0.0031381432312892563,
+      "commanded_step_old_base_m": [
+        0.2186279022505622,
+        -0.0006293073986563643,
+        1.7868810827929253e-06
+      ],
+      "actual_step_old_base_m": [
+        0.22785599008837545,
+        5.9176645691185826e-05,
+        -0.002663654056823124
+      ]
+    }
+  },
+  {
+    "run": "can-centered-initial-return-live-20261024-09/grasp",
+    "method": "balanced",
+    "status": "accepted",
+    "evidence": {
+      "matches": 34,
+      "inliers": 27,
+      "residual_p95_m": 0.0021018089666295565,
+      "source": "current_rgbd_static_landmarks",
+      "object_depth_measured": false,
+      "motion_authorized": false,
+      "reference_depth_stamp_ns": 1792838343502147146,
+      "current_depth_stamp_ns": 1792838347245621139,
+      "odom_prediction_correction_m": 0.007985808554455517,
+      "reference_epoch": "can-centered-initial-return-live-20261024-09-rgbd",
+      "prediction_only": true,
+      "current_object_depth_still_required": true,
+      "controller_to_visual_angle_rad": 0.003056079598555303,
+      "commanded_step_old_base_m": [
+        0.2186279022505622,
+        -0.0006293073986563643,
+        1.7868810827929253e-06
+      ],
+      "actual_step_old_base_m": [
+        0.22742313267360093,
+        4.04010586377983e-05,
+        -0.002044413399180712
+      ]
+    }
+  },
+  {
+    "run": "verified-can-kitchen-20261107-07",
+    "method": "old",
+    "status": "rejected",
+    "reason": "static_background_motion_not_consistent"
+  },
+  {
+    "run": "verified-can-kitchen-20261107-07",
+    "method": "balanced",
+    "status": "rejected",
+    "reason": "static_background_matches_not_observed"
+  },
+  {
+    "run": "verified-can-feedback-20261107-02",
+    "method": "old",
+    "status": "accepted",
+    "evidence": {
+      "matches": 39,
+      "inliers": 27,
+      "residual_p95_m": 0.002335995635414867,
+      "source": "current_rgbd_static_landmarks",
+      "object_depth_measured": false,
+      "motion_authorized": false,
+      "reference_depth_stamp_ns": 1794052505194327148,
+      "current_depth_stamp_ns": 1794052509523132037,
+      "odom_prediction_correction_m": 0.019056535385950906,
+      "reference_epoch": "verified-can-feedback-20261107-02-rgbd",
+      "prediction_only": true,
+      "current_object_depth_still_required": true,
+      "controller_to_visual_angle_rad": 0.0531110720610848,
+      "commanded_step_old_base_m": [
+        0.32455212320059174,
+        0.0002845385017292657,
+        7.386519363598234e-05
+      ],
+      "actual_step_old_base_m": [
+        0.3250091713479606,
+        0.01756359205237045,
+        0.00023144364394101486
+      ]
+    }
+  },
+  {
+    "run": "verified-can-feedback-20261107-02",
+    "method": "balanced",
+    "status": "accepted",
+    "evidence": {
+      "matches": 18,
+      "inliers": 15,
+      "residual_p95_m": 0.0035369691574526733,
+      "source": "current_rgbd_static_landmarks",
+      "object_depth_measured": false,
+      "motion_authorized": false,
+      "reference_depth_stamp_ns": 1794052505194327148,
+      "current_depth_stamp_ns": 1794052509523132037,
+      "odom_prediction_correction_m": 0.01874544328376892,
+      "reference_epoch": "verified-can-feedback-20261107-02-rgbd",
+      "prediction_only": true,
+      "current_object_depth_still_required": true,
+      "controller_to_visual_angle_rad": 0.050480742147699244,
+      "commanded_step_old_base_m": [
+        0.32455212320059174,
+        0.0002845385017292657,
+        7.386519363598234e-05
+      ],
+      "actual_step_old_base_m": [
+        0.32426766160645887,
+        0.01666821845909174,
+        0.0012661769978745997
+      ]
+    }
+  }
+]

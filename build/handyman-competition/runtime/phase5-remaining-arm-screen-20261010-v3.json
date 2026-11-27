@@ -1,0 +1,799 @@
+{
+  "motion_authorized": false,
+  "translation_m": [
+    0.05027,
+    -0.01613,
+    0.0
+  ],
+  "table_front_assumption_m": 0.4996,
+  "table_overlap_links": [],
+  "novel_aabb_samples": 11861,
+  "depth_free": 2818,
+  "near_observed_surface": 0,
+  "occluded_unknown": 0,
+  "outside_or_invalid": 9043,
+  "outside_fov": 8674,
+  "invalid_depth_inside_fov": 369,
+  "unknown_outside_base_swept_circle": 0,
+  "unknown_max_distance_to_base_path_m": 0.3934399791782684,
+  "unknown_furthest_forward_m": 0.40543708555923047,
+  "by_link": {
+    "arm_flex_link": {
+      "depth_free": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      },
+      "near_surface": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      },
+      "occluded": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      },
+      "outside_fov": {
+        "count": 3582,
+        "base_min": [
+          0.09101170784493302,
+          0.0015467662752404274,
+          0.29217076875873155
+        ],
+        "base_max": [
+          0.23936800952928747,
+          0.15465563511690258,
+          0.5877049925237815
+        ],
+        "pixel_min": [
+          87,
+          512
+        ],
+        "pixel_max": [
+          366,
+          865
+        ]
+      },
+      "invalid_depth": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      }
+    },
+    "arm_lift_link": {
+      "depth_free": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      },
+      "near_surface": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      },
+      "occluded": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      },
+      "outside_fov": {
+        "count": 3798,
+        "base_min": [
+          0.04648769596495768,
+          -0.10117925962417813,
+          0.1899967655182183
+        ],
+        "base_max": [
+          0.2373044322295876,
+          0.1532285822132349,
+          0.38603493761467916
+        ],
+        "pixel_min": [
+          162,
+          593
+        ],
+        "pixel_max": [
+          509,
+          933
+        ]
+      },
+      "invalid_depth": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      }
+    },
+    "arm_roll_link": {
+      "depth_free": {
+        "count": 58,
+        "base_min": [
+          0.20932612144084778,
+          0.0027174474152309672,
+          0.6487978219851894
+        ],
+        "base_max": [
+          0.23868831977362978,
+          0.14786338904883362,
+          0.727169372165139
+        ],
+        "pixel_min": [
+          16,
+          408
+        ],
+        "pixel_max": [
+          367,
+          477
+        ]
+      },
+      "near_surface": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      },
+      "occluded": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      },
+      "outside_fov": {
+        "count": 1202,
+        "base_min": [
+          0.09187732810971959,
+          0.0027174474152309672,
+          0.5704262718052399
+        ],
+        "base_max": [
+          0.23868831977362978,
+          0.14786338904883362,
+          0.727169372165139
+        ],
+        "pixel_min": [
+          -3,
+          480
+        ],
+        "pixel_max": [
+          386,
+          906
+        ]
+      },
+      "invalid_depth": {
+        "count": 2,
+        "base_min": [
+          0.23868831977362978,
+          0.14786338904883362,
+          0.6487978219851894
+        ],
+        "base_max": [
+          0.23868831977362978,
+          0.14786338904883362,
+          0.6585942657576831
+        ],
+        "pixel_min": [
+          87,
+          468
+        ],
+        "pixel_max": [
+          92,
+          476
+        ]
+      }
+    },
+    "hand_l_distal_link": {
+      "depth_free": {
+        "count": 623,
+        "base_min": [
+          0.34362219838917646,
+          0.10020206333452868,
+          0.6469924859361912
+        ],
+        "base_max": [
+          0.4241969514621295,
+          0.1709324416782935,
+          0.7059924660328942
+        ],
+        "pixel_min": [
+          92,
+          180
+        ],
+        "pixel_max": [
+          220,
+          312
+        ]
+      },
+      "near_surface": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      },
+      "occluded": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      },
+      "outside_fov": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      },
+      "invalid_depth": {
+        "count": 36,
+        "base_min": [
+          0.3108280222556245,
+          0.10020206333452868,
+          0.6469924859361912
+        ],
+        "base_max": [
+          0.405302129927712,
+          0.1709324416782935,
+          0.6764924759845428
+        ],
+        "pixel_min": [
+          116,
+          256
+        ],
+        "pixel_max": [
+          206,
+          363
+        ]
+      }
+    },
+    "hand_l_spring_proximal_link": {
+      "depth_free": {
+        "count": 381,
+        "base_min": [
+          0.3057393689974573,
+          0.06836213789661204,
+          0.6481850238336725
+        ],
+        "base_max": [
+          0.39014640473744894,
+          0.15991940892995024,
+          0.7082423939534078
+        ],
+        "pixel_min": [
+          93,
+          210
+        ],
+        "pixel_max": [
+          258,
+          314
+        ]
+      },
+      "near_surface": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      },
+      "occluded": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      },
+      "outside_fov": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      },
+      "invalid_depth": {
+        "count": 43,
+        "base_min": [
+          0.3057393689974573,
+          0.06836213789661204,
+          0.6481850238336725
+        ],
+        "base_max": [
+          0.39014640473744894,
+          0.15991940892995024,
+          0.7082423939534078
+        ],
+        "pixel_min": [
+          129,
+          262
+        ],
+        "pixel_max": [
+          252,
+          369
+        ]
+      }
+    },
+    "hand_palm_link": {
+      "depth_free": {
+        "count": 224,
+        "base_min": [
+          0.2976206876413301,
+          0.021977119255224914,
+          0.6482071684205112
+        ],
+        "base_max": [
+          0.3468459796850396,
+          0.11784176717290253,
+          0.7336219090561079
+        ],
+        "pixel_min": [
+          147,
+          229
+        ],
+        "pixel_max": [
+          320,
+          381
+        ]
+      },
+      "near_surface": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      },
+      "occluded": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      },
+      "outside_fov": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      },
+      "invalid_depth": {
+        "count": 89,
+        "base_min": [
+          0.2976206876413301,
+          0.021977119255224914,
+          0.6482071684205112
+        ],
+        "base_max": [
+          0.3468459796850396,
+          0.11784176717290253,
+          0.7336219090561079
+        ],
+        "pixel_min": [
+          135,
+          263
+        ],
+        "pixel_max": [
+          320,
+          381
+        ]
+      }
+    },
+    "hand_r_distal_link": {
+      "depth_free": {
+        "count": 569,
+        "base_min": [
+          0.31094996096115246,
+          -0.019000032089559526,
+          0.6469886204182774
+        ],
+        "base_max": [
+          0.42433451047884607,
+          0.039351887077027914,
+          0.7059924154634509
+        ],
+        "pixel_min": [
+          294,
+          180
+        ],
+        "pixel_max": [
+          392,
+          363
+        ]
+      },
+      "near_surface": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      },
+      "occluded": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      },
+      "outside_fov": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      },
+      "invalid_depth": {
+        "count": 33,
+        "base_min": [
+          0.37709094817980704,
+          0.010009274562094238,
+          0.6469886204182774
+        ],
+        "base_max": [
+          0.40543708555923047,
+          0.029961104487861913,
+          0.6764905179408642
+        ],
+        "pixel_min": [
+          309,
+          255
+        ],
+        "pixel_max": [
+          337,
+          284
+        ]
+      }
+    },
+    "hand_r_spring_proximal_link": {
+      "depth_free": {
+        "count": 470,
+        "base_min": [
+          0.24946804129056716,
+          -0.020013276457055314,
+          0.6482526262551371
+        ],
+        "base_max": [
+          0.39011789780555023,
+          0.07147905854135916,
+          0.7082449638599404
+        ],
+        "pixel_min": [
+          239,
+          210
+        ],
+        "pixel_max": [
+          406,
+          457
+        ]
+      },
+      "near_surface": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      },
+      "occluded": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      },
+      "outside_fov": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      },
+      "invalid_depth": {
+        "count": 12,
+        "base_min": [
+          0.34323461230055585,
+          0.00743442404246903,
+          0.6482526262551371
+        ],
+        "base_max": [
+          0.39011789780555023,
+          0.07147905854135916,
+          0.7082449638599404
+        ],
+        "pixel_min": [
+          248,
+          260
+        ],
+        "pixel_max": [
+          340,
+          321
+        ]
+      }
+    },
+    "wrist_roll_link": {
+      "depth_free": {
+        "count": 493,
+        "base_min": [
+          0.20304883651919348,
+          0.0009894013576683004,
+          0.6469730569429887
+        ],
+        "base_max": [
+          0.34685057682630344,
+          0.1389003412048997,
+          0.7456343879608991
+        ],
+        "pixel_min": [
+          88,
+          214
+        ],
+        "pixel_max": [
+          375,
+          476
+        ]
+      },
+      "near_surface": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      },
+      "occluded": {
+        "count": 0,
+        "base_min": null,
+        "base_max": null,
+        "pixel_min": null,
+        "pixel_max": null
+      },
+      "outside_fov": {
+        "count": 92,
+        "base_min": [
+          0.18387527114491214,
+          0.0009894013576683004,
+          0.6469730569429887
+        ],
+        "base_max": [
+          0.23180918458061547,
+          0.010840182775327684,
+          0.7456343879608991
+        ],
+        "pixel_min": [
+          340,
+          480
+        ],
+        "pixel_max": [
+          379,
+          591
+        ]
+      },
+      "invalid_depth": {
+        "count": 154,
+        "base_min": [
+          0.2797430980163188,
+          0.010840182775327684,
+          0.6469730569429887
+        ],
+        "base_max": [
+          0.34685057682630344,
+          0.1389003412048997,
+          0.7456343879608991
+        ],
+        "pixel_min": [
+          117,
+          261
+        ],
+        "pixel_max": [
+          343,
+          380
+        ]
+      }
+    }
+  },
+  "swept_envelopes": [
+    {
+      "link": "arm_lift_link",
+      "lo": [
+        0.036946859151726186,
+        -0.10117925962417813,
+        0.1899967655182183
+      ],
+      "hi": [
+        0.2373044322295876,
+        0.1532285822132349,
+        0.38603493761467916
+      ],
+      "historical_table_front_gap_m": 0.2622955677704124
+    },
+    {
+      "link": "arm_flex_link",
+      "lo": [
+        0.09101170784493302,
+        0.0015467662752404274,
+        0.29217076875873155
+      ],
+      "hi": [
+        0.23936800952928747,
+        0.15465563511690258,
+        0.5877049925237815
+      ],
+      "historical_table_front_gap_m": 0.26023199047071255
+    },
+    {
+      "link": "arm_roll_link",
+      "lo": [
+        0.09187732810971959,
+        0.0027174474152309672,
+        0.5704262718052399
+      ],
+      "hi": [
+        0.23868831977362978,
+        0.14786338904883362,
+        0.727169372165139
+      ],
+      "historical_table_front_gap_m": 0.26091168022637024
+    },
+    {
+      "link": "wrist_flex_link",
+      "lo": [
+        0.11210978483157198,
+        0.03486151885330578,
+        0.654487657644743
+      ],
+      "hi": [
+        0.2388720471535264,
+        0.10501330830993853,
+        0.7224952094927525
+      ],
+      "historical_table_front_gap_m": 0.2607279528464736
+    },
+    {
+      "link": "wrist_flex_link",
+      "lo": [
+        0.14610205273226753,
+        0.03686988398264027,
+        0.6634924194779288
+      ],
+      "hi": [
+        0.27637207708423683,
+        0.1029999030168042,
+        0.7134924305644974
+      ],
+      "historical_table_front_gap_m": 0.22322792291576316
+    },
+    {
+      "link": "wrist_roll_link",
+      "lo": [
+        0.18387527114491214,
+        0.0009894013576683004,
+        0.6469730569429887
+      ],
+      "hi": [
+        0.34685057682630344,
+        0.1389003412048997,
+        0.7456343879608991
+      ],
+      "historical_table_front_gap_m": 0.15274942317369655
+    },
+    {
+      "link": "hand_palm_link",
+      "lo": [
+        0.22870527878013677,
+        0.021977119255224914,
+        0.6482071684205112
+      ],
+      "hi": [
+        0.3468459796850396,
+        0.11784176717290253,
+        0.7336219090561079
+      ],
+      "historical_table_front_gap_m": 0.15275402031496038
+    },
+    {
+      "link": "hand_l_spring_proximal_link",
+      "lo": [
+        0.24946801183746287,
+        0.06836213789661204,
+        0.6481850238336725
+      ],
+      "hi": [
+        0.39014640473744894,
+        0.15991940892995024,
+        0.7082423939534078
+      ],
+      "historical_table_front_gap_m": 0.10945359526255105
+    },
+    {
+      "link": "hand_l_distal_link",
+      "lo": [
+        0.3108280222556245,
+        0.10088269188978434,
+        0.6469924859361912
+      ],
+      "hi": [
+        0.4241969514621295,
+        0.1709324416782935,
+        0.7059924660328942
+      ],
+      "historical_table_front_gap_m": 0.0754030485378705
+    },
+    {
+      "link": "hand_l_distal_link",
+      "lo": [
+        0.34362219838917646,
+        0.10020206333452868,
+        0.649030167684567
+      ],
+      "hi": [
+        0.42334409507819065,
+        0.13740595034326658,
+        0.704022867859963
+      ],
+      "historical_table_front_gap_m": 0.07625590492180934
+    },
+    {
+      "link": "hand_r_spring_proximal_link",
+      "lo": [
+        0.24946804129056716,
+        -0.020013276457055314,
+        0.6482526262551371
+      ],
+      "hi": [
+        0.39011789780555023,
+        0.07147905854135916,
+        0.7082449638599404
+      ],
+      "historical_table_front_gap_m": 0.10948210219444976
+    },
+    {
+      "link": "hand_r_distal_link",
+      "lo": [
+        0.31094996096115246,
+        -0.019000032089559526,
+        0.6469886204182774
+      ],
+      "hi": [
+        0.42433451047884607,
+        0.039018581213747995,
+        0.7059924154634509
+      ],
+      "historical_table_front_gap_m": 0.07526548952115392
+    },
+    {
+      "link": "hand_r_distal_link",
+      "lo": [
+        0.3418044052437,
+        0.001788756720363915,
+        0.6489032309435092
+      ],
+      "hi": [
+        0.4230709865634382,
+        0.039351887077027914,
+        0.7046675995314883
+      ],
+      "historical_table_front_gap_m": 0.07652901343656177
+    }
+  ],
+  "questionable_pixels": [],
+  "limits": [
+    "Swept per-part AABBs with 1cm sampling, not continuous mesh/collider sweep.",
+    "Samples inside current robot AABBs excluded; this is not validated self masking.",
+    "Depth free classification uses 3cm optical-depth margin, not Euclidean clearance.",
+    "Inside a planar base sweep is not proof of clearance at arm height.",
+    "Historical snapshot only; unknown/near samples block motion authorization."
+  ]
+}

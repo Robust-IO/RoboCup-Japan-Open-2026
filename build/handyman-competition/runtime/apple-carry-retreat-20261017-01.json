@@ -1,0 +1,45 @@
+{
+  "command_sent": true,
+  "grip_commands_sent": false,
+  "simulation_ignore_collision": true,
+  "collision_certified": false,
+  "automatic_retry": false,
+  "motion_profile": "balanced_v1",
+  "trajectory_duration_s": 2.65,
+  "start_odom": [
+    0.9502456188201904,
+    0.028709670528769493,
+    0.0908328353966465
+  ],
+  "start_map": [
+    10.120345223171137,
+    -6.706022687910507,
+    0.07344740146765805
+  ],
+  "delta": [
+    -0.25,
+    0.0,
+    0.0
+  ],
+  "target_odom": [
+    0.7012762354252606,
+    0.006032674873514988,
+    0.0908328353966465
+  ],
+  "laser_min_warning_only_m": 0.5812521576881409,
+  "final_odom": [
+    0.7020980715751648,
+    0.006522905081510544,
+    0.0910494883984672
+  ],
+  "final_map": [
+    9.87184946957677,
+    -6.723892164967816,
+    0.07366405446947877
+  ],
+  "error_m": 0.0009569432136342611,
+  "yaw_error_rad": 0.00021665300182070749,
+  "spread_m": 0.001402174727900269,
+  "monitor_faults": [],
+  "status": "endpoint_verified"
+}

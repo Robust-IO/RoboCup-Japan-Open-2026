@@ -1,0 +1,24 @@
+{
+  "pid": 28637,
+  "started_ns": 1793008550107502388,
+  "command": [
+    "bash",
+    "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/tools/apple-transfer-auto-v1/run_object_transfer.sh",
+    "--object",
+    "toy_penguin",
+    "--run",
+    "--confirm-layout",
+    "LayoutA",
+    "--confirm-localization",
+    "--simulation-ignore-collision",
+    "--navigation-profile",
+    "carry_fast_v1",
+    "--output",
+    "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/penguin-resident-fast-transfer-20261026-02"
+  ],
+  "output": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/penguin-resident-fast-transfer-20261026-02",
+  "log": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/penguin-resident-fast-transfer-20261026-02-console.log",
+  "detached": true,
+  "model_resident": true,
+  "navigation_profile": "carry_fast_v1"
+}

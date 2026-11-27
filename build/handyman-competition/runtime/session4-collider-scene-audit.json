@@ -1,0 +1,871 @@
+[
+  {
+    "id": "7183894",
+    "path": "LayoutC/DestinationCandidates/trash_box_for_burnable#lobby",
+    "matrix": [
+      [
+        1.5,
+        0.0,
+        0.0,
+        10.713000000000001
+      ],
+      [
+        0.0,
+        0.7999999499999894,
+        -4.0730167499999724e-07,
+        0.0
+      ],
+      [
+        0.0,
+        1.303365278539656e-07,
+        2.4999999999999667,
+        -4.1129999999999995
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "colliders": []
+  },
+  {
+    "id": "283407224",
+    "path": "LayoutC/DestinationCandidates/trash_box_for_burnable#lobby/trashbox_c02.001/colliders",
+    "matrix": [
+      [
+        1.5,
+        0.0,
+        0.0,
+        10.713000000000001
+      ],
+      [
+        0.0,
+        0.7999999499999894,
+        -4.0730167499999724e-07,
+        0.0
+      ],
+      [
+        0.0,
+        1.303365278539656e-07,
+        2.4999999999999667,
+        -4.1129999999999995
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "colliders": [
+      {
+        "MeshCollider": {
+          "m_ObjectHideFlags": 0,
+          "m_CorrespondingSourceObject": {
+            "fileID": 64464319793793752,
+            "guid": "5451a0ebf80e8d64993f26592bc5fa05",
+            "type": 3
+          },
+          "m_PrefabInstance": {
+            "fileID": 0
+          },
+          "m_PrefabAsset": {
+            "fileID": 0
+          },
+          "m_GameObject": {
+            "fileID": 283407223
+          },
+          "m_Material": {
+            "fileID": 0
+          },
+          "m_IncludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_ExcludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_LayerOverridePriority": 0,
+          "m_IsTrigger": 0,
+          "m_ProvidesContacts": 0,
+          "m_Enabled": 1,
+          "serializedVersion": 5,
+          "m_Convex": 0,
+          "m_CookingOptions": 28,
+          "m_Mesh": {
+            "fileID": 4300000,
+            "guid": "1609e25e57ffb364a95c1fb51df58868",
+            "type": 2
+          }
+        }
+      },
+      {
+        "MeshCollider": {
+          "m_ObjectHideFlags": 0,
+          "m_CorrespondingSourceObject": {
+            "fileID": 64912292523984522,
+            "guid": "5451a0ebf80e8d64993f26592bc5fa05",
+            "type": 3
+          },
+          "m_PrefabInstance": {
+            "fileID": 0
+          },
+          "m_PrefabAsset": {
+            "fileID": 0
+          },
+          "m_GameObject": {
+            "fileID": 283407223
+          },
+          "m_Material": {
+            "fileID": 0
+          },
+          "m_IncludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_ExcludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_LayerOverridePriority": 0,
+          "m_IsTrigger": 0,
+          "m_ProvidesContacts": 0,
+          "m_Enabled": 1,
+          "serializedVersion": 5,
+          "m_Convex": 0,
+          "m_CookingOptions": 28,
+          "m_Mesh": {
+            "fileID": 4300000,
+            "guid": "88d09c9ee6d69944d9de41c313bb8f50",
+            "type": 2
+          }
+        }
+      },
+      {
+        "MeshCollider": {
+          "m_ObjectHideFlags": 0,
+          "m_CorrespondingSourceObject": {
+            "fileID": 64433664201831860,
+            "guid": "5451a0ebf80e8d64993f26592bc5fa05",
+            "type": 3
+          },
+          "m_PrefabInstance": {
+            "fileID": 0
+          },
+          "m_PrefabAsset": {
+            "fileID": 0
+          },
+          "m_GameObject": {
+            "fileID": 283407223
+          },
+          "m_Material": {
+            "fileID": 0
+          },
+          "m_IncludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_ExcludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_LayerOverridePriority": 0,
+          "m_IsTrigger": 0,
+          "m_ProvidesContacts": 0,
+          "m_Enabled": 1,
+          "serializedVersion": 5,
+          "m_Convex": 0,
+          "m_CookingOptions": 28,
+          "m_Mesh": {
+            "fileID": 4300000,
+            "guid": "36c42973a87dcc14c824b675ed6c1310",
+            "type": 2
+          }
+        }
+      },
+      {
+        "MeshCollider": {
+          "m_ObjectHideFlags": 0,
+          "m_CorrespondingSourceObject": {
+            "fileID": 64984627834099642,
+            "guid": "5451a0ebf80e8d64993f26592bc5fa05",
+            "type": 3
+          },
+          "m_PrefabInstance": {
+            "fileID": 0
+          },
+          "m_PrefabAsset": {
+            "fileID": 0
+          },
+          "m_GameObject": {
+            "fileID": 283407223
+          },
+          "m_Material": {
+            "fileID": 0
+          },
+          "m_IncludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_ExcludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_LayerOverridePriority": 0,
+          "m_IsTrigger": 0,
+          "m_ProvidesContacts": 0,
+          "m_Enabled": 1,
+          "serializedVersion": 5,
+          "m_Convex": 0,
+          "m_CookingOptions": 28,
+          "m_Mesh": {
+            "fileID": 4300000,
+            "guid": "d32e3eec81ead45478c2e92b396a57c1",
+            "type": 2
+          }
+        }
+      },
+      {
+        "MeshCollider": {
+          "m_ObjectHideFlags": 0,
+          "m_CorrespondingSourceObject": {
+            "fileID": 64674344907878302,
+            "guid": "5451a0ebf80e8d64993f26592bc5fa05",
+            "type": 3
+          },
+          "m_PrefabInstance": {
+            "fileID": 0
+          },
+          "m_PrefabAsset": {
+            "fileID": 0
+          },
+          "m_GameObject": {
+            "fileID": 283407223
+          },
+          "m_Material": {
+            "fileID": 0
+          },
+          "m_IncludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_ExcludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_LayerOverridePriority": 0,
+          "m_IsTrigger": 0,
+          "m_ProvidesContacts": 0,
+          "m_Enabled": 1,
+          "serializedVersion": 5,
+          "m_Convex": 0,
+          "m_CookingOptions": 28,
+          "m_Mesh": {
+            "fileID": 4300000,
+            "guid": "d56e45d2f9508814d939d47e2054f2c4",
+            "type": 2
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "640793801",
+    "path": "LayoutC/DestinationCandidates/trash_box_for_burnable#lobby/trashbox_c02.001/non_deduction_colliders",
+    "matrix": [
+      [
+        1.5,
+        0.0,
+        0.0,
+        10.713000000000001
+      ],
+      [
+        0.0,
+        0.7999999499999894,
+        -4.0730167499999724e-07,
+        0.05679999644999924
+      ],
+      [
+        0.0,
+        1.303365278539656e-07,
+        2.4999999999999667,
+        -4.112999990746106
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "colliders": [
+      {
+        "BoxCollider": {
+          "m_ObjectHideFlags": 0,
+          "m_CorrespondingSourceObject": {
+            "fileID": 65910257769227998,
+            "guid": "97d554df49b82554d9ac8c82b0fb1c8a",
+            "type": 2
+          },
+          "m_PrefabInstance": {
+            "fileID": 0
+          },
+          "m_PrefabAsset": {
+            "fileID": 0
+          },
+          "m_GameObject": {
+            "fileID": 640793800
+          },
+          "m_Material": {
+            "fileID": 0
+          },
+          "m_IncludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_ExcludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_LayerOverridePriority": 0,
+          "m_IsTrigger": 0,
+          "m_ProvidesContacts": 0,
+          "m_Enabled": 1,
+          "serializedVersion": 3,
+          "m_Size": {
+            "x": 0.36,
+            "y": 0.53,
+            "z": 0.02
+          },
+          "m_Center": {
+            "x": 0,
+            "y": 0.2,
+            "z": -0.075
+          }
+        }
+      },
+      {
+        "BoxCollider": {
+          "m_ObjectHideFlags": 0,
+          "m_CorrespondingSourceObject": {
+            "fileID": 65298714790923204,
+            "guid": "97d554df49b82554d9ac8c82b0fb1c8a",
+            "type": 2
+          },
+          "m_PrefabInstance": {
+            "fileID": 0
+          },
+          "m_PrefabAsset": {
+            "fileID": 0
+          },
+          "m_GameObject": {
+            "fileID": 640793800
+          },
+          "m_Material": {
+            "fileID": 0
+          },
+          "m_IncludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_ExcludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_LayerOverridePriority": 0,
+          "m_IsTrigger": 0,
+          "m_ProvidesContacts": 0,
+          "m_Enabled": 1,
+          "serializedVersion": 3,
+          "m_Size": {
+            "x": 0.36,
+            "y": 0.53,
+            "z": 0.02
+          },
+          "m_Center": {
+            "x": 0,
+            "y": 0.2,
+            "z": 0.075
+          }
+        }
+      },
+      {
+        "BoxCollider": {
+          "m_ObjectHideFlags": 0,
+          "m_CorrespondingSourceObject": {
+            "fileID": 65584350673710148,
+            "guid": "97d554df49b82554d9ac8c82b0fb1c8a",
+            "type": 2
+          },
+          "m_PrefabInstance": {
+            "fileID": 0
+          },
+          "m_PrefabAsset": {
+            "fileID": 0
+          },
+          "m_GameObject": {
+            "fileID": 640793800
+          },
+          "m_Material": {
+            "fileID": 0
+          },
+          "m_IncludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_ExcludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_LayerOverridePriority": 0,
+          "m_IsTrigger": 0,
+          "m_ProvidesContacts": 0,
+          "m_Enabled": 1,
+          "serializedVersion": 3,
+          "m_Size": {
+            "x": 0.03,
+            "y": 0.53,
+            "z": 0.18
+          },
+          "m_Center": {
+            "x": -0.16,
+            "y": 0.2,
+            "z": 0
+          }
+        }
+      },
+      {
+        "BoxCollider": {
+          "m_ObjectHideFlags": 0,
+          "m_CorrespondingSourceObject": {
+            "fileID": 65020115171275846,
+            "guid": "97d554df49b82554d9ac8c82b0fb1c8a",
+            "type": 2
+          },
+          "m_PrefabInstance": {
+            "fileID": 0
+          },
+          "m_PrefabAsset": {
+            "fileID": 0
+          },
+          "m_GameObject": {
+            "fileID": 640793800
+          },
+          "m_Material": {
+            "fileID": 0
+          },
+          "m_IncludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_ExcludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_LayerOverridePriority": 0,
+          "m_IsTrigger": 0,
+          "m_ProvidesContacts": 0,
+          "m_Enabled": 1,
+          "serializedVersion": 3,
+          "m_Size": {
+            "x": 0.03,
+            "y": 0.55,
+            "z": 0.18
+          },
+          "m_Center": {
+            "x": 0.16,
+            "y": 0.21,
+            "z": 0
+          }
+        }
+      },
+      {
+        "BoxCollider": {
+          "m_ObjectHideFlags": 0,
+          "m_CorrespondingSourceObject": {
+            "fileID": 65572619571386530,
+            "guid": "97d554df49b82554d9ac8c82b0fb1c8a",
+            "type": 2
+          },
+          "m_PrefabInstance": {
+            "fileID": 0
+          },
+          "m_PrefabAsset": {
+            "fileID": 0
+          },
+          "m_GameObject": {
+            "fileID": 640793800
+          },
+          "m_Material": {
+            "fileID": 0
+          },
+          "m_IncludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_ExcludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_LayerOverridePriority": 0,
+          "m_IsTrigger": 0,
+          "m_ProvidesContacts": 0,
+          "m_Enabled": 1,
+          "serializedVersion": 3,
+          "m_Size": {
+            "x": 0.36,
+            "y": 0.1,
+            "z": 0.18
+          },
+          "m_Center": {
+            "x": 0,
+            "y": 0.01,
+            "z": 0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "955052073",
+    "path": "LayoutC/DestinationCandidates/trash_box_for_burnable#lobby/trashbox_c02.001",
+    "matrix": [
+      [
+        1.5,
+        0.0,
+        0.0,
+        10.713000000000001
+      ],
+      [
+        0.0,
+        0.7999999499999894,
+        -4.0730167499999724e-07,
+        0.0
+      ],
+      [
+        0.0,
+        1.303365278539656e-07,
+        2.4999999999999667,
+        -4.1129999999999995
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "colliders": []
+  },
+  {
+    "id": "1063333954",
+    "path": "LayoutC/DestinationCandidates/trash_box_for_burnable#lobby/JudgeTriggerIn",
+    "matrix": [
+      [
+        1.5,
+        0.0,
+        0.0,
+        10.713000000000001
+      ],
+      [
+        0.0,
+        0.7999999499999894,
+        -4.0730167499999724e-07,
+        0.0
+      ],
+      [
+        0.0,
+        1.303365278539656e-07,
+        2.4999999999999667,
+        -4.1129999999999995
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "colliders": [
+      {
+        "BoxCollider": {
+          "m_ObjectHideFlags": 0,
+          "m_CorrespondingSourceObject": {
+            "fileID": 65995195464878430,
+            "guid": "97d554df49b82554d9ac8c82b0fb1c8a",
+            "type": 2
+          },
+          "m_PrefabInstance": {
+            "fileID": 0
+          },
+          "m_PrefabAsset": {
+            "fileID": 0
+          },
+          "m_GameObject": {
+            "fileID": 1063333953
+          },
+          "m_Material": {
+            "fileID": 0
+          },
+          "m_IncludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_ExcludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_LayerOverridePriority": 0,
+          "m_IsTrigger": 1,
+          "m_ProvidesContacts": 0,
+          "m_Enabled": 1,
+          "serializedVersion": 3,
+          "m_Size": {
+            "x": 0.35,
+            "y": 0.5,
+            "z": 0.15
+          },
+          "m_Center": {
+            "x": 0,
+            "y": 0.25,
+            "z": 0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "1245597937",
+    "path": "LayoutC/DestinationCandidates/trash_box_for_burnable#lobby/trashbox_c02_lid",
+    "matrix": [
+      [
+        1.5,
+        0.0,
+        0.0,
+        10.713000000000001
+      ],
+      [
+        0.0,
+        0.7999999499999894,
+        -4.0730167499999724e-07,
+        0.0
+      ],
+      [
+        0.0,
+        1.303365278539656e-07,
+        2.4999999999999667,
+        -4.1129999999999995
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "colliders": []
+  },
+  {
+    "id": "1974182259",
+    "path": "LayoutC/DestinationCandidates/trash_box_for_burnable#lobby/trashbox_c02_lid/colliders",
+    "matrix": [
+      [
+        1.5,
+        0.0,
+        0.0,
+        10.713000000000001
+      ],
+      [
+        0.0,
+        0.7999999499999894,
+        -4.0730167499999724e-07,
+        0.0
+      ],
+      [
+        0.0,
+        1.303365278539656e-07,
+        2.4999999999999667,
+        -4.1129999999999995
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "colliders": [
+      {
+        "MeshCollider": {
+          "m_ObjectHideFlags": 0,
+          "m_CorrespondingSourceObject": {
+            "fileID": 64845131061142454,
+            "guid": "5451a0ebf80e8d64993f26592bc5fa05",
+            "type": 3
+          },
+          "m_PrefabInstance": {
+            "fileID": 0
+          },
+          "m_PrefabAsset": {
+            "fileID": 0
+          },
+          "m_GameObject": {
+            "fileID": 1974182258
+          },
+          "m_Material": {
+            "fileID": 0
+          },
+          "m_IncludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_ExcludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_LayerOverridePriority": 0,
+          "m_IsTrigger": 0,
+          "m_ProvidesContacts": 0,
+          "m_Enabled": 1,
+          "serializedVersion": 5,
+          "m_Convex": 0,
+          "m_CookingOptions": 28,
+          "m_Mesh": {
+            "fileID": 4300000,
+            "guid": "00418333f6289e74083555b38ea815f7",
+            "type": 2
+          }
+        }
+      },
+      {
+        "MeshCollider": {
+          "m_ObjectHideFlags": 0,
+          "m_CorrespondingSourceObject": {
+            "fileID": 64578011829483912,
+            "guid": "5451a0ebf80e8d64993f26592bc5fa05",
+            "type": 3
+          },
+          "m_PrefabInstance": {
+            "fileID": 0
+          },
+          "m_PrefabAsset": {
+            "fileID": 0
+          },
+          "m_GameObject": {
+            "fileID": 1974182258
+          },
+          "m_Material": {
+            "fileID": 0
+          },
+          "m_IncludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_ExcludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_LayerOverridePriority": 0,
+          "m_IsTrigger": 0,
+          "m_ProvidesContacts": 0,
+          "m_Enabled": 1,
+          "serializedVersion": 5,
+          "m_Convex": 0,
+          "m_CookingOptions": 28,
+          "m_Mesh": {
+            "fileID": 4300000,
+            "guid": "ac3b1f6a2e4bf0d46a3e4ff98ec2d61f",
+            "type": 2
+          }
+        }
+      },
+      {
+        "MeshCollider": {
+          "m_ObjectHideFlags": 0,
+          "m_CorrespondingSourceObject": {
+            "fileID": 64988738303522882,
+            "guid": "5451a0ebf80e8d64993f26592bc5fa05",
+            "type": 3
+          },
+          "m_PrefabInstance": {
+            "fileID": 0
+          },
+          "m_PrefabAsset": {
+            "fileID": 0
+          },
+          "m_GameObject": {
+            "fileID": 1974182258
+          },
+          "m_Material": {
+            "fileID": 0
+          },
+          "m_IncludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_ExcludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_LayerOverridePriority": 0,
+          "m_IsTrigger": 0,
+          "m_ProvidesContacts": 0,
+          "m_Enabled": 1,
+          "serializedVersion": 5,
+          "m_Convex": 0,
+          "m_CookingOptions": 28,
+          "m_Mesh": {
+            "fileID": 4300000,
+            "guid": "abac61b919d10e145af9af8844bc6faa",
+            "type": 2
+          }
+        }
+      },
+      {
+        "MeshCollider": {
+          "m_ObjectHideFlags": 0,
+          "m_CorrespondingSourceObject": {
+            "fileID": 64276420164005308,
+            "guid": "5451a0ebf80e8d64993f26592bc5fa05",
+            "type": 3
+          },
+          "m_PrefabInstance": {
+            "fileID": 0
+          },
+          "m_PrefabAsset": {
+            "fileID": 0
+          },
+          "m_GameObject": {
+            "fileID": 1974182258
+          },
+          "m_Material": {
+            "fileID": 0
+          },
+          "m_IncludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_ExcludeLayers": {
+            "serializedVersion": 2,
+            "m_Bits": 0
+          },
+          "m_LayerOverridePriority": 0,
+          "m_IsTrigger": 0,
+          "m_ProvidesContacts": 0,
+          "m_Enabled": 1,
+          "serializedVersion": 5,
+          "m_Convex": 0,
+          "m_CookingOptions": 28,
+          "m_Mesh": {
+            "fileID": 4300000,
+            "guid": "4d21dc7acb671074a9efcb045e31e158",
+            "type": 2
+          }
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,50 @@
+{
+  "ready": true,
+  "robot_commands_sent": false,
+  "initial_hand_open": true,
+  "holding_object": false,
+  "navigation_parameters_changed": false,
+  "joints": {
+    "arm_lift_joint": 0.0,
+    "arm_flex_joint": 0.0,
+    "arm_roll_joint": 0.0,
+    "wrist_flex_joint": -1.5707963146269321,
+    "wrist_roll_joint": 0.0,
+    "head_pan_joint": 0.0,
+    "head_tilt_joint": -0.49999996867370555,
+    "torso_lift_joint": 0.0,
+    "hand_motor_joint": 0.6499999859074279,
+    "hand_l_proximal_joint": 0.6499999859074279,
+    "hand_l_spring_proximal_joint": 0.0,
+    "hand_l_mimic_distal_joint": 0.0,
+    "hand_l_distal_joint": 5.633185405758354,
+    "hand_r_proximal_joint": -5.633185405758354,
+    "hand_r_spring_proximal_joint": 0.0,
+    "hand_r_mimic_distal_joint": 0.0,
+    "hand_r_distal_joint": -0.6499999859074279
+  },
+  "base_map_pose": [
+    2.1355537087056327,
+    2.6979078108149315,
+    1.6793794924844603
+  ],
+  "navigation_tolerances": [
+    0.06,
+    0.08,
+    0.06
+  ],
+  "command_publishers": {
+    "/hsrb/command_velocity": 0,
+    "/hsrb/omni_base_controller/command": 0,
+    "/hsrb/arm_trajectory_controller/command": 0,
+    "/hsrb/gripper_controller/command": 0,
+    "/hsrb/head_trajectory_controller/command": 0
+  },
+  "command_subscribers": {
+    "/hsrb/omni_base_controller/command": 1,
+    "/hsrb/arm_trajectory_controller/command": 1,
+    "/hsrb/gripper_controller/command": 1,
+    "/hsrb/head_trajectory_controller/command": 1
+  },
+  "controller_state": 1
+}

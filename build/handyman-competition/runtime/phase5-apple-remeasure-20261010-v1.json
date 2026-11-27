@@ -1,0 +1,82 @@
+{
+  "motion_authorized": false,
+  "roi_source": "Manually reviewed red apple only; not model detection",
+  "before": {
+    "samples": 1635,
+    "median_base": [
+      0.918981584312403,
+      0.02826714811557462,
+      0.5473669310251622
+    ],
+    "depth_quantiles": [
+      0.843000054359436,
+      0.8570000529289246,
+      0.8800000548362732
+    ],
+    "box": [
+      285,
+      20,
+      345,
+      95
+    ],
+    "red_only": true,
+    "depth_stamp_ns": 1791638232456526439
+  },
+  "after": {
+    "samples": 1665,
+    "median_base": [
+      0.9046903660956003,
+      0.032676895549150965,
+      0.5472895400996396
+    ],
+    "depth_quantiles": [
+      0.8330000638961792,
+      0.8470000624656677,
+      0.8690000176429749
+    ],
+    "box": [
+      285,
+      20,
+      345,
+      95
+    ],
+    "red_only": true,
+    "depth_stamp_ns": 1791639533927727395
+  },
+  "observed_surface_change_base_m": [
+    -0.014291218216802681,
+    0.0044097474335763436,
+    -7.739092552261351e-05
+  ],
+  "current_palm_base": [
+    0.28660203283652663,
+    0.07800000160932541,
+    0.6764923576265574
+  ],
+  "current_finger_entrance_base": [
+    0.34872790283652666,
+    0.07800000160932541,
+    0.6764923576265574
+  ],
+  "surface_minus_current_entrance_m": [
+    0.5559624632590736,
+    -0.045323106060174444,
+    -0.12920281752691776
+  ],
+  "hypothetical_high_entrance_base": [
+    0.689295215,
+    0.078,
+    0.72
+  ],
+  "surface_minus_hypothetical_high_entrance_m": [
+    0.21539515109560026,
+    -0.045323104450849035,
+    -0.17271045990036038
+  ],
+  "limits": [
+    "Visible red surface median is NOT apple center or final grasp pose.",
+    "Cross-frame base axes assumed nearly unchanged; difference is a consistency check, not odometry.",
+    "Hypothetical arm extension must be re-screened at the new base pose before execution.",
+    "Single-frame depth evidence is not grasp confirmation."
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "status": "deployed_tests_passed",
+  "revision": "close-handoff-r14",
+  "patch": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-close-handoff-r14-20261018-patch.tar.gz",
+  "sha256": "0dc0bab5859473b39d1910aa5efe14a0aefe8b0e9bc1e7f4395aa92d6d13cff6",
+  "backup": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-before-close-handoff-r14-20261018.tar.gz",
+  "copies_hash_verified": 3,
+  "hashes": {
+    "apple_approach_lease.py": "7e051675605fd9d2cd4921a85579b8c4f37dcd96bc797f1bef3c16320b1158bc",
+    "run_bedroom_apple_regrasp.py": "96088b83a3cf79349eea5dbd2256c61d4a114dea05463095488b690ea10f36b4",
+    "test_forward_approach_handoff.py": "aa92a8458d2d208230c84e214c8b438c214fd02962a9af647a5e7a03b83d5c9c",
+    "APPLE_TRANSFER_AUTOMATION.txt": "2b68026091fbf6ec37b64031ff7f1bc560e04301444050911d6e38f0a2453c36"
+  },
+  "original_code_hashes": {
+    "runtime": {
+      "test_forward_approach_handoff.py": null,
+      "apple_approach_lease.py": "be69b35c0e7fee663b0b0d4ebb2bd5de0d8eeed69afb3f91cd3c5cd406e5c93b",
+      "APPLE_TRANSFER_AUTOMATION.txt": "dd5d3f0932aadcc2263b9462a1ba01d42cb4690181b9f31b8d6bf273d3fb1c6c",
+      "run_bedroom_apple_regrasp.py": "7c142c4d87b21003aca53a28edb268d19f9d928eaaa156aeb59cdd5c88a43eee"
+    },
+    "training": {
+      "test_forward_approach_handoff.py": null,
+      "apple_approach_lease.py": "be69b35c0e7fee663b0b0d4ebb2bd5de0d8eeed69afb3f91cd3c5cd406e5c93b",
+      "APPLE_TRANSFER_AUTOMATION.txt": "dd5d3f0932aadcc2263b9462a1ba01d42cb4690181b9f31b8d6bf273d3fb1c6c",
+      "run_bedroom_apple_regrasp.py": "7c142c4d87b21003aca53a28edb268d19f9d928eaaa156aeb59cdd5c88a43eee"
+    },
+    "module": {
+      "test_forward_approach_handoff.py": null,
+      "apple_approach_lease.py": "be69b35c0e7fee663b0b0d4ebb2bd5de0d8eeed69afb3f91cd3c5cd406e5c93b",
+      "APPLE_TRANSFER_AUTOMATION.txt": "dd5d3f0932aadcc2263b9462a1ba01d42cb4690181b9f31b8d6bf273d3fb1c6c",
+      "run_bedroom_apple_regrasp.py": "7c142c4d87b21003aca53a28edb268d19f9d928eaaa156aeb59cdd5c88a43eee"
+    }
+  },
+  "candidate_tests": {
+    "exit": 0,
+    "count": 332,
+    "log": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-close-handoff-r14-20261018-candidate-tests.log"
+  },
+  "runtime_tests": {
+    "exit": 0,
+    "count": 332,
+    "log": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-close-handoff-r14-20261018-runtime-tests.log"
+  },
+  "input_preflight_exit": 0,
+  "robot_commands_sent": false,
+  "new_live_observation_validated": false,
+  "final_freshness_max_s": 0.4,
+  "original_source_stamps_preserved": true,
+  "model_maps_navigation_grasp_placement_policy_changed": false
+}

@@ -1,0 +1,20 @@
+{
+  "read_only": true,
+  "states": {
+    "controller_server": "unconfigured",
+    "planner_server": "unconfigured",
+    "behavior_server": "unconfigured",
+    "bt_navigator": "unconfigured",
+    "map_server": "active"
+  },
+  "velocity_publishers": [],
+  "velocity_subscribers": 1,
+  "motion_authorized": false,
+  "base_map_xyz": [
+    1.1826253939248819,
+    -0.00036670365367084474,
+    2.6104435275641363e-07
+  ],
+  "base_tf_age_s": 0.043044321,
+  "handoff_verified": true
+}

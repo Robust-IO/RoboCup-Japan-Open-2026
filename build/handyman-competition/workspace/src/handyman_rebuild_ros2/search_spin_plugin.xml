@@ -1,0 +1,5 @@
+<library path="handyman_search_spin">
+  <class name="handyman_rebuild_ros2/SearchSpin" type="handyman_rebuild_ros2::SearchSpin" base_class_type="nav2_core::Behavior">
+    <description>Bounded, acceleration-limited search-only rotation with swept footprint checking.</description>
+  </class>
+</library>

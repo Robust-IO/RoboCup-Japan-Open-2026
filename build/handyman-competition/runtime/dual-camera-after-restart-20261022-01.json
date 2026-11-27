@@ -1,0 +1,18 @@
+{
+  "images": {},
+  "publishers": {
+    "head": 0,
+    "hand": 0
+  },
+  "latest_image_age_s": {},
+  "motion_command_publishers": {
+    "/hsrb/command_velocity": 0,
+    "/hsrb/omni_base_controller/command": 0,
+    "/hsrb/arm_trajectory_controller/command": 0,
+    "/hsrb/gripper_controller/command": 0,
+    "/hsrb/head_trajectory_controller/command": 0
+  },
+  "both_cameras_received": false,
+  "robot_commands_sent": false,
+  "wsl_boot_id": "f5a81b08-d674-42cb-b127-184016e5d4b2"
+}

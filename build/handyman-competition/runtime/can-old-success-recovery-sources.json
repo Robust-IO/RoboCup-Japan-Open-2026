@@ -1,0 +1,117 @@
+{
+  "found": {
+    "run_canned_grasp_trial.py": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/tools/apple-transfer-auto-v1/run_canned_grasp_trial.py",
+      null
+    ],
+    "run_canned_carry_trial.py": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/tools/apple-transfer-auto-v1/run_canned_carry_trial.py",
+      null
+    ],
+    "run_canned_place_trial.py": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/tools/apple-transfer-auto-v1/run_canned_place_trial.py",
+      null
+    ],
+    "can_transfer_context.py": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/tools/apple-transfer-auto-v1/can_transfer_context.py",
+      null
+    ],
+    "can_transfer_automation.py": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/tools/apple-transfer-auto-v1/can_transfer_automation.py",
+      null
+    ],
+    "test_can_transfer_automation.py": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/tools/apple-transfer-auto-v1/test_can_transfer_automation.py",
+      null
+    ],
+    "held_can_appearance.py": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/tools/apple-transfer-auto-v1/held_can_appearance.py",
+      null
+    ],
+    "canned_place_geometry.py": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/tools/apple-transfer-auto-v1/canned_place_geometry.py",
+      null
+    ],
+    "tracked_can_cap_geometry.py": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/tools/apple-transfer-auto-v1/tracked_can_cap_geometry.py",
+      null
+    ],
+    "test_tracked_can_cap_geometry.py": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/tools/apple-transfer-auto-v1/test_tracked_can_cap_geometry.py",
+      null
+    ],
+    "can_release_timing.py": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/tools/apple-transfer-auto-v1/can_release_timing.py",
+      null
+    ],
+    "test_can_release_timing.py": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/tools/apple-transfer-auto-v1/test_can_release_timing.py",
+      null
+    ],
+    "can_destination_surface.py": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/tools/apple-transfer-auto-v1/can_destination_surface.py",
+      null
+    ],
+    "test_can_destination_surface.py": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/tools/apple-transfer-auto-v1/test_can_destination_surface.py",
+      null
+    ],
+    "can_identity_selection.py": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/tools/apple-transfer-auto-v1/can_identity_selection.py",
+      null
+    ],
+    "test_can_identity_selection.py": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/tools/apple-transfer-auto-v1/test_can_identity_selection.py",
+      null
+    ],
+    "test_canned_grasp_geometry.py": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/tools/apple-transfer-auto-v1/test_canned_grasp_geometry.py",
+      null
+    ],
+    "can_arm_startup.py": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/tools/apple-transfer-auto-v1/can_arm_startup.py",
+      null
+    ],
+    "test_can_arm_startup.py": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/tools/apple-transfer-auto-v1/test_can_arm_startup.py",
+      null
+    ],
+    "can_approach_plan.py": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/tools/apple-transfer-auto-v1/can_approach_plan.py",
+      null
+    ],
+    "test_can_approach_plan.py": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/tools/apple-transfer-auto-v1/test_can_approach_plan.py",
+      null
+    ],
+    "canned_carry_geometry.py": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/can-cap-axis-v1-20261023-patch.tar.gz",
+      "canned_carry_geometry.py"
+    ],
+    "canned_grasp_geometry.py": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/can-centerline-v1-20261024-patch.tar.gz",
+      "canned_grasp_geometry.py"
+    ],
+    "OBJECT_TRANSFER.txt": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/can-centerline-v1-20261024-patch.tar.gz",
+      "OBJECT_TRANSFER.txt"
+    ],
+    "pregrasp_raised_trial.py": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/can-coherent-startup-v1-20261023-patch.tar.gz",
+      "pregrasp_raised_trial.py"
+    ],
+    "run_object_transfer.py": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/can-continuous-entry-v1-20261023-patch.tar.gz",
+      "run_object_transfer.py"
+    ],
+    "run_object_transfer.sh": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/can-continuous-entry-v1-20261023-patch.tar.gz",
+      "run_object_transfer.sh"
+    ],
+    "canned_grasp_runtime.py": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/can-extra-seat35-20261024-patch.tar.gz",
+      "canned_grasp_runtime.py"
+    ]
+  },
+  "missing": []
+}

@@ -1,0 +1,91 @@
+{
+  "source": {
+    "method": "static_footprint_grid_path_and_support_sightline",
+    "footprint_radius_m": 0.26109759058979437,
+    "candidates": [
+      {
+        "index": 0,
+        "pose": [
+          3.625,
+          -7.20679,
+          -3.119724
+        ],
+        "path_length_m": 8.53700576850887,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 1,
+        "pose": [
+          1.525,
+          -9.50679,
+          1.556162
+        ],
+        "path_length_m": 11.706854249492366,
+        "view_clear": false,
+        "rejected_reason": "view_blocked_on_static_map"
+      },
+      {
+        "index": 2,
+        "pose": [
+          1.525,
+          -5.00679,
+          -1.556099
+        ],
+        "path_length_m": 7.9390872965259955,
+        "view_clear": true,
+        "rejected_reason": null
+      }
+    ],
+    "ranked_indices": [
+      2,
+      0
+    ],
+    "dynamic_obstacles_evaluated": false
+  },
+  "destination": {
+    "method": "static_footprint_grid_path_and_support_sightline",
+    "footprint_radius_m": 0.26109759058979437,
+    "candidates": [
+      {
+        "index": 0,
+        "pose": [
+          0.425,
+          -1.70679,
+          3.137216
+        ],
+        "path_length_m": 8.971930009000616,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 1,
+        "pose": [
+          0.025,
+          -0.60679,
+          -2.382204
+        ],
+        "path_length_m": 8.840559159102149,
+        "view_clear": false,
+        "rejected_reason": "view_blocked_on_static_map"
+      },
+      {
+        "index": 2,
+        "pose": [
+          -1.175,
+          -3.00679,
+          1.533784
+        ],
+        "path_length_m": 10.993250352560251,
+        "view_clear": true,
+        "rejected_reason": null
+      }
+    ],
+    "ranked_indices": [
+      0,
+      2
+    ],
+    "dynamic_obstacles_evaluated": false
+  },
+  "robot_commands_sent": false
+}

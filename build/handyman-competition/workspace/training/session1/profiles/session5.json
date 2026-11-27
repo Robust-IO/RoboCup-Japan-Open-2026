@@ -1,0 +1,17 @@
+{
+  "schema": "handyman_session_profile_v1",
+  "session_number": 5,
+  "layout": "LayoutD",
+  "target": "rabbit_doll",
+  "source": {
+    "room": "kitchen",
+    "furniture_id": "body#kitchen",
+    "model_path": "LayoutD/SIGVerseHouse/kitchen/wooden_cupboard/body"
+  },
+  "destination": {
+    "room": "living_room",
+    "furniture_id": "square_low_table#living_room",
+    "mode": "table_place"
+  },
+  "expected_instruction": "Go to the kitchen, grasp the rabbit_doll and put it on the square_low_table."
+}

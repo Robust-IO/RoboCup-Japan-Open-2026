@@ -1,0 +1,17 @@
+{
+  "status": "close_lift_holding_checkpoints_synced",
+  "copies": 4,
+  "hashes": {
+    "apple-close-lift-live-progress-20261018.json": "5fca9af502a31361dcbaf9263fbd089e18cd0ee62ca2d8899e5dd3192e4ccd3a",
+    "apple-capture-budget-live-progress-20261018.json": "65f7f7079f66ea7e876103df2a0223200d1bda4d94a501305bd9d167aca9b249",
+    "apple-near-geometry-live-progress-20261018.json": "469bb8f9e4709c37d0ba49a0c354a920f52dcbff235c29a32d8d5b112609e5ac",
+    "apple-near-geometry-progress-20261018.json": "e3fbe0a401f5e8681edc2bb833233231635d086a0d231e4c5a38b63ac7245f36",
+    "phase5-restart-checkpoint-20261017.json": "4e24e4006230ed17ed1ea9b3b1fcd0559906bf17a4037fbccce4ac65dfb85861",
+    "apple-transfer-automation-progress-20261017.json": "d68a746a48d899a0b075b76e2f1e2fbd4f7826b57995425bc8507221d28375f9",
+    "apple-transfer-live-progress-20261017.json": "563a35948f194908dc9d659dda3cde8d83a5400b1b14b19e559a81d226d7d4db"
+  },
+  "backup": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-before-close-lift-live-r15-20261018-checkpoints.tar.gz",
+  "holding_object": true,
+  "arm_extended": true,
+  "robot_commands_sent": false
+}

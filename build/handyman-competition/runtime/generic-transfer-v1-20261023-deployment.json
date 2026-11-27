@@ -1,0 +1,33 @@
+{
+  "status": "additive_deployment_verified",
+  "files": [
+    "manipulation_profiles.py",
+    "object_surface_geometry.py",
+    "generic_transfer_template.py",
+    "inspect_manipulation_capture.py",
+    "object_observation_sequence.py",
+    "test_generic_transfer_template.py",
+    "GENERIC_TRANSFER_TEMPLATE.txt",
+    "config/manipulation_objects_v1.json"
+  ],
+  "hashes": {
+    "manipulation_profiles.py": "5743c850a9e00a75365c17c7c7cc9ea2d121628173664826f46f0be6aee36187",
+    "object_surface_geometry.py": "c63984b8595346f62ffe8d899a9608bfa475891d99fc862e904f9739d252f70c",
+    "generic_transfer_template.py": "cacf154db62c42b78681442bf8a95389f3917f6ad300bd4c0981c9c5dda54f20",
+    "inspect_manipulation_capture.py": "bb1c654f8846162573b89472253a98cca861ab50ab30a6705400e76361d18fa9",
+    "object_observation_sequence.py": "93591e55e2b55cccc556d5532ae34840563bf51165377e1598fa631745c28339",
+    "test_generic_transfer_template.py": "82bc18bd62b3b79bed4227427dd2162e1f4dc92126e16a047f73b1d16237bfa2",
+    "GENERIC_TRANSFER_TEMPLATE.txt": "203c0e0e4c0759fea4cdd9a86a0d4b4ff9ab84652ad30e81290c0d837b0a53f9",
+    "config/manipulation_objects_v1.json": "b72296cbdc2dd62b00b8c9d7f09835187d27275bab1b2ec717d71bb102f7cc0d"
+  },
+  "runtime_tests": 446,
+  "candidate_tests": 446,
+  "existing_runtime_files_preserved": 135,
+  "all_existing_apple_runtime_files_unchanged": true,
+  "source_copies": 3,
+  "checkpoint_copies": 4,
+  "checkpoint": "D:/handyman-training-runs/generic-transfer-template-progress-20261023.json",
+  "checkpoint_sha256": "c668d041e444a4095572e1a3b92b8a4fd56f34b320555db95e722c057800db56",
+  "robot_commands_sent": false,
+  "cube_live_mover_complete": false
+}

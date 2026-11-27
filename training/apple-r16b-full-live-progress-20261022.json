@@ -1,0 +1,187 @@
+{
+  "status": "new_uninterrupted_full_apple_transfer_verified",
+  "revision": "outcome-r16b",
+  "saved_ns": 1792656449623577373,
+  "branch": "feat/handyman-phase5-grasping",
+  "wsl_boot_id": "f5a81b08-d674-42cb-b127-184016e5d4b2",
+  "trial_directory": "/mnt/d/handyman-training-runs/automatic-apple-r16b-20261022-01",
+  "task_id": "apple-r16b-full-live-20261022-01",
+  "automatic_result": {
+    "status": "automatic_transfer_verified",
+    "task_id": "apple-r16b-full-live-20261022-01",
+    "profile": "layouta_bedroom_apple_to_square_table",
+    "confirmed_stages": [
+      "preflight",
+      "navigate_source",
+      "head_view",
+      "observe_source",
+      "prepare_grasp",
+      "grasp_and_lift",
+      "verify_grasp",
+      "retract_holding",
+      "navigate_destination",
+      "observe_surface",
+      "plan_placement",
+      "prepare_placement",
+      "approach_placement",
+      "check_release",
+      "release",
+      "withdraw",
+      "verify_placement"
+    ],
+    "task_finished_sent": false,
+    "does_not_exist_sent": false,
+    "automatic_action_retry": false,
+    "automatic_resume": false,
+    "mode": "live",
+    "run_kind": "full_transfer",
+    "stage": "verify_placement",
+    "robot_ready_for_next_task": true,
+    "placement_verified": true,
+    "task_objective_completed": true,
+    "requires_fresh_state_audit": false
+  },
+  "whole_uninterrupted_transfer_verified": true,
+  "successful_full_trials_this_run": 1,
+  "execution_duration_s": 542.959438202,
+  "confirmed_stage_count": 17,
+  "current_robot": {
+    "capture": "/mnt/d/handyman-training-runs/apple-r16b-post-full-live-20261022-01/cameras/000006",
+    "depth_stamp_ns": 1792656252642564512,
+    "holding_object": false,
+    "arm_is_tucked": true,
+    "arm": [
+      0.0,
+      0.0,
+      0.0,
+      -1.5707963146269321,
+      0.0
+    ],
+    "hand_motor": 0.6499999859074279,
+    "head": [
+      0.0,
+      -0.49999996867370555
+    ],
+    "base_map_pose": [
+      2.081890911653147,
+      2.585320477507348,
+      1.6444095013746194
+    ],
+    "room": "living_room",
+    "apple_location": "Verified placed on square_low_table#living_room; source white_side_table no longer contains the transferred apple",
+    "command_publishers": {
+      "/hsrb/command_velocity": 0,
+      "/hsrb/omni_base_controller/command": 0,
+      "/hsrb/arm_trajectory_controller/command": 0,
+      "/hsrb/gripper_controller/command": 0,
+      "/hsrb/head_trajectory_controller/command": 0
+    },
+    "controller_state": 1,
+    "fresh_state_required_before_next_action": true,
+    "warning": "Last-confirmed terminal state, not a future action/identity lease."
+  },
+  "post_run_readiness": {
+    "ready": true,
+    "robot_commands_sent": false,
+    "feedback_ages_s": {
+      "joints": 0.105925225,
+      "map_tf": 0.044433308
+    },
+    "joint_stamp_ns": 1792656250113000000,
+    "map_stamp_ns": 1792656250174491917,
+    "feedback_checked_ns": 1792656250218925225,
+    "initial_hand_open": true,
+    "holding_object": false,
+    "navigation_parameters_changed": false,
+    "joints": {
+      "arm_lift_joint": 0.0,
+      "arm_flex_joint": 0.0,
+      "arm_roll_joint": 0.0,
+      "wrist_flex_joint": -1.5707963146269321,
+      "wrist_roll_joint": 0.0,
+      "head_pan_joint": 0.0,
+      "head_tilt_joint": -0.49999996867370555,
+      "torso_lift_joint": 0.0,
+      "hand_motor_joint": 0.6499999859074279,
+      "hand_l_proximal_joint": 0.6499999859074279,
+      "hand_l_spring_proximal_joint": 0.0,
+      "hand_l_mimic_distal_joint": 0.0,
+      "hand_l_distal_joint": 5.633185405758354,
+      "hand_r_proximal_joint": -5.633185405758354,
+      "hand_r_spring_proximal_joint": 0.0,
+      "hand_r_mimic_distal_joint": 0.0,
+      "hand_r_distal_joint": -0.6499999859074279
+    },
+    "base_map_pose": [
+      2.0818864800563,
+      2.5848896668642958,
+      1.6440660559178337
+    ],
+    "navigation_tolerances": [
+      0.06,
+      0.08,
+      0.06
+    ],
+    "command_publishers": {
+      "/hsrb/command_velocity": 0,
+      "/hsrb/omni_base_controller/command": 0,
+      "/hsrb/arm_trajectory_controller/command": 0,
+      "/hsrb/gripper_controller/command": 0,
+      "/hsrb/head_trajectory_controller/command": 0
+    },
+    "command_subscribers": {
+      "/hsrb/omni_base_controller/command": 1,
+      "/hsrb/arm_trajectory_controller/command": 1,
+      "/hsrb/gripper_controller/command": 1,
+      "/hsrb/head_trajectory_controller/command": 1
+    },
+    "controller_state": 1
+  },
+  "latest_capture": "/mnt/d/handyman-training-runs/apple-r16b-post-full-live-20261022-01/cameras/000006",
+  "grasp": {
+    "success_verified": true,
+    "closure_commands": 1,
+    "verification_file": "/mnt/d/handyman-training-runs/automatic-apple-r16b-20261022-01/grasp/close-lift/independent-lift-verification.json",
+    "verified_follow_frames": 17,
+    "verified_follow_span_s": 3.706073783,
+    "canonical_detector_verdict_preserved": false,
+    "effective_rgbd_follow_verification": true
+  },
+  "placement": {
+    "success_verified": true,
+    "destination": "square_low_table#living_room",
+    "release_commands": 1,
+    "single_approach_commands": 1,
+    "single_approach_distance_m": 0.3255716122359624,
+    "verified_frames": 3,
+    "verified_span_s": 5.718294783,
+    "center_spread_m": 0.0011970998833933794,
+    "minimum_outer_edge_clearance_estimate_m": 0.060754754794500425,
+    "cleanup_required": false,
+    "verification_file": "/mnt/d/handyman-training-runs/automatic-apple-r16b-20261022-01/placement-verification.json"
+  },
+  "navigation": {
+    "source_position_error_m": 0.058680785087999954,
+    "destination_position_error_m": 0.05740236504277376,
+    "tolerances": [
+      0.06,
+      0.08,
+      0.06
+    ],
+    "goal_precision_changed": false,
+    "speed_profile": "balanced_v1",
+    "original_speed_limits_restored": true
+  },
+  "initial_preparation": "/mnt/d/handyman-training-runs/apple-r16b-live-initial-20261022-01",
+  "robot_commands_sent_this_trial": true,
+  "additional_robot_commands_sent_by_checkpoint": false,
+  "production_code_model_maps_unity_or_navigation_goal_tolerances_changed": false,
+  "task_finished_sent": false,
+  "does_not_exist_sent": false,
+  "automatic_retry": false,
+  "automatic_resume": false,
+  "manual_motion_interventions_during_run": false,
+  "git_commit_or_push_performed": false,
+  "scope": "One dedicated simulated apple transfer from fresh initial scene, not generic task/competition integration or statistical success-rate acceptance.",
+  "next": "Read this checkpoint FIRST. One NEW uninterrupted full-entry LayoutA apple transfer completed all17 stages. Current last-confirmed state EMPTY/OPEN/TUCKED in living_room; apple ALREADY ON square_low_table. No automatic retry/resume, second closure/release or old action replay. Do not rerun bedroom-source entry unless user genuinely restores source apple/initial state. RViz remains open. The current scene map anchor was newly initialized from configured spawn and fresh laser; do not reuse numeric anchor after Unity restart. For another trial, freshly inspect actual RGBD/arm/grip/localization. This is one apple trial, not30-object generalization or80/85percent success-rate acceptance. Competition task parser/Moderator integration remains outside this dedicated transfer profile; no Task_finished was sent. Cold idle Nav2 requires configure-then-cleanup, without activation or setting parameters, before reading plugin tolerance values; see controller-initialization.json."
+}

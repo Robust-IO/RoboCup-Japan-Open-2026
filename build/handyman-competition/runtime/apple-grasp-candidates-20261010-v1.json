@@ -1,0 +1,143 @@
+{
+  "source": "phase5-table-rgbd-20261010-v1",
+  "motion_authorized": false,
+  "table_height_m": 0.49602,
+  "visible_edge_proxy_m": 0.5426,
+  "margin_m": 0.03,
+  "candidates": [
+    {
+      "flex": -1.2,
+      "wrist": -0.3707963267948966,
+      "lift": 0.09815163846656881,
+      "hypothetical_base_advance_m": 0.25169219963926615,
+      "lateral_alignment_needed_m": 0.027329999999999993,
+      "descent_flagged_samples": 30,
+      "first_overlap": {
+        "fraction": 0.275,
+        "links": [
+          "arm_flex_link"
+        ]
+      }
+    },
+    {
+      "flex": -1.3,
+      "wrist": -0.2707963267948965,
+      "lift": 0.13144076123852474,
+      "hypothetical_base_advance_m": 0.2411685161262892,
+      "lateral_alignment_needed_m": 0.027329999999999993,
+      "descent_flagged_samples": 22,
+      "first_overlap": {
+        "fraction": 0.47500000000000003,
+        "links": [
+          "arm_flex_link"
+        ]
+      }
+    },
+    {
+      "flex": -1.4,
+      "wrist": -0.17079632679489665,
+      "lift": 0.1656141923358828,
+      "hypothetical_base_advance_m": 0.23402077406030952,
+      "lateral_alignment_needed_m": 0.027329999999999993,
+      "descent_flagged_samples": 14,
+      "first_overlap": {
+        "fraction": 0.675,
+        "links": [
+          "arm_flex_link"
+        ]
+      }
+    },
+    {
+      "flex": -1.5,
+      "wrist": -0.07079632679489656,
+      "lift": 0.20033048213135274,
+      "hypothetical_base_advance_m": 0.23032039131732096,
+      "lateral_alignment_needed_m": 0.027329999999999993,
+      "descent_flagged_samples": 6,
+      "first_overlap": {
+        "fraction": 0.875,
+        "links": [
+          "arm_flex_link"
+        ]
+      }
+    },
+    {
+      "flex": -1.5999999999999999,
+      "wrist": 0.02920367320510331,
+      "lift": 0.23524275693297778,
+      "hypothetical_base_advance_m": 0.23010434089850773,
+      "lateral_alignment_needed_m": 0.027329999999999993,
+      "descent_flagged_samples": 0,
+      "first_overlap": null
+    },
+    {
+      "flex": -1.7,
+      "wrist": 0.1292036732051034,
+      "lift": 0.2700021848314039,
+      "hypothetical_base_advance_m": 0.23337478150823776,
+      "lateral_alignment_needed_m": 0.027329999999999993,
+      "descent_flagged_samples": 0,
+      "first_overlap": null
+    },
+    {
+      "flex": -1.7999999999999998,
+      "wrist": 0.22920367320510326,
+      "lift": 0.3042614611130093,
+      "hypothetical_base_advance_m": 0.24009903598500226,
+      "lateral_alignment_needed_m": 0.027329999999999993,
+      "descent_flagged_samples": 0,
+      "first_overlap": null
+    },
+    {
+      "flex": -1.9,
+      "wrist": 0.32920367320510335,
+      "lift": 0.33767827841379916,
+      "hypothetical_base_advance_m": 0.2502099178008127,
+      "lateral_alignment_needed_m": 0.027329999999999993,
+      "descent_flagged_samples": 0,
+      "first_overlap": null
+    },
+    {
+      "flex": -2.0,
+      "wrist": 0.42920367320510344,
+      "lift": 0.36991874694143523,
+      "hypothetical_base_advance_m": 0.2636064023667787,
+      "lateral_alignment_needed_m": 0.027329999999999993,
+      "descent_flagged_samples": 0,
+      "first_overlap": null
+    },
+    {
+      "flex": -2.0999999999999996,
+      "wrist": 0.5292036732051031,
+      "lift": 0.4006607305916712,
+      "hypothetical_base_advance_m": 0.280154636437406,
+      "lateral_alignment_needed_m": 0.027329999999999993,
+      "descent_flagged_samples": 0,
+      "first_overlap": null
+    },
+    {
+      "flex": -2.1999999999999997,
+      "wrist": 0.6292036732051032,
+      "lift": 0.42959706562582295,
+      "hypothetical_base_advance_m": 0.2996892755279801,
+      "lateral_alignment_needed_m": 0.027329999999999993,
+      "descent_flagged_samples": 0,
+      "first_overlap": null
+    },
+    {
+      "flex": -2.3,
+      "wrist": 0.7292036732051033,
+      "lift": 0.4564386297493097,
+      "hypothetical_base_advance_m": 0.3220151359820008,
+      "lateral_alignment_needed_m": 0.027329999999999993,
+      "descent_flagged_samples": 0,
+      "first_overlap": null
+    }
+  ],
+  "limitations": [
+    "Surface point is not object center; candidate contact placement is only provisional.",
+    "Sampled mesh AABB vs infinite table prism, not full collision checking.",
+    "Does not validate extension, base advance, self-collision, people or robot base clearance.",
+    "Base advances and lateral shift are hypothetical, not issued commands."
+  ]
+}

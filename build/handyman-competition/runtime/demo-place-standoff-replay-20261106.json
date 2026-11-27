@@ -1,0 +1,86 @@
+[
+  {
+    "capture": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/cigarette-place-20261101-08/captures/001-table-before-extension",
+    "clearance": {
+      "ready": false,
+      "front_along_heading_m": -2.1229779451071864,
+      "tip_along_heading_m": -1.8570498753141254,
+      "clearance_m": -0.26592806979306105,
+      "minimum_clearance_m": 0.03
+    },
+    "predicted": [
+      2.2226999001745806,
+      3.8046226118286333,
+      0.47496018370937443
+    ],
+    "table_front": {
+      "source": "current_connected_top_and_lower_front_face_depth",
+      "source_depth_stamp_ns": 1793962034504643915,
+      "edge_points": 306,
+      "approached_axis": 0,
+      "approached_sign": 1,
+      "observed_front_map_m": 2.371080767516773,
+      "original_front_map_m": 2.3309998512268066,
+      "corrected_front_map_m": 2.3810807675167727,
+      "semantic_identity_unchanged": true
+    },
+    "observed_xy_min": [
+      1.6483508955547939,
+      3.4490104172015195
+    ],
+    "observed_xy_max": [
+      2.3059945809872278,
+      4.598963000866977
+    ],
+    "footprint_center": [
+      1.9960404142759645,
+      4.02400016784668
+    ],
+    "footprint_half_size": [
+      0.3850403532408082,
+      0.5999999046325684
+    ]
+  },
+  {
+    "capture": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/cigarette-place-20261101-08/captures/002-table-after-standoff",
+    "clearance": {
+      "ready": false,
+      "front_along_heading_m": -2.147664347429656,
+      "tip_along_heading_m": -2.1728281441356723,
+      "clearance_m": 0.025163796706016317,
+      "minimum_clearance_m": 0.03
+    },
+    "predicted": [
+      2.5374251493725577,
+      3.781426692831586,
+      0.4751067723538578
+    ],
+    "table_front": {
+      "source": "current_connected_top_and_lower_front_face_depth",
+      "source_depth_stamp_ns": 1793962043227320464,
+      "edge_points": 654,
+      "approached_axis": 0,
+      "approached_sign": 1,
+      "observed_front_map_m": 2.395652694024578,
+      "original_front_map_m": 2.3309998512268066,
+      "corrected_front_map_m": 2.4056526940245777,
+      "semantic_identity_unchanged": true
+    },
+    "observed_xy_min": [
+      1.671459744909566,
+      3.4490173348045965
+    ],
+    "observed_xy_max": [
+      2.3059939172784136,
+      4.598938938496684
+    ],
+    "footprint_center": [
+      2.008326377529867,
+      4.02400016784668
+    ],
+    "footprint_half_size": [
+      0.39732631649471073,
+      0.5999999046325684
+    ]
+  }
+]

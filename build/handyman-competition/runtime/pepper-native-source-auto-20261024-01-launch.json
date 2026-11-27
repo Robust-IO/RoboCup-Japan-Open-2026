@@ -1,0 +1,19 @@
+{
+  "command": [
+    "bash",
+    "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/tools/apple-transfer-auto-v1/run_object_transfer.sh",
+    "--object",
+    "ground_pepper",
+    "--run",
+    "--confirm-layout",
+    "LayoutA",
+    "--confirm-localization",
+    "--simulation-ignore-collision",
+    "--output",
+    "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/pepper-native-source-auto-20261024-01"
+  ],
+  "started_ns": 1792842415001372862,
+  "native_source_position": true,
+  "source_reposition_requested": false,
+  "automatic_action_retry": false
+}

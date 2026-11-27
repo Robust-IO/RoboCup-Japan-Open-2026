@@ -1,0 +1,88 @@
+{
+  "files": [
+    "run_bedroom_apple_regrasp.py",
+    "apple_approach_lease.py",
+    "reviewed_carry_adjustment.py",
+    "grasp_terminal_correction.py",
+    "test_grasp_terminal_correction.py",
+    "APPLE_TRANSFER_AUTOMATION.txt"
+  ],
+  "hashes": {
+    "runtime": {
+      "run_bedroom_apple_regrasp.py": "aeb3d84e1558a46ddf497104c476597a08c79ae4012e387c23e11cae448e2dbe",
+      "apple_approach_lease.py": "30e9e3608d399c2bd304f57b619d21ee37a056b5efc153b3d3fb156599de05cb",
+      "reviewed_carry_adjustment.py": "e7931492d5337897fdfd07cac4bba919d7345d4c2b104e566579d7afdc18af9e",
+      "grasp_terminal_correction.py": null,
+      "test_grasp_terminal_correction.py": null,
+      "APPLE_TRANSFER_AUTOMATION.txt": "f816930f87e16bfdbf9a413106f7f29bfff40c78e79d0b9a607885f9fe1da906"
+    },
+    "training": {
+      "run_bedroom_apple_regrasp.py": "aeb3d84e1558a46ddf497104c476597a08c79ae4012e387c23e11cae448e2dbe",
+      "apple_approach_lease.py": "30e9e3608d399c2bd304f57b619d21ee37a056b5efc153b3d3fb156599de05cb",
+      "reviewed_carry_adjustment.py": "e7931492d5337897fdfd07cac4bba919d7345d4c2b104e566579d7afdc18af9e",
+      "grasp_terminal_correction.py": null,
+      "test_grasp_terminal_correction.py": null,
+      "APPLE_TRANSFER_AUTOMATION.txt": "f816930f87e16bfdbf9a413106f7f29bfff40c78e79d0b9a607885f9fe1da906"
+    },
+    "module": {
+      "run_bedroom_apple_regrasp.py": "aeb3d84e1558a46ddf497104c476597a08c79ae4012e387c23e11cae448e2dbe",
+      "apple_approach_lease.py": "30e9e3608d399c2bd304f57b619d21ee37a056b5efc153b3d3fb156599de05cb",
+      "reviewed_carry_adjustment.py": "e7931492d5337897fdfd07cac4bba919d7345d4c2b104e566579d7afdc18af9e",
+      "grasp_terminal_correction.py": null,
+      "test_grasp_terminal_correction.py": null,
+      "APPLE_TRANSFER_AUTOMATION.txt": "f816930f87e16bfdbf9a413106f7f29bfff40c78e79d0b9a607885f9fe1da906"
+    }
+  },
+  "frozen": {
+    "runtime": {
+      "navigate_carry_trial.py": "d2da63a3a08073044d966bd2b3f08ace8b9cea102ccf9cfc3a47c5989fc1b860",
+      "motion_speed.py": "7a9e03dc2590c35aa2b0a7c4c54037ca18bc487ce1aed66b8442da39a103eede",
+      "config/motion_speed_profiles.json": "dfaca76655426c69c113e3e478723a3edd48f8912d1c354b80bdf2b2275809b1",
+      "config/apple_transfer_auto_v1.json": "82276f26935d706ba46c347027f201631bda5514fcad3ad0c4f876bdf2a96633",
+      "apple_transfer_auto_backend.py": "bce356c0d6befde190d5e55222ae736054fc8db77a1b6da8e3df2b53a34c67bc",
+      "apple_transfer_automation.py": "85140b3b7a1ada0f572506b0b8467f4d10208dc311110b08cbdf69eab44047da",
+      "pregrasp_raised_trial.py": "1e104ed6b49d04af8bf89c2cc8527a8bb207a224dd59537c5bc76836ea5c5673",
+      "run_apple_close_lift_trial.py": "ff51e63e43158109dbae8edb92f616120f16b844364a46b0b284a2c8e54a8718",
+      "task_outcome_policy.py": "a80ec96ddd3c473828fc82e0eae76692eb9bc5c24b743305ba8c83b569f03357",
+      "table_release_gate.py": "1b7bc700cfa40d890842bdb7734007d210b2ce33b2f9f0ec39f3b8da352d6246",
+      "verify_table_placement.py": "a4889628734c77fcd5454ae741624a533f2e595e4625cd261d13e1211e10c637",
+      "capture_grasp_scene.py": "0dbaa8dd2f20be77819ebf22731a5f002b4c43ecee14e725a8ef0eb44478d0c1",
+      "apple_shared_inference.py": "5da282b7d9e4445f42190c2418a9fe5800027d69697f3bf7c4b593ad47e132ea",
+      "apple_inference_worker.py": "077b14466e6175eaafb21b000d6be9de7f54e5029ab2b03cb7aa58fe01dc35f7"
+    },
+    "training": {
+      "navigate_carry_trial.py": "d2da63a3a08073044d966bd2b3f08ace8b9cea102ccf9cfc3a47c5989fc1b860",
+      "motion_speed.py": "7a9e03dc2590c35aa2b0a7c4c54037ca18bc487ce1aed66b8442da39a103eede",
+      "config/motion_speed_profiles.json": null,
+      "config/apple_transfer_auto_v1.json": "82276f26935d706ba46c347027f201631bda5514fcad3ad0c4f876bdf2a96633",
+      "apple_transfer_auto_backend.py": "bce356c0d6befde190d5e55222ae736054fc8db77a1b6da8e3df2b53a34c67bc",
+      "apple_transfer_automation.py": "85140b3b7a1ada0f572506b0b8467f4d10208dc311110b08cbdf69eab44047da",
+      "pregrasp_raised_trial.py": "1e104ed6b49d04af8bf89c2cc8527a8bb207a224dd59537c5bc76836ea5c5673",
+      "run_apple_close_lift_trial.py": "ff51e63e43158109dbae8edb92f616120f16b844364a46b0b284a2c8e54a8718",
+      "task_outcome_policy.py": "a80ec96ddd3c473828fc82e0eae76692eb9bc5c24b743305ba8c83b569f03357",
+      "table_release_gate.py": "1b7bc700cfa40d890842bdb7734007d210b2ce33b2f9f0ec39f3b8da352d6246",
+      "verify_table_placement.py": "a4889628734c77fcd5454ae741624a533f2e595e4625cd261d13e1211e10c637",
+      "capture_grasp_scene.py": "0dbaa8dd2f20be77819ebf22731a5f002b4c43ecee14e725a8ef0eb44478d0c1",
+      "apple_shared_inference.py": "5da282b7d9e4445f42190c2418a9fe5800027d69697f3bf7c4b593ad47e132ea",
+      "apple_inference_worker.py": "077b14466e6175eaafb21b000d6be9de7f54e5029ab2b03cb7aa58fe01dc35f7"
+    },
+    "module": {
+      "navigate_carry_trial.py": "d2da63a3a08073044d966bd2b3f08ace8b9cea102ccf9cfc3a47c5989fc1b860",
+      "motion_speed.py": "7a9e03dc2590c35aa2b0a7c4c54037ca18bc487ce1aed66b8442da39a103eede",
+      "config/motion_speed_profiles.json": "dfaca76655426c69c113e3e478723a3edd48f8912d1c354b80bdf2b2275809b1",
+      "config/apple_transfer_auto_v1.json": "82276f26935d706ba46c347027f201631bda5514fcad3ad0c4f876bdf2a96633",
+      "apple_transfer_auto_backend.py": "bce356c0d6befde190d5e55222ae736054fc8db77a1b6da8e3df2b53a34c67bc",
+      "apple_transfer_automation.py": "85140b3b7a1ada0f572506b0b8467f4d10208dc311110b08cbdf69eab44047da",
+      "pregrasp_raised_trial.py": "1e104ed6b49d04af8bf89c2cc8527a8bb207a224dd59537c5bc76836ea5c5673",
+      "run_apple_close_lift_trial.py": "ff51e63e43158109dbae8edb92f616120f16b844364a46b0b284a2c8e54a8718",
+      "task_outcome_policy.py": "a80ec96ddd3c473828fc82e0eae76692eb9bc5c24b743305ba8c83b569f03357",
+      "table_release_gate.py": "1b7bc700cfa40d890842bdb7734007d210b2ce33b2f9f0ec39f3b8da352d6246",
+      "verify_table_placement.py": "a4889628734c77fcd5454ae741624a533f2e595e4625cd261d13e1211e10c637",
+      "capture_grasp_scene.py": "0dbaa8dd2f20be77819ebf22731a5f002b4c43ecee14e725a8ef0eb44478d0c1",
+      "apple_shared_inference.py": "5da282b7d9e4445f42190c2418a9fe5800027d69697f3bf7c4b593ad47e132ea",
+      "apple_inference_worker.py": "077b14466e6175eaafb21b000d6be9de7f54e5029ab2b03cb7aa58fe01dc35f7"
+    }
+  },
+  "branch": "feat/handyman-phase5-grasping",
+  "robot_commands_sent": false
+}

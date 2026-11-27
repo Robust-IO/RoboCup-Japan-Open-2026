@@ -1,0 +1,153 @@
+{
+  "status": "NEW r12b full live trial STOPPED at observe_source before any source frame could be accepted. Navigation/head view passed. NO arm preparation/approach/closure/lift/release. Near-geometry handoff NOT REACHED and NOT live-validated. Exact first-frame starvation cause independently measured; runtime code/thresholds NOT changed this test.",
+  "branch": "feat/handyman-phase5-grasping",
+  "implementation_revision": "20261018-near-geometry-r12b on placement-policy-r11b/navigation-feedback-r10",
+  "code_checkpoint": "D:/handyman-training-runs/apple-near-geometry-progress-20261018.json",
+  "previous_physical_checkpoint_is_historical": "D:/handyman-training-runs/apple-placement-policy-live-progress-20261018.json",
+  "full_run": {
+    "directory": "D:/handyman-training-runs/automatic-apple-r12b-20261018-01",
+    "startup": "D:/handyman-training-runs/automatic-apple-r12b-20261018-01.startup.json",
+    "task_id": "apple-r12b-auto-681907543f8a401d815300c1971119e4",
+    "status": "stopped",
+    "stage": "observe_source",
+    "reason": "fresh_observation_wait_expired:no_observation",
+    "confirmed_stages": [
+      "preflight",
+      "navigate_source",
+      "head_view"
+    ],
+    "source_frames_saved": 0,
+    "source_observer_manifest_reason": "waiting_for_fresh_joint_image_pair_and_image_time_tf",
+    "model_worker_ready": true,
+    "detector_input_size": 960,
+    "near_geometry_policy_enabled": true,
+    "near_geometry_remaining_contact_gap_m": 0.15,
+    "near_geometry_reached": false,
+    "near_geometry_live_result": null,
+    "grasp_or_place_commands_sent": false,
+    "automatic_retry_or_old_action_replay": false,
+    "task_finished_or_does_not_exist_sent": false
+  },
+  "start_state_and_localization": {
+    "precheck": "D:/handyman-training-runs/apple-r12b-live-precheck-20261018-01",
+    "scene": "Same continuous Session1/LayoutA; no Unity restart this trial; raw odom and original estimated pose matched previous final state within2cm",
+    "start_room": "living_room",
+    "robot_initial_empty_open_tucked": true,
+    "previous_destination_apple_no_longer_visible": true,
+    "initial_laser_map_check_failed_before_any_motion": true,
+    "initial_occupied_grid_within10cm_fraction": 0.514018691588785,
+    "three_independent_scan_match_audit": "D:/handyman-training-runs/apple-r12b-current-localization-audit-20261018.json",
+    "estimated_pose_correction_xy_yaw": [
+      -0.1475,
+      0.0475,
+      0.0425
+    ],
+    "scan_match_boundary_inlier_fraction_range": [
+      0.9813084112149533,
+      0.9844236760124611
+    ],
+    "scan_match_pose_resolution_caveat": "5cm grid/local estimate, not ground truth or millimeter accuracy; exact source of drift not separately proven",
+    "correction_record": "D:/handyman-training-runs/apple-r12b-current-localization-20261018-01/completion.json",
+    "exact_old_initial_localizer_launcher_child_stopped": [
+      3630,
+      3631
+    ],
+    "new_current_scene_map_anchor_pid": 5371,
+    "new_anchor_script": "D:/handyman-training-runs/publish_r12b_reviewed_map_anchor_20261018.py",
+    "new_anchor_record": "D:/handyman-training-runs/apple-r12b-current-localization-20261018-01/corrected-map-anchor.json",
+    "new_numeric_alignment_based_on_current_three_scans": true,
+    "old_numeric_anchor_restored": false,
+    "fresh_post_correction_scans": 3,
+    "post_correction_endpoints_each": 321,
+    "post_correction_within10cm_fraction_all_three": 1.0,
+    "robot_motion_during_alignment_correction": false,
+    "continuous_laser_localization_implemented": false,
+    "warning": "PID/anchor apply only to this current Unity scene. Never restore this numeric transform after a restart/manual robot relocation."
+  },
+  "navigation": {
+    "all_five_source_goals_passed": true,
+    "source_navigation": "D:/handyman-training-runs/automatic-apple-r12b-20261018-01/source-navigation.json",
+    "arrival_pose": [
+      9.861068594064156,
+      -6.594269695074699,
+      -0.07544113527596312
+    ],
+    "estimated_position_error_m": 0.04666273588788867,
+    "tolerances_unchanged": [
+      0.06,
+      0.08,
+      0.06
+    ],
+    "nav_reset": true,
+    "route_speed_parameters_restored": true,
+    "destination_navigation_not_attempted": true
+  },
+  "diagnosis": {
+    "directory": "D:/handyman-training-runs/apple-r12b-post-stop-20261018-01",
+    "report": "D:/handyman-training-runs/apple-r12b-post-stop-20261018-01/result.json",
+    "selector": "capture_grasp_scene.py supplies fixed processing_reserve_ns=200000000 for inference capture; select_stamps subtracts this from.4s for BOTH image and joint availability",
+    "effective_joint_age_limit_at_selection_s": 0.2,
+    "observed_joint_callback_age_min_s": 0.209093538,
+    "observed_joint_callback_age_median_s": 0.212353653,
+    "observed_joint_callback_age_max_s": 0.252039183,
+    "observed_joint_sampled_age_min_s": 0.211057668,
+    "sampling_rows": 95,
+    "valid_pairs_with_fixed_200ms_reserve": 0,
+    "valid_pairs_without_reserved_processing_time_DIAGNOSTIC_ONLY": 57,
+    "rgb_callback_age_median_s": 0.035267162,
+    "depth_callback_age_median_s": 0.0168897,
+    "hand_callback_age_median_s": 0.035500613,
+    "raw_capture_without_inference_succeeded": true,
+    "source_apple_visible_in_raw_head_image": true,
+    "machine_identity_or_grasp_position_not_yet_established": true,
+    "conclusion": "Fixed200ms reserve starves the selector because even newly arrived joints are already>200ms old. Original final400ms freshness could admit some data, but no model inference was run in this diagnostic, so57 pairs do NOT prove post-inference freshness/grasp eligibility.",
+    "runtime_or_freshness_thresholds_changed": false,
+    "model_or_near_geometry_failure_proven": false,
+    "upstream_clock_caveat": "Images/TF may use bridge receipt time while joints use Unity source time. Actual209ms arrival age observed; whether fixed transport/clock offset is the cause was NOT proved."
+  },
+  "last_recorded_robot_state_not_live_lease": {
+    "capture": "D:/handyman-training-runs/apple-r12b-post-stop-20261018-01/cameras/000005",
+    "depth_stamp_ns": 1792319853676190780,
+    "holding_object": false,
+    "arm_is_tucked": true,
+    "arm_joints": [
+      0,
+      0,
+      0,
+      -1.5707963146269321,
+      0
+    ],
+    "hand_motor_joint": 0.6499999859074279,
+    "head_pan_tilt": [
+      0,
+      -0.49999996867370555
+    ],
+    "estimated_map_pose": [
+      9.860863483212023,
+      -6.595540606168053,
+      -0.07451025521331965
+    ],
+    "room": "bedroom",
+    "apple_location": "Visually visible on bedroom white_side_table; NOT still on living_room square_low_table; no current machine-identity lease",
+    "all_five_command_topic_publishers_after_stop": 0,
+    "controller_state_after_stop": 1,
+    "fresh_empty_tucked_readiness_after_stop_passed": true,
+    "no_active_motion_runner": true,
+    "fresh_state_required_before_next_action": true
+  },
+  "runtime_code_or_model_or_map_files_changed_this_test": false,
+  "current_map_to_odom_alignment_changed_this_test": true,
+  "near_geometry_live_validated": false,
+  "uninterrupted_full_transfer_verified": false,
+  "task_finished_sent": false,
+  "does_not_exist_sent": false,
+  "git_commit_or_push_performed": false,
+  "next": "Read this checkpoint FIRST. CURRENT EMPTY/OPEN/TUCKED in living_room; apple ALREADY PLACED on square_low_table. Do not repeat close/lift/carry/release. Next is a NEW uninterrupted full-entry regression from genuinely restored initial Session1/LayoutA/source-apple state, with fresh source synchronization/localization/readiness. The completed reviewed continuation is NOT the previously stopped full r13c run becoming successful.",
+  "latest_validation_checkpoint": "D:/handyman-training-runs/apple-carry-place-live-progress-20261018.json",
+  "latest_live_validation_checkpoint": "D:/handyman-training-runs/apple-carry-place-live-progress-20261018.json",
+  "capture_budget_r13c_latest_status": "full_trial_stopped",
+  "current_state_authoritative_checkpoint": "D:/handyman-training-runs/apple-carry-place-live-progress-20261018.json",
+  "r15_latest_status": "reviewed_single_close_and_10cm_lift_verified_with_corrected_settled_window",
+  "older_current_fields_are_historical": true,
+  "latest_carry_placement_status": "reviewed_r15_carry_and_edge_safe_placement_verified"
+}

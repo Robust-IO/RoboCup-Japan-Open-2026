@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>sigverse_hsr_teleop_key</name>
+  <version>2.0.0</version>
+  <description>Sample package to operate Toyota HSR with keyboard</description>
+  <maintainer email="inamura.laboratory@gmail.com">inamura laboratory</maintainer>
+  <license>SIGVerse License</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>geometry_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>trajectory_msgs</depend>
+  <depend>tf2_geometry_msgs</depend>
+<!--
+  <build_depend>tmc_suction</build_depend>
+-->
+
+  <exec_depend>rviz2</exec_depend>
+  <exec_depend>rosbridge_server</exec_depend>
+  <exec_depend>sigverse_ros_bridge</exec_depend>
+<!--
+  <exec_depend>tmc_suction</exec_depend>
+-->
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
+

@@ -1,0 +1,39 @@
+{
+  "robot_commands_sent": false,
+  "parameters_set": false,
+  "activation_requested": false,
+  "before_state": 1,
+  "before_parameters": [],
+  "configured_state": 2,
+  "configured_parameters": [
+    {
+      "type": 3,
+      "double_value": 0.06
+    },
+    {
+      "type": 3,
+      "double_value": 0.08
+    },
+    {
+      "type": 3,
+      "double_value": 0.06
+    }
+  ],
+  "after_state": 1,
+  "after_parameters": [
+    {
+      "type": 3,
+      "double_value": 0.06
+    },
+    {
+      "type": 3,
+      "double_value": 0.08
+    },
+    {
+      "type": 3,
+      "double_value": 0.06
+    }
+  ],
+  "received_velocity_messages": [],
+  "status": "idle_plugin_parameters_initialized_without_activation_or_parameter_changes"
+}

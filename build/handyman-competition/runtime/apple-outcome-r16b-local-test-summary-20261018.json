@@ -1,0 +1,20 @@
+{
+  "revision": "outcome-r16b",
+  "runtime_on_user_ubuntu": {"tests": 367, "failures": 0, "candidate_and_deployed_copies_tested": true},
+  "local_repository_wide": {
+    "tests": 708,
+    "failures": 3,
+    "skipped": 1,
+    "passed": 704,
+    "failure_names": [
+      "test_focused_seven_schedule.FocusedTests.test_guards",
+      "test_salt_pepper_contrast.ContrastTests.test_original_modes_kept",
+      "test_small_background_schedule.SmallBackgroundSchedule.test_ground_pilot_only"
+    ],
+    "scope": "These assert old Unity dataset-generator source strings. Neither those tests nor their Unity subject were changed by the grasp/place policy patch. The same three failures appeared before the final r16b handoff changes. They are not claimed as passing or repaired.",
+    "local_log": "/tmp/apple-outcome-r16b-local-tests.log"
+  },
+  "recorded_grasp_and_placement_regression": "passed; original raw evidence/results unchanged",
+  "robot_commands_sent": false,
+  "new_uninterrupted_live_trial_performed": false
+}

@@ -1,0 +1,243 @@
+{
+  "task": "Automatic LayoutA bedroom white_side_table apple to living_room square_low_table",
+  "trial_01": {
+    "directory": "D:/handyman-training-runs/automatic-apple-20261017-01",
+    "status": "stopped",
+    "stage": "navigate_source",
+    "reason": "stale_feedback; original logger did not identify stream",
+    "grasp_or_release_executed": false,
+    "navigation_reset": true,
+    "preserve_failed_trial": true
+  },
+  "post_stop_feedback": {
+    "file": "D:/handyman-training-runs/apple-auto-feedback-20261017-01.json",
+    "joints_age_max_s": 0.292495547,
+    "scan_age_max_s": 0.238081624,
+    "tf_age_max_s": 0.339374127,
+    "last_map_pose": [
+      5.550172669275145,
+      -6.200425127236711,
+      -0.09449030106844515
+    ],
+    "no_persistent_fault_observed": true,
+    "original_failure_exact_cause_not_proven": true
+  },
+  "fix": "Drain up to 20 already-ready callbacks before navigation feedback checks; per-stream ages recorded on failure. Same -.05..+.7s validity limits, same .06/.08/.06 navigation parameters. No action retries.",
+  "current": "new_uninterrupted_full_apple_transfer_verified",
+  "historical_trial04_stop": "All5 source navigation goals passed and speed limits restored; observe_source expired on fresh_joint_snapshot_required, before arm/gripper action. Original post-stop single readiness failed stale_joint_feedback and probe ages0.287..0.506s; those records remain preserved, superseded for current timing by feedback-r4 result.",
+  "latest_validation_checkpoint": "D:/handyman-training-runs/apple-r19-full-live-progress-20261022.json",
+  "r12b_latest_state_overrides_all_older_summaries": "New full run failed before source identity/preparation on fixed sampling-reserve starvation.95 diagnostic rows:57 no-inference pairs with0 reserve,0 with200ms reserve; original final400ms gate not widened. Robot bedroom empty/open/tucked, source apple visible; no live geometry-hand-off result or new grasp/place.",
+  "near_geometry_handoff_revision": "r12b deployed/enabled: confirmed identity then current local RGBD only within15cm remaining contact gap.297 tests/124 recorded frames passed;20 no-detection frames rescued. No robot actions this revision; r11b physical summaries historical; new r12 live/full acceptance pending.",
+  "r11b_latest_state_overrides_all_older_summaries": "New initial anchor3630/3631 replaces old398/399. Default960 full run source navigation/table/height/arm preparation passed, near-view identity stopped before closure. Fresh1280 reviewed continuation passed close/lift/carry and r11b one33.88cm approach/release/withdraw,3-frame final verification. No8cm staging, splitting or correction. Runtime full observer still960.",
+  "latest_code_policy_revision": "r12b near identity-to-geometry handoff deployed/enabled;297 tests/124 recorded frames passed, no new live motion. r11b single unlimited placement and3cm+1cm unchanged. Source detector960; near mode skips inference after confirmed handoff. New full regression pending.",
+  "r10_latest_state_overrides_older_current_fields": "NEW final carry arrived after4 bounded fresh-message acquisitions; reviewed8cm tucked staging and SINGLE54.65cm placement PASSED. Final3frames/6.554s confirm apple on living_room square_low_table, robot EMPTY/OPEN/TUCKED. Pink cup appears tipped vs before; cause unproven. General adaptive staging and uninterrupted whole-run regression remain pending. Do not replay source/placement actions.",
+  "latest_live_state_overrides_historical_summaries_below": "LATEST r12b full run stopped before source frame/preparation. Current BEDROOM empty/open/tucked; source apple visible, no current machine identity or gripper action. Fix fixed200ms sampling reserve and validate no-motion observations before NEW full run; old placed states historical.",
+  "restart_preparation_checkpoint": "D:/handyman-training-runs/apple-auto-restart-preparation-20261018.json",
+  "release_placement_checkpoint": "D:/handyman-training-runs/apple-release-placement-progress-20261017.json",
+  "single_approach_checkpoint": "D:/handyman-training-runs/apple-single-approach-progress-20261017.json",
+  "carry_placement_prepared_checkpoint": "D:/handyman-training-runs/apple-carry-placement-prepared-progress-20261017.json",
+  "holding_retraction_checkpoint": "D:/handyman-training-runs/apple-holding-retraction-progress-20261017.json",
+  "current_robot": {
+    "state": "EMPTY_OPEN_TUCKED_IN_LIVING_ROOM",
+    "holding_object": false,
+    "arm_is_tucked": true,
+    "joints": {
+      "arm_lift_joint": 0.0,
+      "arm_flex_joint": 0.0,
+      "arm_roll_joint": 0.0,
+      "wrist_flex_joint": -1.5707963146269321,
+      "wrist_roll_joint": 0.0,
+      "head_pan_joint": 0.0,
+      "head_tilt_joint": -0.49999996867370555,
+      "torso_lift_joint": 0.0,
+      "hand_motor_joint": 0.6499999859074279,
+      "hand_l_proximal_joint": 0.6499999859074279,
+      "hand_l_spring_proximal_joint": 0.0,
+      "hand_l_mimic_distal_joint": 0.0,
+      "hand_l_distal_joint": 5.633185405758354,
+      "hand_r_proximal_joint": -5.633185405758354,
+      "hand_r_spring_proximal_joint": 0.0,
+      "hand_r_mimic_distal_joint": 0.0,
+      "hand_r_distal_joint": -0.6499999859074279
+    },
+    "base_map_pose": [
+      1.981961548952809,
+      2.599389851659963,
+      1.6542710807110856
+    ],
+    "room": "living_room",
+    "capture": "/mnt/d/handyman-training-runs/apple-r19-post-full-live-20261022-01/cameras/000000",
+    "depth_stamp_ns": 1792663759572333430,
+    "command_publishers": {
+      "/hsrb/command_velocity": 0,
+      "/hsrb/omni_base_controller/command": 0,
+      "/hsrb/arm_trajectory_controller/command": 0,
+      "/hsrb/gripper_controller/command": 0,
+      "/hsrb/head_trajectory_controller/command": 0
+    },
+    "controller_state": 1,
+    "apple_location": "Verified on square_low_table#living_room; no longer at bedroom white_side_table",
+    "fresh_state_required_before_next_action": true,
+    "last_state_is_not_future_motion_lease": true
+  },
+  "latest_reviewed_placement_verification": {
+    "file": "D:/handyman-training-runs/apple-r11b-reviewed1280-transfer-20261018-01/placement-verification.json",
+    "placement_success_verified": true,
+    "table_edge_safety_verified": true,
+    "frames": 3,
+    "span_s": 5.602578081,
+    "estimated_center_spread_m": 0.002154918011642124,
+    "estimated_outer_clearance_m": 0.0626692373369093,
+    "robot_tucked_and_gripper_open": true,
+    "no_intervention_full_transfer_verified": false
+  },
+  "final_robot_below_is_historical_trial03_not_current": true,
+  "near_grasp_roi_checkpoint": "D:/handyman-training-runs/apple-near-grasp-roi-progress-20261017.json",
+  "latest_roi_development": "Near-roi-r5 implemented/enabled;15 NEW no-motion prepared-pose samples passed identity/source/closure geometry, including real gap reset and3-new-frame reseed. No robot commands. Original trial05 failure is preserved, not retroactively successful or resumed.",
+  "feedback_timing_checkpoint": "D:/handyman-training-runs/apple-feedback-timing-progress-20261017.json",
+  "source_localization_checkpoint": "D:/handyman-training-runs/source-table-localization-progress-20261017.json",
+  "latest_readonly_status": "source-table-relocalized-readonly-20261017-01: source_timing_readonly_passed, all_grasp_plans_eligible=true,15samples, no robot commands. Historical feedback-r4 rejection records preserved.",
+  "table_edge_checkpoint": "D:/handyman-training-runs/apple-table-edge-progress-20261017.json",
+  "motion_speed_checkpoint": "D:/handyman-training-runs/apple-motion-speed-progress-20261017.json",
+  "next_run_profile": "balanced_v1, speed-r3 implemented/tested only; zero live motion/parameter writes in this revision. Validate actual speed and precision on next new-output full run.",
+  "placement_segments_m": [
+    [
+      0.3178889720541698,
+      -0.03669606854069278,
+      0
+    ],
+    [
+      0.10984966267268793,
+      -0.01429488678962661,
+      0
+    ]
+  ],
+  "placement_total_translation_m": 0.43077586459888983,
+  "pre_release_apple_center_map_m": [
+    1.97209423734979,
+    3.6498019222298037,
+    0.490940187887286
+  ],
+  "placement_continuation_directory": "D:/handyman-training-runs/automatic-apple-20261017-03-placement01",
+  "placement_verification": {
+    "file": "D:/handyman-training-runs/automatic-apple-20261017-03-placement01/placement-verification.json",
+    "placement_success_verified": true,
+    "frames": 3,
+    "span_s": 6.042613316,
+    "estimated_center_spread_m": 0.0011098163231183147,
+    "robot_tucked_and_gripper_open": true
+  },
+  "final_robot": {
+    "holding_object": false,
+    "arm_lift": 0,
+    "arm_flex": 0,
+    "wrist_flex": -1.5707963146269321,
+    "hand_motor": 0.6499999859074279,
+    "head_pan": 0,
+    "head_tilt": -0.49999996867370555,
+    "base_map_pose_at_final_capture": [
+      2.1350431609613496,
+      2.697475471043922,
+      1.6791488368309826
+    ],
+    "capture": "D:/handyman-training-runs/automatic-apple-20261017-03-placement01/placed-final/000005"
+  },
+  "no_intervention_full_transfer_verified": false,
+  "trial_03_stop_reason": "placement_requires_unreviewed_reposition: original .4m SINGLE-command bound, no placement approach sent",
+  "trial_03_place_plan": "D:/handyman-training-runs/automatic-apple-20261017-03/placement-plan.json",
+  "trial_03_directory": "D:/handyman-training-runs/automatic-apple-20261017-03",
+  "trial_03_grasp_verification": {
+    "file": "D:/handyman-training-runs/automatic-apple-20261017-03/grasp/close-lift/visual-lift-verification.json",
+    "grasp_success_verified": true,
+    "accepted_after_frames": 19,
+    "span_s": 3.293531217,
+    "holding_opening_rad": 0.394929575920937,
+    "last_apple_center_base_m": [
+      0.7077148029604649,
+      0.07861616335503674,
+      0.6392828675229835
+    ]
+  },
+  "trial_02_directory": "D:/handyman-training-runs/automatic-apple-20261017-02",
+  "trial_02_failure": "At grasp_and_lift: fresh_geometry_wait_expired:current_identity_not_confirmed. Last frame apple confidence .7404, measured center [.701875,.078709,.539645], support consistent; prior identity tracked through frame223, then frame224 rgbd_result_expired reset. No closure command.",
+  "trial_02_actual_approach_m": [
+    0.19846065009150793,
+    0.07819158077141407,
+    0
+  ],
+  "trial_02_grasp_lift_m": 0.25234084891143727,
+  "current_empty_retreat_result": "D:/handyman-training-runs/apple-auto02-empty-retreat-20261017.json",
+  "empty_retreat_final_map": [
+    9.86364693421438,
+    -6.502167223441218,
+    -0.07679035368524
+  ],
+  "handoff_result": "D:/handyman-training-runs/apple-auto-reviewed-source-handoff-20261017-01.json",
+  "next": "Read this NEW full-r19 checkpoint FIRST. One NEW uninterrupted full-entry LayoutA apple transfer completed ALL17 stages, with no human motion interventions. Normal r19 source carry fold (not lower-only continuation) passed live; source terminal corrections=1. CURRENT EMPTY/OPEN/TUCKED in living_room; apple is on square_low_table, NOT bedroom source. The start was actual empty/open/tucked living_room pose, not configured spawn, so do not claim a same-start speedup over r16b. Whole time is journal begin to terminal event; internal checks and waits included, external prep separate. No automatic action retry/resume, no old interrupted journal replay and no competition Task_finished. Navigation/speeds/maps/model unchanged. One apple trial is not30-class generalization,80/85percent statistical acceptance or generic Moderator integration. Before another test, inspect fresh robot/RGBD/localization and genuinely restore source apple when needed. If Unity restarted, freshly validate localization rather than reusing an old numeric anchor or identity lease.",
+  "protocol_task_finished_sent": false,
+  "navigation_parameters_changed": false,
+  "latest_live_validation_checkpoint": "D:/handyman-training-runs/apple-r19-full-live-progress-20261022.json",
+  "capture_budget_r13c_latest_status": "full_trial_stopped",
+  "current_state_authoritative_checkpoint": "D:/handyman-training-runs/apple-r19-full-live-progress-20261022.json",
+  "older_current_fields_are_historical": true,
+  "r15_latest_status": "reviewed_single_close_and_10cm_lift_verified_with_corrected_settled_window",
+  "latest_robot": {
+    "capture": "/mnt/d/handyman-training-runs/apple-r16b-post-full-live-20261022-01/cameras/000006",
+    "depth_stamp_ns": 1792656252642564512,
+    "holding_object": false,
+    "arm_is_tucked": true,
+    "arm": [
+      0.0,
+      0.0,
+      0.0,
+      -1.5707963146269321,
+      0.0
+    ],
+    "hand_motor": 0.6499999859074279,
+    "head": [
+      0.0,
+      -0.49999996867370555
+    ],
+    "base_map_pose": [
+      2.081890911653147,
+      2.585320477507348,
+      1.6444095013746194
+    ],
+    "room": "living_room",
+    "apple_location": "Verified placed on square_low_table#living_room; source white_side_table no longer contains the transferred apple",
+    "command_publishers": {
+      "/hsrb/command_velocity": 0,
+      "/hsrb/omni_base_controller/command": 0,
+      "/hsrb/arm_trajectory_controller/command": 0,
+      "/hsrb/gripper_controller/command": 0,
+      "/hsrb/head_trajectory_controller/command": 0
+    },
+    "controller_state": 1,
+    "fresh_state_required_before_next_action": true,
+    "warning": "Last-confirmed terminal state, not a future action/identity lease."
+  },
+  "latest_capture": "/mnt/d/handyman-training-runs/apple-r16b-post-full-live-20261022-01/cameras/000006",
+  "latest_carry_placement_status": "reviewed_r15_carry_and_edge_safe_placement_verified",
+  "latest_live_placement_verification": {
+    "file": "/mnt/d/handyman-training-runs/apple-r15-reviewed-carry-place-20261018-01/placement-verification.json",
+    "placement_success_verified": true,
+    "table_edge_safety_verified": true,
+    "frames": 3,
+    "span_s": 6.08793362,
+    "estimated_outer_clearance_m": 0.062121534479143314,
+    "robot_tucked_and_gripper_open": true,
+    "no_intervention_full_transfer_verified": false
+  },
+  "latest_policy_checkpoint": "D:/handyman-training-runs/apple-outcome-policy-progress-20261018.json",
+  "latest_code_revision": "outcome-r16b",
+  "historical_trial_thresholds_do_not_override_latest_policy": true,
+  "latest_runtime_preparation_checkpoint": "D:/handyman-training-runs/phase5-visual-test-preparation-20261022.json",
+  "current_runtime_state": "desktop_rviz_visible_waiting_for_unity",
+  "old_physical_state_requires_new_observation": true,
+  "latest_full_live_validation_checkpoint": "D:/handyman-training-runs/apple-r19-full-live-progress-20261022.json",
+  "latest_full_live_status": "r19_new_uninterrupted_full_apple_transfer_verified",
+  "latest_efficiency_checkpoint": "D:/handyman-training-runs/apple-efficiency-r17-progress-20261022.json",
+  "current_code_revision": "held-carry-r19",
+  "latest_terminal_correction_checkpoint": "D:/handyman-training-runs/apple-terminal-r18-progress-20261022.json",
+  "latest_full_live_duration_s": 420.144510206
+}

@@ -1,0 +1,12 @@
+{
+  "state": "succeeded",
+  "round_directory": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/session1-round-20261114-225913",
+  "moderator_result": "Task_succeeded",
+  "full_uninterrupted_success": true,
+  "manual_interventions_after_start": 0,
+  "resume_used": false,
+  "instruction_to_success_s": 195.177484151,
+  "grasp_corrections": 0,
+  "placement_verified": true,
+  "object_released": true
+}

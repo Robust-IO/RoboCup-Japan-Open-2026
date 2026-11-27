@@ -1,0 +1,198 @@
+{
+  "scene": "/mnt/d/handyman/handyman-unity2/handyman-unity2/Assets/Competition/Handyman/Handyman.unity",
+  "instance": "LayoutB/DestinationCandidates/trash_box_for_bottle_can#living_room",
+  "collider_transform_id": 896632200,
+  "body_wall_transform_id": 2003416841,
+  "lid_bounds": {
+    "1": {
+      "min": [
+        0.05451508238911629,
+        0.5435094237327576,
+        -0.09999999403953552
+      ],
+      "max": [
+        0.1970035582780838,
+        0.7272334694862366,
+        0.09999999403953552
+      ],
+      "file": "/mnt/d/handyman/handyman-unity2/handyman-unity2/Assets/SIGVerse/Models/House/Kitchen/7.etc/trashbox/MeshColliders/trashbox_lid_1.asset"
+    },
+    "2": {
+      "min": [
+        -0.20464593172073364,
+        0.5002437233924866,
+        -0.09999999403953552
+      ],
+      "max": [
+        -0.1547737419605255,
+        0.578097939491272,
+        0.09999999403953552
+      ],
+      "file": "/mnt/d/handyman/handyman-unity2/handyman-unity2/Assets/SIGVerse/Models/House/Kitchen/7.etc/trashbox/MeshColliders/trashbox_lid_2.asset"
+    },
+    "3": {
+      "min": [
+        -0.16780416667461395,
+        0.5041986703872681,
+        0.0591793991625309
+      ],
+      "max": [
+        0.15235619246959686,
+        0.7129752039909363,
+        0.09999999403953552
+      ],
+      "file": "/mnt/d/handyman/handyman-unity2/handyman-unity2/Assets/SIGVerse/Models/House/Kitchen/7.etc/trashbox/MeshColliders/trashbox_lid_3.asset"
+    },
+    "4": {
+      "min": [
+        -0.16780416667461395,
+        0.5041987299919128,
+        -0.09999999403953552
+      ],
+      "max": [
+        0.15235619246959686,
+        0.7129751443862915,
+        -0.0591793991625309
+      ],
+      "file": "/mnt/d/handyman/handyman-unity2/handyman-unity2/Assets/SIGVerse/Models/House/Kitchen/7.etc/trashbox/MeshColliders/trashbox_lid_4.asset"
+    }
+  },
+  "local_clear_rectangle_xz": [
+    -0.145,
+    0.05451508238911629,
+    -0.0591793991625309,
+    0.0591793991625309
+  ],
+  "old_opening": {
+    "destination_id": "trash_box_for_bottle_can#living_room",
+    "polygon_map_m": [
+      [
+        -3.7242897020742283,
+        -6.2234825034822
+      ],
+      [
+        -4.012239496926297,
+        -6.2163869557449845
+      ],
+      [
+        -4.012327535097484,
+        -5.941660818547666
+      ],
+      [
+        -3.7246019952885723,
+        -5.950006296634481
+      ]
+    ],
+    "rim_height_m": 0.5787296188669149,
+    "source": "reviewed_inner_edge_rays_intersect_measured_sloping_lip",
+    "reviewed_pixels": [
+      [
+        275,
+        116
+      ],
+      [
+        382,
+        116
+      ],
+      [
+        397,
+        189
+      ],
+      [
+        274,
+        189
+      ]
+    ],
+    "reviewed_rim_pixels": [
+      [
+        267,
+        105
+      ],
+      [
+        389,
+        105
+      ],
+      [
+        264,
+        196
+      ],
+      [
+        410,
+        196
+      ]
+    ],
+    "measured_corners_map_m": [
+      [
+        -3.7242897020742283,
+        -6.2234825034822,
+        0.5567560783763519
+      ],
+      [
+        -4.012239496926297,
+        -6.2163869557449845,
+        0.5547411547774941
+      ],
+      [
+        -4.012327535097484,
+        -5.941660818547666,
+        0.45984706583067136
+      ],
+      [
+        -3.7246019952885723,
+        -5.950006296634481,
+        0.46229407226561325
+      ]
+    ],
+    "lip_plane_max_residual_m": 0.00044366587350120473,
+    "evidence_ref": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/session2-bin-view-20261114-234532/captures/bin-view-0",
+    "depth_stamp_ns": 1794671226122850043,
+    "autonomous_opening_detection": false,
+    "object_truth_coordinates_used": false
+  },
+  "new_opening": {
+    "destination_id": "trash_box_for_bottle_can#living_room",
+    "polygon_map_m": [
+      [
+        -3.9419485570857264,
+        -5.891499855
+      ],
+      [
+        -3.9419485570857264,
+        -6.190772678098757
+      ],
+      [
+        -3.6460514429142736,
+        -6.190772678098757
+      ],
+      [
+        -3.6460514429142736,
+        -5.891499855
+      ]
+    ],
+    "rim_height_m": 0.5817867392273158,
+    "source": "scene_collider_vertical_clear_opening",
+    "evidence_ref": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/session2-collider-mouth-20261124-215626/calibration.json",
+    "object_truth_coordinates_used": false,
+    "autonomous_opening_detection": false
+  },
+  "old_center": [
+    -3.8683646823466455,
+    -6.082884143602333
+  ],
+  "new_center": [
+    -3.794,
+    -6.041136266549378
+  ],
+  "delta_map_m": [
+    0.0743646823466455,
+    0.041747877052954685
+  ],
+  "checks": [
+    "matches_exported_model_origin",
+    "no_lid_AABB_overlap_in_vertical_corridor",
+    "clipped_to_body_wall_inner_faces",
+    "valid_ordered_polygon",
+    "gripper_fits_3cm_inset"
+  ],
+  "live_test_passed": false
+}

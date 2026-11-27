@@ -1,0 +1,25 @@
+{
+  "status": "deployed_tests_passed",
+  "revision": "terminal-correction-r18b",
+  "maximum_terminal_corrections": 5,
+  "tests": 408,
+  "hashes": {
+    "grasp_terminal_correction.py": "72e9553a54f35cc091d8605777ca2f51ac0c18971cb1063c2563584d95ced185",
+    "test_grasp_terminal_correction.py": "66f4f765474d2ba92eaf0c08d9460924522effcd6078e73b1f77017dcba2d497",
+    "APPLE_TRANSFER_AUTOMATION.txt": "02eb0bf1a1f556a92564bf6a17460925babcc8329acdcbea4db6cb179a50be2a"
+  },
+  "checkpoint_hashes": {
+    "apple-terminal-r18-progress-20261022.json": "8721707e73251dbcfc98cbebd9b23c57f6237f4ce9071d86b7d6fc33740e48be",
+    "phase5-visual-test-preparation-20261022.json": "9a658a4c0290b41ce6483c07d217454d74c731413995d79dee7f96c7ffe3db19",
+    "phase5-restart-checkpoint-20261017.json": "f6f2c4899390f4b495e45f471e92f5618a54e44ec443022edec5b620935d7d88",
+    "apple-transfer-automation-progress-20261017.json": "01603efabdb8b9838a89a0159ef420f142807652852abe34a14ca30056e8c0c6",
+    "apple-transfer-live-progress-20261017.json": "86536ab4405bdbe59ba4bf5032203ec4a7c1366c48a8c738489760c40fa3df06",
+    "apple-outcome-policy-progress-20261018.json": "90e3192c1426a27f98f82cac4c31d063c278c1d317b5b37b054de09fdd48470a",
+    "apple-efficiency-r17-progress-20261022.json": "416e4e8a78820fe3e83c8dec5cac62c541e24335ce685bf5c2116fe210926df7"
+  },
+  "archive_sha256": "29a821150755abda399b59d3dca7705d90c18582ed8da91c0511be2f80980bb9",
+  "runtime_change": "MAX_CORRECTIONS:2->5 only",
+  "navigation_and_all_other_runtime_logic_unchanged": true,
+  "robot_commands_sent": false,
+  "new_live_trial": false
+}

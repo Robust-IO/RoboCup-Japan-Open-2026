@@ -1,0 +1,81 @@
+{
+  "status": "one_canned_juice_physical_transfer_verified",
+  "saved_ns": 1792752339131278402,
+  "boot_id": "03e2ce8b-528d-4517-a5f5-5aa905f81a77",
+  "branch": "feat/handyman-phase5-grasping",
+  "object": "canned_juice",
+  "source_table": "white_side_table#bedroom_1",
+  "destination_table": "square_low_table#living_room",
+  "actual_placement_trial": "D:/handyman-training-runs/canned-place-live-20261023-01",
+  "actual_prior_navigation": "D:/handyman-training-runs/tucked-can-navigation-live-20261023-01",
+  "actual_grasp_and_lift": "D:/handyman-training-runs/canned-grasp-lift-live-progress-20261023.json",
+  "source_grasp_lift_verified": true,
+  "held_retraction_verified": true,
+  "original_route_navigation_verified": true,
+  "destination_placement_verified": true,
+  "one_full_measured_approach_used": true,
+  "approach_commands": 1,
+  "release_commands": 1,
+  "hand_open_verified": true,
+  "cleanup_completed": true,
+  "robot_ready_for_next_task": true,
+  "final_can_center_map_m": [
+    1.9923548488747889,
+    3.526595433849788,
+    0.5055712128286208
+  ],
+  "final_bottom_gap_estimates_m": [
+    -0.00021821519390125,
+    -0.00021796741023466515,
+    -0.00021804937598052243
+  ],
+  "final_center_spread_m": 0.00040668601191084483,
+  "final_outer_table_support_clearance_lower_estimates_m": [
+    0.05239704030867602,
+    0.05239704030867602,
+    0.05239704030867602
+  ],
+  "can_bottom_derived_from_measured_height_not_horizontal_radius": true,
+  "zero_depth_never_used_as_3d_position": true,
+  "final_actual_depth_observation_frames": 3,
+  "final_rgb_capture": "D:/handyman-training-runs/canned-place-live-20261023-01/captures/012-final-02",
+  "placement_duration_estimate_s": 61.09482637,
+  "candidate_tests": 534,
+  "final_entry_tests": 534,
+  "original_apple_sources_model_map_route_navigation_parameters_unchanged": true,
+  "actual_place_code_entry_sha256": "ad7d0e1dd22e2838da5c9bf0d584a2f853bece3263afa3b1640edf1f1697f2fc",
+  "task_finished_sent": false,
+  "uninterrupted_start_to_finish_automation_verified": false,
+  "successful_transfer_cases": 1,
+  "success_rate_not_measured": true,
+  "last_measured_robot_state": {
+    "joints": [
+      0.0,
+      0.0,
+      0.0,
+      -1.5707963146269321,
+      0.0,
+      0.6499999859074279
+    ],
+    "poses": {
+      "map": [
+        2.13730606626092,
+        2.596865574326475,
+        1.6503321361899967
+      ],
+      "odom": [
+        0.9534251093864441,
+        2.596144199371338,
+        1.6502775398795027
+      ]
+    },
+    "stamp_ns": 1792752289908000000
+  },
+  "last_state_is_record_not_future_motion_authorization": true,
+  "next": [
+    "The can is now RELEASED on living_room square_low_table. Do NOT rerun held-can navigation or placement, close the empty hand, or repeat release.",
+    "Use NEW images and joints for any next task. This checkpoint records actual success from a supervised staged development transfer, not one uninterrupted fresh-start automatic run.",
+    "Next integrate the can grasp/carry/place adapters under the generic coordinator and perform one fresh-start continuous validation on the same route before changing objects or routes.",
+    "Retain all earlier failed verdicts and images. One case does not establish80% grasp/85% placement success or30-class manipulation coverage."
+  ]
+}

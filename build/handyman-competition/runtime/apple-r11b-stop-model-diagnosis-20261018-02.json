@@ -1,0 +1,348 @@
+{
+  "capture": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-r11b-full-stop-state-20261018-01/000005",
+  "model_sha256": "83e6ceb9650e6da78d05404a5ead9654278d502ce06d812a6b2b70673c513763",
+  "rows": [
+    {
+      "mode": "full_frame",
+      "imgsz": 640,
+      "detections": [
+        {
+          "name": "camera",
+          "confidence": 0.9179027080535889,
+          "box": [
+            311.15087890625,
+            357.11767578125,
+            332.47607421875,
+            409.7294616699219
+          ]
+        },
+        {
+          "name": "ground_pepper",
+          "confidence": 0.6366747617721558,
+          "box": [
+            391.35479736328125,
+            343.43121337890625,
+            436.35479736328125,
+            400.03271484375
+          ]
+        },
+        {
+          "name": "canned_juice",
+          "confidence": 0.5986669659614563,
+          "box": [
+            202.55050659179688,
+            109.19478607177734,
+            347.4424133300781,
+            295.88134765625
+          ]
+        },
+        {
+          "name": "camera",
+          "confidence": 0.2521514296531677,
+          "box": [
+            311.5545349121094,
+            357.15289306640625,
+            332.454833984375,
+            409.5986022949219
+          ]
+        },
+        {
+          "name": "game_controller",
+          "confidence": 0.1861545890569687,
+          "box": [
+            23.356895446777344,
+            336.51824951171875,
+            137.24510192871094,
+            431.6797790527344
+          ]
+        },
+        {
+          "name": "toy_penguin",
+          "confidence": 0.14983727037906647,
+          "box": [
+            23.356895446777344,
+            336.51824951171875,
+            137.24510192871094,
+            431.6797790527344
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "full_frame",
+      "imgsz": 960,
+      "detections": [
+        {
+          "name": "toy_penguin",
+          "confidence": 0.997485876083374,
+          "box": [
+            26.1591796875,
+            340.00738525390625,
+            136.21282958984375,
+            429.9047546386719
+          ]
+        },
+        {
+          "name": "ground_pepper",
+          "confidence": 0.9914006590843201,
+          "box": [
+            392.2857360839844,
+            344.4770202636719,
+            435.87841796875,
+            399.62249755859375
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "full_frame",
+      "imgsz": 1280,
+      "detections": [
+        {
+          "name": "apple",
+          "confidence": 0.45642542839050293,
+          "box": [
+            261.50738525390625,
+            337.0981750488281,
+            306.3294372558594,
+            377.6741027832031
+          ]
+        },
+        {
+          "name": "game_controller",
+          "confidence": 0.43394729495048523,
+          "box": [
+            25.433311462402344,
+            339.06793212890625,
+            137.42843627929688,
+            431.61944580078125
+          ]
+        },
+        {
+          "name": "hourglass",
+          "confidence": 0.289419561624527,
+          "box": [
+            253.88710021972656,
+            442.0669860839844,
+            288.18572998046875,
+            473.7922668457031
+          ]
+        },
+        {
+          "name": "cubic_clock",
+          "confidence": 0.1696806699037552,
+          "box": [
+            253.61328125,
+            443.1925964355469,
+            287.8603820800781,
+            474.1477355957031
+          ]
+        },
+        {
+          "name": "dog_doll",
+          "confidence": 0.12943099439144135,
+          "box": [
+            25.433311462402344,
+            339.06793212890625,
+            137.42843627929688,
+            431.61944580078125
+          ]
+        }
+      ],
+      "proposals": [
+        {
+          "detection": {
+            "name": "apple",
+            "confidence": 0.45642542839050293,
+            "box": [
+              261.50738525390625,
+              337.0981750488281,
+              306.3294372558594,
+              377.6741027832031
+            ]
+          },
+          "candidate": {
+            "center_m": [
+              0.7035834046666484,
+              0.0772874989221469,
+              0.5397629887460454
+            ],
+            "radius_m": 0.02919811113583494,
+            "fit_residual_p95_m": 0.0072424419797221815,
+            "identity_confirmed": false,
+            "geometry_proposal_only": true,
+            "points": 1237,
+            "visible_surface_median_m": [
+              0.6915224210031885,
+              0.07563718631594629,
+              0.5583038457820395
+            ],
+            "visible_top_z_m": 0.5635946867123731,
+            "frame_id": "base_link",
+            "source": "rgbd",
+            "position_semantics": "estimated_grasp_center",
+            "stamp_ns": 1792315424402512535,
+            "room_confirmed": false,
+            "ready_for_motion": false,
+            "requires": [
+              "fresh_multiframe_consistency",
+              "room_check",
+              "reachability"
+            ],
+            "limitation": "Apple-only red surface plus approximate sphere. Fit residual is not total localization uncertainty."
+          },
+          "support": {
+            "support_height_at_center_m": 0.4960676154342574,
+            "plane_coefficients": [
+              0.0005298713136907385,
+              2.138256054406984e-05,
+              0.4956931541667107
+            ],
+            "plane_residual_p95_m": 0.0002853246941611376,
+            "support_points": 3825,
+            "support_fraction": 0.5834350213544844,
+            "estimated_bottom_m": 0.5105648776102105,
+            "bottom_gap_m": 0.014497262175953096,
+            "support_consistent": true,
+            "center_adjusted": false,
+            "grasp_center_verified": false,
+            "motion_authorized": false,
+            "limitation": "Surrounding depth supports a local plane hypothesis, not proof of contact or exact apple shape. Independent samples share camera calibration; systematic calibration bias is not ruled out.",
+            "visible_top_z_m": 0.5635946867123731,
+            "visible_height_above_support_m": 0.06752707127811569,
+            "support_top_midpoint_z_m": 0.5298311510733152,
+            "center_minus_support_top_midpoint_m": 0.009931837672730204
+          }
+        }
+      ],
+      "actual_bound_roi_verification": {
+        "schema": "near_grasp_roi_v1",
+        "plan": {
+          "eligible": true,
+          "reason": null,
+          "roi": [
+            123,
+            160,
+            443,
+            480
+          ],
+          "input_size": 640,
+          "source_box": [
+            261.50738525390625,
+            337.0981750488281,
+            306.3294372558594,
+            377.6741027832031
+          ],
+          "depth_stamp_ns": 1792315424402512535,
+          "rgb_stamp_ns": 1792315424397395936,
+          "full_frame_confidence": 0.45642542839050293,
+          "confidence_threshold": 0.8
+        },
+        "detections": [
+          {
+            "name": "apple",
+            "confidence": 0.9788181781768799,
+            "box": [
+              261.4680633544922,
+              336.9832305908203,
+              306.13525390625,
+              377.3460998535156
+            ]
+          },
+          {
+            "name": "cubic_clock",
+            "confidence": 0.911169171333313,
+            "box": [
+              253.88204956054688,
+              442.7967224121094,
+              288.2978057861328,
+              474.2322082519531
+            ]
+          },
+          {
+            "name": "toy_penguin",
+            "confidence": 0.7017614245414734,
+            "box": [
+              123.0,
+              354.1382751464844,
+              136.78406524658203,
+              418.7687683105469
+            ]
+          },
+          {
+            "name": "cubic_clock",
+            "confidence": 0.29486513137817383,
+            "box": [
+              254.4295654296875,
+              336.3448791503906,
+              318.3135986328125,
+              421.8402404785156
+            ]
+          }
+        ],
+        "status": "confirmed",
+        "reason": null,
+        "confidence": 0.9788181781768799,
+        "original_geometry_preserved": true,
+        "motion_authorized": false,
+        "model_sha256": "83e6ceb9650e6da78d05404a5ead9654278d502ce06d812a6b2b70673c513763",
+        "processing_s": 0.012057062000167207
+      }
+    },
+    {
+      "mode": "operator_selected_diagnostic_crop_ONLY",
+      "roi": [
+        125,
+        160,
+        445,
+        480
+      ],
+      "imgsz": 640,
+      "detections": [
+        {
+          "name": "cubic_clock",
+          "confidence": 0.8119767308235168,
+          "box": [
+            253.9710235595703,
+            442.814208984375,
+            288.4043884277344,
+            474.28106689453125
+          ]
+        },
+        {
+          "name": "ground_pepper",
+          "confidence": 0.6271576881408691,
+          "box": [
+            391.60418701171875,
+            343.9600372314453,
+            436.554931640625,
+            400.0625457763672
+          ]
+        },
+        {
+          "name": "toy_penguin",
+          "confidence": 0.37196266651153564,
+          "box": [
+            125.0,
+            355.16905212402344,
+            136.5441665649414,
+            410.666748046875
+          ]
+        },
+        {
+          "name": "apple",
+          "confidence": 0.1629338264465332,
+          "box": [
+            261.5183410644531,
+            336.90513610839844,
+            306.07386779785156,
+            377.2573547363281
+          ]
+        }
+      ]
+    }
+  ],
+  "robot_commands_sent": false,
+  "live_identity_authorized": false,
+  "model_or_threshold_changed": false
+}

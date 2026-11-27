@@ -1,0 +1,22 @@
+{
+  "status": "offline_validated_not_deployed",
+  "root": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/common-placement-v1-20261107-162514",
+  "checks": [
+    {
+      "name": "common-behavior",
+      "returncode": 0,
+      "tests": 14,
+      "log": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/common-placement-v1-20261107-162514/common-behavior.log"
+    },
+    {
+      "name": "existing-regressions",
+      "returncode": 0,
+      "tests": 135,
+      "log": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/common-placement-v1-20261107-162514/existing-regressions.log"
+    }
+  ],
+  "tests": 149,
+  "robot_commands_sent": false,
+  "ros_initialized": false,
+  "recorded_replay": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/common-placement-v1-20261107-162514/recorded-kitchen-replay.json"
+}

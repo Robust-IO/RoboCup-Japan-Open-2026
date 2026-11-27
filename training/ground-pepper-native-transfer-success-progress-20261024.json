@@ -1,0 +1,289 @@
+{
+  "version": 1,
+  "status": "ground_pepper_native_source_staged_grasp_carry_place_verified_robot_empty",
+  "saved_ns": 1792847974808162924,
+  "class_name": "ground_pepper",
+  "canonical_class_id": 11,
+  "source": "LayoutA bedroom white_side_table#bedroom_1",
+  "destination": "square_low_table#living_room",
+  "source_reposition_requested": false,
+  "human_object_reposition_required": false,
+  "default_future_tests_use_native_object_positions": true,
+  "user_preference_file": "/mnt/d/handyman-training-runs/manipulation-test-preferences.json",
+  "actual_staged_runs": [
+    "/mnt/d/handyman-training-runs/pepper-native-pregrasp-continuation-20261024-07",
+    "/mnt/d/handyman-training-runs/pepper-native-destination-place-20261024-10",
+    "/mnt/d/handyman-training-runs/pepper-native-released-cleanup-20261024-11",
+    "/mnt/d/handyman-training-runs/pepper-native-placement-proof-20261024-12"
+  ],
+  "physical_transfer_verified": true,
+  "grasp_success_verified": true,
+  "carry_success_verified": true,
+  "placement_success_verified": true,
+  "release_commands_sent_total": 1,
+  "close_commands_sent_total": 1,
+  "cleanup_completed": true,
+  "robot_ready_for_next_task": true,
+  "robot_holding_pepper": false,
+  "object_remains_held": false,
+  "hand_released": true,
+  "current_state_supersedes_all_old_held_contexts": true,
+  "last_verified_robot_state": {
+    "joints": [
+      0.0,
+      0.0,
+      0.0,
+      -1.5707963146269321,
+      0.0,
+      0.6499999859074279
+    ],
+    "poses": {
+      "map": [
+        2.2678091955551376,
+        2.6861733311059197,
+        1.655378574837634
+      ],
+      "odom": [
+        1.0839331150054932,
+        2.6854448318481445,
+        1.6553239817330554
+      ]
+    },
+    "stamp_ns": 1792847550700000000
+  },
+  "current_state_source": "/mnt/d/handyman-training-runs/pepper-native-placement-proof-20261024-12/result.json",
+  "last_verified_robot_state_description": "EMPTY, open hand, tucked in living room; pepper placed and supported on destination low table",
+  "historical_state_is_not_new_motion_authorization": true,
+  "full_uninterrupted_initial_start_transfer_verified": false,
+  "trial_kind": "staged development with actual new-source grasp, actual carry, one release, cleanup, and final read-only proof",
+  "statistical_success_rate_established": false,
+  "source_confidences": [
+    0.9878228902816772,
+    0.9878228902816772,
+    0.9878228902816772
+  ],
+  "preclose_contact_error_m": [
+    0.0010800589337474076,
+    0.0007297221876685078,
+    0.00038862945282969186
+  ],
+  "actual_small_centering_m": [
+    [
+      0.0,
+      -0.007010057091933322,
+      0.0
+    ]
+  ],
+  "actual_lift_m": [
+    0.10011586502980946,
+    0.10014653705001936,
+    0.10004286203799712
+  ],
+  "object_palm_follow_error_m": [
+    0.00013440810278142292,
+    0.00013791510952595345,
+    0.00015244597067836697
+  ],
+  "afterlift_tilts_deg": [
+    1.5219057851424092,
+    1.5219057851424092,
+    1.5219057851424092
+  ],
+  "held_opening_rad": 0.4044531064843149,
+  "actual_placement_verification": {
+    "placement_success_verified": true,
+    "class_name": "ground_pepper",
+    "destination_id": "square_low_table#living_room",
+    "checks": [
+      {
+        "ready": true,
+        "center_map_m": [
+          2.1056805817386124,
+          3.6409000330787182,
+          0.4708014914782309
+        ],
+        "bottom_map_m": [
+          2.1006508360107805,
+          3.6269292062777656,
+          0.44291103351220007
+        ],
+        "estimated_bottom_gap_m": -0.0006375393054351419,
+        "table_height_map_m": 0.4435485728176352,
+        "table_edge_safety": {
+          "safe": true,
+          "center_to_unsupported_m": 0.09389544089661694,
+          "object_radius_m": 0.031596835112773544,
+          "outer_clearance_lower_estimate_m": 0.0622986057838434,
+          "minimum_outer_gap_m": 0.03,
+          "uncertainty_allowance_m": 0.01,
+          "basis": "observed_table_support_not_furniture_aabb"
+        },
+        "planned_xy_is_success_gate": false,
+        "motion_authorized": false
+      },
+      {
+        "ready": true,
+        "center_map_m": [
+          2.105168619348247,
+          3.6412279655169586,
+          0.4708015209517203
+        ],
+        "bottom_map_m": [
+          2.1001392142376045,
+          3.6272570161776434,
+          0.44291106294301885
+        ],
+        "estimated_bottom_gap_m": -0.0006358461212790378,
+        "table_height_map_m": 0.4435469090642979,
+        "table_edge_safety": {
+          "safe": true,
+          "center_to_unsupported_m": 0.09389544089661694,
+          "object_radius_m": 0.031596835112773544,
+          "outer_clearance_lower_estimate_m": 0.0622986057838434,
+          "minimum_outer_gap_m": 0.03,
+          "uncertainty_allowance_m": 0.01,
+          "basis": "observed_table_support_not_furniture_aabb"
+        },
+        "planned_xy_is_success_gate": false,
+        "motion_authorized": false
+      },
+      {
+        "ready": true,
+        "center_map_m": [
+          2.106159091336079,
+          3.640883195696802,
+          0.47080142540706416
+        ],
+        "bottom_map_m": [
+          2.1011258787205405,
+          3.62691361665533,
+          0.4429109678755957
+        ],
+        "estimated_bottom_gap_m": -0.0006379220458442858,
+        "table_height_map_m": 0.44354888992144,
+        "table_edge_safety": {
+          "safe": true,
+          "center_to_unsupported_m": 0.09389544089661694,
+          "object_radius_m": 0.031596835112773565,
+          "outer_clearance_lower_estimate_m": 0.06229860578384338,
+          "minimum_outer_gap_m": 0.03,
+          "uncertainty_allowance_m": 0.01,
+          "basis": "observed_table_support_not_furniture_aabb"
+        },
+        "planned_xy_is_success_gate": false,
+        "motion_authorized": false
+      }
+    ],
+    "center_spread_m": 0.0005487194592736738,
+    "cleanup_completed": true,
+    "task_finished_sent": false
+  },
+  "final_placement_captures": [
+    "/mnt/d/handyman-training-runs/pepper-native-placement-proof-20261024-12/place/captures/001-placed",
+    "/mnt/d/handyman-training-runs/pepper-native-placement-proof-20261024-12/place/captures/002-placed",
+    "/mnt/d/handyman-training-runs/pepper-native-placement-proof-20261024-12/place/captures/003-placed"
+  ],
+  "final_verification_robot_commands_sent": false,
+  "minimum_table_outer_clearance_lower_estimate_m": 0.06229860578384338,
+  "grasp_carry_run_elapsed_s": 204.678420937,
+  "placement_release_run_elapsed_s": 31.849645516,
+  "cleanup_run_elapsed_s": 16.29375131,
+  "final_readonly_verification_elapsed_s": 2.606482985,
+  "elapsed_values_are_staged_run_durations_not_uninterrupted_task_time": true,
+  "tests_passed": 640,
+  "targeted_local_tests_passed": 98,
+  "test_scope": "manipulation runtime package; not a claim the whole training workspace is green",
+  "runtime_test_log": "/mnt/d/handyman-training-runs/pepper-final-observation-20261024-validation/tests.log",
+  "metadata_only_update_validated": true,
+  "model_and_map_audit": {
+    "status": "input_files_verified",
+    "environment_sha256": "fb739aa47ec13d450e5602c97383129e58ac9e20b5fd600c006f4b9d387181a2",
+    "semantic_map_sha256": "fcb762ed416642dc08bd6b11fc1a1a81f3ab8456ad485232dd7f9cb5a742ee5c",
+    "model_sha256": "83e6ceb9650e6da78d05404a5ead9654278d502ce06d812a6b2b70673c513763",
+    "near_grasp_roi_confirmation": true,
+    "motion_profile": "balanced_v1",
+    "motion_profiles_sha256": "dfaca76655426c69c113e3e478723a3edd48f8912d1c354b80bdf2b2275809b1",
+    "robot_commands_sent": false,
+    "scope": "File checks only; live sensor and localization readiness not established"
+  },
+  "model_changed": false,
+  "navigation_goal_precision_changed": false,
+  "navigation_current_precision": [
+    0.06,
+    0.08,
+    0.06
+  ],
+  "navigation_motion_profile": "balanced_v1",
+  "navigation_speed_parameters_restored": true,
+  "navigation_yaml_or_goal_tolerances_changed": false,
+  "joint_feedback_max_age_s": 0.6,
+  "rgbd_max_age_s": 0.4,
+  "tf_age_limit_changed": false,
+  "measured_raw_joint_age_s": {
+    "min": 0.412084929,
+    "median": 0.4742434595,
+    "max": 0.824212441
+  },
+  "joint_latency_policy_is_class_specific": true,
+  "original_can_default_joint_age_unchanged": true,
+  "original_timestamps_rewritten": false,
+  "underlying_clock_or_transport_latency_cause_not_resolved": true,
+  "extra_seat_m": 0.0,
+  "finger_midline_base_y_offset_m": -5e-05,
+  "lateral_alignment_tolerance_m": 0.004,
+  "task_finished_sent": false,
+  "latest_expected_hashes": {
+    "run_canned_grasp_trial.py": "68f6e4be97c4f7e8e9b41b5701fdd91f1962d4835ea2b7e7e384be2e92c8da88",
+    "run_canned_carry_trial.py": "eaafdca975ac703b2b14e07a6be4a958f062de7996c6d44d9cb0029b22d757f8",
+    "run_canned_place_trial.py": "cdacc984f33272acc12cc08ef5e73e0ef7d7699d6ccf4f1eae0236c9de33bc84",
+    "can_transfer_context.py": "6fa7295ad35c788ab9143d338bc9bf745c143359aed8e308eb126f9ba678f900",
+    "can_transfer_automation.py": "171abbef8fcd610e89942069b5ba831cedd43f802d9021e86cca58b116850622",
+    "run_object_transfer.py": "eaa059a2f54bfaa4bcd2e3206b2c2cd1d26fae63df336e853aa356f0fc1b403c",
+    "test_can_transfer_automation.py": "d16de88a548b2e635962153bf12ca04d319557e5a33be7c58ee6c19f7a826329",
+    "run_object_transfer.sh": "4162cb1f2608e0f53aba557a244f7f3014667d440545fa994a81db17fe40ab48",
+    "OBJECT_TRANSFER.txt": "aca313cdc93d8e9e6da7a272f1f2d29a8dc76b26ec87e49a83a7209e8a1b91f1",
+    "canned_grasp_geometry.py": "e8235692df98f697a624371e64a44d392eb0da645e3057ac7f60d7d8ac822824",
+    "canned_carry_geometry.py": "250bbdef3103417e41178bce5357cebfe1cea25a91d537ce79bc6262e64646b4",
+    "held_can_appearance.py": "c27828aff5de8e34f6190b30cb4f35c0549e0129c2bde42745ac2d86c2daac3f",
+    "canned_place_geometry.py": "b1d26edd861ff03ac8e4d802841d7ddc5ff2e1caa56870de98db43ed55fa2dd0",
+    "tracked_can_cap_geometry.py": "e3fff021adaa5f158ce9cfed87743473ded16680c472eb4d97f64161da7c3f16",
+    "test_tracked_can_cap_geometry.py": "f6974c5ec5d26f33f49c50e6888685b6d6d6222fb0cd98326cc0825b411f1b9f",
+    "can_release_timing.py": "da5fca38b57d092dd410bd9ea24a6bbd56682a8a0db3c486ceb973ef7b1d281a",
+    "test_can_release_timing.py": "f7895c16fd760ba74f50a574b5e8369a4cfd6ce8faafd95b2e7ffefd020fa34a",
+    "can_destination_surface.py": "2f64b65b3b0cabc3c2f21c1708bde6863380521073f40c4938f31a83337ad12a",
+    "test_can_destination_surface.py": "e5227acc86464c611cafb038d3ec3f199752dad6ea3132aeb5a04752166ef85c",
+    "can_identity_selection.py": "11f8df847fcc15e432d83285018abe6f10d83f411a89e0f12e995045fcb17bb1",
+    "test_can_identity_selection.py": "20595a2a3226bed9910b99861935492ab82d049c08e1eff52e9352a27cb335cd",
+    "canned_grasp_runtime.py": "6eb656dd84cf36369c162c73094ffed8934cf8d5f7de1e7c0c2aa5a3aa77ae7e",
+    "test_canned_grasp_geometry.py": "b1751c44ddd707d2cfd11fe839eaa501a35aa77d6015d0ef49d3dc095e09c58c",
+    "pregrasp_raised_trial.py": "9b2c48c882bc4a5d295fa93ebb7a1dc23239ae8ceb81cb50b0836a28abe63017",
+    "can_arm_startup.py": "186d1ec0ce96098bc618f547c9ebdcea4f121a6032b93008f63db246ec6605c6",
+    "test_can_arm_startup.py": "8a29e5789e48c141f8f0207ac7722b22bab1cb953316d20cc9c093a4f309468d",
+    "can_approach_plan.py": "a5e75d6b08f7b9783ddda0ba7a463fc9c8b48bb05d97cde99c95472feb46cf36",
+    "test_can_approach_plan.py": "6e40ca3472c5edcefda2fa083712e2a71ccb51d167df37a488b8da7c4a746eaf",
+    "pepper_geometry.py": "fde0fcacf9f42e50723751a7b13348fbf3a3dbf803c6f96a6494f5bcd1968136",
+    "pepper_hold.py": "4810b795fd005c6cb6a93996ec57e30c4690101259c4de63998cb4a5acc2aff1",
+    "pepper_place.py": "6753e57edb74acf2f1d1e7550fb2d6a1a9eb09ba5c9f36f49e16ccfa4496954c",
+    "pepper_runtime.py": "59c70ab560f40e9201fb8482c1bd05201be5ddf4cf2c088c21b2b2ea24023fa4",
+    "pepper_transfer_automation.py": "0d114659a84c4cdcd7dcc31716e48e969fcf630a3947ffc8a4be7c4f59486c20",
+    "replay_pepper_reference.py": "868113d76141881bf6f4c3e58d029a57c07ee07568f986d088efc7ed6233cba7",
+    "test_pepper_geometry.py": "02bf4442c7f54529ba9c12ef9b5c2ac93df3c1b368197b7ae11e77aaa30a9054",
+    "test_pepper_transfer.py": "372141aa049ecd063ad83b94f58b0ca7a5c1bca4e8f745c5657dabd8f0df612e",
+    "manipulation_profiles.py": "c28776c0a8baeb274db3cba2f44b5cde6ce8ed920038139153bceb601c33030e",
+    "config/manipulation_objects_v1.json": "62706b3ce536fda7c6cb36d41e85ce81d36ed8037fe08f646bce14004e0a8440",
+    "object_surface_geometry.py": "0c871a23925845b9b88bf272deb40931b2bf253597f0fb3ee4afcf5c808ebb82",
+    "generic_transfer_template.py": "a43c16dcb046c7ec84f77ab03e51a54c994e05174393bd90e7d8f47b5926e1ab",
+    "inspect_manipulation_capture.py": "70f8bf7429bf2c73f5613fe9a1e76d3ae7decf6bc52f0e06b2e70e76fc6917cc",
+    "reviewed_carry_adjustment.py": "1fcdefdb23fb208676e2beb2f53562e6609c2b8c5684ab5d860f50e7c6c1f065",
+    "synced_capture_selection.py": "6474dc2023e17f6c044e54ffbe1952f0ad4fef3af269cffba9d943b794d3dfa8",
+    "apple_transfer_auto_backend.py": "d4bed6e83e02fd900d33bbb52095ae5d98571a8102c50825b24180535ce027b6",
+    "inspect_transfer_ready.py": "f158adf62ae5af7eb3faf8bef617ce72e71458bea73701439a4f789ee471b104"
+  },
+  "next": [
+    "Do not resume any old held-pepper receipt: the actual final state is EMPTY.",
+    "Inspect current object locations before another task; do not request default human relocation.",
+    "The fixed-route ground-pepper primitives succeeded as a staged chain; a single uninterrupted initial-start regression remains pending.",
+    "Keep 4mm centering, zero extra forward seating, bounded 600ms pepper joint feedback, unchanged images/TF, and current navigation settings.",
+    "Repeated trials and more object classes are still required before claiming statistical manipulation reliability."
+  ]
+}

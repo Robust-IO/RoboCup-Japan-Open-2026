@@ -1,0 +1,4 @@
+{
+  "default": {"preferred_strategy": "side", "allowed_strategies": ["side", "overhead"]},
+  "target_overrides": {"toy_car": {"preferred_strategy": "overhead", "allowed_strategies": ["overhead"]}}
+}

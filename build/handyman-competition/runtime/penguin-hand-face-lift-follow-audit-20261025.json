@@ -1,0 +1,73 @@
+{
+  "robot_commands_sent": false,
+  "reference": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/penguin-native-transfer-20261025-10/grasp/captures/014-near-rejected",
+  "template_box": [
+    103,
+    226,
+    172,
+    292
+  ],
+  "rows": [
+    {
+      "capture": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/penguin-native-transfer-20261025-10/grasp/captures/013-near",
+      "correlation": 0.9575743079185486,
+      "pixel_shift": [
+        3,
+        -4
+      ],
+      "current_yellow_pixels": 2125,
+      "reference_yellow_pixels": 2194
+    },
+    {
+      "capture": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/penguin-native-transfer-20261025-10/grasp/captures/014-near-rejected",
+      "correlation": 1.0,
+      "pixel_shift": [
+        0,
+        0
+      ],
+      "current_yellow_pixels": 2194,
+      "reference_yellow_pixels": 2194
+    },
+    {
+      "capture": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/penguin-current-head-lift-test-20261025-01/captures/after-lift-0",
+      "correlation": 0.9988250732421875,
+      "pixel_shift": [
+        0,
+        0
+      ],
+      "current_yellow_pixels": 2193,
+      "reference_yellow_pixels": 2194
+    },
+    {
+      "capture": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/penguin-current-head-lift-test-20261025-01/captures/after-lift-2",
+      "correlation": 0.9989846348762512,
+      "pixel_shift": [
+        0,
+        0
+      ],
+      "current_yellow_pixels": 2194,
+      "reference_yellow_pixels": 2194
+    },
+    {
+      "capture": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/penguin-current-head-lift-test-20261025-01/captures/after-lift-3",
+      "correlation": 0.9991543292999268,
+      "pixel_shift": [
+        0,
+        0
+      ],
+      "current_yellow_pixels": 2195,
+      "reference_yellow_pixels": 2194
+    },
+    {
+      "capture": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/penguin-current-head-lift-test-20261025-01/captures/after-lift-4",
+      "correlation": 0.99898362159729,
+      "pixel_shift": [
+        0,
+        0
+      ],
+      "current_yellow_pixels": 2194,
+      "reference_yellow_pixels": 2194
+    }
+  ],
+  "interpretation": "RGB appearance/relative-hand tracking only; does not create new 3D depth positions"
+}

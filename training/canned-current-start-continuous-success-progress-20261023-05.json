@@ -1,0 +1,113 @@
+{
+  "status": "one_current_source_area_uninterrupted_can_transfer_verified",
+  "saved_ns": 1792769667050439584,
+  "branch": "feat/handyman-phase5-grasping",
+  "run_id": "can-auto-live-20261023-05",
+  "boot_id": "03e2ce8b-528d-4517-a5f5-5aa905f81a77",
+  "actual_run": "D:/handyman-training-runs/can-auto-live-20261023-05",
+  "object": "canned_juice",
+  "layout": "LayoutA",
+  "source": "white_side_table#bedroom_1",
+  "destination": "square_low_table#living_room",
+  "actual_start_map_pose": [
+    9.823053807104317,
+    -6.631236644475489,
+    -0.08393998746350238
+  ],
+  "default_initial_pose_whole_run_verified": false,
+  "uninterrupted_physical_transfer_verified": true,
+  "human_or_agent_stage_resume_used": false,
+  "historical_checkpoint_used": false,
+  "elapsed_s": 300.784515949,
+  "stage_durations_s": {
+    "preflight": 1.324816707,
+    "navigate_source": 9.08189519,
+    "head_view": 3.301130172,
+    "grasp_lift": 57.086182586,
+    "carry_destination": 174.743786288,
+    "place_verify": 55.139299414
+  },
+  "actual_close_commands": 1,
+  "actual_release_commands": 1,
+  "grasp_approaches": 1,
+  "placement_approaches": 1,
+  "final_three_depth_frames_verified": true,
+  "final_can_center_map_m": [
+    1.9314151678274591,
+    3.5375918163455884,
+    0.5023042744642559
+  ],
+  "final_center_spread_m": 0.00062829048560128,
+  "final_outer_support_clearance_lower_estimate_m": 0.06189298816161936,
+  "final_rgb_capture": "D:/handyman-training-runs/can-auto-live-20261023-05/place/captures/013-final-02",
+  "last_measured_robot_state": {
+    "joints": [
+      0.0,
+      0.0,
+      0.0,
+      -1.5707963146269321,
+      0.0,
+      0.6499999859074279
+    ],
+    "poses": {
+      "map": [
+        2.08295105263082,
+        2.5955546422522366,
+        1.6454549121551605
+      ],
+      "odom": [
+        0.8990700244903564,
+        2.5948362350463867,
+        1.6454003171278797
+      ]
+    },
+    "stamp_ns": 1792769641608000000
+  },
+  "last_state_is_record_not_future_motion_authorization": true,
+  "robot_ready_for_next_task": true,
+  "cleanup_completed": true,
+  "tests": 579,
+  "latest_expected_hashes": {
+    "run_canned_grasp_trial.py": "cdc1ad89a754c1a04d258fd29a6fa7642dba3fa3489000304f3f52f8e4397632",
+    "run_canned_carry_trial.py": "eaafdca975ac703b2b14e07a6be4a958f062de7996c6d44d9cb0029b22d757f8",
+    "run_canned_place_trial.py": "cdacc984f33272acc12cc08ef5e73e0ef7d7699d6ccf4f1eae0236c9de33bc84",
+    "can_transfer_context.py": "6fa7295ad35c788ab9143d338bc9bf745c143359aed8e308eb126f9ba678f900",
+    "can_transfer_automation.py": "171abbef8fcd610e89942069b5ba831cedd43f802d9021e86cca58b116850622",
+    "run_object_transfer.py": "6230e3f820297f104c3c167e421795c6f27c7469cb39c3588bdd39d226e536c5",
+    "test_can_transfer_automation.py": "d16de88a548b2e635962153bf12ca04d319557e5a33be7c58ee6c19f7a826329",
+    "run_object_transfer.sh": "4162cb1f2608e0f53aba557a244f7f3014667d440545fa994a81db17fe40ab48",
+    "OBJECT_TRANSFER.txt": "851096928993377f7237fc71f58d82ef90cc6b1d724d7228fa33683f20ed43f2",
+    "canned_grasp_geometry.py": "a7f620be97a08566df8161b4daa32019e633225f42ee06df024c8075810125d1",
+    "canned_carry_geometry.py": "ccd7b5b979a35067f8e97534bdf05e8fbd8f49a61b79b84a628fc9f600bb6ced",
+    "held_can_appearance.py": "c27828aff5de8e34f6190b30cb4f35c0549e0129c2bde42745ac2d86c2daac3f",
+    "canned_place_geometry.py": "b1d26edd861ff03ac8e4d802841d7ddc5ff2e1caa56870de98db43ed55fa2dd0",
+    "tracked_can_cap_geometry.py": "9a1bbfd8458f6963eca894f44a8a069f6d3e878ad620f3855aeec1ef75f3281b",
+    "test_tracked_can_cap_geometry.py": "c2904c0103666c81953b290770a53895da836de8d46e55a458aa49699037312a",
+    "can_release_timing.py": "da5fca38b57d092dd410bd9ea24a6bbd56682a8a0db3c486ceb973ef7b1d281a",
+    "test_can_release_timing.py": "f7895c16fd760ba74f50a574b5e8369a4cfd6ce8faafd95b2e7ffefd020fa34a",
+    "can_destination_surface.py": "2f64b65b3b0cabc3c2f21c1708bde6863380521073f40c4938f31a83337ad12a",
+    "test_can_destination_surface.py": "e5227acc86464c611cafb038d3ec3f199752dad6ea3132aeb5a04752166ef85c",
+    "can_identity_selection.py": "11f8df847fcc15e432d83285018abe6f10d83f411a89e0f12e995045fcb17bb1",
+    "test_can_identity_selection.py": "20595a2a3226bed9910b99861935492ab82d049c08e1eff52e9352a27cb335cd",
+    "canned_grasp_runtime.py": "68d624849c17edb9e59e104ed87ca9df8d82dd928b6d8e2e6945fbc4f36b8e8a",
+    "test_canned_grasp_geometry.py": "6d4bfa93f053c562cb07b7f799a9892763dc7a5d1bbe2d1e1b417e1134c99305"
+  },
+  "model_map_navigation_tolerances_unchanged": true,
+  "apple_legacy_unchanged": true,
+  "task_finished_sent": false,
+  "original_failed_runs_preserved": [
+    "can-auto-live-20261023-01",
+    "can-auto-live-20261023-02",
+    "can-auto-live-20261023-03",
+    "can-auto-live-20261023-04"
+  ],
+  "continuous_successful_cases": 1,
+  "success_rate_not_measured": true,
+  "full30_class_manipulation_verified": false,
+  "next": [
+    "Can is RELEASED on living_room square_low_table; robot is empty-handed and tucked. Never replay held continuations.",
+    "Run05 started near bedroom source staging after explicit empty-arm retreat/tuck. It is not a default initial-pose whole-run test.",
+    "All six stages from this actual start completed continuously without stage resumption or code changes mid-run.",
+    "Next assess repeatability from a reset initial pose with the can restored to the source, then other objects on the same route."
+  ]
+}

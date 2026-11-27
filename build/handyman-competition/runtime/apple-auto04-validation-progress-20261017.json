@@ -1,0 +1,70 @@
+{
+  "trial": "automatic-apple-20261017-04",
+  "task_id": "apple-auto-20261017-04",
+  "status": "STOPPED BEFORE GRASP; not a whole-transfer success",
+  "directory": "D:/handyman-training-runs/automatic-apple-20261017-04",
+  "implementation_tested": "20261017-speed-r3 with edge-r2 tabletop safety",
+  "completed_stages": ["preflight", "navigate_source", "head_view"],
+  "stopped_stage": "observe_source",
+  "reason": "fresh_observation_wait_expired:fresh_joint_snapshot_required",
+  "navigation": {
+    "file": "D:/handyman-training-runs/automatic-apple-20261017-04/source-navigation.json",
+    "arrived": true,
+    "waypoints_passed": 5,
+    "max_position_error_m": 0.05804775746210192,
+    "final_position_error_m": 0.05739855454226639,
+    "arrival_map_pose": [9.85183542015128, -6.588363884058115, -0.07386490822878368],
+    "speed_limit_readback_passed": true,
+    "speed_limits_restored": true,
+    "goal_precision_changed": false,
+    "actual_linear_speed_gain_verified": false,
+    "limitation": "Requested caps and readback passed, but pose logs show some long-leg progress near0.2m/s. This does not establish actual0.28m/s travel. DWB internal caching/planner-selected velocities need auditing; do not label all speed changes live-verified."
+  },
+  "apple_observation": {
+    "frames_recorded": 254,
+    "room": "bedroom",
+    "confidence_example": 0.995902955532074,
+    "support_consistent": true,
+    "example_capture": "D:/handyman-training-runs/automatic-apple-20261017-04/source-observe/000174",
+    "example_center_map_m": [10.655411466369632, -6.3250387825384635, 0.53601225314418],
+    "example_rgbd_to_detector_result_s": 0.332061299,
+    "example_depth_minus_joint_stamp_s": 0.173695705,
+    "estimated_joint_age_at_result_s": 0.505757004,
+    "joint_freshness_limit_s_unchanged": 0.4,
+    "interpretation": "Apple identity and supporting plane were observed; paired joint snapshot was too old when the result was consumed. Identity confidence is not permission to bypass current-state checks."
+  },
+  "post_stop_audits": {
+    "single_readiness_file": "D:/handyman-training-runs/apple-auto04-post-stop-20261017.json",
+    "single_readiness_passed": false,
+    "single_readiness_reason": "stale_joint_feedback",
+    "timing_file": "D:/handyman-training-runs/apple-auto04-feedback-audit-20261017.json",
+    "joints_age_range_s": [0.286970264, 0.506184597],
+    "max_joint_receive_gap_s": 0.222098964,
+    "last_map_pose": [9.851489931809654, -6.58819089880502, -0.07193490437079036],
+    "interpretation": "Joint messages continue arriving; latency already exists before inference, and processing adds more. Not evidence of object absence. No claim that post-stop readiness passed.",
+    "owned_automation_or_grasp_process_remaining": false
+  },
+  "last_known_physical_state": {
+    "room": "bedroom",
+    "holding_object": false,
+    "apple_location": "User-prepared white_side_table#bedroom_1; not grasped or moved by this trial",
+    "arm": "tucked, unchanged from preflight; no arm/gripper trajectory published",
+    "gripper": "open .65 from preflight",
+    "base_map_pose_from_post_stop_probe": [9.851489931809654, -6.58819089880502, -0.07193490437079036],
+    "fresh_readiness_still_required": true
+  },
+  "arm_commands_sent": false,
+  "gripper_commands_sent": false,
+  "new_table_edge_rule_executed_live": false,
+  "task_finished_sent": false,
+  "does_not_exist_sent": false,
+  "production_code_changed_during_validation": false,
+  "automatic_retry_performed": false,
+  "original_failed_journal_preserved": true,
+  "next": "Keep Unity and apple where they are; no restart/reposition is currently needed. Correct/audit feedback timing without widening freshness thresholds, and audit actual speed versus parameter readback. Then freshly verify idle/empty/tucked/localization and use a NEW full-run directory; never replay trial04 journal. Arm speed and safe placement remain untested live.",
+  "dwb_cache_diagnostic_candidate": {
+    "reference": "https://api.nav2.org/nav2-humble/html/kinematic__parameters_8cpp_source.html",
+    "observation": "Published Humble source refreshes max_speed_xy in its dynamic branch but refreshes squared maximum in the min_speed_theta branch. Installed binary/version and actual cmd_vel must be checked before attributing low speed to this issue.",
+    "cause_proven_on_installed_system": false
+  }
+}

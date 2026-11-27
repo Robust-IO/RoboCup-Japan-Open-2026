@@ -1,0 +1,42 @@
+{
+  "status": "deployed_tests_passed",
+  "revision": "efficiency-r17",
+  "branch": "feat/handyman-phase5-grasping",
+  "copies": 3,
+  "hashes": {
+    "apple_transfer_auto_backend.py": "bce356c0d6befde190d5e55222ae736054fc8db77a1b6da8e3df2b53a34c67bc",
+    "apple_transfer_auto_plan.py": "201e314c9d21c96726ef6f3e624361ac83914479fe774675cf00fc59b4adc44e",
+    "config/apple_transfer_auto_v1.json": "82276f26935d706ba46c347027f201631bda5514fcad3ad0c4f876bdf2a96633",
+    "capture_grasp_scene.py": "0dbaa8dd2f20be77819ebf22731a5f002b4c43ecee14e725a8ef0eb44478d0c1",
+    "apple_worker_client.py": "777c9c26efd36cf50ec3a122a52b850e3e74dbc4c6731ceaead3532ec6c10322",
+    "apple_inference_worker.py": "077b14466e6175eaafb21b000d6be9de7f54e5029ab2b03cb7aa58fe01dc35f7",
+    "inspect_table_apple.py": "3ae370209a006af86b5553642fa59f1768eceb00f3ebe4dabf4007ad0fbe4ce2",
+    "pregrasp_raised_trial.py": "1e104ed6b49d04af8bf89c2cc8527a8bb207a224dd59537c5bc76836ea5c5673",
+    "inspect_transfer_ready.py": "2ac20462eb76e77fcb9f58a859e6bf1af63a2cc25b9dba4e705328da7d072f32",
+    "apple_approach_lease.py": "30e9e3608d399c2bd304f57b619d21ee37a056b5efc153b3d3fb156599de05cb",
+    "run_bedroom_apple_regrasp.py": "aeb3d84e1558a46ddf497104c476597a08c79ae4012e387c23e11cae448e2dbe",
+    "run_apple_close_lift_trial.py": "ff51e63e43158109dbae8edb92f616120f16b844364a46b0b284a2c8e54a8718",
+    "reviewed_carry_adjustment.py": "e7931492d5337897fdfd07cac4bba919d7345d4c2b104e566579d7afdc18af9e",
+    "transfer_efficiency.py": "50a596a041ced817fda9230ed8783013d9916818a58d4a6fbc407bcf0cc09a21",
+    "apple_shared_inference.py": "5da282b7d9e4445f42190c2418a9fe5800027d69697f3bf7c4b593ad47e132ea",
+    "test_transfer_efficiency.py": "35b91bbe7fa0fe361455a51bb67e00ac357bfe323bfc83b6655f94a15924e599",
+    "APPLE_TRANSFER_AUTOMATION.txt": "f816930f87e16bfdbf9a413106f7f29bfff40c78e79d0b9a607885f9fe1da906"
+  },
+  "checkpoint_hashes": {
+    "apple-efficiency-r17-progress-20261022.json": "1cb747d7ac24360d9f20f3061eae99e0c981f33c8a1df6f2771b9cd22f137c18",
+    "phase5-visual-test-preparation-20261022.json": "45ab3e393bbc12e5c6c4e15c6b16c83487227d63c74681c673a9bc7b19d9db35",
+    "phase5-restart-checkpoint-20261017.json": "23434902fd889f75e72fcb19b7715252812d648ebf4a702c0b617d5bf095b9db",
+    "apple-transfer-automation-progress-20261017.json": "2831ee4d0b1b39141d29f590ac3cc0fc45f068ba345802404acf429c51bf5352",
+    "apple-transfer-live-progress-20261017.json": "2bbf445d9eec42f0295cfe1271f054e9cae164d68d351d54f73d9f3d7d2c368c",
+    "apple-outcome-policy-progress-20261018.json": "ba17853d851e8bf6b7eb7202030021d0f777343abf50e28b46198010a5acbf27"
+  },
+  "checkpoint": "D:/handyman-training-runs/apple-efficiency-r17-progress-20261022.json",
+  "archive_sha256": "a9c15e485a90557c4cd20d921fd79cb27bf6c9a34326b0911f81a5e77bcf9172",
+  "backup": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-before-efficiency-r17-20261022.tar.gz",
+  "runtime_tests": 386,
+  "navigation_frozen_hashes_verified": true,
+  "navigation_adapter_ast_unchanged": true,
+  "navigation_or_speed_parameters_changed": false,
+  "robot_commands_sent": false,
+  "new_full_live_trial": false
+}

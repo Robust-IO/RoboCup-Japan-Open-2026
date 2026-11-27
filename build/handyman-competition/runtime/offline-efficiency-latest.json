@@ -1,0 +1,12 @@
+{
+  "status": "offline_validated_not_activated",
+  "package": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/offline-efficiency-v1-20261106",
+  "validation": "/mnt/d/handyman-tools/offline-efficiency-validation-20261106-154945",
+  "backup": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/backups/before-offline-efficiency-20261106-154945",
+  "active_files_unchanged": true,
+  "robot_commands_sent": false,
+  "ros_processes_started": false,
+  "unity_required": false,
+  "live_validation": false,
+  "next": "Activate the validated code and restart the localization service only when Unity is available for one uninterrupted acceptance run."
+}

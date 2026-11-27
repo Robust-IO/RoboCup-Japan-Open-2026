@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "profiles": {
+    "baseline": {
+      "mode": "legacy"
+    },
+    "balanced_v1": {
+      "mode": "measured_duration",
+      "navigation": {
+        "empty_linear_mps": 0.28,
+        "empty_angular_rps": 0.4,
+        "holding_linear_mps": 0.24,
+        "holding_angular_rps": 0.3,
+        "short_linear_mps": 0.2,
+        "short_angular_rps": 0.2,
+        "short_segment_m": 1.6
+      },
+      "arm": {
+        "empty_lift_mps": 0.1,
+        "empty_angular_rps": 0.65,
+        "holding_lift_mps": 0.1,
+        "holding_angular_rps": 0.5,
+        "minimum_duration_s": 1.2,
+        "trajectory_allowance_s": 0.15
+      },
+      "finite_base": {
+        "empty_linear_mps": 0.12,
+        "holding_linear_mps": 0.1,
+        "near_linear_mps": 0.06,
+        "near_distance_m": 0.08,
+        "angular_rps": 0.3,
+        "minimum_duration_s": 1.0,
+        "trajectory_allowance_s": 0.15
+      }
+    },
+    "carry_fast_v1": {
+      "mode": "measured_duration",
+      "navigation": {
+        "empty_linear_mps": 0.28,
+        "empty_angular_rps": 0.8,
+        "holding_linear_mps": 0.28,
+        "holding_angular_rps": 0.8,
+        "short_linear_mps": 0.2,
+        "short_angular_rps": 0.8,
+        "short_segment_m": 1.6
+      },
+      "arm": {
+        "empty_lift_mps": 0.1,
+        "empty_angular_rps": 0.65,
+        "holding_lift_mps": 0.1,
+        "holding_angular_rps": 0.5,
+        "minimum_duration_s": 1.2,
+        "trajectory_allowance_s": 0.15
+      },
+      "finite_base": {
+        "empty_linear_mps": 0.12,
+        "holding_linear_mps": 0.1,
+        "near_linear_mps": 0.06,
+        "near_distance_m": 0.08,
+        "angular_rps": 0.3,
+        "minimum_duration_s": 1.0,
+        "trajectory_allowance_s": 0.15
+      }
+    },
+    "efficiency_v1": {
+      "mode": "measured_duration",
+      "navigation": {
+        "empty_linear_mps": 0.3,
+        "empty_angular_rps": 1.0,
+        "holding_linear_mps": 0.3,
+        "holding_angular_rps": 1.0,
+        "short_linear_mps": 0.24,
+        "short_angular_rps": 1.0,
+        "short_segment_m": 1.6
+      },
+      "arm": {
+        "empty_lift_mps": 0.1,
+        "empty_angular_rps": 0.65,
+        "holding_lift_mps": 0.1,
+        "holding_angular_rps": 0.5,
+        "minimum_duration_s": 1.2,
+        "trajectory_allowance_s": 0.15
+      },
+      "finite_base": {
+        "empty_linear_mps": 0.12,
+        "holding_linear_mps": 0.1,
+        "near_linear_mps": 0.06,
+        "near_distance_m": 0.08,
+        "angular_rps": 0.3,
+        "minimum_duration_s": 1.0,
+        "trajectory_allowance_s": 0.15
+      }
+    }
+  },
+  "scope": "Reviewed Unity HSR simulation only. Short-leg slowdown is a distance heuristic, not a complete semantic doorway speed zone. No Unity model/receiver changes."
+}

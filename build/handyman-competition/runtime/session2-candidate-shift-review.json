@@ -1,0 +1,44 @@
+{
+  "method": "static_footprint_grid_path_and_support_sightline",
+  "footprint_radius_m": 0.26109759058979437,
+  "candidates": [
+    {
+      "index": 0,
+      "pose": [
+        -2.6349298233333625,
+        -6.139702288995186,
+        3.115101
+      ],
+      "path_length_m": 5.897056274847701,
+      "view_clear": true,
+      "rejected_reason": null
+    },
+    {
+      "index": 1,
+      "pose": [
+        -3.828990839137195,
+        -4.944909704581156,
+        -1.540746
+      ],
+      "path_length_m": 5.19411254969542,
+      "view_clear": true,
+      "rejected_reason": null
+    },
+    {
+      "index": 2,
+      "pose": [
+        -3.829292109771516,
+        -7.345081466619176,
+        1.542253
+      ],
+      "path_length_m": null,
+      "view_clear": false,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    }
+  ],
+  "ranked_indices": [
+    1,
+    0
+  ],
+  "dynamic_obstacles_evaluated": false
+}

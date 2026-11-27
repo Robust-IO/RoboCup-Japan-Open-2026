@@ -1,0 +1,390 @@
+{
+  "mode": "offline_replay",
+  "physical_transfer_verified": false,
+  "robot_commands_sent": 0,
+  "protocol_messages_sent": 0,
+  "final": {
+    "session_id": "session1-synthetic-fixture",
+    "run_id": "1663bc398fa8442db06f8cbf665e029b",
+    "state": "succeeded",
+    "task": {
+      "layout": "LayoutA",
+      "target": "dog_doll",
+      "room": "living_room",
+      "destination": "square_low_table#living_room",
+      "destination_room": "living_room"
+    },
+    "pending": null,
+    "reason": null,
+    "evidence": {
+      "navigate_room": {
+        "status": "ok",
+        "room": "living_room",
+        "arrived": true
+      },
+      "search": {
+        "status": "ok",
+        "room": "living_room",
+        "target": "dog_doll",
+        "confirmed": true,
+        "evidence_ref": "synthetic/rgbd"
+      },
+      "grasp": {
+        "status": "ok",
+        "target": "dog_doll",
+        "grasp_verified": true
+      },
+      "tuck": {
+        "status": "ok",
+        "holding_verified": true,
+        "carry_ready": true
+      },
+      "navigate_destination": {
+        "status": "ok",
+        "destination": "square_low_table#living_room",
+        "arrived": true
+      },
+      "place": {
+        "status": "ok",
+        "release_sent": true
+      },
+      "verify_placement": {
+        "status": "ok",
+        "target": "dog_doll",
+        "destination": "square_low_table#living_room",
+        "placement_verified": true
+      }
+    }
+  },
+  "timeline": [
+    {
+      "line": 1,
+      "state": "waiting_ready",
+      "effects": []
+    },
+    {
+      "line": 2,
+      "state": "waiting_ready",
+      "effects": []
+    },
+    {
+      "line": 3,
+      "state": "waiting_instruction",
+      "effects": [
+        {
+          "kind": "protocol",
+          "session_id": "session1-synthetic-fixture",
+          "run_id": "1663bc398fa8442db06f8cbf665e029b",
+          "message": "I_am_ready",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "line": 4,
+      "state": "navigate_room",
+      "effects": [
+        {
+          "kind": "operation",
+          "session_id": "session1-synthetic-fixture",
+          "run_id": "1663bc398fa8442db06f8cbf665e029b",
+          "operation_id": "1663bc398fa8442db06f8cbf665e029b/1",
+          "stage": "navigate_room",
+          "task": {
+            "layout": "LayoutA",
+            "target": "dog_doll",
+            "room": "living_room",
+            "destination": "square_low_table#living_room",
+            "destination_room": "living_room"
+          },
+          "evidence": {},
+          "strategy": null
+        }
+      ]
+    },
+    {
+      "line": 5,
+      "state": "search",
+      "effects": [
+        {
+          "kind": "protocol",
+          "session_id": "session1-synthetic-fixture",
+          "run_id": "1663bc398fa8442db06f8cbf665e029b",
+          "message": "Room_reached",
+          "detail": ""
+        },
+        {
+          "kind": "operation",
+          "session_id": "session1-synthetic-fixture",
+          "run_id": "1663bc398fa8442db06f8cbf665e029b",
+          "operation_id": "1663bc398fa8442db06f8cbf665e029b/2",
+          "stage": "search",
+          "task": {
+            "layout": "LayoutA",
+            "target": "dog_doll",
+            "room": "living_room",
+            "destination": "square_low_table#living_room",
+            "destination_room": "living_room"
+          },
+          "evidence": {
+            "navigate_room": {
+              "status": "ok",
+              "room": "living_room",
+              "arrived": true
+            }
+          },
+          "strategy": null
+        }
+      ]
+    },
+    {
+      "line": 6,
+      "state": "grasp",
+      "effects": [
+        {
+          "kind": "operation",
+          "session_id": "session1-synthetic-fixture",
+          "run_id": "1663bc398fa8442db06f8cbf665e029b",
+          "operation_id": "1663bc398fa8442db06f8cbf665e029b/3",
+          "stage": "grasp",
+          "task": {
+            "layout": "LayoutA",
+            "target": "dog_doll",
+            "room": "living_room",
+            "destination": "square_low_table#living_room",
+            "destination_room": "living_room"
+          },
+          "evidence": {
+            "navigate_room": {
+              "status": "ok",
+              "room": "living_room",
+              "arrived": true
+            },
+            "search": {
+              "status": "ok",
+              "room": "living_room",
+              "target": "dog_doll",
+              "confirmed": true,
+              "evidence_ref": "synthetic/rgbd"
+            }
+          },
+          "strategy": "measured_irregular_body"
+        }
+      ]
+    },
+    {
+      "line": 7,
+      "state": "tuck",
+      "effects": [
+        {
+          "kind": "protocol",
+          "session_id": "session1-synthetic-fixture",
+          "run_id": "1663bc398fa8442db06f8cbf665e029b",
+          "message": "Object_grasped",
+          "detail": ""
+        },
+        {
+          "kind": "operation",
+          "session_id": "session1-synthetic-fixture",
+          "run_id": "1663bc398fa8442db06f8cbf665e029b",
+          "operation_id": "1663bc398fa8442db06f8cbf665e029b/4",
+          "stage": "tuck",
+          "task": {
+            "layout": "LayoutA",
+            "target": "dog_doll",
+            "room": "living_room",
+            "destination": "square_low_table#living_room",
+            "destination_room": "living_room"
+          },
+          "evidence": {
+            "navigate_room": {
+              "status": "ok",
+              "room": "living_room",
+              "arrived": true
+            },
+            "search": {
+              "status": "ok",
+              "room": "living_room",
+              "target": "dog_doll",
+              "confirmed": true,
+              "evidence_ref": "synthetic/rgbd"
+            },
+            "grasp": {
+              "status": "ok",
+              "target": "dog_doll",
+              "grasp_verified": true
+            }
+          },
+          "strategy": null
+        }
+      ]
+    },
+    {
+      "line": 8,
+      "state": "navigate_destination",
+      "effects": [
+        {
+          "kind": "operation",
+          "session_id": "session1-synthetic-fixture",
+          "run_id": "1663bc398fa8442db06f8cbf665e029b",
+          "operation_id": "1663bc398fa8442db06f8cbf665e029b/5",
+          "stage": "navigate_destination",
+          "task": {
+            "layout": "LayoutA",
+            "target": "dog_doll",
+            "room": "living_room",
+            "destination": "square_low_table#living_room",
+            "destination_room": "living_room"
+          },
+          "evidence": {
+            "navigate_room": {
+              "status": "ok",
+              "room": "living_room",
+              "arrived": true
+            },
+            "search": {
+              "status": "ok",
+              "room": "living_room",
+              "target": "dog_doll",
+              "confirmed": true,
+              "evidence_ref": "synthetic/rgbd"
+            },
+            "grasp": {
+              "status": "ok",
+              "target": "dog_doll",
+              "grasp_verified": true
+            },
+            "tuck": {
+              "status": "ok",
+              "holding_verified": true,
+              "carry_ready": true
+            }
+          },
+          "strategy": null
+        }
+      ]
+    },
+    {
+      "line": 9,
+      "state": "place",
+      "effects": [
+        {
+          "kind": "operation",
+          "session_id": "session1-synthetic-fixture",
+          "run_id": "1663bc398fa8442db06f8cbf665e029b",
+          "operation_id": "1663bc398fa8442db06f8cbf665e029b/6",
+          "stage": "place",
+          "task": {
+            "layout": "LayoutA",
+            "target": "dog_doll",
+            "room": "living_room",
+            "destination": "square_low_table#living_room",
+            "destination_room": "living_room"
+          },
+          "evidence": {
+            "navigate_room": {
+              "status": "ok",
+              "room": "living_room",
+              "arrived": true
+            },
+            "search": {
+              "status": "ok",
+              "room": "living_room",
+              "target": "dog_doll",
+              "confirmed": true,
+              "evidence_ref": "synthetic/rgbd"
+            },
+            "grasp": {
+              "status": "ok",
+              "target": "dog_doll",
+              "grasp_verified": true
+            },
+            "tuck": {
+              "status": "ok",
+              "holding_verified": true,
+              "carry_ready": true
+            },
+            "navigate_destination": {
+              "status": "ok",
+              "destination": "square_low_table#living_room",
+              "arrived": true
+            }
+          },
+          "strategy": null
+        }
+      ]
+    },
+    {
+      "line": 10,
+      "state": "verify_placement",
+      "effects": [
+        {
+          "kind": "operation",
+          "session_id": "session1-synthetic-fixture",
+          "run_id": "1663bc398fa8442db06f8cbf665e029b",
+          "operation_id": "1663bc398fa8442db06f8cbf665e029b/7",
+          "stage": "verify_placement",
+          "task": {
+            "layout": "LayoutA",
+            "target": "dog_doll",
+            "room": "living_room",
+            "destination": "square_low_table#living_room",
+            "destination_room": "living_room"
+          },
+          "evidence": {
+            "navigate_room": {
+              "status": "ok",
+              "room": "living_room",
+              "arrived": true
+            },
+            "search": {
+              "status": "ok",
+              "room": "living_room",
+              "target": "dog_doll",
+              "confirmed": true,
+              "evidence_ref": "synthetic/rgbd"
+            },
+            "grasp": {
+              "status": "ok",
+              "target": "dog_doll",
+              "grasp_verified": true
+            },
+            "tuck": {
+              "status": "ok",
+              "holding_verified": true,
+              "carry_ready": true
+            },
+            "navigate_destination": {
+              "status": "ok",
+              "destination": "square_low_table#living_room",
+              "arrived": true
+            },
+            "place": {
+              "status": "ok",
+              "release_sent": true
+            }
+          },
+          "strategy": null
+        }
+      ]
+    },
+    {
+      "line": 11,
+      "state": "waiting_moderator",
+      "effects": [
+        {
+          "kind": "protocol",
+          "session_id": "session1-synthetic-fixture",
+          "run_id": "1663bc398fa8442db06f8cbf665e029b",
+          "message": "Task_finished",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "line": 12,
+      "state": "succeeded",
+      "effects": []
+    }
+  ]
+}

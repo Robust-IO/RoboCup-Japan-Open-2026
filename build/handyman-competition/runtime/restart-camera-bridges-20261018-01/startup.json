@@ -1,0 +1,25 @@
+{
+  "status": "bridges_listening",
+  "pids": {
+    "rosbridge": 183,
+    "sigverse": 184
+  },
+  "commands": {
+    "rosbridge": [
+      "ros2",
+      "launch",
+      "rosbridge_server",
+      "rosbridge_websocket_launch.xml",
+      "port:=9090"
+    ],
+    "sigverse": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/bridge-framing-install-20261010/sigverse_ros_bridge/lib/sigverse_ros_bridge/sigverse_ros_bridge",
+      "50001",
+      "65535"
+    ]
+  },
+  "domain": 71,
+  "robot_motion_or_protocol_node_started": false,
+  "unity_data_verified": false,
+  "logs": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/restart-camera-bridges-20261018-01"
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "handyman_session_profile_v1",
+  "session_number": 4,
+  "layout": "LayoutC",
+  "target": "tumbler",
+  "source": {"room": "lobby", "furniture_id": "white_side_table#lobby"},
+  "destination": {"room": "lobby", "furniture_id": "trash_box_for_burnable#lobby", "mode": "container_drop", "candidate_forward_shift_m": 0.0, "release_approach_reduction_m": 0.07},
+  "source_information": "user_provided_furniture_not_object_coordinates",
+  "expected_instruction": "Go to the lobby, grasp the tumbler and throw it in the trash_box_for_burnable close to the kettle.",
+  "execution_ready": false,
+  "pending": ["measure_session4_container_opening", "unattended_live_regression"]
+}

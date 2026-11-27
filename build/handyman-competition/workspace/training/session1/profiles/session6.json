@@ -1,0 +1,16 @@
+{
+  "schema": "handyman_session_profile_v1",
+  "session_number": 6,
+  "layout": "LayoutD",
+  "target": "filled_ketchup",
+  "source": {
+    "room": "lobby",
+    "furniture_id": "dining_table#lobby"
+  },
+  "destination": {
+    "room": "living_room",
+    "furniture_id": "wooden_shelf#living_room",
+    "mode": "table_place"
+  },
+  "expected_instruction": "Go to the lobby, grasp the filled_ketchup and put the filled_ketchup on the wooden_shelf in the living room."
+}

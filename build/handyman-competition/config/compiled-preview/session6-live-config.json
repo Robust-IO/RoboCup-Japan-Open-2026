@@ -1,0 +1,128 @@
+{
+  "version": 1,
+  "profile": "session6_lobby_ketchup_to_living_room_shelf",
+  "layout": "LayoutD",
+  "motion_profile": "balanced_v1",
+  "task": {
+    "object": "filled_ketchup",
+    "source_room": "lobby",
+    "destination": "wooden_shelf"
+  },
+  "source_table_id": "dining_table#lobby",
+  "destination_id": "wooden_shelf#living_room",
+  "destination_room": "living_room",
+  "source_staging_goal": [
+    3.625,
+    -7.20679,
+    -3.119724
+  ],
+  "destination_staging_goal": [
+    0.425,
+    -1.70679,
+    3.137216
+  ],
+  "environment": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/workspace/src/handyman_rebuild_ros2/config/environments/layout_d.yaml",
+  "environment_sha256": "1e2556562af4266db933644eca83966e003628ead7f742332d0cf7f09e33909a",
+  "semantic_map": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/maps/export/LayoutD/semantic_map.json",
+  "registry": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/active_detection_model.json",
+  "model_python": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/project/.pixi/envs/default/bin/python",
+  "navigation_tolerances": [
+    0.06,
+    0.08,
+    0.06
+  ],
+  "execution": {
+    "auto_protocol_success": false,
+    "automatic_action_retry": false
+  },
+  "policy": {
+    "efficient_non_navigation": true,
+    "placement_approach_mode": "single",
+    "near_grasp_roi_confirmation": true,
+    "near_grasp_geometry_handoff": true,
+    "near_grasp_geometry_gap_m": 0.15,
+    "post_lift_rgbd_follow_verification": true,
+    "grasp_lift_range_m": [
+      0.24,
+      0.3
+    ],
+    "release_gap_m": 0.02,
+    "patch_radius_m": 0.09,
+    "edge_margin_m": 0.03,
+    "edge_uncertainty_m": 0.01,
+    "max_placement_step_m": null,
+    "retreat_m": 0.25,
+    "observer_duration_s": 300,
+    "trial_before_rotation": true,
+    "skip_contact_band_depth": true,
+    "carry_drop_recovery": true
+  },
+  "scope": "User supplied source furniture; measured target geometry; cross-room shelf placement.",
+  "navigation_motion_profile": "efficiency_v1",
+  "session_profile": {
+    "schema": "handyman_session_profile_v1",
+    "session_number": 6,
+    "layout": "LayoutD",
+    "target": "filled_ketchup",
+    "source": {
+      "room": "lobby",
+      "furniture_id": "dining_table#lobby"
+    },
+    "destination": {
+      "room": "living_room",
+      "furniture_id": "wooden_shelf#living_room",
+      "mode": "table_place"
+    },
+    "expected_instruction": "Go to the lobby, grasp the filled_ketchup and put the filled_ketchup on the wooden_shelf in the living room."
+  },
+  "shared_behavior_rules": {
+    "schema": "handyman_six_session_rules_v2",
+    "sessions": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "search": {
+      "aspect_ratio_threshold": 1.35,
+      "head_tilts_rad": [
+        0.0,
+        -0.5235987755982988
+      ],
+      "suspect_action": "stop_near_observe_resume_remaining_angles",
+      "invalid_frame_counts_as_absent": false
+    },
+    "grasp": {
+      "current_pose_first": true,
+      "normal_to_furniture_first": true,
+      "max_obstacle_offset_degrees": 15,
+      "decreasing_offsets_degrees": [
+        15,
+        10,
+        5,
+        0
+      ],
+      "irregular_min_protrusion_m": 0.01
+    },
+    "furniture_reobservation": {
+      "lateral_offset_m": 0.2,
+      "same_source_only": true
+    },
+    "handover": {
+      "final_yaw_required": false,
+      "criterion": "held_object_inside_delivery_volume"
+    },
+    "container": {
+      "object_projection_inside_inner_opening": true,
+      "edge_margin_m": 0.005,
+      "inspect_rim_after_release": true
+    },
+    "deployment": {
+      "live_validation": "pending",
+      "unity_editor_compile": "pending"
+    }
+  },
+  "task_configuration_schema": "handyman_configurable_tasks_v1"
+}

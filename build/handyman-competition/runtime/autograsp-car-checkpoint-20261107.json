@@ -1,0 +1,190 @@
+{
+  "status": "toy_car_held_after_autonomous_grasp",
+  "run": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/autograsp-car-live-20261107-1840",
+  "result": {
+    "status": "grasp_verified",
+    "execution_enabled": true,
+    "target": "toy_car",
+    "source_table": "white_side_table#kitchen",
+    "close_commands": 1,
+    "initial_state": {
+      "joints": [
+        0.3553171157836914,
+        -1.7000001065434844,
+        0.0,
+        0.1292036754032555,
+        0.0,
+        0.6499999859074279
+      ],
+      "poses": {
+        "map": [
+          9.934559640705702,
+          1.136747901773025,
+          0.07098176659887971
+        ],
+        "odom": [
+          8.750452995300293,
+          1.1372849941253662,
+          0.07114568022864434
+        ]
+      },
+      "stamp_ns": 1794047312119000000
+    },
+    "candidate": {
+      "id": "f00826d751e472da",
+      "strategy": "side",
+      "wrist_roll_rad": 0.0,
+      "grasp_point_base_m": [
+        0.8367642909769493,
+        0.08642097760839151,
+        0.5521366537225486
+      ],
+      "palm_base_m": [
+        0.7746384249769492,
+        0.08647097760839151,
+        0.5521366537225486
+      ],
+      "arm_goal": [
+        0.2749388384046568,
+        -1.7,
+        0.0,
+        0.1292036732051034,
+        0.0,
+        0.65
+      ],
+      "observed_width_m": 0.05840736805316774,
+      "observed_contact_points": 125,
+      "contact_overlap_m": 0.013084159805337614,
+      "contact_extent_pad_xz_m": [
+        0.03457228550444946,
+        0.013084159805337614
+      ],
+      "score": 2.67653413042059,
+      "minimum_palm_height_m": 0.5296943483345892,
+      "table_clearance_policy_m": 0.005,
+      "object_relative_grasp_m": [
+        -0.008493649424313854,
+        -0.0004959939533192431,
+        0.01753633456084447
+      ],
+      "observation_stamp_ns": 1794047313377152176,
+      "checks": {
+        "complete_physical_closing_sweep_table": true,
+        "open_approach_target": true,
+        "open_approach_environment": true,
+        "observed_contact_material": true
+      },
+      "geometry_is_partial_observation": true,
+      "motion_authorized": false
+    },
+    "corrections": 0,
+    "lift_evidence": {
+      "verified": true,
+      "object_followed": true,
+      "grip_retained": true,
+      "observations": 3
+    },
+    "last_state": {
+      "joints": [
+        0.35504138469696045,
+        -1.7000001065434844,
+        0.0,
+        0.1292036754032555,
+        0.0,
+        0.0689780355171088
+      ],
+      "poses": {
+        "map": [
+          10.0825143024895,
+          1.1575879773303197,
+          0.07592364228661416
+        ],
+        "odom": [
+          8.898404121398926,
+          1.1581493616104126,
+          0.07608800273242633
+        ]
+      },
+      "stamp_ns": 1794047370044000000
+    }
+  },
+  "lift_evidence": [
+    {
+      "object_delta_m": [
+        -0.00435759108828826,
+        -0.0007643265186394466,
+        0.08728276999988327
+      ],
+      "palm_delta_m": [
+        -0.004163980474098494,
+        -0.00011176452017847005,
+        0.08554567001207125
+      ],
+      "measurement": {
+        "center_m": [
+          0.6811656052414564,
+          0.07811536238374053,
+          0.6315913782218757
+        ],
+        "stamp_ns": 1794047360019821649,
+        "position_source": "measured_colour_geometry_registration",
+        "matched_surface_points": 362,
+        "surface_residual_p90_m": 0.0023635282687081045,
+        "template_coverage": 0.20196353436185133
+      }
+    },
+    {
+      "object_delta_m": [
+        -0.007332024007816074,
+        -0.0018090478040571067,
+        0.09391598803763157
+      ],
+      "palm_delta_m": [
+        -0.005941699629049779,
+        -0.0009547892723618112,
+        0.0888649069366777
+      ],
+      "measurement": {
+        "center_m": [
+          0.6842445035867227,
+          0.07807836775819582,
+          0.6322144786267286
+        ],
+        "stamp_ns": 1794047368012889516,
+        "position_source": "measured_colour_geometry_registration",
+        "matched_surface_points": 361,
+        "surface_residual_p90_m": 0.002918491812736446,
+        "template_coverage": 0.21037868162692847
+      }
+    },
+    {
+      "object_delta_m": [
+        -0.009946223852532299,
+        -0.0008547992038994146,
+        0.0952072155954441
+      ],
+      "palm_delta_m": [
+        -0.008642274632689961,
+        -0.00015104948179134325,
+        0.09238272428199601
+      ],
+      "measurement": {
+        "center_m": [
+          0.6823981221796607,
+          0.07800529824595219,
+          0.6321094880260643
+        ],
+        "stamp_ns": 1794047369951029745,
+        "position_source": "measured_colour_geometry_registration",
+        "matched_surface_points": 362,
+        "surface_residual_p90_m": 0.002640932327665411,
+        "template_coverage": 0.20757363253856942
+      }
+    }
+  ],
+  "previous_runs_had_integration_failures": true,
+  "assistant_selected_grasp_point": false,
+  "manual_object_specific_grasp_override": false,
+  "next_action": "keep_holding_until_next_task",
+  "release_commands_sent_in_successful_run": 0
+}

@@ -1,0 +1,54 @@
+{
+  "motion_authorized": false,
+  "status": "planning_only_requires_swept_clearance",
+  "source": "/tmp/phase5-alignment-live-20261010-v1",
+  "patch": {
+    "samples": 377,
+    "median_base": [
+      0.9329302820303639,
+      0.031909747620782275,
+      0.5606494086350974
+    ],
+    "depth_quantiles": [
+      1.065000057220459,
+      1.0820000171661377,
+      1.0980000495910645
+    ],
+    "box": [
+      301,
+      302,
+      337,
+      334
+    ],
+    "red_only": true,
+    "depth_stamp_ns": 1791636931530819534
+  },
+  "hand_ray_point_at_patch_height": [
+    0.8974717279815414,
+    0.030730926136307152,
+    0.5606494086350974
+  ],
+  "preliminary_surface_minus_contact_m": [
+    0.24363506703036386,
+    -0.046090252379217725,
+    -0.1593505913649026
+  ],
+  "proposed_base_translation_m": [
+    0.14363506703036386,
+    -0.046090252379217725,
+    0.0
+  ],
+  "proposed_palm_height_m": 0.72,
+  "remaining_surface_gap_m": 0.1,
+  "sequence": [
+    "Validate base, full extended arm and environment swept clearance.",
+    "Only then execute a bounded preapproach with feedback.",
+    "Stop and reacquire target; do not automatically descend or close."
+  ],
+  "blockers": [
+    "Visible patch is not object center; partially occluded target.",
+    "Extended arm not covered by ordinary Nav2 footprint.",
+    "Map/laser swept clearance for translation has not been checked.",
+    "This file is not accepted by a motion executor."
+  ]
+}

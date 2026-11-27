@@ -1,0 +1,61 @@
+{
+  "status": "ground_pepper_adapter_deployed_offline_verified_live_manipulation_pending",
+  "tests_passed": 629,
+  "hashes": {
+    "pepper_geometry.py": "fde0fcacf9f42e50723751a7b13348fbf3a3dbf803c6f96a6494f5bcd1968136",
+    "pepper_hold.py": "4810b795fd005c6cb6a93996ec57e30c4690101259c4de63998cb4a5acc2aff1",
+    "pepper_place.py": "6753e57edb74acf2f1d1e7550fb2d6a1a9eb09ba5c9f36f49e16ccfa4496954c",
+    "pepper_runtime.py": "3c4b45d3472928d98753c408b75d7ca3c797c146c5b1fbc5f419821c0db24291",
+    "pepper_transfer_automation.py": "8c00073e16f4d2480d9c0fbcf42be00bf2608ad451100c11ce759f3305201788",
+    "replay_pepper_reference.py": "868113d76141881bf6f4c3e58d029a57c07ee07568f986d088efc7ed6233cba7",
+    "test_pepper_geometry.py": "02bf4442c7f54529ba9c12ef9b5c2ac93df3c1b368197b7ae11e77aaa30a9054",
+    "test_pepper_transfer.py": "11ae55e234add15ef94d16302b4eff300d31a7236773c10e29cb1a98d6ed527e",
+    "canned_grasp_runtime.py": "a27de9d14292e96d0e867acdabd30eeb6cc4324371f418f9b06161eebb4daaef",
+    "manipulation_profiles.py": "c28776c0a8baeb274db3cba2f44b5cde6ce8ed920038139153bceb601c33030e",
+    "config/manipulation_objects_v1.json": "e65d3419fedc985c7ea0c368c4eb9bca4158dc3468df700f530c5ad3ebd87c8e",
+    "object_surface_geometry.py": "0c871a23925845b9b88bf272deb40931b2bf253597f0fb3ee4afcf5c808ebb82",
+    "generic_transfer_template.py": "a43c16dcb046c7ec84f77ab03e51a54c994e05174393bd90e7d8f47b5926e1ab",
+    "run_object_transfer.py": "eaa059a2f54bfaa4bcd2e3206b2c2cd1d26fae63df336e853aa356f0fc1b403c",
+    "inspect_manipulation_capture.py": "70f8bf7429bf2c73f5613fe9a1e76d3ae7decf6bc52f0e06b2e70e76fc6917cc",
+    "OBJECT_TRANSFER.txt": "5f6af9e856be7ecc20621fc306edb33a73d3bf29bb7aa367838cf1e9687634ca"
+  },
+  "previous_hashes": {
+    "canned_grasp_runtime.py": "6374c5a03b8a5b8a398156443f6681cd5d54dac72e58b15bab87ed76f4348196",
+    "manipulation_profiles.py": "57ae9dedde13cc017e3adac99023fbdb5897dc2fd6879c85a38b281ba77702a1",
+    "config/manipulation_objects_v1.json": "925224c1df4d7699d67f94c9e4ff949fdbfa3a3619b468b9649fe61bbb748db0",
+    "object_surface_geometry.py": "ad870acb33fcc19d9e144248ee689a865bd006e9d96f15491d53ed1b94d9b3fa",
+    "generic_transfer_template.py": "65e82cd5b2f7b44f90730ec19acc1d159bd2b8d7b2fa02fd1d6db6a96af5a26b",
+    "run_object_transfer.py": "6230e3f820297f104c3c167e421795c6f27c7469cb39c3588bdd39d226e536c5",
+    "inspect_manipulation_capture.py": "0e2d1c600e3b6c8d19ff0e65cae16c7a2ff1f7a978ce8e9a950947ab1afb7405",
+    "OBJECT_TRANSFER.txt": "57b662350c2b26075690e9b4bcd54aaf948bde36c879e2af7d27107a1f7b01e5"
+  },
+  "actual_saved_rgbd_frames_verified": 6,
+  "height_range_m": [
+    0.07660039043578899,
+    0.07708523555990852
+  ],
+  "body_radius_range_m": [
+    0.0315838207348063,
+    0.03168383267178776
+  ],
+  "model_and_map_audit": {
+    "status": "input_files_verified",
+    "environment_sha256": "fb739aa47ec13d450e5602c97383129e58ac9e20b5fd600c006f4b9d387181a2",
+    "semantic_map_sha256": "fcb762ed416642dc08bd6b11fc1a1a81f3ab8456ad485232dd7f9cb5a742ee5c",
+    "model_sha256": "83e6ceb9650e6da78d05404a5ead9654278d502ce06d812a6b2b70673c513763",
+    "near_grasp_roi_confirmation": true,
+    "motion_profile": "balanced_v1",
+    "motion_profiles_sha256": "dfaca76655426c69c113e3e478723a3edd48f8912d1c354b80bdf2b2275809b1",
+    "robot_commands_sent": false,
+    "scope": "File checks only; live sensor and localization readiness not established"
+  },
+  "original_apple_can_profiles_unchanged": true,
+  "original_navigation_files_unchanged": true,
+  "robot_commands_sent": false,
+  "unity_required_during_development": false,
+  "live_grasp_verified": false,
+  "live_carry_verified": false,
+  "live_placement_verified": false,
+  "live_entry": "run_object_transfer.sh --object ground_pepper",
+  "current_robot_state_changed_by_deployment": false
+}

@@ -1,0 +1,214 @@
+{
+  "robot_commands_sent": false,
+  "seed": {
+    "class_name": "toy_penguin",
+    "shape": "rounded_penguin_body_and_head",
+    "adapter": "penguin_two_surface_rgbd",
+    "center_m": [
+      0.6586821898914665,
+      0.4366170375199028,
+      0.53328853288016
+    ],
+    "cap_center_m": [
+      0.6606009533642221,
+      0.444961040071764,
+      0.5960626496639843
+    ],
+    "body_radius_m": 0.04512818122041731,
+    "cap_radius_m": 0.026286759861617714,
+    "body_fit": {
+      "points": 1675,
+      "inliers": 1629,
+      "residual_p95_m": 0.0017359618302749491
+    },
+    "cap_fit": {
+      "points": 371,
+      "inliers": 371,
+      "residual_p95_m": 0.0008587010447926539
+    },
+    "footprint_radius_m": 0.06694257866374496,
+    "height_m": 0.11845027160543353,
+    "body_above_support_m": 0.037259376726776317,
+    "body_cap_distance_m": 0.06335529788296364,
+    "axis_base_m": [
+      0.030285761994207374,
+      0.13170173340949531,
+      0.9908266377310232
+    ],
+    "support_plane_base": [
+      0.0007687449862466947,
+      -1.6628164247482288e-05,
+      0.4955300576621877
+    ],
+    "support_height_m": 0.49602915615338367,
+    "support_plane_residual_p95_m": 0.00032219960667802526,
+    "head_above_support_m": 0.10003215721624603,
+    "observed_wing_top_above_support_m": 0.08158599992090972,
+    "observed_horizontal_extent_m": 0.06694257866374496,
+    "appearance": {
+      "version": 1,
+      "class_name": "toy_penguin",
+      "source": "actual_verified_toy_penguin_rgbd",
+      "body": {
+        "hue": 0,
+        "hue_tolerance": 30.0,
+        "use_hue": false,
+        "saturation_range": [
+          0.0,
+          218.0
+        ],
+        "value_range": [
+          100.0,
+          255.0
+        ],
+        "source_pixels": 1675
+      },
+      "cap": {
+        "hue": 120,
+        "hue_tolerance": 30.0,
+        "use_hue": false,
+        "saturation_range": [
+          0.0,
+          36.0
+        ],
+        "value_range": [
+          17.0,
+          110.79999999999995
+        ],
+        "source_pixels": 371
+      },
+      "new_target_identification_supported": false
+    },
+    "stamp_ns": 1792926409354900627,
+    "confidence": 0.993759274482727,
+    "source": "rgbd",
+    "frame_id": "base_link",
+    "grasp_center_m": [
+      0.6606934413175433,
+      0.4453632364495282,
+      0.5990884783632056
+    ],
+    "head_grasp_axial_offset_m": 0.0030538427046636896,
+    "grasp_center_semantics": "observed_head_with_measured_finger_wing_clearance_offset",
+    "estimated_grasp_width_m": 0.05257351972323543,
+    "depth_valid": true,
+    "support_consistent": true,
+    "room_confirmed": false,
+    "ready_for_motion": false,
+    "partial_seed_only": true,
+    "hidden_surfaces_measured": false,
+    "motion_authorized": false
+  },
+  "current": {
+    "class_name": "toy_penguin",
+    "shape": "rounded_penguin_body_and_head",
+    "adapter": "penguin_two_surface_rgbd",
+    "center_m": [
+      0.6602498844687352,
+      0.43992097885862425,
+      0.5311182612465664
+    ],
+    "cap_center_m": [
+      0.6602853515822478,
+      0.4407278212353182,
+      0.5957336378923033
+    ],
+    "body_radius_m": 0.04908933179115283,
+    "cap_radius_m": 0.023336601848607207,
+    "body_fit": {
+      "points": 1897,
+      "inliers": 1808,
+      "residual_p95_m": 0.0019344310264836015
+    },
+    "cap_fit": {
+      "points": 561,
+      "inliers": 560,
+      "residual_p95_m": 0.0014452334957406124
+    },
+    "footprint_radius_m": 0.07197667411792763,
+    "height_m": 0.12235642581585024,
+    "body_above_support_m": 0.0350436613791133,
+    "body_cap_distance_m": 0.06462042364150372,
+    "axis_base_m": [
+      0.0005488530020989294,
+      0.012485872596101613,
+      0.9999218978229729
+    ],
+    "support_plane_base": [
+      0.0007135951701458198,
+      0.0004075454713463713,
+      0.49542416093612274
+    ],
+    "support_height_m": 0.49607459986745306,
+    "support_plane_residual_p95_m": 0.00034427180239227084,
+    "head_above_support_m": 0.09965868389073262,
+    "observed_wing_top_above_support_m": 0.08162257600582144,
+    "observed_horizontal_extent_m": 0.07197667411792763,
+    "appearance": {
+      "version": 1,
+      "class_name": "toy_penguin",
+      "source": "actual_verified_toy_penguin_rgbd",
+      "body": {
+        "hue": 0,
+        "hue_tolerance": 30.0,
+        "use_hue": false,
+        "saturation_range": [
+          0.0,
+          217.0
+        ],
+        "value_range": [
+          101.0,
+          255.0
+        ],
+        "source_pixels": 1897
+      },
+      "cap": {
+        "hue": 120,
+        "hue_tolerance": 30.0,
+        "use_hue": false,
+        "saturation_range": [
+          0.0,
+          39.0
+        ],
+        "value_range": [
+          18.0,
+          129.19999999999993
+        ],
+        "source_pixels": 561
+      },
+      "new_target_identification_supported": false
+    },
+    "stamp_ns": 1792926413149287323,
+    "confidence": 0.993759274482727,
+    "source": "rgbd",
+    "frame_id": "base_link",
+    "grasp_center_m": [
+      0.6602872527498341,
+      0.4407710709509538,
+      0.5991972594698769
+    ],
+    "head_grasp_axial_offset_m": 0.0034638921150888236,
+    "grasp_center_semantics": "observed_head_with_measured_finger_wing_clearance_offset",
+    "estimated_grasp_width_m": 0.046673203697214415,
+    "depth_valid": true,
+    "support_consistent": true,
+    "room_confirmed": false,
+    "ready_for_motion": false,
+    "partial_seed_only": false,
+    "hidden_surfaces_measured": false,
+    "motion_authorized": false
+  },
+  "proposal": {
+    "name": "toy_penguin",
+    "confidence": 0.993759274482727,
+    "box": [
+      218.0,
+      196.0,
+      341.0,
+      330.0
+    ],
+    "identity_source": "earlier_high_confidence_seed_plus_new_rgbd"
+  },
+  "body_odom_error_m": 0.004472370033538075,
+  "head_odom_error_m": 0.0038560572197035314
+}

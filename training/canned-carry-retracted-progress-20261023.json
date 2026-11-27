@@ -1,0 +1,70 @@
+{
+  "status": "arm_retracted_grip_preserved_navigation_not_started",
+  "branch": "feat/handyman-phase5-grasping",
+  "boot_id": "03e2ce8b-528d-4517-a5f5-5aa905f81a77",
+  "unity_time_sync_clicked_and_received": true,
+  "time_sync_events_observed": 49,
+  "post_sync_current_joint_age_range_s": [
+    0.008676199,
+    0.041256831
+  ],
+  "runtime_carry_code_deployed": true,
+  "candidate_tests": 499,
+  "runtime_tests": 499,
+  "deployment": "D:/handyman-training-runs/canned-carry-v1-20261023-deployment.json",
+  "actual_carry_trial": "D:/handyman-training-runs/canned-carry-live-20261023-01",
+  "arm_retraction_controller_result": "D:/handyman-training-runs/canned-carry-live-20261023-01/carry-retract/result.json",
+  "physical_arm_retraction_completed": true,
+  "grip_commands_sent_this_step": 0,
+  "grasp_or_close_replayed": false,
+  "hand_released": false,
+  "destination_navigation_started": false,
+  "placement_verified": false,
+  "task_finished_sent": false,
+  "automatic_tucked_can_depth_verification": false,
+  "rgb_visual_review": "Assistant inspected after-retract-rejected-42/rgb.png: green can and silver cap visibly remain between the fingers. This is RGB visual evidence, NOT a measured3D center or an automatic held-depth verdict.",
+  "retained_rejected_rgbd_frames": 43,
+  "latest_reviewed_capture": "D:/handyman-training-runs/canned-carry-live-20261023-01/captures/after-retract-rejected-42",
+  "depth_diagnosis": {
+    "predicted_cap_axial_depth_m": 0.3780697935083869,
+    "prediction_is_only_roi_not_measurement": true,
+    "projected_cap_center_pixel": [
+      237.60075322798065,
+      337.0895271234626
+    ],
+    "actual_depth_at_cap_center_m": 0,
+    "actual_zero_depth_fraction_in_25x25_cap_center_patch": 1,
+    "minimum_observed_positive_depth_m": 0.4000000059604645,
+    "explanation": "Can cap is visible in RGB but within the depth renderer near clipping interval after tucking. The automatic3D verifier correctly cannot fit a cap; missing depth is NOT evidence that the can fell."
+  },
+  "last_measured_robot_state": {
+    "joints": [
+      0,
+      0,
+      0,
+      -1.5707963146269321,
+      0,
+      0.480518213081389
+    ],
+    "map_pose": [
+      9.983281916313674,
+      -6.550064016618656,
+      -0.08705262725891244
+    ],
+    "odom_pose": [
+      8.798901557922363,
+      -6.55121374130249,
+      -0.08710721060715779
+    ],
+    "joint_stamp_ns": 1792744289744000000,
+    "state_is_not_future_motion_authorization": true
+  },
+  "model_original_apple_entry_route_goal_tolerances_unchanged": true,
+  "next": [
+    "Do NOT rerun the full grasp or full carry entry: the arm is already tucked and holding. No repeated retraction, closure, lift, or release.",
+    "Acquire a NEW current RGB/hand image and source joints/TF. Preserve original source timestamps; do not resync repeatedly once successful.",
+    "Resolve tucked-held observation: use explicit RGB appearance verification bound to the already verified grasp, palm-projected ROI, and stable actual grip, or a proven head view restoring valid depth. Do not fabricate3D coordinates from depth0 or disable the zero-depth rule for new target search.",
+    "After current held verification, invoke ONLY the original navigation from bedroom to living_room square_low_table staging ([2.05,2.55,1.5707963267948966]) with actual holding opening around0.4805. Same YAML door route, goal tolerances .06/.08/.06 and existing balanced_v1 policy.",
+    "Verify held state at destination before developing can placement; no Task_finished before actual placement."
+  ]
+}

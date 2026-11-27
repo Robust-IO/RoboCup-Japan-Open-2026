@@ -1,0 +1,12 @@
+{
+  "layout": "LayoutA",
+  "target": "dog_doll",
+  "room": "living_room",
+  "source_table": "white_side_table#living_room",
+  "destination": "square_low_table#living_room",
+  "destination_room": "living_room",
+  "source_information": "user_confirmed_furniture",
+  "target_coordinates": "measure_from_current_RGBD",
+  "room_scan_enabled": false,
+  "live_execution_connected": false
+}

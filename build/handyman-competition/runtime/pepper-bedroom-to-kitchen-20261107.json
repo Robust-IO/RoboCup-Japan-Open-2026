@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "name": "ground_pepper_bedroom_to_kitchen_20261107",
+  "layout": "LayoutA",
+  "object": "ground_pepper",
+  "source": {
+    "room": "bedroom",
+    "table_id": "white_side_table#bedroom_1",
+    "observation_pose": [
+      9.905,
+      -6.61,
+      0.0
+    ],
+    "head_pose": [
+      0.0,
+      -0.5
+    ]
+  },
+  "destination": {
+    "room": "kitchen",
+    "table_id": "dining_table#kitchen",
+    "observation_pose": [
+      9.562303161621093,
+      2.9079999923706055,
+      3.141592653589793
+    ]
+  }
+}

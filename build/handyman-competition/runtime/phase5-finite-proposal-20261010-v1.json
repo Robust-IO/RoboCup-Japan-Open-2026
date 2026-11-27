@@ -1,0 +1,7251 @@
+{
+  "read_only": true,
+  "commands_sent": 0,
+  "motion_authorized": false,
+  "samples": 480,
+  "valid_samples": 480,
+  "nonzero_outputs": 0,
+  "velocity_publishers": [],
+  "omni_topics": [
+    [
+      "/hsrb/omni_base_controller/command",
+      [
+        "trajectory_msgs/msg/JointTrajectory"
+      ]
+    ]
+  ],
+  "reason": "Clearance intentionally withheld; receiver watchdog not established. This is fail-closed adapter verification, not motion validation.",
+  "rows": [
+    {
+      "ages": {
+        "tf_age": 0.039087776,
+        "scan_age": 0.001051028,
+        "joints_age": 0.1336688
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.059538767,
+        "scan_age": 0.021485036,
+        "joints_age": 0.154100485
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002943022,
+        "scan_age": 0.033638834,
+        "joints_age": 0.166264672
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.015571384,
+        "scan_age": 0.046244872,
+        "joints_age": 0.076858748
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.035997511,
+        "scan_age": 0.066676099,
+        "joints_age": 0.097291327
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.05640216,
+        "scan_age": 0.087089706,
+        "joints_age": 0.117710805
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.076890257,
+        "scan_age": 0.107584245,
+        "joints_age": 0.138211766
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.08202971,
+        "scan_age": 0.00088451,
+        "joints_age": 0.143319799
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.102362445,
+        "scan_age": 0.021218738,
+        "joints_age": 0.163654017
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002228991,
+        "scan_age": 0.032405667,
+        "joints_age": 0.174841206
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.0156447,
+        "scan_age": 0.045819783,
+        "joints_age": 0.078254941
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.036002601,
+        "scan_age": 0.06618585,
+        "joints_age": 0.098644203
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.056365716,
+        "scan_age": 0.086545809,
+        "joints_age": 0.118994944
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.076720514,
+        "scan_age": 0.106901999,
+        "joints_age": 0.139337849
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.097335102,
+        "scan_age": 0.127541435,
+        "joints_age": 0.159991211
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.117779711,
+        "scan_age": 0.147961016,
+        "joints_age": 0.180398139
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.127707863,
+        "scan_age": 0.157884289,
+        "joints_age": 0.077319748
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.146659628,
+        "scan_age": 0.001277665,
+        "joints_age": 0.096278055
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002549092,
+        "scan_age": 0.016618434,
+        "joints_age": 0.111618083
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022849691,
+        "scan_age": 0.036920957,
+        "joints_age": 0.131920796
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.043201137,
+        "scan_age": 0.05727573,
+        "joints_age": 0.152276841
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.063693118,
+        "scan_age": 0.077783129,
+        "joints_age": 0.172795743
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.079769107,
+        "scan_age": 0.093841094,
+        "joints_age": 0.075840092
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.09949115,
+        "scan_age": 0.001111027,
+        "joints_age": 0.095562315
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.11999176,
+        "scan_age": 0.021622508,
+        "joints_age": 0.116074237
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.140571852,
+        "scan_age": 0.042214322,
+        "joints_age": 0.136678255
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.161027948,
+        "scan_age": 0.062650941,
+        "joints_age": 0.157103672
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002434519,
+        "scan_age": 0.081606949,
+        "joints_age": 0.17605972
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022997428,
+        "scan_age": 0.102173595,
+        "joints_age": 0.196627629
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.023487552,
+        "scan_age": 0.102649993,
+        "joints_age": 0.084101351
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.04385824,
+        "scan_age": 0.123026152,
+        "joints_age": 0.104479093
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.052980737,
+        "scan_age": 0.001197582,
+        "joints_age": 0.11359677
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.001763894,
+        "scan_age": 0.017589643,
+        "joints_age": 0.129989402
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022120312,
+        "scan_age": 0.037947193,
+        "joints_age": 0.150347583
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.042409408,
+        "scan_age": 0.058235096,
+        "joints_age": 0.170634395
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.052333668,
+        "scan_age": 0.068158194,
+        "joints_age": 0.078556742
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.072841347,
+        "scan_age": 0.088688937,
+        "joints_age": 0.099101632
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.085965859,
+        "scan_age": 0.001015079,
+        "joints_age": 0.112194563
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002598912,
+        "scan_age": 0.018084172,
+        "joints_age": 0.129262283
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022915091,
+        "scan_age": 0.038409438,
+        "joints_age": 0.149588752
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.043382323,
+        "scan_age": 0.058878444,
+        "joints_age": 0.1700589
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.063957834,
+        "scan_age": 0.079456319,
+        "joints_age": 0.190638579
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.084467594,
+        "scan_age": 0.099963414,
+        "joints_age": 0.211144592
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.103486495,
+        "scan_age": 0.118985852,
+        "joints_age": 0.107182379
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.124090385,
+        "scan_age": 0.139585754,
+        "joints_age": 0.127765929
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.144626167,
+        "scan_age": 0.160132738,
+        "joints_age": 0.148323423
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.149804944,
+        "scan_age": 0.001042181,
+        "joints_age": 0.153467805
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.001736007,
+        "scan_age": 0.015544513,
+        "joints_age": 0.167970678
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.015241384,
+        "scan_age": 0.029049199,
+        "joints_age": 0.077474562
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.035711066,
+        "scan_age": 0.049533939,
+        "joints_age": 0.097970534
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.056596881,
+        "scan_age": 0.070509716,
+        "joints_age": 0.11901393
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.077599733,
+        "scan_age": 0.091431794,
+        "joints_age": 0.139870664
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.098135801,
+        "scan_age": 0.111963484,
+        "joints_age": 0.160402824
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.099059757,
+        "scan_age": 0.001156673,
+        "joints_age": 0.161290541
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002223256,
+        "scan_age": 0.016646627,
+        "joints_age": 0.176781646
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.014920929,
+        "scan_age": 0.029340403,
+        "joints_age": 0.076474731
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.035346642,
+        "scan_age": 0.049785242,
+        "joints_age": 0.096931002
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.055908114,
+        "scan_age": 0.070350702,
+        "joints_age": 0.117497684
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.076357322,
+        "scan_age": 0.090785492,
+        "joints_age": 0.13792522
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.09709544,
+        "scan_age": 0.11153922,
+        "joints_age": 0.158681944
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.11769854,
+        "scan_age": 0.132133312,
+        "joints_age": 0.179274012
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.123376319,
+        "scan_age": 0.00097328,
+        "joints_age": 0.184934559
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.130719426,
+        "scan_age": 0.008312199,
+        "joints_age": 0.077272166
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.001710319,
+        "scan_age": 0.009628531,
+        "joints_age": 0.07858921
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022044632,
+        "scan_age": 0.029967323,
+        "joints_age": 0.098928102
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.042454565,
+        "scan_age": 0.050380342,
+        "joints_age": 0.119342614
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.062773521,
+        "scan_age": 0.070694468,
+        "joints_age": 0.139655177
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.083408161,
+        "scan_age": 0.091352603,
+        "joints_age": 0.160326797
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.086209003,
+        "scan_age": 0.000867265,
+        "joints_age": 0.163086962
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.10666345,
+        "scan_age": 0.021340168,
+        "joints_age": 0.183572098
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.00214636,
+        "scan_age": 0.030373856,
+        "joints_age": 0.192593602
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002374074,
+        "scan_age": 0.030599726,
+        "joints_age": 0.079818972
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022716557,
+        "scan_age": 0.050950696,
+        "joints_age": 0.100171545
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.043024276,
+        "scan_age": 0.071254437,
+        "joints_age": 0.120474574
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.063275647,
+        "scan_age": 0.091505257,
+        "joints_age": 0.140725294
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.083662595,
+        "scan_age": 0.111898567,
+        "joints_age": 0.161119687
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.104022719,
+        "scan_age": 0.132253611,
+        "joints_age": 0.181473699
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.124443467,
+        "scan_age": 0.152679029,
+        "joints_age": 0.201900429
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.13569754,
+        "scan_age": 0.163931318,
+        "joints_age": 0.103152828
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.151703617,
+        "scan_age": 0.001296019,
+        "joints_age": 0.119154627
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002751342,
+        "scan_age": 0.018630207,
+        "joints_age": 0.136488614
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.023304994,
+        "scan_age": 0.039197345,
+        "joints_age": 0.157058287
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.043808986,
+        "scan_age": 0.059694494,
+        "joints_age": 0.177555065
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.050845283,
+        "scan_age": 0.066722154,
+        "joints_age": 0.078580561
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.071302215,
+        "scan_age": 0.08718623,
+        "joints_age": 0.09904633
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.089660575,
+        "scan_age": 0.001234973,
+        "joints_age": 0.117397947
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002531599,
+        "scan_age": 0.017647324,
+        "joints_age": 0.133810318
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022945384,
+        "scan_age": 0.03806668,
+        "joints_age": 0.154230706
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.043408528,
+        "scan_age": 0.058541827,
+        "joints_age": 0.174716153
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.048559328,
+        "scan_age": 0.06367339,
+        "joints_age": 0.077835522
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.069158611,
+        "scan_age": 0.084298191,
+        "joints_age": 0.098474371
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.089576314,
+        "scan_age": 0.104694453,
+        "joints_age": 0.118860764
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.110188165,
+        "scan_age": 0.125342043,
+        "joints_age": 0.139529043
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.13085521,
+        "scan_age": 0.145981555,
+        "joints_age": 0.160146914
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.141867893,
+        "scan_age": 0.000726064,
+        "joints_age": 0.17115067
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.001807236,
+        "scan_age": 0.002166408,
+        "joints_age": 0.172590333
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.021019897,
+        "scan_age": 0.021385021,
+        "joints_age": 0.079808755
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.041492179,
+        "scan_age": 0.041865619,
+        "joints_age": 0.100290034
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.061967737,
+        "scan_age": 0.062347248,
+        "joints_age": 0.120783246
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.082530121,
+        "scan_age": 0.08289806,
+        "joints_age": 0.141322977
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.0855347,
+        "scan_age": 0.001087867,
+        "joints_age": 0.144343476
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002122088,
+        "scan_age": 0.016828397,
+        "joints_age": 0.160073647
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022391183,
+        "scan_age": 0.037097743,
+        "joints_age": 0.180343202
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.034870931,
+        "scan_age": 0.049593241,
+        "joints_age": 0.079848409
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.055494191,
+        "scan_age": 0.070221129,
+        "joints_age": 0.100477991
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.075854729,
+        "scan_age": 0.090563133,
+        "joints_age": 0.120809073
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.096306708,
+        "scan_age": 0.111022986,
+        "joints_age": 0.141273445
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.116666701,
+        "scan_age": 0.131376426,
+        "joints_age": 0.161621906
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.136956114,
+        "scan_age": 0.151664046,
+        "joints_age": 0.181912722
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.157456399,
+        "scan_age": 0.17217386,
+        "joints_age": 0.202421123
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.159195873,
+        "scan_age": 0.000780207,
+        "joints_age": 0.204148474
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.17147804,
+        "scan_age": 0.013060509,
+        "joints_age": 0.078428115
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.001763761,
+        "scan_age": 0.030488502,
+        "joints_age": 0.09585712
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022050529,
+        "scan_age": 0.050777664,
+        "joints_age": 0.116146503
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.042400718,
+        "scan_age": 0.071130749,
+        "joints_age": 0.136499637
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.062939837,
+        "scan_age": 0.091671842,
+        "joints_age": 0.157041171
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.069519068,
+        "scan_age": 0.00076129,
+        "joints_age": 0.163611715
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.083846507,
+        "scan_age": 0.015088599,
+        "joints_age": 0.076938754
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002090458,
+        "scan_age": 0.034469912,
+        "joints_age": 0.096320137
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022410944,
+        "scan_age": 0.054798113,
+        "joints_age": 0.116649801
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.042811278,
+        "scan_age": 0.075196744,
+        "joints_age": 0.137048762
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.063367828,
+        "scan_age": 0.095758514,
+        "joints_age": 0.157610241
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.083962307,
+        "scan_age": 0.116349877,
+        "joints_age": 0.178201875
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.10430108,
+        "scan_age": 0.136682808,
+        "joints_age": 0.198534075
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.124788059,
+        "scan_age": 0.157179887,
+        "joints_age": 0.219037746
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.127371707,
+        "scan_age": 0.000971696,
+        "joints_age": 0.221606486
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.127659295,
+        "scan_age": 0.001252782,
+        "joints_age": 0.106885507
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.001691082,
+        "scan_age": 0.009666333,
+        "joints_age": 0.115300601
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.021950626,
+        "scan_age": 0.029925947,
+        "joints_age": 0.135559745
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.042414384,
+        "scan_age": 0.050398442,
+        "joints_age": 0.156033441
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.062932538,
+        "scan_age": 0.070913339,
+        "joints_age": 0.176547668
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.063429395,
+        "scan_age": 0.071404575,
+        "joints_age": 0.077037922
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.064953273,
+        "scan_age": 0.00118386,
+        "joints_age": 0.078586597
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.085314248,
+        "scan_age": 0.021529496,
+        "joints_age": 0.098923677
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.105788341,
+        "scan_age": 0.042014249,
+        "joints_age": 0.119408861
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002269895,
+        "scan_age": 0.048505234,
+        "joints_age": 0.125899375
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022738391,
+        "scan_age": 0.068993608,
+        "joints_age": 0.146398269
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.043204054,
+        "scan_age": 0.089446867,
+        "joints_age": 0.166842621
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.063833295,
+        "scan_age": 0.110089413,
+        "joints_age": 0.187496639
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.070640886,
+        "scan_age": 0.116904017,
+        "joints_age": 0.079306484
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.090984628,
+        "scan_age": 0.13721702,
+        "joints_age": 0.09961057
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.111396043,
+        "scan_age": 0.157636331,
+        "joints_age": 0.120032145
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.131883218,
+        "scan_age": 0.178135429,
+        "joints_age": 0.140539399
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.132892431,
+        "scan_age": 0.000770298,
+        "joints_age": 0.141519676
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.153469553,
+        "scan_age": 0.021374632,
+        "joints_age": 0.162137957
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.001850901,
+        "scan_age": 0.032713296,
+        "joints_age": 0.173462914
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.01895716,
+        "scan_age": 0.049818031,
+        "joints_age": 0.078566418
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.039246618,
+        "scan_age": 0.070109714,
+        "joints_age": 0.098859343
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.059655459,
+        "scan_age": 0.090525417,
+        "joints_age": 0.119275156
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.080002692,
+        "scan_age": 0.110866339,
+        "joints_age": 0.139616209
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.088738768,
+        "scan_age": 0.001035728,
+        "joints_age": 0.148348757
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.001863961,
+        "scan_age": 0.016799674,
+        "joints_age": 0.164116209
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.016440324,
+        "scan_age": 0.031345469,
+        "joints_age": 0.077658197
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.036892462,
+        "scan_age": 0.051807365,
+        "joints_age": 0.098120645
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.057311192,
+        "scan_age": 0.072223781,
+        "joints_age": 0.118538072
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.077644099,
+        "scan_age": 0.092550686,
+        "joints_age": 0.138864105
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.098005193,
+        "scan_age": 0.112914045,
+        "joints_age": 0.159227665
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.118358213,
+        "scan_age": 0.133266373,
+        "joints_age": 0.179580915
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.138678134,
+        "scan_age": 0.153585713,
+        "joints_age": 0.199899483
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.15012514,
+        "scan_age": 0.001394222,
+        "joints_age": 0.211353853
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.001953176,
+        "scan_age": 0.009023132,
+        "joints_age": 0.218982633
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002325275,
+        "scan_age": 0.009386805,
+        "joints_age": 0.103345344
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022736726,
+        "scan_age": 0.029819637,
+        "joints_age": 0.12379088
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.043127022,
+        "scan_age": 0.050193451,
+        "joints_age": 0.144153854
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.063124154,
+        "scan_age": 0.001091841,
+        "joints_age": 0.164160153
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.077945624,
+        "scan_age": 0.015900096,
+        "joints_age": 0.077969731
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.001635582,
+        "scan_age": 0.017214269,
+        "joints_age": 0.079280378
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.021978241,
+        "scan_age": 0.037563862,
+        "joints_age": 0.099647804
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.042319028,
+        "scan_age": 0.057901162,
+        "joints_age": 0.119968112
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.062769497,
+        "scan_age": 0.078368965,
+        "joints_age": 0.140447887
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.08319225,
+        "scan_age": 0.09877762,
+        "joints_age": 0.160844931
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.087567396,
+        "scan_age": 0.00105805,
+        "joints_age": 0.165212142
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.102510267,
+        "scan_age": 0.016000942,
+        "joints_age": 0.079154472
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.00216002,
+        "scan_age": 0.017176642,
+        "joints_age": 0.080330593
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022497069,
+        "scan_age": 0.037521636,
+        "joints_age": 0.10067688
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.042866255,
+        "scan_age": 0.057888287,
+        "joints_age": 0.121044653
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.063204746,
+        "scan_age": 0.078224254,
+        "joints_age": 0.141378776
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.084025687,
+        "scan_age": 0.099056366,
+        "joints_age": 0.162213523
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.10461942,
+        "scan_age": 0.119658705,
+        "joints_age": 0.182815602
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.11585845,
+        "scan_age": 0.130879269,
+        "joints_age": 0.078034142
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.136298335,
+        "scan_age": 0.151333542,
+        "joints_age": 0.098498965
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.151511091,
+        "scan_age": 0.000948087,
+        "joints_age": 0.113687585
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.001813084,
+        "scan_age": 0.017085298,
+        "joints_age": 0.129825407
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.02206696,
+        "scan_age": 0.037338673,
+        "joints_age": 0.150077941
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.042521549,
+        "scan_age": 0.057811446,
+        "joints_age": 0.170553449
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.050029218,
+        "scan_age": 0.065303185,
+        "joints_age": 0.078042463
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.070383535,
+        "scan_age": 0.085659315,
+        "joints_age": 0.098399625
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.086909002,
+        "scan_age": 0.001266118,
+        "joints_age": 0.114925392
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002004093,
+        "scan_age": 0.017046655,
+        "joints_age": 0.130704698
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022267628,
+        "scan_age": 0.03731017,
+        "joints_age": 0.150971899
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.042639002,
+        "scan_age": 0.057688768,
+        "joints_age": 0.171348082
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.063018121,
+        "scan_age": 0.078065572,
+        "joints_age": 0.191725448
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.083449394,
+        "scan_age": 0.098503649,
+        "joints_age": 0.212164757
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.096917451,
+        "scan_age": 0.111965153,
+        "joints_age": 0.111623857
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.117299055,
+        "scan_age": 0.132346907,
+        "joints_age": 0.132006753
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.124225562,
+        "scan_age": 0.000831554,
+        "joints_age": 0.138927118
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.001581804,
+        "scan_age": 0.008833461,
+        "joints_age": 0.146929435
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022006005,
+        "scan_age": 0.029263352,
+        "joints_age": 0.167360579
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.042480425,
+        "scan_age": 0.049748182,
+        "joints_age": 0.187858935
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.044126712,
+        "scan_age": 0.051374231,
+        "joints_age": 0.077468813
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.064432396,
+        "scan_age": 0.07168228,
+        "joints_age": 0.097778274
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.08492924,
+        "scan_age": 0.09219856,
+        "joints_age": 0.118305496
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.097875767,
+        "scan_age": 0.001446085,
+        "joints_age": 0.131250951
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.001776449,
+        "scan_age": 0.016354587,
+        "joints_age": 0.146149554
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022098047,
+        "scan_age": 0.036676395,
+        "joints_age": 0.166474097
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.042590623,
+        "scan_age": 0.057182978,
+        "joints_age": 0.186989467
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.044220183,
+        "scan_age": 0.058793562,
+        "joints_age": 0.078586555
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.064582291,
+        "scan_age": 0.07916149,
+        "joints_age": 0.098956167
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.0849247,
+        "scan_age": 0.099501234,
+        "joints_age": 0.119296021
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.105578452,
+        "scan_age": 0.120165307,
+        "joints_age": 0.139961105
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.126199648,
+        "scan_age": 0.140798054,
+        "joints_age": 0.160604182
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.146786819,
+        "scan_age": 0.161380205,
+        "joints_age": 0.181186163
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.160059262,
+        "scan_age": 0.000723979,
+        "joints_age": 0.194430362
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.161401204,
+        "scan_age": 0.002062845,
+        "joints_age": 0.079769089
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.181647443,
+        "scan_age": 0.022308574,
+        "joints_age": 0.100018374
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002603139,
+        "scan_age": 0.035078672,
+        "joints_age": 0.112784575
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.023010016,
+        "scan_age": 0.055493214,
+        "joints_age": 0.133200038
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.04336247,
+        "scan_age": 0.075842331,
+        "joints_age": 0.153549796
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.06390764,
+        "scan_age": 0.096411346,
+        "joints_age": 0.174132748
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.081273072,
+        "scan_age": 0.001207606,
+        "joints_age": 0.191460389
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.081564638,
+        "scan_age": 0.001492088,
+        "joints_age": 0.079743378
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.101799222,
+        "scan_age": 0.021729317,
+        "joints_age": 0.099983943
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.122204855,
+        "scan_age": 0.042143316,
+        "joints_age": 0.120397161
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.142614118,
+        "scan_age": 0.062550936,
+        "joints_age": 0.140804871
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.162950626,
+        "scan_age": 0.082882955,
+        "joints_age": 0.161135939
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002571685,
+        "scan_age": 0.098295837,
+        "joints_age": 0.176550734
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.023171389,
+        "scan_age": 0.118901313,
+        "joints_age": 0.197157292
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.023579737,
+        "scan_age": 0.119291626,
+        "joints_age": 0.083542836
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.037926994,
+        "scan_age": 0.001038328,
+        "joints_age": 0.097892127
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.058183314,
+        "scan_age": 0.021294688,
+        "joints_age": 0.118148226
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.001579039,
+        "scan_age": 0.03287626,
+        "joints_age": 0.129731151
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022149237,
+        "scan_age": 0.053465393,
+        "joints_age": 0.150333019
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.042668944,
+        "scan_age": 0.073981765,
+        "joints_age": 0.170847847
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.063163544,
+        "scan_age": 0.09446831,
+        "joints_age": 0.077322389
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.081285362,
+        "scan_age": 0.000945676,
+        "joints_age": 0.095442754
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.101751443,
+        "scan_age": 0.021412328,
+        "joints_age": 0.115910197
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.001908571,
+        "scan_age": 0.033987001,
+        "joints_age": 0.128484049
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022272096,
+        "scan_age": 0.054348703,
+        "joints_age": 0.148844959
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.042625686,
+        "scan_age": 0.074709116,
+        "joints_age": 0.169205823
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.063224755,
+        "scan_age": 0.095310349,
+        "joints_age": 0.189808028
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.083626427,
+        "scan_age": 0.11571149,
+        "joints_age": 0.210209229
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.09598381,
+        "scan_age": 0.128073702,
+        "joints_age": 0.109571
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.116652508,
+        "scan_age": 0.148754132,
+        "joints_age": 0.130264466
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.137229213,
+        "scan_age": 0.169326159,
+        "joints_age": 0.150834749
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.157844732,
+        "scan_age": 0.189946828,
+        "joints_age": 0.171456219
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.178468542,
+        "scan_age": 0.210567611,
+        "joints_age": 0.192093654
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.191385605,
+        "scan_age": 0.223462482,
+        "joints_age": 0.076957887
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.196606262,
+        "scan_age": 0.001033138,
+        "joints_age": 0.082178764
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.216910479,
+        "scan_age": 0.021340651,
+        "joints_age": 0.102486818
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002047541,
+        "scan_age": 0.025998806,
+        "joints_age": 0.107145484
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022519041,
+        "scan_age": 0.046476638,
+        "joints_age": 0.127634989
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.042927947,
+        "scan_age": 0.066870145,
+        "joints_age": 0.148016372
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.063410834,
+        "scan_age": 0.087370074,
+        "joints_age": 0.168528736
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.083801391,
+        "scan_age": 0.107741495,
+        "joints_age": 0.188887622
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.104139552,
+        "scan_age": 0.128081449,
+        "joints_age": 0.209227617
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.124475995,
+        "scan_age": 0.148414255,
+        "joints_age": 0.229560473
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.1248197,
+        "scan_age": 0.148756437,
+        "joints_age": 0.082901542
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.145185348,
+        "scan_age": 0.16912947,
+        "joints_age": 0.10327715
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.166033834,
+        "scan_age": 0.189998224,
+        "joints_age": 0.124156815
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.186649753,
+        "scan_age": 0.210603392,
+        "joints_age": 0.144754599
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.207226723,
+        "scan_age": 0.231186645,
+        "joints_age": 0.165343793
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.227610321,
+        "scan_age": 0.251548782,
+        "joints_age": 0.185694769
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.247963035,
+        "scan_age": 0.27190882,
+        "joints_age": 0.20605676
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.268460048,
+        "scan_age": 0.292405292,
+        "joints_age": 0.226553644
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.288815473,
+        "scan_age": 0.312759213,
+        "joints_age": 0.246906443
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.309207962,
+        "scan_age": 0.333161963,
+        "joints_age": 0.107309483
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.309662809,
+        "scan_age": 0.000884981,
+        "joints_age": 0.10775432
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.001891133,
+        "scan_age": 0.008404778,
+        "joints_age": 0.115272244
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022434526,
+        "scan_age": 0.028951407,
+        "joints_age": 0.135819163
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.0428717,
+        "scan_age": 0.049387339,
+        "joints_age": 0.156255076
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.063313339,
+        "scan_age": 0.06983024,
+        "joints_age": 0.176697757
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.083777384,
+        "scan_age": 0.090296199,
+        "joints_age": 0.19716623
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.101223666,
+        "scan_age": 0.000855615,
+        "joints_age": 0.214601891
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.101581007,
+        "scan_age": 0.001208297,
+        "joints_age": 0.079953612
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.00196541,
+        "scan_age": 0.017764973,
+        "joints_age": 0.096511209
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022226499,
+        "scan_age": 0.038024649,
+        "joints_age": 0.116770796
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.042577415,
+        "scan_age": 0.058380244,
+        "joints_age": 0.137127773
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.062976505,
+        "scan_age": 0.078781579,
+        "joints_age": 0.157529018
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.083474507,
+        "scan_age": 0.099275283,
+        "joints_age": 0.17802206
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.104199541,
+        "scan_age": 0.120017719,
+        "joints_age": 0.198772472
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.124659482,
+        "scan_age": 0.140462071,
+        "joints_age": 0.219215261
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.132576274,
+        "scan_age": 0.148378652,
+        "joints_age": 0.111124828
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.144685806,
+        "scan_age": 0.001060667,
+        "joints_age": 0.123242156
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.001796483,
+        "scan_age": 0.0097375,
+        "joints_age": 0.131918247
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022140966,
+        "scan_age": 0.03007992,
+        "joints_age": 0.152262991
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.042489457,
+        "scan_age": 0.050429151,
+        "joints_age": 0.172609408
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.052406121,
+        "scan_age": 0.060346096,
+        "joints_age": 0.077525451
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.072720392,
+        "scan_age": 0.080657461,
+        "joints_age": 0.097837457
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.073046954,
+        "scan_age": 0.000939875,
+        "joints_age": 0.098160212
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.093414546,
+        "scan_age": 0.021312828,
+        "joints_age": 0.118534257
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.001772412,
+        "scan_age": 0.034133466,
+        "joints_age": 0.131354414
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022051,
+        "scan_age": 0.054409699,
+        "joints_age": 0.151630426
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.042524409,
+        "scan_age": 0.074903657,
+        "joints_age": 0.172136688
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.053248292,
+        "scan_age": 0.085610758,
+        "joints_age": 0.076831756
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.073722793,
+        "scan_age": 0.106099186,
+        "joints_age": 0.097330263
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.094120873,
+        "scan_age": 0.126500352,
+        "joints_age": 0.117733633
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.114510427,
+        "scan_age": 0.146872182,
+        "joints_age": 0.13809316
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.134809739,
+        "scan_age": 0.167170753,
+        "joints_age": 0.158391841
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.155293112,
+        "scan_age": 0.187659867,
+        "joints_age": 0.178881786
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.170376712,
+        "scan_age": 0.001012837,
+        "joints_age": 0.193964074
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.175433326,
+        "scan_age": 0.006065594,
+        "joints_age": 0.093014296
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.196039173,
+        "scan_age": 0.026692861,
+        "joints_age": 0.113655921
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002039912,
+        "scan_age": 0.031455441,
+        "joints_age": 0.118404904
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022513246,
+        "scan_age": 0.051945707,
+        "joints_age": 0.138898717
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.042821936,
+        "scan_age": 0.072237685,
+        "joints_age": 0.159187148
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.05823861,
+        "scan_age": 0.000846664,
+        "joints_age": 0.174604594
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.074804133,
+        "scan_age": 0.017410403,
+        "joints_age": 0.077168183
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.095253827,
+        "scan_age": 0.037879384,
+        "joints_age": 0.097648916
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002044172,
+        "scan_age": 0.056599362,
+        "joints_age": 0.116356631
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022563734,
+        "scan_age": 0.077139012,
+        "joints_age": 0.136909787
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.043006956,
+        "scan_age": 0.097560713,
+        "joints_age": 0.157318723
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.063394927,
+        "scan_age": 0.117952571,
+        "joints_age": 0.177711132
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.083868967,
+        "scan_age": 0.138428395,
+        "joints_age": 0.198187036
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.102900863,
+        "scan_age": 0.157463888,
+        "joints_age": 0.11022333
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.121047756,
+        "scan_age": 0.000729115,
+        "joints_age": 0.128361266
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.141585692,
+        "scan_age": 0.021277391,
+        "joints_age": 0.14891359
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002017233,
+        "scan_age": 0.028329713,
+        "joints_age": 0.155960993
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.02247079,
+        "scan_age": 0.048801003,
+        "joints_age": 0.176438105
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.03412513,
+        "scan_age": 0.060510579,
+        "joints_age": 0.078160725
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.054806099,
+        "scan_age": 0.081141393,
+        "joints_age": 0.098785547
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.074709146,
+        "scan_age": 0.000982918,
+        "joints_age": 0.118653087
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.095080972,
+        "scan_age": 0.021364893,
+        "joints_age": 0.139035933
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002351901,
+        "scan_age": 0.038668582,
+        "joints_age": 0.15633861
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022616799,
+        "scan_age": 0.058932929,
+        "joints_age": 0.176602777
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.033497039,
+        "scan_age": 0.069815443,
+        "joints_age": 0.077485151
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.054004292,
+        "scan_age": 0.090339328,
+        "joints_age": 0.098020678
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.074338581,
+        "scan_age": 0.11065424,
+        "joints_age": 0.118324479
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.09486015,
+        "scan_age": 0.13120251,
+        "joints_age": 0.138877368
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.115464851,
+        "scan_age": 0.151800919,
+        "joints_age": 0.159483241
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.136033111,
+        "scan_age": 0.17235933,
+        "joints_age": 0.180031813
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.146494103,
+        "scan_age": 0.182816585,
+        "joints_age": 0.084486663
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.159630092,
+        "scan_age": 0.000819827,
+        "joints_age": 0.097616861
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.180140932,
+        "scan_age": 0.02133223,
+        "joints_age": 0.118129034
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002047782,
+        "scan_age": 0.036332325,
+        "joints_age": 0.1331299
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022380237,
+        "scan_age": 0.056662336,
+        "joints_age": 0.153459339
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.042871591,
+        "scan_age": 0.07716397,
+        "joints_age": 0.173961695
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.057627545,
+        "scan_age": 0.091909093,
+        "joints_age": 0.079705145
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.074374865,
+        "scan_age": 0.000762092,
+        "joints_age": 0.096454198
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.094763789,
+        "scan_age": 0.021154884,
+        "joints_age": 0.116851919
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.115315035,
+        "scan_age": 0.041718374,
+        "joints_age": 0.137423103
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.135796064,
+        "scan_age": 0.062185856,
+        "joints_age": 0.157879966
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.156222974,
+        "scan_age": 0.082612817,
+        "joints_age": 0.178305814
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002121252,
+        "scan_age": 0.099898723,
+        "joints_age": 0.195591289
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.008524097,
+        "scan_age": 0.106304312,
+        "joints_age": 0.09999746
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.028952094,
+        "scan_age": 0.126734133,
+        "joints_age": 0.1204266
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.041437354,
+        "scan_age": 0.001223797,
+        "joints_age": 0.132909154
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.061906925,
+        "scan_age": 0.021692777,
+        "joints_age": 0.153377262
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.001820563,
+        "scan_age": 0.034771331,
+        "joints_age": 0.166456016
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.01636958,
+        "scan_age": 0.049318834,
+        "joints_age": 0.079003189
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.036617423,
+        "scan_age": 0.069566508,
+        "joints_age": 0.099251744
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.056998436,
+        "scan_age": 0.0899578,
+        "joints_age": 0.119642545
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.071818754,
+        "scan_age": 0.000852565,
+        "joints_age": 0.134452894
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.092159325,
+        "scan_age": 0.02120035,
+        "joints_age": 0.154801571
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.0020134,
+        "scan_age": 0.033838954,
+        "joints_age": 0.167440115
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.018014986,
+        "scan_age": 0.049839427,
+        "joints_age": 0.079440418
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.038305266,
+        "scan_age": 0.070131681,
+        "joints_age": 0.099733363
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.058703957,
+        "scan_age": 0.090536815,
+        "joints_age": 0.120138477
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.079117577,
+        "scan_age": 0.110949884,
+        "joints_age": 0.140551706
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.099593531,
+        "scan_age": 0.131429194,
+        "joints_age": 0.161030676
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.120049269,
+        "scan_age": 0.151882427,
+        "joints_age": 0.18148427
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.126277313,
+        "scan_age": 0.158102857,
+        "joints_age": 0.076703577
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.146819643,
+        "scan_age": 0.178668061,
+        "joints_age": 0.097280914
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.147476254,
+        "scan_age": 0.000853731,
+        "joints_age": 0.097899472
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002576919,
+        "scan_age": 0.017184181,
+        "joints_age": 0.114231034
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022817274,
+        "scan_age": 0.037422302,
+        "joints_age": 0.134467903
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.043227568,
+        "scan_age": 0.057843817,
+        "joints_age": 0.154893756
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.063702991,
+        "scan_age": 0.078318729,
+        "joints_age": 0.175366164
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.066330377,
+        "scan_age": 0.080937599,
+        "joints_age": 0.076982939
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.086768162,
+        "scan_age": 0.101391334,
+        "joints_age": 0.097462844
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.087333939,
+        "scan_age": 0.001121506,
+        "joints_age": 0.098003985
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002152034,
+        "scan_age": 0.015988893,
+        "joints_age": 0.112863147
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022455356,
+        "scan_age": 0.036296063,
+        "joints_age": 0.133170887
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.042767878,
+        "scan_age": 0.056609156,
+        "joints_age": 0.153484442
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.063490934,
+        "scan_age": 0.077353662,
+        "joints_age": 0.174230781
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.08422577,
+        "scan_age": 0.098076506,
+        "joints_age": 0.194953004
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.104763441,
+        "scan_age": 0.118609919,
+        "joints_age": 0.215486236
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.110878202,
+        "scan_age": 0.124732264,
+        "joints_age": 0.109610505
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.123440988,
+        "scan_age": 0.000716876,
+        "joints_age": 0.122161509
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.143760104,
+        "scan_age": 0.02102982,
+        "joints_age": 0.142473901
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.00160867,
+        "scan_age": 0.028703565,
+        "joints_age": 0.150148108
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.021952041,
+        "scan_age": 0.049054832,
+        "joints_age": 0.170498854
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.032777763,
+        "scan_age": 0.059891915,
+        "joints_age": 0.078345796
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.05314785,
+        "scan_age": 0.080244779,
+        "joints_age": 0.098688511
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.07172916,
+        "scan_age": 0.001316614,
+        "joints_age": 0.117274469
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.092420287,
+        "scan_age": 0.022003363,
+        "joints_age": 0.137960336
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.001748672,
+        "scan_age": 0.032817152,
+        "joints_age": 0.148774426
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022090992,
+        "scan_age": 0.053164191,
+        "joints_age": 0.169121505
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.034188281,
+        "scan_age": 0.065258333,
+        "joints_age": 0.079215608
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.054462049,
+        "scan_age": 0.08553126,
+        "joints_age": 0.099488575
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.074929988,
+        "scan_age": 0.106020399,
+        "joints_age": 0.119989596
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.095441254,
+        "scan_age": 0.126516847,
+        "joints_age": 0.140475073
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.115854654,
+        "scan_age": 0.146943693,
+        "joints_age": 0.160911727
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.13644473,
+        "scan_age": 0.167525162,
+        "joints_age": 0.18148434
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.144541381,
+        "scan_age": 0.175611164,
+        "joints_age": 0.077568709
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.146574596,
+        "scan_age": 0.001098222,
+        "joints_age": 0.079609818
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002216704,
+        "scan_age": 0.016506279,
+        "joints_age": 0.095017645
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.02254177,
+        "scan_age": 0.036831816,
+        "joints_age": 0.115343062
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.042998923,
+        "scan_age": 0.057306974,
+        "joints_age": 0.135829751
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.063480447,
+        "scan_age": 0.077774522,
+        "joints_age": 0.15628746
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.083978312,
+        "scan_age": 0.098286544,
+        "joints_age": 0.176809451
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.098604746,
+        "scan_age": 0.112891877,
+        "joints_age": 0.077402481
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.10070866,
+        "scan_age": 0.000933353,
+        "joints_age": 0.079504782
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.121093635,
+        "scan_age": 0.02133519,
+        "joints_age": 0.09991764
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.001853446,
+        "scan_age": 0.0323879,
+        "joints_age": 0.110959699
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022155719,
+        "scan_age": 0.052689511,
+        "joints_age": 0.131261451
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.042615913,
+        "scan_age": 0.073156588,
+        "joints_age": 0.151730111
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.062990914,
+        "scan_age": 0.093528193,
+        "joints_age": 0.172100473
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.083378921,
+        "scan_age": 0.113918644,
+        "joints_age": 0.192491085
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.100281681,
+        "scan_age": 0.130826003,
+        "joints_age": 0.097398474
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.107745447,
+        "scan_age": 0.000712613,
+        "joints_age": 0.104848905
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.128145106,
+        "scan_age": 0.02112723,
+        "joints_age": 0.12530472
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002561801,
+        "scan_age": 0.027117724,
+        "joints_age": 0.131254006
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022962662,
+        "scan_age": 0.047524937,
+        "joints_age": 0.151662371
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.043256228,
+        "scan_age": 0.067813293,
+        "joints_age": 0.171950437
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.052439029,
+        "scan_age": 0.076995383,
+        "joints_age": 0.079131484
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.070216071,
+        "scan_age": 0.001300032,
+        "joints_age": 0.096938393
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.090613726,
+        "scan_age": 0.021680053,
+        "joints_age": 0.117308155
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.111045906,
+        "scan_age": 0.042131871,
+        "joints_age": 0.137772196
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.001973701,
+        "scan_age": 0.045392052,
+        "joints_age": 0.141020194
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022285206,
+        "scan_age": 0.06570505,
+        "joints_age": 0.161333082
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.042564216,
+        "scan_age": 0.085981846,
+        "joints_age": 0.181610469
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.051782569,
+        "scan_age": 0.095202704,
+        "joints_age": 0.078831026
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.072387256,
+        "scan_age": 0.115816839,
+        "joints_age": 0.099446825
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.092859605,
+        "scan_age": 0.136286373,
+        "joints_age": 0.119916228
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.113223249,
+        "scan_age": 0.156643705,
+        "joints_age": 0.140272197
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.13368431,
+        "scan_age": 0.177110687,
+        "joints_age": 0.160739831
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.142731228,
+        "scan_age": 0.001150667,
+        "joints_age": 0.169813349
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002559852,
+        "scan_age": 0.017181426,
+        "joints_age": 0.185841323
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002854884,
+        "scan_age": 0.017458224,
+        "joints_age": 0.081106608
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.02324901,
+        "scan_age": 0.037873951,
+        "joints_age": 0.101529619
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.04366436,
+        "scan_age": 0.058277909,
+        "joints_age": 0.121933708
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.064039482,
+        "scan_age": 0.078651448,
+        "joints_age": 0.142302156
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.08453068,
+        "scan_age": 0.099156743,
+        "joints_age": 0.162817742
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.097875466,
+        "scan_age": 0.001003402,
+        "joints_age": 0.17613259
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.112426255,
+        "scan_age": 0.0155537,
+        "joints_age": 0.078681636
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002743478,
+        "scan_age": 0.017695497,
+        "joints_age": 0.080823663
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.023152017,
+        "scan_age": 0.038114154,
+        "joints_age": 0.101242912
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.043496206,
+        "scan_age": 0.058449678,
+        "joints_age": 0.121578245
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.063909829,
+        "scan_age": 0.078867358,
+        "joints_age": 0.141996245
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.084290468,
+        "scan_age": 0.099248458,
+        "joints_age": 0.162377766
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.104828665,
+        "scan_age": 0.119802085,
+        "joints_age": 0.182941462
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.125469438,
+        "scan_age": 0.140433099,
+        "joints_age": 0.203562728
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.001957925,
+        "scan_age": 0.151934533,
+        "joints_age": 0.215063671
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002303444,
+        "scan_age": 0.152272437,
+        "joints_age": 0.100400443
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002444573,
+        "scan_age": 0.002692247,
+        "joints_age": 0.100539177
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022729693,
+        "scan_age": 0.022986144,
+        "joints_age": 0.120837563
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.043092637,
+        "scan_age": 0.043351241,
+        "joints_age": 0.141201048
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.063513586,
+        "scan_age": 0.06376658,
+        "joints_age": 0.161614993
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.082294067,
+        "scan_age": 0.082548093,
+        "joints_age": 0.079396546
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.082569962,
+        "scan_age": 0.000924424,
+        "joints_age": 0.079665108
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.001997516,
+        "scan_age": 0.017336703,
+        "joints_age": 0.096078498
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022444255,
+        "scan_age": 0.037800734,
+        "joints_age": 0.116554483
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.042960009,
+        "scan_age": 0.058316288,
+        "joints_age": 0.137069305
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.063512157,
+        "scan_age": 0.078870741,
+        "joints_age": 0.15762496
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.084068941,
+        "scan_age": 0.099427734,
+        "joints_age": 0.178181533
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.101526829,
+        "scan_age": 0.116871897,
+        "joints_age": 0.079613362
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.121891891,
+        "scan_age": 0.137249232,
+        "joints_age": 0.099994424
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.142263356,
+        "scan_age": 0.157604937,
+        "joints_age": 0.120346783
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.162719993,
+        "scan_age": 0.178065391,
+        "joints_age": 0.140808639
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.176571595,
+        "scan_age": 0.000868096,
+        "joints_age": 0.154655482
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.197112717,
+        "scan_age": 0.021433414,
+        "joints_age": 0.175232844
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.214860338,
+        "scan_age": 0.039156909,
+        "joints_age": 0.077943624
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.001984792,
+        "scan_age": 0.040717312,
+        "joints_age": 0.079504097
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022243966,
+        "scan_age": 0.060983409,
+        "joints_age": 0.099774313
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.042679775,
+        "scan_age": 0.081423216,
+        "joints_age": 0.120211143
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.05064181,
+        "scan_age": 0.001187818,
+        "joints_age": 0.128165475
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.070896783,
+        "scan_age": 0.021439414,
+        "joints_age": 0.14841696
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.09124294,
+        "scan_age": 0.041795089,
+        "joints_age": 0.168773597
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002309004,
+        "scan_age": 0.063294298,
+        "joints_age": 0.190271684
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002603906,
+        "scan_age": 0.063583198,
+        "joints_age": 0.079559292
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022848785,
+        "scan_age": 0.08382953,
+        "joints_age": 0.099806845
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.043310024,
+        "scan_age": 0.104306608,
+        "joints_age": 0.120288563
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.06373638,
+        "scan_age": 0.124725902,
+        "joints_age": 0.140703959
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.08407392,
+        "scan_age": 0.145059774,
+        "joints_age": 0.16103712
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.104628879,
+        "scan_age": 0.165621316,
+        "joints_age": 0.181599333
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.115603976,
+        "scan_age": 0.000964297,
+        "joints_age": 0.192571163
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.130279602,
+        "scan_age": 0.01563796,
+        "joints_age": 0.092245087
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.150829332,
+        "scan_age": 0.036190796,
+        "joints_age": 0.112798213
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.002520708,
+        "scan_age": 0.041786278,
+        "joints_age": 0.118392723
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    },
+    {
+      "ages": {
+        "tf_age": 0.022983617,
+        "scan_age": 0.06226139,
+        "joints_age": 0.138877483
+      },
+      "exclusive": true,
+      "tucked": true,
+      "decision": {
+        "vx": 0.0,
+        "vy": 0.0,
+        "wz": 0.0,
+        "state": "clearance_not_confirmed"
+      }
+    }
+  ],
+  "omni_publishers": [],
+  "omni_subscribers": 1,
+  "finite_proposal": {
+    "motion_authorized": false,
+    "frame": "odom",
+    "joint_names": [
+      "odom_x",
+      "odom_y",
+      "odom_t"
+    ],
+    "positions": [
+      1.9887106610731657,
+      0.29917997996503626,
+      -1.3930176127588716
+    ],
+    "time_from_start_s": 2.0,
+    "relative_base_translation_m": [
+      0.014282690970686452,
+      -0.004583092693353658
+    ],
+    "nominal_distance_m": 0.015,
+    "stationary_source_based_distance_bound_m": 0.01712132034355964,
+    "nominal_speed_mps": 0.0075,
+    "caveats": [
+      "Bound assumes the inspected source, fresh TF, and stationary start through command receipt.",
+      "Duration uses Unity Time.time; pause suspends progress and resume may continue it.",
+      "Twist zero is rejected while omni trajectory is running; it is not cancellation.",
+      "Endpoint may be undershot when FixedUpdate skips past the final duration.",
+      "Only one segment may be sent; fresh final-state confirmation is required before another."
+    ]
+  }
+}

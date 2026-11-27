@@ -1,0 +1,83 @@
+固定路线多物品搬运：通用化第一步（2026-10-23）
+
+当前已完成与未完成
+  原apple_transfer_automation.py及其配置、导航、速度、模型均保持原样。
+  r19苹果全程实测420.145秒是历史物理验证，不能当成魔方的成功记录。
+  新增：按物品选择适配器的配置、共用17阶段离线协调器、魔方RGBD观察测量、
+  同一任务/房间内的多帧一致性检查及离线取图分析入口。
+  尚未完成：魔方近距闭爪适配、接触与提起验证、持物跟踪、真实放置和整轮实测。
+  新模板没有--run运动入口；offline成功明确标记physical_transfer_verified=false。
+
+物品与路线
+  apple：沿用原红色球面测量；原入口仍是已实测的专用搬运入口。
+  rubiks_cube：仅开发观察适配器；不用红色筛选，也不把魔方拟合成苹果球体。
+  第一轮仍固定LayoutA，卧室white_side_table -> 客厅square_low_table。
+  物品坐标来自当次RGBD，不读取Unity生成点或物品实时坐标作为视觉测量。
+  canned_juice：新增直立不透明圆柱体观察适配，不启用真实抓取。
+  其他27类不会回退到苹果算法；明确报告暂未接入，不代表检测模型不能识别它们。
+
+魔方观察策略与局限
+  要求已配准RGB/depth、有效深度、同帧内参和base_from_rgb变换。
+  从检测框周围独立拟合桌面，在框内测量桌面上方的连贯深度表面。
+  假设魔方平放，结合可见顶面及水平投影，产生近似立方体中心/高度/占地候选。
+  侧长2~12cm只是临时观察范围，不是赛事模型真实尺寸或夹爪机械能力证明。
+  占地半径与半高度分别存储；不能拿占地外接圆半径当物品底部距离。
+  单帧看不到的背面不能宣称测量到了；拟合误差也不是总定位误差。
+  严重遮挡、侧躺/倾斜、透明深度或相邻物体等仍须实际验证，失败时报告原因。
+  三帧重复性不等于绝对准确、可抓取或碰撞认证，更不授权底盘/夹爪运动。
+  识别失败、缺深度或房外候选，不会在这些模块中直接发Does_not_exist。
+
+文件
+  manipulation_profiles.py / config/manipulation_objects_v1.json：物品分派与固定路线模板。
+  object_surface_geometry.py：苹果原测量委托、魔方非颜色RGBD候选。
+  object_observation_sequence.py：任务/类别/源时间/房间约束下的观察一致性。
+  generic_transfer_template.py：共用17阶段的离线状态流，不是通用真机执行器。
+  inspect_manipulation_capture.py：读取已保存RGBD及检测框，输出可追溯观察报告。
+  test_generic_transfer_template.py：合成相机射线/立方体场景、负例与状态机测试。
+
+默认不连接Unity、不动机器人即可运行
+  cd /mnt/d/handyman-tools/apple-transfer-auto-v1
+  python3 generic_transfer_template.py --object rubiks_cube
+
+  python3 generic_transfer_template.py --object rubiks_cube --offline-smoke-test \
+    --output /mnt/d/handyman-training-runs/generic-cube-offline-新的编号
+
+  python3 -m unittest test_generic_transfer_template
+
+已有RGBD观察分析（并非启动机器人）
+  python3 inspect_manipulation_capture.py --object rubiks_cube \
+    --capture /mnt/d/handyman-training-runs/某次相机采集/000000 \
+    --detections /mnt/d/handyman-training-runs/该帧检测列表.json \
+    --output /mnt/d/handyman-training-runs/新的魔方观察报告.json
+
+  capture需含rgb.png、depth_m.npy、snapshot.json；检测列表可用box或xyxy字段。
+  单独一张旧RGB截图不能补造深度、相机内参或三维定位验证。
+  输出目录/报告名必须是新的，不覆盖历史图像、记录或人工标注。
+
+下一步需要Unity
+  先让机器人和魔方进入同一可观察场景，收集新的头部RGBD和当前模型检测。
+  第一轮只做观察验证，核查魔方中心、尺寸、桌面归属和朝向变化后的稳定性。
+  通过后再实现并授权魔方原地抓放，最后接回已固定的跨房间导航流程。
+  不同时改模型、路线、速度，避免无法区分故障来源。
+
+2026-10-23：LayoutA首测目标改为canned_juice
+  用户确认该Layout无魔方，保留魔方适配但首测改用已摆放的饮料罐。
+  upright_cylinder_geometry.py从当前可见侧面弧线拟合XY圆，结合独立桌面与可见
+  顶部估计中心/高度；不套红色球体或魔方矩形。水平半径与半高度分开存储。
+  半径1~6cm、高度3.5~20cm是临时观察范围，不是模型真实尺寸或抓取能力证明。
+  可见弧太窄、无侧面/顶面、深度无效等报告原因，不用旧坐标或预期尺寸补造测量。
+  新模板仍是观察/离线入口，真实近距跟踪、闭爪、提起、持物和放置仍需后续接入。
+  测试：python3 -m unittest test_generic_transfer_template test_upright_cylinder_geometry
+  观察：inspect_manipulation_capture.py --object canned_juice，其余参数与魔方相同。
+  旧苹果入口、模型、导航路线/参数/速度、Unity工程均不改动。
+
+2026-10-23：首次饮料罐相机实测的背景深度修正
+  原图三帧均正确识别饮料罐，但框边缘混入后方垃圾桶的72个深度点，
+  仅按二维像素连通会把这些背景点并入罐体，导致初始拟合半径约13.6cm。
+  现仅对饮料罐分支加入三维邻域距离连通分割（相邻点跳变超过2cm则断开），
+  只选择贯穿检测框中心区域的唯一有效表面；不按最大背景面积选择物体。
+  原苹果分支和魔方分支不变。多表面贯穿中心、有效深度缺失仍明确报告失败。
+  修正后这张实测RGBD拟合高度约12.5cm、直径约7.54cm；属于观察测量，
+  不是闭爪、接触、持物或放置成功证明，也没有开启通用运动入口。
+  回归新增二维接触但三维分离、背景更大、中心多表面、无中心种子、
+  完整RGBD背景条带等测试；原始图像/深度/失败记录保留，便于复查。

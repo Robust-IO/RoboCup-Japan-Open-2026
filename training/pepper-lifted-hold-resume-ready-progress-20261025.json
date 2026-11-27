@@ -1,0 +1,252 @@
+{
+  "status": "pepper_verified_lift_continuation_without_duplicate_body_gate_ready",
+  "saved_ns": 1792918425289310092,
+  "branch": "feat/handyman-phase5-grasping",
+  "boot_id": "03e2ce8b-528d-4517-a5f5-5aa905f81a77",
+  "user_requested_stop": true,
+  "robot_commands_sent_by_stop_probe": false,
+  "no_additional_manipulation_authorized_today": true,
+  "passed_forward_rounds": 1,
+  "requested_forward_rounds": 3,
+  "remaining_forward_rounds": 2,
+  "verified_initial_automatic_reset": {
+    "leg": "00-initial-reset",
+    "kind": "automatic_reset",
+    "round": 0,
+    "output": "/mnt/d/handyman-training-runs/pepper-automatic-rounds-20261025-02/legs/00-initial-reset",
+    "elapsed_s": 241.623425368,
+    "close_commands_sent": 1,
+    "release_commands_sent": 1,
+    "source": "square_low_table#living_room",
+    "destination": "white_side_table#bedroom_1",
+    "physical_transfer_verified": true,
+    "uninterrupted_transfer_verified": true,
+    "robot_ready_for_next_task": true
+  },
+  "verified_first_forward_round": {
+    "leg": "01-round-1",
+    "kind": "forward_regression",
+    "round": 1,
+    "output": "/mnt/d/handyman-training-runs/pepper-automatic-rounds-20261025-02/legs/01-round-1",
+    "elapsed_s": 259.69328752,
+    "close_commands_sent": 1,
+    "release_commands_sent": 1,
+    "source": "white_side_table#bedroom_1",
+    "destination": "square_low_table#living_room",
+    "physical_transfer_verified": true,
+    "uninterrupted_transfer_verified": true,
+    "robot_ready_for_next_task": true
+  },
+  "completed_forward_placement_proof": {
+    "placement_success_verified": true,
+    "class_name": "ground_pepper",
+    "destination_id": "square_low_table#living_room",
+    "checks": [
+      {
+        "ready": true,
+        "center_map_m": [
+          1.993861047658336,
+          3.5391659994145135,
+          0.47080181599356297
+        ],
+        "bottom_map_m": [
+          1.9807561447605575,
+          3.531962652521206,
+          0.442907992119057
+        ],
+        "estimated_bottom_gap_m": -0.0005130218154379973,
+        "table_height_map_m": 0.443421013934495,
+        "table_edge_safety": {
+          "safe": true,
+          "center_to_unsupported_m": 0.09594054170300338,
+          "object_radius_m": 0.031649519692524414,
+          "outer_clearance_lower_estimate_m": 0.06429102201047897,
+          "minimum_outer_gap_m": 0.03,
+          "uncertainty_allowance_m": 0.01,
+          "basis": "observed_table_support_not_furniture_aabb"
+        },
+        "planned_xy_is_success_gate": false,
+        "motion_authorized": false
+      },
+      {
+        "ready": true,
+        "center_map_m": [
+          1.9937831795622984,
+          3.5396737744453732,
+          0.47078955062412403
+        ],
+        "bottom_map_m": [
+          1.9802869359052282,
+          3.5331768334925506,
+          0.4429059304369546
+        ],
+        "estimated_bottom_gap_m": -0.0004767626718503726,
+        "table_height_map_m": 0.44338269310880496,
+        "table_edge_safety": {
+          "safe": true,
+          "center_to_unsupported_m": 0.09594054170300338,
+          "object_radius_m": 0.031652094864918504,
+          "outer_clearance_lower_estimate_m": 0.06428844683808488,
+          "minimum_outer_gap_m": 0.03,
+          "uncertainty_allowance_m": 0.01,
+          "basis": "observed_table_support_not_furniture_aabb"
+        },
+        "planned_xy_is_success_gate": false,
+        "motion_authorized": false
+      },
+      {
+        "ready": true,
+        "center_map_m": [
+          1.9934168409480477,
+          3.53987833631788,
+          0.47078957415741607
+        ],
+        "bottom_map_m": [
+          1.9798295263296466,
+          3.533540847035903,
+          0.4429134872656153
+        ],
+        "estimated_bottom_gap_m": -0.0004692751605517298,
+        "table_height_map_m": 0.44338276242616703,
+        "table_edge_safety": {
+          "safe": true,
+          "center_to_unsupported_m": 0.09594054170300338,
+          "object_radius_m": 0.031652094864918504,
+          "outer_clearance_lower_estimate_m": 0.06428844683808488,
+          "minimum_outer_gap_m": 0.03,
+          "uncertainty_allowance_m": 0.01,
+          "basis": "observed_table_support_not_furniture_aabb"
+        },
+        "planned_xy_is_success_gate": false,
+        "motion_authorized": false
+      }
+    ],
+    "center_spread_m": 0.0004424472144995717,
+    "cleanup_completed": true,
+    "task_finished_sent": false
+  },
+  "run_root": "/mnt/d/handyman-training-runs/pepper-automatic-rounds-20261025-02",
+  "stopped_next_leg": {
+    "output": "/mnt/d/handyman-training-runs/pepper-automatic-rounds-20261025-02/legs/02-reset-for-2",
+    "stage": "prepare_horizontal_at_wide_body",
+    "close_commands_sent": 0,
+    "release_commands_sent": 0,
+    "reason": "user_stop_after_round_1; queued_next_leg_was_interrupted"
+  },
+  "current_actual_state_at_save": {
+    "joints": [
+      0.19406771659851074,
+      -1.7000001065434844,
+      0.0,
+      0.1292036754032555,
+      0.0,
+      0.6499999859074279
+    ],
+    "poses": {
+      "map": [
+        2.093984331216313,
+        2.582858505509595,
+        1.6456237781912515
+      ],
+      "odom": [
+        0.9101026058197021,
+        2.582139492034912,
+        1.6455691884747532
+      ]
+    },
+    "stamp_ns": 1792864754386000000
+  },
+  "current_state_is_historical_not_future_motion_permission": true,
+  "robot_holding_object": false,
+  "hand_open": true,
+  "robot_empty_tucked": false,
+  "robot_ready_for_next_task": false,
+  "current_arm_state": "empty_open_horizontal_at_measured_body_height",
+  "object_at_destination": "square_low_table#living_room",
+  "object_not_moved_by_interrupted_next_leg": true,
+  "current_readonly_probe": "/mnt/d/handyman-training-runs/pepper-stop-readonly-20261025-01",
+  "tests_passed": 679,
+  "latest_expected_hashes": {
+    "run_canned_grasp_trial.py": "68f6e4be97c4f7e8e9b41b5701fdd91f1962d4835ea2b7e7e384be2e92c8da88",
+    "run_canned_carry_trial.py": "eaafdca975ac703b2b14e07a6be4a958f062de7996c6d44d9cb0029b22d757f8",
+    "run_canned_place_trial.py": "cdacc984f33272acc12cc08ef5e73e0ef7d7699d6ccf4f1eae0236c9de33bc84",
+    "can_transfer_context.py": "6fa7295ad35c788ab9143d338bc9bf745c143359aed8e308eb126f9ba678f900",
+    "can_transfer_automation.py": "171abbef8fcd610e89942069b5ba831cedd43f802d9021e86cca58b116850622",
+    "run_object_transfer.py": "eaa059a2f54bfaa4bcd2e3206b2c2cd1d26fae63df336e853aa356f0fc1b403c",
+    "test_can_transfer_automation.py": "d16de88a548b2e635962153bf12ca04d319557e5a33be7c58ee6c19f7a826329",
+    "run_object_transfer.sh": "4162cb1f2608e0f53aba557a244f7f3014667d440545fa994a81db17fe40ab48",
+    "OBJECT_TRANSFER.txt": "1eafe5d8bede21a36252c7fbf73a744d44a28f3d91f4ef07c2e2970ac77d3cb4",
+    "canned_grasp_geometry.py": "e8235692df98f697a624371e64a44d392eb0da645e3057ac7f60d7d8ac822824",
+    "canned_carry_geometry.py": "250bbdef3103417e41178bce5357cebfe1cea25a91d537ce79bc6262e64646b4",
+    "held_can_appearance.py": "c27828aff5de8e34f6190b30cb4f35c0549e0129c2bde42745ac2d86c2daac3f",
+    "canned_place_geometry.py": "b1d26edd861ff03ac8e4d802841d7ddc5ff2e1caa56870de98db43ed55fa2dd0",
+    "tracked_can_cap_geometry.py": "e3fff021adaa5f158ce9cfed87743473ded16680c472eb4d97f64161da7c3f16",
+    "test_tracked_can_cap_geometry.py": "f6974c5ec5d26f33f49c50e6888685b6d6d6222fb0cd98326cc0825b411f1b9f",
+    "can_release_timing.py": "da5fca38b57d092dd410bd9ea24a6bbd56682a8a0db3c486ceb973ef7b1d281a",
+    "test_can_release_timing.py": "f7895c16fd760ba74f50a574b5e8369a4cfd6ce8faafd95b2e7ffefd020fa34a",
+    "can_destination_surface.py": "2f64b65b3b0cabc3c2f21c1708bde6863380521073f40c4938f31a83337ad12a",
+    "test_can_destination_surface.py": "e5227acc86464c611cafb038d3ec3f199752dad6ea3132aeb5a04752166ef85c",
+    "can_identity_selection.py": "11f8df847fcc15e432d83285018abe6f10d83f411a89e0f12e995045fcb17bb1",
+    "test_can_identity_selection.py": "20595a2a3226bed9910b99861935492ab82d049c08e1eff52e9352a27cb335cd",
+    "canned_grasp_runtime.py": "6eb656dd84cf36369c162c73094ffed8934cf8d5f7de1e7c0c2aa5a3aa77ae7e",
+    "test_canned_grasp_geometry.py": "b1751c44ddd707d2cfd11fe839eaa501a35aa77d6015d0ef49d3dc095e09c58c",
+    "pregrasp_raised_trial.py": "9b2c48c882bc4a5d295fa93ebb7a1dc23239ae8ceb81cb50b0836a28abe63017",
+    "can_arm_startup.py": "186d1ec0ce96098bc618f547c9ebdcea4f121a6032b93008f63db246ec6605c6",
+    "test_can_arm_startup.py": "8a29e5789e48c141f8f0207ac7722b22bab1cb953316d20cc9c093a4f309468d",
+    "can_approach_plan.py": "a5e75d6b08f7b9783ddda0ba7a463fc9c8b48bb05d97cde99c95472feb46cf36",
+    "test_can_approach_plan.py": "6e40ca3472c5edcefda2fa083712e2a71ccb51d167df37a488b8da7c4a746eaf",
+    "pepper_geometry.py": "c2edddb0fe5e68c5362a7f5d44fdd7b0391e43597ab99998489f5860dbd4ca05",
+    "pepper_hold.py": "43a250e5fbf70f666c3bb3c1ca221ed634595194806d5ac2b3e4ab97e0418205",
+    "pepper_place.py": "7624e23274f8ade10d7303385a70d620b597ce9f93f0a6b98ac637011ae67e8e",
+    "pepper_runtime.py": "a150054c8fc5b4a5dccef739f8c375dc223042f1e4bfdad1a962fbcb7b55d47a",
+    "pepper_transfer_automation.py": "9836bb0eac543d633e15040c0a075a7733e135569c9d526acf4c7eb8d8a47f2d",
+    "replay_pepper_reference.py": "868113d76141881bf6f4c3e58d029a57c07ee07568f986d088efc7ed6233cba7",
+    "test_pepper_geometry.py": "45cd599e458d22279173412e9675486b499c8ad3ab07d5eb3de7e75f7566ff0d",
+    "test_pepper_transfer.py": "9660d6ccb2e9495bbe776432f7c3810f64c3c50c76a74e9a2ef2838930531251",
+    "manipulation_profiles.py": "c28776c0a8baeb274db3cba2f44b5cde6ce8ed920038139153bceb601c33030e",
+    "config/manipulation_objects_v1.json": "62706b3ce536fda7c6cb36d41e85ce81d36ed8037fe08f646bce14004e0a8440",
+    "object_surface_geometry.py": "0c871a23925845b9b88bf272deb40931b2bf253597f0fb3ee4afcf5c808ebb82",
+    "generic_transfer_template.py": "a43c16dcb046c7ec84f77ab03e51a54c994e05174393bd90e7d8f47b5926e1ab",
+    "inspect_manipulation_capture.py": "70f8bf7429bf2c73f5613fe9a1e76d3ae7decf6bc52f0e06b2e70e76fc6917cc",
+    "reviewed_carry_adjustment.py": "1fcdefdb23fb208676e2beb2f53562e6609c2b8c5684ab5d860f50e7c6c1f065",
+    "synced_capture_selection.py": "6474dc2023e17f6c044e54ffbe1952f0ad4fef3af269cffba9d943b794d3dfa8",
+    "apple_transfer_auto_backend.py": "43505df9eb56f83fae8e12abab08707fc38309b7794fac14781d49ccbb995b29",
+    "inspect_transfer_ready.py": "f158adf62ae5af7eb3faf8bef617ce72e71458bea73701439a4f789ee471b104",
+    "pepper_tasks.py": "617ac6443be2f01dc49bbe59bb76921076bea597434b2de1917a466ae8e2a7c9",
+    "pepper_regression.py": "e9a2707e932765194b5b709f155d1f6bbfbabf43378a36936354b292aea0bfcb",
+    "test_pepper_tasks.py": "e9013801242d1b3c63857b42484ceec7fa8590439cfb6c41d62da3f052b10a77",
+    "test_pepper_regression.py": "c634f8936c4c9fbf86672057fc71178f222477adafc7be13a0e44f95c46de721",
+    "config/pepper_bedroom_to_living_room.json": "a16d2ca9a2426e2a98dc5ebf616bda8e4fb30c3ef5701763d704e6491d50a72c",
+    "config/pepper_living_room_to_bedroom.json": "05952988b70b617642c3a9ae1801385f1461637916928e88b7eccc12f300a6e0",
+    "navigation_feedback_gate.py": "9666ce8496c4414ff1452445a3eac344bc22daa3400a2597e0fa86c64034c878",
+    "navigate_carry_trial.py": "c6bb046ed8e4d8b20209218694a31868de54bd7d545c5b1e6ce33b78b7cb7c4f",
+    "test_navigation_feedback_gate.py": "f0ef479b7def58e20cf52602c5094f9d368156b4ef82ace30c1ff7b8fad509e4",
+    "pepper_source_observation.py": "5fb684be516934b65c37bc04efb6831cb6d5026e6711d831178f7cc9175aefdc",
+    "test_pepper_source_observation.py": "d9fef4419d7482aa8ef4515410d9bc0065045c8d232fe0be91d266e5a4260e85",
+    "navigation_feedback_recovery.py": "741a03b1d234257960c70fb56efbdd085e634d8e858db05595fabb4fbd4f868c",
+    "test_navigation_feedback_recovery.py": "87ccf9acd64f49928a15c3f88318076d0e55b8a68a25c3b92f061b9b05e5964b",
+    "test_pepper_navigation_resume.py": "48b281c8d5a79b4ca6d7fb28ef3ce64684f579420e057ffa6976c2a7b4bca8e9",
+    "test_pepper_source_support.py": "8cf38538a19c69468932153c3da58048f753f05eee9bde93d59a72cc1bd554ea",
+    "test_pepper_lifted_hold_resume.py": "66d31a6da05d2174a318b681e8438817c0653fd82a7a678cb28d1de27e87132d"
+  },
+  "three_deployed_copies_verified": true,
+  "navigation_speed_route_goal_precision_unchanged": true,
+  "task_finished_sent": false,
+  "fixes_today": [
+    "Unity sync restored raw joint median age from .688s to .064s without retimestamping",
+    "Optional stopped navigation feedback recovery: confirmed cancel, two new valid scan/TF samples, then unfinished waypoint only; original age limits unchanged.",
+    "Current measured source tabletop excludes table-edge background contamination; real failure RGBD replay passed."
+  ],
+  "prior_split_completion": "pepper-stopped-navigation-continuation-20261025-01",
+  "old_held_context_is_not_current_hold": true,
+  "resume_instructions": [
+    "Respect user stop: today no more robot actions. Tomorrow read this checkpoint first.",
+    "Acquire new boot/process/feedback/current RGBD/state. Determine whether Unity restarted; do not command using this historical snapshot.",
+    "If same scene: pepper remains on living table, robot empty/open/horizontal. Inspect current state, explicitly fold empty arm only after user resumes; then pepper_regression.py --run --rounds 2 --output NEW_D_DIRECTORY runs two remaining forward rounds with automatic resets.",
+    "If Unity restarted: inspect native object location and new empty/tucked base pose. Do not assume pepper is on living table. If pepper is on bedroom white table, run one new normal forward transfer, then one remaining forward round after automatic reverse reset.",
+    "Count only full new physical transfer runs; keep completed1 and future2 evidence separately. No repeated grasp/close/release from historical contexts."
+  ],
+  "latest_validation_directory": "/mnt/d/handyman-training-runs/pepper-lifted-hold-resume-20261025-validation",
+  "robot_commands_sent": false,
+  "current_robot_state_not_queried": true
+}

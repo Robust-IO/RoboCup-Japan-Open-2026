@@ -1,0 +1,11 @@
+{
+  "status": "current_pose_cleanup_entry_deployed",
+  "tests": 534,
+  "source_sha256": "ad7d0e1dd22e2838da5c9bf0d584a2f853bece3263afa3b1640edf1f1697f2fc",
+  "previous_entry_sha256": "837ed02d477835ce007cbd8e5ec21c7e9904af3aa86422d5b7856789e40d3260",
+  "all_original_code_preserved": true,
+  "final_placed_object_rgbd_required": true,
+  "intermediate_cleanup_requires_object_reidentification": false,
+  "actual_place_actions_started": false,
+  "robot_commands_sent": false
+}

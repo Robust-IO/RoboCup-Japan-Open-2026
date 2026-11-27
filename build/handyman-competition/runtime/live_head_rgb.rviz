@@ -1,0 +1,33 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Class: rviz_default_plugins/Image
+      Enabled: true
+      Name: Head RGB (raw)
+      Normalize Range: true
+      Topic:
+        Value: /hsrb/head_rgbd_sensor/rgb/image_raw
+        Reliability Policy: Best Effort
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Depth: 5
+      Transport Hint: raw
+      Value: true
+  Enabled: true
+  Global Options:
+    Fixed Frame: head_rgbd_sensor_rgb_frame
+    Frame Rate: 15
+  Name: root
+  Tools: []
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Name: Current View
+Window Geometry:
+  Width: 1200
+  Height: 800
+  X: 100
+  Y: 100

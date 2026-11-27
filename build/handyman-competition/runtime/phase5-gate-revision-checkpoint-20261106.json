@@ -1,0 +1,122 @@
+{
+  "status": "gate_revision_v2_installed_verified",
+  "created_ns": 1793967168649053996,
+  "backup": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/backups/before-gate-revision-20261106-193054",
+  "candidate": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/gate-revision-v2-20261106-195833",
+  "installed_files_verified": 27,
+  "input_audit": {
+    "status": "input_files_verified",
+    "environment_sha256": "fb739aa47ec13d450e5602c97383129e58ac9e20b5fd600c006f4b9d387181a2",
+    "semantic_map_sha256": "fcb762ed416642dc08bd6b11fc1a1a81f3ab8456ad485232dd7f9cb5a742ee5c",
+    "model_sha256": "83e6ceb9650e6da78d05404a5ead9654278d502ce06d812a6b2b70673c513763",
+    "near_grasp_roi_confirmation": true,
+    "motion_profile": "balanced_v1",
+    "motion_profiles_sha256": "a41c622e2aae104cfb9a8c7a60bb7c5a68ec39aa01876a81578c5e2ad13d4d85",
+    "robot_commands_sent": false,
+    "scope": "File checks only; live sensor and localization readiness not established"
+  },
+  "source_entry_hash_checks_passed": true,
+  "new_behavior_tests": 31,
+  "existing_geometry_tests": 38,
+  "recorded_transfer_replay_passed": true,
+  "live_readonly_capture": {
+    "robot_commands_sent": false,
+    "control_publishers_created": false,
+    "status": "live_stationary_capture_verified",
+    "profiles": [
+      {
+        "profile": "rgbd",
+        "channels": [
+          "depth",
+          "rgb"
+        ],
+        "files": [
+          "depth_m.npy",
+          "rgb.png",
+          "snapshot.json"
+        ],
+        "transform_basis": "stationary_transform_snapshot"
+      },
+      {
+        "profile": "hand",
+        "channels": [
+          "hand"
+        ],
+        "files": [
+          "hand.png",
+          "snapshot.json"
+        ],
+        "transform_basis": "stationary_transform_snapshot"
+      },
+      {
+        "profile": "state",
+        "channels": [],
+        "files": [
+          "snapshot.json"
+        ],
+        "transform_basis": "stationary_transform_snapshot"
+      }
+    ],
+    "delayed_computation": {
+      "oldest_image_age_s": 2.065436201,
+      "current_joint_age_s": 0.208938512,
+      "base_translation_since_capture_m": 0.0012593218116482715,
+      "base_yaw_since_capture_rad": 8.059978311791838e-05,
+      "original_snapshot_unchanged": true,
+      "validity_basis": "stopped_capture_and_unchanged_command_generation_and_state",
+      "computation_age_is_rejection_gate": false,
+      "motion_authorized": false
+    },
+    "state": {
+      "joints": [
+        0.0,
+        0.0,
+        0.0,
+        -1.5707963146269321,
+        0.0,
+        0.6499999859074279
+      ],
+      "poses": {
+        "map": [
+          3.274486650192741,
+          3.783438189737589,
+          3.0740556869561324
+        ],
+        "odom": [
+          2.1587016582489014,
+          3.760319948196411,
+          3.091393034042484
+        ]
+      },
+      "stamp_ns": 1793966625737000000
+    }
+  },
+  "robot_commands_sent": false,
+  "full_live_transfer_validated": true,
+  "rollback_command": "python3 /home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/rollback_gate_revision_20261106.py --run",
+  "next": "Use the current fresh-intake launcher for a physical regression when requested; do not assume the robot is at its initial pose.",
+  "latest_live_regression": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/cigarette-full-auto-20261106-200422/live-regression-summary.json",
+  "latest_robot_state": {
+    "joints": [
+      0.0,
+      0.0,
+      0.0,
+      -1.5707963146269321,
+      0.0,
+      0.6499999859074279
+    ],
+    "poses": {
+      "map": [
+        3.2497767628735916,
+        3.714787296231842,
+        3.0793574773675942
+      ],
+      "odom": [
+        2.158090591430664,
+        3.7346887588500977,
+        3.1116948146986108
+      ]
+    },
+    "stamp_ns": 1793967086005000000
+  }
+}

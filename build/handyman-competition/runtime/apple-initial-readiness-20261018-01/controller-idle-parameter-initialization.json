@@ -1,0 +1,38 @@
+{
+  "robot_motion_commands_sent": false,
+  "navigation_activation_requested": false,
+  "navigation_goal_sent": false,
+  "parameter_values_changed": false,
+  "before_state": 1,
+  "before_parameters": [],
+  "configured_parameters": [
+    {
+      "type": 3,
+      "value": 0.06
+    },
+    {
+      "type": 3,
+      "value": 0.08
+    },
+    {
+      "type": 3,
+      "value": 0.06
+    }
+  ],
+  "after_state": 1,
+  "after_parameters": [
+    {
+      "type": 3,
+      "value": 0.06
+    },
+    {
+      "type": 3,
+      "value": 0.08
+    },
+    {
+      "type": 3,
+      "value": 0.06
+    }
+  ],
+  "status": "plugin_parameters_initialized_navigation_not_activated"
+}

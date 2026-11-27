@@ -1,0 +1,1194 @@
+{
+  "robot_commands_sent": false,
+  "replay_only": true,
+  "rows": [
+    {
+      "run": "pepper-frozen-cross-object-transfer-20261026-01",
+      "capture": "002-near",
+      "valid": true,
+      "measured_center": [
+        0.9797894163111721,
+        0.032265604459568,
+        0.523682346156791
+      ],
+      "measured_head": [
+        0.9797355762602838,
+        0.03157061509247178,
+        0.5563031443693516
+      ],
+      "body_fit": {
+        "points": 400,
+        "inliers": 400,
+        "residual_p95_m": 0.0004975319168787884
+      },
+      "processing_s": 0.01168699300615117
+    },
+    {
+      "run": "pepper-frozen-cross-object-transfer-20261026-01",
+      "capture": "003-near",
+      "static_motion": {
+        "matches": 90,
+        "inliers": 71,
+        "residual_p95_m": 0.004034102581083283,
+        "source": "current_rgbd_static_landmarks",
+        "object_depth_measured": false,
+        "motion_authorized": false,
+        "reference_depth_stamp_ns": 1793009205516423275,
+        "current_depth_stamp_ns": 1793009207801740466,
+        "odom_prediction_correction_m": 0.006755256240983237,
+        "reference_epoch": "pepper-2eb0fd4593774c6d92dfa7683204e37f-rgbd",
+        "prediction_only": true,
+        "current_object_depth_still_required": true,
+        "controller_to_visual_angle_rad": 0.13014157299708806,
+        "commanded_step_old_base_m": [
+          0.00041827292041295605,
+          -0.0458267448955615,
+          8.029151348456283e-06
+        ],
+        "actual_step_old_base_m": [
+          0.005990101651211054,
+          -0.04273270922882748,
+          0.00116271778717722
+        ]
+      },
+      "valid": true,
+      "measured_center": [
+        0.9733038748442405,
+        0.07561889272613785,
+        0.5236520658662075
+      ],
+      "measured_head": [
+        0.9733122183300881,
+        0.0749001552958091,
+        0.5561425179579789
+      ],
+      "body_fit": {
+        "points": 396,
+        "inliers": 396,
+        "residual_p95_m": 0.000542881263784132
+      },
+      "processing_s": 0.10997667798073962
+    },
+    {
+      "run": "pepper-frozen-cross-object-transfer-20261026-01",
+      "capture": "004-near",
+      "valid": true,
+      "measured_center": [
+        0.973297620911997,
+        0.07562224228994237,
+        0.5237094155021834
+      ],
+      "measured_head": [
+        0.9731893017432609,
+        0.07493563923351526,
+        0.5563803255799401
+      ],
+      "body_fit": {
+        "points": 399,
+        "inliers": 399,
+        "residual_p95_m": 0.0005450299831274376
+      },
+      "processing_s": 0.0020722080080304295
+    },
+    {
+      "run": "pepper-frozen-cross-object-transfer-20261026-01",
+      "capture": "005-near",
+      "static_motion": {
+        "matches": 48,
+        "inliers": 35,
+        "residual_p95_m": 0.0050964287364115395,
+        "source": "current_rgbd_static_landmarks",
+        "object_depth_measured": false,
+        "motion_authorized": false,
+        "reference_depth_stamp_ns": 1793009207905842143,
+        "current_depth_stamp_ns": 1793009212542927204,
+        "odom_prediction_correction_m": 0.033846310284286404,
+        "reference_epoch": "pepper-2eb0fd4593774c6d92dfa7683204e37f-rgbd",
+        "prediction_only": true,
+        "current_object_depth_still_required": true,
+        "controller_to_visual_angle_rad": 0.12334793355031441,
+        "commanded_step_old_base_m": [
+          0.26588063744982804,
+          -0.0007440001848470025,
+          -1.586869084503316e-05
+        ],
+        "actual_step_old_base_m": [
+          0.2670400381774074,
+          0.032348444707570416,
+          7.700603315960295e-05
+        ]
+      },
+      "valid": true,
+      "measured_center": [
+        0.7233038534921057,
+        0.05476662017867855,
+        0.529650375064636
+      ],
+      "measured_head": [
+        0.7356428208586792,
+        0.06020305730009941,
+        0.5557822499899469
+      ],
+      "body_fit": {
+        "points": 401,
+        "inliers": 393,
+        "residual_p95_m": 0.0011175594964635271
+      },
+      "processing_s": 0.06924579100450501
+    },
+    {
+      "run": "pepper-frozen-cross-object-transfer-20261026-01",
+      "capture": "006-near",
+      "valid": true,
+      "measured_center": [
+        0.7231559380038248,
+        0.054827477886297736,
+        0.5296673758575771
+      ],
+      "measured_head": [
+        0.7374057940861999,
+        0.06100782533459744,
+        0.5583256826636233
+      ],
+      "body_fit": {
+        "points": 596,
+        "inliers": 563,
+        "residual_p95_m": 0.002139478266477148
+      },
+      "processing_s": 0.0018755539786070585
+    },
+    {
+      "run": "pepper-frozen-cross-object-transfer-20261026-01",
+      "capture": "007-near",
+      "static_motion": {
+        "matches": 84,
+        "inliers": 52,
+        "residual_p95_m": 0.004710081390605967,
+        "source": "current_rgbd_static_landmarks",
+        "object_depth_measured": false,
+        "motion_authorized": false,
+        "reference_depth_stamp_ns": 1793009213593162647,
+        "current_depth_stamp_ns": 1793009216277786286,
+        "odom_prediction_correction_m": 0.01892993044324119,
+        "reference_epoch": "pepper-2eb0fd4593774c6d92dfa7683204e37f-rgbd",
+        "prediction_only": true,
+        "current_object_depth_still_required": true,
+        "controller_to_visual_angle_rad": 0.1511710528576775,
+        "commanded_step_old_base_m": [
+          -0.1327833600580615,
+          -0.00024047860511849014,
+          -1.619731284094819e-05
+        ],
+        "actual_step_old_base_m": [
+          -0.1290836729904505,
+          -0.01990300235393166,
+          -0.0007702004963614683
+        ]
+      },
+      "valid": false,
+      "reason": "pepper_partial_patch_clutter_excessive",
+      "processing_s": 0.26333382798475213
+    },
+    {
+      "run": "pepper-frozen-cross-object-transfer-20261026-01",
+      "capture": "008-near",
+      "static_motion": {
+        "matches": 84,
+        "inliers": 52,
+        "residual_p95_m": 0.004710081390605967,
+        "source": "current_rgbd_static_landmarks",
+        "object_depth_measured": false,
+        "motion_authorized": false,
+        "reference_depth_stamp_ns": 1793009213593162647,
+        "current_depth_stamp_ns": 1793009217079564024,
+        "odom_prediction_correction_m": 0.019328465472594078,
+        "reference_epoch": "pepper-2eb0fd4593774c6d92dfa7683204e37f-rgbd",
+        "prediction_only": true,
+        "current_object_depth_still_required": true,
+        "controller_to_visual_angle_rad": 0.15453030362451006,
+        "commanded_step_old_base_m": [
+          -0.1325201643427809,
+          0.00020516694806774425,
+          -1.619646841383622e-05
+        ],
+        "actual_step_old_base_m": [
+          -0.1290836729904505,
+          -0.01990300235393166,
+          -0.0007702004963614683
+        ]
+      },
+      "valid": false,
+      "reason": "pepper_partial_patch_clutter_excessive",
+      "processing_s": 0.04277624998940155
+    },
+    {
+      "run": "pepper-frozen-cross-object-transfer-20261026-01",
+      "capture": "009-near",
+      "static_motion": {
+        "matches": 66,
+        "inliers": 56,
+        "residual_p95_m": 0.003629169375764722,
+        "source": "current_rgbd_static_landmarks",
+        "object_depth_measured": false,
+        "motion_authorized": false,
+        "reference_depth_stamp_ns": 1793009213593162647,
+        "current_depth_stamp_ns": 1793009219328756032,
+        "odom_prediction_correction_m": 0.018577869804880468,
+        "reference_epoch": "pepper-2eb0fd4593774c6d92dfa7683204e37f-rgbd",
+        "prediction_only": true,
+        "current_object_depth_still_required": true,
+        "controller_to_visual_angle_rad": 0.14681346068183385,
+        "commanded_step_old_base_m": [
+          -0.13213884975537968,
+          -0.014642747968652748,
+          -1.1325727327523513e-05
+        ],
+        "actual_step_old_base_m": [
+          -0.1266073427315682,
+          -0.033297798382798525,
+          -0.0008377565841061164
+        ]
+      },
+      "valid": true,
+      "measured_center": [
+        0.8385629181176888,
+        0.07810221606219139,
+        0.5231981185559422
+      ],
+      "measured_head": [
+        0.8375964031540224,
+        0.07828722481334692,
+        0.5571624565427346
+      ],
+      "body_fit": {
+        "points": 508,
+        "inliers": 412,
+        "residual_p95_m": 0.0010242709802985302,
+        "rejected_current_points": 96,
+        "current_partial_surface_measured": true,
+        "radius_source": "this_object_source_rgbd",
+        "center_source": "current_curved_depth_patch",
+        "hidden_points_used": false,
+        "current_gravity_belt_reacquired": true
+      },
+      "processing_s": 0.04382797799189575
+    },
+    {
+      "run": "pepper-frozen-cross-object-transfer-20261026-01",
+      "capture": "010-near",
+      "valid": true,
+      "measured_center": [
+        0.838667457507822,
+        0.07812112845389799,
+        0.5236853896412184
+      ],
+      "measured_head": [
+        0.8378217522271839,
+        0.0783418131817025,
+        0.5560756721918748
+      ],
+      "body_fit": {
+        "points": 475,
+        "inliers": 475,
+        "residual_p95_m": 0.0005229335134520743
+      },
+      "processing_s": 0.0026608599873725325
+    },
+    {
+      "run": "pepper-frozen-cross-object-transfer-20261026-01",
+      "capture": "011-near",
+      "static_motion": {
+        "matches": 59,
+        "inliers": 51,
+        "residual_p95_m": 0.003789295356314743,
+        "source": "current_rgbd_static_landmarks",
+        "object_depth_measured": false,
+        "motion_authorized": false,
+        "reference_depth_stamp_ns": 1793009219570167393,
+        "current_depth_stamp_ns": 1793009222284298731,
+        "odom_prediction_correction_m": 0.020153171866029357,
+        "reference_epoch": "pepper-2eb0fd4593774c6d92dfa7683204e37f-rgbd",
+        "prediction_only": true,
+        "current_object_depth_still_required": true,
+        "controller_to_visual_angle_rad": 0.15903425164507828,
+        "commanded_step_old_base_m": [
+          0.13048287675836437,
+          -0.0012192101405826543,
+          5.356391006691553e-06
+        ],
+        "actual_step_old_base_m": [
+          0.12562223658933463,
+          0.018946202354439664,
+          0.0014809684181436057
+        ]
+      },
+      "valid": true,
+      "measured_center": [
+        0.7122321741254767,
+        0.06088104495415981,
+        0.5235242969005434
+      ],
+      "measured_head": [
+        0.7120916778006491,
+        0.06125610470465731,
+        0.555729448924388
+      ],
+      "body_fit": {
+        "points": 347,
+        "inliers": 347,
+        "residual_p95_m": 0.0005279994869232519
+      },
+      "processing_s": 0.08490387399797328
+    },
+    {
+      "run": "pepper-frozen-cross-object-transfer-20261026-01",
+      "capture": "012-near",
+      "valid": true,
+      "measured_center": [
+        0.712241603976183,
+        0.060876878656306414,
+        0.5236190620322014
+      ],
+      "measured_head": [
+        0.7120717266374427,
+        0.061231085005841936,
+        0.5559382757636713
+      ],
+      "body_fit": {
+        "points": 375,
+        "inliers": 375,
+        "residual_p95_m": 0.0005421526032280155
+      },
+      "processing_s": 0.0022391160018742085
+    },
+    {
+      "run": "pepper-frozen-cross-object-transfer-20261026-01",
+      "capture": "013-near",
+      "static_motion": {
+        "matches": 66,
+        "inliers": 47,
+        "residual_p95_m": 0.0029115396693294754,
+        "source": "current_rgbd_static_landmarks",
+        "object_depth_measured": false,
+        "motion_authorized": false,
+        "reference_depth_stamp_ns": 1793009222782787913,
+        "current_depth_stamp_ns": 1793009226087427874,
+        "odom_prediction_correction_m": 0.019884438991481623,
+        "reference_epoch": "pepper-2eb0fd4593774c6d92dfa7683204e37f-rgbd",
+        "prediction_only": true,
+        "current_object_depth_still_required": true,
+        "controller_to_visual_angle_rad": 0.13530791754652505,
+        "commanded_step_old_base_m": [
+          -0.14340061279877253,
+          -0.0009059275854758058,
+          -1.1913393370707631e-05
+        ],
+        "actual_step_old_base_m": [
+          -0.14825681252636058,
+          -0.021138433500928568,
+          -0.0017772259175164538
+        ]
+      },
+      "valid": true,
+      "measured_center": [
+        0.8622578060135679,
+        0.08046112189839971,
+        0.5236323469213507
+      ],
+      "measured_head": [
+        0.8625895276518484,
+        0.08075560255608978,
+        0.5564419322335383
+      ],
+      "body_fit": {
+        "points": 487,
+        "inliers": 487,
+        "residual_p95_m": 0.0005096168718326947
+      },
+      "processing_s": 0.06582283999887295
+    },
+    {
+      "run": "pepper-compact-realign-full-transfer-20261026-01",
+      "capture": "002-near",
+      "valid": true,
+      "measured_center": [
+        0.9090756341864048,
+        0.20894820364118535,
+        0.5236484973648418
+      ],
+      "measured_head": [
+        0.9094778023077376,
+        0.2094262205947062,
+        0.5561362438657634
+      ],
+      "body_fit": {
+        "points": 453,
+        "inliers": 453,
+        "residual_p95_m": 0.000538506314625236
+      },
+      "processing_s": 0.0020200190192554146
+    },
+    {
+      "run": "pepper-compact-realign-full-transfer-20261026-01",
+      "capture": "003-near-rejected",
+      "static_motion": {
+        "matches": 72,
+        "inliers": 50,
+        "residual_p95_m": 0.004103368160505118,
+        "source": "current_rgbd_static_landmarks",
+        "object_depth_measured": false,
+        "motion_authorized": false,
+        "reference_depth_stamp_ns": 1793010838073150828,
+        "current_depth_stamp_ns": 1793010840610982032,
+        "odom_prediction_correction_m": 0.03643255523752972,
+        "reference_epoch": "pepper-614a11fee2fc4b48ac173a2906f2b907-rgbd",
+        "prediction_only": true,
+        "current_object_depth_still_required": true,
+        "controller_to_visual_angle_rad": 0.2792388928682394,
+        "commanded_step_old_base_m": [
+          0.0005252200191987056,
+          0.13090081552028462,
+          8.466500943605643e-06
+        ],
+        "actual_step_old_base_m": [
+          -0.03603592357777689,
+          0.12760902055520654,
+          0.0009570486510055265
+        ]
+      },
+      "valid": true,
+      "measured_center": [
+        0.9441459951250389,
+        0.08150890611369559,
+        0.523588578429752
+      ],
+      "measured_head": [
+        0.9442588914425003,
+        0.08193118559878133,
+        0.5562239757172579
+      ],
+      "body_fit": {
+        "points": 414,
+        "inliers": 414,
+        "residual_p95_m": 0.0005007309555369752
+      },
+      "processing_s": 0.06869114399887621
+    },
+    {
+      "run": "pepper-compact-realign-full-transfer-20261026-01",
+      "capture": "004-near-rejected",
+      "valid": true,
+      "measured_center": [
+        0.9441467398451762,
+        0.08150912148347995,
+        0.5236074359424098
+      ],
+      "measured_head": [
+        0.9442590456979583,
+        0.08192099503529295,
+        0.5562505393729795
+      ],
+      "body_fit": {
+        "points": 413,
+        "inliers": 413,
+        "residual_p95_m": 0.0004970443906062146
+      },
+      "processing_s": 0.0020738710009027272
+    },
+    {
+      "run": "pepper-compact-realign-full-transfer-20261026-01",
+      "capture": "005-near-rejected",
+      "valid": true,
+      "measured_center": [
+        0.9441467398451762,
+        0.08150912148347995,
+        0.5236074359424098
+      ],
+      "measured_head": [
+        0.9442590456979583,
+        0.08192099503529295,
+        0.5562505393729795
+      ],
+      "body_fit": {
+        "points": 413,
+        "inliers": 413,
+        "residual_p95_m": 0.0004970443906062146
+      },
+      "processing_s": 0.0021977679862175137
+    },
+    {
+      "run": "pepper-compact-realign-full-transfer-20261026-01",
+      "capture": "006-near-rejected",
+      "valid": true,
+      "measured_center": [
+        0.9441467398451762,
+        0.08150912148347995,
+        0.5236074359424098
+      ],
+      "measured_head": [
+        0.9442590456979583,
+        0.08192099503529295,
+        0.5562505393729795
+      ],
+      "body_fit": {
+        "points": 413,
+        "inliers": 413,
+        "residual_p95_m": 0.0004970443906062146
+      },
+      "processing_s": 0.0016928859986364841
+    },
+    {
+      "run": "pepper-compact-realign-full-transfer-20261026-01",
+      "capture": "007-near-rejected",
+      "valid": true,
+      "measured_center": [
+        0.9441467398451762,
+        0.08150912148347995,
+        0.5236074359424098
+      ],
+      "measured_head": [
+        0.9442590456979583,
+        0.08192099503529295,
+        0.5562505393729795
+      ],
+      "body_fit": {
+        "points": 413,
+        "inliers": 413,
+        "residual_p95_m": 0.0004970443906062146
+      },
+      "processing_s": 0.0026873269816860557
+    },
+    {
+      "run": "pepper-visual-motion-full-transfer-20261026-01",
+      "capture": "002-near",
+      "valid": true,
+      "measured_center": [
+        0.9020172893050173,
+        0.1976642677325935,
+        0.5236161422690085
+      ],
+      "measured_head": [
+        0.9024171002802788,
+        0.1980574409106509,
+        0.5561239650165686
+      ],
+      "body_fit": {
+        "points": 449,
+        "inliers": 449,
+        "residual_p95_m": 0.0005408541204653795
+      },
+      "processing_s": 0.0018461669969838113
+    },
+    {
+      "run": "pepper-visual-motion-full-transfer-20261026-01",
+      "capture": "003-near",
+      "static_motion": {
+        "matches": 74,
+        "inliers": 58,
+        "residual_p95_m": 0.004228778532347458,
+        "source": "current_rgbd_static_landmarks",
+        "object_depth_measured": false,
+        "motion_authorized": false,
+        "reference_depth_stamp_ns": 1793011540242596967,
+        "current_depth_stamp_ns": 1793011542766106522,
+        "odom_prediction_correction_m": 0.030803331779834343,
+        "reference_epoch": "pepper-3532e06c04f34eaeb461f69ba5987d3f-rgbd",
+        "prediction_only": true,
+        "current_object_depth_still_required": true,
+        "controller_to_visual_angle_rad": 0.26075324359928187,
+        "commanded_step_old_base_m": [
+          6.114338715403761e-05,
+          0.11981673747535478,
+          8.455655199212706e-06
+        ],
+        "actual_step_old_base_m": [
+          -0.030995863732400094,
+          0.11640253645958804,
+          0.0011900357353222069
+        ]
+      },
+      "valid": true,
+      "measured_center": [
+        0.9320748886671192,
+        0.0827020653431591,
+        0.5236260556495617
+      ],
+      "measured_head": [
+        0.9323508217044544,
+        0.08314998338156426,
+        0.5561380543593648
+      ],
+      "body_fit": {
+        "points": 419,
+        "inliers": 419,
+        "residual_p95_m": 0.000515352713594326
+      },
+      "processing_s": 0.06390265101799741
+    },
+    {
+      "run": "pepper-visual-motion-full-transfer-20261026-01",
+      "capture": "004-near",
+      "valid": true,
+      "measured_center": [
+        0.9320704822331355,
+        0.08270321012070314,
+        0.5236316652549655
+      ],
+      "measured_head": [
+        0.9323289976533885,
+        0.08314280549389483,
+        0.5563313743671896
+      ],
+      "body_fit": {
+        "points": 418,
+        "inliers": 418,
+        "residual_p95_m": 0.0005152313774194092
+      },
+      "processing_s": 0.0017242259928025305
+    },
+    {
+      "run": "pepper-visual-motion-full-transfer-20261026-01",
+      "capture": "005-near",
+      "static_motion": {
+        "matches": 119,
+        "inliers": 113,
+        "residual_p95_m": 0.003019022684862634,
+        "source": "current_rgbd_static_landmarks",
+        "object_depth_measured": false,
+        "motion_authorized": false,
+        "reference_depth_stamp_ns": 1793011544230523841,
+        "current_depth_stamp_ns": 1793011546620293467,
+        "odom_prediction_correction_m": 0.0019991825015546172,
+        "reference_epoch": "pepper-3532e06c04f34eaeb461f69ba5987d3f-rgbd",
+        "prediction_only": true,
+        "current_object_depth_still_required": true
+      },
+      "valid": true,
+      "measured_center": [
+        0.9328068811997577,
+        0.07776270230871624,
+        0.5235843248161574
+      ],
+      "measured_head": [
+        0.9330645875645046,
+        0.07818553840772718,
+        0.5562252136032263
+      ],
+      "body_fit": {
+        "points": 425,
+        "inliers": 425,
+        "residual_p95_m": 0.0005424068939545209
+      },
+      "processing_s": 0.060582115984288976
+    },
+    {
+      "run": "pepper-visual-motion-full-transfer-20261026-01",
+      "capture": "006-near",
+      "valid": true,
+      "measured_center": [
+        0.9328068811997577,
+        0.07776270230871624,
+        0.5235843248161574
+      ],
+      "measured_head": [
+        0.9330645875645046,
+        0.07818553840772718,
+        0.5562252136032263
+      ],
+      "body_fit": {
+        "points": 425,
+        "inliers": 425,
+        "residual_p95_m": 0.0005424068939545209
+      },
+      "processing_s": 0.002195633016526699
+    },
+    {
+      "run": "pepper-visual-motion-full-transfer-20261026-01",
+      "capture": "007-near",
+      "static_motion": {
+        "matches": 84,
+        "inliers": 70,
+        "residual_p95_m": 0.0029991564687748694,
+        "source": "current_rgbd_static_landmarks",
+        "object_depth_measured": false,
+        "motion_authorized": false,
+        "reference_depth_stamp_ns": 1793011546891464305,
+        "current_depth_stamp_ns": 1793011550183434159,
+        "odom_prediction_correction_m": 0.058792428874824436,
+        "reference_epoch": "pepper-3532e06c04f34eaeb461f69ba5987d3f-rgbd",
+        "prediction_only": true,
+        "current_object_depth_still_required": true,
+        "controller_to_visual_angle_rad": 0.26164697648936175,
+        "commanded_step_old_base_m": [
+          0.22567048002609444,
+          -0.0005519049075725953,
+          -1.186723952518882e-05
+        ],
+        "actual_step_old_base_m": [
+          0.21116363751979048,
+          0.0559935361513435,
+          -0.0020893702051259706
+        ]
+      },
+      "valid": true,
+      "measured_center": [
+        0.7338701516710647,
+        0.020958072321524135,
+        0.5281206984517376
+      ],
+      "measured_head": [
+        0.7442599525746474,
+        0.020537355734215897,
+        0.5587312333395941
+      ],
+      "body_fit": {
+        "points": 367,
+        "inliers": 367,
+        "residual_p95_m": 0.0006059983174032306
+      },
+      "processing_s": 0.05764529498992488
+    },
+    {
+      "run": "pepper-visual-motion-full-transfer-20261026-01",
+      "capture": "008-near",
+      "valid": true,
+      "measured_center": [
+        0.7339658545471234,
+        0.02096164695551144,
+        0.5281459253446091
+      ],
+      "measured_head": [
+        0.7441741382261782,
+        0.020521232636133847,
+        0.5587690916059214
+      ],
+      "body_fit": {
+        "points": 454,
+        "inliers": 454,
+        "residual_p95_m": 0.0005584410175768363
+      },
+      "processing_s": 0.0018182639905717224
+    },
+    {
+      "run": "pepper-visual-motion-full-transfer-20261026-01",
+      "capture": "009-near-rejected",
+      "static_motion": {
+        "matches": 121,
+        "inliers": 116,
+        "residual_p95_m": 0.0019155087297704839,
+        "source": "current_rgbd_static_landmarks",
+        "object_depth_measured": false,
+        "motion_authorized": false,
+        "reference_depth_stamp_ns": 1793011550297649042,
+        "current_depth_stamp_ns": 1793011552680468630,
+        "odom_prediction_correction_m": 0.009036352894980266,
+        "reference_epoch": "pepper-3532e06c04f34eaeb461f69ba5987d3f-rgbd",
+        "prediction_only": true,
+        "current_object_depth_still_required": true,
+        "controller_to_visual_angle_rad": 0.28288268991787824,
+        "commanded_step_old_base_m": [
+          -0.03211463202723768,
+          -0.0003032101599912125,
+          -3.425824846056986e-06
+        ],
+        "actual_step_old_base_m": [
+          -0.031560157636725164,
+          -0.00949788416069004,
+          -0.0003265576715660682
+        ]
+      },
+      "valid": true,
+      "measured_center": [
+        0.7568054182240651,
+        0.03066666683124866,
+        0.5237054242387047
+      ],
+      "measured_head": [
+        0.7570399659120178,
+        0.03039106421457546,
+        0.5569919363033015
+      ],
+      "body_fit": {
+        "points": 627,
+        "inliers": 627,
+        "residual_p95_m": 0.0005299383457643043
+      },
+      "processing_s": 0.0612557019921951
+    },
+    {
+      "run": "pepper-visual-motion-full-transfer-20261026-01",
+      "capture": "010-near-rejected",
+      "valid": true,
+      "measured_center": [
+        0.7568287813606475,
+        0.03066752295179694,
+        0.523571234386482
+      ],
+      "measured_head": [
+        0.7571865946608173,
+        0.030406573986773558,
+        0.5561842808759283
+      ],
+      "body_fit": {
+        "points": 535,
+        "inliers": 535,
+        "residual_p95_m": 0.0005213046805408922
+      },
+      "processing_s": 0.0019454119901638478
+    },
+    {
+      "run": "pepper-visual-motion-full-transfer-20261026-01",
+      "capture": "011-near-rejected",
+      "valid": true,
+      "measured_center": [
+        0.7568383318269523,
+        0.0306691384057895,
+        0.5235494371220403
+      ],
+      "measured_head": [
+        0.7572278624946511,
+        0.030385439329339257,
+        0.5561237086062515
+      ],
+      "body_fit": {
+        "points": 530,
+        "inliers": 530,
+        "residual_p95_m": 0.0005163368016947643
+      },
+      "processing_s": 0.0023980789992492646
+    },
+    {
+      "run": "pepper-visual-motion-full-transfer-20261026-01",
+      "capture": "012-near-rejected",
+      "valid": true,
+      "measured_center": [
+        0.7568383318269523,
+        0.0306691384057895,
+        0.5235494371220403
+      ],
+      "measured_head": [
+        0.7572278624946511,
+        0.030385439329339257,
+        0.5561237086062515
+      ],
+      "body_fit": {
+        "points": 530,
+        "inliers": 530,
+        "residual_p95_m": 0.0005163368016947643
+      },
+      "processing_s": 0.002795917011098936
+    },
+    {
+      "run": "pepper-visual-motion-full-transfer-20261026-01",
+      "capture": "013-near-rejected",
+      "valid": true,
+      "measured_center": [
+        0.7568383318269523,
+        0.0306691384057895,
+        0.5235494371220403
+      ],
+      "measured_head": [
+        0.7572278624946511,
+        0.030385439329339257,
+        0.5561237086062515
+      ],
+      "body_fit": {
+        "points": 530,
+        "inliers": 530,
+        "residual_p95_m": 0.0005163368016947643
+      },
+      "processing_s": 0.00496799498796463
+    },
+    {
+      "run": "pepper-motion-direction-full-transfer-20261026-01",
+      "capture": "002-near",
+      "valid": true,
+      "measured_center": [
+        0.9682104924526334,
+        0.04394635565317893,
+        0.5237596122359706
+      ],
+      "measured_head": [
+        0.9686259707678231,
+        0.04362360741545335,
+        0.5561910732162335
+      ],
+      "body_fit": {
+        "points": 406,
+        "inliers": 406,
+        "residual_p95_m": 0.0005194704065894003
+      },
+      "processing_s": 0.0017500839894637465
+    },
+    {
+      "run": "pepper-motion-direction-full-transfer-20261026-01",
+      "capture": "003-near",
+      "static_motion": {
+        "matches": 98,
+        "inliers": 79,
+        "residual_p95_m": 0.00384804133162818,
+        "source": "current_rgbd_static_landmarks",
+        "object_depth_measured": false,
+        "motion_authorized": false,
+        "reference_depth_stamp_ns": 1793012037503060746,
+        "current_depth_stamp_ns": 1793012039861681213,
+        "odom_prediction_correction_m": 0.00811190890155056,
+        "reference_epoch": "pepper-efbf6a139fbb48db894c0d6b27e833bc-rgbd",
+        "prediction_only": true,
+        "current_object_depth_still_required": true,
+        "controller_to_visual_angle_rad": 0.21281813697033392,
+        "commanded_step_old_base_m": [
+          0.0009516889081352263,
+          -0.03454257258092919,
+          -1.2902668814426455e-05
+        ],
+        "actual_step_old_base_m": [
+          0.008916685636226695,
+          -0.036379668509170245,
+          -0.0004972253505851485
+        ]
+      },
+      "valid": true,
+      "measured_center": [
+        0.9593189539573628,
+        0.08053607239992766,
+        0.5237222149422279
+      ],
+      "measured_head": [
+        0.9597223159135485,
+        0.08017032217500117,
+        0.5563282890364443
+      ],
+      "body_fit": {
+        "points": 421,
+        "inliers": 421,
+        "residual_p95_m": 0.000528472261636867
+      },
+      "processing_s": 0.060833108000224456
+    },
+    {
+      "run": "pepper-motion-direction-full-transfer-20261026-01",
+      "capture": "004-near",
+      "valid": true,
+      "measured_center": [
+        0.9593160359712023,
+        0.08053914390750479,
+        0.5237081216465554
+      ],
+      "measured_head": [
+        0.9597223159135485,
+        0.08017032217500117,
+        0.5563282890364443
+      ],
+      "body_fit": {
+        "points": 415,
+        "inliers": 415,
+        "residual_p95_m": 0.0005256679008638388
+      },
+      "processing_s": 0.0016751920047681779
+    },
+    {
+      "run": "pepper-motion-direction-full-transfer-20261026-01",
+      "capture": "005-near",
+      "static_motion": {
+        "matches": 65,
+        "inliers": 51,
+        "residual_p95_m": 0.0040921828315900535,
+        "source": "current_rgbd_static_landmarks",
+        "object_depth_measured": false,
+        "motion_authorized": false,
+        "reference_depth_stamp_ns": 1793012040161512249,
+        "current_depth_stamp_ns": 1793012043985018918,
+        "odom_prediction_correction_m": 0.06167837091008629,
+        "reference_epoch": "pepper-efbf6a139fbb48db894c0d6b27e833bc-rgbd",
+        "prediction_only": true,
+        "current_object_depth_still_required": true,
+        "controller_to_visual_angle_rad": 0.24812442537611892,
+        "commanded_step_old_base_m": [
+          0.25218271004994924,
+          -0.0003763463934251549,
+          -2.0157580082688978e-06
+        ],
+        "actual_step_old_base_m": [
+          0.24149924891688346,
+          0.06079924071564418,
+          0.0005101812114929094
+        ]
+      },
+      "valid": true,
+      "measured_center": [
+        0.7327178797487939,
+        0.016469519745109636,
+        0.5282531097847799
+      ],
+      "measured_head": [
+        0.7442219409524854,
+        0.014416075397143388,
+        0.5582190990004856
+      ],
+      "body_fit": {
+        "points": 334,
+        "inliers": 332,
+        "residual_p95_m": 0.000984135042852034
+      },
+      "processing_s": 0.0616591059952043
+    },
+    {
+      "run": "pepper-motion-direction-full-transfer-20261026-01",
+      "capture": "006-near",
+      "valid": true,
+      "measured_center": [
+        0.7326651568993968,
+        0.016425987139194576,
+        0.5289990761489113
+      ],
+      "measured_head": [
+        0.7447169394174474,
+        0.014332809644937081,
+        0.5586778928946119
+      ],
+      "body_fit": {
+        "points": 447,
+        "inliers": 445,
+        "residual_p95_m": 0.0006017736621636377
+      },
+      "processing_s": 0.001794208015780896
+    },
+    {
+      "run": "pepper-motion-direction-full-transfer-20261026-01",
+      "capture": "007-near-rejected",
+      "static_motion": {
+        "matches": 91,
+        "inliers": 83,
+        "residual_p95_m": 0.0033805935603512345,
+        "source": "current_rgbd_static_landmarks",
+        "object_depth_measured": false,
+        "motion_authorized": false,
+        "reference_depth_stamp_ns": 1793012044385847276,
+        "current_depth_stamp_ns": 1793012046664335792,
+        "odom_prediction_correction_m": 0.00903864281536963,
+        "reference_epoch": "pepper-efbf6a139fbb48db894c0d6b27e833bc-rgbd",
+        "prediction_only": true,
+        "current_object_depth_still_required": true,
+        "controller_to_visual_angle_rad": 0.27500298044413496,
+        "commanded_step_old_base_m": [
+          -0.03252990089759206,
+          0.009224396532706833,
+          9.238865588330066e-06
+        ],
+        "actual_step_old_base_m": [
+          -0.03333530070858201,
+          4.367083922746728e-05,
+          2.0584894530981533e-05
+        ]
+      },
+      "valid": true,
+      "measured_center": [
+        0.7548128845236713,
+        0.01832607612132922,
+        0.5234847212745366
+      ],
+      "measured_head": [
+        0.7536177460033302,
+        0.017833103333198548,
+        0.557097898825177
+      ],
+      "body_fit": {
+        "points": 797,
+        "inliers": 678,
+        "residual_p95_m": 0.0007883358048426024,
+        "rejected_current_points": 119,
+        "current_partial_surface_measured": true,
+        "radius_source": "this_object_source_rgbd",
+        "center_source": "current_curved_depth_patch",
+        "hidden_points_used": false,
+        "current_gravity_belt_reacquired": true
+      },
+      "processing_s": 0.08289789099944755
+    },
+    {
+      "run": "pepper-motion-direction-full-transfer-20261026-01",
+      "capture": "008-near-rejected",
+      "valid": true,
+      "measured_center": [
+        0.7548532803067035,
+        0.01830720773569977,
+        0.5237577186479224
+      ],
+      "measured_head": [
+        0.7538082152657108,
+        0.01786169180693389,
+        0.55617285733912
+      ],
+      "body_fit": {
+        "points": 513,
+        "inliers": 513,
+        "residual_p95_m": 0.0005014881689463568
+      },
+      "processing_s": 0.001972258003661409
+    },
+    {
+      "run": "pepper-motion-direction-full-transfer-20261026-01",
+      "capture": "009-near-rejected",
+      "valid": true,
+      "measured_center": [
+        0.7548535985957807,
+        0.01830567461480452,
+        0.523764865185876
+      ],
+      "measured_head": [
+        0.7537600200795503,
+        0.017872650971824926,
+        0.5562972583706023
+      ],
+      "body_fit": {
+        "points": 525,
+        "inliers": 525,
+        "residual_p95_m": 0.0005008911269506061
+      },
+      "processing_s": 0.001962949987500906
+    },
+    {
+      "run": "pepper-motion-direction-full-transfer-20261026-01",
+      "capture": "010-near-rejected",
+      "valid": true,
+      "measured_center": [
+        0.7548535985957807,
+        0.01830567461480452,
+        0.523764865185876
+      ],
+      "measured_head": [
+        0.7537600200795503,
+        0.017872650971824926,
+        0.5562972583706023
+      ],
+      "body_fit": {
+        "points": 525,
+        "inliers": 525,
+        "residual_p95_m": 0.0005008911269506061
+      },
+      "processing_s": 0.00214803300332278
+    },
+    {
+      "run": "pepper-motion-direction-full-transfer-20261026-01",
+      "capture": "011-near-rejected",
+      "valid": true,
+      "measured_center": [
+        0.7548535985957807,
+        0.01830567461480452,
+        0.523764865185876
+      ],
+      "measured_head": [
+        0.7537600200795503,
+        0.017872650971824926,
+        0.5562972583706023
+      ],
+      "body_fit": {
+        "points": 525,
+        "inliers": 525,
+        "residual_p95_m": 0.0005008911269506061
+      },
+      "processing_s": 0.002348194015212357
+    }
+  ]
+}

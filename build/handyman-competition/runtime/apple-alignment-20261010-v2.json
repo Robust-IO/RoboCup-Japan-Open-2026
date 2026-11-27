@@ -1,0 +1,69 @@
+{
+  "motion_authorized": false,
+  "before": {
+    "samples": 420,
+    "median_base": [
+      0.9097944606499289,
+      0.021138086484657793,
+      0.5490805605251855
+    ],
+    "depth_quantiles": [
+      0.9550000429153442,
+      0.9590000510215759,
+      0.9660000205039978
+    ],
+    "box": [
+      311,
+      211,
+      331,
+      232
+    ],
+    "red_only": false,
+    "depth_stamp_ns": 1791636579363697785
+  },
+  "after": {
+    "samples": 377,
+    "median_base": [
+      0.9329302820303639,
+      0.031909747620782275,
+      0.5606494086350974
+    ],
+    "depth_quantiles": [
+      1.065000057220459,
+      1.0820000171661377,
+      1.0980000495910645
+    ],
+    "box": [
+      301,
+      302,
+      337,
+      334
+    ],
+    "red_only": true,
+    "depth_stamp_ns": 1791636657414449775
+  },
+  "hand_ray": {
+    "origin": [
+      0.622669345587786,
+      0.07800000160932541,
+      0.7590000021129237
+    ],
+    "unit_direction": [
+      0.8030706968795986,
+      -0.13813711893726918,
+      -0.5796512677334767
+    ]
+  },
+  "before_surface_to_hand_ray_distance_m": 0.007505426711670909,
+  "provisional_surface_minus_contact_m": [
+    0.22049924564992884,
+    -0.056861913515342206,
+    -0.17091943947481447
+  ],
+  "limitations": [
+    "Visible surface is not object center; no final grasp depth established.",
+    "Frames acquired at different times; base assumed stationary from completed trial, not tracked here.",
+    "Partially visible red ROI diagnostic is manually selected; not production segmentation.",
+    "No motion authorized by these offsets. Fresh localization and swept collision check required before motion."
+  ]
+}

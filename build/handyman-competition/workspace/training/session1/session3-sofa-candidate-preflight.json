@@ -1,0 +1,418 @@
+{
+  "method": "static_footprint_grid_path_and_support_sightline",
+  "footprint_radius_m": 0.26109759058979437,
+  "candidates": [
+    {
+      "index": 0,
+      "pose": [
+        1.8152628421783448,
+        -6.723587989807129,
+        3.141592653589793
+      ],
+      "path_length_m": null,
+      "view_clear": false,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 1,
+      "pose": [
+        1.8152628421783448,
+        -6.933587074279785,
+        2.927624033253559
+      ],
+      "path_length_m": null,
+      "view_clear": false,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 2,
+      "pose": [
+        1.8152628421783448,
+        -6.513588905334473,
+        -2.927624033253559
+      ],
+      "path_length_m": null,
+      "view_clear": false,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 3,
+      "pose": [
+        1.965262842178345,
+        -6.723587989807129,
+        3.141592653589793
+      ],
+      "path_length_m": null,
+      "view_clear": false,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 4,
+      "pose": [
+        1.965262842178345,
+        -6.933587074279785,
+        2.9556654415778825
+      ],
+      "path_length_m": null,
+      "view_clear": false,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 5,
+      "pose": [
+        1.965262842178345,
+        -6.513588905334473,
+        -2.9556654415778825
+      ],
+      "path_length_m": null,
+      "view_clear": false,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 6,
+      "pose": [
+        2.115262842178345,
+        -6.723587989807129,
+        3.141592653589793
+      ],
+      "path_length_m": null,
+      "view_clear": false,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 7,
+      "pose": [
+        2.115262842178345,
+        -6.933587074279785,
+        2.9772674183141405
+      ],
+      "path_length_m": null,
+      "view_clear": false,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 8,
+      "pose": [
+        2.115262842178345,
+        -6.513588905334473,
+        -2.9772674183141405
+      ],
+      "path_length_m": null,
+      "view_clear": false,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 9,
+      "pose": [
+        1.6559584594766674,
+        -5.916467978854937,
+        -2.356194490192345
+      ],
+      "path_length_m": 1.6035533905932742,
+      "view_clear": true,
+      "rejected_reason": null
+    },
+    {
+      "index": 10,
+      "pose": [
+        1.865064100126463,
+        -6.125573619504732,
+        -2.60969711305317
+      ],
+      "path_length_m": 1.7207106781186556,
+      "view_clear": true,
+      "rejected_reason": null
+    },
+    {
+      "index": 11,
+      "pose": [
+        1.446852818826872,
+        -5.707362338205141,
+        -2.10269186733152
+      ],
+      "path_length_m": 1.486396103067893,
+      "view_clear": true,
+      "rejected_reason": null
+    },
+    {
+      "index": 12,
+      "pose": [
+        1.7620244766546493,
+        -5.810401961676955,
+        -2.356194490192345
+      ],
+      "path_length_m": 1.4621320343559647,
+      "view_clear": true,
+      "rejected_reason": null
+    },
+    {
+      "index": 13,
+      "pose": [
+        1.9711301173044449,
+        -6.01950760232675,
+        -2.5812983879037588
+      ],
+      "path_length_m": 1.6207106781186555,
+      "view_clear": true,
+      "rejected_reason": null
+    },
+    {
+      "index": 14,
+      "pose": [
+        1.5529188360048538,
+        -5.601296321027159,
+        -2.131090592480931
+      ],
+      "path_length_m": 1.3449747468305833,
+      "view_clear": true,
+      "rejected_reason": null
+    },
+    {
+      "index": 15,
+      "pose": [
+        1.8680904938326317,
+        -5.704335944498973,
+        -2.3561944901923453
+      ],
+      "path_length_m": 1.3207106781186553,
+      "view_clear": true,
+      "rejected_reason": null
+    },
+    {
+      "index": 16,
+      "pose": [
+        2.0771961344824272,
+        -5.913441585148768,
+        -2.5585427608924465
+      ],
+      "path_length_m": 1.5621320343559648,
+      "view_clear": true,
+      "rejected_reason": null
+    },
+    {
+      "index": 17,
+      "pose": [
+        1.6589848531828362,
+        -5.495230303849177,
+        -2.153846219492244
+      ],
+      "path_length_m": 1.2035533905932738,
+      "view_clear": true,
+      "rejected_reason": null
+    },
+    {
+      "index": 18,
+      "pose": [
+        0.8488384485244752,
+        -5.753589820861817,
+        -1.5707963267948968
+      ],
+      "path_length_m": null,
+      "view_clear": true,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 19,
+      "pose": [
+        1.05705064535141,
+        -5.753589820861817,
+        -1.782239986299235
+      ],
+      "path_length_m": 1.7020815280171313,
+      "view_clear": true,
+      "rejected_reason": null
+    },
+    {
+      "index": 20,
+      "pose": [
+        0.6406262516975404,
+        -5.753589820861817,
+        -1.3593526672905583
+      ],
+      "path_length_m": null,
+      "view_clear": true,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 21,
+      "pose": [
+        0.8488384485244752,
+        -5.603589820861816,
+        -1.5707963267948968
+      ],
+      "path_length_m": null,
+      "view_clear": true,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 22,
+      "pose": [
+        1.05705064535141,
+        -5.603589820861816,
+        -1.7546020853341187
+      ],
+      "path_length_m": 1.5520815280171312,
+      "view_clear": true,
+      "rejected_reason": null
+    },
+    {
+      "index": 23,
+      "pose": [
+        0.6406262516975404,
+        -5.603589820861816,
+        -1.3869905682556747
+      ],
+      "path_length_m": null,
+      "view_clear": false,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 24,
+      "pose": [
+        0.8488384485244752,
+        -5.453589820861817,
+        -1.5707963267948968
+      ],
+      "path_length_m": 1.4849242404917502,
+      "view_clear": true,
+      "rejected_reason": null
+    },
+    {
+      "index": 25,
+      "pose": [
+        1.05705064535141,
+        -5.453589820861817,
+        -1.7332975327144529
+      ],
+      "path_length_m": 1.402081528017131,
+      "view_clear": true,
+      "rejected_reason": null
+    },
+    {
+      "index": 26,
+      "pose": [
+        0.6406262516975404,
+        -5.453589820861817,
+        -1.4082951208753405
+      ],
+      "path_length_m": null,
+      "view_clear": false,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 27,
+      "pose": [
+        -0.11758594512939458,
+        -6.723587989807129,
+        0.0
+      ],
+      "path_length_m": null,
+      "view_clear": false,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 28,
+      "pose": [
+        -0.11758594512939455,
+        -6.513588905334473,
+        -0.21396862033623457
+      ],
+      "path_length_m": null,
+      "view_clear": false,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 29,
+      "pose": [
+        -0.1175859451293946,
+        -6.933587074279785,
+        0.21396862033623457
+      ],
+      "path_length_m": null,
+      "view_clear": true,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 30,
+      "pose": [
+        -0.2675859451293947,
+        -6.723587989807129,
+        0.0
+      ],
+      "path_length_m": null,
+      "view_clear": false,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 31,
+      "pose": [
+        -0.2675859451293947,
+        -6.513588905334473,
+        -0.18592721201191065
+      ],
+      "path_length_m": null,
+      "view_clear": false,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 32,
+      "pose": [
+        -0.2675859451293947,
+        -6.933587074279785,
+        0.18592721201191065
+      ],
+      "path_length_m": null,
+      "view_clear": true,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 33,
+      "pose": [
+        -0.4175859451293946,
+        -6.723587989807129,
+        0.0
+      ],
+      "path_length_m": null,
+      "view_clear": false,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 34,
+      "pose": [
+        -0.4175859451293946,
+        -6.513588905334473,
+        -0.16432523527565288
+      ],
+      "path_length_m": null,
+      "view_clear": false,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 35,
+      "pose": [
+        -0.4175859451293946,
+        -6.933587074279785,
+        0.16432523527565288
+      ],
+      "path_length_m": null,
+      "view_clear": true,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    }
+  ],
+  "ranked_indices": [
+    17,
+    15,
+    14,
+    25,
+    12,
+    24,
+    11,
+    22,
+    16,
+    9,
+    13,
+    19,
+    10
+  ],
+  "dynamic_obstacles_evaluated": false
+}

@@ -1,0 +1,22 @@
+{
+  "pids": {
+    "rosbridge": 1186,
+    "sigverse": 1187
+  },
+  "commands": {
+    "rosbridge": [
+      "ros2",
+      "launch",
+      "rosbridge_server",
+      "rosbridge_websocket_launch.xml",
+      "port:=9090"
+    ],
+    "sigverse": [
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/clock-bridge-jitter-20261127/install/lib/sigverse_ros_bridge/sigverse_ros_bridge",
+      "50001",
+      "65535"
+    ]
+  },
+  "robot_commands_sent": false,
+  "boot_id": "7f5f6e35-95f2-4e72-acd1-0314c74258cd"
+}

@@ -1,0 +1,26 @@
+{
+  "pid": 5228,
+  "started_ns": 1793529612994759995,
+  "request": "卧室白色桌子上的企鹅→客厅矮方桌",
+  "command": [
+    "bash",
+    "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/tools/apple-transfer-auto-v1/run_object_transfer.sh",
+    "--object",
+    "toy_penguin",
+    "--run",
+    "--task-config",
+    "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/tools/apple-transfer-auto-v1/config/penguin_bedroom_to_living_room.json",
+    "--confirm-layout",
+    "LayoutA",
+    "--confirm-localization",
+    "--simulation-ignore-collision",
+    "--navigation-profile",
+    "carry_fast_v1",
+    "--output",
+    "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/penguin-bedroom-white-table-to-living-low-table-20261101-01"
+  ],
+  "output": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/penguin-bedroom-white-table-to-living-low-table-20261101-01",
+  "adaptation": "verified_penguin_head_grasp_with_hand_RGB_hold_and_actual_placed_RGBD_verification",
+  "thin_box_strategy_used": false,
+  "protocol_task_finished_sent": false
+}

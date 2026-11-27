@@ -1,0 +1,13 @@
+{
+  "goal": [
+    9.562303161621093,
+    2.9079999923706055,
+    3.141592653589793
+  ],
+  "footprint_sample_radius_m": 0.235,
+  "samples": 96,
+  "minimum_pixel": 254,
+  "all_sampled_free": true,
+  "robot_commands_sent": false,
+  "scope": "Static-map footprint samples only; not a live navigation or tabletop clearance certificate"
+}

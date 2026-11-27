@@ -1,0 +1,28 @@
+{
+  "issue": "Unity runtime NullReferenceException after script import",
+  "observed_errors": [
+    {
+      "script": "HSRPubStereoRGB.cs",
+      "line": 162,
+      "member": "tcpClientCameraInfo or tcpClientImage"
+    },
+    {
+      "script": "HSRSubJointTrajectory.cs",
+      "line": 99,
+      "member": "trajectoryInfoMap"
+    },
+    {
+      "script": "HandymanModerator.cs",
+      "line": 200,
+      "member": "tool"
+    }
+  ],
+  "hypothesis": "Play-mode script reload discarded nonserializable runtime initialization state",
+  "hypothesis_verified_by_restart": false,
+  "robot_commands_sent": false,
+  "raw_collider_json_valid": true,
+  "exporter_code_changed": false,
+  "installation_instructions_corrected": true,
+  "required_next_action": "Stop Play; wait for compilation; clear Console; enter Play; recheck fresh errors and ROS streams",
+  "old_held_pose_context_must_not_be_replayed_after_restart": true
+}

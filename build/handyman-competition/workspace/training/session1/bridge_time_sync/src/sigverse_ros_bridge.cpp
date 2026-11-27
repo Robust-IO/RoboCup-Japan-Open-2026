@@ -1,0 +1,486 @@
+#include "sigverse_ros_bridge.hpp"
+#include "bson_stream_reader.hpp"
+#include "startup_clock_service.hpp"
+#include <chrono>
+#include <iomanip>
+#include <mutex>
+
+namespace {
+struct ImageAudit {
+  uint64_t received{0}, started{0}, completed{0}, bson_bytes{0};
+  std::chrono::steady_clock::time_point last_log{};
+};
+std::mutex image_audit_mutex;
+void log_image_audit(const char * phase, int fd, pid_t tid,
+  const std::string & topic, const ImageAudit & audit,
+  const sensor_msgs::msg::Image & image, size_t binary_bytes,
+  size_t subscribers, double publish_ms)
+{
+  std::ostringstream line;
+  line << "HANDYMAN_IMAGE_AUDIT phase=" << phase
+       << " fd=" << fd << " tid=" << tid << " topic=" << std::quoted(topic)
+       << " received=" << audit.received << " started=" << audit.started
+       << " completed=" << audit.completed << " bson_bytes=" << audit.bson_bytes
+       << " width=" << image.width << " height=" << image.height
+       << " step=" << image.step << " encoding=" << std::quoted(image.encoding)
+       << " binary_bytes=" << binary_bytes << " data_bytes=" << image.data.size()
+       << " subscribers=" << subscribers << " publish_ms=" << publish_ms;
+  std::lock_guard<std::mutex> lock(image_audit_mutex);
+  std::cout << line.str() << std::endl;
+}
+}  // namespace
+
+int  SIGVerseROSBridge::syncTimeCnt;
+int  SIGVerseROSBridge::syncTimeMaxNum;
+
+pid_t SIGVerseROSBridge::get_tid(void)
+{
+  return syscall(SYS_gettid);
+}
+
+bool SIGVerseROSBridge::check_receivable( int fd )
+{
+  fd_set fdset;
+  int ret;
+  struct timeval timeout;
+  FD_ZERO( &fdset );
+  FD_SET( fd , &fdset );
+
+  // timeout is 1 sec
+  timeout.tv_sec = 1;
+  timeout.tv_usec = 0;
+
+  ret = select( fd+1 , &fdset , NULL , NULL , &timeout );
+
+  return ret == 1;
+}
+
+
+void SIGVerseROSBridge::set_vector_double(std::vector<double> &destVec, const bsoncxx::array::view &arrayView)
+{
+  int i = 0;
+
+  for(auto itr = arrayView.cbegin(); itr != arrayView.cend(); ++itr)
+  {
+    destVec[i++] = (*itr).get_double();
+  }
+}
+
+void SIGVerseROSBridge::set_vector_float(std::vector<float> &destVec, const bsoncxx::array::view &arrayView)
+{
+  int i = 0;
+
+  for(auto itr = arrayView.cbegin(); itr != arrayView.cend(); ++itr)
+  {
+    destVec[i++] = (float)((*itr).get_double());
+  }
+}
+
+template <size_t ArrayNum>
+void SIGVerseROSBridge::set_array_double(std::array<double, ArrayNum> &destArray, const bsoncxx::array::view &arrayView) {
+    int i = 0;
+    for (auto itr = arrayView.cbegin(); itr != arrayView.cend(); ++itr) {
+        destArray[i++] = (*itr).get_double();
+    }
+}
+
+template <size_t ArrayNum>
+void SIGVerseROSBridge::set_array_double(boost::array<double, ArrayNum> &destArray, const bsoncxx::array::view &arrayView) {
+    int i = 0;
+    for (auto itr = arrayView.cbegin(); itr != arrayView.cend(); ++itr) {
+        destArray[i++] = (*itr).get_double();
+    }
+}
+
+void * SIGVerseROSBridge::receiving_thread(void *param)
+{
+  int dstSocket = *((int *)param);
+
+  char *buf;
+  buf = new char [BUFFER_SIZE];
+
+  if(buf == NULL)
+  {
+    std::cout << "Cannot malloc!" << std::endl;
+    exit(EXIT_FAILURE);
+  }
+
+  std::map<std::string, rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr> twistPublisherMap;
+  std::map<std::string, rclcpp::Publisher<sensor_msgs::msg::CameraInfo>::SharedPtr> cameraInfoPublisherMap;
+  std::map<std::string, rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr> imagePublisherMap;
+  std::map<std::string, rclcpp::Publisher<sensor_msgs::msg::LaserScan>::SharedPtr> laserScanPublisherMap;
+  const char * audit_setting = std::getenv("HANDYMAN_IMAGE_AUDIT");
+  const bool audit_images = audit_setting && std::string(audit_setting) == "1";
+  std::map<std::string, ImageAudit> image_audits;
+
+  std::cout << "Socket open. tid=" << get_tid() << std::endl;
+
+  auto node = rclcpp::Node::make_shared("sigverse_ros_bridge_" + std::to_string(get_tid()));
+
+  rclcpp::Rate loop_rate(100);
+
+  while(rclcpp::ok())
+  {
+    std::size_t msgSize=0;
+    const auto readResult=handyman_stream::frame(
+      dstSocket,buf,BUFFER_SIZE,msgSize,[](){return rclcpp::ok();});
+    if(readResult!=handyman_stream::Result::complete)
+    {
+      std::cout << "BSON stream stopped. result=" << static_cast<int>(readResult)
+                << " tid=" << get_tid() << std::endl;
+      break; // Never reinterpret a partial body as a new frame header.
+    }
+
+    bsoncxx::document::view bsonView((const uint8_t*)buf, (std::size_t)msgSize);
+
+    bsoncxx::builder::core bsonCore(false);
+
+    bsonCore.concatenate(bsonView);
+
+    bsoncxx::builder::basic::sub_document bsonSubdocument(&bsonCore);
+
+    std::string opValue    = std::string(bsonView["op"]   .get_string().value);
+    std::string topicValue = std::string(bsonView["topic"].get_string().value);
+    std::string typeValue  = std::string(bsonView["type"] .get_string().value);
+//    std::cout << "op:" << opValue << std::endl;
+//    std::cout << "tp:" << topicValue << std::endl;
+//    std::cout << "tv:" << typeValue << std::endl;
+
+    // Create Publisher
+    if(typeValue!=TYPE_TIME_SYNC && typeValue!=TYPE_TF_LIST)
+    {
+      if(typeValue==TYPE_TWIST)
+      {
+        if(twistPublisherMap.count(topicValue)==0)
+        {
+          auto publisher = node->create_publisher<geometry_msgs::msg::Twist>(topicValue, 1000);
+          twistPublisherMap[topicValue] = publisher;
+          std::cout << "Create Publisher: " << topicValue << std::endl;
+        }
+      }
+      else if(typeValue==TYPE_CAMERA_INFO)
+      {
+        if(cameraInfoPublisherMap.count(topicValue)==0)
+        {
+          auto publisher = node->create_publisher<sensor_msgs::msg::CameraInfo>(topicValue, 10);
+          cameraInfoPublisherMap[topicValue] = publisher;
+          std::cout << "Create Publisher: " << topicValue << std::endl;
+        }
+      }
+      else if(typeValue==TYPE_IMAGE)
+      {
+        if(imagePublisherMap.count(topicValue)==0)
+        {
+          auto publisher = node->create_publisher<sensor_msgs::msg::Image>(topicValue, 10);
+          imagePublisherMap[topicValue] = publisher;
+          std::cout << "Create Publisher: " << topicValue << std::endl;
+        }
+      }
+      else if(typeValue==TYPE_LASER_SCAN)
+      {
+        if(laserScanPublisherMap.count(topicValue)==0)
+        {
+          auto publisher = node->create_publisher<sensor_msgs::msg::LaserScan>(topicValue, 10);
+          laserScanPublisherMap[topicValue] = publisher;
+          std::cout << "Create Publisher: " << topicValue << std::endl;
+        }
+      }
+      else
+      {
+        std::cout << "Not compatible message type! :" << typeValue << std::endl;
+        continue;
+      }
+    }
+
+    // Publish
+    // Twist
+    if(typeValue==TYPE_TWIST)
+    {
+      geometry_msgs::msg::Twist twist;
+
+      twist.linear.x = bsonView["msg"]["linear"]["x"].get_double();
+      twist.linear.y = bsonView["msg"]["linear"]["y"].get_double();
+      twist.linear.z = bsonView["msg"]["linear"]["z"].get_double();
+
+      twist.angular.x = bsonView["msg"]["angular"]["x"].get_double();
+      twist.angular.y = bsonView["msg"]["angular"]["y"].get_double();
+      twist.angular.z = bsonView["msg"]["angular"]["z"].get_double();
+
+      twistPublisherMap[topicValue]->publish(twist);
+    }
+    // CameraInfo
+    else if(typeValue==TYPE_CAMERA_INFO)
+    {
+      sensor_msgs::msg::CameraInfo cameraInfo;
+
+      // Always use wall-clock time (ignore Unity timestamps to avoid time-sync issues)
+      cameraInfo.header.stamp = node->get_clock()->now();
+      cameraInfo.header.frame_id   = std::string(bsonView["msg"]["header"]["frame_id"].get_string().value);
+
+      cameraInfo.height            = (uint32_t)  bsonView["msg"]["height"].get_int32();
+      cameraInfo.width             = (uint32_t)  bsonView["msg"]["width"] .get_int32();
+      cameraInfo.distortion_model  = std::string(bsonView["msg"]["distortion_model"].get_string().value);
+
+      bsoncxx::array::view dView = bsonView["msg"]["d"].get_array().value;
+      cameraInfo.d.resize((size_t)std::distance(dView.cbegin(), dView.cend()));
+      set_vector_double(cameraInfo.d, dView);
+
+      set_array_double(cameraInfo.k, bsonView["msg"]["k"].get_array().value);
+      set_array_double(cameraInfo.r, bsonView["msg"]["r"].get_array().value);
+      set_array_double(cameraInfo.p, bsonView["msg"]["p"].get_array().value);
+
+      cameraInfo.binning_x         = (uint32_t)bsonView["msg"]["binning_x"].get_int32();
+      cameraInfo.binning_y         = (uint32_t)bsonView["msg"]["binning_y"].get_int32();
+      cameraInfo.roi.x_offset      = (uint32_t)bsonView["msg"]["roi"]["x_offset"]  .get_int32();
+      cameraInfo.roi.y_offset      = (uint32_t)bsonView["msg"]["roi"]["y_offset"]  .get_int32();
+      cameraInfo.roi.height        = (uint32_t)bsonView["msg"]["roi"]["height"]    .get_int32();
+      cameraInfo.roi.width         = (uint32_t)bsonView["msg"]["roi"]["width"]     .get_int32();
+      cameraInfo.roi.do_rectify    = (uint8_t) bsonView["msg"]["roi"]["do_rectify"].get_bool();
+
+      cameraInfoPublisherMap[topicValue]->publish(cameraInfo);
+    }
+    // Image
+    else if(typeValue==TYPE_IMAGE)
+    {
+      // Reached only after the complete BSON document and type/topic were read.
+      ImageAudit * audit = audit_images ? &image_audits[topicValue] : nullptr;
+      if (audit) { ++audit->received; audit->bson_bytes += msgSize; }
+      sensor_msgs::msg::Image image;
+
+      // Always use wall-clock time
+      image.header.stamp = node->get_clock()->now();
+      image.header.frame_id   = std::string(bsonView["msg"]["header"]["frame_id"].get_string().value);
+      image.height            = (uint32_t)  bsonView["msg"]["height"]      .get_int32();
+      image.width             = (uint32_t)  bsonView["msg"]["width"]       .get_int32();
+      image.encoding          = std::string(bsonView["msg"]["encoding"]    .get_string().value);
+      image.is_bigendian      = (uint8_t)   bsonView["msg"]["is_bigendian"].get_int32(); //.raw()[0];
+      image.step              = (uint32_t)  bsonView["msg"]["step"]        .get_int32();
+
+      size_t sizet = (image.step * image.height);
+      image.data.resize(sizet);
+      memcpy(&image.data[0], bsonView["msg"]["data"].get_binary().bytes, sizet);
+
+      bool emit_audit = false;
+      std::chrono::steady_clock::time_point publish_start;
+      if (audit) {
+        publish_start = std::chrono::steady_clock::now();
+        emit_audit = audit->received <= 3 ||
+          std::chrono::duration<double>(publish_start - audit->last_log).count() >= 1.0;
+        ++audit->started;
+        if (emit_audit) {
+          audit->last_log = publish_start;
+          log_image_audit("before_publish", dstSocket, get_tid(), topicValue, *audit,
+            image, bsonView["msg"]["data"].get_binary().size,
+            imagePublisherMap[topicValue]->get_subscription_count(), 0.0);
+        }
+      }
+      imagePublisherMap[topicValue]->publish(image);
+      if (audit) {
+        ++audit->completed;
+        if (emit_audit) {
+          const double ms = std::chrono::duration<double, std::milli>(
+            std::chrono::steady_clock::now() - publish_start).count();
+          log_image_audit("after_publish", dstSocket, get_tid(), topicValue, *audit,
+            image, bsonView["msg"]["data"].get_binary().size,
+            imagePublisherMap[topicValue]->get_subscription_count(), ms);
+        }
+      }
+    }
+    // LaserScan
+    else if(typeValue==TYPE_LASER_SCAN)
+    {
+      sensor_msgs::msg::LaserScan laserScan;
+
+      // Always use wall-clock time
+      laserScan.header.stamp = node->get_clock()->now();
+      laserScan.header.frame_id   = std::string(bsonView["msg"]["header"]["frame_id"].get_string().value);
+
+      laserScan.angle_min       = (float)bsonView["msg"]["angle_min"]      .get_double();
+      laserScan.angle_max       = (float)bsonView["msg"]["angle_max"]      .get_double();
+      laserScan.angle_increment = (float)bsonView["msg"]["angle_increment"].get_double();
+      laserScan.time_increment  = (float)bsonView["msg"]["time_increment"] .get_double();
+      laserScan.scan_time       = (float)bsonView["msg"]["scan_time"]      .get_double();
+      laserScan.range_min       = (float)bsonView["msg"]["range_min"]      .get_double();
+      laserScan.range_max       = (float)bsonView["msg"]["range_max"]      .get_double();
+
+      size_t sizet = (size_t)((laserScan.angle_max - laserScan.angle_min) / laserScan.angle_increment + 1);
+
+      laserScan.ranges.resize(sizet);
+      laserScan.intensities.resize(sizet);
+
+      bsoncxx::array::view dView_ranges = bsonView["msg"]["ranges"].get_array().value;
+      laserScan.ranges.resize(std::distance(dView_ranges.cbegin(), dView_ranges.cend()));
+      set_vector_float(laserScan.ranges, dView_ranges);
+
+      bsoncxx::array::view dView_intensities = bsonView["msg"]["intensities"].get_array().value;
+      laserScan.intensities.resize(std::distance(dView_intensities.cbegin(), dView_intensities.cend()));
+      set_vector_float(laserScan.intensities, dView_intensities);
+
+      laserScanPublisherMap[topicValue]->publish(laserScan);
+    }
+    // Time Synchronization (SIGVerse Original Type)
+    else if(typeValue==TYPE_TIME_SYNC)
+    {
+      if(syncTimeCnt < syncTimeMaxNum)
+      {
+        int32_t sec  = bsonView["msg"]["sec"]    .get_int32();
+        int32_t nsec = bsonView["msg"]["nanosec"].get_int32(); // get_uint32() is not available; use get_int32() and cast if safe.
+
+        rclcpp::Clock clock;
+		    double now_sec = clock.now().seconds();
+
+        int gapSec  = sec  - static_cast<int>(now_sec);
+        int gapMsec = static_cast<int>((nsec / 1e6) - ((now_sec - static_cast<int>(now_sec)) * 1e3));
+
+        std::string timeGap = "time_gap," + std::to_string(gapSec) + "," + std::to_string(gapMsec);
+
+//        ssize_t size = 
+		    startup_clock::initial(get_tid(),dstSocket,int64_t(gapSec)*1000+gapMsec);
+
+        std::cout << "TYPE_TIME_SYNC " << timeGap.c_str() << std::endl;
+
+        syncTimeCnt++;
+      }
+    }
+    // Tf list data (SIGVerse Original Type)
+    else if(typeValue==TYPE_TF_LIST)
+    {
+      static std::shared_ptr<tf2_ros::TransformBroadcaster> transformBroadcaster;
+      if (!transformBroadcaster)
+        transformBroadcaster = std::make_shared<tf2_ros::TransformBroadcaster>(node);
+
+      bsoncxx::array::view tfArrayView = bsonView["msg"].get_array().value;
+
+      std::vector<geometry_msgs::msg::TransformStamped> stampedTransformList;
+
+      for(auto itr = tfArrayView.cbegin(); itr != tfArrayView.cend(); ++itr)
+      {
+        std::string frameId      = std::string((*itr)["header"]["frame_id"].get_string().value);
+        std::string childFrameId = std::string((*itr)["child_frame_id"]    .get_string().value);
+
+        geometry_msgs::msg::TransformStamped stampedTransform;
+
+        // Always use wall-clock time to avoid time-sync issues with Nav2
+        stampedTransform.header.stamp = node->get_clock()->now();
+        stampedTransform.header.frame_id = frameId;
+        stampedTransform.child_frame_id = childFrameId;
+
+        stampedTransform.transform.translation.x = (*itr)["transform"]["translation"]["x"].get_double();
+        stampedTransform.transform.translation.y = (*itr)["transform"]["translation"]["y"].get_double();
+        stampedTransform.transform.translation.z = (*itr)["transform"]["translation"]["z"].get_double();
+
+        stampedTransform.transform.rotation.x = (*itr)["transform"]["rotation"]["x"].get_double();
+        stampedTransform.transform.rotation.y = (*itr)["transform"]["rotation"]["y"].get_double();
+        stampedTransform.transform.rotation.z = (*itr)["transform"]["rotation"]["z"].get_double();
+        stampedTransform.transform.rotation.w = (*itr)["transform"]["rotation"]["w"].get_double();
+
+        stampedTransformList.push_back(stampedTransform);
+      }
+
+      transformBroadcaster->sendTransform(stampedTransformList);
+    }
+
+//    std::cout << "published. topic=" << topicValue << std::endl;
+
+    rclcpp::spin_some(node);
+  }
+
+  startup_clock::disconnected(get_tid());
+  close(dstSocket);
+  delete[] buf;
+
+  return NULL;
+}
+
+
+int SIGVerseROSBridge::run(int argc, char **argv)
+{
+  uint16_t portNumber;
+
+  portNumber = DEFAULT_PORT;
+  syncTimeMaxNum = DEFAULT_SYNC_TIME_MAX_NUM;
+
+  for (int i = 1; i < argc; ++i)
+  {
+    std::string arg = argv[i];
+    if (arg == "--ros-args") { break; }
+
+    if(i==1)
+    {
+      portNumber = (uint16_t)std::atoi(argv[1]);
+      std::cout << "argv[1] portNumber=" << argv[1] << std::endl;
+    }
+    if(i==2)
+    {
+      syncTimeMaxNum = (uint16_t)std::atoi(argv[2]);
+      std::cout << "argv[2] syncTimeMaxNum=" << argv[2] << std::endl;
+    }
+  }
+
+  syncTimeCnt = 0;
+
+  int srcSocket;
+  struct sockaddr_in srcAddr;
+
+  // TCP connection setting
+//  bzero((char *)&srcAddr, sizeof(srcAddr));
+  memset(&srcAddr, 0, sizeof(srcAddr));
+  srcAddr.sin_port = htons(portNumber);
+  srcAddr.sin_family = AF_INET;
+  srcAddr.sin_addr.s_addr = INADDR_ANY;
+
+  srcSocket = socket(AF_INET, SOCK_STREAM, 0);
+
+  int opt = 1;
+  setsockopt(srcSocket, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
+
+  bind(srcSocket, (struct sockaddr *)&srcAddr, sizeof(srcAddr));
+
+  listen(srcSocket, 100);
+
+  std::cout << "Waiting for connection... port=" << portNumber << std::endl;
+
+  while(rclcpp::ok())
+  {
+    int dstSocket;
+
+    struct sockaddr_in dstAddr;
+    int dstAddrSize = sizeof(dstAddr);
+
+    if(!check_receivable(srcSocket))
+    {
+      continue;
+    }
+
+    dstSocket = accept(srcSocket, (struct sockaddr *)&dstAddr, (socklen_t *)&dstAddrSize);
+
+    std::cout << "Connected from IP=" << inet_ntoa(dstAddr.sin_addr) << " Port=" << dstAddr.sin_port << std::endl;
+
+    pthread_t thread;
+    pthread_create( &thread, NULL, receiving_thread, (void *)(&dstSocket));
+    pthread_detach(thread);
+
+    usleep(10 * 1000);
+  }
+
+  close(srcSocket);
+
+  return 0;
+}
+
+
+int main(int argc, char **argv)
+{
+  std::cout << "pid=" << getpid() << std::endl;
+
+  rclcpp::init(argc, argv);
+
+  auto calibration=std::make_shared<startup_clock::Service>();
+  std::thread calibration_thread([calibration](){rclcpp::spin(calibration);});
+
+  SIGVerseROSBridge sigverseROSBridge;
+  sigverseROSBridge.run(argc, argv);
+
+  rclcpp::shutdown();
+  calibration_thread.join();
+};

@@ -1,0 +1,46 @@
+{
+  "updated_ns": 1793526585113015855,
+  "stage": "cigarette_room_task_waiting_for_new_Unity_Play",
+  "task": {
+    "object": "cigarette",
+    "source_room": "bedroom",
+    "destination": "square_low_table",
+    "destination_room": "living_room"
+  },
+  "bridge": {
+    "status": "bridges_listening_foreground_held",
+    "domain": 71,
+    "boot_id": "03e2ce8b-528d-4517-a5f5-5aa905f81a77",
+    "pids": {
+      "rosbridge": 3711,
+      "sigverse": 3712
+    },
+    "commands": {
+      "rosbridge": [
+        "ros2",
+        "launch",
+        "rosbridge_server",
+        "rosbridge_websocket_launch.xml",
+        "port:=9090"
+      ],
+      "sigverse": [
+        "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/bridge-framing-install-20261010/sigverse_ros_bridge/lib/sigverse_ros_bridge/sigverse_ros_bridge",
+        "50001",
+        "65535"
+      ]
+    },
+    "robot_commands_sent": false,
+    "logs": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/hold-camera-bridges-thin-20261101-02"
+  },
+  "old_session_pose_context_invalid": true,
+  "previous_room_entry_run": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/cigarette-bedroom-entry-20261101-01",
+  "old_duplicate_receiver_counts": 2,
+  "next_action": "fresh_state_and_single_command_receiver_check_then_bedroom_search",
+  "gripper_geometry": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/hsr-gripper-colliders-20261101-171937.json",
+  "thin_object_table_contact_forbidden": true,
+  "task_completed": false,
+  "task_finished_sent": false,
+  "camera_viewer": "http://127.0.0.1:8766",
+  "model_changed": false,
+  "navigation_precision_changed": false
+}

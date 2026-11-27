@@ -1,0 +1,539 @@
+{
+  "status": "reviewed_r15_carry_and_edge_safe_placement_verified",
+  "branch": "feat/handyman-phase5-grasping",
+  "recorded_ns": 1792325753309702425,
+  "revision": "Existing r15/r14/r13c automation; no production code change this carry test",
+  "current_robot": {
+    "capture": "/mnt/d/handyman-training-runs/apple-r15-post-carry-place-20261018-01/cameras/000005",
+    "depth_stamp_ns": 1792325729757338554,
+    "holding_object": false,
+    "arm_is_tucked": true,
+    "arm": [
+      0.0,
+      0.0,
+      0.0,
+      -1.5707963146269321,
+      0.0
+    ],
+    "hand_motor": 0.6499999859074279,
+    "head": [
+      0.0,
+      -0.49999996867370555
+    ],
+    "base_map_pose": [
+      2.1170732402877928,
+      2.864806286400516,
+      1.6414125071879233
+    ],
+    "room": "living_room",
+    "apple_location": "Verified on living_room square_low_table; no longer held or on bedroom source table",
+    "current_postrun_empty_tucked_readiness": true,
+    "fresh_state_required_before_next_action": true,
+    "command_publishers": {
+      "/hsrb/command_velocity": 0,
+      "/hsrb/omni_base_controller/command": 0,
+      "/hsrb/arm_trajectory_controller/command": 0,
+      "/hsrb/gripper_controller/command": 0,
+      "/hsrb/head_trajectory_controller/command": 0
+    },
+    "controller_state": 1,
+    "warning": "Last-confirmed physical state, not a future live action/identity lease; never replay an old trajectory or numeric map anchor after restart."
+  },
+  "actual_continuation": {
+    "directory": "/mnt/d/handyman-training-runs/apple-r15-reviewed-carry-place-20261018-01",
+    "result": {
+      "status": "reviewed_r15_carry_placement_verified",
+      "run_kind": "NEW_reviewed_verified_grasp_carry_and_placement",
+      "task_id": "apple-r15-carry-place-2b828bd5fa30477295f9443c6eb703df",
+      "confirmed_stages": [
+        "verify_recorded_grasp_and_current_control",
+        "verify_current_holding",
+        "retract_holding",
+        "verify_retracted_holding",
+        "source_clear_retreat",
+        "navigate_destination",
+        "verify_destination_holding",
+        "observe_surface",
+        "plan_placement",
+        "prepare_placement",
+        "approach_placement",
+        "check_release",
+        "release",
+        "withdraw",
+        "verify_placement"
+      ],
+      "source_grasp": "/mnt/d/handyman-training-runs/apple-r14-reviewed-close-lift-20261018-01/grasp/close-lift",
+      "automatic_retry": false,
+      "automatic_resume": false,
+      "grasp_close_lift_or_source_approach_replayed": false,
+      "whole_uninterrupted_transfer_verified": false,
+      "task_finished_sent": false,
+      "does_not_exist_sent": false,
+      "stage": "verify_placement",
+      "placement_verified": true
+    }
+  },
+  "source_close_lift_checkpoint": "D:/handyman-training-runs/apple-close-lift-live-progress-20261018.json",
+  "navigation": {
+    "target": [
+      2.05,
+      2.55,
+      1.5707963267948966
+    ],
+    "grip_commands_sent": false,
+    "goal_precision_changed": false,
+    "parameters_changed": true,
+    "motion_profile": "balanced_v1",
+    "speed_contexts": [
+      {
+        "waypoint": 0,
+        "start_distance_m": 2.9212660427915744,
+        "requested_caps": [
+          0.24,
+          0.24,
+          0.3
+        ]
+      },
+      {
+        "waypoint": 1,
+        "start_distance_m": 1.4568848067209665,
+        "requested_caps": [
+          0.2,
+          0.2,
+          0.2
+        ]
+      },
+      {
+        "waypoint": 2,
+        "start_distance_m": 4.311702821582673,
+        "requested_caps": [
+          0.24,
+          0.24,
+          0.3
+        ]
+      },
+      {
+        "waypoint": 3,
+        "start_distance_m": 1.4517809631570842,
+        "requested_caps": [
+          0.2,
+          0.2,
+          0.2
+        ]
+      },
+      {
+        "waypoint": 4,
+        "start_distance_m": 4.538430165898078,
+        "requested_caps": [
+          0.24,
+          0.24,
+          0.3
+        ]
+      }
+    ],
+    "last_verified_feedback": {
+      "pose": [
+        2.100859926985546,
+        2.529551361549182,
+        1.6463499057973288
+      ],
+      "ages_s": {
+        "scan": 0.144000147,
+        "joints": 0.159829759,
+        "tf": 0.130706369
+      },
+      "checked_ns": 1792325476989912086
+    },
+    "start": [
+      9.871319176027642,
+      -6.726452915146072,
+      0.06036914890083308
+    ],
+    "current_precision": [
+      0.06,
+      0.08,
+      0.06
+    ],
+    "reached": [
+      {
+        "index": 0,
+        "target": [
+          6.99,
+          -6.243535,
+          3.141593
+        ],
+        "actual": [
+          7.046841599770761,
+          -6.232314784683075,
+          -3.062683046119587
+        ],
+        "error_m": 0.05793842158928288,
+        "yaw_error_rad": 0.07890926105999997,
+        "status": 4
+      },
+      {
+        "index": 1,
+        "target": [
+          5.59,
+          -6.243535,
+          1.630702
+        ],
+        "actual": [
+          5.631488292744165,
+          -6.209709384871699,
+          1.7044293003286863
+        ],
+        "error_m": 0.05352990447995826,
+        "yaw_error_rad": 0.07372730032868624,
+        "status": 4
+      },
+      {
+        "index": 2,
+        "target": [
+          5.33,
+          -1.90856,
+          1.570796
+        ],
+        "actual": [
+          5.3595099518434,
+          -1.9600410118384297,
+          1.6507850352911673
+        ],
+        "error_m": 0.05933912569046079,
+        "yaw_error_rad": 0.07998903529116719,
+        "status": 4
+      },
+      {
+        "index": 3,
+        "target": [
+          5.33,
+          -0.50856,
+          2.342665
+        ],
+        "actual": [
+          5.353739547428344,
+          -0.5616962212741171,
+          2.2676108304055598
+        ],
+        "error_m": 0.058198145360436576,
+        "yaw_error_rad": 0.07505416959444043,
+        "status": 4
+      },
+      {
+        "index": 4,
+        "target": [
+          2.05,
+          2.55,
+          1.5707963267948966
+        ],
+        "actual": [
+          2.100859926985546,
+          2.529551361549182,
+          1.6463499057973288
+        ],
+        "error_m": 0.05481677651474366,
+        "yaw_error_rad": 0.0755535790024322,
+        "status": 4
+      }
+    ],
+    "feedback_fault": {
+      "ages_s": {
+        "scan": 0.013419858,
+        "joints": 0.137615893,
+        "tf": 0.766652986
+      },
+      "checked_ns": 1792325394527708539,
+      "stamps_ns": {
+        "scan": 1792325394514166418,
+        "joints": 1792325394390000000
+      }
+    },
+    "feedback_acquisitions": [
+      {
+        "checked_ns": 1792325358670208132,
+        "event": "waiting_for_new_sample",
+        "reason": "stale_navigation_feedback:scan",
+        "age_s": 0.701661181,
+        "budget_s": 0.15,
+        "existing_goal_paused": false
+      },
+      {
+        "checked_ns": 1792325358694049677,
+        "event": "new_fresh_sample_received",
+        "waited_s": 0.023856183001043973
+      },
+      {
+        "checked_ns": 1792325376234758535,
+        "event": "waiting_for_new_sample",
+        "reason": "stale_navigation_feedback:scan",
+        "age_s": 0.706770143,
+        "budget_s": 0.15,
+        "existing_goal_paused": false
+      },
+      {
+        "checked_ns": 1792325376276007046,
+        "event": "new_fresh_sample_received",
+        "waited_s": 0.04124895100176218
+      },
+      {
+        "checked_ns": 1792325394467302340,
+        "event": "waiting_for_new_sample",
+        "reason": "stale_navigation_feedback:tf",
+        "age_s": 0.706235585,
+        "budget_s": 0.15,
+        "existing_goal_paused": false
+      },
+      {
+        "checked_ns": 1792325394533021933,
+        "event": "new_fresh_sample_received",
+        "waited_s": 0.06572089600012987
+      }
+    ],
+    "action_status": 4,
+    "final_pose": [
+      2.100859926985546,
+      2.529551361549182,
+      1.6463499057973288
+    ],
+    "position_error_m": 0.05481677651474366,
+    "last_completed_waypoint_pose": [
+      2.100859926985546,
+      2.529551361549182,
+      1.6463499057973288
+    ],
+    "status": "arrived",
+    "nav_reset": true,
+    "speed_parameters_restored": true,
+    "speed_parameters_changed": true
+  },
+  "placement": {
+    "verified": true,
+    "destination": "square_low_table#living_room",
+    "approach_commands": 1,
+    "approach_translation_m": 0.5916677849994427,
+    "actual_steps": [
+      {
+        "evidence": "/mnt/d/handyman-training-runs/apple-r15-reviewed-carry-place-20261018-01/placement-approach-00.json",
+        "delta_m": [
+          0.5901896198765945,
+          -0.04179689457444979,
+          0.0
+        ]
+      }
+    ],
+    "final_verification": {
+      "status": "table_placement_verified",
+      "placement_success_verified": true,
+      "table_edge_safety_verified": true,
+      "object": "apple",
+      "destination": "square_low_table#living_room",
+      "room": "living_room",
+      "frames": 3,
+      "span_s": 6.08793362,
+      "center_spread_m": 0.0012947746433914064,
+      "rows": [
+        {
+          "capture": "/mnt/d/handyman-training-runs/apple-r15-reviewed-carry-place-20261018-01/placed-final/000000",
+          "stamp_ns": 1792325586471823656,
+          "center_map": [
+            1.9678170754581639,
+            3.810193788178055,
+            0.48408319348300255
+          ],
+          "bottom_gap_m": 0.008383308660399602,
+          "confidence": 0.9782710671424866,
+          "footprint_margin_m": [
+            0.3568170144230076,
+            0.3861935249639439
+          ],
+          "table_edge_safety": {
+            "safe": true,
+            "center_to_unsupported_m": 0.09378679656440357,
+            "object_radius_m": 0.03166526208526026,
+            "outer_clearance_lower_estimate_m": 0.062121534479143314,
+            "minimum_outer_gap_m": 0.03,
+            "uncertainty_allowance_m": 0.01,
+            "basis": "observed_table_support_not_furniture_aabb"
+          }
+        },
+        {
+          "capture": "/mnt/d/handyman-training-runs/apple-r15-reviewed-carry-place-20261018-01/placed-final/000003",
+          "stamp_ns": 1792325589545526580,
+          "center_map": [
+            1.9673414076836877,
+            3.810877418111907,
+            0.4840831955307042
+          ],
+          "bottom_gap_m": 0.008382799870841506,
+          "confidence": 0.9782710671424866,
+          "footprint_margin_m": [
+            0.35634134664853145,
+            0.3868771548977956
+          ],
+          "table_edge_safety": {
+            "safe": true,
+            "center_to_unsupported_m": 0.09378679656440357,
+            "object_radius_m": 0.03166526208526026,
+            "outer_clearance_lower_estimate_m": 0.062121534479143314,
+            "minimum_outer_gap_m": 0.03,
+            "uncertainty_allowance_m": 0.01,
+            "basis": "observed_table_support_not_furniture_aabb"
+          }
+        },
+        {
+          "capture": "/mnt/d/handyman-training-runs/apple-r15-reviewed-carry-place-20261018-01/placed-final/000006",
+          "stamp_ns": 1792325592559757276,
+          "center_map": [
+            1.968614255065141,
+            3.810640139961424,
+            0.484083195544341
+          ],
+          "bottom_gap_m": 0.008382048303932854,
+          "confidence": 0.9782710671424866,
+          "footprint_margin_m": [
+            0.35761419402998484,
+            0.3866398767473127
+          ],
+          "table_edge_safety": {
+            "safe": true,
+            "center_to_unsupported_m": 0.09378679656440357,
+            "object_radius_m": 0.03166526208526026,
+            "outer_clearance_lower_estimate_m": 0.062121534479143314,
+            "minimum_outer_gap_m": 0.03,
+            "uncertainty_allowance_m": 0.01,
+            "basis": "observed_table_support_not_furniture_aabb"
+          }
+        }
+      ],
+      "rejected": [],
+      "robot_tucked_and_gripper_open": true,
+      "protocol_task_finished_sent": false,
+      "motion_authorized": false,
+      "limitation": "One simulation transfer trial; camera timing/absolute calibration uncertainty remains. Not a placement success-rate estimate. Legacy callers without a placement plan do not establish tabletop edge safety."
+    },
+    "minimum_final_outer_clearance_estimate_m": 0.062121534479143314,
+    "actual_release_evidence": {
+      "capture": "/mnt/d/handyman-training-runs/apple-r15-reviewed-carry-place-20261018-01/placement-observe/000064",
+      "source_stamp_ns": 1792325541345655292,
+      "center_map": [
+        1.9734072873943143,
+        3.8123889680646297,
+        0.4949680194924498
+      ],
+      "estimated_bottom_gap_m": 0.020335696219679122,
+      "measurement": {
+        "center_base": [
+          0.701405824209642,
+          0.07751240022429283,
+          0.49493165771965475
+        ],
+        "radius_m": 0.03059009185168428,
+        "residual_p95_m": 0.0074208345607805135,
+        "pixels": 1300,
+        "association_error_m": 0.0004266692922814391,
+        "method": "previously_verified_apple_palm_relative_red_rgbd_surface",
+        "detector_confidence": null,
+        "new_identity_verified": false,
+        "motion_authorized": false
+      },
+      "table_edge_safety": {
+        "safe": true,
+        "center_to_unsupported_m": 0.09378679656440357,
+        "object_radius_m": 0.03059009185168428,
+        "outer_clearance_lower_estimate_m": 0.06319670471271929,
+        "minimum_outer_gap_m": 0.03,
+        "uncertainty_allowance_m": 0.01,
+        "basis": "observed_table_support_not_furniture_aabb"
+      },
+      "task_id": "apple-r15-carry-place-2b828bd5fa30477295f9443c6eb703df",
+      "motion_authorized": false
+    },
+    "edge_policy": {
+      "minimum_outer_gap_m": 0.03,
+      "uncertainty_allowance_m": 0.01
+    },
+    "single_translation_cap": null
+  },
+  "post_run_audit": {
+    "status": "current_post_run_idle_evidence_collected",
+    "child_exit_codes": {
+      "cameras": 0,
+      "ready": 0
+    },
+    "last_capture": "/mnt/d/handyman-training-runs/apple-r15-post-carry-place-20261018-01/cameras/000005",
+    "readiness": {
+      "ready": true,
+      "robot_commands_sent": false,
+      "feedback_ages_s": {
+        "joints": 0.199899832,
+        "map_tf": 0.005591823
+      },
+      "joint_stamp_ns": 1792325727699000000,
+      "map_stamp_ns": 1792325727893308009,
+      "feedback_checked_ns": 1792325727898899832,
+      "initial_hand_open": true,
+      "holding_object": false,
+      "navigation_parameters_changed": false,
+      "joints": {
+        "arm_lift_joint": 0.0,
+        "arm_flex_joint": 0.0,
+        "arm_roll_joint": 0.0,
+        "wrist_flex_joint": -1.5707963146269321,
+        "wrist_roll_joint": 0.0,
+        "head_pan_joint": 0.0,
+        "head_tilt_joint": -0.49999996867370555,
+        "torso_lift_joint": 0.0,
+        "hand_motor_joint": 0.6499999859074279,
+        "hand_l_proximal_joint": 0.6499999859074279,
+        "hand_l_spring_proximal_joint": 0.0,
+        "hand_l_mimic_distal_joint": 0.0,
+        "hand_l_distal_joint": 5.633185405758354,
+        "hand_r_proximal_joint": -5.633185405758354,
+        "hand_r_spring_proximal_joint": 0.0,
+        "hand_r_mimic_distal_joint": 0.0,
+        "hand_r_distal_joint": -0.6499999859074279
+      },
+      "base_map_pose": [
+        2.116297876236227,
+        2.8640951950756435,
+        1.6419613566170888
+      ],
+      "navigation_tolerances": [
+        0.06,
+        0.08,
+        0.06
+      ],
+      "command_publishers": {
+        "/hsrb/command_velocity": 0,
+        "/hsrb/omni_base_controller/command": 0,
+        "/hsrb/arm_trajectory_controller/command": 0,
+        "/hsrb/gripper_controller/command": 0,
+        "/hsrb/head_trajectory_controller/command": 0
+      },
+      "command_subscribers": {
+        "/hsrb/omni_base_controller/command": 1,
+        "/hsrb/arm_trajectory_controller/command": 1,
+        "/hsrb/gripper_controller/command": 1,
+        "/hsrb/head_trajectory_controller/command": 1
+      },
+      "controller_state": 1
+    },
+    "robot_commands_sent": false
+  },
+  "production_code_model_maps_or_unity_files_changed": false,
+  "map_anchor_changed_this_turn": false,
+  "current_map_anchor_pid_last_observed": 6862,
+  "navigation_goal_tolerances_changed": false,
+  "navigation_speed_profile": "balanced_v1; original limits restored after navigation",
+  "prior_close_or_lift_or_source_approach_replayed": false,
+  "robot_commands_sent_this_turn": true,
+  "task_finished_sent": false,
+  "does_not_exist_sent": false,
+  "git_commit_or_push_performed": false,
+  "whole_uninterrupted_transfer_verified": false,
+  "scope": "One reviewed live carry/place continuation from a separately verified apple grasp. Not an initial-pose uninterrupted full transfer, generic30-object executor or competition success-rate measurement.",
+  "next": "Read latest_policy_checkpoint BEFORE the r15 physical-state checkpoint. r16b uses actual grasp/place outcomes, not exact planned XY/10cm/historical joint poses. No robot commands were sent for this policy change. Last-confirmed state only: EMPTY/OPEN/TUCKED in living_room; apple ALREADY ON square_low_table. Do not replay close/lift/carry/release. A new full regression requires genuinely restored Session1/LayoutA/source-apple state and fresh localization/readiness; never blindly restore the old numeric map anchor after Unity restart. Placement success is distinct from robot cleanup readiness; cleanup_required must not replay release or silently start another task.",
+  "latest_policy_checkpoint": "D:/handyman-training-runs/apple-outcome-policy-progress-20261018.json",
+  "latest_code_revision": "outcome-r16b",
+  "historical_trial_thresholds_do_not_override_latest_policy": true
+}

@@ -1,0 +1,4091 @@
+{
+  "headers": [
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234168.379853,
+      "source": 1792234168.052,
+      "age_at_wire_s": 0.3278529644012451
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234168.379883,
+      "source": 1792234168.052,
+      "age_at_wire_s": 0.3278830051422119
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234168.411036,
+      "source": 1792234168.074,
+      "age_at_wire_s": 0.3370361328125
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234168.411052,
+      "source": 1792234168.074,
+      "age_at_wire_s": 0.3370521068572998
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234168.418797,
+      "source": 1792234168.092,
+      "age_at_wire_s": 0.3267970085144043
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234168.418857,
+      "source": 1792234168.092,
+      "age_at_wire_s": 0.3268570899963379
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234168.42658,
+      "source": 1792234168.111,
+      "age_at_wire_s": 0.315579891204834
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234168.426615,
+      "source": 1792234168.111,
+      "age_at_wire_s": 0.3156149387359619
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234168.447759,
+      "source": 1792234168.134,
+      "age_at_wire_s": 0.31375885009765625
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234168.488323,
+      "source": 1792234168.186,
+      "age_at_wire_s": 0.3023228645324707
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234168.530049,
+      "source": 1792234168.186,
+      "age_at_wire_s": 0.34404897689819336
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234168.548584,
+      "source": 1792234168.245,
+      "age_at_wire_s": 0.30358409881591797
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234168.563268,
+      "source": 1792234168.261,
+      "age_at_wire_s": 0.30226802825927734
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234168.580806,
+      "source": 1792234168.279,
+      "age_at_wire_s": 0.3018059730529785
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234168.581342,
+      "source": 1792234168.279,
+      "age_at_wire_s": 0.30234193801879883
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234168.595762,
+      "source": 1792234168.294,
+      "age_at_wire_s": 0.30176210403442383
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234168.596272,
+      "source": 1792234168.294,
+      "age_at_wire_s": 0.30227208137512207
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234168.61351,
+      "source": 1792234168.312,
+      "age_at_wire_s": 0.3015098571777344
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234168.614508,
+      "source": 1792234168.312,
+      "age_at_wire_s": 0.3025078773498535
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234168.633259,
+      "source": 1792234168.331,
+      "age_at_wire_s": 0.3022589683532715
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234168.633955,
+      "source": 1792234168.331,
+      "age_at_wire_s": 0.30295491218566895
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234168.651328,
+      "source": 1792234168.35,
+      "age_at_wire_s": 0.301328182220459
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234168.654523,
+      "source": 1792234168.35,
+      "age_at_wire_s": 0.3045229911804199
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234168.685552,
+      "source": 1792234168.358,
+      "age_at_wire_s": 0.32755184173583984
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234168.685561,
+      "source": 1792234168.358,
+      "age_at_wire_s": 0.3275609016418457
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234168.716684,
+      "source": 1792234168.374,
+      "age_at_wire_s": 0.3426840305328369
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234168.716912,
+      "source": 1792234168.386,
+      "age_at_wire_s": 0.33091211318969727
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234168.71705,
+      "source": 1792234168.405,
+      "age_at_wire_s": 0.31205010414123535
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234168.717059,
+      "source": 1792234168.405,
+      "age_at_wire_s": 0.3120589256286621
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234168.722302,
+      "source": 1792234168.421,
+      "age_at_wire_s": 0.3013019561767578
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234168.722879,
+      "source": 1792234168.421,
+      "age_at_wire_s": 0.3018789291381836
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234168.739971,
+      "source": 1792234168.439,
+      "age_at_wire_s": 0.30097103118896484
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234168.740528,
+      "source": 1792234168.439,
+      "age_at_wire_s": 0.3015282154083252
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234168.759511,
+      "source": 1792234168.457,
+      "age_at_wire_s": 0.30251097679138184
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234168.760139,
+      "source": 1792234168.457,
+      "age_at_wire_s": 0.30313897132873535
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234168.786909,
+      "source": 1792234168.484,
+      "age_at_wire_s": 0.30290913581848145
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234168.800016,
+      "source": 1792234168.497,
+      "age_at_wire_s": 0.30301594734191895
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234168.818675,
+      "source": 1792234168.516,
+      "age_at_wire_s": 0.3026750087738037
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234168.81922,
+      "source": 1792234168.516,
+      "age_at_wire_s": 0.3032200336456299
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234168.834711,
+      "source": 1792234168.533,
+      "age_at_wire_s": 0.3017110824584961
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234168.835286,
+      "source": 1792234168.533,
+      "age_at_wire_s": 0.30228590965270996
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234168.853233,
+      "source": 1792234168.551,
+      "age_at_wire_s": 0.3022329807281494
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234168.854005,
+      "source": 1792234168.551,
+      "age_at_wire_s": 0.3030049800872803
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234168.873839,
+      "source": 1792234168.572,
+      "age_at_wire_s": 0.30183887481689453
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234168.874493,
+      "source": 1792234168.572,
+      "age_at_wire_s": 0.3024928569793701
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234168.897876,
+      "source": 1792234168.594,
+      "age_at_wire_s": 0.3038759231567383
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234168.91831,
+      "source": 1792234168.616,
+      "age_at_wire_s": 0.3023099899291992
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234168.921598,
+      "source": 1792234168.616,
+      "age_at_wire_s": 0.30559802055358887
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234168.952473,
+      "source": 1792234168.625,
+      "age_at_wire_s": 0.3274729251861572
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234168.952485,
+      "source": 1792234168.625,
+      "age_at_wire_s": 0.3274850845336914
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234168.983595,
+      "source": 1792234168.641,
+      "age_at_wire_s": 0.34259486198425293
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234168.983895,
+      "source": 1792234168.66,
+      "age_at_wire_s": 0.3238949775695801
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234168.98391,
+      "source": 1792234168.66,
+      "age_at_wire_s": 0.3239099979400635
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234168.989003,
+      "source": 1792234168.676,
+      "age_at_wire_s": 0.3130028247833252
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234168.989017,
+      "source": 1792234168.676,
+      "age_at_wire_s": 0.3130168914794922
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234168.996746,
+      "source": 1792234168.694,
+      "age_at_wire_s": 0.302746057510376
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234168.996758,
+      "source": 1792234168.694,
+      "age_at_wire_s": 0.30275797843933105
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234169.013673,
+      "source": 1792234168.711,
+      "age_at_wire_s": 0.3026731014251709
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234169.014429,
+      "source": 1792234168.711,
+      "age_at_wire_s": 0.30342912673950195
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234169.026691,
+      "source": 1792234168.723,
+      "age_at_wire_s": 0.30369091033935547
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234169.052948,
+      "source": 1792234168.749,
+      "age_at_wire_s": 0.30394792556762695
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234169.074146,
+      "source": 1792234168.773,
+      "age_at_wire_s": 0.3011460304260254
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234169.074737,
+      "source": 1792234168.773,
+      "age_at_wire_s": 0.30173707008361816
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234169.089901,
+      "source": 1792234168.788,
+      "age_at_wire_s": 0.30190086364746094
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234169.090498,
+      "source": 1792234168.788,
+      "age_at_wire_s": 0.30249786376953125
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234169.108327,
+      "source": 1792234168.807,
+      "age_at_wire_s": 0.3013269901275635
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234169.108974,
+      "source": 1792234168.807,
+      "age_at_wire_s": 0.3019740581512451
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234169.127687,
+      "source": 1792234168.826,
+      "age_at_wire_s": 0.30168700218200684
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234169.128896,
+      "source": 1792234168.826,
+      "age_at_wire_s": 0.30289602279663086
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234169.141249,
+      "source": 1792234168.837,
+      "age_at_wire_s": 0.3042490482330322
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234169.155067,
+      "source": 1792234168.851,
+      "age_at_wire_s": 0.30406689643859863
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234169.173602,
+      "source": 1792234168.872,
+      "age_at_wire_s": 0.3016021251678467
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234169.174524,
+      "source": 1792234168.872,
+      "age_at_wire_s": 0.3025240898132324
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234169.192764,
+      "source": 1792234168.891,
+      "age_at_wire_s": 0.30176401138305664
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234169.196893,
+      "source": 1792234168.891,
+      "age_at_wire_s": 0.3058929443359375
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234169.227706,
+      "source": 1792234168.9,
+      "age_at_wire_s": 0.32770586013793945
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234169.227713,
+      "source": 1792234168.9,
+      "age_at_wire_s": 0.3277130126953125
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234169.258778,
+      "source": 1792234168.922,
+      "age_at_wire_s": 0.3367781639099121
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234169.25879,
+      "source": 1792234168.922,
+      "age_at_wire_s": 0.3367900848388672
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234169.266564,
+      "source": 1792234168.941,
+      "age_at_wire_s": 0.325563907623291
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234169.266583,
+      "source": 1792234168.941,
+      "age_at_wire_s": 0.32558298110961914
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234169.274386,
+      "source": 1792234168.962,
+      "age_at_wire_s": 0.31238603591918945
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234169.280268,
+      "source": 1792234168.962,
+      "age_at_wire_s": 0.3182680606842041
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234169.31629,
+      "source": 1792234169.009,
+      "age_at_wire_s": 0.30728983879089355
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234169.341727,
+      "source": 1792234169.034,
+      "age_at_wire_s": 0.3077270984649658
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234169.370625,
+      "source": 1792234169.068,
+      "age_at_wire_s": 0.3026249408721924
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234169.390442,
+      "source": 1792234169.068,
+      "age_at_wire_s": 0.32244181632995605
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234169.417269,
+      "source": 1792234169.115,
+      "age_at_wire_s": 0.30226898193359375
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234169.439417,
+      "source": 1792234169.115,
+      "age_at_wire_s": 0.3244168758392334
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234169.469015,
+      "source": 1792234169.167,
+      "age_at_wire_s": 0.3020148277282715
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234169.493279,
+      "source": 1792234169.167,
+      "age_at_wire_s": 0.3262789249420166
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234169.519577,
+      "source": 1792234169.217,
+      "age_at_wire_s": 0.30257701873779297
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234169.541972,
+      "source": 1792234169.217,
+      "age_at_wire_s": 0.32497191429138184
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234169.568366,
+      "source": 1792234169.262,
+      "age_at_wire_s": 0.306365966796875
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234169.591415,
+      "source": 1792234169.284,
+      "age_at_wire_s": 0.3074150085449219
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234169.638047,
+      "source": 1792234169.336,
+      "age_at_wire_s": 0.3020470142364502
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234169.749333,
+      "source": 1792234169.336,
+      "age_at_wire_s": 0.4133329391479492
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234169.780185,
+      "source": 1792234169.454,
+      "age_at_wire_s": 0.3261849880218506
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234169.780225,
+      "source": 1792234169.454,
+      "age_at_wire_s": 0.32622504234313965
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234169.811309,
+      "source": 1792234169.491,
+      "age_at_wire_s": 0.3203091621398926
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234169.811324,
+      "source": 1792234169.491,
+      "age_at_wire_s": 0.3203239440917969
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234169.81661,
+      "source": 1792234169.505,
+      "age_at_wire_s": 0.31160998344421387
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234169.816631,
+      "source": 1792234169.505,
+      "age_at_wire_s": 0.3116309642791748
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234169.827317,
+      "source": 1792234169.526,
+      "age_at_wire_s": 0.3013169765472412
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234169.827974,
+      "source": 1792234169.526,
+      "age_at_wire_s": 0.3019740581512451
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234169.843358,
+      "source": 1792234169.542,
+      "age_at_wire_s": 0.3013579845428467
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234169.84415,
+      "source": 1792234169.542,
+      "age_at_wire_s": 0.30215001106262207
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234169.857889,
+      "source": 1792234169.555,
+      "age_at_wire_s": 0.3028888702392578
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234169.871926,
+      "source": 1792234169.568,
+      "age_at_wire_s": 0.3039259910583496
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234169.893054,
+      "source": 1792234169.592,
+      "age_at_wire_s": 0.3010540008544922
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234169.896896,
+      "source": 1792234169.592,
+      "age_at_wire_s": 0.30489587783813477
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234169.927715,
+      "source": 1792234169.6,
+      "age_at_wire_s": 0.3277151584625244
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234169.927722,
+      "source": 1792234169.6,
+      "age_at_wire_s": 0.32772207260131836
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234169.958766,
+      "source": 1792234169.623,
+      "age_at_wire_s": 0.335766077041626
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234169.958852,
+      "source": 1792234169.623,
+      "age_at_wire_s": 0.33585214614868164
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234169.963979,
+      "source": 1792234169.639,
+      "age_at_wire_s": 0.3249790668487549
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234169.964025,
+      "source": 1792234169.639,
+      "age_at_wire_s": 0.3250250816345215
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234169.97177,
+      "source": 1792234169.658,
+      "age_at_wire_s": 0.313770055770874
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234169.971776,
+      "source": 1792234169.658,
+      "age_at_wire_s": 0.31377601623535156
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234169.979536,
+      "source": 1792234169.674,
+      "age_at_wire_s": 0.30553603172302246
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234169.979638,
+      "source": 1792234169.674,
+      "age_at_wire_s": 0.30563807487487793
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234169.990871,
+      "source": 1792234169.687,
+      "age_at_wire_s": 0.30387091636657715
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234170.005734,
+      "source": 1792234169.702,
+      "age_at_wire_s": 0.30373406410217285
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234170.024035,
+      "source": 1792234169.722,
+      "age_at_wire_s": 0.3020350933074951
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234170.024587,
+      "source": 1792234169.722,
+      "age_at_wire_s": 0.30258703231811523
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234170.040031,
+      "source": 1792234169.738,
+      "age_at_wire_s": 0.3020310401916504
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234170.040731,
+      "source": 1792234169.738,
+      "age_at_wire_s": 0.3027310371398926
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234170.060082,
+      "source": 1792234169.758,
+      "age_at_wire_s": 0.3020820617675781
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234170.060911,
+      "source": 1792234169.758,
+      "age_at_wire_s": 0.30291104316711426
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234170.076224,
+      "source": 1792234169.774,
+      "age_at_wire_s": 0.30222415924072266
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234170.076837,
+      "source": 1792234169.774,
+      "age_at_wire_s": 0.3028371334075928
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234170.092033,
+      "source": 1792234169.789,
+      "age_at_wire_s": 0.30303287506103516
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234170.107789,
+      "source": 1792234169.804,
+      "age_at_wire_s": 0.3037891387939453
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234170.126639,
+      "source": 1792234169.825,
+      "age_at_wire_s": 0.3016388416290283
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234170.127212,
+      "source": 1792234169.825,
+      "age_at_wire_s": 0.3022119998931885
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234170.14467,
+      "source": 1792234169.842,
+      "age_at_wire_s": 0.3026700019836426
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234170.148272,
+      "source": 1792234169.842,
+      "age_at_wire_s": 0.306272029876709
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234170.179182,
+      "source": 1792234169.851,
+      "age_at_wire_s": 0.3281819820404053
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234170.179204,
+      "source": 1792234169.851,
+      "age_at_wire_s": 0.3282039165496826
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234170.210248,
+      "source": 1792234169.872,
+      "age_at_wire_s": 0.33824801445007324
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234170.210295,
+      "source": 1792234169.872,
+      "age_at_wire_s": 0.33829498291015625
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234170.218051,
+      "source": 1792234169.892,
+      "age_at_wire_s": 0.3260509967803955
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234170.218091,
+      "source": 1792234169.892,
+      "age_at_wire_s": 0.32609105110168457
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234170.225814,
+      "source": 1792234169.908,
+      "age_at_wire_s": 0.3178141117095947
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234170.22583,
+      "source": 1792234169.908,
+      "age_at_wire_s": 0.31783008575439453
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234170.233709,
+      "source": 1792234169.922,
+      "age_at_wire_s": 0.3117091655731201
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234170.240468,
+      "source": 1792234169.937,
+      "age_at_wire_s": 0.3034679889678955
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234170.259937,
+      "source": 1792234169.958,
+      "age_at_wire_s": 0.3019371032714844
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234170.260981,
+      "source": 1792234169.958,
+      "age_at_wire_s": 0.3029811382293701
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234170.276222,
+      "source": 1792234169.974,
+      "age_at_wire_s": 0.30222201347351074
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234170.276878,
+      "source": 1792234169.974,
+      "age_at_wire_s": 0.30287814140319824
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234170.295112,
+      "source": 1792234169.993,
+      "age_at_wire_s": 0.3021118640899658
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234170.296242,
+      "source": 1792234169.993,
+      "age_at_wire_s": 0.3032419681549072
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234170.311233,
+      "source": 1792234170.01,
+      "age_at_wire_s": 0.30123305320739746
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234170.313334,
+      "source": 1792234170.01,
+      "age_at_wire_s": 0.30333399772644043
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234170.327552,
+      "source": 1792234170.025,
+      "age_at_wire_s": 0.3025519847869873
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234170.342291,
+      "source": 1792234170.039,
+      "age_at_wire_s": 0.30329108238220215
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234170.361718,
+      "source": 1792234170.06,
+      "age_at_wire_s": 0.30171799659729004
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234170.363454,
+      "source": 1792234170.06,
+      "age_at_wire_s": 0.3034541606903076
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234170.378591,
+      "source": 1792234170.077,
+      "age_at_wire_s": 0.301591157913208
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234170.380513,
+      "source": 1792234170.077,
+      "age_at_wire_s": 0.3035130500793457
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234170.399495,
+      "source": 1792234170.098,
+      "age_at_wire_s": 0.301494836807251
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234170.40084,
+      "source": 1792234170.098,
+      "age_at_wire_s": 0.302839994430542
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234170.418423,
+      "source": 1792234170.116,
+      "age_at_wire_s": 0.30242300033569336
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234170.425255,
+      "source": 1792234170.116,
+      "age_at_wire_s": 0.30925512313842773
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234170.494593,
+      "source": 1792234170.192,
+      "age_at_wire_s": 0.3025929927825928
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234170.497298,
+      "source": 1792234170.192,
+      "age_at_wire_s": 0.3052980899810791
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234170.528299,
+      "source": 1792234170.217,
+      "age_at_wire_s": 0.31129908561706543
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234170.528308,
+      "source": 1792234170.217,
+      "age_at_wire_s": 0.3113079071044922
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234170.536096,
+      "source": 1792234170.231,
+      "age_at_wire_s": 0.3050961494445801
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234170.548809,
+      "source": 1792234170.245,
+      "age_at_wire_s": 0.30380916595458984
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234170.566769,
+      "source": 1792234170.265,
+      "age_at_wire_s": 0.30176877975463867
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234170.567214,
+      "source": 1792234170.265,
+      "age_at_wire_s": 0.3022139072418213
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234170.582797,
+      "source": 1792234170.281,
+      "age_at_wire_s": 0.30179715156555176
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234170.583559,
+      "source": 1792234170.281,
+      "age_at_wire_s": 0.30255913734436035
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234170.598366,
+      "source": 1792234170.297,
+      "age_at_wire_s": 0.30136609077453613
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234170.599038,
+      "source": 1792234170.297,
+      "age_at_wire_s": 0.30203795433044434
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234170.61613,
+      "source": 1792234170.314,
+      "age_at_wire_s": 0.30213022232055664
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234170.617131,
+      "source": 1792234170.314,
+      "age_at_wire_s": 0.303131103515625
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234170.642498,
+      "source": 1792234170.339,
+      "age_at_wire_s": 0.3034980297088623
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234170.657047,
+      "source": 1792234170.352,
+      "age_at_wire_s": 0.30504703521728516
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234170.675158,
+      "source": 1792234170.372,
+      "age_at_wire_s": 0.3031580448150635
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234170.675695,
+      "source": 1792234170.372,
+      "age_at_wire_s": 0.3036949634552002
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234170.693206,
+      "source": 1792234170.392,
+      "age_at_wire_s": 0.301206111907959
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234170.696916,
+      "source": 1792234170.392,
+      "age_at_wire_s": 0.3049161434173584
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234170.727863,
+      "source": 1792234170.4,
+      "age_at_wire_s": 0.3278629779815674
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234170.727887,
+      "source": 1792234170.4,
+      "age_at_wire_s": 0.32788681983947754
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234170.758861,
+      "source": 1792234170.421,
+      "age_at_wire_s": 0.3378610610961914
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234170.75887,
+      "source": 1792234170.421,
+      "age_at_wire_s": 0.33786988258361816
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234170.766644,
+      "source": 1792234170.437,
+      "age_at_wire_s": 0.32964396476745605
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234170.766651,
+      "source": 1792234170.437,
+      "age_at_wire_s": 0.32965087890625
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234170.774483,
+      "source": 1792234170.455,
+      "age_at_wire_s": 0.31948304176330566
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234170.774495,
+      "source": 1792234170.455,
+      "age_at_wire_s": 0.31949496269226074
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234170.7823,
+      "source": 1792234170.468,
+      "age_at_wire_s": 0.3143000602722168
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234170.786434,
+      "source": 1792234170.482,
+      "age_at_wire_s": 0.30443382263183594
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234170.804355,
+      "source": 1792234170.502,
+      "age_at_wire_s": 0.3023548126220703
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234170.804733,
+      "source": 1792234170.502,
+      "age_at_wire_s": 0.3027329444885254
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234170.833316,
+      "source": 1792234170.532,
+      "age_at_wire_s": 0.3013160228729248
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234170.833796,
+      "source": 1792234170.532,
+      "age_at_wire_s": 0.30179595947265625
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234170.848808,
+      "source": 1792234170.547,
+      "age_at_wire_s": 0.30180811882019043
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234170.849437,
+      "source": 1792234170.547,
+      "age_at_wire_s": 0.30243706703186035
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234170.868841,
+      "source": 1792234170.567,
+      "age_at_wire_s": 0.30184102058410645
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234170.86956,
+      "source": 1792234170.567,
+      "age_at_wire_s": 0.30256009101867676
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234170.883572,
+      "source": 1792234170.58,
+      "age_at_wire_s": 0.3035721778869629
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234170.898405,
+      "source": 1792234170.594,
+      "age_at_wire_s": 0.30440497398376465
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234170.91686,
+      "source": 1792234170.615,
+      "age_at_wire_s": 0.30186009407043457
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234170.91738,
+      "source": 1792234170.615,
+      "age_at_wire_s": 0.3023800849914551
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234170.947266,
+      "source": 1792234170.645,
+      "age_at_wire_s": 0.30226612091064453
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234170.947323,
+      "source": 1792234170.645,
+      "age_at_wire_s": 0.3023231029510498
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234170.966011,
+      "source": 1792234170.664,
+      "age_at_wire_s": 0.30201101303100586
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234170.969823,
+      "source": 1792234170.664,
+      "age_at_wire_s": 0.30582284927368164
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234171.000849,
+      "source": 1792234170.674,
+      "age_at_wire_s": 0.32684898376464844
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234171.000902,
+      "source": 1792234170.674,
+      "age_at_wire_s": 0.326901912689209
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234171.031886,
+      "source": 1792234170.694,
+      "age_at_wire_s": 0.33788609504699707
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234171.031924,
+      "source": 1792234170.694,
+      "age_at_wire_s": 0.3379240036010742
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234171.039801,
+      "source": 1792234170.707,
+      "age_at_wire_s": 0.33280086517333984
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234171.0399,
+      "source": 1792234170.726,
+      "age_at_wire_s": 0.3138999938964844
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234171.03991,
+      "source": 1792234170.726,
+      "age_at_wire_s": 0.31391000747680664
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234171.047653,
+      "source": 1792234170.74,
+      "age_at_wire_s": 0.30765295028686523
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234171.061366,
+      "source": 1792234170.759,
+      "age_at_wire_s": 0.3023660182952881
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234171.062581,
+      "source": 1792234170.759,
+      "age_at_wire_s": 0.30358099937438965
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234171.078852,
+      "source": 1792234170.777,
+      "age_at_wire_s": 0.3018519878387451
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234171.079946,
+      "source": 1792234170.777,
+      "age_at_wire_s": 0.3029460906982422
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234171.10875,
+      "source": 1792234170.807,
+      "age_at_wire_s": 0.30175018310546875
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234171.109972,
+      "source": 1792234170.807,
+      "age_at_wire_s": 0.30297207832336426
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234171.122223,
+      "source": 1792234170.819,
+      "age_at_wire_s": 0.3032228946685791
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234171.139994,
+      "source": 1792234170.838,
+      "age_at_wire_s": 0.30199384689331055
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234171.141244,
+      "source": 1792234170.838,
+      "age_at_wire_s": 0.30324387550354004
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234171.154761,
+      "source": 1792234170.851,
+      "age_at_wire_s": 0.30376100540161133
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234171.173035,
+      "source": 1792234170.871,
+      "age_at_wire_s": 0.302034854888916
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234171.174026,
+      "source": 1792234170.871,
+      "age_at_wire_s": 0.3030259609222412
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234171.190397,
+      "source": 1792234170.889,
+      "age_at_wire_s": 0.30139708518981934
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234171.191508,
+      "source": 1792234170.889,
+      "age_at_wire_s": 0.3025081157684326
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234171.219914,
+      "source": 1792234170.918,
+      "age_at_wire_s": 0.3019139766693115
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234171.223623,
+      "source": 1792234170.918,
+      "age_at_wire_s": 0.30562305450439453
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234171.25458,
+      "source": 1792234170.931,
+      "age_at_wire_s": 0.3235800266265869
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234171.298955,
+      "source": 1792234170.931,
+      "age_at_wire_s": 0.36795496940612793
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234171.329728,
+      "source": 1792234171.023,
+      "age_at_wire_s": 0.30672788619995117
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234171.329822,
+      "source": 1792234171.023,
+      "age_at_wire_s": 0.3068220615386963
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234171.340894,
+      "source": 1792234171.038,
+      "age_at_wire_s": 0.30289387702941895
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234171.356832,
+      "source": 1792234171.052,
+      "age_at_wire_s": 0.30483198165893555
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234171.375861,
+      "source": 1792234171.074,
+      "age_at_wire_s": 0.301861047744751
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234171.37633,
+      "source": 1792234171.074,
+      "age_at_wire_s": 0.30233001708984375
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234171.392545,
+      "source": 1792234171.091,
+      "age_at_wire_s": 0.3015449047088623
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234171.393085,
+      "source": 1792234171.091,
+      "age_at_wire_s": 0.30208492279052734
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234171.408547,
+      "source": 1792234171.106,
+      "age_at_wire_s": 0.30254697799682617
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234171.410131,
+      "source": 1792234171.106,
+      "age_at_wire_s": 0.30413103103637695
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234171.431819,
+      "source": 1792234171.13,
+      "age_at_wire_s": 0.30181884765625
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234171.432811,
+      "source": 1792234171.13,
+      "age_at_wire_s": 0.3028109073638916
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234171.445787,
+      "source": 1792234171.143,
+      "age_at_wire_s": 0.30278706550598145
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234171.460331,
+      "source": 1792234171.156,
+      "age_at_wire_s": 0.30433106422424316
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234171.478556,
+      "source": 1792234171.176,
+      "age_at_wire_s": 0.30255579948425293
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234171.479044,
+      "source": 1792234171.176,
+      "age_at_wire_s": 0.30304384231567383
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234171.496736,
+      "source": 1792234171.195,
+      "age_at_wire_s": 0.30173611640930176
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234171.500303,
+      "source": 1792234171.195,
+      "age_at_wire_s": 0.30530309677124023
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234171.531282,
+      "source": 1792234171.204,
+      "age_at_wire_s": 0.3272819519042969
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234171.531289,
+      "source": 1792234171.204,
+      "age_at_wire_s": 0.3272891044616699
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234171.562374,
+      "source": 1792234171.228,
+      "age_at_wire_s": 0.33437418937683105
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234171.562386,
+      "source": 1792234171.228,
+      "age_at_wire_s": 0.33438611030578613
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234171.57014,
+      "source": 1792234171.245,
+      "age_at_wire_s": 0.32513999938964844
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234171.57019,
+      "source": 1792234171.245,
+      "age_at_wire_s": 0.32519006729125977
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234171.577941,
+      "source": 1792234171.264,
+      "age_at_wire_s": 0.31394100189208984
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234171.578029,
+      "source": 1792234171.264,
+      "age_at_wire_s": 0.3140289783477783
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234171.585965,
+      "source": 1792234171.279,
+      "age_at_wire_s": 0.3069648742675781
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234171.599667,
+      "source": 1792234171.295,
+      "age_at_wire_s": 0.30466699600219727
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234171.618087,
+      "source": 1792234171.316,
+      "age_at_wire_s": 0.30208706855773926
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234171.61869,
+      "source": 1792234171.316,
+      "age_at_wire_s": 0.3026900291442871
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234171.635119,
+      "source": 1792234171.333,
+      "age_at_wire_s": 0.30211901664733887
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234171.635718,
+      "source": 1792234171.333,
+      "age_at_wire_s": 0.3027181625366211
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234171.651266,
+      "source": 1792234171.35,
+      "age_at_wire_s": 0.3012661933898926
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234171.651916,
+      "source": 1792234171.35,
+      "age_at_wire_s": 0.30191612243652344
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234171.671353,
+      "source": 1792234171.369,
+      "age_at_wire_s": 0.3023531436920166
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234171.671717,
+      "source": 1792234171.369,
+      "age_at_wire_s": 0.3027169704437256
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234171.686428,
+      "source": 1792234171.382,
+      "age_at_wire_s": 0.3044281005859375
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234171.702615,
+      "source": 1792234171.399,
+      "age_at_wire_s": 0.30361509323120117
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234171.72215,
+      "source": 1792234171.421,
+      "age_at_wire_s": 0.3011500835418701
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234171.722688,
+      "source": 1792234171.421,
+      "age_at_wire_s": 0.30168795585632324
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234171.739636,
+      "source": 1792234171.438,
+      "age_at_wire_s": 0.3016359806060791
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234171.74033,
+      "source": 1792234171.438,
+      "age_at_wire_s": 0.30233001708984375
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234171.757816,
+      "source": 1792234171.456,
+      "age_at_wire_s": 0.3018159866333008
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234171.761403,
+      "source": 1792234171.456,
+      "age_at_wire_s": 0.3054029941558838
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234171.792492,
+      "source": 1792234171.464,
+      "age_at_wire_s": 0.3284919261932373
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234171.792567,
+      "source": 1792234171.464,
+      "age_at_wire_s": 0.3285670280456543
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234171.823608,
+      "source": 1792234171.486,
+      "age_at_wire_s": 0.33760786056518555
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234171.823633,
+      "source": 1792234171.486,
+      "age_at_wire_s": 0.3376328945159912
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234171.831391,
+      "source": 1792234171.509,
+      "age_at_wire_s": 0.3223910331726074
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234171.831414,
+      "source": 1792234171.509,
+      "age_at_wire_s": 0.32241392135620117
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234171.83919,
+      "source": 1792234171.522,
+      "age_at_wire_s": 0.31718993186950684
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234171.841124,
+      "source": 1792234171.537,
+      "age_at_wire_s": 0.304124116897583
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234171.861087,
+      "source": 1792234171.559,
+      "age_at_wire_s": 0.30208706855773926
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234171.862114,
+      "source": 1792234171.559,
+      "age_at_wire_s": 0.3031139373779297
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234171.878413,
+      "source": 1792234171.577,
+      "age_at_wire_s": 0.30141305923461914
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234171.879737,
+      "source": 1792234171.577,
+      "age_at_wire_s": 0.3027369976043701
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234171.894698,
+      "source": 1792234171.593,
+      "age_at_wire_s": 0.3016979694366455
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234171.895979,
+      "source": 1792234171.593,
+      "age_at_wire_s": 0.3029789924621582
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234171.914742,
+      "source": 1792234171.613,
+      "age_at_wire_s": 0.3017420768737793
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234171.91604,
+      "source": 1792234171.613,
+      "age_at_wire_s": 0.3030400276184082
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234171.930198,
+      "source": 1792234171.626,
+      "age_at_wire_s": 0.3041980266571045
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234171.944042,
+      "source": 1792234171.639,
+      "age_at_wire_s": 0.305042028427124
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234171.964519,
+      "source": 1792234171.662,
+      "age_at_wire_s": 0.3025190830230713
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234171.965839,
+      "source": 1792234171.662,
+      "age_at_wire_s": 0.30383896827697754
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234171.981499,
+      "source": 1792234171.679,
+      "age_at_wire_s": 0.30249905586242676
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234171.982243,
+      "source": 1792234171.679,
+      "age_at_wire_s": 0.30324316024780273
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234171.996904,
+      "source": 1792234171.695,
+      "age_at_wire_s": 0.30190396308898926
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234171.998202,
+      "source": 1792234171.695,
+      "age_at_wire_s": 0.30320215225219727
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234172.02006,
+      "source": 1792234171.719,
+      "age_at_wire_s": 0.3010599613189697
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234172.026651,
+      "source": 1792234171.719,
+      "age_at_wire_s": 0.3076508045196533
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234172.094538,
+      "source": 1792234171.792,
+      "age_at_wire_s": 0.3025379180908203
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234172.097226,
+      "source": 1792234171.792,
+      "age_at_wire_s": 0.30522584915161133
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234172.128138,
+      "source": 1792234171.821,
+      "age_at_wire_s": 0.30713796615600586
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234172.128144,
+      "source": 1792234171.821,
+      "age_at_wire_s": 0.3071439266204834
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234172.139002,
+      "source": 1792234171.836,
+      "age_at_wire_s": 0.30300211906433105
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234172.153858,
+      "source": 1792234171.849,
+      "age_at_wire_s": 0.3048579692840576
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234172.173486,
+      "source": 1792234171.871,
+      "age_at_wire_s": 0.30248594284057617
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234172.174018,
+      "source": 1792234171.871,
+      "age_at_wire_s": 0.30301785469055176
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234172.189846,
+      "source": 1792234171.888,
+      "age_at_wire_s": 0.3018460273742676
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234172.190535,
+      "source": 1792234171.888,
+      "age_at_wire_s": 0.3025350570678711
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234172.205436,
+      "source": 1792234171.904,
+      "age_at_wire_s": 0.3014359474182129
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234172.206022,
+      "source": 1792234171.904,
+      "age_at_wire_s": 0.30202198028564453
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234172.224891,
+      "source": 1792234171.923,
+      "age_at_wire_s": 0.30189085006713867
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234172.225494,
+      "source": 1792234171.923,
+      "age_at_wire_s": 0.3024938106536865
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234172.239623,
+      "source": 1792234171.937,
+      "age_at_wire_s": 0.30262303352355957
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234172.255612,
+      "source": 1792234171.952,
+      "age_at_wire_s": 0.30361199378967285
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234172.275047,
+      "source": 1792234171.973,
+      "age_at_wire_s": 0.3020470142364502
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234172.275509,
+      "source": 1792234171.973,
+      "age_at_wire_s": 0.302509069442749
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234172.293902,
+      "source": 1792234171.992,
+      "age_at_wire_s": 0.30190181732177734
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234172.29756,
+      "source": 1792234171.992,
+      "age_at_wire_s": 0.3055598735809326
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234172.328441,
+      "source": 1792234172.001,
+      "age_at_wire_s": 0.3274409770965576
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234172.328445,
+      "source": 1792234172.001,
+      "age_at_wire_s": 0.32744503021240234
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234172.359477,
+      "source": 1792234172.024,
+      "age_at_wire_s": 0.3354771137237549
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234172.359485,
+      "source": 1792234172.024,
+      "age_at_wire_s": 0.33548498153686523
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234172.367659,
+      "source": 1792234172.04,
+      "age_at_wire_s": 0.32765913009643555
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234172.367672,
+      "source": 1792234172.04,
+      "age_at_wire_s": 0.32767200469970703
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234172.375072,
+      "source": 1792234172.06,
+      "age_at_wire_s": 0.31507205963134766
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234172.375095,
+      "source": 1792234172.06,
+      "age_at_wire_s": 0.3150949478149414
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234172.382895,
+      "source": 1792234172.073,
+      "age_at_wire_s": 0.30989503860473633
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234172.391286,
+      "source": 1792234172.087,
+      "age_at_wire_s": 0.30428600311279297
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234172.411104,
+      "source": 1792234172.109,
+      "age_at_wire_s": 0.30210399627685547
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234172.411584,
+      "source": 1792234172.109,
+      "age_at_wire_s": 0.3025839328765869
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234172.427599,
+      "source": 1792234172.126,
+      "age_at_wire_s": 0.30159902572631836
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234172.428174,
+      "source": 1792234172.126,
+      "age_at_wire_s": 0.30217409133911133
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234172.443347,
+      "source": 1792234172.142,
+      "age_at_wire_s": 0.301347017288208
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234172.443987,
+      "source": 1792234172.142,
+      "age_at_wire_s": 0.3019869327545166
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234172.463122,
+      "source": 1792234172.161,
+      "age_at_wire_s": 0.3021218776702881
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234172.463789,
+      "source": 1792234172.161,
+      "age_at_wire_s": 0.30278897285461426
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234172.478035,
+      "source": 1792234172.175,
+      "age_at_wire_s": 0.30303502082824707
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234172.493414,
+      "source": 1792234172.189,
+      "age_at_wire_s": 0.3044140338897705
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234172.514416,
+      "source": 1792234172.212,
+      "age_at_wire_s": 0.3024160861968994
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234172.514796,
+      "source": 1792234172.212,
+      "age_at_wire_s": 0.3027961254119873
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234172.531344,
+      "source": 1792234172.23,
+      "age_at_wire_s": 0.3013439178466797
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234172.532065,
+      "source": 1792234172.23,
+      "age_at_wire_s": 0.3020648956298828
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234172.54991,
+      "source": 1792234172.248,
+      "age_at_wire_s": 0.3019101619720459
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234172.553635,
+      "source": 1792234172.248,
+      "age_at_wire_s": 0.3056349754333496
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234172.584559,
+      "source": 1792234172.257,
+      "age_at_wire_s": 0.3275589942932129
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234172.584563,
+      "source": 1792234172.257,
+      "age_at_wire_s": 0.3275630474090576
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234172.615676,
+      "source": 1792234172.278,
+      "age_at_wire_s": 0.3376758098602295
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234172.615676,
+      "source": 1792234172.278,
+      "age_at_wire_s": 0.3376758098602295
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234172.623412,
+      "source": 1792234172.297,
+      "age_at_wire_s": 0.3264119625091553
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234172.623418,
+      "source": 1792234172.297,
+      "age_at_wire_s": 0.3264181613922119
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234172.631246,
+      "source": 1792234172.31,
+      "age_at_wire_s": 0.3212461471557617
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234172.631566,
+      "source": 1792234172.326,
+      "age_at_wire_s": 0.30556607246398926
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234172.648281,
+      "source": 1792234172.346,
+      "age_at_wire_s": 0.30228114128112793
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234172.649479,
+      "source": 1792234172.346,
+      "age_at_wire_s": 0.3034789562225342
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234172.665223,
+      "source": 1792234172.363,
+      "age_at_wire_s": 0.30222296714782715
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234172.666485,
+      "source": 1792234172.363,
+      "age_at_wire_s": 0.3034851551055908
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234172.681874,
+      "source": 1792234172.38,
+      "age_at_wire_s": 0.30187392234802246
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234172.683093,
+      "source": 1792234172.38,
+      "age_at_wire_s": 0.30309295654296875
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234172.701785,
+      "source": 1792234172.4,
+      "age_at_wire_s": 0.3017849922180176
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234172.702945,
+      "source": 1792234172.4,
+      "age_at_wire_s": 0.3029448986053467
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234172.717339,
+      "source": 1792234172.414,
+      "age_at_wire_s": 0.30333900451660156
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234172.731175,
+      "source": 1792234172.427,
+      "age_at_wire_s": 0.30417490005493164
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234172.751032,
+      "source": 1792234172.449,
+      "age_at_wire_s": 0.3020322322845459
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234172.752086,
+      "source": 1792234172.449,
+      "age_at_wire_s": 0.3030860424041748
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234172.767995,
+      "source": 1792234172.466,
+      "age_at_wire_s": 0.30199503898620605
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234172.769281,
+      "source": 1792234172.466,
+      "age_at_wire_s": 0.3032808303833008
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234172.784554,
+      "source": 1792234172.483,
+      "age_at_wire_s": 0.30155396461486816
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234172.785722,
+      "source": 1792234172.483,
+      "age_at_wire_s": 0.3027219772338867
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234172.806997,
+      "source": 1792234172.505,
+      "age_at_wire_s": 0.30199694633483887
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234172.814855,
+      "source": 1792234172.505,
+      "age_at_wire_s": 0.30985498428344727
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234172.885758,
+      "source": 1792234172.584,
+      "age_at_wire_s": 0.3017578125
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234172.889346,
+      "source": 1792234172.584,
+      "age_at_wire_s": 0.3053457736968994
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234172.92029,
+      "source": 1792234172.613,
+      "age_at_wire_s": 0.30729007720947266
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234172.920297,
+      "source": 1792234172.613,
+      "age_at_wire_s": 0.3072969913482666
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234172.929617,
+      "source": 1792234172.626,
+      "age_at_wire_s": 0.303617000579834
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234172.943599,
+      "source": 1792234172.639,
+      "age_at_wire_s": 0.3045990467071533
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234172.961234,
+      "source": 1792234172.659,
+      "age_at_wire_s": 0.3022341728210449
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234172.961685,
+      "source": 1792234172.659,
+      "age_at_wire_s": 0.302685022354126
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234172.97801,
+      "source": 1792234172.676,
+      "age_at_wire_s": 0.30200982093811035
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234172.978879,
+      "source": 1792234172.676,
+      "age_at_wire_s": 0.30287885665893555
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234172.993219,
+      "source": 1792234172.691,
+      "age_at_wire_s": 0.3022189140319824
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234172.993944,
+      "source": 1792234172.691,
+      "age_at_wire_s": 0.3029439449310303
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234173.011634,
+      "source": 1792234172.709,
+      "age_at_wire_s": 0.30263400077819824
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234173.012322,
+      "source": 1792234172.709,
+      "age_at_wire_s": 0.30332183837890625
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234173.037309,
+      "source": 1792234172.734,
+      "age_at_wire_s": 0.30330896377563477
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234173.051063,
+      "source": 1792234172.747,
+      "age_at_wire_s": 0.304063081741333
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234173.071866,
+      "source": 1792234172.769,
+      "age_at_wire_s": 0.30286598205566406
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234173.07559,
+      "source": 1792234172.769,
+      "age_at_wire_s": 0.30658984184265137
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234173.106395,
+      "source": 1792234172.779,
+      "age_at_wire_s": 0.327394962310791
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234173.106418,
+      "source": 1792234172.779,
+      "age_at_wire_s": 0.32741785049438477
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234173.137451,
+      "source": 1792234172.8,
+      "age_at_wire_s": 0.3374509811401367
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234173.137515,
+      "source": 1792234172.8,
+      "age_at_wire_s": 0.33751511573791504
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234173.142735,
+      "source": 1792234172.816,
+      "age_at_wire_s": 0.3267350196838379
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234173.142776,
+      "source": 1792234172.816,
+      "age_at_wire_s": 0.32677602767944336
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234173.150459,
+      "source": 1792234172.832,
+      "age_at_wire_s": 0.31845903396606445
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234173.150473,
+      "source": 1792234172.832,
+      "age_at_wire_s": 0.31847310066223145
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234173.158227,
+      "source": 1792234172.85,
+      "age_at_wire_s": 0.3082270622253418
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234173.158255,
+      "source": 1792234172.85,
+      "age_at_wire_s": 0.3082551956176758
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234173.166013,
+      "source": 1792234172.86,
+      "age_at_wire_s": 0.3060131072998047
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234173.178587,
+      "source": 1792234172.875,
+      "age_at_wire_s": 0.3035869598388672
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234173.211196,
+      "source": 1792234172.909,
+      "age_at_wire_s": 0.30219602584838867
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234173.211726,
+      "source": 1792234172.909,
+      "age_at_wire_s": 0.30272603034973145
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234173.227942,
+      "source": 1792234172.926,
+      "age_at_wire_s": 0.3019418716430664
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234173.228759,
+      "source": 1792234172.926,
+      "age_at_wire_s": 0.30275893211364746
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234173.243211,
+      "source": 1792234172.941,
+      "age_at_wire_s": 0.30221104621887207
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234173.24393,
+      "source": 1792234172.941,
+      "age_at_wire_s": 0.3029301166534424
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234173.262035,
+      "source": 1792234172.96,
+      "age_at_wire_s": 0.302034854888916
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234173.262721,
+      "source": 1792234172.96,
+      "age_at_wire_s": 0.3027210235595703
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234173.275631,
+      "source": 1792234172.972,
+      "age_at_wire_s": 0.303631067276001
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234173.289471,
+      "source": 1792234172.985,
+      "age_at_wire_s": 0.3044710159301758
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234173.324199,
+      "source": 1792234173.022,
+      "age_at_wire_s": 0.3021988868713379
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234173.324907,
+      "source": 1792234173.022,
+      "age_at_wire_s": 0.30290699005126953
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234173.342799,
+      "source": 1792234173.041,
+      "age_at_wire_s": 0.30179905891418457
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234173.343501,
+      "source": 1792234173.041,
+      "age_at_wire_s": 0.30250120162963867
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234173.363571,
+      "source": 1792234173.062,
+      "age_at_wire_s": 0.3015708923339844
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234173.367309,
+      "source": 1792234173.062,
+      "age_at_wire_s": 0.3053090572357178
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234173.398202,
+      "source": 1792234173.071,
+      "age_at_wire_s": 0.32720184326171875
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234173.398215,
+      "source": 1792234173.071,
+      "age_at_wire_s": 0.32721495628356934
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234173.429272,
+      "source": 1792234173.092,
+      "age_at_wire_s": 0.33727192878723145
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234173.429295,
+      "source": 1792234173.092,
+      "age_at_wire_s": 0.3372950553894043
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234173.437085,
+      "source": 1792234173.107,
+      "age_at_wire_s": 0.33008480072021484
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234173.437292,
+      "source": 1792234173.12,
+      "age_at_wire_s": 0.3172922134399414
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234173.442825,
+      "source": 1792234173.14,
+      "age_at_wire_s": 0.3028249740600586
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234173.446656,
+      "source": 1792234173.14,
+      "age_at_wire_s": 0.3066558837890625
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234173.461502,
+      "source": 1792234173.16,
+      "age_at_wire_s": 0.301501989364624
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234173.462598,
+      "source": 1792234173.16,
+      "age_at_wire_s": 0.3025979995727539
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234173.479086,
+      "source": 1792234173.177,
+      "age_at_wire_s": 0.30208587646484375
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234173.480185,
+      "source": 1792234173.177,
+      "age_at_wire_s": 0.30318498611450195
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234173.495323,
+      "source": 1792234173.193,
+      "age_at_wire_s": 0.3023228645324707
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234173.496547,
+      "source": 1792234173.193,
+      "age_at_wire_s": 0.3035469055175781
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234173.523289,
+      "source": 1792234173.219,
+      "age_at_wire_s": 0.3042888641357422
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234173.538542,
+      "source": 1792234173.235,
+      "age_at_wire_s": 0.3035421371459961
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234173.557004,
+      "source": 1792234173.255,
+      "age_at_wire_s": 0.3020038604736328
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234173.558256,
+      "source": 1792234173.255,
+      "age_at_wire_s": 0.3032557964324951
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234173.577032,
+      "source": 1792234173.275,
+      "age_at_wire_s": 0.3020319938659668
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234173.578759,
+      "source": 1792234173.275,
+      "age_at_wire_s": 0.3037588596343994
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234173.593546,
+      "source": 1792234173.292,
+      "age_at_wire_s": 0.3015458583831787
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234173.594713,
+      "source": 1792234173.292,
+      "age_at_wire_s": 0.30271291732788086
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234173.612132,
+      "source": 1792234173.31,
+      "age_at_wire_s": 0.30213212966918945
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234173.615656,
+      "source": 1792234173.31,
+      "age_at_wire_s": 0.30565595626831055
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234173.646709,
+      "source": 1792234173.323,
+      "age_at_wire_s": 0.32370901107788086
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234173.692303,
+      "source": 1792234173.323,
+      "age_at_wire_s": 0.36930298805236816
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234173.723245,
+      "source": 1792234173.415,
+      "age_at_wire_s": 0.3082449436187744
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234173.723274,
+      "source": 1792234173.415,
+      "age_at_wire_s": 0.3082740306854248
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234173.735215,
+      "source": 1792234173.432,
+      "age_at_wire_s": 0.30321502685546875
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234173.751135,
+      "source": 1792234173.447,
+      "age_at_wire_s": 0.3041350841522217
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234173.771217,
+      "source": 1792234173.469,
+      "age_at_wire_s": 0.3022170066833496
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234173.771663,
+      "source": 1792234173.469,
+      "age_at_wire_s": 0.30266284942626953
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234173.787567,
+      "source": 1792234173.485,
+      "age_at_wire_s": 0.3025670051574707
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234173.788309,
+      "source": 1792234173.485,
+      "age_at_wire_s": 0.30330920219421387
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234173.803503,
+      "source": 1792234173.501,
+      "age_at_wire_s": 0.3025031089782715
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234173.803991,
+      "source": 1792234173.501,
+      "age_at_wire_s": 0.3029911518096924
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234173.823151,
+      "source": 1792234173.52,
+      "age_at_wire_s": 0.30315113067626953
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234173.823155,
+      "source": 1792234173.52,
+      "age_at_wire_s": 0.30315494537353516
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234173.838816,
+      "source": 1792234173.535,
+      "age_at_wire_s": 0.3038158416748047
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234173.853703,
+      "source": 1792234173.549,
+      "age_at_wire_s": 0.3047029972076416
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234173.873429,
+      "source": 1792234173.571,
+      "age_at_wire_s": 0.3024289608001709
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234173.873912,
+      "source": 1792234173.571,
+      "age_at_wire_s": 0.30291199684143066
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234173.891616,
+      "source": 1792234173.59,
+      "age_at_wire_s": 0.30161619186401367
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234173.895148,
+      "source": 1792234173.59,
+      "age_at_wire_s": 0.3051481246948242
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234173.926125,
+      "source": 1792234173.599,
+      "age_at_wire_s": 0.32712507247924805
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234173.92614,
+      "source": 1792234173.599,
+      "age_at_wire_s": 0.32714009284973145
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234173.957267,
+      "source": 1792234173.622,
+      "age_at_wire_s": 0.3352670669555664
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234173.957375,
+      "source": 1792234173.622,
+      "age_at_wire_s": 0.3353750705718994
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234173.964992,
+      "source": 1792234173.638,
+      "age_at_wire_s": 0.3269920349121094
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234173.965007,
+      "source": 1792234173.638,
+      "age_at_wire_s": 0.3270070552825928
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234173.972847,
+      "source": 1792234173.656,
+      "age_at_wire_s": 0.3168470859527588
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234173.972911,
+      "source": 1792234173.656,
+      "age_at_wire_s": 0.316910982131958
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234173.980557,
+      "source": 1792234173.671,
+      "age_at_wire_s": 0.3095569610595703
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234173.990466,
+      "source": 1792234173.686,
+      "age_at_wire_s": 0.30446600914001465
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234174.009437,
+      "source": 1792234173.708,
+      "age_at_wire_s": 0.3014371395111084
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234174.009932,
+      "source": 1792234173.708,
+      "age_at_wire_s": 0.30193209648132324
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234174.025726,
+      "source": 1792234173.724,
+      "age_at_wire_s": 0.3017261028289795
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234174.026337,
+      "source": 1792234173.724,
+      "age_at_wire_s": 0.3023369312286377
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234174.04187,
+      "source": 1792234173.74,
+      "age_at_wire_s": 0.30187010765075684
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234174.042519,
+      "source": 1792234173.74,
+      "age_at_wire_s": 0.3025190830230713
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234174.060761,
+      "source": 1792234173.759,
+      "age_at_wire_s": 0.3017609119415283
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234174.061374,
+      "source": 1792234173.759,
+      "age_at_wire_s": 0.30237388610839844
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234174.075931,
+      "source": 1792234173.773,
+      "age_at_wire_s": 0.3029310703277588
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234174.091056,
+      "source": 1792234173.787,
+      "age_at_wire_s": 0.30405616760253906
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234174.110573,
+      "source": 1792234173.809,
+      "age_at_wire_s": 0.3015730381011963
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234174.111057,
+      "source": 1792234173.809,
+      "age_at_wire_s": 0.30205702781677246
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234174.127591,
+      "source": 1792234173.826,
+      "age_at_wire_s": 0.3015909194946289
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234174.128239,
+      "source": 1792234173.826,
+      "age_at_wire_s": 0.30223894119262695
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234174.14786,
+      "source": 1792234173.846,
+      "age_at_wire_s": 0.30186009407043457
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234174.151371,
+      "source": 1792234173.846,
+      "age_at_wire_s": 0.3053710460662842
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234174.18238,
+      "source": 1792234173.855,
+      "age_at_wire_s": 0.3273799419403076
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234174.1824,
+      "source": 1792234173.855,
+      "age_at_wire_s": 0.32739996910095215
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234174.213443,
+      "source": 1792234173.877,
+      "age_at_wire_s": 0.3364429473876953
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234174.21346,
+      "source": 1792234173.877,
+      "age_at_wire_s": 0.3364598751068115
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234174.221215,
+      "source": 1792234173.898,
+      "age_at_wire_s": 0.3232150077819824
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234174.221422,
+      "source": 1792234173.898,
+      "age_at_wire_s": 0.3234219551086426
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234174.229037,
+      "source": 1792234173.914,
+      "age_at_wire_s": 0.3150370121002197
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234174.23203,
+      "source": 1792234173.929,
+      "age_at_wire_s": 0.30303001403808594
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234174.252401,
+      "source": 1792234173.95,
+      "age_at_wire_s": 0.302401065826416
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234174.253535,
+      "source": 1792234173.95,
+      "age_at_wire_s": 0.30353498458862305
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234174.271269,
+      "source": 1792234173.969,
+      "age_at_wire_s": 0.30226898193359375
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234174.272108,
+      "source": 1792234173.969,
+      "age_at_wire_s": 0.30310797691345215
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234174.287898,
+      "source": 1792234173.986,
+      "age_at_wire_s": 0.3018980026245117
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234174.289094,
+      "source": 1792234173.986,
+      "age_at_wire_s": 0.30309391021728516
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234174.308168,
+      "source": 1792234174.006,
+      "age_at_wire_s": 0.3021678924560547
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234174.309286,
+      "source": 1792234174.006,
+      "age_at_wire_s": 0.303286075592041
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234174.324552,
+      "source": 1792234174.022,
+      "age_at_wire_s": 0.3025519847869873
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234174.340332,
+      "source": 1792234174.037,
+      "age_at_wire_s": 0.3033320903778076
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234174.360453,
+      "source": 1792234174.059,
+      "age_at_wire_s": 0.3014528751373291
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234174.36157,
+      "source": 1792234174.059,
+      "age_at_wire_s": 0.3025698661804199
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234174.377624,
+      "source": 1792234174.076,
+      "age_at_wire_s": 0.301624059677124
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234174.378692,
+      "source": 1792234174.076,
+      "age_at_wire_s": 0.3026919364929199
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234174.396797,
+      "source": 1792234174.095,
+      "age_at_wire_s": 0.30179691314697266
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234174.400803,
+      "source": 1792234174.095,
+      "age_at_wire_s": 0.3058030605316162
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234174.431723,
+      "source": 1792234174.104,
+      "age_at_wire_s": 0.32772302627563477
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234174.480297,
+      "source": 1792234174.104,
+      "age_at_wire_s": 0.3762969970703125
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234174.511311,
+      "source": 1792234174.203,
+      "age_at_wire_s": 0.30831098556518555
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234174.511335,
+      "source": 1792234174.203,
+      "age_at_wire_s": 0.3083348274230957
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234174.520872,
+      "source": 1792234174.217,
+      "age_at_wire_s": 0.30387210845947266
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234174.534214,
+      "source": 1792234174.23,
+      "age_at_wire_s": 0.3042140007019043
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234174.552921,
+      "source": 1792234174.251,
+      "age_at_wire_s": 0.30192112922668457
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234174.5534,
+      "source": 1792234174.251,
+      "age_at_wire_s": 0.3024001121520996
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234174.56921,
+      "source": 1792234174.268,
+      "age_at_wire_s": 0.3012101650238037
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234174.570153,
+      "source": 1792234174.268,
+      "age_at_wire_s": 0.3021531105041504
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234174.584982,
+      "source": 1792234174.283,
+      "age_at_wire_s": 0.30198192596435547
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234174.58564,
+      "source": 1792234174.283,
+      "age_at_wire_s": 0.3026399612426758
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234174.60384,
+      "source": 1792234174.302,
+      "age_at_wire_s": 0.30184006690979004
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234174.604478,
+      "source": 1792234174.302,
+      "age_at_wire_s": 0.3024778366088867
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234174.630702,
+      "source": 1792234174.327,
+      "age_at_wire_s": 0.30370211601257324
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234174.646521,
+      "source": 1792234174.342,
+      "age_at_wire_s": 0.3045210838317871
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234174.666718,
+      "source": 1792234174.364,
+      "age_at_wire_s": 0.302717924118042
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234174.670208,
+      "source": 1792234174.364,
+      "age_at_wire_s": 0.30620789527893066
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234174.701216,
+      "source": 1792234174.373,
+      "age_at_wire_s": 0.3282160758972168
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234174.701247,
+      "source": 1792234174.373,
+      "age_at_wire_s": 0.3282470703125
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234174.732288,
+      "source": 1792234174.394,
+      "age_at_wire_s": 0.3382878303527832
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234174.732338,
+      "source": 1792234174.394,
+      "age_at_wire_s": 0.33833789825439453
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234174.737503,
+      "source": 1792234174.41,
+      "age_at_wire_s": 0.327502965927124
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234174.737507,
+      "source": 1792234174.41,
+      "age_at_wire_s": 0.32750701904296875
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234174.745256,
+      "source": 1792234174.425,
+      "age_at_wire_s": 0.32025599479675293
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234174.745268,
+      "source": 1792234174.425,
+      "age_at_wire_s": 0.3202681541442871
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234174.753046,
+      "source": 1792234174.442,
+      "age_at_wire_s": 0.31104612350463867
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234174.753079,
+      "source": 1792234174.442,
+      "age_at_wire_s": 0.3110790252685547
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234174.760852,
+      "source": 1792234174.458,
+      "age_at_wire_s": 0.30285215377807617
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234174.776258,
+      "source": 1792234174.472,
+      "age_at_wire_s": 0.3042581081390381
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234174.808427,
+      "source": 1792234174.506,
+      "age_at_wire_s": 0.3024270534515381
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234174.808808,
+      "source": 1792234174.506,
+      "age_at_wire_s": 0.3028080463409424
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234174.825367,
+      "source": 1792234174.523,
+      "age_at_wire_s": 0.3023669719696045
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234174.826043,
+      "source": 1792234174.523,
+      "age_at_wire_s": 0.3030428886413574
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234174.840966,
+      "source": 1792234174.539,
+      "age_at_wire_s": 0.30196595191955566
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234174.841599,
+      "source": 1792234174.539,
+      "age_at_wire_s": 0.3025989532470703
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234174.860524,
+      "source": 1792234174.558,
+      "age_at_wire_s": 0.3025238513946533
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234174.860597,
+      "source": 1792234174.558,
+      "age_at_wire_s": 0.3025968074798584
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234174.871731,
+      "source": 1792234174.568,
+      "age_at_wire_s": 0.30373096466064453
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234174.887098,
+      "source": 1792234174.583,
+      "age_at_wire_s": 0.30409812927246094
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234174.920447,
+      "source": 1792234174.618,
+      "age_at_wire_s": 0.3024470806121826
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234174.920973,
+      "source": 1792234174.618,
+      "age_at_wire_s": 0.30297303199768066
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234174.938782,
+      "source": 1792234174.637,
+      "age_at_wire_s": 0.30178189277648926
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234174.942197,
+      "source": 1792234174.637,
+      "age_at_wire_s": 0.30519700050354004
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234174.973172,
+      "source": 1792234174.646,
+      "age_at_wire_s": 0.32717204093933105
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234174.973231,
+      "source": 1792234174.646,
+      "age_at_wire_s": 0.32723116874694824
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234175.00423,
+      "source": 1792234174.667,
+      "age_at_wire_s": 0.33722996711730957
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234175.00437,
+      "source": 1792234174.667,
+      "age_at_wire_s": 0.3373699188232422
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234175.012042,
+      "source": 1792234174.682,
+      "age_at_wire_s": 0.33004212379455566
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234175.012044,
+      "source": 1792234174.682,
+      "age_at_wire_s": 0.3300440311431885
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234175.01981,
+      "source": 1792234174.699,
+      "age_at_wire_s": 0.32081007957458496
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234175.019817,
+      "source": 1792234174.699,
+      "age_at_wire_s": 0.320817232131958
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234175.027633,
+      "source": 1792234174.71,
+      "age_at_wire_s": 0.31763291358947754
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234175.028895,
+      "source": 1792234174.725,
+      "age_at_wire_s": 0.3038949966430664
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234175.047977,
+      "source": 1792234174.746,
+      "age_at_wire_s": 0.30197691917419434
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234175.049007,
+      "source": 1792234174.746,
+      "age_at_wire_s": 0.3030068874359131
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234175.076522,
+      "source": 1792234174.775,
+      "age_at_wire_s": 0.30152201652526855
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234175.077742,
+      "source": 1792234174.775,
+      "age_at_wire_s": 0.30274200439453125
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234175.092218,
+      "source": 1792234174.79,
+      "age_at_wire_s": 0.302217960357666
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234175.093429,
+      "source": 1792234174.79,
+      "age_at_wire_s": 0.30342912673950195
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234175.110836,
+      "source": 1792234174.809,
+      "age_at_wire_s": 0.3018360137939453
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234175.112026,
+      "source": 1792234174.809,
+      "age_at_wire_s": 0.3030259609222412
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234175.126954,
+      "source": 1792234174.823,
+      "age_at_wire_s": 0.3039541244506836
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234175.140481,
+      "source": 1792234174.836,
+      "age_at_wire_s": 0.30448102951049805
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234175.16072,
+      "source": 1792234174.859,
+      "age_at_wire_s": 0.30172014236450195
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234175.161757,
+      "source": 1792234174.859,
+      "age_at_wire_s": 0.30275702476501465
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234175.180283,
+      "source": 1792234174.878,
+      "age_at_wire_s": 0.30228304862976074
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234175.181386,
+      "source": 1792234174.878,
+      "age_at_wire_s": 0.30338597297668457
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234175.200291,
+      "source": 1792234174.898,
+      "age_at_wire_s": 0.3022909164428711
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234175.204735,
+      "source": 1792234174.898,
+      "age_at_wire_s": 0.3067350387573242
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234175.235788,
+      "source": 1792234174.909,
+      "age_at_wire_s": 0.32678818702697754
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234175.2808,
+      "source": 1792234174.909,
+      "age_at_wire_s": 0.37180018424987793
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234175.311756,
+      "source": 1792234175.004,
+      "age_at_wire_s": 0.3077559471130371
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234175.311804,
+      "source": 1792234175.004,
+      "age_at_wire_s": 0.3078041076660156
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234175.32207,
+      "source": 1792234175.019,
+      "age_at_wire_s": 0.3030698299407959
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234175.337757,
+      "source": 1792234175.034,
+      "age_at_wire_s": 0.3037571907043457
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234175.356145,
+      "source": 1792234175.054,
+      "age_at_wire_s": 0.30214500427246094
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234175.356787,
+      "source": 1792234175.054,
+      "age_at_wire_s": 0.30278706550598145
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234175.37283,
+      "source": 1792234175.071,
+      "age_at_wire_s": 0.30182981491088867
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234175.373442,
+      "source": 1792234175.071,
+      "age_at_wire_s": 0.3024418354034424
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234175.388551,
+      "source": 1792234175.086,
+      "age_at_wire_s": 0.3025510311126709
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234175.38917,
+      "source": 1792234175.086,
+      "age_at_wire_s": 0.30316996574401855
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234175.408638,
+      "source": 1792234175.106,
+      "age_at_wire_s": 0.30263805389404297
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234175.409308,
+      "source": 1792234175.106,
+      "age_at_wire_s": 0.30330801010131836
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234175.42391,
+      "source": 1792234175.121,
+      "age_at_wire_s": 0.30290985107421875
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234175.439186,
+      "source": 1792234175.135,
+      "age_at_wire_s": 0.3041861057281494
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234175.457809,
+      "source": 1792234175.156,
+      "age_at_wire_s": 0.30180907249450684
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234175.458171,
+      "source": 1792234175.156,
+      "age_at_wire_s": 0.302170991897583
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234175.475855,
+      "source": 1792234175.174,
+      "age_at_wire_s": 0.30185508728027344
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234175.47942,
+      "source": 1792234175.174,
+      "age_at_wire_s": 0.305419921875
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234175.510334,
+      "source": 1792234175.183,
+      "age_at_wire_s": 0.327333927154541
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234175.510343,
+      "source": 1792234175.183,
+      "age_at_wire_s": 0.3273429870605469
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234175.541387,
+      "source": 1792234175.205,
+      "age_at_wire_s": 0.33638715744018555
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234175.54139,
+      "source": 1792234175.205,
+      "age_at_wire_s": 0.33639001846313477
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234175.549361,
+      "source": 1792234175.22,
+      "age_at_wire_s": 0.3293609619140625
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234175.549448,
+      "source": 1792234175.22,
+      "age_at_wire_s": 0.32944798469543457
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234175.556966,
+      "source": 1792234175.24,
+      "age_at_wire_s": 0.31696605682373047
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234175.55698,
+      "source": 1792234175.24,
+      "age_at_wire_s": 0.31697988510131836
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234175.564787,
+      "source": 1792234175.253,
+      "age_at_wire_s": 0.3117868900299072
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234175.572001,
+      "source": 1792234175.268,
+      "age_at_wire_s": 0.3040010929107666
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234175.591553,
+      "source": 1792234175.289,
+      "age_at_wire_s": 0.3025529384613037
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234175.592174,
+      "source": 1792234175.289,
+      "age_at_wire_s": 0.3031740188598633
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234175.607839,
+      "source": 1792234175.306,
+      "age_at_wire_s": 0.30183911323547363
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234175.608532,
+      "source": 1792234175.306,
+      "age_at_wire_s": 0.3025319576263428
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234175.623049,
+      "source": 1792234175.32,
+      "age_at_wire_s": 0.30304908752441406
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234175.623744,
+      "source": 1792234175.32,
+      "age_at_wire_s": 0.3037440776824951
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234175.643033,
+      "source": 1792234175.34,
+      "age_at_wire_s": 0.30303311347961426
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234175.643615,
+      "source": 1792234175.34,
+      "age_at_wire_s": 0.30361509323120117
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234175.657701,
+      "source": 1792234175.354,
+      "age_at_wire_s": 0.30370092391967773
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234175.672725,
+      "source": 1792234175.369,
+      "age_at_wire_s": 0.303725004196167
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234175.693277,
+      "source": 1792234175.391,
+      "age_at_wire_s": 0.3022768497467041
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234175.693402,
+      "source": 1792234175.391,
+      "age_at_wire_s": 0.3024020195007324
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234175.709991,
+      "source": 1792234175.408,
+      "age_at_wire_s": 0.30199098587036133
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234175.710651,
+      "source": 1792234175.408,
+      "age_at_wire_s": 0.30265092849731445
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234175.728357,
+      "source": 1792234175.426,
+      "age_at_wire_s": 0.3023569583892822
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234175.731982,
+      "source": 1792234175.426,
+      "age_at_wire_s": 0.3059818744659424
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234175.762987,
+      "source": 1792234175.435,
+      "age_at_wire_s": 0.3279869556427002
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234175.763032,
+      "source": 1792234175.435,
+      "age_at_wire_s": 0.3280320167541504
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234175.794077,
+      "source": 1792234175.456,
+      "age_at_wire_s": 0.3380768299102783
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234175.794091,
+      "source": 1792234175.456,
+      "age_at_wire_s": 0.3380908966064453
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234175.802292,
+      "source": 1792234175.475,
+      "age_at_wire_s": 0.32729220390319824
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234175.802341,
+      "source": 1792234175.475,
+      "age_at_wire_s": 0.32734107971191406
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234175.809686,
+      "source": 1792234175.495,
+      "age_at_wire_s": 0.3146860599517822
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234175.816454,
+      "source": 1792234175.512,
+      "age_at_wire_s": 0.30445384979248047
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234175.835367,
+      "source": 1792234175.533,
+      "age_at_wire_s": 0.3023669719696045
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234175.836079,
+      "source": 1792234175.533,
+      "age_at_wire_s": 0.30307888984680176
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234175.851916,
+      "source": 1792234175.55,
+      "age_at_wire_s": 0.30191612243652344
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234175.852611,
+      "source": 1792234175.55,
+      "age_at_wire_s": 0.3026111125946045
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234175.867776,
+      "source": 1792234175.566,
+      "age_at_wire_s": 0.3017759323120117
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234175.868849,
+      "source": 1792234175.566,
+      "age_at_wire_s": 0.30284905433654785
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234175.887613,
+      "source": 1792234175.586,
+      "age_at_wire_s": 0.30161309242248535
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234175.88872,
+      "source": 1792234175.586,
+      "age_at_wire_s": 0.3027200698852539
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234175.903408,
+      "source": 1792234175.6,
+      "age_at_wire_s": 0.303408145904541
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234175.919715,
+      "source": 1792234175.616,
+      "age_at_wire_s": 0.3037149906158447
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234175.938821,
+      "source": 1792234175.637,
+      "age_at_wire_s": 0.3018209934234619
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234175.940113,
+      "source": 1792234175.637,
+      "age_at_wire_s": 0.3031129837036133
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234175.955733,
+      "source": 1792234175.654,
+      "age_at_wire_s": 0.30173301696777344
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234175.956878,
+      "source": 1792234175.654,
+      "age_at_wire_s": 0.30287790298461914
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234175.972077,
+      "source": 1792234175.67,
+      "age_at_wire_s": 0.3020768165588379
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234175.97315,
+      "source": 1792234175.67,
+      "age_at_wire_s": 0.303149938583374
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234175.994541,
+      "source": 1792234175.693,
+      "age_at_wire_s": 0.3015408515930176
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234175.999108,
+      "source": 1792234175.693,
+      "age_at_wire_s": 0.3061079978942871
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234176.030028,
+      "source": 1792234175.705,
+      "age_at_wire_s": 0.3250281810760498
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234176.077187,
+      "source": 1792234175.705,
+      "age_at_wire_s": 0.37218713760375977
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234176.108038,
+      "source": 1792234175.802,
+      "age_at_wire_s": 0.30603790283203125
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234176.108088,
+      "source": 1792234175.802,
+      "age_at_wire_s": 0.3060879707336426
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234176.119887,
+      "source": 1792234175.817,
+      "age_at_wire_s": 0.3028872013092041
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234176.132949,
+      "source": 1792234175.829,
+      "age_at_wire_s": 0.30394911766052246
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/camera_info",
+      "arrival": 1792234176.150245,
+      "source": 1792234175.848,
+      "age_at_wire_s": 0.3022449016571045
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/depth_registered/image_raw",
+      "arrival": 1792234176.150713,
+      "source": 1792234175.848,
+      "age_at_wire_s": 0.30271291732788086
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/camera_info",
+      "arrival": 1792234176.16722,
+      "source": 1792234175.865,
+      "age_at_wire_s": 0.30222010612487793
+    },
+    {
+      "topic": "/hsrb/head_rgbd_sensor/rgb/image_raw",
+      "arrival": 1792234176.167967,
+      "source": 1792234175.865,
+      "age_at_wire_s": 0.3029670715332031
+    },
+    {
+      "topic": "/hsrb/hand_camera/camera_info",
+      "arrival": 1792234176.182367,
+      "source": 1792234175.88,
+      "age_at_wire_s": 0.3023669719696045
+    },
+    {
+      "topic": "/hsrb/hand_camera/image_raw",
+      "arrival": 1792234176.182983,
+      "source": 1792234175.88,
+      "age_at_wire_s": 0.30298280715942383
+    },
+    {
+      "topic": "/hsrb/head_center_camera/camera_info",
+      "arrival": 1792234176.201432,
+      "source": 1792234175.899,
+      "age_at_wire_s": 0.3024320602416992
+    },
+    {
+      "topic": "/hsrb/head_center_camera/image_raw",
+      "arrival": 1792234176.202131,
+      "source": 1792234175.899,
+      "age_at_wire_s": 0.303131103515625
+    },
+    {
+      "topic": "/sigverse/HSR/tf",
+      "arrival": 1792234176.225585,
+      "source": 1792234175.922,
+      "age_at_wire_s": 0.3035850524902344
+    },
+    {
+      "topic": "/hsrb/base_scan",
+      "arrival": 1792234176.238523,
+      "source": 1792234175.934,
+      "age_at_wire_s": 0.3045229911804199
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/camera_info",
+      "arrival": 1792234176.25879,
+      "source": 1792234175.957,
+      "age_at_wire_s": 0.3017899990081787
+    },
+    {
+      "topic": "/hsrb/head_l_stereo_camera/image_rect_color",
+      "arrival": 1792234176.262538,
+      "source": 1792234175.957,
+      "age_at_wire_s": 0.3055379390716553
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/image_rect_color",
+      "arrival": 1792234176.293402,
+      "source": 1792234175.966,
+      "age_at_wire_s": 0.32740187644958496
+    },
+    {
+      "topic": "/hsrb/head_r_stereo_camera/camera_info",
+      "arrival": 1792234176.293405,
+      "source": 1792234175.966,
+      "age_at_wire_s": 0.3274049758911133
+    }
+  ],
+  "limitation": "Complete header fragments only; not image reconstruction or unbiased latency sample. Age includes clock offset."
+}

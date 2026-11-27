@@ -1,0 +1,50 @@
+TF 派生里程计：只用于诊断的影子适配器
+
+probe_derived_odometry.py 默认只预检；--run 才记录数据；额外指定
+--publish 才发布 /handyman/odometry/derived。绝不发布 /odom、TF、运动
+指令或比赛回复。输出文件必须不存在，采样最长 30 秒。
+
+示例（先 source ROS 和项目环境，使用现有 Cyclone 包装器）：
+python3 training/scripts/cyclone_test_env.py --domain 71 --dds-config training/config/cyclone_small_datagrams.xml --run -- python3 training/scripts/probe_derived_odometry.py --run --seconds 10 --output /tmp/derived-odom-live-01.jsonl
+
+运行上述真实采样前需要恢复 Unity。结束后可暂停。此命令只记录，不发布。
+离线 ROS 测试使用 domain 73、ROS_LOCALHOST_ONLY=1，以及
+training/tests/run_tf_derived_odometry.py，不需要 Unity。
+
+估计来源为 odom -> base_footprint 的平面 TF 差分，不是独立轮速计。
+速度为有限窗口平均值并按当前机体朝向转换；转弯时不是精确瞬时速度。
+无效、陈旧、跳变、暂停或回拨的样本清空窗口，不输出伪造的零速度。
+恢复后需要重新预热。协方差为未标定的保守占位值，不能接入 EKF。
+
+本机 Humble 普通回调和 take_message 元数据没有发布者 GID，当前通过
+ROS 图进行保守检查：整个 /tf 必须恰好一个发布者；来源变化或来源数量
+异常后本次采样锁定无效。图发现不是逐消息认证，也可能有传播延迟。
+如果正式系统有多个合法 TF 发布者，需要另行实现边级来源验证，不能
+直接删除检查。此工具只用于短时诊断，不是安全认证模块。
+
+目前没有健康状态主题、Nav2 陈旧里程计门控或正式启动接线。
+JSONL 现在包含逐记录 health：warming / available / unavailable / stopped，
+这里 stopped 仅指采样器结束，不代表机器人停止；stop_confirmed 始终为 false。
+健康记录不是心跳，进程崩溃时不能保证有终止记录，消费者必须自己检查超时。
+有效样本额外记录 diagnostic_filtered_twist（时间常数 0.25 秒的一阶平滑），
+原始 twist 与影子 Odometry 发布值保持不变。平滑会延迟速度变化，仅用于诊断；
+不设静止死区，不将小速度改为零，不用于机器人停止确认或导航授权。
+无效样本清空平滑历史，恢复后从新数据初始化，避免复用暂停前的速度。
+replay_odometry_diagnostics.py 可离线回放已有 JSONL 速度估计并比较峰值和 RMS；
+该回放并非原始 TF 重放，不能替代真实运动、延迟或 DDS 测试。
+停止发布不保证 Nav2 不再使用旧速度。不要重映射到 /odom。
+下一步为真实 Unity 静止采样，之后还需受控运动验证，才能设计正式接入。
+
+运动验证准备（尚未完成真实运动验证）：
+--observe-commands 仅订阅 /hsrb/command_velocity，将收到的 Twist 单独记为
+record_type=observed_command。估计记录为 estimate，均带本机接收单调时间和
+ROS 时间。Twist 无源时间戳，因此接收时序不是精确的执行延迟或制动时间。
+该选项不创建控制发布者，不启动导航；多控制来源也不能据此识别实际执行者。
+隔离测试 run_tf_derived_odometry.py 会在 domain 73 发布合成指令，严禁在真实
+Unity 域运行；脚本强制检查域编号和 localhost 限制。
+
+真实运动测试前必须确认机器人四周空旷、没有其他控制程序、现场可立即暂停，
+并检查实际 Unity 控制端的指令超时/断线停止行为。当前工具没有独立急停能力，
+不能只依赖 Python finally 发送零速来保证停止。未满足这些条件前不自动发指令。
+建议分开测低速直行、零速停止、原地旋转，再做左右方向对照；每段均需记录
+TF 和指令，不把指令速度当成实测真值，不把该测试当作碰撞防护验证。

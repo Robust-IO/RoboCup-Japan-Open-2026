@@ -1,0 +1,254 @@
+{
+  "streams": {
+    "joints": {
+      "count": 35,
+      "stamp_ns": 1792742048504000000,
+      "frame": "hsrb_joint_states",
+      "receive_age_s": 0.365718183
+    },
+    "hand": {
+      "count": 28,
+      "stamp_ns": 1792742048849917708,
+      "frame": "hand_camera_rgb_frame",
+      "receive_age_s": 0.019345939
+    },
+    "rgb": {
+      "count": 25,
+      "stamp_ns": 1792742048718280443,
+      "frame": "head_rgbd_sensor_rgb_frame",
+      "receive_age_s": 0.011254544
+    },
+    "depth": {
+      "count": 25,
+      "stamp_ns": 1792742048733673562,
+      "frame": "head_rgbd_sensor_depth_frame",
+      "receive_age_s": 0.013024635
+    }
+  },
+  "tf_frames": {
+    "odom->base_footprint": {
+      "stamp_ns": 1792742048691307177,
+      "age_s": 0.003579295
+    },
+    "base_footprint->base_link": {
+      "stamp_ns": 1792742048691313890,
+      "age_s": 0.003588763
+    },
+    "base_link->arm_lift_link": {
+      "stamp_ns": 1792742048691317507,
+      "age_s": 0.003589955
+    },
+    "arm_lift_link->arm_flex_link": {
+      "stamp_ns": 1792742048691319822,
+      "age_s": 0.003591167
+    },
+    "arm_flex_link->arm_roll_link": {
+      "stamp_ns": 1792742048691322176,
+      "age_s": 0.003592129
+    },
+    "arm_roll_link->wrist_flex_link": {
+      "stamp_ns": 1792742048691325102,
+      "age_s": 0.003592389
+    },
+    "wrist_flex_link->wrist_roll_link": {
+      "stamp_ns": 1792742048691326965,
+      "age_s": 0.003593652
+    },
+    "wrist_roll_link->hand_palm_link": {
+      "stamp_ns": 1792742048691328849,
+      "age_s": 0.003594764
+    },
+    "hand_palm_link->hand_camera_frame": {
+      "stamp_ns": 1792742048691330672,
+      "age_s": 0.003596037
+    },
+    "hand_camera_frame->hand_camera_rgb_frame": {
+      "stamp_ns": 1792742048691333878,
+      "age_s": 0.003595917
+    },
+    "hand_palm_link->hand_l_proximal_link": {
+      "stamp_ns": 1792742048691336073,
+      "age_s": 0.003596677
+    },
+    "hand_l_proximal_link->hand_l_spring_proximal_link": {
+      "stamp_ns": 1792742048691338227,
+      "age_s": 0.003597369
+    },
+    "hand_l_spring_proximal_link->hand_l_mimic_distal_link": {
+      "stamp_ns": 1792742048691340551,
+      "age_s": 0.003598381
+    },
+    "hand_l_mimic_distal_link->hand_l_distal_link": {
+      "stamp_ns": 1792742048691342695,
+      "age_s": 0.003599453
+    },
+    "hand_l_distal_link->hand_l_finger_tip_frame": {
+      "stamp_ns": 1792742048691344779,
+      "age_s": 0.003600365
+    },
+    "hand_l_distal_link->hand_l_finger_vacuum_frame": {
+      "stamp_ns": 1792742048691346753,
+      "age_s": 0.003601257
+    },
+    "hand_palm_link->hand_motor_dummy_link": {
+      "stamp_ns": 1792742048691348877,
+      "age_s": 0.003602168
+    },
+    "hand_palm_link->hand_r_proximal_link": {
+      "stamp_ns": 1792742048691352143,
+      "age_s": 0.003602058
+    },
+    "hand_r_proximal_link->hand_r_spring_proximal_link": {
+      "stamp_ns": 1792742048691354207,
+      "age_s": 0.00360289
+    },
+    "hand_r_spring_proximal_link->hand_r_mimic_distal_link": {
+      "stamp_ns": 1792742048691356141,
+      "age_s": 0.003603901
+    },
+    "hand_r_mimic_distal_link->hand_r_distal_link": {
+      "stamp_ns": 1792742048691358074,
+      "age_s": 0.003604994
+    },
+    "hand_r_distal_link->hand_r_finger_tip_frame": {
+      "stamp_ns": 1792742048691360098,
+      "age_s": 0.003605906
+    },
+    "wrist_roll_link->wrist_ft_sensor_frame": {
+      "stamp_ns": 1792742048691362002,
+      "age_s": 0.003606907
+    },
+    "base_link->base_imu_frame": {
+      "stamp_ns": 1792742048691363916,
+      "age_s": 0.003607949
+    },
+    "base_link->base_range_sensor_link": {
+      "stamp_ns": 1792742048691365869,
+      "age_s": 0.003609132
+    },
+    "base_link->base_roll_link": {
+      "stamp_ns": 1792742048691367753,
+      "age_s": 0.003610424
+    },
+    "base_roll_link->base_l_drive_wheel_link": {
+      "stamp_ns": 1792742048691369616,
+      "age_s": 0.003611837
+    },
+    "base_roll_link->base_l_passive_wheel_x_frame": {
+      "stamp_ns": 1792742048691371460,
+      "age_s": 0.003612919
+    },
+    "base_l_passive_wheel_x_frame->base_l_passive_wheel_y_frame": {
+      "stamp_ns": 1792742048691373404,
+      "age_s": 0.003614061
+    },
+    "base_l_passive_wheel_y_frame->base_l_passive_wheel_z_link": {
+      "stamp_ns": 1792742048691375488,
+      "age_s": 0.003614972
+    },
+    "base_roll_link->base_r_drive_wheel_link": {
+      "stamp_ns": 1792742048691377351,
+      "age_s": 0.003616295
+    },
+    "base_roll_link->base_r_passive_wheel_x_frame": {
+      "stamp_ns": 1792742048691379215,
+      "age_s": 0.003617337
+    },
+    "base_r_passive_wheel_x_frame->base_r_passive_wheel_y_frame": {
+      "stamp_ns": 1792742048691381138,
+      "age_s": 0.00361841
+    },
+    "base_r_passive_wheel_y_frame->base_r_passive_wheel_z_link": {
+      "stamp_ns": 1792742048691384615,
+      "age_s": 0.003617848
+    },
+    "base_link->torso_lift_link": {
+      "stamp_ns": 1792742048691386579,
+      "age_s": 0.00361895
+    },
+    "torso_lift_link->head_pan_link": {
+      "stamp_ns": 1792742048691388382,
+      "age_s": 0.003620393
+    },
+    "head_pan_link->head_tilt_link": {
+      "stamp_ns": 1792742048691390216,
+      "age_s": 0.003621585
+    },
+    "head_tilt_link->head_center_camera_frame": {
+      "stamp_ns": 1792742048691392079,
+      "age_s": 0.003622758
+    },
+    "head_center_camera_frame->head_center_camera_rgb_frame": {
+      "stamp_ns": 1792742048691393913,
+      "age_s": 0.00362394
+    },
+    "head_tilt_link->head_l_stereo_camera_link": {
+      "stamp_ns": 1792742048691395876,
+      "age_s": 0.003624702
+    },
+    "head_l_stereo_camera_link->head_l_stereo_camera_rgb_frame": {
+      "stamp_ns": 1792742048691397740,
+      "age_s": 0.003625743
+    },
+    "head_tilt_link->head_r_stereo_camera_link": {
+      "stamp_ns": 1792742048691399744,
+      "age_s": 0.003626515
+    },
+    "head_r_stereo_camera_link->head_r_stereo_camera_rgb_frame": {
+      "stamp_ns": 1792742048691401668,
+      "age_s": 0.003627556
+    },
+    "head_tilt_link->head_rgbd_sensor_link": {
+      "stamp_ns": 1792742048691403561,
+      "age_s": 0.003628709
+    },
+    "head_rgbd_sensor_link->head_rgbd_sensor_rgb_frame": {
+      "stamp_ns": 1792742048691405435,
+      "age_s": 0.003629791
+    },
+    "head_rgbd_sensor_link->head_rgbd_sensor_depth_frame": {
+      "stamp_ns": 1792742048691407388,
+      "age_s": 0.003630653
+    }
+  },
+  "tf_checks": {
+    "map<-base_link": {
+      "stamp_ns": 1792742048691307177,
+      "age_s": 0.243248248
+    },
+    "odom<-base_link": {
+      "stamp_ns": 1792742048691307177,
+      "age_s": 0.243305447
+    },
+    "base_link<-head_rgbd_sensor_rgb_frame": {
+      "stamp_ns": 1792742048691386579,
+      "age_s": 0.244133705
+    },
+    "base_link<-hand_palm_link": {
+      "stamp_ns": 1792742048691317507,
+      "age_s": 0.244271919
+    }
+  },
+  "joints": {
+    "arm_lift_joint": 0.3812755346298218,
+    "arm_flex_joint": -1.7000001065434844,
+    "arm_roll_joint": 0.0,
+    "wrist_flex_joint": 0.1292036754032555,
+    "wrist_roll_joint": 0.0,
+    "head_pan_joint": 0.0,
+    "head_tilt_joint": -0.49999996867370555,
+    "torso_lift_joint": 0.1906377673149109,
+    "hand_motor_joint": 0.480518213081389,
+    "hand_l_proximal_joint": 0.480518213081389,
+    "hand_l_spring_proximal_joint": 0.0,
+    "hand_l_mimic_distal_joint": 0.0,
+    "hand_l_distal_joint": 5.802666845689259,
+    "hand_r_proximal_joint": -5.802666845689259,
+    "hand_r_spring_proximal_joint": 0.0,
+    "hand_r_mimic_distal_joint": 0.0,
+    "hand_r_distal_joint": -0.480518213081389
+  },
+  "now_ns": 1792742048935594345,
+  "boot_id": "03e2ce8b-528d-4517-a5f5-5aa905f81a77",
+  "robot_commands_sent": false
+}

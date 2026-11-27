@@ -1,0 +1,67 @@
+{
+  "robot_commands_sent": false,
+  "map_from_odom": {
+    "translation": [
+      9.015308005769528,
+      -6.4853365032198065,
+      -4.082918167114258e-06
+    ],
+    "quaternion": [
+      0.0,
+      0.0,
+      5.728303547439443e-05,
+      0.999999998359327
+    ]
+  },
+  "map_from_base": {
+    "translation": [
+      10.063261138831255,
+      -6.518610463616141,
+      2.413988113403321e-06
+    ],
+    "quaternion": [
+      2.9966131319448853e-05,
+      9.420103006287026e-07,
+      -0.03833866815597602,
+      0.9992648025549431
+    ]
+  },
+  "odom_from_base": {
+    "translation": [
+      1.0479493141174316,
+      -0.033394020050764084,
+      6.496906280517578e-06
+    ],
+    "quaternion": [
+      2.9966185231493678e-05,
+      9.402937481197686e-07,
+      -0.03839590901420785,
+      0.9992626047601884
+    ]
+  },
+  "joints": {
+    "arm_lift_joint": 0.2523408532142639,
+    "arm_flex_joint": -1.7000001065434844,
+    "arm_roll_joint": 0.0,
+    "wrist_flex_joint": 0.1292036754032555,
+    "wrist_roll_joint": 0.0,
+    "head_pan_joint": 0.0,
+    "head_tilt_joint": -0.49999996867370555,
+    "torso_lift_joint": 0.12617039680480957,
+    "hand_motor_joint": 0.6499999859074279,
+    "hand_l_proximal_joint": 0.6499999859074279,
+    "hand_l_spring_proximal_joint": 0.0,
+    "hand_l_mimic_distal_joint": 0.0,
+    "hand_l_distal_joint": 5.633185405758354,
+    "hand_r_proximal_joint": -5.633185405758354,
+    "hand_r_spring_proximal_joint": 0.0,
+    "hand_r_mimic_distal_joint": 0.0,
+    "hand_r_distal_joint": -0.6499999859074279
+  },
+  "joint_stamp_ns": 1792229128764000000,
+  "navigation_tolerances": {
+    "general_goal_checker.xy_goal_tolerance": 0.06,
+    "general_goal_checker.yaw_goal_tolerance": 0.08,
+    "FollowPath.xy_goal_tolerance": 0.06
+  }
+}

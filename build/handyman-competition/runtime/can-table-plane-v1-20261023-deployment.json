@@ -1,0 +1,75 @@
+{
+  "status": "can_robust_dominant_table_plane_deployed",
+  "tests": 571,
+  "files": [
+    "run_canned_place_trial.py",
+    "can_destination_surface.py",
+    "test_can_destination_surface.py"
+  ],
+  "hashes": {
+    "run_canned_place_trial.py": "cdacc984f33272acc12cc08ef5e73e0ef7d7699d6ccf4f1eae0236c9de33bc84",
+    "can_destination_surface.py": "2f64b65b3b0cabc3c2f21c1708bde6863380521073f40c4938f31a83337ad12a",
+    "test_can_destination_surface.py": "e5227acc86464c611cafb038d3ec3f199752dad6ea3132aeb5a04752166ef85c"
+  },
+  "actual_failed_frame_replays": [
+    {
+      "capture": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/can-auto-live-20261023-02/place/captures/001-destination-rejected",
+      "height_m": 0.4435450154247694,
+      "residual_p95_m": 0.00022226991023760467,
+      "inlier_fraction": 0.9248814031422727,
+      "removed": 1726,
+      "release_xy": [
+        2.0125,
+        3.5475000000000003
+      ]
+    },
+    {
+      "capture": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/can-auto-live-20261023-02/place/captures/002-destination-rejected",
+      "height_m": 0.4435384515943048,
+      "residual_p95_m": 0.00022153549312367018,
+      "inlier_fraction": 0.9251099403491967,
+      "removed": 1720,
+      "release_xy": [
+        2.0125,
+        3.5475000000000003
+      ]
+    },
+    {
+      "capture": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/can-auto-live-20261023-02/place/captures/003-destination-rejected",
+      "height_m": 0.4436247838030211,
+      "residual_p95_m": 0.0002180798134118478,
+      "inlier_fraction": 0.925488315312173,
+      "removed": 1709,
+      "release_xy": [
+        2.0125,
+        3.5475000000000003
+      ]
+    },
+    {
+      "capture": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/can-auto-live-20261023-02/place/captures/004-destination-rejected",
+      "height_m": 0.44365564189143003,
+      "residual_p95_m": 0.00022371368075777,
+      "inlier_fraction": 0.9250859704870935,
+      "removed": 1721,
+      "release_xy": [
+        2.0125,
+        3.5475000000000003
+      ]
+    },
+    {
+      "capture": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/can-auto-live-20261023-02/place/captures/005-destination-rejected",
+      "height_m": 0.4437276666923246,
+      "residual_p95_m": 0.00020375170013448013,
+      "inlier_fraction": 0.9252124645892351,
+      "removed": 1716,
+      "release_xy": [
+        2.0125,
+        3.5475000000000003
+      ]
+    }
+  ],
+  "prior_successful_frames_unchanged": 3,
+  "original_apple_estimator_unchanged": true,
+  "residual_limit_silently_relaxed": false,
+  "robot_commands_sent": false
+}

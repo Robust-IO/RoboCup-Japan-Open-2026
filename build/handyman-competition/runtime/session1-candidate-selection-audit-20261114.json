@@ -1,0 +1,91 @@
+{
+  "white_side_table#living_room": {
+    "method": "static_footprint_grid_path_and_support_sightline",
+    "footprint_radius_m": 0.26109759058979437,
+    "candidates": [
+      {
+        "index": 0,
+        "pose": [
+          5.205,
+          -0.617038,
+          -3.129189
+        ],
+        "path_length_m": 4.289949493661161,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 1,
+        "pose": [
+          1.505,
+          -0.617038,
+          -0.012419
+        ],
+        "path_length_m": 0.7242640687119284,
+        "view_clear": false,
+        "rejected_reason": "view_blocked_on_static_map"
+      },
+      {
+        "index": 2,
+        "pose": [
+          3.305,
+          1.282962,
+          -1.545389
+        ],
+        "path_length_m": 2.6384776310850224,
+        "view_clear": true,
+        "rejected_reason": null
+      }
+    ],
+    "ranked_indices": [
+      2,
+      0
+    ],
+    "dynamic_obstacles_evaluated": false
+  },
+  "square_low_table#living_room": {
+    "method": "static_footprint_grid_path_and_support_sightline",
+    "footprint_radius_m": 0.26109759058979437,
+    "candidates": [
+      {
+        "index": 0,
+        "pose": [
+          3.105,
+          3.982962,
+          3.10542
+        ],
+        "path_length_m": 4.787005768508873,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 1,
+        "pose": [
+          2.005,
+          2.282962,
+          1.590322
+        ],
+        "path_length_m": 2.6313708498984747,
+        "view_clear": true,
+        "rejected_reason": null
+      },
+      {
+        "index": 2,
+        "pose": [
+          2.005,
+          5.382962,
+          -1.59581
+        ],
+        "path_length_m": 5.7899494936611555,
+        "view_clear": true,
+        "rejected_reason": null
+      }
+    ],
+    "ranked_indices": [
+      1,
+      0,
+      2
+    ],
+    "dynamic_obstacles_evaluated": false
+  }
+}

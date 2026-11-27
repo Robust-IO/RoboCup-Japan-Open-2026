@@ -1,0 +1,8 @@
+{
+  "pid": 3390,
+  "output": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/navigation-efficiency-live-20261106-205624",
+  "started_ns": 1793969784352778410,
+  "robot_commands": "navigation_only",
+  "grasp_commands_sent": false,
+  "release_commands_sent": false
+}

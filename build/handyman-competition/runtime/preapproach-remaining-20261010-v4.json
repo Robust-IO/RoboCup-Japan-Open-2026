@@ -1,0 +1,10 @@
+{
+  "motion_authorized": false,
+  "translation_m": [
+    0.03590876675,
+    -0.011522563
+  ],
+  "radius_m": 0.38,
+  "margin_m": 0.03,
+  "error": "missing map/scan"
+}

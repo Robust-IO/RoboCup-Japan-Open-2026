@@ -1,0 +1,29 @@
+{
+  "status": "observed_cap_region_refinement_deployed",
+  "tests": 600,
+  "hashes": {
+    "tracked_can_cap_geometry.py": "e3fff021adaa5f158ce9cfed87743473ded16680c472eb4d97f64161da7c3f16",
+    "test_tracked_can_cap_geometry.py": "f6974c5ec5d26f33f49c50e6888685b6d6d6222fb0cd98326cc0825b411f1b9f",
+    "OBJECT_TRANSFER.txt": "255c22ccf6da7f60605deaf7d16a56f1145bc9dca1e822ffa7063ebfe188928f"
+  },
+  "previous_hashes": {
+    "tracked_can_cap_geometry.py": "9a1bbfd8458f6963eca894f44a8a069f6d3e878ad620f3855aeec1ef75f3281b",
+    "test_tracked_can_cap_geometry.py": "c2904c0103666c81953b290770a53895da836de8d46e55a458aa49699037312a",
+    "OBJECT_TRANSFER.txt": "81095ec8bd1ad7a2e3787f89c8d85db64edb1474435f8f42654fd9bc9ba29162"
+  },
+  "experiment_extra_seat_m": 0.035,
+  "default_extra_seat_m": 0.0,
+  "side_and_height_calibration_changed": false,
+  "record_postclose_pose_diagnostic_only": true,
+  "original_navigation_model_and_apple_unchanged": true,
+  "actual_failed_frames_replayed": 5,
+  "actual_replay_tilts_deg": [
+    0.36494445312920104,
+    0.34744385421918983,
+    0.34744385421918983,
+    0.36494445312920104,
+    0.3557541995889818
+  ],
+  "robot_commands_sent": false,
+  "live_trial_still_required": true
+}

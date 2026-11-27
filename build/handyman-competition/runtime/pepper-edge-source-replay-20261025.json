@@ -1,0 +1,146 @@
+{
+  "original_rejection": "nonhorizontal_or_noisy_support",
+  "measured_support": {
+    "destination_id": "square_low_table#living_room",
+    "room": "living_room",
+    "table_height_map_m": 0.4436886558733225,
+    "plane_map": [
+      -0.00021793539889604965,
+      0.0005198079511451598,
+      0.44202649925232984
+    ],
+    "plane_points": 38210,
+    "residual_p95_m": 0.00033867931652554193,
+    "observed_xy_min": [
+      1.6360358951268845,
+      3.4490043397859176
+    ],
+    "observed_xy_max": [
+      2.2927989331079934,
+      4.534939736154464
+    ],
+    "footprint_center": [
+      1.9709999561309814,
+      4.02400016784668
+    ],
+    "footprint_half_size": [
+      0.3599998950958252,
+      0.5999999046325684
+    ],
+    "base_map": {
+      "translation": [
+        2.087310819772562,
+        2.5910034719821207,
+        -0.0004831482261934787
+      ],
+      "quaternion": [
+        3.607946101265457e-05,
+        6.828210067581227e-05,
+        0.7330339654841689,
+        0.6801920313281989
+      ],
+      "stamp_ns": 1792863931708844656,
+      "source_frame": "base_link",
+      "target_frame": "map"
+    },
+    "source_depth_stamp_ns": 1792863931708844656,
+    "motion_authorized": false
+  },
+  "source_measurement": {
+    "class_name": "ground_pepper",
+    "shape": "rounded_body_and_smaller_cap",
+    "adapter": "round_shaker_rgbd",
+    "center_m": [
+      0.9315133254819122,
+      -0.03899464586247857,
+      0.47127500617380247
+    ],
+    "cap_center_m": [
+      0.931883090318166,
+      -0.03852288849934068,
+      0.5035407910177049
+    ],
+    "body_radius_m": 0.031657609957043836,
+    "cap_radius_m": 0.01876636443728717,
+    "footprint_radius_m": 0.031657609957043836,
+    "height_m": 0.07657355221588301,
+    "body_above_support_m": 0.027339301699261298,
+    "body_cap_distance_m": 0.0322713518873444,
+    "axis_base_m": [
+      0.011457990280188271,
+      0.014618456790553491,
+      0.9998274927105184
+    ],
+    "support_plane_base": [
+      0.0005746263432634348,
+      2.9320734486631817e-05,
+      0.44340157573027605
+    ],
+    "support_height_m": 0.44393570447454117,
+    "support_plane_residual_p95_m": 0.0003843929185844197,
+    "body_fit": {
+      "points": 471,
+      "inliers": 471,
+      "residual_p95_m": 0.0005305592683147696
+    },
+    "cap_fit": {
+      "points": 311,
+      "inliers": 311,
+      "residual_p95_m": 0.0014278189294852119
+    },
+    "appearance": {
+      "version": 1,
+      "class_name": "ground_pepper",
+      "source": "actual_verified_ground_pepper_rgbd",
+      "body": {
+        "hue": 21,
+        "hue_tolerance": 13.0,
+        "use_hue": true,
+        "saturation_range": [
+          5.0,
+          65.0
+        ],
+        "value_range": [
+          80.0,
+          177.0
+        ],
+        "source_pixels": 471
+      },
+      "cap": {
+        "hue": 30,
+        "hue_tolerance": 30.0,
+        "use_hue": false,
+        "saturation_range": [
+          0.0,
+          26.0
+        ],
+        "value_range": [
+          66.0,
+          183.09999999999997
+        ],
+        "source_pixels": 311
+      },
+      "new_target_identification_supported": false
+    },
+    "surface_segmentation": {
+      "depth_component_count": 1,
+      "discarded_background_points": 1,
+      "max_neighbor_jump_m": 0.02,
+      "selection": "unique_depth_connected_surface_through_detector_center"
+    },
+    "stamp_ns": 1792863931708844656,
+    "confidence": 0.9784823060035706,
+    "source": "rgbd",
+    "frame_id": "base_link",
+    "depth_valid": true,
+    "support_consistent": true,
+    "estimated_grasp_width_m": 0.06331521991408767,
+    "room_confirmed": false,
+    "ready_for_motion": false,
+    "position_source": "current_body_and_cap_sphere_depth_fits",
+    "hidden_surfaces_measured": false,
+    "grasp_center_semantics": "observed_wide_body_center_not_neck_or_full_height_midpoint",
+    "motion_authorized": false
+  },
+  "processing_s": 0.08993856699999014
+}

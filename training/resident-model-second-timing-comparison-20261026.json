@@ -1,0 +1,273 @@
+{
+  "status": "second_full_resident_speed_transfer_verified",
+  "saved_ns": 1793009028831097796,
+  "first": {
+    "run": "/mnt/d/handyman-training-runs/penguin-resident-fast-transfer-20261026-01",
+    "elapsed_s": 424.700100872,
+    "initial_pose": [
+      1.1840731780950857,
+      0.00020111079163642916,
+      0.00012734850311022636
+    ],
+    "seconds_by_group": {
+      "source_navigation": 146.813,
+      "source_vision": 1.482,
+      "pickup": 52.532,
+      "destination_navigation": 174.199,
+      "placement": 42.669,
+      "setup": 6.825
+    },
+    "navigation_share": 0.7558536332270598,
+    "unclassified_setup_s": 0.18151737900001308,
+    "stages": [
+      {
+        "stage": "preflight",
+        "seconds": 0.981,
+        "group": "setup"
+      },
+      {
+        "stage": "navigate_source",
+        "seconds": 146.813,
+        "group": "source_navigation"
+      },
+      {
+        "stage": "head_view",
+        "seconds": 5.844,
+        "group": "setup"
+      },
+      {
+        "stage": "new_toy_penguin_rgbd",
+        "seconds": 1.482,
+        "group": "source_vision"
+      },
+      {
+        "stage": "prepare_horizontal_at_wide_body",
+        "seconds": 13.621,
+        "group": "pickup"
+      },
+      {
+        "stage": "align_and_approach_wide_body",
+        "seconds": 18.733,
+        "group": "pickup"
+      },
+      {
+        "stage": "close_once",
+        "seconds": 8.091,
+        "group": "pickup"
+      },
+      {
+        "stage": "verify_lift",
+        "seconds": 2.564,
+        "group": "pickup"
+      },
+      {
+        "stage": "retract_preserving_grip",
+        "seconds": 9.522,
+        "group": "pickup"
+      },
+      {
+        "stage": "navigate_destination",
+        "seconds": 174.199,
+        "group": "destination_navigation"
+      },
+      {
+        "stage": "measure_destination_and_plan",
+        "seconds": 0.301,
+        "group": "placement"
+      },
+      {
+        "stage": "prepare_horizontal_for_placement",
+        "seconds": 11.231,
+        "group": "placement"
+      },
+      {
+        "stage": "approach_measured_release_region",
+        "seconds": 7.519,
+        "group": "placement"
+      },
+      {
+        "stage": "release_once_from_current_support",
+        "seconds": 7.12,
+        "group": "placement"
+      },
+      {
+        "stage": "withdraw_and_retract_open_hand",
+        "seconds": 14.596,
+        "group": "placement"
+      },
+      {
+        "stage": "verify_actual_placement",
+        "seconds": 1.901,
+        "group": "placement"
+      }
+    ],
+    "comparison_note": "Starting poses differ; these are not a controlled speed-profile comparison."
+  },
+  "repeat": {
+    "run": "/mnt/d/handyman-training-runs/penguin-resident-fast-transfer-20261026-02",
+    "elapsed_s": 407.653472788,
+    "initial_pose": [
+      1.1840843856357102,
+      0.0010341284780614644,
+      0.00014415183242724993
+    ],
+    "seconds_by_group": {
+      "source_navigation": 142.946,
+      "source_vision": 1.624,
+      "pickup": 48.528,
+      "destination_navigation": 163.893,
+      "placement": 46.793,
+      "setup": 3.68
+    },
+    "navigation_share": 0.752696034927615,
+    "unclassified_setup_s": 0.18846171800004186,
+    "stages": [
+      {
+        "stage": "preflight",
+        "seconds": 0.981,
+        "group": "setup"
+      },
+      {
+        "stage": "navigate_source",
+        "seconds": 142.946,
+        "group": "source_navigation"
+      },
+      {
+        "stage": "head_view",
+        "seconds": 2.699,
+        "group": "setup"
+      },
+      {
+        "stage": "new_toy_penguin_rgbd",
+        "seconds": 1.624,
+        "group": "source_vision"
+      },
+      {
+        "stage": "prepare_horizontal_at_wide_body",
+        "seconds": 13.628,
+        "group": "pickup"
+      },
+      {
+        "stage": "align_and_approach_wide_body",
+        "seconds": 14.915,
+        "group": "pickup"
+      },
+      {
+        "stage": "close_once",
+        "seconds": 7.92,
+        "group": "pickup"
+      },
+      {
+        "stage": "verify_lift",
+        "seconds": 2.398,
+        "group": "pickup"
+      },
+      {
+        "stage": "retract_preserving_grip",
+        "seconds": 9.667,
+        "group": "pickup"
+      },
+      {
+        "stage": "navigate_destination",
+        "seconds": 163.893,
+        "group": "destination_navigation"
+      },
+      {
+        "stage": "measure_destination_and_plan",
+        "seconds": 0.396,
+        "group": "placement"
+      },
+      {
+        "stage": "prepare_horizontal_for_placement",
+        "seconds": 11.29,
+        "group": "placement"
+      },
+      {
+        "stage": "approach_measured_release_region",
+        "seconds": 12.32,
+        "group": "placement"
+      },
+      {
+        "stage": "release_once_from_current_support",
+        "seconds": 6.374,
+        "group": "placement"
+      },
+      {
+        "stage": "withdraw_and_retract_open_hand",
+        "seconds": 14.833,
+        "group": "placement"
+      },
+      {
+        "stage": "verify_actual_placement",
+        "seconds": 1.579,
+        "group": "placement"
+      }
+    ],
+    "comparison_note": "Starting poses differ; these are not a controlled speed-profile comparison."
+  },
+  "total_delta_s": -17.04662808400002,
+  "group_delta_s": {
+    "source_navigation": -3.8669999999999902,
+    "source_vision": 0.14200000000000013,
+    "pickup": -4.003999999999998,
+    "destination_navigation": -10.306000000000012,
+    "placement": 4.124000000000002,
+    "setup": -3.145
+  },
+  "first_model": {
+    "status": "ready",
+    "model_sha256": "83e6ceb9650e6da78d05404a5ead9654278d502ce06d812a6b2b70673c513763",
+    "imgsz": 640,
+    "near_grasp_roi_enabled": false,
+    "model_pid": 27511,
+    "shared_model": true,
+    "resident_model": true,
+    "resident_reused": true,
+    "resident_key": "e53097461ba278512fed9821",
+    "attach_s": 0.025900608001393266
+  },
+  "repeat_model": {
+    "status": "ready",
+    "model_sha256": "83e6ceb9650e6da78d05404a5ead9654278d502ce06d812a6b2b70673c513763",
+    "imgsz": 640,
+    "near_grasp_roi_enabled": false,
+    "model_pid": 27511,
+    "shared_model": true,
+    "resident_model": true,
+    "resident_reused": true,
+    "resident_key": "e53097461ba278512fed9821",
+    "attach_s": 0.02279809699393809
+  },
+  "both_models_resident_reused": true,
+  "same_model_pid": true,
+  "physical_transfer_verified": true,
+  "uninterrupted_transfer_verified": true,
+  "current_object_location": "square_low_table#living_room",
+  "final_robot_state": {
+    "joints": [
+      0.0,
+      0.0,
+      0.0,
+      -1.5707963146269321,
+      0.0,
+      0.6499999859074279
+    ],
+    "poses": {
+      "map": [
+        1.9098245484123155,
+        2.9741171777924698,
+        1.6518536807132258
+      ],
+      "odom": [
+        0.7259641885757446,
+        2.9734082221984863,
+        1.6517990859953136
+      ]
+    },
+    "stamp_ns": 1793008959747000000
+  },
+  "robot_ready_for_next_task": true,
+  "navigation_profile": "carry_fast_v1",
+  "restore_attempt_excluded": "/mnt/d/handyman-training-runs/penguin-resident-repeat-20261026-01",
+  "comparison_limit": "Both tasks were already warm. Total-time differences measure live execution variability, not the cold-start saving. Initial poses and source observations are reported separately."
+}

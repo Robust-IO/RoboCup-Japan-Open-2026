@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!-- Placeholder contract for a later Nav2/BehaviorTree.CPP integration. -->
+<root BTCPP_format="4" main_tree_to_execute="HandymanTask">
+  <BehaviorTree ID="HandymanTask">
+    <Sequence name="handyman_success_path">
+      <!-- ParseInstruction, NavigateRoom, Search, Grasp, Place will be added incrementally. -->
+    </Sequence>
+  </BehaviorTree>
+</root>

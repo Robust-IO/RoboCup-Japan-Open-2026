@@ -1,0 +1,8 @@
+{
+  "pid": 86,
+  "log": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/demo-background-20261107-153507/idle-navigation.log",
+  "navigation_autostart": false,
+  "map_anchor_started": false,
+  "robot_commands_sent": false,
+  "launch": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/restart_idle_map_navigation_20261018.launch.py"
+}

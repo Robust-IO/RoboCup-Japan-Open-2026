@@ -1,0 +1,35 @@
+{
+  "robot_commands_sent": false,
+  "before_parameters": [],
+  "initial_state": 1,
+  "configured_parameters": [
+    {
+      "type": 3,
+      "value": 0.06
+    },
+    {
+      "type": 3,
+      "value": 0.08
+    },
+    {
+      "type": 3,
+      "value": 0.06
+    }
+  ],
+  "final_parameters": [
+    {
+      "type": 3,
+      "value": 0.06
+    },
+    {
+      "type": 3,
+      "value": 0.08
+    },
+    {
+      "type": 3,
+      "value": 0.06
+    }
+  ],
+  "final_state": 1,
+  "status": "idle_precision_initialized"
+}

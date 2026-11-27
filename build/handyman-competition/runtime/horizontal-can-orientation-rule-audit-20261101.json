@@ -1,0 +1,21 @@
+{
+  "source": "/mnt/d/handyman/handyman-unity2/handyman-unity2/Assets/Competition/Handyman/Scripts/HandymanModeratorTool.cs",
+  "sha256": "d0c4347cbc96f3ba504c677c8ff549299795aef6c987bf5afee5901e7e66eb97",
+  "matching_lines": [
+    {
+      "line": 393,
+      "text": "pair.Value.transform.eulerAngles = pair.Key.eulerAngles;"
+    },
+    {
+      "line": 401,
+      "text": "pair.Value.transform.eulerAngles = pair.Key.eulerAngles;"
+    },
+    {
+      "line": 544,
+      "text": "graspablePositionInfo.eulerAngles = graspingCandidatesPositionsTmp[i].transform.eulerAngles;"
+    }
+  ],
+  "interpretation": "Candidate selection is shuffled, but the FULL candidate-point Euler orientation is copied, not just yaw. Horizontal initialization is possible when configured that way; not guaranteed in every session.",
+  "official_rule": "https://github.com/RoboCupAtHomeJP/AtHome2026/blob/main/rules/S-OPL/hm_ja.md",
+  "rule_scope": "2026 task rules initialize positions and poses; no always-upright promise was found in this page."
+}

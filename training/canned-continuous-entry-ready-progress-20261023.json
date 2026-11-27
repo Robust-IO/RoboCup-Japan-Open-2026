@@ -1,0 +1,85 @@
+{
+  "status": "continuous_can_entry_code_ready_fresh_session_test_pending",
+  "saved_ns": 1792753785585511245,
+  "branch": "feat/handyman-phase5-grasping",
+  "code_copies": 3,
+  "tests": 551,
+  "actual_recorded_replay": {
+    "status": "actual_recorded_handoff_carry_and_placement_passed",
+    "recorded_grasp_lift_frames": 3,
+    "new_reference_offset_error_m": 5.08761465087248e-06,
+    "recorded_tucked_rgb_frames": 46,
+    "recorded_table_frames": 3,
+    "recorded_final_placement_frames": 3,
+    "replay_context_rejected_for_live": true,
+    "original_failed_verdict_preserved": true,
+    "robot_commands_sent": false,
+    "new_continuous_physical_transfer_verified": false,
+    "plans": [
+      {
+        "xy": [
+          1.9875,
+          3.5375
+        ],
+        "gap_m": 0.020000000000000073
+      },
+      {
+        "xy": [
+          1.9875,
+          3.5375
+        ],
+        "gap_m": 0.020000000000000018
+      },
+      {
+        "xy": [
+          1.9875,
+          3.5375
+        ],
+        "gap_m": 0.020000000000000073
+      }
+    ]
+  },
+  "files": [
+    "run_canned_grasp_trial.py",
+    "run_canned_carry_trial.py",
+    "run_canned_place_trial.py",
+    "can_transfer_context.py",
+    "can_transfer_automation.py",
+    "run_object_transfer.py",
+    "test_can_transfer_automation.py",
+    "run_object_transfer.sh",
+    "OBJECT_TRANSFER.txt"
+  ],
+  "hashes": {
+    "run_canned_grasp_trial.py": "c7d31a80d8684494b7bfb82cc9bd3021c5025df8e600f1019e25f308dc2ac150",
+    "run_canned_carry_trial.py": "1a0954a08ed4ac8f6b79bdcdd7870ced3a74222268824b9db2383607b3093854",
+    "run_canned_place_trial.py": "5e469fffc63f71ea25785719ca119c945d21d8946c956f3cdf771a49e60caaec",
+    "can_transfer_context.py": "4e97766cb83fd4cfaf7fc39574a304d2481bc9a1a78b6ac7048606967c9ea7d0",
+    "can_transfer_automation.py": "171abbef8fcd610e89942069b5ba831cedd43f802d9021e86cca58b116850622",
+    "run_object_transfer.py": "6230e3f820297f104c3c167e421795c6f27c7469cb39c3588bdd39d226e536c5",
+    "test_can_transfer_automation.py": "d16de88a548b2e635962153bf12ca04d319557e5a33be7c58ee6c19f7a826329",
+    "run_object_transfer.sh": "4162cb1f2608e0f53aba557a244f7f3014667d440545fa994a81db17fe40ab48",
+    "OBJECT_TRANSFER.txt": "09d68ac81e2fc4efe515dc4ab398e87ecd04f5f4a68edd38192ccadb30b31ceb"
+  },
+  "deployment": "D:/handyman-training-runs/can-continuous-entry-v1-20261023-deployment.json",
+  "entry": "/mnt/d/handyman-tools/apple-transfer-auto-v1/run_object_transfer.sh",
+  "task": {
+    "object": "canned_juice",
+    "source": "LayoutA bedroom white_side_table",
+    "destination": "living_room square_low_table"
+  },
+  "new_entry_uses_current_run_context_not_historical_checkpoints": true,
+  "parent_control_ownership_spans_all_stages": true,
+  "original_apple_sources_model_map_route_tolerances_unchanged": true,
+  "last_physical_result": "D:/handyman-training-runs/canned-transfer-verified-progress-20261023.json",
+  "this_step_robot_commands_sent": false,
+  "new_continuous_live_trial_started": false,
+  "uninterrupted_full_can_transfer_verified": false,
+  "task_finished_sent": false,
+  "next": [
+    "Request Unity session1 fresh initial robot pose and upright canned_juice on bedroom white_side_table.",
+    "After the user reports ready, execute ONE new run of run_object_transfer.sh --object canned_juice --run --confirm-layout LayoutA --confirm-localization --simulation-ignore-collision --output NEW_D_DIRECTORY.",
+    "Monitor the unified journal and child logs. No navigation time limit. Never replay failed grasp/retraction/navigation/release; audit the physical state.",
+    "Only a successful new continuous run may set uninterrupted_can_transfer_verified. Historical recorded replay is explicitly not live authorization."
+  ]
+}

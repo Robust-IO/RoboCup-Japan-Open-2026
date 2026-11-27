@@ -1,0 +1,7 @@
+{
+  "checkpoint": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/session4-auto-20261115-145821/task",
+  "config": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/workspace/training/session1/session4-live-config.json",
+  "reason": "waiting_for_fresh_unity_feedback_and_stop_confirmation",
+  "resume_option": "--resume-room-from",
+  "localization_reset": false
+}

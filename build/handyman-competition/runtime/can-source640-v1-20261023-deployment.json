@@ -1,0 +1,24 @@
+{
+  "status": "can_source640_identity_deployed",
+  "tests": 576,
+  "files": [
+    "run_canned_grasp_trial.py",
+    "OBJECT_TRANSFER.txt",
+    "can_identity_selection.py",
+    "test_can_identity_selection.py"
+  ],
+  "hashes": {
+    "run_canned_grasp_trial.py": "f1ea6acde1e7d8dcf282a31721b97e1c469767ded9b610e4e96b00c2867a7b4f",
+    "OBJECT_TRANSFER.txt": "f514dfeebecbd96327f347b2adc25c2601c807e4e5fe41367e780eebb8ff1c6f",
+    "can_identity_selection.py": "11f8df847fcc15e432d83285018abe6f10d83f411a89e0f12e995045fcb17bb1",
+    "test_can_identity_selection.py": "20595a2a3226bed9910b99861935492ab82d049c08e1eff52e9352a27cb335cd"
+  },
+  "model_sha256": "83e6ceb9650e6da78d05404a5ead9654278d502ce06d812a6b2b70673c513763",
+  "confidence_threshold": 0.8,
+  "confidence_threshold_lowered": false,
+  "actual_source_frames_replayed": 7,
+  "all_previous_confirmations_preserved": true,
+  "no_model_retraining": true,
+  "apple_worker_and_navigation_unchanged": true,
+  "robot_commands_sent": false
+}

@@ -1,0 +1,33 @@
+{
+  "status": "continuous_can_entry_deployed_ready_for_fresh_session_trial",
+  "candidate_tests": 551,
+  "files": [
+    "run_canned_grasp_trial.py",
+    "run_canned_carry_trial.py",
+    "run_canned_place_trial.py",
+    "can_transfer_context.py",
+    "can_transfer_automation.py",
+    "run_object_transfer.py",
+    "test_can_transfer_automation.py",
+    "run_object_transfer.sh",
+    "OBJECT_TRANSFER.txt"
+  ],
+  "hashes": {
+    "run_canned_grasp_trial.py": "c7d31a80d8684494b7bfb82cc9bd3021c5025df8e600f1019e25f308dc2ac150",
+    "run_canned_carry_trial.py": "1a0954a08ed4ac8f6b79bdcdd7870ced3a74222268824b9db2383607b3093854",
+    "run_canned_place_trial.py": "5e469fffc63f71ea25785719ca119c945d21d8946c956f3cdf771a49e60caaec",
+    "can_transfer_context.py": "4e97766cb83fd4cfaf7fc39574a304d2481bc9a1a78b6ac7048606967c9ea7d0",
+    "can_transfer_automation.py": "171abbef8fcd610e89942069b5ba831cedd43f802d9021e86cca58b116850622",
+    "run_object_transfer.py": "6230e3f820297f104c3c167e421795c6f27c7469cb39c3588bdd39d226e536c5",
+    "test_can_transfer_automation.py": "d16de88a548b2e635962153bf12ca04d319557e5a33be7c58ee6c19f7a826329",
+    "run_object_transfer.sh": "4162cb1f2608e0f53aba557a244f7f3014667d440545fa994a81db17fe40ab48",
+    "OBJECT_TRANSFER.txt": "09d68ac81e2fc4efe515dc4ab398e87ecd04f5f4a68edd38192ccadb30b31ceb"
+  },
+  "checkpoint": "D:/handyman-training-runs/canned-continuous-entry-ready-progress-20261023.json",
+  "checkpoint_sha256": "b29695a7049d486d1cecbba099b529aba73ca8bde4308d2c9590a23ebac9c44b",
+  "code_copies": 3,
+  "checkpoint_copies": 4,
+  "original_apple_sources_model_map_route_tolerances_unchanged": true,
+  "robot_commands_sent": false,
+  "continuous_physical_trial_verified": false
+}

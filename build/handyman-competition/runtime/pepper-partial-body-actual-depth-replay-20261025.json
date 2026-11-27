@@ -1,0 +1,59 @@
+{
+  "class_name": "ground_pepper",
+  "current_depth_surface_verified": true,
+  "current_rgb_appearance_verified": false,
+  "measurement": {
+    "class_name": "ground_pepper",
+    "shape": "rounded_body_and_smaller_cap",
+    "center_m": [
+      0.6935015120938015,
+      0.07947432834986098,
+      0.5454360220353954
+    ],
+    "cap_center_m": [
+      0.6927170559577234,
+      0.07828531894900741,
+      0.5776232148931724
+    ],
+    "body_radius_m": 0.03162410113150547,
+    "cap_radius_m": 0.018614655478191362,
+    "footprint_radius_m": 0.03162410113150547,
+    "height_m": 0.07650361930298392,
+    "body_above_support_m": 0.027327443632340964,
+    "body_cap_distance_m": 0.03221869796947846,
+    "body_fit": {
+      "points": 89,
+      "inliers": 89,
+      "residual_p95_m": 0.00042099424727968165,
+      "curved_shoulder_band_extended_m": 0.002
+    },
+    "cap_fit": {
+      "points": 506,
+      "inliers": 502,
+      "residual_p95_m": 0.0014516299100462635
+    },
+    "axis_base_m": [
+      -0.024347853436574987,
+      -0.03690432810102861,
+      0.999022148203153
+    ],
+    "tilt_deg": 2.534017123549445,
+    "estimated_lowest_point_base_m": [
+      0.6854109233918825,
+      0.06721132780388353,
+      0.5174316480120144
+    ],
+    "estimated_bottom_z_m": 0.5174316480120144,
+    "bottom_vertical_extent_m": 0.028004374023381073,
+    "horizontal_support_radius_m": 0.03162410113150547,
+    "stamp_ns": 1792918620216098442,
+    "hidden_surfaces_measured": false,
+    "position_source": "current_body_and_cap_sphere_depth_fits",
+    "predicted_center_returned": false,
+    "motion_authorized": false
+  },
+  "palm_offset_error_m": 0.0014362650542983834,
+  "opening_rad": 0.368297432594229,
+  "grip_feedback_alone_is_not_proof": true,
+  "motion_authorized": false
+}

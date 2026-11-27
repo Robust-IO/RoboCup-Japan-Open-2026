@@ -1,0 +1,118 @@
+{
+  "status": "r17_full_timed_trial_stopped_before_closure",
+  "revision": "efficiency-r17",
+  "saved_ns": 1792659371395561360,
+  "branch": "feat/handyman-phase5-grasping",
+  "wsl_boot_id": "f5a81b08-d674-42cb-b127-184016e5d4b2",
+  "task_id": "apple-r17-full-live-20261022-01",
+  "trial_directory": "/mnt/d/handyman-training-runs/automatic-apple-r17-20261022-01",
+  "automatic_result": {
+    "status": "stopped",
+    "task_id": "apple-r17-full-live-20261022-01",
+    "profile": "layouta_bedroom_apple_to_square_table",
+    "confirmed_stages": [
+      "preflight",
+      "navigate_source",
+      "head_view",
+      "observe_source",
+      "prepare_grasp"
+    ],
+    "task_finished_sent": false,
+    "does_not_exist_sent": false,
+    "automatic_action_retry": false,
+    "automatic_resume": false,
+    "mode": "live",
+    "run_kind": "full_transfer",
+    "stage": "grasp_and_lift",
+    "reason": "child_action_failed:/mnt/d/handyman-training-runs/automatic-apple-r17-20261022-01/grasp/result.json:single_grasp_endpoint_requires_review_no_second_movement",
+    "placement_verified": false,
+    "task_objective_completed": false,
+    "requires_fresh_state_audit": true
+  },
+  "duration_to_stop_s": 168.418797594,
+  "whole_transfer_completed": false,
+  "whole_transfer_duration_s": null,
+  "stage_seconds": {
+    "preflight": 1.210130303,
+    "navigate_source": 143.465139516,
+    "head_view": 3.298935615,
+    "observe_source": 3.160389137,
+    "prepare_grasp": 8.434317342
+  },
+  "current_robot": {
+    "state": "EMPTY_OPEN_EXTENDED_AT_BEDROOM_SOURCE",
+    "holding_object": false,
+    "arm_is_tucked": false,
+    "hand_motor": 0.6499999859074279,
+    "joints": {
+      "arm_lift_joint": 0.2552102208137512,
+      "arm_flex_joint": -1.7000001065434844,
+      "arm_roll_joint": 0.0,
+      "wrist_flex_joint": 0.1292036754032555,
+      "wrist_roll_joint": 0.0,
+      "head_pan_joint": 0.0,
+      "head_tilt_joint": -0.49999996867370555,
+      "torso_lift_joint": 0.12760508060455322,
+      "hand_motor_joint": 0.6499999859074279,
+      "hand_l_proximal_joint": 0.6499999859074279,
+      "hand_l_spring_proximal_joint": 0.0,
+      "hand_l_mimic_distal_joint": 0.0,
+      "hand_l_distal_joint": 5.633185405758354,
+      "hand_r_proximal_joint": -5.633185405758354,
+      "hand_r_spring_proximal_joint": 0.0,
+      "hand_r_mimic_distal_joint": 0.0,
+      "hand_r_distal_joint": -0.6499999859074279
+    },
+    "base_map_pose": [
+      10.334050330421356,
+      -6.702841591953686,
+      -0.07988402190149338
+    ],
+    "room": "bedroom",
+    "capture": "/mnt/d/handyman-training-runs/apple-r17-post-stopped-20261022-01/cameras/000000",
+    "depth_stamp_ns": 1792659369413991331,
+    "command_publishers": {
+      "/hsrb/command_velocity": 0,
+      "/hsrb/omni_base_controller/command": 0,
+      "/hsrb/arm_trajectory_controller/command": 0,
+      "/hsrb/gripper_controller/command": 0,
+      "/hsrb/head_trajectory_controller/command": 0
+    },
+    "apple_location": "Still ungrasped at source table; no closure/lift/release occurred.",
+    "fresh_state_required_before_next_action": true,
+    "last_state_is_not_future_motion_lease": true
+  },
+  "diagnosis": "/mnt/d/handyman-training-runs/automatic-apple-r17-20261022-01/stopped-readonly-diagnosis.json",
+  "last_recorded_visual_alignment": {
+    "capture": "000062",
+    "identity_status": "near_geometry_tracked",
+    "identity_confirmed": true,
+    "reason": null,
+    "depth_stamp_ns": 1792659086405438515,
+    "target_base_m": [
+      0.7156999616220105,
+      0.0584170883261531,
+      0.5430623715286986
+    ],
+    "target_minus_contact_m": [
+      0.026404743122010577,
+      -0.019582911673846903,
+      0.010654338779936379
+    ],
+    "inside_close_region": false,
+    "close_reason": "target_outside_reviewed_closure_region"
+  },
+  "approach_commands": 1,
+  "closure_commands": 0,
+  "lift_commands": 0,
+  "release_commands": 0,
+  "robot_actions_sent_during_trial": true,
+  "robot_actions_sent_during_audit": false,
+  "automatic_retry": false,
+  "automatic_resume": false,
+  "task_finished_sent": false,
+  "does_not_exist_sent": false,
+  "code_navigation_model_maps_unity_changed_during_trial": false,
+  "previous_success": "D:/handyman-training-runs/apple-r16b-full-live-progress-20261022.json",
+  "next": "Read this NEW terminal checkpoint FIRST. r17 timed full trial01 STOPPED before closure at168.419s. One49.36cm approach finished with0.90mm odom error, but fresh visual target was26.4mm forward and19.6mm lateral from contact center (old gates20/12mm). No second movement, closure, lift, carry, release or placement. CURRENT last-confirmed EMPTY/OPEN/EXTENDED in BEDROOM at source, NOT empty/tucked in living_room. All command publishers zero; RViz left open. No automatic resume/action replay or further motion. Diagnose far-to-near measurement/one-shot alignment before another authorized trial. Do not simply loosen gates or assume measurement drift proves an object collision. Old r16b success remains historical; this failed prefix is NOT an optimized complete-transfer time. Navigation and all code remained unchanged during timed test."
+}

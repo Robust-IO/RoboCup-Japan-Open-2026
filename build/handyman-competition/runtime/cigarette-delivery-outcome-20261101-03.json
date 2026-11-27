@@ -1,0 +1,19 @@
+{
+  "status": "stopped_requires_state_review",
+  "request": "卧室白桌香烟→客厅矮方桌",
+  "source_run": "cigarette-source-20261101-03",
+  "grasp": "cigarette-contact-20261101-03",
+  "carry": "cigarette-carry-20261101-04",
+  "place": "cigarette-place-20261101-06",
+  "stages": [
+    {
+      "run": "cigarette-contact-20261101-03",
+      "status": "stopped_requires_actual_state_review",
+      "elapsed_s": 6.66830746,
+      "reason": "Object of type bool_ is not JSON serializable"
+    }
+  ],
+  "active_stage": "cigarette-contact-20261101-03",
+  "reason": "cigarette-contact-20261101-03:Object of type bool_ is not JSON serializable",
+  "automatic_stage_replay": false
+}

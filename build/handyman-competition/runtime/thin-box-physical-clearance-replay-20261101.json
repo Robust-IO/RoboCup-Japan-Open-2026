@@ -1,0 +1,15 @@
+{
+  "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/hsr-gripper-colliders-20261101-171937.json",
+  "physical_colliders": 24,
+  "attached_object_excluded": true,
+  "reference_transform_max_error": 3.314413143176709e-07,
+  "old_height_above_table_m": 0.0195,
+  "old_height_rejected": true,
+  "minimum_height_above_table_m": 0.03341923451942767,
+  "nominal_height_above_table_m": 0.03513519855045957,
+  "maximum_height_for_3mm_pad_overlap_m": 0.03685116258149147,
+  "full_open_close_samples": 66,
+  "all_openings_interval_bound_m": 0.0009152852143850468,
+  "contact_and_measurement_allowances_included": true,
+  "robot_commands_sent": false
+}

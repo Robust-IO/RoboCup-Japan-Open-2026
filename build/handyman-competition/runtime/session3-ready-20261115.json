@@ -1,0 +1,23 @@
+{
+  "status": "offline_ready_for_session3_initial_test",
+  "source_binding_corrected": true,
+  "occupancy_map_unchanged": true,
+  "search_mode": "continuous",
+  "valid_source_candidates": 13,
+  "best_source_candidate": {
+    "index": 17,
+    "pose": [
+      1.6589848531828362,
+      -5.495230303849177,
+      -2.153846219492244
+    ],
+    "path_length_m": 1.2035533905932738,
+    "view_clear": true,
+    "rejected_reason": null
+  },
+  "tests_passed": 235,
+  "map_import_tests_passed": 7,
+  "live_test_completed": false,
+  "robot_commands_sent": false,
+  "config": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/workspace/training/session1/session3-search-config.json"
+}

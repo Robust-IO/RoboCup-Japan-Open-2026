@@ -1,0 +1,16 @@
+{
+  "status": "capture_budget_progress_synced",
+  "copies": 4,
+  "hashes": {
+    "apple-capture-budget-live-progress-20261018.json": "287f9de07fb86b4eafa0db336845295de6689c9763480e80c1cf1a7569c5a19a",
+    "apple-near-geometry-live-progress-20261018.json": "05aaaadba4d6c14050b0ae7fa8f99e4dba6f7383f74f8a935cae1edac3c800b7",
+    "apple-near-geometry-progress-20261018.json": "e49ab708a8afa9bc730e26988e22b2208cac9b61658083b5c494f857b296ac57",
+    "phase5-restart-checkpoint-20261017.json": "13f8b0fd90df0ddaebab4127c0f27415491d5194b1ae890237a2e7ea8186c498",
+    "apple-transfer-automation-progress-20261017.json": "3eb9556d9223d615113593a9a2c641368638fa2325be95dd29d3ad66126992fa",
+    "apple-transfer-live-progress-20261017.json": "ad92bf7d198d79b713d661762dde6ddcab416725e7d07c14c343fa18f21130cf"
+  },
+  "backup": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-before-capture-budget-live-20261018-checkpoints.tar.gz",
+  "full_status": "stopped",
+  "current_capture": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-r13c-post-run-20261018-01/cameras/000005",
+  "robot_commands_sent": false
+}

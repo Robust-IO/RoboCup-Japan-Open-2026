@@ -1,0 +1,251 @@
+{
+  "inspection_ns": 1792909093019861984,
+  "old_idle_connections": [
+    {
+      "local": "192.168.0.2:9090",
+      "peer": "192.168.0.1:61336",
+      "owner": "users:((\"python3\",pid=48,fd=20))",
+      "stats": {
+        "bytes_sent": 195,
+        "bytes_received": 304,
+        "lastsnd": 32226376,
+        "lastrcv": 32226376,
+        "lastack": 32226376
+      }
+    },
+    {
+      "local": "192.168.0.2:9090",
+      "peer": "192.168.0.1:52572",
+      "owner": "users:((\"python3\",pid=48,fd=17))",
+      "stats": {
+        "bytes_sent": 1750,
+        "bytes_received": 320,
+        "lastsnd": 23182096,
+        "lastrcv": 32226708,
+        "lastack": 23182048
+      }
+    },
+    {
+      "local": "192.168.0.2:9090",
+      "peer": "192.168.0.1:54003",
+      "owner": "users:((\"python3\",pid=48,fd=19))",
+      "stats": {
+        "bytes_sent": 1515478,
+        "bytes_received": 290,
+        "lastsnd": 1385528,
+        "lastrcv": 32226488,
+        "lastack": 1385484
+      }
+    },
+    {
+      "local": "192.168.0.2:9090",
+      "peer": "192.168.0.1:54002",
+      "owner": "users:((\"python3\",pid=48,fd=18))",
+      "stats": {
+        "bytes_sent": 18457,
+        "bytes_received": 314,
+        "lastsnd": 1428996,
+        "lastrcv": 32226604,
+        "lastack": 1428956
+      }
+    },
+    {
+      "local": "192.168.0.2:9090",
+      "peer": "192.168.0.1:52571",
+      "owner": "users:((\"python3\",pid=48,fd=16))",
+      "stats": {
+        "bytes_sent": 47683,
+        "bytes_received": 319,
+        "lastsnd": 1375308,
+        "lastrcv": 32226824,
+        "lastack": 1375268
+      }
+    },
+    {
+      "local": "192.168.0.2:9090",
+      "peer": "192.168.0.1:63035",
+      "owner": "users:((\"python3\",pid=48,fd=14))",
+      "stats": {
+        "bytes_sent": 195,
+        "bytes_received": 240295784,
+        "lastsnd": 32227032,
+        "lastrcv": 1126300,
+        "lastack": 1126300
+      }
+    },
+    {
+      "local": "192.168.0.2:9090",
+      "peer": "192.168.0.1:62603",
+      "owner": "users:((\"python3\",pid=48,fd=21))",
+      "stats": {
+        "bytes_sent": 195,
+        "bytes_received": 6602556,
+        "lastsnd": 32226276,
+        "lastrcv": 1126384,
+        "lastack": 1126384
+      }
+    },
+    {
+      "local": "192.168.0.2:9090",
+      "peer": "192.168.0.1:52570",
+      "owner": "users:((\"python3\",pid=48,fd=15))",
+      "stats": {
+        "bytes_sent": 7018,
+        "bytes_received": 312,
+        "lastsnd": 1437892,
+        "lastrcv": 32226928,
+        "lastack": 1437848
+      }
+    }
+  ],
+  "protected_other_connections": [
+    {
+      "local": "192.168.0.2:9090",
+      "peer": "192.168.0.1:56494",
+      "owner": "users:((\"python3\",pid=48,fd=29))",
+      "stats": {
+        "bytes_sent": 195,
+        "bytes_received": 77196,
+        "lastsnd": 365120,
+        "lastrcv": 640,
+        "lastack": 640
+      }
+    },
+    {
+      "local": "192.168.0.2:9090",
+      "peer": "192.168.0.1:56177",
+      "owner": "users:((\"python3\",pid=48,fd=26))",
+      "stats": {
+        "bytes_sent": 195,
+        "bytes_received": 314,
+        "lastsnd": 365444,
+        "lastrcv": 365444,
+        "lastack": 365444
+      }
+    },
+    {
+      "local": "192.168.0.2:9090",
+      "peer": "192.168.0.1:56493",
+      "owner": "users:((\"python3\",pid=48,fd=28))",
+      "stats": {
+        "bytes_sent": 195,
+        "bytes_received": 304,
+        "lastsnd": 365224,
+        "lastrcv": 365224,
+        "lastack": 365224
+      }
+    },
+    {
+      "local": "192.168.0.2:9090",
+      "peer": "192.168.0.1:61183",
+      "owner": "users:((\"python3\",pid=48,fd=23))",
+      "stats": {
+        "bytes_sent": 195,
+        "bytes_received": 312,
+        "lastsnd": 365752,
+        "lastrcv": 365748,
+        "lastack": 365748
+      }
+    },
+    {
+      "local": "192.168.0.2:9090",
+      "peer": "192.168.0.1:56491",
+      "owner": "users:((\"python3\",pid=48,fd=27))",
+      "stats": {
+        "bytes_sent": 195,
+        "bytes_received": 290,
+        "lastsnd": 365344,
+        "lastrcv": 365344,
+        "lastack": 365344
+      }
+    },
+    {
+      "local": "192.168.0.2:9090",
+      "peer": "192.168.0.1:56176",
+      "owner": "users:((\"python3\",pid=48,fd=25))",
+      "stats": {
+        "bytes_sent": 195,
+        "bytes_received": 320,
+        "lastsnd": 365548,
+        "lastrcv": 365544,
+        "lastack": 365544
+      }
+    },
+    {
+      "local": "192.168.0.2:9090",
+      "peer": "192.168.0.1:56175",
+      "owner": "users:((\"python3\",pid=48,fd=24))",
+      "stats": {
+        "bytes_sent": 195,
+        "bytes_received": 319,
+        "lastsnd": 365648,
+        "lastrcv": 365648,
+        "lastack": 365648
+      }
+    },
+    {
+      "local": "192.168.0.2:9090",
+      "peer": "192.168.0.1:61181",
+      "owner": "users:((\"python3\",pid=48,fd=22))",
+      "stats": {
+        "bytes_sent": 195,
+        "bytes_received": 2586920,
+        "lastsnd": 365856,
+        "lastrcv": 116,
+        "lastack": 116
+      }
+    }
+  ],
+  "apply": true,
+  "robot_commands_sent": false,
+  "disconnect_results": [
+    {
+      "peer": "192.168.0.1:61336",
+      "returncode": 0,
+      "stdout": "Netid State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+      "stderr": ""
+    },
+    {
+      "peer": "192.168.0.1:52572",
+      "returncode": 0,
+      "stdout": "Netid State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+      "stderr": ""
+    },
+    {
+      "peer": "192.168.0.1:54003",
+      "returncode": 0,
+      "stdout": "Netid State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+      "stderr": ""
+    },
+    {
+      "peer": "192.168.0.1:54002",
+      "returncode": 0,
+      "stdout": "Netid State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+      "stderr": ""
+    },
+    {
+      "peer": "192.168.0.1:52571",
+      "returncode": 0,
+      "stdout": "Netid State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+      "stderr": ""
+    },
+    {
+      "peer": "192.168.0.1:63035",
+      "returncode": 0,
+      "stdout": "Netid State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+      "stderr": ""
+    },
+    {
+      "peer": "192.168.0.1:62603",
+      "returncode": 0,
+      "stdout": "Netid State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+      "stderr": ""
+    },
+    {
+      "peer": "192.168.0.1:52570",
+      "returncode": 0,
+      "stdout": "Netid State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+      "stderr": ""
+    }
+  ]
+}

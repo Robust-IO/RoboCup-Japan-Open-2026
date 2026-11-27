@@ -1,0 +1,62 @@
+{
+    "rows":  [
+                 {
+                     "windows_start_ms":  1792322193755,
+                     "windows_end_ms":  1792322193855,
+                     "wsl_ms":  1792322193830.319592,
+                     "offset_lower_bound_ms":  -24.680408,
+                     "offset_upper_bound_ms":  75.319592,
+                     "roundtrip_ms":  100
+                 },
+                 {
+                     "windows_start_ms":  1792322193865,
+                     "windows_end_ms":  1792322193951,
+                     "wsl_ms":  1792322193928.008064,
+                     "offset_lower_bound_ms":  -22.991936,
+                     "offset_upper_bound_ms":  63.008064,
+                     "roundtrip_ms":  86
+                 },
+                 {
+                     "windows_start_ms":  1792322193951,
+                     "windows_end_ms":  1792322194058,
+                     "wsl_ms":  1792322194031.828498,
+                     "offset_lower_bound_ms":  -26.171502,
+                     "offset_upper_bound_ms":  80.828498,
+                     "roundtrip_ms":  107
+                 },
+                 {
+                     "windows_start_ms":  1792322194058,
+                     "windows_end_ms":  1792322194158,
+                     "wsl_ms":  1792322194127.803514,
+                     "offset_lower_bound_ms":  -30.196486,
+                     "offset_upper_bound_ms":  69.803514,
+                     "roundtrip_ms":  100
+                 },
+                 {
+                     "windows_start_ms":  1792322194158,
+                     "windows_end_ms":  1792322194251,
+                     "wsl_ms":  1792322194229.840851,
+                     "offset_lower_bound_ms":  -21.159149,
+                     "offset_upper_bound_ms":  71.840851,
+                     "roundtrip_ms":  93
+                 },
+                 {
+                     "windows_start_ms":  1792322194252,
+                     "windows_end_ms":  1792322194343,
+                     "wsl_ms":  1792322194318.5164,
+                     "offset_lower_bound_ms":  -24.4836,
+                     "offset_upper_bound_ms":  66.5164,
+                     "roundtrip_ms":  91
+                 },
+                 {
+                     "windows_start_ms":  1792322194343,
+                     "windows_end_ms":  1792322194437,
+                     "wsl_ms":  1792322194412.824861,
+                     "offset_lower_bound_ms":  -24.175139,
+                     "offset_upper_bound_ms":  69.824861,
+                     "roundtrip_ms":  94
+                 }
+             ],
+    "read_only":  true,
+    "clocks_modified":  false
+}

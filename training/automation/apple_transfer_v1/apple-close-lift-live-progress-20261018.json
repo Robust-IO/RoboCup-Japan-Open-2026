@@ -1,0 +1,198 @@
+{
+  "status": "reviewed_single_close_and_10cm_lift_verified_with_corrected_settled_window",
+  "branch": "feat/handyman-phase5-grasping",
+  "recorded_ns": 1792324624492872273,
+  "revision": "lift-settled-r15 over close-handoff-r14/capture-r13c",
+  "current_robot": {
+    "capture": "/mnt/d/handyman-training-runs/apple-r14-post-close-lift-20261018-01/cameras/000006",
+    "depth_stamp_ns": 1792324088321771549,
+    "holding_object": true,
+    "object": "apple",
+    "arm_is_tucked": false,
+    "arm": [
+      0.3525409698486328,
+      -1.7000001065434844,
+      0.0,
+      0.1292036754032555,
+      0.0
+    ],
+    "hand_motor": 0.4203224172439768,
+    "head": [
+      0.0,
+      -0.49999996867370555
+    ],
+    "base_map_pose": [
+      10.117817795435682,
+      -6.714520943961167,
+      0.0672405378683234
+    ],
+    "room": "bedroom",
+    "apple_location": "Held above source white_side_table after one verified10cm lift; NOT still on table and NOT placed on square_low_table",
+    "fresh_state_required_before_next_action": true,
+    "warning": "Historical last-confirmed state, not a reusable live identity/action lease. Do not reopen hand or run empty-tucked/source-grasp entry."
+  },
+  "current_map_anchor_pid_last_observed": 6862,
+  "actual_trial": {
+    "directory": "/mnt/d/handyman-training-runs/apple-r14-reviewed-close-lift-20261018-01",
+    "task_id": "apple-r14-close-e0db8f6452174087a13cea391a537722",
+    "epoch": "apple-r14-close-e0db8f6452174087a13cea391a537722-observe",
+    "original_report_status": "new_close_lift_not_verified",
+    "original_result_preserved": true,
+    "new_classified_identity_then_near_geometry": true,
+    "new_readonly_close_samples": 5,
+    "base_approach_commands_sent": 0,
+    "gripper_close_commands": 1,
+    "lift_commands": 1,
+    "lift_distance_m": 0.1,
+    "observed_contact_opening_rad": 0.4203224172439768,
+    "contact_stable_samples": 7,
+    "contact_stable_duration_s": 0.7750393579990487,
+    "close_publish_observation_mode": "near_geometry_tracked",
+    "old_actions_or_identity_replayed": false,
+    "holding_retraction_sent": false,
+    "destination_navigation_sent": false,
+    "release_sent": false
+  },
+  "r14_live_handoff": {
+    "corrected_runner_reached_close_without_any_additional_base_approach": true,
+    "same_live_recording_used_for_publication_lease_and_actual_contact_and_lift": true
+  },
+  "r15_fix": {
+    "reason": "Latest joint reached endpoint while original head image was still from moving lift; transition image inflated all-frame spread to11.49mm",
+    "completed_at_ns": 1792324000894032918,
+    "frozen_window_end_ns": 1792324004904767061,
+    "rule": "All original RGB/depth/hand stamps must be in actual post-completion/frozen verification window. All frames selected by phase retain old checks.",
+    "stability_limit_unchanged_m": 0.01,
+    "minimum_frames_unchanged": 3,
+    "minimum_span_unchanged_s": 0.4,
+    "original_source_stamps_preserved": true,
+    "no_threshold_widening": true,
+    "no_motion_replay": true
+  },
+  "corrected_recorded_verification": {
+    "file": "/mnt/d/handyman-training-runs/apple-r15-r14-settled-lift-reaudit-20261018-01.json",
+    "grasp_success_verified": true,
+    "frames": 13,
+    "span_s": 3.086027947,
+    "center_spread_m": 1.2787159502424735e-05,
+    "excluded_transition": [
+      {
+        "capture": "000054",
+        "reason": "camera_outside_actual_post_endpoint_window"
+      },
+      {
+        "capture": "000055",
+        "reason": "camera_outside_actual_post_endpoint_window"
+      },
+      {
+        "capture": "000056",
+        "reason": "camera_outside_actual_post_endpoint_window"
+      }
+    ],
+    "settled_rejected": [],
+    "all_original_files_unchanged": true,
+    "canonical_detector_only_status": "verification_inconclusive",
+    "current_live_motion_permission": false
+  },
+  "deployment": {
+    "status": "deployed_tests_passed",
+    "revision": "lift-settled-r15",
+    "patch": "/mnt/d/handyman-training-runs/apple-lift-settled-r15-20261018-patch.tar.gz",
+    "sha256": "9b407e569b2a127bdbe1038a70f8ac2c494aebc787c3c3137eacf2834bfcc4e0",
+    "backup": "/mnt/d/handyman-training-runs/apple-before-lift-settled-r15-20261018.tar.gz",
+    "copies_hash_verified": 3,
+    "hashes": {
+      "lift_settled_window.py": "d02104cd9bac8474330e5bef29a91ea20337840588688c5dbbab79a5c1cc7127",
+      "test_lift_settled_window.py": "be7e18ad38566d2c9d377a28e6b6ba2d3e41f5434b6363558b8c24c3113afe05",
+      "verify_apple_lift_sequence.py": "f2b47e824eb366d7b00796722a3f517e2904a2eb7cc986e1aed56808e57ad37f",
+      "audit_preclose_identity_lift_follow.py": "13eb700a4f7b861908876a80fda531bd8186472dd4572e07178535afb6c7cba9",
+      "test_parent_bound_lift_follow.py": "86d0e5b9f8f0b0308ab8254581ff6e90c1f137c471baf47d6151023c7bab970a",
+      "test_near_apple_geometry.py": "e4faf223ed9d5a85eda0d69775f681b80f6f8b6aebe12efee487eed0ef1ad2c8",
+      "APPLE_TRANSFER_AUTOMATION.txt": "5d9025a7207cabdfcf79f709cf82331cd5af44a7b38cae5433e7faf0be78b314"
+    },
+    "original_code_hashes": {
+      "runtime": {
+        "audit_preclose_identity_lift_follow.py": "3bd64baf9bff05ad71d76f1ac32e8e6f8dd9790356055617b43937b3b88d5898",
+        "verify_apple_lift_sequence.py": "eb6d812eb812e8797b35faddd8fbafb8bdfa573c03f0f378147a4eefddc0f2ef",
+        "test_near_apple_geometry.py": "8d3c6e575ad5bba9ac1218eab3cd01811c0cbaa5ac4f3f5bbefb505076a024f3",
+        "APPLE_TRANSFER_AUTOMATION.txt": "2b68026091fbf6ec37b64031ff7f1bc560e04301444050911d6e38f0a2453c36",
+        "lift_settled_window.py": null,
+        "test_lift_settled_window.py": null,
+        "test_parent_bound_lift_follow.py": "e60d134ea6ba0a37e4e7bfd654ee11bf5485156654bf1b3a1d9b50d27f3839dd"
+      },
+      "training": {
+        "audit_preclose_identity_lift_follow.py": "3bd64baf9bff05ad71d76f1ac32e8e6f8dd9790356055617b43937b3b88d5898",
+        "verify_apple_lift_sequence.py": "eb6d812eb812e8797b35faddd8fbafb8bdfa573c03f0f378147a4eefddc0f2ef",
+        "test_near_apple_geometry.py": "8d3c6e575ad5bba9ac1218eab3cd01811c0cbaa5ac4f3f5bbefb505076a024f3",
+        "APPLE_TRANSFER_AUTOMATION.txt": "2b68026091fbf6ec37b64031ff7f1bc560e04301444050911d6e38f0a2453c36",
+        "lift_settled_window.py": null,
+        "test_lift_settled_window.py": null,
+        "test_parent_bound_lift_follow.py": "e60d134ea6ba0a37e4e7bfd654ee11bf5485156654bf1b3a1d9b50d27f3839dd"
+      },
+      "module": {
+        "audit_preclose_identity_lift_follow.py": "3bd64baf9bff05ad71d76f1ac32e8e6f8dd9790356055617b43937b3b88d5898",
+        "verify_apple_lift_sequence.py": "eb6d812eb812e8797b35faddd8fbafb8bdfa573c03f0f378147a4eefddc0f2ef",
+        "test_near_apple_geometry.py": "8d3c6e575ad5bba9ac1218eab3cd01811c0cbaa5ac4f3f5bbefb505076a024f3",
+        "APPLE_TRANSFER_AUTOMATION.txt": "2b68026091fbf6ec37b64031ff7f1bc560e04301444050911d6e38f0a2453c36",
+        "lift_settled_window.py": null,
+        "test_lift_settled_window.py": null,
+        "test_parent_bound_lift_follow.py": "e60d134ea6ba0a37e4e7bfd654ee11bf5485156654bf1b3a1d9b50d27f3839dd"
+      }
+    },
+    "candidate_tests": {
+      "exit": 0,
+      "count": 340,
+      "log": "/mnt/d/handyman-training-runs/apple-lift-settled-r15-20261018-candidate-tests.log"
+    },
+    "runtime_tests": {
+      "exit": 0,
+      "count": 340,
+      "log": "/mnt/d/handyman-training-runs/apple-lift-settled-r15-20261018-runtime-tests.log"
+    },
+    "input_preflight_exit": 0,
+    "robot_commands_sent": false,
+    "new_live_observation_validated": false,
+    "final_freshness_max_s": 0.4,
+    "original_source_stamps_preserved": true,
+    "model_maps_navigation_grasp_placement_policy_changed": false,
+    "verification_phase_selection_changed": true,
+    "recorded_actual_lift_reaudit": "/mnt/d/handyman-training-runs/apple-r15-r14-settled-lift-reaudit-20261018-01.json",
+    "original_failed_trial_preserved": true,
+    "stability_threshold_m_unchanged": 0.01
+  },
+  "post_run_audit": {
+    "status": "current_post_run_idle_evidence_collected",
+    "child_exit_codes": {
+      "cameras": 0,
+      "ready": 1
+    },
+    "last_capture": "/mnt/d/handyman-training-runs/apple-r14-post-close-lift-20261018-01/cameras/000006",
+    "readiness": {
+      "ready": false,
+      "robot_commands_sent": false,
+      "feedback_ages_s": {
+        "joints": 0.066122193,
+        "map_tf": 0.044404722
+      },
+      "joint_stamp_ns": 1792324085589000000,
+      "map_stamp_ns": 1792324085610717471,
+      "feedback_checked_ns": 1792324085655122193,
+      "reason": "empty_tucked_start_required"
+    },
+    "robot_commands_sent": false
+  },
+  "robot_commands_sent_this_turn": true,
+  "grasp_verified": true,
+  "whole_uninterrupted_transfer_verified": false,
+  "navigation_parameters_or_map_anchor_or_model_or_unity_files_changed_this_turn": false,
+  "task_finished_sent": false,
+  "does_not_exist_sent": false,
+  "git_commit_or_push_performed": false,
+  "scope": "One newly identified simulated LayoutA apple close/lift from prior prepared pose. Not a successful uninterrupted full run, placement,30-object generalization or competition success rate.",
+  "next": "Read this checkpoint FIRST. CURRENT EMPTY/OPEN/TUCKED in living_room; apple ALREADY PLACED on square_low_table. Do not repeat close/lift/carry/release. Next is a NEW uninterrupted full-entry regression from genuinely restored initial Session1/LayoutA/source-apple state, with fresh source synchronization/localization/readiness. The completed reviewed continuation is NOT the previously stopped full r13c run becoming successful.",
+  "latest_validation_checkpoint": "D:/handyman-training-runs/apple-carry-place-live-progress-20261018.json",
+  "latest_live_validation_checkpoint": "D:/handyman-training-runs/apple-carry-place-live-progress-20261018.json",
+  "current_state_authoritative_checkpoint": "D:/handyman-training-runs/apple-carry-place-live-progress-20261018.json",
+  "latest_carry_placement_status": "reviewed_r15_carry_and_edge_safe_placement_verified",
+  "older_current_fields_are_historical": true
+}

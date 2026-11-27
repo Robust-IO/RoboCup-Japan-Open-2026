@@ -1,0 +1,26 @@
+{
+  "status": "can_observation_addon_update_verified",
+  "files": [
+    "canned_grasp_runtime.py",
+    "canned_carry_geometry.py",
+    "run_canned_carry_trial.py",
+    "test_canned_carry_geometry.py",
+    "CANNED_CARRY_TRIAL.txt"
+  ],
+  "hashes": {
+    "canned_grasp_runtime.py": "42a54e7c7cb91e81b408196f6cafd35807d929b4e8b72b7e3c8e959be28a9b60",
+    "canned_carry_geometry.py": "6d8f7d4b3207b6ba0e2fb0f588011d9eaf0c48b07c4c6a1ad523d5e76ce0fa5d",
+    "run_canned_carry_trial.py": "b855f7ba89cae1f53cccf884f22c6e90ed427eac717439c922579666344a6792",
+    "test_canned_carry_geometry.py": "70f38609c2a31c5a485b89926c20b1e23b5fa988eb3caaf906c1a3f85e9cdec8",
+    "CANNED_CARRY_TRIAL.txt": "d7402e7fc8212dc53899fbf2975bb1815192e5045326b1c7c16f7e3340e658dc"
+  },
+  "runtime_tests": 499,
+  "candidate_tests": 499,
+  "original_apple_runtime_preserved": true,
+  "source_copies": 3,
+  "checkpoint_copies": 4,
+  "checkpoint": "D:/handyman-training-runs/canned-carry-adapter-progress-20261023.json",
+  "checkpoint_sha256": "c46575c0ddc7816a414e1c4fba24bae0dc55ec906e2433f88e6fd4785ae1ad61",
+  "robot_commands_sent": false,
+  "can_live_mover_complete": false
+}

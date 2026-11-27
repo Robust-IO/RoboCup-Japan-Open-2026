@@ -1,0 +1,6 @@
+{
+  "updated_ns": 1792847546896507249,
+  "instruction_zh": "物品本来就在桌上；以后不要默认要求用户搬动物品，先从现场原位置识别并抓取。",
+  "default_test_uses_native_object_position": true,
+  "robot_operation_authorized": true
+}

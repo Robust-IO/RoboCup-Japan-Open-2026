@@ -1,0 +1,19 @@
+{
+  "status": "can_release_timing_renewal_deployed",
+  "tests": 566,
+  "files": [
+    "run_canned_place_trial.py",
+    "can_release_timing.py",
+    "test_can_release_timing.py"
+  ],
+  "hashes": {
+    "run_canned_place_trial.py": "077d88f39f43a17b1d28e098d5cbf48682aeb8180c4c493b6830854fcd1edcc9",
+    "can_release_timing.py": "da5fca38b57d092dd410bd9ea24a6bbd56682a8a0db3c486ceb973ef7b1d281a",
+    "test_can_release_timing.py": "f7895c16fd760ba74f50a574b5e8369a4cfd6ce8faafd95b2e7ffefd020fa34a"
+  },
+  "source_age_limit_s": 0.4,
+  "extra_joint_wait_removed": true,
+  "new_observation_retry_not_action_retry": true,
+  "actual_failed_pre_release_context_validated": true,
+  "robot_commands_sent": false
+}

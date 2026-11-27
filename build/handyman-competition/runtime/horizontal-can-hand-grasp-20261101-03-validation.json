@@ -1,0 +1,13 @@
+{
+  "tests_passed": 14,
+  "candidate_sha256": {
+    "horizontal_can_geometry.py": "65403b45eafd3ddfd96685c6af9623a076603bf372e762b3f078a320800d3b2e",
+    "horizontal_can_grasp_plan.py": "d4fd3db69e45c8375d61ab54c9e12ccdefbe106aec5a57a3f128110cfb68ab4c",
+    "horizontal_can_trial.py": "154a4d29e3246e9965a97c39653601d275ccfa57766202209ec21593db060720",
+    "horizontal_can_hand.py": "0fbb533e1cac686e44eebd62e6286866de919fda7594cfff3f67a0bec6eb429a",
+    "horizontal_can_hand_trial.py": "66d6195181a90f1b0915983c25614e4bdfb4f65abb9a50e37d22e209a80672b2"
+  },
+  "branch_at_launch": "feat/handyman-phase5-grasping",
+  "existing_runtime_unchanged": true,
+  "robot_commands_sent": false
+}

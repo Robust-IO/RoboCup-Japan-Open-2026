@@ -1,0 +1,87 @@
+{
+  "motion_authorized": false,
+  "capture": "/tmp/phase5-table-rgbd-20261011-v1",
+  "apple_visible_surface": {
+    "samples": 1220,
+    "median_base": [
+      0.9144377527751749,
+      0.05191877317557704,
+      0.5467962326641407
+    ],
+    "depth_quantiles": [
+      0.9540000557899475,
+      0.9670000672340393,
+      0.987000048160553
+    ],
+    "box": [
+      275,
+      190,
+      330,
+      250
+    ],
+    "red_only": true,
+    "depth_stamp_ns": 1791715997761799053
+  },
+  "tabletop_patch": {
+    "samples": 4800,
+    "median_base": [
+      0.8199007995984362,
+      -0.1240920678372848,
+      0.4960961004533829
+    ],
+    "depth_quantiles": [
+      0.8598500162363053,
+      0.9045000374317169,
+      0.9541500538587576
+    ],
+    "box": [
+      350,
+      255,
+      470,
+      295
+    ],
+    "red_only": false,
+    "depth_stamp_ns": 1791715997761799053
+  },
+  "current_joints": {
+    "arm_lift_joint": 0.0,
+    "arm_flex_joint": 0.0,
+    "arm_roll_joint": 0.0,
+    "wrist_flex_joint": -1.5707963146269321,
+    "wrist_roll_joint": 0.0,
+    "head_pan_joint": 0.0,
+    "head_tilt_joint": -0.49999996867370555,
+    "torso_lift_joint": 0.0,
+    "hand_motor_joint": 0.0,
+    "hand_l_proximal_joint": 0.0,
+    "hand_l_spring_proximal_joint": 0.0,
+    "hand_l_mimic_distal_joint": 0.0,
+    "hand_l_distal_joint": 0.0,
+    "hand_r_proximal_joint": 0.0,
+    "hand_r_spring_proximal_joint": 0.0,
+    "hand_r_mimic_distal_joint": 0.0,
+    "hand_r_distal_joint": 0.0
+  },
+  "proposed_total_base_translation_m": [
+    0.09,
+    -0.02608122682442296
+  ],
+  "hypothetical_high_finger_entrance_m": [
+    0.689295215,
+    0.078,
+    0.72
+  ],
+  "residual_surface_minus_high_entrance_after_translation_m": [
+    0.1351425377751749,
+    0.0,
+    -0.1732037673358593
+  ],
+  "max_single_segment_m": 0.015,
+  "limitations": [
+    "Manual RGB ROI and red pixels are diagnostic only, not a production object detector.",
+    "Tabletop patch provides height, not table front edge or free space.",
+    "High pose has not been executed or screened at the proposed endpoint.",
+    "No goal-center estimate or grasp closure authorized.",
+    "Current gripper is closed and head tilt is -0.5; do not invoke old tucked-open/-0.8 executor unchanged."
+  ]
+}

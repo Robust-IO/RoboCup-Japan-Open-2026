@@ -1,0 +1,32 @@
+{
+  "status": "baseline_identified_and_exporter_gap_found_not_training",
+  "date": "2026-10-04",
+  "baseline": {
+    "role": "new model in the October 3-4 live comparison; active ROS deployment not verified",
+    "weights": "D:/handyman-training-runs/handyman30-salt-pepper-scene-ft-v1/weights/best.pt",
+    "sha256": "3d822e2fa3f13a2a237ca3be8ecae91f929991a279a139de2d69dd99964f594f",
+    "bytes": 5391493,
+    "previous_training": {"epochs": 10, "imgsz": 640, "batch": 8, "lr0": 0.00005}
+  },
+  "exporter_audit": {
+    "source": "D:/handyman-dataset/HandymanDatasetGenerator-v4.9.3-sigverse-background/Assets/HandymanDatasetGenerator/Editor/HandymanDatasetWindow.cs",
+    "finding": "Object pose assignments at lines 1153 and 1337 apply random Y-axis rotation to the source base rotation, with no independent roll/pitch pose sweep at these assignments.",
+    "limitation": "This does not prove all historical training objects were upright: source base rotations may differ. Pose coverage is a plausible contributor, not a proven sole cause of live misses."
+  },
+  "first_focus": ["tumbler", "dog_doll", "toy_duck", "cubic_clock", "camera", "hourglass"],
+  "next_steps": [
+    "Add an opt-in pose diagnostic pilot in an isolated exporter update; preserve original RGB materials, mask policy, scene and old datasets.",
+    "Sample upright, side and lying poses; rotate before computing support placement; check no clipping, floating or framing loss.",
+    "Export a small pilot before bulk training data and review RGB/mask alignment and class labels.",
+    "Generate separate new training and validation scenes/seeds; group related renders and live sequences to avoid split leakage.",
+    "Fine-tune with original 30-class rehearsal data; do not train solely on the focus classes.",
+    "Compare with the frozen baseline at the same inference settings; retain all-class, salt/pepper and hard-background regression checks."
+  ],
+  "regression_policy": {
+    "existing_live_cases": "D:/handyman-training-runs/live30-20261003 and live30-20261004",
+    "use": "development regression, not an untouched final generalization test",
+    "labels": "Predictions are not ground truth. Require complete reviewed annotations before box-based precision/recall scoring or supervised training.",
+    "final_acceptance": "Use separately collected fresh live placements after candidate tuning; retain baseline until demonstrated improvement."
+  },
+  "constraints": ["Store new artifacts on D drive", "Do not replace baseline weights", "Do not start long training before pilot validation", "Notify user before Unity is required", "Do not claim exported update or training is already complete"]
+}

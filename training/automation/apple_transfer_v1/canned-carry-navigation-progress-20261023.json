@@ -1,0 +1,166 @@
+{
+  "status": "can_tucked_carry_to_living_room_verified_placement_pending",
+  "saved_ns": 1792746736486316579,
+  "boot_id": "03e2ce8b-528d-4517-a5f5-5aa905f81a77",
+  "branch": "feat/handyman-phase5-grasping",
+  "actual_trial": "D:/handyman-training-runs/tucked-can-navigation-live-20261023-01",
+  "deployment": "D:/handyman-training-runs/held-can-navigation-v1-20261023-deployment.json",
+  "candidate_tests": 517,
+  "runtime_tests": 517,
+  "recorded_frames": 46,
+  "original_route_navigation_verified": true,
+  "holding_after_navigation_verified": true,
+  "held_observation_types": [
+    "current_body_color_and_cap_shape_bound_to_verified_grasp",
+    "current_body_color_and_cap_shape_bound_to_verified_grasp",
+    "current_body_color_and_cap_shape_bound_to_verified_grasp"
+  ],
+  "held_identity_source": "previous_genuine_RGBD_grasp_followed_by_current_body_and_cap_appearance_tracking",
+  "fresh_hold_frames_at_destination": 3,
+  "zero_depth_is_not_an_object_coordinate": true,
+  "current_held3d_position_measured": false,
+  "current_can_appearance_supports_no_new_object_search": true,
+  "physical_arm_retraction_completed": true,
+  "arm_commands_sent_this_step": false,
+  "gripper_commands_sent_this_step": false,
+  "grasp_retraction_or_close_replayed": false,
+  "hand_released": false,
+  "placement_started": false,
+  "placement_verified": false,
+  "task_finished_sent": false,
+  "uninterrupted_full_transfer_verified": false,
+  "navigation_duration_s": 161.947894684,
+  "navigation_target": [
+    2.05,
+    2.55,
+    1.5707963267948966
+  ],
+  "actual_navigation_final_pose": [
+    2.095055051918279,
+    2.5132362822989807,
+    1.6453767087500075
+  ],
+  "navigation_position_error_m": 0.05815091265456676,
+  "navigation_precision": [
+    0.06,
+    0.08,
+    0.06
+  ],
+  "waypoint_results": [
+    {
+      "index": 0,
+      "target": [
+        6.99,
+        -6.243535,
+        3.141593
+      ],
+      "actual": [
+        7.048753132568416,
+        -6.244696034550894,
+        -3.0659920087053694
+      ],
+      "error_m": 0.05876460318789062,
+      "yaw_error_rad": 0.0756002984742177,
+      "status": 4
+    },
+    {
+      "index": 1,
+      "target": [
+        5.59,
+        -6.243535,
+        1.630702
+      ],
+      "actual": [
+        5.637348321264741,
+        -6.214553520817121,
+        1.6988089547144416
+      ],
+      "error_m": 0.0555138690978819,
+      "yaw_error_rad": 0.06810695471444149,
+      "status": 4
+    },
+    {
+      "index": 2,
+      "target": [
+        5.33,
+        -1.90856,
+        1.570796
+      ],
+      "actual": [
+        5.354595754469916,
+        -1.9609199967706488,
+        1.644949051452386
+      ],
+      "error_m": 0.057849117536629004,
+      "yaw_error_rad": 0.07415305145238582,
+      "status": 4
+    },
+    {
+      "index": 3,
+      "target": [
+        5.33,
+        -0.50856,
+        2.342665
+      ],
+      "actual": [
+        5.344333420137463,
+        -0.5665954920757758,
+        2.2709144370347536
+      ],
+      "error_m": 0.05977930472424771,
+      "yaw_error_rad": 0.07175056296524662,
+      "status": 4
+    },
+    {
+      "index": 4,
+      "target": [
+        2.05,
+        2.55,
+        1.5707963267948966
+      ],
+      "actual": [
+        2.095055051918279,
+        2.5132362822989807,
+        1.6453767087500075
+      ],
+      "error_m": 0.05815091265456676,
+      "yaw_error_rad": 0.07458038195511096,
+      "status": 4
+    }
+  ],
+  "speed_parameters_restored": true,
+  "original_code_model_map_route_tolerances_unchanged": true,
+  "last_measured_robot_state": {
+    "joints": [
+      0.0,
+      0.0,
+      0.0,
+      -1.5707963146269321,
+      0.0,
+      0.480518213081389
+    ],
+    "poses": {
+      "map": [
+        2.096027829000392,
+        2.513810925187869,
+        1.6456530538136789
+      ],
+      "odom": [
+        0.9121423363685608,
+        2.513091802597046,
+        1.6455984577179743
+      ]
+    },
+    "stamp_ns": 1792746719230000000
+  },
+  "last_state_is_a_record_not_future_action_authorization": true,
+  "last_rgb_capture": "D:/handyman-training-runs/tucked-can-navigation-live-20261023-01/captures/after-navigation-02",
+  "can_height_m": 0.12506792828065508,
+  "next": [
+    "Robot is TUCKED and holding canned_juice in living_room near square_low_table. Do NOT repeat grasp, close, lift, retraction or navigation from the bedroom.",
+    "Only resume from NEW current state/images. Maintain grip while measuring the actual destination tabletop and preparing inverse-grasp placement.",
+    "Use actual can height/bottom-to-palm clearance for a vertical can; horizontal footprint radius is not its bottom offset.",
+    "Near-clipped held RGB appearance is not measured3D and must not be used as a new target detector or a table measurement.",
+    "No release before actual destination placement geometry is established; do not send Task_finished before physical placement verification."
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "binary": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/clock-bridge-jitter-20261127/install/lib/sigverse_ros_bridge/sigverse_ros_bridge",
+  "sha256": "6cf00b1a15caf7563ca26ad9860630a04b42fb1104d86278a051d49ea725d28f",
+  "source": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/workspace/training/session1/bridge_time_sync",
+  "build": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/clock-bridge-jitter-20261127",
+  "protocol": "existing_SIGVerse_native_time_gap"
+}

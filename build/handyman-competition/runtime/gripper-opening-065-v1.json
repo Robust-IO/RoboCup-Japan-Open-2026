@@ -1,0 +1,68 @@
+{
+  "opening_rad": 0.65,
+  "contact_center_separation_m": 0.0950260968031443,
+  "contacts": [
+    {
+      "side": 1,
+      "chain": [
+        "Entrance",
+        "RightFingerTrigger",
+        "hand_r_finger_tip_frame",
+        "hand_r_distal_link",
+        "hand_r_mimic_distal_link",
+        "hand_r_spring_proximal_link",
+        "hand_r_proximal_link"
+      ],
+      "palm_ros_center": [
+        0.0,
+        0.04756304840152277,
+        0.06212586589843391
+      ],
+      "palm_ros_min": [
+        -0.0175,
+        0.04656304840152277,
+        0.04962586589843391
+      ],
+      "palm_ros_max": [
+        0.0175,
+        0.04856304840152277,
+        0.07462586589843392
+      ]
+    },
+    {
+      "side": 0,
+      "chain": [
+        "Entrance",
+        "LeftFingerTrigger",
+        "hand_l_finger_tip_frame",
+        "hand_l_distal_link",
+        "hand_l_mimic_distal_link",
+        "hand_l_spring_proximal_link",
+        "hand_l_proximal_link"
+      ],
+      "palm_ros_center": [
+        1.3700000000074763e-07,
+        -0.04746304840152278,
+        0.06212586589843391
+      ],
+      "palm_ros_min": [
+        -0.017499863,
+        -0.048463048401522775,
+        0.04962586589843391
+      ],
+      "palm_ros_max": [
+        0.017500137000000002,
+        -0.04646304840152277,
+        0.07462586589843392
+      ]
+    }
+  ],
+  "relevant_variant_overrides": [],
+  "removed_relevant_components": [],
+  "motion_authorized": false,
+  "limitations": [
+    "HSRSubJointTrajectory four finger joint rotations modeled; runtime mimic/physics overrides not verified.",
+    "Variant overrides listed, not applied.",
+    "Does not inspect scene-instance overrides or sweep collision."
+  ]
+}

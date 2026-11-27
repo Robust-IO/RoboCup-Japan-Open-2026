@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "profile": "session5_kitchen_rabbit_to_living_room",
+  "layout": "LayoutD",
+  "motion_profile": "balanced_v1",
+  "task": {
+    "object": "rabbit_doll",
+    "source_room": "kitchen",
+    "destination": "square_low_table"
+  },
+  "source_table_id": "body#kitchen",
+  "destination_id": "square_low_table#living_room",
+  "destination_room": "living_room",
+  "source_staging_goal": [
+    2.8618174593052026,
+    6.846182540694797,
+    2.1562736093963624
+  ],
+  "destination_staging_goal": [
+    1.325,
+    -0.30679,
+    1.597436
+  ],
+  "environment": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/workspace/src/handyman_rebuild_ros2/config/environments/layout_d_session5.yaml",
+  "environment_sha256": "e318db95680ee05285ecb226d318391351a190449960c27c100fccd5d068065a",
+  "semantic_map": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/workspace/training/session1/session5-semantic-map.json",
+  "registry": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/active_detection_model.json",
+  "model_python": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/project/.pixi/envs/default/bin/python",
+  "navigation_tolerances": [
+    0.06,
+    0.08,
+    0.06
+  ],
+  "execution": {
+    "auto_protocol_success": false,
+    "automatic_action_retry": false
+  },
+  "policy": {
+    "efficient_non_navigation": true,
+    "placement_approach_mode": "single",
+    "near_grasp_roi_confirmation": true,
+    "near_grasp_geometry_handoff": true,
+    "near_grasp_geometry_gap_m": 0.15,
+    "post_lift_rgbd_follow_verification": true,
+    "grasp_lift_range_m": [
+      0.24,
+      0.3
+    ],
+    "release_gap_m": 0.02,
+    "patch_radius_m": 0.09,
+    "edge_margin_m": 0.03,
+    "edge_uncertainty_m": 0.01,
+    "max_placement_step_m": null,
+    "retreat_m": 0.25,
+    "observer_duration_s": 300,
+    "carry_drop_recovery": true
+  },
+  "scope": "Known wooden cupboard source; RGBD object localization; cross-room table transfer. No object truth positions.",
+  "navigation_motion_profile": "efficiency_v1",
+  "session_profile": {
+    "schema": "handyman_session_profile_v1",
+    "session_number": 5,
+    "layout": "LayoutD",
+    "target": "rabbit_doll",
+    "source": {
+      "room": "kitchen",
+      "furniture_id": "body#kitchen",
+      "model_path": "LayoutD/SIGVerseHouse/kitchen/wooden_cupboard/body"
+    },
+    "destination": {
+      "room": "living_room",
+      "furniture_id": "square_low_table#living_room",
+      "mode": "table_place"
+    },
+    "expected_instruction": "Go to the kitchen, grasp the rabbit_doll and put it on the square_low_table."
+  },
+  "shared_behavior_rules": {
+    "schema": "handyman_six_session_rules_v2",
+    "sessions": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "search": {
+      "aspect_ratio_threshold": 1.35,
+      "head_tilts_rad": [
+        0.0,
+        -0.5235987755982988
+      ],
+      "suspect_action": "stop_near_observe_resume_remaining_angles",
+      "invalid_frame_counts_as_absent": false
+    },
+    "grasp": {
+      "current_pose_first": true,
+      "normal_to_furniture_first": true,
+      "max_obstacle_offset_degrees": 15,
+      "decreasing_offsets_degrees": [
+        15,
+        10,
+        5,
+        0
+      ],
+      "irregular_min_protrusion_m": 0.01
+    },
+    "furniture_reobservation": {
+      "lateral_offset_m": 0.2,
+      "same_source_only": true
+    },
+    "handover": {
+      "final_yaw_required": false,
+      "criterion": "held_object_inside_delivery_volume"
+    },
+    "container": {
+      "object_projection_inside_inner_opening": true,
+      "edge_margin_m": 0.005,
+      "inspect_rim_after_release": true
+    },
+    "deployment": {
+      "live_validation": "pending",
+      "unity_editor_compile": "pending"
+    }
+  },
+  "task_configuration_schema": "handyman_configurable_tasks_v1"
+}

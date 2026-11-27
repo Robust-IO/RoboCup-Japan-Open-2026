@@ -1,0 +1,9 @@
+{
+  "external": [
+    [
+      "logs",
+      "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runs"
+    ]
+  ],
+  "broken": []
+}

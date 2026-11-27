@@ -1,0 +1,12 @@
+{
+  "status": "ready",
+  "model_sha256": "83e6ceb9650e6da78d05404a5ead9654278d502ce06d812a6b2b70673c513763",
+  "imgsz": 640,
+  "near_grasp_roi_enabled": false,
+  "model_pid": 27511,
+  "shared_model": true,
+  "resident_model": true,
+  "resident_reused": true,
+  "resident_key": "e53097461ba278512fed9821",
+  "attach_s": 0.00842962902970612
+}

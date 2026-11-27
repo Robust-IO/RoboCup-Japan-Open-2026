@@ -1,0 +1,12 @@
+﻿{
+    "TemporaryCompletedLaunchersRemoved":  [
+                                               "Handyman-WSLg-Desktop-20261022",
+                                               "Handyman-WSLg-InteractiveFix-20261022",
+                                               "Handyman-WSLg-DesktopConnect-20261022",
+                                               "Handyman-RViz-DisplaySameToken-20261022"
+                                           ],
+    "ExistingOriginalRvizLauncherPreserved":  true,
+    "RobotActionsStarted":  false,
+    "RvizVisible":  false,
+    "NeedsUserDirection":  "A desktop-origin WSL restart is proposed; not executed because it stops all Ubuntu processes."
+}

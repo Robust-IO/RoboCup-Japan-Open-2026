@@ -1,0 +1,53 @@
+{
+  "status": "carry_candidate_ready_waiting_same_scene_unity_timesync",
+  "branch": "feat/handyman-phase5-grasping",
+  "candidate_tests": 499,
+  "runtime_carry_code_deployed": false,
+  "robot_commands_sent_this_step": false,
+  "grasp_or_closure_repeated": false,
+  "hand_released": false,
+  "known_boot_id": "03e2ce8b-528d-4517-a5f5-5aa905f81a77",
+  "previous_verified_grasp": "D:/handyman-training-runs/canned-grasp-lift-live-progress-20261023.json",
+  "last_received_joints": [
+    0.3812755346298218,
+    -1.7000001065434844,
+    0,
+    0.1292036754032555,
+    0,
+    0.480518213081389
+  ],
+  "fresh_held_rgbd_not_yet_verified_this_step": true,
+  "diagnostic": "D:/handyman-training-runs/can-carry-stream-diagnosis-20261023-01.json",
+  "observed_source_joint_age_at_receive_s": 0.365718183,
+  "source_clock_caveat": "Fresh RGBD and TF are arriving. Aged source joint timestamps plus original400ms validity prevent a new carry handoff. One-shot Unity TimeSync may have drifted during prolonged Play; resync in-place, no scene/robot reset. Do not fabricate fresh stamps or weaken limits.",
+  "unity_action": {
+    "hierarchy_object": "RosBridgeScripts",
+    "component": "SIGVerseRosBridgeTimeSynchronizer",
+    "field": "Should Synchronize",
+    "operation": "While Play is running, tick once. It automatically unticks. Do not stop Play, restart Unity, move the can, open the gripper, Apply prefab changes or change OS clocks."
+  },
+  "unity_component_script": "Assets/SIGVerse/Common/Features/ROSBridge/common/SIGVerseRosBridgeTimeSynchronizer.cs",
+  "candidate": "D:/handyman-training-runs/canned-carry-v1-20261023-validation-03/candidate",
+  "validation": "D:/handyman-training-runs/canned-carry-v1-20261023-validation-03/result.json",
+  "archive": "D:/handyman-training-runs/canned-carry-v1-20261023-patch-03.tar.gz",
+  "archive_sha256": "d8b7f33211b5c88e7c6e70f4220fa245a1321ea261e52fc8eb7f2fa2fc73c5e7",
+  "new_files": [
+    "canned_carry_geometry.py",
+    "run_canned_carry_trial.py",
+    "test_canned_carry_geometry.py",
+    "CANNED_CARRY_TRIAL.txt"
+  ],
+  "shared_runtime_change": "Optional sample processing_reserve_ns (default200ms unchanged); read-only decode-expired frame reacquisition. Carry uses zero detector reserve and separately reacquires current joint feedback, keeping both source stamps and original400ms final limits.",
+  "model_apple_entry_routes_goal_tolerances_unchanged": true,
+  "prepared_probe": "D:/handyman-training-runs/probe_can_before_carry_20261023_v5.py",
+  "prepared_deployer": "D:/handyman-training-runs/manage_canned_carry_v1_20261023_v4.py",
+  "resume_order": [
+    "Read this checkpoint. Verify boot, bridges, actual source joints and no other action. Do not replay grasp.",
+    "After operator ticks Should Synchronize, check bridge log for a new TYPE_TIME_SYNC and receive-only source stamp ages.",
+    "Run prepared_probe under original domain71/Cyclone wrapper. New output expected: D:/handyman-training-runs/can-before-carry-20261023-05/result.json. If it already exists, inspect it instead of overwriting/re-running.",
+    "If current_extended_can_held and robot_commands_sent:false, call prepared_deployer deploy (NOT stage; candidate03 already validated). It backs up only explicit runtime updates and runs runtime499tests.",
+    "Run runtime/run_canned_carry_trial.py --run --navigate-destination --output NEW_D_DIRECTORY under original domain71/Cyclone wrapper.",
+    "Observe retraction while preserving grip, verify actual tucked held can, then use original bedroom-to-living_room route to square_low_table staging; verify held can at destination. No release/placement or Task_finished in this entry.",
+    "If any action failed, audit physical state and do not automatically replay preparation, closure, retraction or navigation."
+  ]
+}

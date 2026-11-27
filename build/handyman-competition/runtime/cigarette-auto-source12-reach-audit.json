@@ -1,0 +1,539 @@
+{
+  "robot_commands_sent": false,
+  "pose": [
+    9.869775951831071,
+    -6.566283182351097,
+    -0.07476376120406815
+  ],
+  "table": {
+    "id": "white_side_table#bedroom_1",
+    "semantic_class": "white_side_table",
+    "room": "bedroom",
+    "pose": {
+      "x": 11.00286865234375,
+      "y": -6.408999919891357,
+      "yaw": 0.0
+    },
+    "axis_aligned_bounds": {
+      "center": {
+        "x": 11.00286865234375,
+        "y": -6.408999919891357
+      },
+      "size": {
+        "x": 0.720001220703125,
+        "y": 1.5600004196166992
+      }
+    },
+    "model_pose": {
+      "x": 11.00286865234375,
+      "y": -6.408999919891357,
+      "yaw": 0.0
+    },
+    "oriented_bounds": {
+      "center": {
+        "x": 11.00286865234375,
+        "y": -6.408999919891357
+      },
+      "size": {
+        "x": 0.720001220703125,
+        "y": 1.5600004196166992
+      },
+      "yaw": 0.0
+    },
+    "front_yaw": 0.0,
+    "front_source": "model_transform_forward",
+    "marker_path": "LayoutA/DestinationCandidates/white_side_table#bedroom_1",
+    "model_path": "LayoutA/DestinationCandidates/white_side_table#bedroom_1",
+    "model_center_distance": 0.0,
+    "prefab_guid": "",
+    "asset_path": ""
+  },
+  "targets": [
+    {
+      "detection": {
+        "name": "cigarette",
+        "confidence": 0.9180717468261719,
+        "box": [
+          425.4601135253906,
+          152.41580200195312,
+          451.28936767578125,
+          170.96380615234375
+        ]
+      },
+      "model": {
+        "class_name": "cigarette",
+        "shape": "flat_cuboid",
+        "center_m": [
+          1.3198152780532837,
+          -0.26370885968208313,
+          0.5045668888720536
+        ],
+        "center_base_m": [
+          1.3198152780532837,
+          -0.26370885968208313,
+          0.5045668888720536
+        ],
+        "axis_base": [
+          -0.99924236536026,
+          0.03891902044415474,
+          -0.0
+        ],
+        "length_m": 0.07176782190799713,
+        "width_m": 0.05110267177224159,
+        "height_m": 0.01592843708565785,
+        "support_plane_base": [
+          0.0013961467249205912,
+          -0.0005697918650698353,
+          0.49460975538827673
+        ],
+        "support_height_m": 0.49660267032922467,
+        "support_plane_residual_p95_m": 0.00031469292127110355,
+        "grasp_point_base_m": [
+          1.3198152780532837,
+          -0.26370885968208313,
+          0.5161026703292246
+        ],
+        "grip_above_bottom_m": 0.019500000000000003,
+        "estimated_finger_side_overlap_m": 0.013928437085657847,
+        "finger_lower_clearance_m": 0.0020000000000000018,
+        "top_points": 260,
+        "source": "current_flat_top_and_independent_table_depth",
+        "hidden_faces_measured": false,
+        "motion_authorized": false,
+        "stamp_ns": 1793532910627473320,
+        "confidence": 0.9180717468261719,
+        "segmentation": {
+          "depth_component_count": 1,
+          "discarded_background_points": 0,
+          "max_neighbor_jump_m": 0.02,
+          "selection": "unique_depth_connected_surface_through_detector_center"
+        }
+      },
+      "map_center": [
+        11.166276906441936,
+        -6.927735954723737,
+        0.5041098781651526
+      ],
+      "nominal_contact": [
+        0.6892952173755439,
+        0.0779500016,
+        0.5271978838178918
+      ],
+      "endpoint_checks": [
+        {
+          "shift": 0.0,
+          "delta": [
+            0.6305200606777398,
+            -0.3416588612820831,
+            0.0
+          ],
+          "reach": {
+            "ready": false,
+            "start_xy_m": [
+              9.869775951831071,
+              -6.566283182351097
+            ],
+            "end_xy_m": [
+              10.473014737846064,
+              -6.95408376442491
+            ],
+            "base_radius_m": 0.22,
+            "clearance_m": 0.015,
+            "reason": "base_sweeps_destination_footprint",
+            "full_translation_m": 0.7171375909890866,
+            "fixed_distance_cap_m": null
+          },
+          "closure": {
+            "ready": true,
+            "criterion": "box_inside_open_gap_with_two_pad_contact_not_exact_center",
+            "forward_overlap_m": [
+              0.025000000000000133,
+              0.025000000000000133
+            ],
+            "vertical_overlap_m": [
+              0.01592843708565783,
+              0.01592843708565783
+            ],
+            "open_side_clearance_m": [
+              0.01958450389924038,
+              0.019584503899240352
+            ],
+            "minimum_forward_overlap_m": 0.008,
+            "minimum_vertical_overlap_m": 0.003,
+            "minimum_side_clearance_m": 0.001,
+            "box_interval_in_grasp_frame_m": [
+              [
+                1.2829641209352238,
+                -0.29063740372397523,
+                0.49660267032922467
+              ],
+              [
+                1.3566664351713436,
+                -0.23678031564019103,
+                0.5125311074148825
+              ]
+            ],
+            "open_gap_in_grasp_frame_m": [
+              -0.3102219076232156,
+              -0.21719581174095068
+            ]
+          }
+        },
+        {
+          "shift": -0.01,
+          "delta": [
+            0.6205200606777398,
+            -0.3416588612820831,
+            0.0
+          ],
+          "reach": {
+            "ready": false,
+            "start_xy_m": [
+              9.869775951831071,
+              -6.566283182351097
+            ],
+            "end_xy_m": [
+              10.463042672930165,
+              -6.953336823119926
+            ],
+            "base_radius_m": 0.22,
+            "clearance_m": 0.015,
+            "reason": "base_sweeps_destination_footprint",
+            "full_translation_m": 0.7083614354240889,
+            "fixed_distance_cap_m": null
+          },
+          "closure": {
+            "ready": true,
+            "criterion": "box_inside_open_gap_with_two_pad_contact_not_exact_center",
+            "forward_overlap_m": [
+              0.025000000000000133,
+              0.025000000000000133
+            ],
+            "vertical_overlap_m": [
+              0.01592843708565783,
+              0.01592843708565783
+            ],
+            "open_side_clearance_m": [
+              0.01958450389924038,
+              0.019584503899240352
+            ],
+            "minimum_forward_overlap_m": 0.008,
+            "minimum_vertical_overlap_m": 0.003,
+            "minimum_side_clearance_m": 0.001,
+            "box_interval_in_grasp_frame_m": [
+              [
+                1.2829641209352238,
+                -0.29063740372397523,
+                0.49660267032922467
+              ],
+              [
+                1.3566664351713436,
+                -0.23678031564019103,
+                0.5125311074148825
+              ]
+            ],
+            "open_gap_in_grasp_frame_m": [
+              -0.3102219076232156,
+              -0.21719581174095068
+            ]
+          }
+        },
+        {
+          "shift": -0.02,
+          "delta": [
+            0.6105200606777398,
+            -0.3416588612820831,
+            0.0
+          ],
+          "reach": {
+            "ready": false,
+            "start_xy_m": [
+              9.869775951831071,
+              -6.566283182351097
+            ],
+            "end_xy_m": [
+              10.453070608014267,
+              -6.9525898818149425
+            ],
+            "base_radius_m": 0.22,
+            "clearance_m": 0.015,
+            "reason": "base_sweeps_destination_footprint",
+            "full_translation_m": 0.6996181258247394,
+            "fixed_distance_cap_m": null
+          },
+          "closure": {
+            "ready": true,
+            "criterion": "box_inside_open_gap_with_two_pad_contact_not_exact_center",
+            "forward_overlap_m": [
+              0.025000000000000133,
+              0.025000000000000133
+            ],
+            "vertical_overlap_m": [
+              0.01592843708565783,
+              0.01592843708565783
+            ],
+            "open_side_clearance_m": [
+              0.01958450389924038,
+              0.019584503899240352
+            ],
+            "minimum_forward_overlap_m": 0.008,
+            "minimum_vertical_overlap_m": 0.003,
+            "minimum_side_clearance_m": 0.001,
+            "box_interval_in_grasp_frame_m": [
+              [
+                1.2829641209352238,
+                -0.29063740372397523,
+                0.49660267032922467
+              ],
+              [
+                1.3566664351713436,
+                -0.23678031564019103,
+                0.5125311074148825
+              ]
+            ],
+            "open_gap_in_grasp_frame_m": [
+              -0.3102219076232156,
+              -0.21719581174095068
+            ]
+          }
+        },
+        {
+          "shift": -0.03,
+          "delta": [
+            0.6005200606777398,
+            -0.3416588612820831,
+            0.0
+          ],
+          "reach": {
+            "ready": false,
+            "start_xy_m": [
+              9.869775951831071,
+              -6.566283182351097
+            ],
+            "end_xy_m": [
+              10.443098543098367,
+              -6.951842940509959
+            ],
+            "base_radius_m": 0.22,
+            "clearance_m": 0.015,
+            "reason": "base_sweeps_destination_footprint",
+            "full_translation_m": 0.6909089091689048,
+            "fixed_distance_cap_m": null
+          },
+          "closure": {
+            "ready": true,
+            "criterion": "box_inside_open_gap_with_two_pad_contact_not_exact_center",
+            "forward_overlap_m": [
+              0.019351157279239528,
+              0.019351157279239528
+            ],
+            "vertical_overlap_m": [
+              0.01592843708565783,
+              0.01592843708565783
+            ],
+            "open_side_clearance_m": [
+              0.01958450389924038,
+              0.019584503899240352
+            ],
+            "minimum_forward_overlap_m": 0.008,
+            "minimum_vertical_overlap_m": 0.003,
+            "minimum_side_clearance_m": 0.001,
+            "box_interval_in_grasp_frame_m": [
+              [
+                1.2829641209352238,
+                -0.29063740372397523,
+                0.49660267032922467
+              ],
+              [
+                1.3566664351713436,
+                -0.23678031564019103,
+                0.5125311074148825
+              ]
+            ],
+            "open_gap_in_grasp_frame_m": [
+              -0.3102219076232156,
+              -0.21719581174095068
+            ]
+          }
+        },
+        {
+          "shift": -0.04,
+          "delta": [
+            0.5905200606777398,
+            -0.3416588612820831,
+            0.0
+          ],
+          "reach": {
+            "ready": false,
+            "start_xy_m": [
+              9.869775951831071,
+              -6.566283182351097
+            ],
+            "end_xy_m": [
+              10.433126478182468,
+              -6.951095999204975
+            ],
+            "base_radius_m": 0.22,
+            "clearance_m": 0.015,
+            "reason": "base_sweeps_destination_footprint",
+            "full_translation_m": 0.6822350911199241,
+            "fixed_distance_cap_m": null
+          },
+          "closure": {
+            "ready": true,
+            "criterion": "box_inside_open_gap_with_two_pad_contact_not_exact_center",
+            "forward_overlap_m": [
+              0.009351157279239297,
+              0.009351157279239297
+            ],
+            "vertical_overlap_m": [
+              0.01592843708565783,
+              0.01592843708565783
+            ],
+            "open_side_clearance_m": [
+              0.01958450389924038,
+              0.019584503899240352
+            ],
+            "minimum_forward_overlap_m": 0.008,
+            "minimum_vertical_overlap_m": 0.003,
+            "minimum_side_clearance_m": 0.001,
+            "box_interval_in_grasp_frame_m": [
+              [
+                1.2829641209352238,
+                -0.29063740372397523,
+                0.49660267032922467
+              ],
+              [
+                1.3566664351713436,
+                -0.23678031564019103,
+                0.5125311074148825
+              ]
+            ],
+            "open_gap_in_grasp_frame_m": [
+              -0.3102219076232156,
+              -0.21719581174095068
+            ]
+          }
+        },
+        {
+          "shift": -0.05,
+          "delta": [
+            0.5805200606777398,
+            -0.3416588612820831,
+            0.0
+          ],
+          "reach": {
+            "ready": false,
+            "start_xy_m": [
+              9.869775951831071,
+              -6.566283182351097
+            ],
+            "end_xy_m": [
+              10.423154413266568,
+              -6.950349057899992
+            ],
+            "base_radius_m": 0.22,
+            "clearance_m": 0.015,
+            "reason": "base_sweeps_destination_footprint",
+            "full_translation_m": 0.6735980391463862,
+            "fixed_distance_cap_m": null
+          },
+          "closure": {
+            "ready": false,
+            "criterion": "box_inside_open_gap_with_two_pad_contact_not_exact_center",
+            "forward_overlap_m": [
+              0.0,
+              0.0
+            ],
+            "vertical_overlap_m": [
+              0.01592843708565783,
+              0.01592843708565783
+            ],
+            "open_side_clearance_m": [
+              0.01958450389924038,
+              0.019584503899240352
+            ],
+            "minimum_forward_overlap_m": 0.008,
+            "minimum_vertical_overlap_m": 0.003,
+            "minimum_side_clearance_m": 0.001,
+            "box_interval_in_grasp_frame_m": [
+              [
+                1.2829641209352238,
+                -0.29063740372397523,
+                0.49660267032922467
+              ],
+              [
+                1.3566664351713436,
+                -0.23678031564019103,
+                0.5125311074148825
+              ]
+            ],
+            "open_gap_in_grasp_frame_m": [
+              -0.3102219076232156,
+              -0.21719581174095068
+            ]
+          }
+        },
+        {
+          "shift": -0.06,
+          "delta": [
+            0.5705200606777399,
+            -0.3416588612820831,
+            0.0
+          ],
+          "reach": {
+            "ready": false,
+            "start_xy_m": [
+              9.869775951831071,
+              -6.566283182351097
+            ],
+            "end_xy_m": [
+              10.413182348350668,
+              -6.949602116595008
+            ],
+            "base_radius_m": 0.22,
+            "clearance_m": 0.015,
+            "reason": "base_sweeps_destination_footprint",
+            "full_translation_m": 0.6649991858102547,
+            "fixed_distance_cap_m": null
+          },
+          "closure": {
+            "ready": false,
+            "criterion": "box_inside_open_gap_with_two_pad_contact_not_exact_center",
+            "forward_overlap_m": [
+              0.0,
+              0.0
+            ],
+            "vertical_overlap_m": [
+              0.01592843708565783,
+              0.01592843708565783
+            ],
+            "open_side_clearance_m": [
+              0.01958450389924038,
+              0.019584503899240352
+            ],
+            "minimum_forward_overlap_m": 0.008,
+            "minimum_vertical_overlap_m": 0.003,
+            "minimum_side_clearance_m": 0.001,
+            "box_interval_in_grasp_frame_m": [
+              [
+                1.2829641209352238,
+                -0.29063740372397523,
+                0.49660267032922467
+              ],
+              [
+                1.3566664351713436,
+                -0.23678031564019103,
+                0.5125311074148825
+              ]
+            ],
+            "open_gap_in_grasp_frame_m": [
+              -0.3102219076232156,
+              -0.21719581174095068
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

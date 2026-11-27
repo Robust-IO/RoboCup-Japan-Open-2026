@@ -1,0 +1,51 @@
+{
+  "status": "deployed_tests_and_recorded_regression_passed",
+  "revision": "held-carry-r19",
+  "branch": "feat/handyman-phase5-grasping",
+  "files": [
+    "pregrasp_raised_trial.py",
+    "task_outcome_policy.py",
+    "test_task_outcome_policy.py",
+    "APPLE_TRANSFER_AUTOMATION.txt"
+  ],
+  "hashes": {
+    "pregrasp_raised_trial.py": "51da522a3d88e4e05d833720dbdb9d0e5eda208cce63cabbcf77d508cfe9002a",
+    "task_outcome_policy.py": "5b974716e3c0f45cc29de8b3eba76e0b1f984b722b668913699b98a2d564c6d4",
+    "test_task_outcome_policy.py": "9784cc69964211bd389622bf4275e89e5d59d0571751855afb9d1f54cd90a1bb",
+    "APPLE_TRANSFER_AUTOMATION.txt": "5ab5af16c0c4953d4c29fa5895f029eb993b894401968cfb2cd085860c140515"
+  },
+  "copies": 3,
+  "candidate_tests": 415,
+  "runtime_tests": 415,
+  "recorded_replay": {
+    "original_guard_reproduced": true,
+    "held_carry_now_accepts_recorded_small_yaw": true,
+    "result": {
+      "allowed": true,
+      "translation_m": 0.0013186091337021887,
+      "yaw_rad": 0.036459075321367634,
+      "translation_limit_m": 0.015,
+      "yaw_limit_rad": 0.08726646259971647,
+      "carrying": true,
+      "anchor": [
+        10.063109485896106,
+        -6.638299542088921,
+        -0.07247560045414105
+      ],
+      "actual": [
+        10.06327369051011,
+        -6.636991196992159,
+        -0.03601652513277341
+      ]
+    },
+    "robot_commands_sent": false,
+    "historical_failed_trial_not_modified": true
+  },
+  "validation": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-held-carry-r19-20261022-validation-01",
+  "archive_sha256": "4e75f9ef7692ccfee13ac638c807ee06bae79a5b35b5a1117e4e90b45dbea540",
+  "backup": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-before-held-carry-r19-20261022.tar.gz",
+  "navigation_files_and_parameters_unchanged": true,
+  "robot_commands_sent": false,
+  "new_live_validation": false,
+  "git_commit_or_push_performed": false
+}

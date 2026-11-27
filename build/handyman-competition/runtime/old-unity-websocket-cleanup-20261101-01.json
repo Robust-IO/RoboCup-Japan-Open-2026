@@ -1,0 +1,84 @@
+{
+  "started_ns": 1793526340441795230,
+  "before_idle_ms": {
+    "57126": 2221620,
+    "57105": 2222452,
+    "57108": 2222160,
+    "64946": 744,
+    "57107": 2222324,
+    "57113": 2222048,
+    "64940": 666252,
+    "57125": 2221756,
+    "64943": 665948,
+    "64942": 666048,
+    "57123": 2221860,
+    "57102": 2222576,
+    "64945": 665832,
+    "64938": 44,
+    "64941": 666152,
+    "64939": 666356
+  },
+  "current_ports_preserved": [
+    64938,
+    64939,
+    64940,
+    64941,
+    64942,
+    64943,
+    64945,
+    64946
+  ],
+  "closed": [
+    {
+      "peer_port": 57102,
+      "result": "Netid State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess"
+    },
+    {
+      "peer_port": 57105,
+      "result": "Netid State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess"
+    },
+    {
+      "peer_port": 57107,
+      "result": "Netid State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess"
+    },
+    {
+      "peer_port": 57108,
+      "result": "Netid State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess"
+    },
+    {
+      "peer_port": 57113,
+      "result": "Netid State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess"
+    },
+    {
+      "peer_port": 57123,
+      "result": "Netid State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess"
+    },
+    {
+      "peer_port": 57125,
+      "result": "Netid State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess"
+    },
+    {
+      "peer_port": 57126,
+      "result": "Netid State Recv-Q Send-Q Local Address:Port Peer Address:PortProcess"
+    }
+  ],
+  "robot_commands_sent": false,
+  "after_idle_ms": {
+    "57126": 2222760,
+    "57105": 2223592,
+    "57108": 2223300,
+    "64946": 864,
+    "57107": 2223464,
+    "57113": 2223188,
+    "64940": 667392,
+    "57125": 2222896,
+    "64943": 667088,
+    "64942": 667188,
+    "57123": 2223000,
+    "57102": 2223716,
+    "64945": 666972,
+    "64938": 32,
+    "64941": 667292,
+    "64939": 667496
+  }
+}

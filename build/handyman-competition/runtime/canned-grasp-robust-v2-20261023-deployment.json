@@ -1,0 +1,26 @@
+{
+  "status": "can_observation_addon_update_verified",
+  "files": [
+    "canned_grasp_geometry.py",
+    "canned_grasp_runtime.py",
+    "run_canned_grasp_trial.py",
+    "test_canned_grasp_geometry.py",
+    "CANNED_GRASP_TRIAL.txt"
+  ],
+  "hashes": {
+    "canned_grasp_geometry.py": "f4520b5c883a884806b603bd9062df6083f46c32ace1425a3a7502d82ed66419",
+    "canned_grasp_runtime.py": "536d8f52ea22c65ab99794f735cd6a183df29e37a3623aefec63b91c9d951546",
+    "run_canned_grasp_trial.py": "0af26b48465c05d054eec2419452ae2701f0ad0be59b8996d0c95e874de1842b",
+    "test_canned_grasp_geometry.py": "6b2c5a39004bf51fa2bb59a91bb00135eb1063fd901a783264fdf94273e12c01",
+    "CANNED_GRASP_TRIAL.txt": "74c8e29e68cebfc2ce4b3eff41818f093b464249ee71f02d4f022d54981dc849"
+  },
+  "runtime_tests": 483,
+  "candidate_tests": 483,
+  "original_apple_runtime_preserved": true,
+  "source_copies": 3,
+  "checkpoint_copies": 4,
+  "checkpoint": "D:/handyman-training-runs/canned-grasp-lift-live-progress-20261023.json",
+  "checkpoint_sha256": "9d38a58591a5cc31b8b9b5cab06e9c7d7e003601aa34b52f6ca4c70c3e670678",
+  "robot_commands_sent": false,
+  "can_live_mover_complete": false
+}

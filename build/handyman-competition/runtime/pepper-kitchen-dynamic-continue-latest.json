@@ -1,0 +1,9 @@
+{
+  "pid": 1270,
+  "output": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/pepper-kitchen-dynamic-continue-20261107-155837",
+  "predecessor": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/pepper-bedroom-kitchen-20261107-153843",
+  "adapter": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/pepper-dynamic-height-adapter-20261107-154949",
+  "started_ns": 1794038317082268727,
+  "grasp_replayed": false,
+  "navigation_replayed": false
+}

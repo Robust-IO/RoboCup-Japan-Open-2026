@@ -1,0 +1,23 @@
+{
+  "status": "stopped_requires_current_state_review",
+  "requested_rounds": 3,
+  "passed_rounds": 0,
+  "legs": [],
+  "manual_object_reposition_required": false,
+  "automatic_action_retry": false,
+  "task_finished_sent": false,
+  "untouched_unity_spawn_start_verified": false,
+  "start_kind": "fresh_current_empty_pose_after_automatic_object_reset",
+  "current_leg": "00-initial-reset",
+  "current_kind": "automatic_reset",
+  "failed_leg_result": {
+    "output": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/pepper-automatic-rounds-20261024-01/legs/00-initial-reset",
+    "stage": "navigate_source",
+    "reason": "child_action_failed:/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/pepper-automatic-rounds-20261024-01/legs/00-initial-reset/source-navigation.json:stale_navigation_feedback:joints",
+    "physical_transfer_verified": false,
+    "last_fresh_robot_state": null
+  },
+  "reason": "leg_stopped:00-initial-reset:child_action_failed:/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/pepper-automatic-rounds-20261024-01/legs/00-initial-reset/source-navigation.json:stale_navigation_feedback:joints",
+  "all_requested_rounds_verified": false,
+  "elapsed_s": 17.168054561
+}

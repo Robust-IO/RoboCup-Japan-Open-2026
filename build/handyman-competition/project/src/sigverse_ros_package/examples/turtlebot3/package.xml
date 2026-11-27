@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>sigverse_turtlebot3</name>
+  <version>2.0.0</version>
+  <description>Sample package for TurtleBot3 with OpenManipulator Chain</description>
+  <maintainer email="inamura.laboratory@gmail.com">inamura laboratory</maintainer>
+  <license>SIGVerse License</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>trajectory_msgs</depend>
+  <depend>builtin_interfaces</depend>
+  <depend>tf2_ros</depend>
+  <depend>yolo_msgs</depend>
+  <depend>visualization_msgs</depend>
+  <depend>moveit_ros_planning_interface</depend>
+
+  <exec_depend>sigverse_turtlebot3_manipulation_hardware</exec_depend>
+  <exec_depend>sigverse_turtlebot3_manipulation_description</exec_depend>
+  <exec_depend>sigverse_turtlebot3_manipulation_moveit_config</exec_depend>
+  <exec_depend>rosbridge_server</exec_depend>
+  <exec_depend>sigverse_ros_bridge</exec_depend>
+  
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
+

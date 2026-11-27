@@ -1,0 +1,161 @@
+{
+  "target": [
+    2.05,
+    2.55,
+    1.5707963267948966
+  ],
+  "grip_commands_sent": false,
+  "goal_precision_changed": false,
+  "parameters_changed": true,
+  "motion_profile": "balanced_v1",
+  "speed_contexts": [
+    {
+      "waypoint": 0,
+      "start_distance_m": 2.921022291452629,
+      "requested_caps": [
+        0.24,
+        0.24,
+        0.3
+      ]
+    },
+    {
+      "waypoint": 1,
+      "start_distance_m": 1.4595267953560633,
+      "requested_caps": [
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "waypoint": 2,
+      "start_distance_m": 4.313551482946235,
+      "requested_caps": [
+        0.24,
+        0.24,
+        0.3
+      ]
+    },
+    {
+      "waypoint": 3,
+      "start_distance_m": 1.447674665672716,
+      "requested_caps": [
+        0.2,
+        0.2,
+        0.2
+      ]
+    },
+    {
+      "waypoint": 4,
+      "start_distance_m": 4.541264010673008,
+      "requested_caps": [
+        0.24,
+        0.24,
+        0.3
+      ]
+    }
+  ],
+  "start": [
+    9.871566044425743,
+    -6.72417799468085,
+    0.0736161807568816
+  ],
+  "current_precision": [
+    0.06,
+    0.08,
+    0.06
+  ],
+  "reached": [
+    {
+      "index": 0,
+      "target": [
+        6.99,
+        -6.243535,
+        3.141593
+      ],
+      "actual": [
+        7.049513139662322,
+        -6.237221402343242,
+        -3.0638808143937855
+      ],
+      "error_m": 0.05984709941040095,
+      "yaw_error_rad": 0.07771149278580071,
+      "status": 4
+    },
+    {
+      "index": 1,
+      "target": [
+        5.59,
+        -6.243535,
+        1.630702
+      ],
+      "actual": [
+        5.633527045841516,
+        -6.211419250367177,
+        1.7075091549492816
+      ],
+      "error_m": 0.05409274530071126,
+      "yaw_error_rad": 0.07680715494928148,
+      "status": 4
+    },
+    {
+      "index": 2,
+      "target": [
+        5.33,
+        -1.90856,
+        1.570796
+      ],
+      "actual": [
+        5.366144658155699,
+        -1.9557833764410448,
+        1.645919118656108
+      ],
+      "error_m": 0.0594683411210113,
+      "yaw_error_rad": 0.07512311865610788,
+      "status": 4
+    },
+    {
+      "index": 3,
+      "target": [
+        5.33,
+        -0.50856,
+        2.342665
+      ],
+      "actual": [
+        5.359405213342864,
+        -0.5598096322014579,
+        2.265244797986507
+      ],
+      "error_m": 0.05908630444124974,
+      "yaw_error_rad": 0.07742020201349309,
+      "status": 4
+    },
+    {
+      "index": 4,
+      "target": [
+        2.05,
+        2.55,
+        1.5707963267948966
+      ],
+      "actual": [
+        2.1016850691250184,
+        2.529456302232914,
+        1.64545070307504
+      ],
+      "error_m": 0.0556182513964914,
+      "yaw_error_rad": 0.07465437628014347,
+      "status": 4
+    }
+  ],
+  "action_status": 4,
+  "final_pose": [
+    2.1016850691250184,
+    2.529456302232914,
+    1.64545070307504
+  ],
+  "position_error_m": 0.0556182513964914,
+  "status": "arrived",
+  "nav_reset": true,
+  "speed_parameters_restored": true,
+  "speed_parameters_changed": true
+}

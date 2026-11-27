@@ -1,0 +1,18 @@
+{
+  "robot_commands_sent": false,
+  "nodes": [
+    "/controller_server"
+  ],
+  "parameters": {
+    "/controller_server": {
+      "FollowPath.max_vel_x": 0.2,
+      "FollowPath.max_vel_y": 0.0,
+      "FollowPath.max_speed_xy": 0.2,
+      "FollowPath.max_vel_theta": 0.2,
+      "FollowPath.acc_lim_x": 0.8,
+      "FollowPath.acc_lim_y": 1.0,
+      "FollowPath.acc_lim_theta": 0.5,
+      "FollowPath.decel_lim_theta": -0.5
+    }
+  }
+}

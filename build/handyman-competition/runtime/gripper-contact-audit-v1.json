@@ -1,0 +1,66 @@
+{
+  "contacts": [
+    {
+      "side": 1,
+      "chain": [
+        "Entrance",
+        "RightFingerTrigger",
+        "hand_r_finger_tip_frame",
+        "hand_r_distal_link",
+        "hand_r_mimic_distal_link",
+        "hand_r_spring_proximal_link",
+        "hand_r_proximal_link"
+      ],
+      "palm_ros_center": [
+        0.0,
+        0.005200000000000004,
+        0.07640000000000001
+      ],
+      "palm_ros_min": [
+        -0.0175,
+        0.004200000000000001,
+        0.06390000000000001
+      ],
+      "palm_ros_max": [
+        0.0175,
+        0.006200000000000007,
+        0.0889
+      ]
+    },
+    {
+      "side": 0,
+      "chain": [
+        "Entrance",
+        "LeftFingerTrigger",
+        "hand_l_finger_tip_frame",
+        "hand_l_distal_link",
+        "hand_l_mimic_distal_link",
+        "hand_l_spring_proximal_link",
+        "hand_l_proximal_link"
+      ],
+      "palm_ros_center": [
+        1.3700000000074763e-07,
+        -0.005100000000000005,
+        0.07640000000000001
+      ],
+      "palm_ros_min": [
+        -0.017499863,
+        -0.006100000000000007,
+        0.06390000000000001
+      ],
+      "palm_ros_max": [
+        0.017500137000000002,
+        -0.004100000000000001,
+        0.0889
+      ]
+    }
+  ],
+  "relevant_variant_overrides": [],
+  "removed_relevant_components": [],
+  "motion_authorized": false,
+  "limitations": [
+    "Base prefab authored zero finger angles only; changing aperture changes contact positions.",
+    "Variant overrides listed, not applied.",
+    "Does not inspect scene-instance overrides or sweep collision."
+  ]
+}

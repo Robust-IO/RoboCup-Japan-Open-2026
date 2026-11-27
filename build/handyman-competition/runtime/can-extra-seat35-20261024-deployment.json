@@ -1,0 +1,25 @@
+{
+  "status": "optional_can_extra_seating_deployed",
+  "tests": 598,
+  "hashes": {
+    "canned_grasp_geometry.py": "c9c4249f5cb1864fc38e284419f96b6b73afe993ffe10b73f01f0989f76b46f4",
+    "canned_grasp_runtime.py": "6374c5a03b8a5b8a398156443f6681cd5d54dac72e58b15bab87ed76f4348196",
+    "run_canned_grasp_trial.py": "68f6e4be97c4f7e8e9b41b5701fdd91f1962d4835ea2b7e7e384be2e92c8da88",
+    "test_canned_grasp_geometry.py": "c51364e6dde484af93cad209ac206416436fdf1299dcc082f5f59e0a23c264e2",
+    "OBJECT_TRANSFER.txt": "81095ec8bd1ad7a2e3787f89c8d85db64edb1474435f8f42654fd9bc9ba29162"
+  },
+  "previous_hashes": {
+    "canned_grasp_geometry.py": "f3613fcd49b1c982533c5a7ade07e057b923934b817d296da22ec78715d21425",
+    "canned_grasp_runtime.py": "a9c7ce61332a7405c528d8a9c2874af0fcc0db3053c4b6e8a87e08939d5feac0",
+    "run_canned_grasp_trial.py": "d3805cc241458b3a8a5937ceae27062299ee7bc6a2cd9c4fcdc7789b6bcf74e4",
+    "test_canned_grasp_geometry.py": "07992234a58f708ca62c9265b8b991e4aee112d1887265e53d75e7d87454221c",
+    "OBJECT_TRANSFER.txt": "492c626b46f38b0efc7605cb8e5c19a7e36e4bacda99fc805364e89e0d363bfd"
+  },
+  "experiment_extra_seat_m": 0.035,
+  "default_extra_seat_m": 0.0,
+  "side_and_height_calibration_changed": false,
+  "record_postclose_pose_diagnostic_only": true,
+  "original_navigation_model_and_apple_unchanged": true,
+  "robot_commands_sent": false,
+  "live_trial_still_required": true
+}

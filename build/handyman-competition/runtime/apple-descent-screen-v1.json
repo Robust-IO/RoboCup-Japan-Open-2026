@@ -1,0 +1,1031 @@
+{
+  "motion_authorized": false,
+  "table_source": "phase5-apple-down-scene-v1; historical visible edge estimate",
+  "table_height_m": 0.496,
+  "margin_m": 0.03,
+  "extra_lift_m": 0.12,
+  "samples_per_phase": 41,
+  "rows": [
+    {
+      "phase": "descent",
+      "fraction": 0.0,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.0,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.025,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.025,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.05,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.05,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.07500000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.07500000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.1,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.1,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.125,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.125,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.15000000000000002,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.15000000000000002,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.17500000000000002,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.17500000000000002,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.2,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.2,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.225,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.225,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.25,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.25,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.275,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.275,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.5252660082594669
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.6857981936012176
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.30000000000000004,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.30000000000000004,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.5210160082594669
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.6815481936012177
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.325,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.325,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.516766008259467
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.6772981936012177
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.35000000000000003,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.35000000000000003,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.512516008259467
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.6730481936012177
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.375,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.375,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.508266008259467
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.6687981936012177
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.4,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.4,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.5040160082594669
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.6645481936012176
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.42500000000000004,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.42500000000000004,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.499766008259467
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.6602981936012177
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.45,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.45,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.495516008259467
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.6560481936012177
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.47500000000000003,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.47500000000000003,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.4912660082594669
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.6517981936012176
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.5,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.5,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.48701600825946706
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.6475481936012177
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.525,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.525,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.48276600825946697
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.6432981936012176
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.55,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.55,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.478516008259467
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.6390481936012177
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.5750000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.5750000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.474266008259467
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.6347981936012177
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.6000000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.6000000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.47001600825946693
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.6305481936012176
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.625,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.625,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.46576600825946707
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.6262981936012177
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.65,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.65,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.46151600825946704
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.6220481936012178
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.675,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.675,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.45726600825946706
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.6177981936012178
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.7000000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.7000000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.45301600825946703
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.6135481936012177
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.7250000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.7250000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.44876600825946705
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.6092981936012177
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.75,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.75,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.444516008259467
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.6050481936012178
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.775,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.775,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.44026600825946705
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.6007981936012178
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.8,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.8,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.43601600825946707
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.5965481936012178
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.8250000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.8250000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.43176600825946704
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.5922981936012177
+          ]
+        },
+        {
+          "link": "arm_roll_link",
+          "min_xyz": [
+            0.35284171498277145,
+            0.028847208499908447,
+            0.5234076352658619
+          ],
+          "max_xyz": [
+            0.4970031815000437,
+            0.1378631501197815,
+            0.6226765811204951
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.8500000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.8500000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.427516008259467
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.5880481936012177
+          ]
+        },
+        {
+          "link": "arm_roll_link",
+          "min_xyz": [
+            0.35284171498277145,
+            0.028847208499908447,
+            0.5191576352658618
+          ],
+          "max_xyz": [
+            0.4970031815000437,
+            0.1378631501197815,
+            0.618426581120495
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.875,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.875,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.42326600825946703
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.5837981936012178
+          ]
+        },
+        {
+          "link": "arm_roll_link",
+          "min_xyz": [
+            0.35284171498277145,
+            0.028847208499908447,
+            0.5149076352658618
+          ],
+          "max_xyz": [
+            0.4970031815000437,
+            0.1378631501197815,
+            0.614176581120495
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.9,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.9,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.41901600825946705
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.5795481936012178
+          ]
+        },
+        {
+          "link": "arm_roll_link",
+          "min_xyz": [
+            0.35284171498277145,
+            0.028847208499908447,
+            0.5106576352658618
+          ],
+          "max_xyz": [
+            0.4970031815000437,
+            0.1378631501197815,
+            0.609926581120495
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.925,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.925,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.414766008259467
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.5752981936012177
+          ]
+        },
+        {
+          "link": "arm_roll_link",
+          "min_xyz": [
+            0.35284171498277145,
+            0.028847208499908447,
+            0.5064076352658619
+          ],
+          "max_xyz": [
+            0.4970031815000437,
+            0.1378631501197815,
+            0.605676581120495
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.9500000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.9500000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.410516008259467
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.5710481936012177
+          ]
+        },
+        {
+          "link": "arm_roll_link",
+          "min_xyz": [
+            0.35284171498277145,
+            0.028847208499908447,
+            0.5021576352658618
+          ],
+          "max_xyz": [
+            0.4970031815000437,
+            0.1378631501197815,
+            0.601426581120495
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.9750000000000001,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 0.9750000000000001,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.406266008259467
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.5667981936012177
+          ]
+        },
+        {
+          "link": "arm_roll_link",
+          "min_xyz": [
+            0.35284171498277145,
+            0.028847208499908447,
+            0.4979076352658618
+          ],
+          "max_xyz": [
+            0.4970031815000437,
+            0.1378631501197815,
+            0.597176581120495
+          ]
+        }
+      ]
+    },
+    {
+      "phase": "descent",
+      "fraction": 1.0,
+      "base_advance_m": 0.0,
+      "possible_table_overlap": []
+    },
+    {
+      "phase": "descent",
+      "fraction": 1.0,
+      "base_advance_m": 0.2326416637,
+      "possible_table_overlap": [
+        {
+          "link": "arm_flex_link",
+          "min_xyz": [
+            0.10412079167006971,
+            0.027676699936389923,
+            0.40201600825946704
+          ],
+          "max_xyz": [
+            0.3757546320681282,
+            0.14465556877851488,
+            0.5625481936012178
+          ]
+        },
+        {
+          "link": "arm_roll_link",
+          "min_xyz": [
+            0.35284171498277145,
+            0.028847208499908447,
+            0.4936576352658618
+          ],
+          "max_xyz": [
+            0.4970031815000437,
+            0.1378631501197815,
+            0.592926581120495
+          ]
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Mesh AABBs vs conservative infinite table prism, not exact collider collision.",
+    "Sampled path, not continuous sweep; scene overrides and other obstacles unverified.",
+    "No robot self-collision check; geometry screen alone does not authorize motion."
+  ]
+}

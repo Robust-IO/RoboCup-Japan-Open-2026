@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "objects": {
+    "apple": {
+      "class_id": 0,
+      "geometry": "legacy_apple_red_sphere",
+      "status": "legacy_profile_live_verified",
+      "identity_confidence": 0.8,
+      "geometry_confidence": 0.1,
+      "live_entry": "apple_transfer_automation.py",
+      "note": "Existing r19 apple entry only; not a generic motion authorization."
+    },
+    "canned_juice": {
+      "class_id": 3,
+      "geometry": "upright_cylinder_rgbd",
+      "status": "observation_candidate_pending_live_validation",
+      "identity_confidence": 0.8,
+      "geometry_confidence": 0.1,
+      "radius_range_m": [
+        0.01,
+        0.06
+      ],
+      "height_range_m": [
+        0.035,
+        0.2
+      ],
+      "note": "Provisional upright-can observation envelope, not calibrated object dimensions or grasp authority."
+    },
+    "ground_pepper": {
+      "class_id": 11,
+      "geometry": "round_shaker_rgbd",
+      "status": "three_complete_fixed_route_forward_runs_verified_across_resume",
+      "identity_confidence": 0.8,
+      "geometry_confidence": 0.1,
+      "body_radius_range_m": [
+        0.015,
+        0.045
+      ],
+      "cap_radius_range_m": [
+        0.008,
+        0.03
+      ],
+      "height_range_m": [
+        0.04,
+        0.12
+      ],
+      "note": "Three complete LayoutA bedroom-white-table to living-room-square-table forward application runs verified across pause/restart on 2026-10-25. See ground-pepper-three-rounds-success-progress-20261025.json; no statistical success rate claimed."
+    },
+    "rubiks_cube": {
+      "class_id": 16,
+      "geometry": "upright_cube_rgbd",
+      "status": "observation_candidate_pending_live_validation",
+      "identity_confidence": 0.8,
+      "geometry_confidence": 0.1,
+      "side_range_m": [
+        0.02,
+        0.12
+      ],
+      "note": "Provisional observation envelope, NOT exported true dimensions. Upright cube with visible top and local support required; no robot motion enabled."
+    },
+    "toy_penguin": {
+      "class_id": 24,
+      "geometry": "penguin_two_surface_rgbd",
+      "status": "one_uninterrupted_head_grasp_transfer_verified",
+      "identity_confidence": 0.8,
+      "geometry_confidence": 0.1,
+      "body_radius_range_m": [
+        0.03,
+        0.07
+      ],
+      "head_radius_range_m": [
+        0.015,
+        0.035
+      ],
+      "height_range_m": [
+        0.08,
+        0.17
+      ],
+      "grasp_part": "head",
+      "note": "One uninterrupted native bedroom-to-living-room transfer verified on 2026-10-26 with resident model and carry_fast_v1; one close, one release, empty tucked finish. Hand-RGB hold proof and explicit kinematic held-pose estimates; independent actual body/head RGBD after release. Single trial, no statistical success-rate claim. No Unity object coordinates."
+    }
+  }
+}

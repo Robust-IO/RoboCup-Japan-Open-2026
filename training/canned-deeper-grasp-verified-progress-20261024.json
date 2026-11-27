@@ -1,0 +1,117 @@
+{
+  "status": "reviewed_deeper_can_grasp_and_five_cm_lift_verified",
+  "saved_ns": 1792773649985314127,
+  "branch": "feat/handyman-phase5-grasping",
+  "boot_id": "03e2ce8b-528d-4517-a5f5-5aa905f81a77",
+  "object": "canned_juice",
+  "layout": "LayoutA",
+  "source": "white_side_table#bedroom_1",
+  "intended_destination": "square_low_table#living_room",
+  "original_failed_auto_run": "D:/handyman-training-runs/can-auto-live-20261024-08",
+  "original_failed_auto_run_verdict_preserved": true,
+  "automatic_full_transfer_verified": false,
+  "default_initial_pose_full_run_verified": false,
+  "reviewed_deeper_grasp_verified": true,
+  "user_requested_extra_forward_before_closing": true,
+  "extra_forward_m": 0.04,
+  "extra_forward_commands": 1,
+  "wider_opening_before_new_close_rad": 0.85,
+  "actual_new_deeper_close_commands": 1,
+  "original_run08_close_commands": 1,
+  "total_close_commands_since_run08": 2,
+  "five_cm_lift_commands": 1,
+  "new_grasp_command_not_replayed_during_lift": true,
+  "actual_green_surface_lift_m": [
+    0.050432535915482024,
+    0.050443908032099194,
+    0.050468791358277865
+  ],
+  "actual_green_depth_points_per_frame": [
+    19,
+    19,
+    19
+  ],
+  "current_hold_three_frames_verified": true,
+  "robot_now_holding_can": true,
+  "can_pose_still_tilted": true,
+  "arm_retracted": false,
+  "can_carry_or_placement_verified": false,
+  "task_finished_sent": false,
+  "current_holding_opening_rad": 0.6884801999369827,
+  "last_measured_robot_state": {
+    "joints": [
+      0.33132404088974,
+      -1.7000001065434844,
+      0.0,
+      0.1292036754032555,
+      0.0,
+      0.6884801999369827
+    ],
+    "poses": {
+      "map": [
+        10.316871844417108,
+        -6.818904235925648,
+        0.06902000837006238
+      ],
+      "odom": [
+        9.132476806640625,
+        -6.820072174072266,
+        0.06896540762097407
+      ]
+    },
+    "stamp_ns": 1792773495709000000
+  },
+  "last_state_is_record_not_future_motion_authorization": true,
+  "original_automation_regression_tests": 591,
+  "latest_expected_hashes": {
+    "run_canned_grasp_trial.py": "cdc1ad89a754c1a04d258fd29a6fa7642dba3fa3489000304f3f52f8e4397632",
+    "run_canned_carry_trial.py": "eaafdca975ac703b2b14e07a6be4a958f062de7996c6d44d9cb0029b22d757f8",
+    "run_canned_place_trial.py": "cdacc984f33272acc12cc08ef5e73e0ef7d7699d6ccf4f1eae0236c9de33bc84",
+    "can_transfer_context.py": "6fa7295ad35c788ab9143d338bc9bf745c143359aed8e308eb126f9ba678f900",
+    "can_transfer_automation.py": "171abbef8fcd610e89942069b5ba831cedd43f802d9021e86cca58b116850622",
+    "run_object_transfer.py": "6230e3f820297f104c3c167e421795c6f27c7469cb39c3588bdd39d226e536c5",
+    "test_can_transfer_automation.py": "d16de88a548b2e635962153bf12ca04d319557e5a33be7c58ee6c19f7a826329",
+    "run_object_transfer.sh": "4162cb1f2608e0f53aba557a244f7f3014667d440545fa994a81db17fe40ab48",
+    "OBJECT_TRANSFER.txt": "08508a26692bd9b8708a6bf7f00bf46791e94111f9d2bd4a2f62d14364a7b4ae",
+    "canned_grasp_geometry.py": "a7f620be97a08566df8161b4daa32019e633225f42ee06df024c8075810125d1",
+    "canned_carry_geometry.py": "ccd7b5b979a35067f8e97534bdf05e8fbd8f49a61b79b84a628fc9f600bb6ced",
+    "held_can_appearance.py": "c27828aff5de8e34f6190b30cb4f35c0549e0129c2bde42745ac2d86c2daac3f",
+    "canned_place_geometry.py": "b1d26edd861ff03ac8e4d802841d7ddc5ff2e1caa56870de98db43ed55fa2dd0",
+    "tracked_can_cap_geometry.py": "9a1bbfd8458f6963eca894f44a8a069f6d3e878ad620f3855aeec1ef75f3281b",
+    "test_tracked_can_cap_geometry.py": "c2904c0103666c81953b290770a53895da836de8d46e55a458aa49699037312a",
+    "can_release_timing.py": "da5fca38b57d092dd410bd9ea24a6bbd56682a8a0db3c486ceb973ef7b1d281a",
+    "test_can_release_timing.py": "f7895c16fd760ba74f50a574b5e8369a4cfd6ce8faafd95b2e7ffefd020fa34a",
+    "can_destination_surface.py": "2f64b65b3b0cabc3c2f21c1708bde6863380521073f40c4938f31a83337ad12a",
+    "test_can_destination_surface.py": "e5227acc86464c611cafb038d3ec3f199752dad6ea3132aeb5a04752166ef85c",
+    "can_identity_selection.py": "11f8df847fcc15e432d83285018abe6f10d83f411a89e0f12e995045fcb17bb1",
+    "test_can_identity_selection.py": "20595a2a3226bed9910b99861935492ab82d049c08e1eff52e9352a27cb335cd",
+    "canned_grasp_runtime.py": "df65d65686c47f9c090e1f5825c41ae84165e778a7f181b937a7c7bdce8b489b",
+    "test_canned_grasp_geometry.py": "6d4bfa93f053c562cb07b7f799a9892763dc7a5d1bbe2d1e1b417e1134c99305",
+    "pregrasp_raised_trial.py": "9b2c48c882bc4a5d295fa93ebb7a1dc23239ae8ceb81cb50b0836a28abe63017",
+    "can_arm_startup.py": "186d1ec0ce96098bc618f547c9ebdcea4f121a6032b93008f63db246ec6605c6",
+    "test_can_arm_startup.py": "8a29e5789e48c141f8f0207ac7722b22bab1cb953316d20cc9c093a4f309468d",
+    "can_approach_plan.py": "e84ed5cc859bdc35e76dbf1bfffa5322ecfe4448d977a1cc657572237922d2e4",
+    "test_can_approach_plan.py": "3ac40689dda02815ea0dc5dc94ebb37dfdc04eb62e90ab98ebd0cd2b02701c9c"
+  },
+  "deeper_seating_and_wider_open_not_yet_integrated_in_production": true,
+  "production_can_adapter_maximum_holding_opening_rad": 0.62,
+  "production_release_opening_target_rad": 0.65,
+  "requires_grip_and_release_policy_adaptation_before_standard_carry_or_place": true,
+  "observation": "Can-only green body features in registered depth follow the measured palm lift in three frames, with unchanged grip. Later current frames retain that displacement. Full object center/axis is not reconstructed here.",
+  "mixed_silver_probe_not_used_as_sole_grasp_evidence": true,
+  "hand_pixel_flow_outlier_warning_preserved": true,
+  "actual_evidence": {
+    "extra_forward": "D:/handyman-training-runs/can08-forward-four-cm-20261024-01/result.json",
+    "new_close": "D:/handyman-training-runs/can08-deeper-close-20261024-01/result.json",
+    "lift": "D:/handyman-training-runs/can08-deeper-lift-probe-20261024-01/result.json",
+    "independent_green_depth": "D:/handyman-training-runs/can08-green-depth-final-verification-20261024-01/result.json",
+    "current_hold": "D:/handyman-training-runs/can08-current-green-held-verification-20261024-01/result.json"
+  },
+  "next": [
+    "Robot is currently holding the tilted can in the extended horizontal arm, lifted5cm. Do not reopen, repeat closure, repeat the4cm advance or run an empty-start entry.",
+    "This reviewed trial verified one deeper grasp; no retraction, carry or placement was executed. Original automatic run08 stays failed.",
+    "Before standard carry/place, adapt actual holding opening0.68848 and a release opening larger than that. The old0.65 release target would close further rather than open.",
+    "Production guards also assume holding<=0.62 and a10cm lift; current real state is5cm above contact. Do not pass an invented compliant grip/pose or historical held context.",
+    "Reacquire new current RGBD/joints before any further robot action. Grasp depth, opening and release policy require an end-to-end fresh regression before claiming full automation."
+  ]
+}

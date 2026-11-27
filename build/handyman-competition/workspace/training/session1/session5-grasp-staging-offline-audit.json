@@ -1,0 +1,118 @@
+{
+  "method": "static_footprint_grid_path_and_support_sightline",
+  "footprint_radius_m": 0.26109759058979437,
+  "candidates": [
+    {
+      "index": 0,
+      "pose": [
+        0.5189999999999997,
+        8.190648042585206,
+        0.0
+      ],
+      "path_length_m": null,
+      "view_clear": false,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 1,
+      "pose": [
+        0.3689999999999998,
+        8.190648042585206,
+        0.0
+      ],
+      "path_length_m": null,
+      "view_clear": false,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 2,
+      "pose": [
+        0.21899999999999986,
+        8.190648042585206,
+        0.0
+      ],
+      "path_length_m": null,
+      "view_clear": false,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 3,
+      "pose": [
+        3.119,
+        8.346548045785205,
+        -3.141592653589793
+      ],
+      "path_length_m": null,
+      "view_clear": false,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 4,
+      "pose": [
+        3.269,
+        8.346548045785205,
+        -3.141592653589793
+      ],
+      "path_length_m": null,
+      "view_clear": false,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 5,
+      "pose": [
+        3.419,
+        8.346548045785205,
+        -3.141592653589793
+      ],
+      "path_length_m": null,
+      "view_clear": false,
+      "rejected_reason": "unreachable_on_static_footprint_grid"
+    },
+    {
+      "index": 6,
+      "pose": [
+        2.48147356729581,
+        7.559,
+        1.5707963267948966
+      ],
+      "path_length_m": 0.9363961030678926,
+      "view_clear": true,
+      "rejected_reason": null
+    },
+    {
+      "index": 7,
+      "pose": [
+        2.48147356729581,
+        7.409,
+        1.5707963267948966
+      ],
+      "path_length_m": 0.7863961030678926,
+      "view_clear": true,
+      "rejected_reason": null
+    },
+    {
+      "index": 8,
+      "pose": [
+        2.48147356729581,
+        7.259,
+        1.5707963267948966
+      ],
+      "path_length_m": 0.6363961030678928,
+      "view_clear": true,
+      "rejected_reason": null
+    }
+  ],
+  "ranked_indices": [
+    8,
+    7,
+    6
+  ],
+  "dynamic_obstacles_evaluated": false,
+  "target_map": [
+    2.40352356569581,
+    8.268598044185206,
+    0.7941872820736674
+  ],
+  "robot_commands_sent": false,
+  "start_pose_basis": "saved_pregrasp_navigation_endpoint_not_current_tf"
+}

@@ -1,0 +1,17 @@
+{
+  "started_ns": 1793526491813229250,
+  "old_owner_pid": 12,
+  "new_owner_launcher_pid": 3645,
+  "command": [
+    "bash",
+    "-lc",
+    "source /opt/ros/humble/setup.bash; source /home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/project/install/setup.bash; export ROS_LOG_DIR=/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/cigarette-bridge-restart-20261101-01-roslogs; exec /usr/bin/python3 /home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/project/training/scripts/cyclone_test_env.py --domain 71 --dds-config /home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/project/training/config/cyclone_search_stack.xml --run -- /usr/bin/python3 /home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/hold_cigarette_bridges_20261101.py"
+  ],
+  "robot_commands_sent": false,
+  "task": {
+    "object": "cigarette",
+    "source_room": "bedroom",
+    "destination": "square_low_table"
+  },
+  "next_action": "wait_until_bridges_listen_then_enter_Unity_Play_and_check_unique_command_receivers"
+}

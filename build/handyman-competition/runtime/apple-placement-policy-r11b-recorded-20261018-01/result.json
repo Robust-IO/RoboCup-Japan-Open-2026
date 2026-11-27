@@ -1,0 +1,126 @@
+{
+  "status": "recorded_replanning_passed",
+  "frames": 5,
+  "rows": [
+    {
+      "capture": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-navigation-feedback-r10-live-place-20261018-01/destination-outside/000000",
+      "original_depth_stamp_ns": 1792312228968206141,
+      "planned_approach_distance_m": 0.32114276256412627,
+      "release_xy_map_m": [
+        1.9625000000000001,
+        3.5325
+      ],
+      "patch_clear": true,
+      "table_edge_safety": {
+        "safe": true,
+        "center_to_unsupported_m": 0.09214463705194992,
+        "object_radius_m": 0.029359741417128975,
+        "outer_clearance_lower_estimate_m": 0.06278489563482094,
+        "minimum_outer_gap_m": 0.03,
+        "uncertainty_allowance_m": 0.01,
+        "basis": "observed_table_support_not_furniture_aabb"
+      }
+    },
+    {
+      "capture": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-navigation-feedback-r10-live-place-20261018-01/destination-outside/000001",
+      "original_depth_stamp_ns": 1792312231113599613,
+      "planned_approach_distance_m": 0.32012884171666367,
+      "release_xy_map_m": [
+        1.9625000000000001,
+        3.5325
+      ],
+      "patch_clear": true,
+      "table_edge_safety": {
+        "safe": true,
+        "center_to_unsupported_m": 0.09280433907431736,
+        "object_radius_m": 0.029359741417128975,
+        "outer_clearance_lower_estimate_m": 0.06344459765718838,
+        "minimum_outer_gap_m": 0.03,
+        "uncertainty_allowance_m": 0.01,
+        "basis": "observed_table_support_not_furniture_aabb"
+      }
+    },
+    {
+      "capture": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-navigation-feedback-r10-live-place-20261018-01/destination-outside/000002",
+      "original_depth_stamp_ns": 1792312232011239282,
+      "planned_approach_distance_m": 0.3218633910692058,
+      "release_xy_map_m": [
+        1.9625000000000001,
+        3.5325
+      ],
+      "patch_clear": true,
+      "table_edge_safety": {
+        "safe": true,
+        "center_to_unsupported_m": 0.09214463705194992,
+        "object_radius_m": 0.029359741417128975,
+        "outer_clearance_lower_estimate_m": 0.06278489563482094,
+        "minimum_outer_gap_m": 0.03,
+        "uncertainty_allowance_m": 0.01,
+        "basis": "observed_table_support_not_furniture_aabb"
+      }
+    },
+    {
+      "capture": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-navigation-feedback-r10-live-place-20261018-01/destination-outside/000003",
+      "original_depth_stamp_ns": 1792312232945573122,
+      "planned_approach_distance_m": 0.3220327907967123,
+      "release_xy_map_m": [
+        1.9625000000000001,
+        3.5325
+      ],
+      "patch_clear": true,
+      "table_edge_safety": {
+        "safe": true,
+        "center_to_unsupported_m": 0.09214463705194992,
+        "object_radius_m": 0.029359741417128975,
+        "outer_clearance_lower_estimate_m": 0.06278489563482094,
+        "minimum_outer_gap_m": 0.03,
+        "uncertainty_allowance_m": 0.01,
+        "basis": "observed_table_support_not_furniture_aabb"
+      }
+    },
+    {
+      "capture": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-navigation-feedback-r10-live-place-20261018-01/destination-outside/000004",
+      "original_depth_stamp_ns": 1792312235312115193,
+      "planned_approach_distance_m": 0.320931136930289,
+      "release_xy_map_m": [
+        1.9625000000000001,
+        3.5325
+      ],
+      "patch_clear": true,
+      "table_edge_safety": {
+        "safe": true,
+        "center_to_unsupported_m": 0.09280433907431736,
+        "object_radius_m": 0.029359741417128975,
+        "outer_clearance_lower_estimate_m": 0.06344459765718838,
+        "minimum_outer_gap_m": 0.03,
+        "uncertainty_allowance_m": 0.01,
+        "basis": "observed_table_support_not_furniture_aabb"
+      }
+    }
+  ],
+  "original_hashes": {
+    "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-gate-pruning-live-carry-place-20261018-01/verified-held-geometry.json": "b77d84de8d39e802d0d68e8d00091b6dd289002ff3fea1e1c80514ad33cae033",
+    "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-navigation-feedback-r10-live-place-20261018-01/destination-outside/000000/snapshot.json": "75bc0bd256517bd8d9e74c8de96e28a62c04d920dee2d231981b8cc1cec7da72",
+    "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-navigation-feedback-r10-live-place-20261018-01/destination-outside/000000/depth_m.npy": "5db9968396138025864f2575a34bda8ff3b12d6007684ab6df2d244569aaefa4",
+    "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-navigation-feedback-r10-live-place-20261018-01/destination-outside/000000/rgb.png": "0aa9d29d4f996fe8566678d30a3c37eb5f1e43436db55035e0b6c8eb33fdd395",
+    "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-navigation-feedback-r10-live-place-20261018-01/destination-outside/000001/snapshot.json": "38331bef9dad3d44bb30abf785b63dcc082033f2451a407e20486e55a0a266f0",
+    "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-navigation-feedback-r10-live-place-20261018-01/destination-outside/000001/depth_m.npy": "17f1e40109a0243c851c066f82b0fbe06b3e4d9987406503eccd029126cf0b18",
+    "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-navigation-feedback-r10-live-place-20261018-01/destination-outside/000001/rgb.png": "5b1d96bb8700293603dccc62c3c33f68c339155dff44caa29d2f9fd9569f6798",
+    "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-navigation-feedback-r10-live-place-20261018-01/destination-outside/000002/snapshot.json": "8f46556bbbb43098a91b54e9da5a41d87cc39906497526bb2575fc579b157782",
+    "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-navigation-feedback-r10-live-place-20261018-01/destination-outside/000002/depth_m.npy": "17f1e40109a0243c851c066f82b0fbe06b3e4d9987406503eccd029126cf0b18",
+    "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-navigation-feedback-r10-live-place-20261018-01/destination-outside/000002/rgb.png": "0aa9d29d4f996fe8566678d30a3c37eb5f1e43436db55035e0b6c8eb33fdd395",
+    "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-navigation-feedback-r10-live-place-20261018-01/destination-outside/000003/snapshot.json": "372329430b3237da24c142a685fd941ccb4a16083a3fd1895b2ddb9743dd3740",
+    "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-navigation-feedback-r10-live-place-20261018-01/destination-outside/000003/depth_m.npy": "9588e48195e89c72f1a1243f62c73219f343f14b61da40246a3c83fb4d54a0ad",
+    "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-navigation-feedback-r10-live-place-20261018-01/destination-outside/000003/rgb.png": "a4d557ef3cc1fe8040fef38a5555c290b38fea98ac10b44c91ece37da65c8cd6",
+    "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-navigation-feedback-r10-live-place-20261018-01/destination-outside/000004/snapshot.json": "dc005ade7c2134d4b6a2fcab2c34dfdb97feb1765f62b9d03ddfc7cfc4e84f00",
+    "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-navigation-feedback-r10-live-place-20261018-01/destination-outside/000004/depth_m.npy": "b1d82854d6a3c7b026f65d3b9222f9993a3a3416e8422bfdfdceaf1830b594e1",
+    "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-navigation-feedback-r10-live-place-20261018-01/destination-outside/000004/rgb.png": "b762e79bdfde85db03c17d956fa4d30a08397f5d3e23b318cb04f251fcc5987a",
+    "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/apple-navigation-feedback-r10-live-place-20261018-01/result.json": "f5897efd10e7f54bb6cf2a84f8ec3d87a537032ddb9926c148e09691e2f72249"
+  },
+  "original_recordings_and_failed_result_unchanged": true,
+  "robot_commands_sent": false,
+  "live_placement_verified": false,
+  "new_policy_live_test_performed": false,
+  "actual_staging_correction_performed": false,
+  "warning": "Saved-depth planning only. Historical stamps unchanged, predicted arm reach is NOT a measured live held target or motion/release lease."
+}

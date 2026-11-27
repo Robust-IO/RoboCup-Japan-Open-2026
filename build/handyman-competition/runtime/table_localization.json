@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "enabled": true,
+  "scans": 3,
+  "search_radius_m": 0.8,
+  "search_yaw_rad": 0.25,
+  "minimum_inlier_fraction": 0.85,
+  "maximum_score_m": 0.025,
+  "consensus_translation_m": 0.05,
+  "consensus_yaw_rad": 0.03,
+  "correction_translation_m": 0.04,
+  "correction_yaw_rad": 0.025,
+  "maximum_stationary_translation_m": 0.005,
+  "maximum_stationary_yaw_rad": 0.01
+}

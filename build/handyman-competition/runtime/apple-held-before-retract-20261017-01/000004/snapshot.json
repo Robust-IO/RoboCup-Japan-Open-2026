@@ -1,0 +1,273 @@
+{
+  "streams": {
+    "hand_info": {
+      "stamp_ns": 1792239538476449477,
+      "frame": "hand_camera_rgb_frame",
+      "width": 640,
+      "height": 480
+    },
+    "hand": {
+      "stamp_ns": 1792239538484986442,
+      "frame": "hand_camera_rgb_frame",
+      "width": 640,
+      "height": 480
+    },
+    "rgb_info": {
+      "stamp_ns": 1792239538610679827,
+      "frame": "head_rgbd_sensor_rgb_frame",
+      "width": 640,
+      "height": 480
+    },
+    "rgb": {
+      "stamp_ns": 1792239538469638818,
+      "frame": "head_rgbd_sensor_rgb_frame",
+      "width": 640,
+      "height": 480
+    },
+    "depth_info": {
+      "stamp_ns": 1792239538594386403,
+      "frame": "head_rgbd_sensor_depth_frame",
+      "width": 640,
+      "height": 480
+    },
+    "depth": {
+      "stamp_ns": 1792239538450398957,
+      "frame": "head_rgbd_sensor_depth_frame",
+      "width": 640,
+      "height": 480
+    }
+  },
+  "rgb_k": [
+    554.0,
+    0.0,
+    320.0,
+    0.0,
+    554.0,
+    240.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "depth_k": [
+    554.0,
+    0.0,
+    320.0,
+    0.0,
+    554.0,
+    240.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "rgb_d": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "depth_d": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "base_from_rgb": {
+    "translation": [
+      0.053131378122826284,
+      0.02199999988079071,
+      1.1553667826081406
+    ],
+    "quaternion": [
+      0.6081581921967667,
+      -0.6081581921967666,
+      0.3607542283382977,
+      -0.3607542283382977
+    ]
+  },
+  "rgb_from_depth": {
+    "translation": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "quaternion": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  "depth_encoding": "16UC1",
+  "valid_depth_pixels": 307200,
+  "motion_authorized": false,
+  "base_from_hand": {
+    "translation": [
+      0.622669345587786,
+      0.07800000160932541,
+      0.66875654336506
+    ],
+    "quaternion": [
+      0.500000002035854,
+      -0.500000002035854,
+      0.49999999796414596,
+      -0.49999999796414596
+    ]
+  },
+  "palm_from_hand": {
+    "translation": [
+      0.039000000804662704,
+      0.0,
+      -0.0044999998062849045
+    ],
+    "quaternion": [
+      0.0,
+      0.0,
+      0.7071067811865475,
+      0.7071067811865476
+    ]
+  },
+  "hand_from_hand_l_spring_proximal_link": {
+    "translation": [
+      -0.024499999359248292,
+      0.05574986338615506,
+      -0.013000000268220901
+    ],
+    "quaternion": [
+      0.1408137042368665,
+      -0.14081370423686645,
+      -0.6929440819424697,
+      0.6929440819424699
+    ]
+  },
+  "hand_from_hand_r_spring_proximal_link": {
+    "translation": [
+      0.02449999935924918,
+      0.05575000122189433,
+      -0.013000000268220901
+    ],
+    "quaternion": [
+      -0.14081370423686648,
+      0.14081370423686657,
+      -0.6929440819424698,
+      0.6929440819424698
+    ]
+  },
+  "hand_from_hand_l_distal_link": {
+    "translation": [
+      -0.051821285917621474,
+      0.05574986338615595,
+      0.051448020201913636
+    ],
+    "quaternion": [
+      -1.5092094240998212e-16,
+      0.0,
+      -0.7071067811865475,
+      0.7071067811865476
+    ]
+  },
+  "hand_from_hand_r_distal_link": {
+    "translation": [
+      0.05182128591762414,
+      0.055750001221896106,
+      0.05144802020191186
+    ],
+    "quaternion": [
+      -1.5092094240998212e-16,
+      0.0,
+      -0.7071067811865475,
+      0.7071067811865476
+    ]
+  },
+  "hand_k": [
+    205.47,
+    0.0,
+    320.0,
+    0.0,
+    205.47,
+    240.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "hand_d": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "hand_distortion_model": "plumb_bob",
+  "joints": {
+    "arm_lift_joint": 0.3525587320327759,
+    "arm_flex_joint": -1.7000001065434844,
+    "arm_roll_joint": 0.0,
+    "wrist_flex_joint": 0.1292036754032555,
+    "wrist_roll_joint": 0.0,
+    "head_pan_joint": 0.0,
+    "head_tilt_joint": -0.49999996867370555,
+    "torso_lift_joint": 0.17627936601638794,
+    "hand_motor_joint": 0.40096183548032016,
+    "hand_l_proximal_joint": 0.40096183548032016,
+    "hand_l_spring_proximal_joint": 0.0,
+    "hand_l_mimic_distal_joint": 0.0,
+    "hand_l_distal_joint": 5.882223456316922,
+    "hand_r_proximal_joint": -5.882223456316922,
+    "hand_r_spring_proximal_joint": 0.0,
+    "hand_r_mimic_distal_joint": 0.0,
+    "hand_r_distal_joint": -0.40096183548032016
+  },
+  "joint_stamp_ns": 1792239538426000000,
+  "tracking_epoch": "apple-held-before-retract-20261017-01",
+  "tracking_transforms": {
+    "odom_from_base_at_depth": {
+      "translation": [
+        0.947562129402876,
+        0.025909497190615104,
+        9.957754573493017e-06
+      ],
+      "quaternion": [
+        -1.0509391039492891e-06,
+        -1.2586831090836392e-05,
+        0.045721707806573184,
+        0.9989542158055681
+      ],
+      "stamp_ns": 1792239538450398957,
+      "source_frame": "base_link",
+      "target_frame": "odom"
+    },
+    "base_from_odom_at_hand": {
+      "translation": [
+        -0.9462017468977536,
+        0.06072979065416141,
+        1.2196843691148703e-05
+      ],
+      "quaternion": [
+        -8.568947354075055e-06,
+        1.1855567365005208e-05,
+        -0.04577526253064134,
+        0.9989517631629015
+      ],
+      "stamp_ns": 1792239538484986442,
+      "source_frame": "odom",
+      "target_frame": "base_link"
+    },
+    "map_from_base_at_depth": {
+      "translation": [
+        10.117613459514187,
+        -6.708775786800689,
+        7.350051364569677e-06
+      ],
+      "quaternion": [
+        -1.1603117801841861e-06,
+        -1.2577220141280075e-05,
+        0.037036463476961365,
+        0.9993139147503085
+      ],
+      "stamp_ns": 1792239538450398957,
+      "source_frame": "base_link",
+      "target_frame": "map"
+    }
+  }
+}

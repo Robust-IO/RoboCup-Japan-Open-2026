@@ -1,0 +1,35 @@
+收臂后饮料罐持物核验和原路线导航（不含抓取、收臂、放置）
+
+适用状态：同一 Unity/WSL 启动周期内，饮料罐已经过真实 RGBD 抓取/抬升验证，
+并且手臂已经收好、夹爪保持夹持。禁止用此入口开始新抓取或重复收臂。
+
+收臂后罐盖约在头部深度相机前 0.378 米，可能落在 0.4 米近裁剪范围内。
+先尝试真实当前 RGBD 表面核验；仅当近裁剪证据成立时，使用原先经 RGBD
+隔离的罐身颜色、当前罐盖形状、手掌投影区域及当前夹持反馈进行持物外观跟踪。
+必须取得三个新画面；原始时间戳、当前关节反馈和原 400 毫秒时效检查保留。
+RGB 跟踪不测量新的三维物体位置，不创建新物品身份，不用于搜索零深度目标。
+颜色相似的背景、没有罐身的银色区域或只有颜色没有罐盖均不能单独通过。
+
+默认命令仅打印计划，无 ROS 或动作：
+  python3 run_tucked_can_navigation.py
+
+只检查当前持物（无机器人动作），通过既有 domain 71/Cyclone 环境运行：
+  python3 run_tucked_can_navigation.py --observe-only --output NEW_D_DIRECTORY
+
+当前持物通过后，显式运行只含导航的入口：
+  python3 run_tucked_can_navigation.py --run --output NEW_D_DIRECTORY
+
+NEW_D_DIRECTORY 使用 /mnt/d/handyman-training-runs/ 下尚不存在的目录。
+入口只走原 LayoutA 卧室到客厅 square_low_table 准备点的 YAML 路线，
+目标 [2.05, 2.55, pi/2]，精度 [.06, .08, .06] 和 balanced_v1 均沿用原值。
+不发送机械臂或夹爪指令，不松手、不放置、不发送 Task_finished。
+导航结束后重新采集三个新画面核验持物。导航成功但后验失败时分别记录，
+禁止把失败当作可以重放抓取、收臂或整段导航的理由。先读取真实当前位置。
+
+依赖的检查点与原始证据均保留：
+  canned-grasp-lift-live-progress-20261023.json
+  canned-carry-retracted-progress-20261023.json
+  canned-carry-live-20261023-01/before-retract.json
+  canned-carry-live-20261023-01/captures/
+
+记录仅证明当前持物及此次导航；完整自动搬运、最终放置仍需独立实测。

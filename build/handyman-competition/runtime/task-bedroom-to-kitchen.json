@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "id": "layouta-cigarette-bedroom-to-kitchen-v1",
+  "layout": "LayoutA",
+  "object": "cigarette",
+  "source_room": "bedroom",
+  "source_table_id": "white_side_table#bedroom_1",
+  "destination_room": "kitchen",
+  "destination_id": "dining_table#kitchen",
+  "navigation_motion_profile": "efficiency_v1",
+  "instruction": "将卧室原白桌上的香烟放到厨房餐桌上",
+  "source_placement_requires_confirmation": true,
+  "stage_replay": false,
+  "task_finished_sent": false
+}

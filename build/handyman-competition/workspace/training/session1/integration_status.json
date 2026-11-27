@@ -1,0 +1,56 @@
+{
+  "task": "Session1 dog_doll living_room white_side_table -> square_low_table",
+  "live_ready": false,
+  "robot_operations_this_turn": false,
+  "offline_tests": 103,
+  "implemented_modules": [
+    "session1",
+    "executor",
+    "execution_plan",
+    "perception_bridge",
+    "grasp_runtime held-context export",
+    "transfer_actions",
+    "destination_observer",
+    "placement_verification",
+    "target_capture",
+    "hold_observer",
+    "placement_approach",
+    "table_withdrawal",
+    "application (single worker / message loop)",
+    "release_record (sensor clock acknowledgement)",
+    "ros_protocol (real topic/type binding; not launched)",
+    "stage_bindings: 5 concrete navigation/observation/grasp handlers",
+    "transfer_bindings: tuck/place/verify and release-clock handoff",
+    "withdrawal_observer: current physical hand and held envelope",
+    "assembly: all eight handlers and ROS protocol wiring",
+    "runtime_resources: owned lock/ROS/model/runtime/journal lifecycle",
+    "motion_stop: publisher gate, owned navigation cancellation, fresh stationary confirmation",
+    "support_reference: measured pre-lift support level, release orientation checked",
+    "run_live_session1: explicit execution CLI; default file check",
+    "prepare_live_config: isolated Session1 configuration",
+    "live_preflight and main-terminal launcher/handoff; not run live"
+  ],
+  "remaining_integration": [
+    "main-terminal controlled startup preflight and sensor visibility check",
+    "main-terminal live validation of stop timing and complete transfer"
+  ],
+  "known_limitations": [
+    "tucked object may be invisible to head RGBD",
+    "partial visible surface is not complete underside geometry",
+    "table projection does not certify full arm swept volume",
+    "no live session completion demonstrated"
+  ],
+  "dependency_import_check": "7 deployed modules imported successfully without rclpy.init",
+  "entry_available_not_live_validated": true,
+  "assembled_rehearsal": {
+    "status": "passed_with_synthetic_hardware",
+    "physical_transfer_verified": false,
+    "real_stage_bindings_exercised": true,
+    "release_commands_in_simulation": 1,
+    "waits_for_moderator": true,
+    "fixes": [
+      "failed_stage_waits_for_motion_stop_proof",
+      "retirement_includes_pending_state_machine_effects"
+    ]
+  }
+}

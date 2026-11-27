@@ -1,0 +1,31 @@
+{
+  "robot_commands_sent": false,
+  "status": "connected",
+  "last_error": "\"base_footprint\" passed to lookupTransform argument source_frame does not exist. ",
+  "pose": [
+    1.1838649277500186,
+    0.0008031084957996562,
+    -0.00017870637997450774
+  ],
+  "joints": [
+    0.0,
+    0.0,
+    0.0,
+    -1.5707963146269321,
+    0.0,
+    0.0
+  ],
+  "ages_s": {
+    "joints": 0.026837561,
+    "scan": 0.103457587,
+    "tf": 0.00201747
+  },
+  "checked_ns": 1794037052366837561,
+  "command_publishers": {
+    "/hsrb/command_velocity": 0,
+    "/hsrb/omni_base_controller/command": 0,
+    "/hsrb/arm_trajectory_controller/command": 0,
+    "/hsrb/gripper_controller/command": 0
+  },
+  "wait_s": 0.2034568580000098
+}

@@ -1,0 +1,13 @@
+{
+  "status": "Do not use existing sigverse_hsr_raw_hand ray for servo motion.",
+  "evidence": "apple-alignment-20261010-v1.json",
+  "reason": "Off-axis apple exposes reversed lateral direction. Prior centerline apple and symmetric finger outlines did not constrain image-v sign.",
+  "legacy_raster_to_frame": [[0,-1,0],[-1,0,0],[0,0,1]],
+  "candidate_raster_to_frame": [[0,1,0],[-1,0,0],[0,0,1]],
+  "legacy_ray_distance_to_preextension_surface_m": 0.1054705342,
+  "candidate_ray_distance_to_preextension_surface_m": 0.0075054267,
+  "candidate_ray_distance_to_occluded_postextension_surface_m": 0.0213794088,
+  "candidate_verified_for_motion": false,
+  "next": "Verify actual raster vertical orientation and test independent off-axis samples before replacing production conversion. No arm/base motion issued in this diagnostic turn.",
+  "robot_state": "High segmented pose: lift .44280219, flex -1.7000001, wrist flex .12920368, opening .65, head tilt -.5. Do not rerun tucked-start trial."
+}

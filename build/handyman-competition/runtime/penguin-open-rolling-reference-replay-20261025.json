@@ -1,0 +1,54 @@
+{
+  "robot_commands_sent": false,
+  "rows": [
+    {
+      "capture": "001-near",
+      "status": "passed",
+      "body_delta_m": 0.0005899571260595777,
+      "head_delta_m": 0.0003869797077971141
+    },
+    {
+      "capture": "002-near",
+      "status": "passed",
+      "body_delta_m": 0.0005913908339901232,
+      "head_delta_m": 0.0005641991212451982
+    },
+    {
+      "capture": "003-near",
+      "status": "passed",
+      "body_delta_m": 0.01906035898490142,
+      "head_delta_m": 0.018870871779383066
+    },
+    {
+      "capture": "004-near",
+      "status": "passed",
+      "body_delta_m": 0.0004948602731186993,
+      "head_delta_m": 0.00044305528626099297
+    },
+    {
+      "capture": "006-near-rejected",
+      "status": "passed",
+      "body_delta_m": 0.03154036572996397,
+      "head_delta_m": 0.03161858274114333
+    },
+    {
+      "capture": "007-near-rejected",
+      "status": "passed",
+      "body_delta_m": 0.0010416352717388796,
+      "head_delta_m": 0.0010616907298127687
+    },
+    {
+      "capture": "008-near-rejected",
+      "status": "passed",
+      "body_delta_m": 0.0009808224626286853,
+      "head_delta_m": 0.0009808080719856194
+    },
+    {
+      "capture": "009-near-rejected",
+      "status": "passed",
+      "body_delta_m": 0.0009272632500719316,
+      "head_delta_m": 0.0009272833910539984
+    }
+  ],
+  "all_passed": true
+}

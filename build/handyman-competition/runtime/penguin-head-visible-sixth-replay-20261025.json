@@ -1,0 +1,95 @@
+{
+  "robot_commands_sent": false,
+  "rows": [
+    {
+      "capture": "001-near",
+      "status": "passed",
+      "body_delta_m": 0.00139619439338049,
+      "head_delta_m": 0.0014563006048964211
+    },
+    {
+      "capture": "002-near",
+      "status": "passed",
+      "body_delta_m": 0.0016892758049357084,
+      "head_delta_m": 0.0016747394369231825
+    },
+    {
+      "capture": "003-near",
+      "status": "passed",
+      "body_delta_m": 0.028781381645326946,
+      "head_delta_m": 0.029925971791432616
+    },
+    {
+      "capture": "004-near",
+      "status": "passed",
+      "body_delta_m": 0.0008930024594620876,
+      "head_delta_m": 0.0018755921166913876
+    },
+    {
+      "capture": "005-near",
+      "status": "passed",
+      "body_delta_m": 0.0032325329426559886,
+      "head_delta_m": 0.003239305037790779
+    },
+    {
+      "capture": "006-near",
+      "status": "passed",
+      "body_delta_m": 0.0001818135521172176,
+      "head_delta_m": 0.00018180635891217243
+    },
+    {
+      "capture": "008-near",
+      "status": "passed",
+      "body_delta_m": 0.04298176185517151,
+      "head_delta_m": 0.04212572614655886
+    },
+    {
+      "capture": "009-near",
+      "status": "passed",
+      "body_delta_m": 0.0011058907180062593,
+      "head_delta_m": 0.002178238473505752
+    },
+    {
+      "capture": "010-near",
+      "status": "passed",
+      "body_delta_m": 0.0022837025553257406,
+      "head_delta_m": 0.002254257060561251
+    },
+    {
+      "capture": "011-near",
+      "status": "passed",
+      "body_delta_m": 0.0010737738207555454,
+      "head_delta_m": 0.001064482230121164
+    },
+    {
+      "capture": "012-near-rejected",
+      "status": "passed",
+      "body_delta_m": 0.024603057258928075,
+      "head_delta_m": 0.02460464865210856
+    },
+    {
+      "capture": "013-near-rejected",
+      "status": "passed",
+      "body_delta_m": 0.00419545506704558,
+      "head_delta_m": 0.001541833553226273
+    },
+    {
+      "capture": "014-near-rejected",
+      "status": "passed",
+      "body_delta_m": 0.0006396038095040072,
+      "head_delta_m": 0.0004993939665354499
+    },
+    {
+      "capture": "015-near-rejected",
+      "status": "passed",
+      "body_delta_m": 0.0005478026131374829,
+      "head_delta_m": 0.0005479360139781118
+    },
+    {
+      "capture": "016-near-rejected",
+      "status": "rejected",
+      "reason": "penguin_current_surface_residual"
+    }
+  ],
+  "all_passed": false
+}

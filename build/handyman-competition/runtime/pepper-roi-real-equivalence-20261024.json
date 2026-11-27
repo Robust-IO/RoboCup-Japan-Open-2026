@@ -1,0 +1,38 @@
+[
+  {
+    "id": "00",
+    "identical": true,
+    "outcome": "measured",
+    "reason": null
+  },
+  {
+    "id": "01",
+    "identical": true,
+    "outcome": "measured",
+    "reason": null
+  },
+  {
+    "id": "02",
+    "identical": true,
+    "outcome": "measured",
+    "reason": null
+  },
+  {
+    "id": "03",
+    "identical": true,
+    "outcome": "measured",
+    "reason": null
+  },
+  {
+    "id": "04",
+    "identical": true,
+    "outcome": "measured",
+    "reason": null
+  },
+  {
+    "id": "05",
+    "identical": true,
+    "outcome": "measured",
+    "reason": null
+  }
+]

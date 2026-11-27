@@ -1,0 +1,9 @@
+string class_name
+float32 confidence
+int32 bbox_cx
+int32 bbox_cy
+int32 bbox_w
+int32 bbox_h
+geometry_msgs/Point position_3d
+float32 depth_mm
+bool has_3d_position

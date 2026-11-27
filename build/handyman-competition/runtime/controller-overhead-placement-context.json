@@ -1,0 +1,13 @@
+{
+  "center_minus_contact_xy": [
+    0.06655602964363816,
+    0.07406106690062819
+  ],
+  "radius_m": 0.14,
+  "source_table_height_m": 0.497,
+  "source_release_lift_m": 0.4134732484817505,
+  "bottom_below_palm_m": 0.11012589556351304,
+  "holding_opening_rad": 0.18540404720146952,
+  "source": "hand_texture_ray_pose_and_measured_head_RGBD_dimensions",
+  "object_depth_measured": false
+}

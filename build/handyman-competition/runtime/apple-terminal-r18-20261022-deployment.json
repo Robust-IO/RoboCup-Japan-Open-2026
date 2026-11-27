@@ -1,0 +1,34 @@
+{
+  "status": "deployed_tests_passed",
+  "revision": "terminal-correction-r18",
+  "tests": 407,
+  "files": [
+    "run_bedroom_apple_regrasp.py",
+    "apple_approach_lease.py",
+    "reviewed_carry_adjustment.py",
+    "grasp_terminal_correction.py",
+    "test_grasp_terminal_correction.py",
+    "APPLE_TRANSFER_AUTOMATION.txt"
+  ],
+  "hashes": {
+    "run_bedroom_apple_regrasp.py": "3d6f86e22e5892352348e56b28f4471ef45256e1b5f12ad6ba8e5b36e438d6ad",
+    "apple_approach_lease.py": "d1262a8dcad2bf74b92e57770eb3f4b4f479b0b49b98f51db6a277ab2807e24b",
+    "reviewed_carry_adjustment.py": "46fea41318fe9bc52c4709294521c9798ed9ce63a251b8e3b5d8c5f1b41f3210",
+    "grasp_terminal_correction.py": "13b091eb7bfbaf66e1621b3011b6e3d505d32d6f895bce15a46a96178a0e176d",
+    "test_grasp_terminal_correction.py": "30b5ce7ec5ce7f50b14a4036a276cec56aa1c41f5947ad1e7a52e3b336753012",
+    "APPLE_TRANSFER_AUTOMATION.txt": "bc56e3059e0e1e345b9a5614bf25767e6a0651434597ea5b5cf2665db46ce1db"
+  },
+  "checkpoint_hashes": {
+    "apple-terminal-r18-progress-20261022.json": "680565b841428cf3062b822cf4a56f9534430101a59872eb90b4e9b6ac4eb0f1",
+    "phase5-visual-test-preparation-20261022.json": "1950c42ebeeced3ed2703ff6fc82483e35dbe3451d8d87bfecdaf7bbd733bf30",
+    "phase5-restart-checkpoint-20261017.json": "859752724f0f756b4d825506625c0d36fd9b8ccc94797adc04cb3241213f37e7",
+    "apple-transfer-automation-progress-20261017.json": "aa840e26d27edfee7d444f3ef204434b18b30cd6b6d99ab8d4feee56bd09c89c",
+    "apple-transfer-live-progress-20261017.json": "637e0cb2e87450313b2769355415e6f5e6137f2759d34368da5fb3cb5bf8aebc",
+    "apple-outcome-policy-progress-20261018.json": "0081f774a66165bd463a4763d23a6fccfc5a539c14df403b8d731e34dc20ab00",
+    "apple-efficiency-r17-progress-20261022.json": "992d2d04d4534d077b585b2dd9dfb5a8a13bc86528894b93c0ff6e19c683b8dc"
+  },
+  "checkpoint": "D:/handyman-training-runs/apple-terminal-r18-progress-20261022.json",
+  "navigation_and_frozen_files_unchanged": true,
+  "robot_commands_sent": false,
+  "new_live_trial": false
+}

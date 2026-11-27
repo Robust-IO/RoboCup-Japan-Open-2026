@@ -1,0 +1,35 @@
+{
+  "status": "cap_axis_tracking_deployed_current_held_can_verified",
+  "tests": 561,
+  "files": [
+    "canned_grasp_geometry.py",
+    "canned_carry_geometry.py",
+    "held_can_appearance.py",
+    "run_canned_grasp_trial.py",
+    "run_canned_carry_trial.py",
+    "run_canned_place_trial.py",
+    "can_transfer_context.py",
+    "canned_place_geometry.py",
+    "OBJECT_TRANSFER.txt",
+    "tracked_can_cap_geometry.py",
+    "test_tracked_can_cap_geometry.py"
+  ],
+  "hashes": {
+    "canned_grasp_geometry.py": "a7f620be97a08566df8161b4daa32019e633225f42ee06df024c8075810125d1",
+    "canned_carry_geometry.py": "ccd7b5b979a35067f8e97534bdf05e8fbd8f49a61b79b84a628fc9f600bb6ced",
+    "held_can_appearance.py": "fd3095b82b1694597d4b7ee6da4df3900cd99419f3ff95bcf7921e6ba3b043bb",
+    "run_canned_grasp_trial.py": "b5f2069c7d45ed4acdfb7121c6f246901c0287784981bc2439e6f77fedab005a",
+    "run_canned_carry_trial.py": "eaafdca975ac703b2b14e07a6be4a958f062de7996c6d44d9cb0029b22d757f8",
+    "run_canned_place_trial.py": "054effd2c6dde246ae5ba946ef08971680aa7e5e36b01fd86eede06bbce0e6a5",
+    "can_transfer_context.py": "6fa7295ad35c788ab9143d338bc9bf745c143359aed8e308eb126f9ba678f900",
+    "canned_place_geometry.py": "b1d26edd861ff03ac8e4d802841d7ddc5ff2e1caa56870de98db43ed55fa2dd0",
+    "OBJECT_TRANSFER.txt": "89794883b7e599bbab4ce3159ca1f38c4f8e0a3eef04a35611981ffbe63fc8b9",
+    "tracked_can_cap_geometry.py": "9a1bbfd8458f6963eca894f44a8a069f6d3e878ad620f3855aeec1ef75f3281b",
+    "test_tracked_can_cap_geometry.py": "7dd732821c0abdac846874732ea9f7d6831c048f758c15c15ceaf048b7f1c569"
+  },
+  "original_apple_model_map_navigation_unchanged": true,
+  "first_failed_trial_preserved": true,
+  "current_held_audit": "D:/handyman-training-runs/can-cap-axis-v1-20261023-current-verification/result.json",
+  "robot_commands_sent": false,
+  "continuous_success_claimed": false
+}

@@ -1,0 +1,143 @@
+{
+  "status": "can_observation_adapter_deployed_live_validation_pending",
+  "saved_ns": 1792731226173702964,
+  "branch": "feat/handyman-phase5-grasping",
+  "supported_observation_profiles": [
+    "apple",
+    "rubiks_cube",
+    "canned_juice"
+  ],
+  "first_test_object": "canned_juice",
+  "reason": "User confirmed LayoutA has no rubiks_cube.",
+  "generic_live_motion_enabled": false,
+  "can_fresh_rgbd_validated": false,
+  "can_grasp_lift_carry_placement_verified": false,
+  "apple_legacy_entry_unchanged": true,
+  "apple_previous_full_live_seconds": 420.144510206,
+  "runtime_tests": 459,
+  "candidate_tests": 459,
+  "recorded_replay": {
+    "status": "recorded_apple_numeric_replay_and_can_rgb_checks_complete",
+    "apple_legacy_numeric_result_identical": true,
+    "apple_capture": "/mnt/d/handyman-training-runs/automatic-apple-r19-20261022-01/source-observe/000002",
+    "apple_center_m": [
+      0.8323083897283895,
+      0.04495685924183152,
+      0.5363831078475136
+    ],
+    "model_sha256": "83e6ceb9650e6da78d05404a5ead9654278d502ce06d812a6b2b70673c513763",
+    "imgsz": 960,
+    "canned_rgb_checks": [
+      {
+        "source": "/mnt/d/handyman-training-runs/live30-20261003/canned-juice01/000001.png",
+        "source_sha256": "71610f39738d0712f3015128cd6c256b9951d045c5dd1acb336b9fdb8ac20cc2",
+        "detections": [
+          {
+            "name": "dog_doll",
+            "class_id": 6,
+            "confidence": 0.9928800463676453,
+            "box": [
+              401.0267333984375,
+              356.7543640136719,
+              457.800048828125,
+              396.436279296875
+            ]
+          },
+          {
+            "name": "canned_juice",
+            "class_id": 3,
+            "confidence": 0.9832927584648132,
+            "box": [
+              206.22647094726562,
+              339.5369567871094,
+              230.52764892578125,
+              380.1928405761719
+            ]
+          },
+          {
+            "name": "filled_ketchup",
+            "class_id": 9,
+            "confidence": 0.8425353765487671,
+            "box": [
+              71.42269897460938,
+              319.5712890625,
+              94.68123626708984,
+              399.7383728027344
+            ]
+          }
+        ],
+        "target_detections": 1,
+        "maximum_target_score": 0.9832927584648132,
+        "current_rgb_recognition_passed": true,
+        "rgbd_geometry_validated": false,
+        "reason": "Historical RGB only: no depth or new physical transfer evidence."
+      },
+      {
+        "source": "/mnt/d/handyman-training-runs/live30-20261003/canned-juice01/000051.png",
+        "source_sha256": "57b69b3ede23c3f0bd2b3643e1e4d22d897056c67d8136a102e49557d714a5f3",
+        "detections": [
+          {
+            "name": "dog_doll",
+            "class_id": 6,
+            "confidence": 0.9929206967353821,
+            "box": [
+              401.026123046875,
+              356.75823974609375,
+              457.79974365234375,
+              396.4327087402344
+            ]
+          },
+          {
+            "name": "canned_juice",
+            "class_id": 3,
+            "confidence": 0.9851941466331482,
+            "box": [
+              206.27572631835938,
+              339.19915771484375,
+              230.60903930664062,
+              380.22259521484375
+            ]
+          },
+          {
+            "name": "filled_ketchup",
+            "class_id": 9,
+            "confidence": 0.8425419330596924,
+            "box": [
+              71.42237854003906,
+              319.5692443847656,
+              94.68096923828125,
+              399.735595703125
+            ]
+          }
+        ],
+        "target_detections": 1,
+        "maximum_target_score": 0.9851941466331482,
+        "current_rgb_recognition_passed": true,
+        "rgbd_geometry_validated": false,
+        "reason": "Historical RGB only: no depth or new physical transfer evidence."
+      }
+    ],
+    "can_real_rgbd_validation": false,
+    "can_live_transfer_verified": false,
+    "robot_commands_sent": false,
+    "source_recordings_unchanged": true,
+    "model_registry_and_weights_unchanged": true
+  },
+  "deployment": "/mnt/d/handyman-training-runs/generic-canned-juice-v2-20261023-deployment.json",
+  "files": [
+    "config/manipulation_objects_v1.json",
+    "manipulation_profiles.py",
+    "object_surface_geometry.py",
+    "upright_cylinder_geometry.py",
+    "generic_transfer_template.py",
+    "inspect_manipulation_capture.py",
+    "test_generic_transfer_template.py",
+    "test_upright_cylinder_geometry.py",
+    "GENERIC_TRANSFER_TEMPLATE.txt"
+  ],
+  "robot_commands_sent": false,
+  "model_or_navigation_changed": false,
+  "communication": "Foreground WSL client holds original 9090/50001 bridges. No Unity connection received at last check; inspect Unity endpoint/Console before restarting. Boot and timestamps must be rechecked.",
+  "bridge_supervisor": "D:/handyman-training-runs/hold_canned_bridges_20261023.py",
+  "next": "Receive fresh head/hand RGBD and joints, visually confirm canned_juice and validate measured cylinder geometry before motion. No old coordinates, scene poses or offline successes are live transfer evidence."
+}

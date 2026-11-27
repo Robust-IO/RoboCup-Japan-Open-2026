@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "profile": "layouta_bedroom_apple_to_square_table",
+  "layout": "LayoutA",
+  "motion_profile": "balanced_v1",
+  "task": {
+    "object": "apple",
+    "source_room": "bedroom",
+    "destination": "square_low_table"
+  },
+  "source_table_id": "white_side_table#bedroom_1",
+  "destination_id": "square_low_table#living_room",
+  "destination_room": "living_room",
+  "source_staging_goal": [
+    9.905,
+    -6.61,
+    0.0
+  ],
+  "destination_staging_goal": [
+    2.05,
+    2.55,
+    1.5707963267948966
+  ],
+  "environment": "/home/crazylearner/RoboCup-Japan-Open-2026/src/handyman_rebuild_ros2/config/environments/layout_a.yaml",
+  "environment_sha256": "fb739aa47ec13d450e5602c97383129e58ac9e20b5fd600c006f4b9d387181a2",
+  "semantic_map": "/mnt/d/handyman-export/LayoutA/semantic_map.json",
+  "registry": "/mnt/d/handyman-training-runs/active_detection_model.json",
+  "model_python": "/home/crazylearner/RoboCup-Japan-Open-2026/.pixi/envs/default/bin/python",
+  "navigation_tolerances": [
+    0.06,
+    0.08,
+    0.06
+  ],
+  "execution": {
+    "auto_protocol_success": false,
+    "automatic_action_retry": false
+  },
+  "policy": {
+    "efficient_non_navigation": true,
+    "placement_approach_mode": "single",
+    "near_grasp_roi_confirmation": true,
+    "near_grasp_geometry_handoff": true,
+    "near_grasp_geometry_gap_m": 0.15,
+    "post_lift_rgbd_follow_verification": true,
+    "grasp_lift_range_m": [
+      0.24,
+      0.3
+    ],
+    "release_gap_m": 0.02,
+    "patch_radius_m": 0.09,
+    "edge_margin_m": 0.03,
+    "edge_uncertainty_m": 0.01,
+    "max_placement_step_m": null,
+    "retreat_m": 0.25,
+    "observer_duration_s": 300
+  },
+  "scope": "One simulated apple transfer in the reviewed LayoutA. Not a generic 30-object task executor, autonomous localization or a competition protocol client. Fixed staging goals are furniture approach points, never target-object observations.",
+  "navigation_motion_profile": "carry_fast_v1"
+}

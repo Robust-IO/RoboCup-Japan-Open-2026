@@ -1,0 +1,10 @@
+std_msgs/Header header
+bool is_valid
+int32 bbox_cx
+int32 bbox_cy
+int32 bbox_w
+int32 bbox_h
+float32 center_error_x
+geometry_msgs/Point origin_odom
+float32 body_yaw
+float32 confidence
