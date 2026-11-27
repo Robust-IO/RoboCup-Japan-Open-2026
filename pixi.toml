@@ -27,3 +27,4 @@ pymongo = "*"
 cbor2 = "*"
 mediapipe = "==0.10.32"
 netifaces = "*"
+tf-transformations = { git = "https://github.com/DLu/tf_transformations.git", rev = "ef0374daca8f35dd0ee641de8a92e50b73123fec" }
