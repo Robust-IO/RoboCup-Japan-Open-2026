@@ -1,0 +1,2583 @@
+{
+  "source_commit": "9cc60dc70be36f323a054113f70818f860b48ab6",
+  "base_commit": "f2b6d4a30b1c61c28a7ba9328cc7033656b4c65f",
+  "files": [
+    {
+      "file": "training/APPLE_TRANSFER_AUTOMATION.txt",
+      "sha256": "5ab5af16c0c4953d4c29fa5895f029eb993b894401968cfb2cd085860c140515",
+      "bytes": 49834
+    },
+    {
+      "file": "training/CANNED_CARRY_TRIAL.txt",
+      "sha256": "d7402e7fc8212dc53899fbf2975bb1815192e5045326b1c7c16f7e3340e658dc",
+      "bytes": 2475
+    },
+    {
+      "file": "training/CANNED_GRASP_TRIAL.txt",
+      "sha256": "74c8e29e68cebfc2ce4b3eff41818f093b464249ee71f02d4f022d54981dc849",
+      "bytes": 3440
+    },
+    {
+      "file": "training/CANNED_PLACE_TRIAL.txt",
+      "sha256": "7d5ff6bbd117e17b8b0823f7ba55d031f692d92cce896463d476f9e5e42b1fb8",
+      "bytes": 1552
+    },
+    {
+      "file": "training/GENERIC_TRANSFER_TEMPLATE.txt",
+      "sha256": "aff45670bb212b14ae2471414dc41e130a6d149c674df4cda48e61335fcca9a8",
+      "bytes": 6064
+    },
+    {
+      "file": "training/OBJECT_TRANSFER.txt",
+      "sha256": "8881d3dd8cd37459f9ac5c180f6a7eec1a1cb067cd8166c3ac7df34cbdaf1ba3",
+      "bytes": 38290
+    },
+    {
+      "file": "training/TUCKED_CAN_NAVIGATION.txt",
+      "sha256": "ff8bc20d5ef338b813dfdd4548a2073fe5a7c0313fbac344f99efcafecebff99",
+      "bytes": 2196
+    },
+    {
+      "file": "training/apple-auto-restart-preparation-20261018.json",
+      "sha256": "63fa298ecd063f282c7126fdafec21bc0c6d3d072e078e38bec6b9f368bc9e72",
+      "bytes": 5538
+    },
+    {
+      "file": "training/apple-auto05-validation-progress-20261017.json",
+      "sha256": "a55ce9942ae4959ce43f159d0b381a8604108c610d3bad0baee0eb9c7e0bb8e2",
+      "bytes": 6790
+    },
+    {
+      "file": "training/apple-capture-budget-live-progress-20261018.json",
+      "sha256": "570f7a92892eea67cc52dc1fd3092444d10ecc3be73afcda0652b1754c1d1666",
+      "bytes": 52600
+    },
+    {
+      "file": "training/apple-carry-place-live-progress-20261018.json",
+      "sha256": "24deb26753a779e3ec58c9d7c41ffb4603bd9386903e3edec03abedd505c5b3a",
+      "bytes": 17528
+    },
+    {
+      "file": "training/apple-carry-placement-prepared-progress-20261017.json",
+      "sha256": "67b5c2538a71509748e30ac2769cba25e28a77a61944a2196f436548cb643733",
+      "bytes": 5920
+    },
+    {
+      "file": "training/apple-close-lift-live-progress-20261018.json",
+      "sha256": "689d561a8fa8a8784d0a285977a15956c8f4a6db7772558b595d57b40330b7ec",
+      "bytes": 9970
+    },
+    {
+      "file": "training/apple-efficiency-r17-progress-20261022.json",
+      "sha256": "f85d9b3d09011678b3d59bdeccb23dbba3d3af58ccaeb7d333d488687242d1df",
+      "bytes": 8196
+    },
+    {
+      "file": "training/apple-feedback-timing-progress-20261017.json",
+      "sha256": "7c47055fdb06d670c698991a97c72a4a7fa23095bf17c824ca980eff8b9af068",
+      "bytes": 7020
+    },
+    {
+      "file": "training/apple-gate-pruning-live-progress-20261018.json",
+      "sha256": "1189ab704af1a43a82dad69c28758904e630c5d970173c8d943744aa31dca061",
+      "bytes": 6544
+    },
+    {
+      "file": "training/apple-gate-pruning-progress-20261018.json",
+      "sha256": "45079db68d01a074d8f0cdf3c330b109b1678b23a44821e128bd621f1caeda42",
+      "bytes": 7775
+    },
+    {
+      "file": "training/apple-held-carry-r19-progress-20261022.json",
+      "sha256": "a4384b9a43b76c991a03253142f15267fadb5704746b6bb66f40fb23dcaaf528",
+      "bytes": 11728
+    },
+    {
+      "file": "training/apple-holding-retraction-progress-20261017.json",
+      "sha256": "fe3b4a1a1f9074def13edc196afe604702aafe9ca33801be67d4665ac85447da",
+      "bytes": 3758
+    },
+    {
+      "file": "training/apple-motion-speed-progress-20261017.json",
+      "sha256": "00e9f32240062c12215ad936164734776db00a9124c4031e19588711cf718184",
+      "bytes": 5559
+    },
+    {
+      "file": "training/apple-navigation-feedback-progress-20261018.json",
+      "sha256": "e444418f48e7ba810de282aea24f6caa55197be50456a570b627da0b400f3c72",
+      "bytes": 9340
+    },
+    {
+      "file": "training/apple-near-geometry-live-progress-20261018.json",
+      "sha256": "a8a27f503c3073ef65de6789f280baa8a0f6fd75f062057e37a45d4357568439",
+      "bytes": 8299
+    },
+    {
+      "file": "training/apple-near-geometry-progress-20261018.json",
+      "sha256": "a056c72058066646f41185d04115b846bceb9caaa1b2d246f9cd6fc347c9f858",
+      "bytes": 8993
+    },
+    {
+      "file": "training/apple-near-grasp-roi-progress-20261017.json",
+      "sha256": "c54d13125ce9ef85afc78a18e9bb5cb846714b2804061a479a19a10c0c20692f",
+      "bytes": 7769
+    },
+    {
+      "file": "training/apple-outcome-policy-progress-20261018.json",
+      "sha256": "84dee17571540a36c503b946ee82c8c788f9833ff3b18def903a93f4569f9fc3",
+      "bytes": 10160
+    },
+    {
+      "file": "training/apple-placement-policy-live-progress-20261018.json",
+      "sha256": "02b498d674c62d077970e6657d0b228429487d9758ddd5d9fb30e08d8b809c57",
+      "bytes": 9324
+    },
+    {
+      "file": "training/apple-placement-policy-progress-20261018.json",
+      "sha256": "d6ef7836efac90ef4fd8b145b6a2de6a3fd0936d17ad10d8437ca35a02f6085a",
+      "bytes": 7361
+    },
+    {
+      "file": "training/apple-r16b-full-live-progress-20261022.json",
+      "sha256": "d4d9d5dbd83e57823059f8128a320f73e2f0ae526b767cdd4097c757560e5532",
+      "bytes": 7436
+    },
+    {
+      "file": "training/apple-r17-full-live-progress-20261022.json",
+      "sha256": "37d609f4a41ee6da4ebaef2eccc44a7d911290e0a3c04a4952954cc48a335d7b",
+      "bytes": 5104
+    },
+    {
+      "file": "training/apple-r18b-full-live-progress-20261022.json",
+      "sha256": "d9a1f76611d1ffe6b877e56142ed1fb2aff900db54c18a9e59250cf062436193",
+      "bytes": 5421
+    },
+    {
+      "file": "training/apple-r19-full-live-progress-20261022.json",
+      "sha256": "8ceb5cbe0c821f5c22d9f12d59971925644f2d8e6e7abd8586c6aaa61c4fd0e5",
+      "bytes": 11895
+    },
+    {
+      "file": "training/apple-release-placement-progress-20261017.json",
+      "sha256": "ce20e89481baeb6dac8bc7d8f2e525a34650015f9142bb4825f5028aac510d26",
+      "bytes": 5173
+    },
+    {
+      "file": "training/apple-roi-close-lift-progress-20261017.json",
+      "sha256": "a111a921a0a3b42116a001abc6b2b798b63f1a67ddfeca3428ad6461a5d7097e",
+      "bytes": 7974
+    },
+    {
+      "file": "training/apple-single-approach-progress-20261017.json",
+      "sha256": "1070404f96c81e26b828b29d11a5f25f7a25ec66a10822ed148fdc4e244364b5",
+      "bytes": 5519
+    },
+    {
+      "file": "training/apple-table-edge-progress-20261017.json",
+      "sha256": "1835caf7d7d13bfbdac7dcc4f8bde7d20a5b4d144de1034d0e21b175c04a2ecb",
+      "bytes": 4448
+    },
+    {
+      "file": "training/apple-terminal-r18-progress-20261022.json",
+      "sha256": "0945052b97f0efb79b572e34c1b9cad7d0d385c768ad65e7a22d3e81561b4a23",
+      "bytes": 5091
+    },
+    {
+      "file": "training/apple-transfer-automation-progress-20261017.json",
+      "sha256": "c6fa79c35492f96bda2a53cbae74551646f354d40b60e3096d7ac9d0db782a81",
+      "bytes": 19181
+    },
+    {
+      "file": "training/apple-transfer-live-progress-20261017.json",
+      "sha256": "46b769f7df8072864e295827c1095d859bd3e425851c3048b2b2e3e4d378e3c0",
+      "bytes": 14911
+    },
+    {
+      "file": "training/apple_approach_lease.py",
+      "sha256": "d1262a8dcad2bf74b92e57770eb3f4b4f479b0b49b98f51db6a277ab2807e24b",
+      "bytes": 9690
+    },
+    {
+      "file": "training/apple_identity_track.py",
+      "sha256": "460a7a07c91a8bf681f7456c431cbcc9ce7d0278d9aff663ae259a26e6774a4b",
+      "bytes": 4601
+    },
+    {
+      "file": "training/apple_inference_worker.py",
+      "sha256": "077b14466e6175eaafb21b000d6be9de7f54e5029ab2b03cb7aa58fe01dc35f7",
+      "bytes": 6700
+    },
+    {
+      "file": "training/apple_rgbd_candidate.py",
+      "sha256": "b174b51e476b39e542115da26a2026ac136255dbf2163973414d589d3764545b",
+      "bytes": 3180
+    },
+    {
+      "file": "training/apple_roi_confirmation.py",
+      "sha256": "b0aa03b98d3f5fd3fe8cccd50ada263565a5f63de25740ac1968c551c12b468b",
+      "bytes": 7350
+    },
+    {
+      "file": "training/apple_shared_inference.py",
+      "sha256": "e4d8b3a1a6d3cd3746e7057360a5eed5cf0f7b42d56e0a5ce053f1ab83511a83",
+      "bytes": 7577
+    },
+    {
+      "file": "training/apple_support_surface.py",
+      "sha256": "26a91db2f9d6f83b76e432cf0b8019adb0e9bfd1116d5fae0a93e425e639352c",
+      "bytes": 4204
+    },
+    {
+      "file": "training/apple_tracking_observer.py",
+      "sha256": "2197714d6ae0973da776ca9900389d784270dc6f47d3718889eeee45e65b7e2f",
+      "bytes": 6300
+    },
+    {
+      "file": "training/apple_transfer_auto_backend.py",
+      "sha256": "4788f115bbf979344cd545f5ca1b331245a6c2547b7f901863105df5905e2ba4",
+      "bytes": 29857
+    },
+    {
+      "file": "training/apple_transfer_auto_plan.py",
+      "sha256": "9f8db88b65bb1e4c069681a05c5112553affb00bcacc2bd0a9be07ddb7edf256",
+      "bytes": 16625
+    },
+    {
+      "file": "training/apple_transfer_automation.py",
+      "sha256": "85140b3b7a1ada0f572506b0b8467f4d10208dc311110b08cbdf69eab44047da",
+      "bytes": 10714
+    },
+    {
+      "file": "training/apple_worker_client.py",
+      "sha256": "1bc0abedf1a902cd5dbad59f66defb6863c689e84465038a5244724a89eaab99",
+      "bytes": 3632
+    },
+    {
+      "file": "training/audit_preclose_identity_lift_follow.py",
+      "sha256": "e947d26613c04e66504a0abf5733db44f294d3322938890a81ffd8654704e203",
+      "bytes": 10336
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/APPLE_TRANSFER_AUTOMATION.txt",
+      "sha256": "5ab5af16c0c4953d4c29fa5895f029eb993b894401968cfb2cd085860c140515",
+      "bytes": 49834
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/CANNED_CARRY_TRIAL.txt",
+      "sha256": "d7402e7fc8212dc53899fbf2975bb1815192e5045326b1c7c16f7e3340e658dc",
+      "bytes": 2475
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/CANNED_GRASP_TRIAL.txt",
+      "sha256": "74c8e29e68cebfc2ce4b3eff41818f093b464249ee71f02d4f022d54981dc849",
+      "bytes": 3440
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/CANNED_PLACE_TRIAL.txt",
+      "sha256": "7d5ff6bbd117e17b8b0823f7ba55d031f692d92cce896463d476f9e5e42b1fb8",
+      "bytes": 1552
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/GENERIC_TRANSFER_TEMPLATE.txt",
+      "sha256": "aff45670bb212b14ae2471414dc41e130a6d149c674df4cda48e61335fcca9a8",
+      "bytes": 6064
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/OBJECT_TRANSFER.txt",
+      "sha256": "8881d3dd8cd37459f9ac5c180f6a7eec1a1cb067cd8166c3ac7df34cbdaf1ba3",
+      "bytes": 38290
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/TUCKED_CAN_NAVIGATION.txt",
+      "sha256": "ff8bc20d5ef338b813dfdd4548a2073fe5a7c0313fbac344f99efcafecebff99",
+      "bytes": 2196
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-auto-restart-preparation-20261018.json",
+      "sha256": "63fa298ecd063f282c7126fdafec21bc0c6d3d072e078e38bec6b9f368bc9e72",
+      "bytes": 5538
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-auto04-validation-progress-20261017.json",
+      "sha256": "76d983bb99b4ca1470fae65188bc270a2561169aa0ac4ecf13303751891524e1",
+      "bytes": 4361
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-auto05-validation-progress-20261017.json",
+      "sha256": "a55ce9942ae4959ce43f159d0b381a8604108c610d3bad0baee0eb9c7e0bb8e2",
+      "bytes": 6790
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-capture-budget-live-progress-20261018.json",
+      "sha256": "570f7a92892eea67cc52dc1fd3092444d10ecc3be73afcda0652b1754c1d1666",
+      "bytes": 52600
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-carry-place-live-progress-20261018.json",
+      "sha256": "24deb26753a779e3ec58c9d7c41ffb4603bd9386903e3edec03abedd505c5b3a",
+      "bytes": 17528
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-carry-placement-prepared-progress-20261017.json",
+      "sha256": "67b5c2538a71509748e30ac2769cba25e28a77a61944a2196f436548cb643733",
+      "bytes": 5920
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-close-lift-live-progress-20261018.json",
+      "sha256": "689d561a8fa8a8784d0a285977a15956c8f4a6db7772558b595d57b40330b7ec",
+      "bytes": 9970
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-efficiency-r17-progress-20261022.json",
+      "sha256": "f85d9b3d09011678b3d59bdeccb23dbba3d3af58ccaeb7d333d488687242d1df",
+      "bytes": 8196
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-feedback-timing-progress-20261017.json",
+      "sha256": "7c47055fdb06d670c698991a97c72a4a7fa23095bf17c824ca980eff8b9af068",
+      "bytes": 7020
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-gate-pruning-live-progress-20261018.json",
+      "sha256": "1189ab704af1a43a82dad69c28758904e630c5d970173c8d943744aa31dca061",
+      "bytes": 6544
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-gate-pruning-progress-20261018.json",
+      "sha256": "45079db68d01a074d8f0cdf3c330b109b1678b23a44821e128bd621f1caeda42",
+      "bytes": 7775
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-held-carry-r19-progress-20261022.json",
+      "sha256": "a4384b9a43b76c991a03253142f15267fadb5704746b6bb66f40fb23dcaaf528",
+      "bytes": 11728
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-holding-retraction-progress-20261017.json",
+      "sha256": "fe3b4a1a1f9074def13edc196afe604702aafe9ca33801be67d4665ac85447da",
+      "bytes": 3758
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-motion-speed-progress-20261017.json",
+      "sha256": "00e9f32240062c12215ad936164734776db00a9124c4031e19588711cf718184",
+      "bytes": 5559
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-navigation-feedback-progress-20261018.json",
+      "sha256": "e444418f48e7ba810de282aea24f6caa55197be50456a570b627da0b400f3c72",
+      "bytes": 9340
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-near-geometry-live-progress-20261018.json",
+      "sha256": "a8a27f503c3073ef65de6789f280baa8a0f6fd75f062057e37a45d4357568439",
+      "bytes": 8299
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-near-geometry-progress-20261018.json",
+      "sha256": "a056c72058066646f41185d04115b846bceb9caaa1b2d246f9cd6fc347c9f858",
+      "bytes": 8993
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-near-grasp-roi-progress-20261017.json",
+      "sha256": "c54d13125ce9ef85afc78a18e9bb5cb846714b2804061a479a19a10c0c20692f",
+      "bytes": 7769
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-outcome-policy-progress-20261018.json",
+      "sha256": "84dee17571540a36c503b946ee82c8c788f9833ff3b18def903a93f4569f9fc3",
+      "bytes": 10160
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-placement-policy-live-progress-20261018.json",
+      "sha256": "02b498d674c62d077970e6657d0b228429487d9758ddd5d9fb30e08d8b809c57",
+      "bytes": 9324
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-placement-policy-progress-20261018.json",
+      "sha256": "d6ef7836efac90ef4fd8b145b6a2de6a3fd0936d17ad10d8437ca35a02f6085a",
+      "bytes": 7361
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-r16b-full-live-progress-20261022.json",
+      "sha256": "d4d9d5dbd83e57823059f8128a320f73e2f0ae526b767cdd4097c757560e5532",
+      "bytes": 7436
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-r17-full-live-progress-20261022.json",
+      "sha256": "37d609f4a41ee6da4ebaef2eccc44a7d911290e0a3c04a4952954cc48a335d7b",
+      "bytes": 5104
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-r18b-full-live-progress-20261022.json",
+      "sha256": "d9a1f76611d1ffe6b877e56142ed1fb2aff900db54c18a9e59250cf062436193",
+      "bytes": 5421
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-r19-full-live-progress-20261022.json",
+      "sha256": "8ceb5cbe0c821f5c22d9f12d59971925644f2d8e6e7abd8586c6aaa61c4fd0e5",
+      "bytes": 11895
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-release-placement-progress-20261017.json",
+      "sha256": "ce20e89481baeb6dac8bc7d8f2e525a34650015f9142bb4825f5028aac510d26",
+      "bytes": 5173
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-roi-close-lift-progress-20261017.json",
+      "sha256": "a111a921a0a3b42116a001abc6b2b798b63f1a67ddfeca3428ad6461a5d7097e",
+      "bytes": 7974
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-single-approach-progress-20261017.json",
+      "sha256": "1070404f96c81e26b828b29d11a5f25f7a25ec66a10822ed148fdc4e244364b5",
+      "bytes": 5519
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-table-edge-progress-20261017.json",
+      "sha256": "1835caf7d7d13bfbdac7dcc4f8bde7d20a5b4d144de1034d0e21b175c04a2ecb",
+      "bytes": 4448
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-terminal-r18-progress-20261022.json",
+      "sha256": "0945052b97f0efb79b572e34c1b9cad7d0d385c768ad65e7a22d3e81561b4a23",
+      "bytes": 5091
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-transfer-automation-progress-20261017.json",
+      "sha256": "c6fa79c35492f96bda2a53cbae74551646f354d40b60e3096d7ac9d0db782a81",
+      "bytes": 19181
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple-transfer-live-progress-20261017.json",
+      "sha256": "46b769f7df8072864e295827c1095d859bd3e425851c3048b2b2e3e4d378e3c0",
+      "bytes": 14911
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple_approach_lease.py",
+      "sha256": "d1262a8dcad2bf74b92e57770eb3f4b4f479b0b49b98f51db6a277ab2807e24b",
+      "bytes": 9690
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple_identity_track.py",
+      "sha256": "460a7a07c91a8bf681f7456c431cbcc9ce7d0278d9aff663ae259a26e6774a4b",
+      "bytes": 4601
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple_inference_worker.py",
+      "sha256": "077b14466e6175eaafb21b000d6be9de7f54e5029ab2b03cb7aa58fe01dc35f7",
+      "bytes": 6700
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple_rgbd_candidate.py",
+      "sha256": "b174b51e476b39e542115da26a2026ac136255dbf2163973414d589d3764545b",
+      "bytes": 3180
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple_roi_confirmation.py",
+      "sha256": "b0aa03b98d3f5fd3fe8cccd50ada263565a5f63de25740ac1968c551c12b468b",
+      "bytes": 7350
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple_room_evidence.py",
+      "sha256": "e61476af4f23b8e7af01d5612e7463ef1849393e69c0087880eb1291f6d702bd",
+      "bytes": 2822
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple_shared_inference.py",
+      "sha256": "e4d8b3a1a6d3cd3746e7057360a5eed5cf0f7b42d56e0a5ce053f1ab83511a83",
+      "bytes": 7577
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple_support_surface.py",
+      "sha256": "26a91db2f9d6f83b76e432cf0b8019adb0e9bfd1116d5fae0a93e425e639352c",
+      "bytes": 4204
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple_tracking_observer.py",
+      "sha256": "2197714d6ae0973da776ca9900389d784270dc6f47d3718889eeee45e65b7e2f",
+      "bytes": 6300
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple_transfer_auto_backend.py",
+      "sha256": "0fe813f3db9de78a966ff5fb61406f123e77c551386cf9230729d2c0c589ed95",
+      "bytes": 29718
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple_transfer_auto_plan.py",
+      "sha256": "9f8db88b65bb1e4c069681a05c5112553affb00bcacc2bd0a9be07ddb7edf256",
+      "bytes": 16625
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple_transfer_automation.py",
+      "sha256": "85140b3b7a1ada0f572506b0b8467f4d10208dc311110b08cbdf69eab44047da",
+      "bytes": 10714
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/apple_worker_client.py",
+      "sha256": "1bc0abedf1a902cd5dbad59f66defb6863c689e84465038a5244724a89eaab99",
+      "bytes": 3632
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/audit_preclose_identity_lift_follow.py",
+      "sha256": "e947d26613c04e66504a0abf5733db44f294d3322938890a81ffd8654704e203",
+      "bytes": 10336
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/can_approach_plan.py",
+      "sha256": "a5e75d6b08f7b9783ddda0ba7a463fc9c8b48bb05d97cde99c95472feb46cf36",
+      "bytes": 848
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/can_arm_startup.py",
+      "sha256": "186d1ec0ce96098bc618f547c9ebdcea4f121a6032b93008f63db246ec6605c6",
+      "bytes": 1051
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/can_destination_surface.py",
+      "sha256": "2f64b65b3b0cabc3c2f21c1708bde6863380521073f40c4938f31a83337ad12a",
+      "bytes": 2734
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/can_identity_selection.py",
+      "sha256": "11f8df847fcc15e432d83285018abe6f10d83f411a89e0f12e995045fcb17bb1",
+      "bytes": 969
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/can_release_timing.py",
+      "sha256": "da5fca38b57d092dd410bd9ea24a6bbd56682a8a0db3c486ceb973ef7b1d281a",
+      "bytes": 1580
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/can_transfer_automation.py",
+      "sha256": "171abbef8fcd610e89942069b5ba831cedd43f802d9021e86cca58b116850622",
+      "bytes": 11646
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/can_transfer_context.py",
+      "sha256": "6fa7295ad35c788ab9143d338bc9bf745c143359aed8e308eb126f9ba678f900",
+      "bytes": 6886
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/canned-after-table-plane-fix-progress-20261023.json",
+      "sha256": "87abb16cfbfe744024a12d6775f2e2147ba7419e053068cb08b5ac9eff0b5505",
+      "bytes": 5388
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/canned-after-two-fixes-progress-20261023.json",
+      "sha256": "ccc5b40f1aead8254e31120a695f8e7206fe85de1f57750f50ab7c0afea375bb",
+      "bytes": 5102
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/canned-alignment-fix-ready-progress-20261024.json",
+      "sha256": "dc5221773badb5f27ed5382fb0e3f1d1cdd5227cd81121ac7c02056c9ba30417",
+      "bytes": 5646
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/canned-carry-adapter-progress-20261023.json",
+      "sha256": "c46575c0ddc7816a414e1c4fba24bae0dc55ec906e2433f88e6fd4785ae1ad61",
+      "bytes": 1655
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/canned-carry-navigation-progress-20261023.json",
+      "sha256": "876b3ad2aa3306484847c3035c9a2e5d6c103ca3cd793480dc149401ec483c85",
+      "bytes": 4871
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/canned-carry-pending-progress-20261023.json",
+      "sha256": "28807fb65eb3fba1733d38d7001f7688b13a7bdf6306d01701d645435075a576",
+      "bytes": 3796
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/canned-carry-retracted-progress-20261023.json",
+      "sha256": "3cace51e6a38dc869c8583f11740204be9c085c3f3856e9dc34a158e8d141bb8",
+      "bytes": 3548
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/canned-continuous-entry-ready-progress-20261023.json",
+      "sha256": "b29695a7049d486d1cecbba099b529aba73ca8bde4308d2c9590a23ebac9c44b",
+      "bytes": 3732
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/canned-current-start-continuous-success-progress-20261023-05.json",
+      "sha256": "afa679e98409a3beabec47a05c375a8d7ecf6b0992956727312bcfab87d73633",
+      "bytes": 5389
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/canned-deeper-grasp-verified-progress-20261024.json",
+      "sha256": "fafdfedc23657bcb46cc412e8d29c0f65f399526d61f22577ec49a8c1aafbb5e",
+      "bytes": 6897
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/canned-grasp-adapter-progress-20261023.json",
+      "sha256": "48777e68cf8f3ba42e8299fbb63c7e16f3319e3f5ef17beb243f32e3b4602f22",
+      "bytes": 10223
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/canned-grasp-lift-live-progress-20261023.json",
+      "sha256": "9d38a58591a5cc31b8b9b5cab06e9c7d7e003601aa34b52f6ca4c70c3e670678",
+      "bytes": 39672
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/canned-juice-observation-live-progress-20261023.json",
+      "sha256": "e8dab1a8073ebef33c46f7a8f29c8d47308052051a81515349727ab852cf4af1",
+      "bytes": 11098
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/canned-transfer-verified-progress-20261023.json",
+      "sha256": "132976b124022bd130aa99b23141f00e8b3b151bdcfbd74f3d8fb8e228a8e2d9",
+      "bytes": 3287
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/canned-upright-reset-required-progress-20261024.json",
+      "sha256": "1a02cc4e5727eabdfad09ff5307926f25c98c76bc57bb9e3586970c349dda64e",
+      "bytes": 5400
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/canned_carry_geometry.py",
+      "sha256": "250bbdef3103417e41178bce5357cebfe1cea25a91d537ce79bc6262e64646b4",
+      "bytes": 4589
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/canned_grasp_geometry.py",
+      "sha256": "e8235692df98f697a624371e64a44d392eb0da645e3057ac7f60d7d8ac822824",
+      "bytes": 11625
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/canned_grasp_runtime.py",
+      "sha256": "7017450d3a103033011480802d9a4054b395ffbce44f543362675c3910c5699a",
+      "bytes": 20927
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/canned_place_geometry.py",
+      "sha256": "b1d26edd861ff03ac8e4d802841d7ddc5ff2e1caa56870de98db43ed55fa2dd0",
+      "bytes": 7045
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/capture_file_writer.py",
+      "sha256": "a7cefebb0868541596dbd4bd7398c81071bd414d23bf7f037002dae0f8da7606",
+      "bytes": 716
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/capture_grasp_scene.py",
+      "sha256": "0dbaa8dd2f20be77819ebf22731a5f002b4c43ecee14e725a8ef0eb44478d0c1",
+      "bytes": 20664
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/capture_processing_budget.py",
+      "sha256": "a636b24a45a163325a99cb56f74fdf599473de9c0b0d1eca3e78b02301018bc3",
+      "bytes": 4830
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/config/apple_transfer_auto_v1.json",
+      "sha256": "4282b61c58da7d862ec88de5a0822e5f3f1783f816ca3c86eff9a943640b9852",
+      "bytes": 1956
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/config/manipulation_objects_v1.json",
+      "sha256": "91f49da6b87e04136e088df663b66b06f15072f8dd40df985f785a2a93365a7e",
+      "bytes": 2810
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/config/motion_speed_profiles.json",
+      "sha256": "a41c622e2aae104cfb9a8c7a60bb7c5a68ec39aa01876a81578c5e2ad13d4d85",
+      "bytes": 1926
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/config/penguin_bedroom_to_living_room.json",
+      "sha256": "0908683b58dce136a68e28e4defa8bedb16903c2ce4166237ef7121f0422d329",
+      "bytes": 435
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/config/penguin_living_room_to_bedroom.json",
+      "sha256": "d83f1ab8194067e05449512059af7c7960659e278eb504d5b83a1ae30dbc987d",
+      "bytes": 434
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/config/pepper_bedroom_to_living_room.json",
+      "sha256": "a16d2ca9a2426e2a98dc5ebf616bda8e4fb30c3ef5701763d704e6491d50a72c",
+      "bytes": 439
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/config/pepper_living_room_to_bedroom.json",
+      "sha256": "05952988b70b617642c3a9ae1801385f1461637916928e88b7eccc12f300a6e0",
+      "bytes": 438
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/continue_apple_placement.py",
+      "sha256": "95c44723825bee46f0899c5f299298f5b9f1e36b586b7e2e47524c26ab908262",
+      "bytes": 6660
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/experiments/penguin_head_hold_20261025/EXPERIMENT.txt",
+      "sha256": "217bdb85d43edabd0a94bf36cb049001ffc802ac76b04edd734dc45650c52099",
+      "bytes": 608
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/experiments/penguin_head_hold_20261025/head_carry_trial.py",
+      "sha256": "e34e5769dae820bd1927d70f9d9a2f78e0c04b2eebf28711706772ca1f59aa9a",
+      "bytes": 4547
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/experiments/penguin_head_hold_20261025/head_face_rgb_audit.py",
+      "sha256": "30367b78bc74f3a5a7dd4cf104ac27aa6d342b622a4ecc4a36977c8ed3babffe",
+      "bytes": 2141
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/experiments/penguin_head_hold_20261025/head_lift_trial.py",
+      "sha256": "b4028a143986427bb08f4e4eecd0431b0f141a99fc476bce563917a99649e23f",
+      "bytes": 3802
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/experiments/penguin_head_hold_20261025/head_place_trial.py",
+      "sha256": "d004dbb0c55364b4fb9c455219ef30608505d77cfef3941e0d5072a7ddc808f4",
+      "bytes": 10110
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/experiments/penguin_head_hold_20261025/head_retraction_trial.py",
+      "sha256": "6bfe1d16bc32f1121f299a2760fb720e8daf2fd0f7d81918563220bb72658b3f",
+      "bytes": 5620
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/fresh_feedback_wait.py",
+      "sha256": "49f9b5da105d7b12a51a883e7685a140b1b7d2734e6723686b1d45f2773467cd",
+      "bytes": 996
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/generic-canned-juice-progress-20261023.json",
+      "sha256": "35890ec2d3894e7f65d746658f43cbc1583a3a411dfa2d5ef73c59fc36e7bede",
+      "bytes": 5162
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/generic-transfer-template-progress-20261023.json",
+      "sha256": "c668d041e444a4095572e1a3b92b8a4fd56f34b320555db95e722c057800db56",
+      "bytes": 3928
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/generic_transfer_template.py",
+      "sha256": "a43c16dcb046c7ec84f77ab03e51a54c994e05174393bd90e7d8f47b5926e1ab",
+      "bytes": 4855
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/grasp_terminal_correction.py",
+      "sha256": "72e9553a54f35cc091d8605777ca2f51ac0c18971cb1063c2563584d95ced185",
+      "bytes": 3377
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/gripper_close_gate.py",
+      "sha256": "3be1f6e06e8668e6dc0691b889fc12a3d3e2758d8fb01d8dce61abef61eb7bf3",
+      "bytes": 2218
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/hand_camera_ray.py",
+      "sha256": "e260d8b960b45db25aa51f1651a2f6c550e3eaa5ed8bb510df25dab307f1a7aa",
+      "bytes": 3326
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/held_can_appearance.py",
+      "sha256": "c27828aff5de8e34f6190b30cb4f35c0549e0129c2bde42745ac2d86c2daac3f",
+      "bytes": 10205
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/inspect_manipulation_capture.py",
+      "sha256": "70f8bf7429bf2c73f5613fe9a1e76d3ae7decf6bc52f0e06b2e70e76fc6917cc",
+      "bytes": 2950
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/inspect_table_apple.py",
+      "sha256": "3ae370209a006af86b5553642fa59f1768eceb00f3ebe4dabf4007ad0fbe4ce2",
+      "bytes": 3193
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/inspect_transfer_ready.py",
+      "sha256": "f158adf62ae5af7eb3faf8bef617ce72e71458bea73701439a4f789ee471b104",
+      "bytes": 6789
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/inverse_table_place_plan.py",
+      "sha256": "a4f3c7125cb87109104a119c3bf80343f888fcfe586e8dc9fddd121f384b6cce",
+      "bytes": 3379
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/latest_capture_index.py",
+      "sha256": "744a53ed987fc08dbf7dda9d0144a578afc2b0f6e23783800b55401174aa8792",
+      "bytes": 1696
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/lift_settled_window.py",
+      "sha256": "d02104cd9bac8474330e5bef29a91ea20337840588688c5dbbab79a5c1cc7127",
+      "bytes": 882
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/manipulation_profiles.py",
+      "sha256": "e4c349738ad571e1394ffac3804f55716ab918d611eadeb8f93a5be79173657c",
+      "bytes": 3158
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/measure_destination_surface.py",
+      "sha256": "430b30568fb775111384b0b562497d52118ff26cc5788bb68c932e6724e6fda9",
+      "bytes": 2914
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/motion_speed.py",
+      "sha256": "4a5f93b440a4036bdd2f797c481e1dc5a1d1370a09a2dcef74d951e4eb5dfdfc",
+      "bytes": 7714
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/navigate_carry_trial.py",
+      "sha256": "ff98a7a1a78d8ff10f5b563d06bb07d142d35af8545735393fd263258a5eebab",
+      "bytes": 14830
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/navigation_feedback_gate.py",
+      "sha256": "9666ce8496c4414ff1452445a3eac344bc22daa3400a2597e0fa86c64034c878",
+      "bytes": 3347
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/navigation_feedback_recovery.py",
+      "sha256": "741a03b1d234257960c70fb56efbdd085e634d8e858db05595fabb4fbd4f868c",
+      "bytes": 1384
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/near_apple_geometry.py",
+      "sha256": "90df934d763b8081304c27ea0d0bd02231c6c244ccfb33c11bcd5441f1cce4c7",
+      "bytes": 14957
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/object_observation_sequence.py",
+      "sha256": "93591e55e2b55cccc556d5532ae34840563bf51165377e1598fa631745c28339",
+      "bytes": 3552
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/object_surface_geometry.py",
+      "sha256": "acc0a3e983b39145ea88c8d567757f321871fe2bb3e7c04cd91c3ea0fa91798f",
+      "bytes": 9290
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/penguin_geometry.py",
+      "sha256": "985cc656ade4adfb78dc50526f46686e1d8a347dda3452cef20aabce15ca4d08",
+      "bytes": 16664
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/penguin_hand_hold.py",
+      "sha256": "75be28ca66c831b49509c187f6eeb2328b0ef88933014e97f566c6f60e2103d7",
+      "bytes": 10851
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/penguin_hold.py",
+      "sha256": "9c1f6e6eac10f9e20d7d8d42205ec30c81b91522d7960cb3d39d8282bc088691",
+      "bytes": 7269
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/penguin_place.py",
+      "sha256": "0bdfdc39f1ef71a4d0b460cf015862e6f3aea283aab8ebcced0538d3bd5eb731",
+      "bytes": 5500
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/penguin_runtime.py",
+      "sha256": "76f810ba0957f3708e57390d81e372fd138d3ff1a0a3b668dc1a554114c228c5",
+      "bytes": 5134
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/penguin_source_identity.py",
+      "sha256": "da8b80b05f8b4e44e94232496423357b31df9464c97c616b820866b4a7e2b42d",
+      "bytes": 3406
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/penguin_tasks.py",
+      "sha256": "3839166270b226f5a87c5fece39168d60ed0f3b3e466b424a1ff6d7874516e7e",
+      "bytes": 4460
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/penguin_transfer_automation.py",
+      "sha256": "3298b2f776f63264eb5cb4f10be820eb743337e95ea31847f93b0e0ce38e15cd",
+      "bytes": 240
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/pepper_geometry.py",
+      "sha256": "be7b5e90d320b437dcc60c3fc2b00168e6c963937903953278fa505dcc9bdfd9",
+      "bytes": 18492
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/pepper_hold.py",
+      "sha256": "43a250e5fbf70f666c3bb3c1ca221ed634595194806d5ac2b3e4ab97e0418205",
+      "bytes": 7077
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/pepper_place.py",
+      "sha256": "7624e23274f8ade10d7303385a70d620b597ce9f93f0a6b98ac637011ae67e8e",
+      "bytes": 5231
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/pepper_regression.py",
+      "sha256": "e9a2707e932765194b5b709f155d1f6bbfbabf43378a36936354b292aea0bfcb",
+      "bytes": 7758
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/pepper_runtime.py",
+      "sha256": "5a03c1ff7e1789a0ada6cac0389d39f51876a9d171750b35f8baa5edfb22fcc3",
+      "bytes": 12089
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/pepper_source_observation.py",
+      "sha256": "5fb684be516934b65c37bc04efb6831cb6d5026e6711d831178f7cc9175aefdc",
+      "bytes": 2580
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/pepper_tasks.py",
+      "sha256": "617ac6443be2f01dc49bbe59bb76921076bea597434b2de1917a466ae8e2a7c9",
+      "bytes": 4462
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/pepper_transfer_automation.py",
+      "sha256": "e56956098412278fae4d625df9b706348d0aae9e7ab91d71cdc7534c9935dc28",
+      "bytes": 65876
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/pepper_visual_motion.py",
+      "sha256": "35fb0423fe9c8feb292d52cd186fd8f9e03927a3727c67df4127493024878149",
+      "bytes": 6056
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/phase5-restart-checkpoint-20261017.json",
+      "sha256": "f0f7f02773912b74a1b6b46448eea18077c6d63017ff8f888c355258506ba744",
+      "bytes": 14713
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/phase5-visual-test-preparation-20261022.json",
+      "sha256": "b157ca2fc1e08f55e63136142b1c8b71083d42147c7353b9f2c52a61c43dd9a8",
+      "bytes": 5757
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/pregrasp_geometry.py",
+      "sha256": "a4032c66bb16042e78e9a107fefddad79cfbab7ea36b44eef0cb158bed2c311d",
+      "bytes": 553
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/pregrasp_raised_trial.py",
+      "sha256": "9b2c48c882bc4a5d295fa93ebb7a1dc23239ae8ceb81cb50b0836a28abe63017",
+      "bytes": 36420
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/probe_navigation_latency.py",
+      "sha256": "3003e9ba9a5e3f2a237982aa811be9b25b2e5b780c75d480992411e54ef7e881",
+      "bytes": 4471
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/probe_transfer_feedback.py",
+      "sha256": "eaa2408754e4733440030546465573264fab18e1d7395e2614ca6701475e9895",
+      "bytes": 2655
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/replay_apple_transfer_automation.py",
+      "sha256": "ccfc93161453635133c9fc96dfe222fc630056351626b8e451aa066b09d4d7fa",
+      "bytes": 4634
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/replay_gate_pruning.py",
+      "sha256": "010b79c739f6df599ccac0bdb92efcea5ced89475f7e23b9566d2e32f51d2848",
+      "bytes": 6709
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/replay_near_apple_geometry.py",
+      "sha256": "285bf0ce077bda267c38e4ca24a10008128e233bd1c9d8d0d26e9737f0fde00a",
+      "bytes": 6554
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/replay_pepper_reference.py",
+      "sha256": "868113d76141881bf6f4c3e58d029a57c07ee07568f986d088efc7ed6233cba7",
+      "bytes": 2505
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/replay_placement_policy_r11.py",
+      "sha256": "34e87f757d339feffe18621fe6273b5b538ac126d099c69dc9724a0c13a9d6f8",
+      "bytes": 2959
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/replay_table_edge_safety.py",
+      "sha256": "5c05a29cb781a958ff863c3e267a2c029e7bfcd04c5f512a523b8572f23f6b8e",
+      "bytes": 4603
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/resident_inference.py",
+      "sha256": "a9de3688c34e4477ab8059722c7740cec5a9bc2335798753ec8c77b547179dcc",
+      "bytes": 4912
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/reviewed_carry_adjustment.py",
+      "sha256": "1fcdefdb23fb208676e2beb2f53562e6609c2b8c5684ab5d860f50e7c6c1f065",
+      "bytes": 15099
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/rgbd_pixel_window.py",
+      "sha256": "3ed9ee66c1fff45624761214648c11c20596af24d752f8276d1dbc255c5493e1",
+      "bytes": 531
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/run_apple_close_lift_trial.py",
+      "sha256": "ff51e63e43158109dbae8edb92f616120f16b844364a46b0b284a2c8e54a8718",
+      "bytes": 11954
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/run_apple_transfer_auto.sh",
+      "sha256": "10e59010d4b28a242686804cbecdcffc75a32c9fc49eed3932ce0f5b3a02d8bb",
+      "bytes": 732
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/run_bedroom_apple_regrasp.py",
+      "sha256": "3d6f86e22e5892352348e56b28f4471ef45256e1b5f12ad6ba8e5b36e438d6ad",
+      "bytes": 9683
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/run_canned_carry_trial.py",
+      "sha256": "eaafdca975ac703b2b14e07a6be4a958f062de7996c6d44d9cb0029b22d757f8",
+      "bytes": 11309
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/run_canned_grasp_trial.py",
+      "sha256": "68f6e4be97c4f7e8e9b41b5701fdd91f1962d4835ea2b7e7e384be2e92c8da88",
+      "bytes": 14641
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/run_canned_place_trial.py",
+      "sha256": "cdacc984f33272acc12cc08ef5e73e0ef7d7699d6ccf4f1eae0236c9de33bc84",
+      "bytes": 15492
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/run_object_transfer.py",
+      "sha256": "489faf9be26d7cb5db40887ebe3e86a506dce86ea4f147f2821ac6005799f353",
+      "bytes": 900
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/run_object_transfer.sh",
+      "sha256": "49c2ad89486275dbec3f6db4956e3adcc0ed7e693959e45ee546f8b5965936eb",
+      "bytes": 659
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/run_tucked_can_navigation.py",
+      "sha256": "cd4322bdad18210ea30b9c056bfb5046571d61a9f0d0deb05953bc04939c0843",
+      "bytes": 8965
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/scripts/capture_rgb_readonly.py",
+      "sha256": "8ac2b69abbb25bbb45b69b8bce194b01591401dd30042fd448d6b56ef0c9b241",
+      "bytes": 3863
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/scripts/head_view_trial.py",
+      "sha256": "048eb5bb043b28e4f1f6f40b51c4d1de9b2fd7d79b503810f3c2b83c8eb5a5f3",
+      "bytes": 8992
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/scripts/rgbd_quality.py",
+      "sha256": "07ad2a77934d83f91117f213831e159e3b88b238f1497a34cea392e1b759c070",
+      "bytes": 4214
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/scripts/search_room_gate.py",
+      "sha256": "eab981b48ca7c77217b8f23963f05b39e450539159726a10fbfe99cf28bedd70",
+      "bytes": 1985
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/segmented_pregrasp_plan.py",
+      "sha256": "a365855f5a0c79931333c54752b67d791ae637e76a4b391febcdbb309a4d7d5e",
+      "bytes": 1972
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/source-table-localization-progress-20261017.json",
+      "sha256": "7b9dcf230c53ab2e56ab13b931acd00d7f6e9cffc08ba20a70f1b242f660614a",
+      "bytes": 6963
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/synced_capture_selection.py",
+      "sha256": "6474dc2023e17f6c044e54ffbe1952f0ad4fef3af269cffba9d943b794d3dfa8",
+      "bytes": 2031
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/table_release_gate.py",
+      "sha256": "1b7bc700cfa40d890842bdb7734007d210b2ce33b2f9f0ec39f3b8da352d6246",
+      "bytes": 2915
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/tabletop_support.py",
+      "sha256": "76fccce17a1a92f41bbe7346cf6b852248ec06a1ed473ba911832cb65006a9fd",
+      "bytes": 6252
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/target_anchor_tracking.py",
+      "sha256": "f6aff7c136f5579bd7e98312f614b9814ddc54bfb3149f3b89fe6a5d69ea3a7d",
+      "bytes": 3196
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/task_outcome_policy.py",
+      "sha256": "5b974716e3c0f45cc29de8b3eba76e0b1f984b722b668913699b98a2d564c6d4",
+      "bytes": 3967
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_apple_approach_lease.py",
+      "sha256": "8a45bc82a76572fb00a4ec8625f4e85de56a3d3f802541f0c2b0ef7d477ba4b5",
+      "bytes": 3869
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_apple_identity_track.py",
+      "sha256": "a23f3bbe4f35b1ea26d1d6ec524451897a1bc17be4a955f702bdb4f4fb4f689b",
+      "bytes": 3933
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_apple_inference_reuse.py",
+      "sha256": "b1f5ce1def087f4d7b54e3d60010f681bce8ef9f873473ed3608f0e5e36472ef",
+      "bytes": 3292
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_apple_roi_confirmation.py",
+      "sha256": "d8f93d57956ade6e9bc373a2fcaede06e0400a643169a251bb3025d50f6d4fe7",
+      "bytes": 14269
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_apple_tracking_observer.py",
+      "sha256": "2dd750f3af4a378b272328c22fe401fa6d0422331a3e114be7138c5aa4b3324f",
+      "bytes": 2712
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_apple_transfer_auto_backend.py",
+      "sha256": "ad0e84556338039c4ed8db36985b2bb4ab9b490761c02acc3477bda14144a348",
+      "bytes": 13810
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_apple_transfer_automation.py",
+      "sha256": "2bbb27f688fc1d00068e738c5fdb4c0c7cf706c8a7e8067532f81d3f7c1fc34e",
+      "bytes": 10280
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_apple_worker_client.py",
+      "sha256": "5248e6e877da6e462af25790ef0220bc09c414d8acd17a9a569f5275f5490565",
+      "bytes": 2211
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_can_approach_plan.py",
+      "sha256": "6e40ca3472c5edcefda2fa083712e2a71ccb51d167df37a488b8da7c4a746eaf",
+      "bytes": 2066
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_can_arm_startup.py",
+      "sha256": "8a29e5789e48c141f8f0207ac7722b22bab1cb953316d20cc9c093a4f309468d",
+      "bytes": 2702
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_can_destination_surface.py",
+      "sha256": "e5227acc86464c611cafb038d3ec3f199752dad6ea3132aeb5a04752166ef85c",
+      "bytes": 1906
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_can_identity_selection.py",
+      "sha256": "20595a2a3226bed9910b99861935492ab82d049c08e1eff52e9352a27cb335cd",
+      "bytes": 1357
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_can_release_timing.py",
+      "sha256": "f7895c16fd760ba74f50a574b5e8369a4cfd6ce8faafd95b2e7ffefd020fa34a",
+      "bytes": 2624
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_can_transfer_automation.py",
+      "sha256": "d16de88a548b2e635962153bf12ca04d319557e5a33be7c58ee6c19f7a826329",
+      "bytes": 10421
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_canned_carry_geometry.py",
+      "sha256": "70f38609c2a31c5a485b89926c20b1e23b5fa988eb3caaf906c1a3f85e9cdec8",
+      "bytes": 6271
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_canned_grasp_geometry.py",
+      "sha256": "b1751c44ddd707d2cfd11fe839eaa501a35aa77d6015d0ef49d3dc095e09c58c",
+      "bytes": 15721
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_canned_place_geometry.py",
+      "sha256": "aeb97a376d105691e47784c694c9c3097c5e7a7fcd108c7c1ed89236411afef2",
+      "bytes": 7518
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_capture_file_writer.py",
+      "sha256": "806bc90b96e857ca8de3edafd9b07349e74e440cbf399d2797ee361230d674cd",
+      "bytes": 1603
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_capture_processing_budget.py",
+      "sha256": "689c6bc51182bee2a84702cfcf9631bcbe29cf186b2e74491a6fede9a5251923",
+      "bytes": 7913
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_feedback_capture_timing.py",
+      "sha256": "22e0e9ab5b506751ea2010ae581bb7a15d6cfe030570fbce401226955a5b85d4",
+      "bytes": 3983
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_forward_approach_handoff.py",
+      "sha256": "aa92a8458d2d208230c84e214c8b438c214fd02962a9af647a5e7a03b83d5c9c",
+      "bytes": 2407
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_gate_pruning.py",
+      "sha256": "6ad3a436271cd8c6cbbea7cecec8d8ccd786f4387cb104e8bb1e4f53232a2c00",
+      "bytes": 10054
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_generic_transfer_template.py",
+      "sha256": "4f60af58509b276acd6afa765d12b61a60e9324b0009b88afc3f5291a519a54f",
+      "bytes": 16816
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_grasp_terminal_correction.py",
+      "sha256": "66f4f765474d2ba92eaf0c08d9460924522effcd6078e73b1f77017dcba2d497",
+      "bytes": 11690
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_gripper_close_gate.py",
+      "sha256": "df0fefbca3bc0bd9761120816cda0d54aedc43ecb8a01af03b826efde16327fa",
+      "bytes": 2213
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_held_can_appearance.py",
+      "sha256": "febc3c131dd504e5d0fa474c1f806f53a3ab399f889faeaf1b3b0fca9fe14284",
+      "bytes": 7534
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_inverse_table_place_plan.py",
+      "sha256": "efdb51b449a3493ff9abcba45eec988ae02fa4feb798d84c3b806af0ce0a7967",
+      "bytes": 1226
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_latest_capture_index.py",
+      "sha256": "1672449ba3de1c8ee489188cf81ffc9eea24985fcb10848080610e6f76abfd82",
+      "bytes": 1765
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_lift_settled_window.py",
+      "sha256": "be7e18ad38566d2c9d377a28e6b6ba2d3e41f5434b6363558b8c24c3113afe05",
+      "bytes": 1845
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_measure_destination_surface.py",
+      "sha256": "bf8fb5f49e49750ef47ea0d26f5ff6388f4a3db1a1532009020c7c0b26aa5f1c",
+      "bytes": 1261
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_motion_speed.py",
+      "sha256": "9ddd207b00664884d8a05c64bb70c7086d9666b36e4084f5f9ab87a2a205823e",
+      "bytes": 8819
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_navigation_feedback_gate.py",
+      "sha256": "f0ef479b7def58e20cf52602c5094f9d368156b4ef82ace30c1ff7b8fad509e4",
+      "bytes": 5164
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_navigation_feedback_recovery.py",
+      "sha256": "87ccf9acd64f49928a15c3f88318076d0e55b8a68a25c3b92f061b9b05e5964b",
+      "bytes": 2646
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_near_apple_geometry.py",
+      "sha256": "e4faf223ed9d5a85eda0d69775f681b80f6f8b6aebe12efee487eed0ef1ad2c8",
+      "bytes": 13181
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_parent_bound_lift_follow.py",
+      "sha256": "847a8a57ecbc2914f5f2b5036a89f73b9c41db66c603632f2d4c07d6290410ab",
+      "bytes": 7479
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_penguin_geometry.py",
+      "sha256": "927badf10b8e7f523aa0af4d32f07d478721f863897e02ed4070a15d0a54c1b7",
+      "bytes": 15087
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_penguin_hand_hold.py",
+      "sha256": "58b670b6ad9bd4e7b02884f22177ab8bf426ff12bc09c7f4c240ea2fa3b024a5",
+      "bytes": 8228
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_penguin_source_identity.py",
+      "sha256": "d282a3abc3e73d6b0f38bae5c6259dd368c4fd465fe27b244e5dc689fca1e408",
+      "bytes": 2650
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_pepper_geometry.py",
+      "sha256": "45cd599e458d22279173412e9675486b499c8ad3ab07d5eb3de7e75f7566ff0d",
+      "bytes": 12624
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_pepper_lifted_hold_resume.py",
+      "sha256": "66d31a6da05d2174a318b681e8438817c0653fd82a7a678cb28d1de27e87132d",
+      "bytes": 3071
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_pepper_navigation_resume.py",
+      "sha256": "48b281c8d5a79b4ca6d7fb28ef3ce64684f579420e057ffa6976c2a7b4bca8e9",
+      "bytes": 3277
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_pepper_partial_body_resume.py",
+      "sha256": "356fe014b0c7547fdcfab1a90564e613e031e47ae87c76e11f36998714cfe255",
+      "bytes": 3037
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_pepper_regression.py",
+      "sha256": "c634f8936c4c9fbf86672057fc71178f222477adafc7be13a0e44f95c46de721",
+      "bytes": 2130
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_pepper_source_observation.py",
+      "sha256": "d9fef4419d7482aa8ef4515410d9bc0065045c8d232fe0be91d266e5a4260e85",
+      "bytes": 3170
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_pepper_source_support.py",
+      "sha256": "8cf38538a19c69468932153c3da58048f753f05eee9bde93d59a72cc1bd554ea",
+      "bytes": 1722
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_pepper_tasks.py",
+      "sha256": "e9013801242d1b3c63857b42484ceec7fa8590439cfb6c41d62da3f052b10a77",
+      "bytes": 5450
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_pepper_transfer.py",
+      "sha256": "37a8a5eef1d55c9b3854c2a802458d02f1df07a34ed8e2f3c4bcc689262903a7",
+      "bytes": 19290
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_pepper_visual_motion.py",
+      "sha256": "7a62db0ac02b20123c97c3bf5091e49e6dcdcf438c6d9982019fa43cf8c472bc",
+      "bytes": 3228
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_preclose_identity_lift_follow.py",
+      "sha256": "3f8f785e62a374dc457770378a4e186fd3035988d1776524b12e0e113885f121",
+      "bytes": 5221
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_resident_inference.py",
+      "sha256": "b2ee6bb9f7a8c185f7433a0f2e36d224b5c1cfd01339cf47c1e37dbc8a465b2c",
+      "bytes": 4410
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_reviewed_carry_adjustment.py",
+      "sha256": "f0900f1a8a254094fd5cb4fdc491bd739a1d7ebdabd64ad6efaf213b593f1b13",
+      "bytes": 2301
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_rgbd_pixel_window.py",
+      "sha256": "c757533d86effc6cbf7194003cb55c260c2ac4b588c14365d82dbf829f6a35e3",
+      "bytes": 1793
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_run_apple_close_lift_trial.py",
+      "sha256": "96e47559a7d8909cffcf73c90157a13048ead95924c98eec9dc846df618566ac",
+      "bytes": 2799
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_segmented_apple_placement.py",
+      "sha256": "1ed9c1e7b16d02831281ae6e7dfdd6a6b2da4236197e620ff659bb07dca77d7f",
+      "bytes": 6370
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_synced_capture_selection.py",
+      "sha256": "0d4dd70236e12acd42dd2ab314a0d917297f068c63a427fd2f2bd442c3ed359f",
+      "bytes": 3246
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_table_release_gate.py",
+      "sha256": "fc550de5e0eda4afa2140e5aea4ad6f2708e7751048ae30848e460b4a3ed533b",
+      "bytes": 4704
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_tabletop_support.py",
+      "sha256": "d2acc023dcd8cd4231a2b17d8ddcc4e0c664d4f9a8d92a51b5d17c0dccba365f",
+      "bytes": 8958
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_task_outcome_policy.py",
+      "sha256": "9784cc69964211bd389622bf4275e89e5d59d0571751855afb9d1f54cd90a1bb",
+      "bytes": 13389
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_tracked_can_cap_geometry.py",
+      "sha256": "f6974c5ec5d26f33f49c50e6888685b6d6d6222fb0cd98326cc0825b411f1b9f",
+      "bytes": 7667
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_transfer_efficiency.py",
+      "sha256": "35b91bbe7fa0fe361455a51bb67e00ac357bfe323bfc83b6655f94a15924e599",
+      "bytes": 8780
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_upright_cylinder_geometry.py",
+      "sha256": "bcf48c61eb6b5c3a3bd554564a287f4f0876d528a973fb8ff4bcefefc797ee6a",
+      "bytes": 10524
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_verify_apple_lift_sequence.py",
+      "sha256": "1729981aee4da0b1403ea1414c9ad2a3c01443a2d25ef09c60c27022f6a578ea",
+      "bytes": 2037
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/test_verify_table_placement.py",
+      "sha256": "6bcdc08a08d0e62b76b07fb71d276267dbb6c0d37ee027fb2588e960a248d1d1",
+      "bytes": 3451
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/tracked_apple_surface.py",
+      "sha256": "1f1cbb34f3ee196de373f93b341c07663d756bc005b9c7198f4876aa90acd34a",
+      "bytes": 3535
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/tracked_can_cap_geometry.py",
+      "sha256": "e3fff021adaa5f158ce9cfed87743473ded16680c472eb4d97f64161da7c3f16",
+      "bytes": 6317
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/transfer_efficiency.py",
+      "sha256": "50a596a041ced817fda9230ed8783013d9916818a58d4a6fbc407bcf0cc09a21",
+      "bytes": 2547
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/upright_cylinder_geometry.py",
+      "sha256": "1efcb450663f3d1d5fae484aaf2e5fdeb6524e41c6a38a24496b9a36fa053a16",
+      "bytes": 6433
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/verify_apple_lift_sequence.py",
+      "sha256": "704ce13be6b63a34e6c33191c445be26d61e985af4fb0e589eeaf2a343a0b7dc",
+      "bytes": 7661
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/verify_near_grasp_roi_readonly.py",
+      "sha256": "be5353b68fa717d7b75de12d4ec52b63cfb484a6c77d42b496ea691d78b458eb",
+      "bytes": 8270
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/verify_source_timing_readonly.py",
+      "sha256": "9d79d80509624e8159d99954fe522487a498db10b1910df816cc5a501b21c6b9",
+      "bytes": 6709
+    },
+    {
+      "file": "training/automation/apple_transfer_v1/verify_table_placement.py",
+      "sha256": "a4889628734c77fcd5454ae741624a533f2e595e4625cd261d13e1211e10c637",
+      "bytes": 4947
+    },
+    {
+      "file": "training/can_approach_plan.py",
+      "sha256": "a5e75d6b08f7b9783ddda0ba7a463fc9c8b48bb05d97cde99c95472feb46cf36",
+      "bytes": 848
+    },
+    {
+      "file": "training/can_arm_startup.py",
+      "sha256": "186d1ec0ce96098bc618f547c9ebdcea4f121a6032b93008f63db246ec6605c6",
+      "bytes": 1051
+    },
+    {
+      "file": "training/can_destination_surface.py",
+      "sha256": "2f64b65b3b0cabc3c2f21c1708bde6863380521073f40c4938f31a83337ad12a",
+      "bytes": 2734
+    },
+    {
+      "file": "training/can_identity_selection.py",
+      "sha256": "11f8df847fcc15e432d83285018abe6f10d83f411a89e0f12e995045fcb17bb1",
+      "bytes": 969
+    },
+    {
+      "file": "training/can_release_timing.py",
+      "sha256": "da5fca38b57d092dd410bd9ea24a6bbd56682a8a0db3c486ceb973ef7b1d281a",
+      "bytes": 1580
+    },
+    {
+      "file": "training/can_transfer_automation.py",
+      "sha256": "171abbef8fcd610e89942069b5ba831cedd43f802d9021e86cca58b116850622",
+      "bytes": 11646
+    },
+    {
+      "file": "training/can_transfer_context.py",
+      "sha256": "6fa7295ad35c788ab9143d338bc9bf745c143359aed8e308eb126f9ba678f900",
+      "bytes": 6886
+    },
+    {
+      "file": "training/canned-after-table-plane-fix-progress-20261023.json",
+      "sha256": "87abb16cfbfe744024a12d6775f2e2147ba7419e053068cb08b5ac9eff0b5505",
+      "bytes": 5388
+    },
+    {
+      "file": "training/canned-after-two-fixes-progress-20261023.json",
+      "sha256": "ccc5b40f1aead8254e31120a695f8e7206fe85de1f57750f50ab7c0afea375bb",
+      "bytes": 5102
+    },
+    {
+      "file": "training/canned-alignment-fix-ready-progress-20261024.json",
+      "sha256": "dc5221773badb5f27ed5382fb0e3f1d1cdd5227cd81121ac7c02056c9ba30417",
+      "bytes": 5646
+    },
+    {
+      "file": "training/canned-carry-adapter-progress-20261023.json",
+      "sha256": "c46575c0ddc7816a414e1c4fba24bae0dc55ec906e2433f88e6fd4785ae1ad61",
+      "bytes": 1655
+    },
+    {
+      "file": "training/canned-carry-navigation-progress-20261023.json",
+      "sha256": "876b3ad2aa3306484847c3035c9a2e5d6c103ca3cd793480dc149401ec483c85",
+      "bytes": 4871
+    },
+    {
+      "file": "training/canned-carry-pending-progress-20261023.json",
+      "sha256": "28807fb65eb3fba1733d38d7001f7688b13a7bdf6306d01701d645435075a576",
+      "bytes": 3796
+    },
+    {
+      "file": "training/canned-carry-retracted-progress-20261023.json",
+      "sha256": "3cace51e6a38dc869c8583f11740204be9c085c3f3856e9dc34a158e8d141bb8",
+      "bytes": 3548
+    },
+    {
+      "file": "training/canned-continuous-entry-ready-progress-20261023.json",
+      "sha256": "b29695a7049d486d1cecbba099b529aba73ca8bde4308d2c9590a23ebac9c44b",
+      "bytes": 3732
+    },
+    {
+      "file": "training/canned-current-start-continuous-success-progress-20261023-05.json",
+      "sha256": "afa679e98409a3beabec47a05c375a8d7ecf6b0992956727312bcfab87d73633",
+      "bytes": 5389
+    },
+    {
+      "file": "training/canned-deeper-grasp-verified-progress-20261024.json",
+      "sha256": "fafdfedc23657bcb46cc412e8d29c0f65f399526d61f22577ec49a8c1aafbb5e",
+      "bytes": 6897
+    },
+    {
+      "file": "training/canned-grasp-adapter-progress-20261023.json",
+      "sha256": "48777e68cf8f3ba42e8299fbb63c7e16f3319e3f5ef17beb243f32e3b4602f22",
+      "bytes": 10223
+    },
+    {
+      "file": "training/canned-grasp-lift-live-progress-20261023.json",
+      "sha256": "9d38a58591a5cc31b8b9b5cab06e9c7d7e003601aa34b52f6ca4c70c3e670678",
+      "bytes": 39672
+    },
+    {
+      "file": "training/canned-juice-observation-live-progress-20261023.json",
+      "sha256": "e8dab1a8073ebef33c46f7a8f29c8d47308052051a81515349727ab852cf4af1",
+      "bytes": 11098
+    },
+    {
+      "file": "training/canned-transfer-verified-progress-20261023.json",
+      "sha256": "132976b124022bd130aa99b23141f00e8b3b151bdcfbd74f3d8fb8e228a8e2d9",
+      "bytes": 3287
+    },
+    {
+      "file": "training/canned-upright-reset-required-progress-20261024.json",
+      "sha256": "1a02cc4e5727eabdfad09ff5307926f25c98c76bc57bb9e3586970c349dda64e",
+      "bytes": 5400
+    },
+    {
+      "file": "training/canned_carry_geometry.py",
+      "sha256": "250bbdef3103417e41178bce5357cebfe1cea25a91d537ce79bc6262e64646b4",
+      "bytes": 4589
+    },
+    {
+      "file": "training/canned_grasp_geometry.py",
+      "sha256": "e8235692df98f697a624371e64a44d392eb0da645e3057ac7f60d7d8ac822824",
+      "bytes": 11625
+    },
+    {
+      "file": "training/canned_grasp_runtime.py",
+      "sha256": "7017450d3a103033011480802d9a4054b395ffbce44f543362675c3910c5699a",
+      "bytes": 20927
+    },
+    {
+      "file": "training/canned_place_geometry.py",
+      "sha256": "b1d26edd861ff03ac8e4d802841d7ddc5ff2e1caa56870de98db43ed55fa2dd0",
+      "bytes": 7045
+    },
+    {
+      "file": "training/capture_file_writer.py",
+      "sha256": "a7cefebb0868541596dbd4bd7398c81071bd414d23bf7f037002dae0f8da7606",
+      "bytes": 716
+    },
+    {
+      "file": "training/capture_grasp_scene.py",
+      "sha256": "0dbaa8dd2f20be77819ebf22731a5f002b4c43ecee14e725a8ef0eb44478d0c1",
+      "bytes": 20664
+    },
+    {
+      "file": "training/capture_processing_budget.py",
+      "sha256": "a636b24a45a163325a99cb56f74fdf599473de9c0b0d1eca3e78b02301018bc3",
+      "bytes": 4830
+    },
+    {
+      "file": "training/config/apple_transfer_auto_v1.json",
+      "sha256": "d1b5908d7971379f49b6471cd103f29e63a9179a926655a2adccd7ee9b3a2d6a",
+      "bytes": 1956
+    },
+    {
+      "file": "training/config/manipulation_objects_v1.json",
+      "sha256": "91f49da6b87e04136e088df663b66b06f15072f8dd40df985f785a2a93365a7e",
+      "bytes": 2810
+    },
+    {
+      "file": "training/config/motion_speed_profiles.json",
+      "sha256": "008f586662e1f925e7d245615c040d9f0ad828a02ade3eb9df3321dfd0aff82d",
+      "bytes": 2760
+    },
+    {
+      "file": "training/config/navigate_efficiency_v1.xml",
+      "sha256": "6f8fc684efefa665d8110d7946126946a97e09e85bae6744fd2456c17b643899",
+      "bytes": 1242
+    },
+    {
+      "file": "training/config/navigation_efficiency_v1.json",
+      "sha256": "ecbfc7acc67c6113d3bc17cf57c5db8a46837722e54ab642c0ecaa95dbc3676f",
+      "bytes": 936
+    },
+    {
+      "file": "training/config/penguin_bedroom_to_living_room.json",
+      "sha256": "0908683b58dce136a68e28e4defa8bedb16903c2ce4166237ef7121f0422d329",
+      "bytes": 435
+    },
+    {
+      "file": "training/config/penguin_living_room_to_bedroom.json",
+      "sha256": "d83f1ab8194067e05449512059af7c7960659e278eb504d5b83a1ae30dbc987d",
+      "bytes": 434
+    },
+    {
+      "file": "training/config/pepper_bedroom_to_living_room.json",
+      "sha256": "a16d2ca9a2426e2a98dc5ebf616bda8e4fb30c3ef5701763d704e6491d50a72c",
+      "bytes": 439
+    },
+    {
+      "file": "training/config/pepper_living_room_to_bedroom.json",
+      "sha256": "05952988b70b617642c3a9ae1801385f1461637916928e88b7eccc12f300a6e0",
+      "bytes": 438
+    },
+    {
+      "file": "training/continue_apple_placement.py",
+      "sha256": "95c44723825bee46f0899c5f299298f5b9f1e36b586b7e2e47524c26ab908262",
+      "bytes": 6660
+    },
+    {
+      "file": "training/efficient_navigation.py",
+      "sha256": "92eebd8439408868516ce47f33724bae03e23ffe883429f8068df1d90d20ddd5",
+      "bytes": 16857
+    },
+    {
+      "file": "training/experiments/penguin_head_hold_20261025/EXPERIMENT.txt",
+      "sha256": "217bdb85d43edabd0a94bf36cb049001ffc802ac76b04edd734dc45650c52099",
+      "bytes": 608
+    },
+    {
+      "file": "training/experiments/penguin_head_hold_20261025/head_carry_trial.py",
+      "sha256": "e34e5769dae820bd1927d70f9d9a2f78e0c04b2eebf28711706772ca1f59aa9a",
+      "bytes": 4547
+    },
+    {
+      "file": "training/experiments/penguin_head_hold_20261025/head_face_rgb_audit.py",
+      "sha256": "30367b78bc74f3a5a7dd4cf104ac27aa6d342b622a4ecc4a36977c8ed3babffe",
+      "bytes": 2141
+    },
+    {
+      "file": "training/experiments/penguin_head_hold_20261025/head_lift_trial.py",
+      "sha256": "b4028a143986427bb08f4e4eecd0431b0f141a99fc476bce563917a99649e23f",
+      "bytes": 3802
+    },
+    {
+      "file": "training/experiments/penguin_head_hold_20261025/head_place_trial.py",
+      "sha256": "d004dbb0c55364b4fb9c455219ef30608505d77cfef3941e0d5072a7ddc808f4",
+      "bytes": 10110
+    },
+    {
+      "file": "training/experiments/penguin_head_hold_20261025/head_retraction_trial.py",
+      "sha256": "6bfe1d16bc32f1121f299a2760fb720e8daf2fd0f7d81918563220bb72658b3f",
+      "bytes": 5620
+    },
+    {
+      "file": "training/gate_recovery.py",
+      "sha256": "6e77a423d0a4603440dcaedc9946ab4fb0584b9dbe042a327c7482d2b4dc8aca",
+      "bytes": 2972
+    },
+    {
+      "file": "training/generic-canned-juice-progress-20261023.json",
+      "sha256": "35890ec2d3894e7f65d746658f43cbc1583a3a411dfa2d5ef73c59fc36e7bede",
+      "bytes": 5162
+    },
+    {
+      "file": "training/generic-transfer-template-progress-20261023.json",
+      "sha256": "c668d041e444a4095572e1a3b92b8a4fd56f34b320555db95e722c057800db56",
+      "bytes": 3928
+    },
+    {
+      "file": "training/generic_transfer_template.py",
+      "sha256": "a43c16dcb046c7ec84f77ab03e51a54c994e05174393bd90e7d8f47b5926e1ab",
+      "bytes": 4855
+    },
+    {
+      "file": "training/grasp_terminal_correction.py",
+      "sha256": "72e9553a54f35cc091d8605777ca2f51ac0c18971cb1063c2563584d95ced185",
+      "bytes": 3377
+    },
+    {
+      "file": "training/ground-pepper-action-feedback-fixed-progress-20261024.json",
+      "sha256": "f7a29cfdc236a9eeeb22c83fc7256da72e68981da5483333bd8b287442c60c48",
+      "bytes": 8562
+    },
+    {
+      "file": "training/ground-pepper-adapter-ready-progress-20261024.json",
+      "sha256": "38952dc5b9ae9a6894ba64a43d90a57e5f1d94983ab249c84d46d173b037b44c",
+      "bytes": 8727
+    },
+    {
+      "file": "training/ground-pepper-capture-timing-fixed-progress-20261024.json",
+      "sha256": "05ee23ea739e3752be5778a85164a1de2708e7db3025e7334f10faf454a52247",
+      "bytes": 8567
+    },
+    {
+      "file": "training/ground-pepper-current-feedback-fixed-progress-20261024.json",
+      "sha256": "5311c4a925b9305d55461094358a3b46a8b0e7a98a5d60393695db3bea8641bc",
+      "bytes": 8569
+    },
+    {
+      "file": "training/ground-pepper-destination-continuation-ready-progress-20261024.json",
+      "sha256": "fbbd020c0cb47698d0af94b34abf1ff1496da9719be9c66edb81e5f0b633eec3",
+      "bytes": 8835
+    },
+    {
+      "file": "training/ground-pepper-final-observation-ready-progress-20261024.json",
+      "sha256": "8877e71a964886a8301a051508377a374854a2dbefc570024280e550c2cb7415",
+      "bytes": 9212
+    },
+    {
+      "file": "training/ground-pepper-frame-budgets-fixed-progress-20261024.json",
+      "sha256": "14fa3079bd3aea48e67708a1b1c70134aaf4b4950707e29a016a6c27b9e7a5ec",
+      "bytes": 8835
+    },
+    {
+      "file": "training/ground-pepper-hold-feedback-fixed-progress-20261024.json",
+      "sha256": "df8943e24b59ac9f0cafb891012defababe1b30e5328a51e4fd1bf897fff70bc",
+      "bytes": 8834
+    },
+    {
+      "file": "training/ground-pepper-joint-latency-compatible-progress-20261024.json",
+      "sha256": "191b2353d93ccdcec0c17129fe1fe7ec754ab8942c15f39bd5276ed9e56d2293",
+      "bytes": 9172
+    },
+    {
+      "file": "training/ground-pepper-native-source-head-fixed-progress-20261024.json",
+      "sha256": "b5ce1fb350e8145d212a9dc0ffaffc08391484bbbfaea0498a44c96df9391dbe",
+      "bytes": 8571
+    },
+    {
+      "file": "training/ground-pepper-native-transfer-success-progress-20261024.json",
+      "sha256": "499b9a231a64f41bebd636a08799213d8d4c26f17880f2e97e5106031a3b53ed",
+      "bytes": 13624
+    },
+    {
+      "file": "training/ground-pepper-near-centering-fixed-progress-20261024.json",
+      "sha256": "dead7732b9778fff0bf6ad1454a3a4c574c350407bf4aa6791600a5217c5e96f",
+      "bytes": 8698
+    },
+    {
+      "file": "training/ground-pepper-phase5-pause-checkpoint-20261025.json",
+      "sha256": "af78710b802b19a35b8c5a4d5c6a2a29c5b05b41b476dc4ae9ee9b893af075af",
+      "bytes": 13530
+    },
+    {
+      "file": "training/ground-pepper-preclose-io-fixed-progress-20261024.json",
+      "sha256": "b02f075db275ed254a79c5869df731d11310391301a45edaa102abade425ecf6",
+      "bytes": 8666
+    },
+    {
+      "file": "training/ground-pepper-released-cleanup-ready-progress-20261024.json",
+      "sha256": "99b31a3060e5276e4f7c38e4a0d81a23abdb68a3247c0761bb189e64d3f86257",
+      "bytes": 9259
+    },
+    {
+      "file": "training/ground-pepper-three-rounds-success-progress-20261025.json",
+      "sha256": "ab27b3daab508781fc1b15980b3f8e31989376a81608cd580e69b03078c65040",
+      "bytes": 12888
+    },
+    {
+      "file": "training/held_can_appearance.py",
+      "sha256": "c27828aff5de8e34f6190b30cb4f35c0549e0129c2bde42745ac2d86c2daac3f",
+      "bytes": 10205
+    },
+    {
+      "file": "training/inspect_manipulation_capture.py",
+      "sha256": "70f8bf7429bf2c73f5613fe9a1e76d3ae7decf6bc52f0e06b2e70e76fc6917cc",
+      "bytes": 2950
+    },
+    {
+      "file": "training/inspect_table_apple.py",
+      "sha256": "3ae370209a006af86b5553642fa59f1768eceb00f3ebe4dabf4007ad0fbe4ce2",
+      "bytes": 3193
+    },
+    {
+      "file": "training/inspect_transfer_ready.py",
+      "sha256": "f158adf62ae5af7eb3faf8bef617ce72e71458bea73701439a4f789ee471b104",
+      "bytes": 6789
+    },
+    {
+      "file": "training/inverse_table_place_plan.py",
+      "sha256": "a4f3c7125cb87109104a119c3bf80343f888fcfe586e8dc9fddd121f384b6cce",
+      "bytes": 3379
+    },
+    {
+      "file": "training/lift_settled_window.py",
+      "sha256": "d02104cd9bac8474330e5bef29a91ea20337840588688c5dbbab79a5c1cc7127",
+      "bytes": 882
+    },
+    {
+      "file": "training/manipulation_profiles.py",
+      "sha256": "e4c349738ad571e1394ffac3804f55716ab918d611eadeb8f93a5be79173657c",
+      "bytes": 3158
+    },
+    {
+      "file": "training/motion_speed.py",
+      "sha256": "d3f3fa2dae125797468de4de20a495b06cc7d299985d1c8bf44fe476d11c1013",
+      "bytes": 7987
+    },
+    {
+      "file": "training/navigate_carry_trial.py",
+      "sha256": "ee31e7f97f5c7bd3711004eb61159bcf692558675c466bf7b80d954fdc9e01c7",
+      "bytes": 15048
+    },
+    {
+      "file": "training/navigation_efficiency_policy.py",
+      "sha256": "69dd0ca7eb570e0c41f9672faec0ce98b7255d7cbe7d247cb651d33bf73512fc",
+      "bytes": 7615
+    },
+    {
+      "file": "training/navigation_entry.py",
+      "sha256": "c319e68e1312ed83b6c1e6a742a0d8b2820d3e8f8d7034c0d23443c0f9bc2ef1",
+      "bytes": 7314
+    },
+    {
+      "file": "training/navigation_feedback_gate.py",
+      "sha256": "9666ce8496c4414ff1452445a3eac344bc22daa3400a2597e0fa86c64034c878",
+      "bytes": 3347
+    },
+    {
+      "file": "training/navigation_feedback_recovery.py",
+      "sha256": "741a03b1d234257960c70fb56efbdd085e634d8e858db05595fabb4fbd4f868c",
+      "bytes": 1384
+    },
+    {
+      "file": "training/near_apple_geometry.py",
+      "sha256": "90df934d763b8081304c27ea0d0bd02231c6c244ccfb33c11bcd5441f1cce4c7",
+      "bytes": 14957
+    },
+    {
+      "file": "training/object_observation_sequence.py",
+      "sha256": "93591e55e2b55cccc556d5532ae34840563bf51165377e1598fa631745c28339",
+      "bytes": 3552
+    },
+    {
+      "file": "training/object_surface_geometry.py",
+      "sha256": "acc0a3e983b39145ea88c8d567757f321871fe2bb3e7c04cd91c3ea0fa91798f",
+      "bytes": 9290
+    },
+    {
+      "file": "training/penguin-first-staged-transfer-success-progress-20261025.json",
+      "sha256": "19454d93cce7d275c72e92633a826cf57ff304690cdbea507bd82af63862241e",
+      "bytes": 18179
+    },
+    {
+      "file": "training/penguin-head-lift-resume-checkpoint-20261025.json",
+      "sha256": "a82357b5ea9ae2fc1511d8d10346a65e7e0a400912d81d2b475f9d889182087f",
+      "bytes": 19998
+    },
+    {
+      "file": "training/penguin-head-occlusion-ready-progress-20261025.json",
+      "sha256": "ad80005b73579f816d92d71621985cdc01ae7f2271e7f3a6f7012124f4229bc2",
+      "bytes": 14106
+    },
+    {
+      "file": "training/penguin-head-transfer-ready-progress-20261025.json",
+      "sha256": "79620d1fe81495af5e96b53657d35b48f238f07e9174fe66a30166bb28a9b34b",
+      "bytes": 14085
+    },
+    {
+      "file": "training/penguin-identity-seed-ready-progress-20261025.json",
+      "sha256": "0f0134d1a907ce7efe331bfba1e53e7093c723dda23970d0d27794e45c79bf8f",
+      "bytes": 14297
+    },
+    {
+      "file": "training/penguin-identity-view-ready-progress-20261025.json",
+      "sha256": "3df57d29bac13d7b125853739c35ab96068f5c47ad26eeaecfaa45d4f32fdee9",
+      "bytes": 14079
+    },
+    {
+      "file": "training/penguin-lateral-clearance-ready-progress-20261025.json",
+      "sha256": "0a6c7237a5f22bcef00bde926eeede1bc34ffab52923acad796275ea0eee2f30",
+      "bytes": 14081
+    },
+    {
+      "file": "training/penguin-low-score-source-view-ready-progress-20261025.json",
+      "sha256": "ba2d0f8822f1a50741ad9cc382fb3b59a15a302860b233d8ce7f44d176fe9862",
+      "bytes": 18394
+    },
+    {
+      "file": "training/penguin-occlusion-fit-ready-progress-20261025.json",
+      "sha256": "b0d6b255df48d2dd8553ace6937561dc70b6072d0e2c0df5145bc211cf5addf0",
+      "bytes": 14075
+    },
+    {
+      "file": "training/penguin-open-tracking-ready-progress-20261025.json",
+      "sha256": "593641d1dd024f0e6e076e66fcedd0d52b8aeebc2ac14d9579c940d73d819cd3",
+      "bytes": 14072
+    },
+    {
+      "file": "training/penguin-resident-fast-ready-progress-20261026.json",
+      "sha256": "248ac04c8ca24aa6826b1d3693367a2d0a53f5b7d03e7c77410bd0512d1e7484",
+      "bytes": 19309
+    },
+    {
+      "file": "training/penguin-source-support-ready-progress-20261025.json",
+      "sha256": "8ebe2a657a432ca5089aca4ec93219539577da80b6b670ee95f1d5cb6ad73587",
+      "bytes": 14297
+    },
+    {
+      "file": "training/penguin-source-view-ready-progress-20261025.json",
+      "sha256": "c38643ddaca9bd405ce4fe7a1db9753789fff905e7fcaa664bc662a237df16a8",
+      "bytes": 14069
+    },
+    {
+      "file": "training/penguin-table-support-ready-progress-20261025.json",
+      "sha256": "22a23839d47747c271cca0a0ca6d725cb615f139ae3bbc20ab34aa4c93080313",
+      "bytes": 14502
+    },
+    {
+      "file": "training/penguin-unified-hand-entry-ready-progress-20261025.json",
+      "sha256": "101d674f7f080f6cfd4f829aff448ef4c1bbb98f581f2f1f3425b0b240f0a49f",
+      "bytes": 18401
+    },
+    {
+      "file": "training/penguin_geometry.py",
+      "sha256": "985cc656ade4adfb78dc50526f46686e1d8a347dda3452cef20aabce15ca4d08",
+      "bytes": 16664
+    },
+    {
+      "file": "training/penguin_hand_hold.py",
+      "sha256": "75be28ca66c831b49509c187f6eeb2328b0ef88933014e97f566c6f60e2103d7",
+      "bytes": 10851
+    },
+    {
+      "file": "training/penguin_hold.py",
+      "sha256": "9c1f6e6eac10f9e20d7d8d42205ec30c81b91522d7960cb3d39d8282bc088691",
+      "bytes": 7269
+    },
+    {
+      "file": "training/penguin_place.py",
+      "sha256": "0bdfdc39f1ef71a4d0b460cf015862e6f3aea283aab8ebcced0538d3bd5eb731",
+      "bytes": 5500
+    },
+    {
+      "file": "training/penguin_runtime.py",
+      "sha256": "76f810ba0957f3708e57390d81e372fd138d3ff1a0a3b668dc1a554114c228c5",
+      "bytes": 5134
+    },
+    {
+      "file": "training/penguin_source_identity.py",
+      "sha256": "da8b80b05f8b4e44e94232496423357b31df9464c97c616b820866b4a7e2b42d",
+      "bytes": 3406
+    },
+    {
+      "file": "training/penguin_tasks.py",
+      "sha256": "3839166270b226f5a87c5fece39168d60ed0f3b3e466b424a1ff6d7874516e7e",
+      "bytes": 4460
+    },
+    {
+      "file": "training/penguin_transfer_automation.py",
+      "sha256": "3298b2f776f63264eb5cb4f10be820eb743337e95ea31847f93b0e0ce38e15cd",
+      "bytes": 240
+    },
+    {
+      "file": "training/pepper-compact-realignment-ready-progress-20261026.json",
+      "sha256": "755642d41f040925d1cb7f1264492b11e8c2ccb9a5653fac2a769460bc46c390",
+      "bytes": 12784
+    },
+    {
+      "file": "training/pepper-configured-capture-ready-progress-20261024.json",
+      "sha256": "f74e23696c87678794397f98156fe4bf03e30a65c449cd95d2305391114a3092",
+      "bytes": 7775
+    },
+    {
+      "file": "training/pepper-configured-feedback-ready-progress-20261024.json",
+      "sha256": "401422b33816bf8f8e05de1bb2ae0956f0fdc4b9e62f66b0ba57558c3fd65f0b",
+      "bytes": 7668
+    },
+    {
+      "file": "training/pepper-configured-perception-ready-progress-20261024.json",
+      "sha256": "fec957e6d8342362f397503086116c081cb4239ec74684fb9dc9267f47e64b8c",
+      "bytes": 8020
+    },
+    {
+      "file": "training/pepper-configured-regression-waiting-sync-progress-20261024.json",
+      "sha256": "8a14c258cdd434e940b3c069ab174fda922d7f1678fca7dd4987c2393f42f73a",
+      "bytes": 9634
+    },
+    {
+      "file": "training/pepper-configured-source-ready-progress-20261024.json",
+      "sha256": "1338b819bbd4cfc9b950aa2db9184cb6b4338be8dc2b54661487a63a3e8c18ef",
+      "bytes": 7768
+    },
+    {
+      "file": "training/pepper-configured-transfer-ready-progress-20261024.json",
+      "sha256": "9da57c6b6304821f5e5eb21a405247cef3072494ca92dceeeb640f235278a649",
+      "bytes": 7040
+    },
+    {
+      "file": "training/pepper-lifted-hold-resume-ready-progress-20261025.json",
+      "sha256": "68fcae3c388420f6658b6a9555fe1832794457880803b2b26b27b6a5c9d36591",
+      "bytes": 13835
+    },
+    {
+      "file": "training/pepper-motion-direction-ready-progress-20261026.json",
+      "sha256": "71d6933f45cb9baff29d2208a54db5ddc0c6f9d7b485df2f6fc2fb900760e517",
+      "bytes": 12969
+    },
+    {
+      "file": "training/pepper-motion-surface-ready-progress-20261026.json",
+      "sha256": "3883c34bcfa9917c7ce0d26c1e6f113ef49ce56562f97cb162826b8d97bddd3b",
+      "bytes": 12973
+    },
+    {
+      "file": "training/pepper-navigation-recovery-ready-progress-20261025.json",
+      "sha256": "d9df282b543b59540d4a0a4cf20e2a8be796180e787535f60d0f84090721f0cd",
+      "bytes": 10146
+    },
+    {
+      "file": "training/pepper-partial-body-placement-ready-progress-20261025.json",
+      "sha256": "89c071764abc26a41b65904b845f25891ac8815cb44a790c9b5af3bbfaf21b95",
+      "bytes": 13954
+    },
+    {
+      "file": "training/pepper-source-table-support-ready-progress-20261025.json",
+      "sha256": "a5729fb8213aef41ed47e604ab59dcebe398ded07d345a2d2792bb6c1915de7f",
+      "bytes": 10243
+    },
+    {
+      "file": "training/pepper-visual-motion-ready-progress-20261026.json",
+      "sha256": "209ef40eb8ff29fe6ba797031c9929faf601b996244c07d39da94a3a531513f7",
+      "bytes": 12958
+    },
+    {
+      "file": "training/pepper_geometry.py",
+      "sha256": "be7b5e90d320b437dcc60c3fc2b00168e6c963937903953278fa505dcc9bdfd9",
+      "bytes": 18492
+    },
+    {
+      "file": "training/pepper_hold.py",
+      "sha256": "43a250e5fbf70f666c3bb3c1ca221ed634595194806d5ac2b3e4ab97e0418205",
+      "bytes": 7077
+    },
+    {
+      "file": "training/pepper_place.py",
+      "sha256": "7624e23274f8ade10d7303385a70d620b597ce9f93f0a6b98ac637011ae67e8e",
+      "bytes": 5231
+    },
+    {
+      "file": "training/pepper_regression.py",
+      "sha256": "e9a2707e932765194b5b709f155d1f6bbfbabf43378a36936354b292aea0bfcb",
+      "bytes": 7758
+    },
+    {
+      "file": "training/pepper_runtime.py",
+      "sha256": "5a03c1ff7e1789a0ada6cac0389d39f51876a9d171750b35f8baa5edfb22fcc3",
+      "bytes": 12089
+    },
+    {
+      "file": "training/pepper_source_observation.py",
+      "sha256": "5fb684be516934b65c37bc04efb6831cb6d5026e6711d831178f7cc9175aefdc",
+      "bytes": 2580
+    },
+    {
+      "file": "training/pepper_tasks.py",
+      "sha256": "617ac6443be2f01dc49bbe59bb76921076bea597434b2de1917a466ae8e2a7c9",
+      "bytes": 4462
+    },
+    {
+      "file": "training/pepper_transfer_automation.py",
+      "sha256": "e56956098412278fae4d625df9b706348d0aae9e7ab91d71cdc7534c9935dc28",
+      "bytes": 65876
+    },
+    {
+      "file": "training/pepper_visual_motion.py",
+      "sha256": "35fb0423fe9c8feb292d52cd186fd8f9e03927a3727c67df4127493024878149",
+      "bytes": 6056
+    },
+    {
+      "file": "training/phase5-before-pepper-visual-servo-progress-20261026.json",
+      "sha256": "16e8acc6188beb9b399ec6527a0ba3a09d451c131502bf831464bcba0bc5df1d",
+      "bytes": 12584
+    },
+    {
+      "file": "training/phase5-current-work-progress-20261026.json",
+      "sha256": "055faff2e95d880a096d8f5c76e45ee66ea5055aa6e8b5afd32d61e8afb96889",
+      "bytes": 27448
+    },
+    {
+      "file": "training/phase5-frozen-configuration-progress-20261026.json",
+      "sha256": "887dba45eaa0881fa103ad38a06be5db1a81fe9b8d3a5325701674d95999cbd3",
+      "bytes": 11860
+    },
+    {
+      "file": "training/phase5-horizontal-can-progress-20261101.json",
+      "sha256": "2dd0473487983e57a77183c43d430466509badb7538791ca87c15b45a3de1ae2",
+      "bytes": 24325
+    },
+    {
+      "file": "training/phase5-pepper-visual-servo-success-progress-20261026.json",
+      "sha256": "055faff2e95d880a096d8f5c76e45ee66ea5055aa6e8b5afd32d61e8afb96889",
+      "bytes": 27448
+    },
+    {
+      "file": "training/phase5-restart-checkpoint-20261017.json",
+      "sha256": "f0f7f02773912b74a1b6b46448eea18077c6d63017ff8f888c355258506ba744",
+      "bytes": 14713
+    },
+    {
+      "file": "training/phase5-visual-test-preparation-20261022.json",
+      "sha256": "b157ca2fc1e08f55e63136142b1c8b71083d42147c7353b9f2c52a61c43dd9a8",
+      "bytes": 5757
+    },
+    {
+      "file": "training/pregrasp_raised_trial.py",
+      "sha256": "9b2c48c882bc4a5d295fa93ebb7a1dc23239ae8ceb81cb50b0836a28abe63017",
+      "bytes": 36420
+    },
+    {
+      "file": "training/probe_navigation_latency.py",
+      "sha256": "3003e9ba9a5e3f2a237982aa811be9b25b2e5b780c75d480992411e54ef7e881",
+      "bytes": 4471
+    },
+    {
+      "file": "training/replay_gate_pruning.py",
+      "sha256": "010b79c739f6df599ccac0bdb92efcea5ced89475f7e23b9566d2e32f51d2848",
+      "bytes": 6709
+    },
+    {
+      "file": "training/replay_near_apple_geometry.py",
+      "sha256": "285bf0ce077bda267c38e4ca24a10008128e233bd1c9d8d0d26e9737f0fde00a",
+      "bytes": 6554
+    },
+    {
+      "file": "training/replay_pepper_reference.py",
+      "sha256": "868113d76141881bf6f4c3e58d029a57c07ee07568f986d088efc7ed6233cba7",
+      "bytes": 2505
+    },
+    {
+      "file": "training/replay_placement_policy_r11.py",
+      "sha256": "34e87f757d339feffe18621fe6273b5b538ac126d099c69dc9724a0c13a9d6f8",
+      "bytes": 2959
+    },
+    {
+      "file": "training/resident-model-carry-fast-ready-progress-20261026.json",
+      "sha256": "548f2c1c65df703b2ecead60db5bb6f770ad126c0f489f91ecf71057a19add9a",
+      "bytes": 19297
+    },
+    {
+      "file": "training/resident-model-fast-navigation-trial-progress-20261026.json",
+      "sha256": "80a0f4fb3e94eddd4c348b850a40507114dde94d77d9d76e7549ec126e22cd71",
+      "bytes": 17994
+    },
+    {
+      "file": "training/resident-model-second-timing-comparison-20261026.json",
+      "sha256": "7446de359e66ee618cf88232162ebdacdd7cfc769d446d623aa6c5cf488c859f",
+      "bytes": 7221
+    },
+    {
+      "file": "training/resident_inference.py",
+      "sha256": "a9de3688c34e4477ab8059722c7740cec5a9bc2335798753ec8c77b547179dcc",
+      "bytes": 4912
+    },
+    {
+      "file": "training/reviewed_carry_adjustment.py",
+      "sha256": "1fcdefdb23fb208676e2beb2f53562e6609c2b8c5684ab5d860f50e7c6c1f065",
+      "bytes": 15099
+    },
+    {
+      "file": "training/rgbd_pixel_window.py",
+      "sha256": "3ed9ee66c1fff45624761214648c11c20596af24d752f8276d1dbc255c5493e1",
+      "bytes": 531
+    },
+    {
+      "file": "training/run_apple_close_lift_trial.py",
+      "sha256": "ff51e63e43158109dbae8edb92f616120f16b844364a46b0b284a2c8e54a8718",
+      "bytes": 11954
+    },
+    {
+      "file": "training/run_bedroom_apple_regrasp.py",
+      "sha256": "3d6f86e22e5892352348e56b28f4471ef45256e1b5f12ad6ba8e5b36e438d6ad",
+      "bytes": 9683
+    },
+    {
+      "file": "training/run_canned_carry_trial.py",
+      "sha256": "eaafdca975ac703b2b14e07a6be4a958f062de7996c6d44d9cb0029b22d757f8",
+      "bytes": 11309
+    },
+    {
+      "file": "training/run_canned_grasp_trial.py",
+      "sha256": "68f6e4be97c4f7e8e9b41b5701fdd91f1962d4835ea2b7e7e384be2e92c8da88",
+      "bytes": 14641
+    },
+    {
+      "file": "training/run_canned_place_trial.py",
+      "sha256": "cdacc984f33272acc12cc08ef5e73e0ef7d7699d6ccf4f1eae0236c9de33bc84",
+      "bytes": 15492
+    },
+    {
+      "file": "training/run_object_transfer.py",
+      "sha256": "489faf9be26d7cb5db40887ebe3e86a506dce86ea4f147f2821ac6005799f353",
+      "bytes": 900
+    },
+    {
+      "file": "training/run_object_transfer.sh",
+      "sha256": "49c2ad89486275dbec3f6db4956e3adcc0ed7e693959e45ee546f8b5965936eb",
+      "bytes": 659
+    },
+    {
+      "file": "training/run_tucked_can_navigation.py",
+      "sha256": "cd4322bdad18210ea30b9c056bfb5046571d61a9f0d0deb05953bc04939c0843",
+      "bytes": 8965
+    },
+    {
+      "file": "training/scripts/grasp_search_adapter.py",
+      "sha256": "5d2d93750ae4c5c75e129b69a5cdcc75ca0b99cf4dd115ef7b1f5a4947970c74",
+      "bytes": 3104
+    },
+    {
+      "file": "training/scripts/grasp_target_gate.py",
+      "sha256": "1d7e547824e18e8eca2fdc495aa2ae7af506cf85f1222a2404b4de13e9069735",
+      "bytes": 1709
+    },
+    {
+      "file": "training/scripts/test_grasp_search_adapter.py",
+      "sha256": "1df813ba82674f17b78171313ff74db70ea9461b22fbdaad0b424199a8be8565",
+      "bytes": 1885
+    },
+    {
+      "file": "training/scripts/test_grasp_target_gate.py",
+      "sha256": "5ce4430f4f14b196c3a33c641024956de68702483b588c753710818478e81031",
+      "bytes": 1345
+    },
+    {
+      "file": "training/source-table-localization-progress-20261017.json",
+      "sha256": "7b9dcf230c53ab2e56ab13b931acd00d7f6e9cffc08ba20a70f1b242f660614a",
+      "bytes": 6963
+    },
+    {
+      "file": "training/synced_capture_selection.py",
+      "sha256": "6474dc2023e17f6c044e54ffbe1952f0ad4fef3af269cffba9d943b794d3dfa8",
+      "bytes": 2031
+    },
+    {
+      "file": "training/table_release_gate.py",
+      "sha256": "1b7bc700cfa40d890842bdb7734007d210b2ce33b2f9f0ec39f3b8da352d6246",
+      "bytes": 2915
+    },
+    {
+      "file": "training/tabletop_support.py",
+      "sha256": "76fccce17a1a92f41bbe7346cf6b852248ec06a1ed473ba911832cb65006a9fd",
+      "bytes": 6252
+    },
+    {
+      "file": "training/task_outcome_policy.py",
+      "sha256": "5b974716e3c0f45cc29de8b3eba76e0b1f984b722b668913699b98a2d564c6d4",
+      "bytes": 3967
+    },
+    {
+      "file": "training/test_apple_identity_track.py",
+      "sha256": "a23f3bbe4f35b1ea26d1d6ec524451897a1bc17be4a955f702bdb4f4fb4f689b",
+      "bytes": 3933
+    },
+    {
+      "file": "training/test_apple_inference_reuse.py",
+      "sha256": "b1f5ce1def087f4d7b54e3d60010f681bce8ef9f873473ed3608f0e5e36472ef",
+      "bytes": 3292
+    },
+    {
+      "file": "training/test_apple_roi_confirmation.py",
+      "sha256": "d8f93d57956ade6e9bc373a2fcaede06e0400a643169a251bb3025d50f6d4fe7",
+      "bytes": 14269
+    },
+    {
+      "file": "training/test_apple_transfer_auto_backend.py",
+      "sha256": "ad0e84556338039c4ed8db36985b2bb4ab9b490761c02acc3477bda14144a348",
+      "bytes": 13810
+    },
+    {
+      "file": "training/test_can_approach_plan.py",
+      "sha256": "6e40ca3472c5edcefda2fa083712e2a71ccb51d167df37a488b8da7c4a746eaf",
+      "bytes": 2066
+    },
+    {
+      "file": "training/test_can_arm_startup.py",
+      "sha256": "8a29e5789e48c141f8f0207ac7722b22bab1cb953316d20cc9c093a4f309468d",
+      "bytes": 2702
+    },
+    {
+      "file": "training/test_can_destination_surface.py",
+      "sha256": "e5227acc86464c611cafb038d3ec3f199752dad6ea3132aeb5a04752166ef85c",
+      "bytes": 1906
+    },
+    {
+      "file": "training/test_can_identity_selection.py",
+      "sha256": "20595a2a3226bed9910b99861935492ab82d049c08e1eff52e9352a27cb335cd",
+      "bytes": 1357
+    },
+    {
+      "file": "training/test_can_release_timing.py",
+      "sha256": "f7895c16fd760ba74f50a574b5e8369a4cfd6ce8faafd95b2e7ffefd020fa34a",
+      "bytes": 2624
+    },
+    {
+      "file": "training/test_can_transfer_automation.py",
+      "sha256": "d16de88a548b2e635962153bf12ca04d319557e5a33be7c58ee6c19f7a826329",
+      "bytes": 10421
+    },
+    {
+      "file": "training/test_canned_carry_geometry.py",
+      "sha256": "70f38609c2a31c5a485b89926c20b1e23b5fa988eb3caaf906c1a3f85e9cdec8",
+      "bytes": 6271
+    },
+    {
+      "file": "training/test_canned_grasp_geometry.py",
+      "sha256": "b1751c44ddd707d2cfd11fe839eaa501a35aa77d6015d0ef49d3dc095e09c58c",
+      "bytes": 15721
+    },
+    {
+      "file": "training/test_canned_place_geometry.py",
+      "sha256": "aeb97a376d105691e47784c694c9c3097c5e7a7fcd108c7c1ed89236411afef2",
+      "bytes": 7518
+    },
+    {
+      "file": "training/test_capture_file_writer.py",
+      "sha256": "806bc90b96e857ca8de3edafd9b07349e74e440cbf399d2797ee361230d674cd",
+      "bytes": 1603
+    },
+    {
+      "file": "training/test_capture_processing_budget.py",
+      "sha256": "689c6bc51182bee2a84702cfcf9631bcbe29cf186b2e74491a6fede9a5251923",
+      "bytes": 7913
+    },
+    {
+      "file": "training/test_forward_approach_handoff.py",
+      "sha256": "aa92a8458d2d208230c84e214c8b438c214fd02962a9af647a5e7a03b83d5c9c",
+      "bytes": 2407
+    },
+    {
+      "file": "training/test_gate_pruning.py",
+      "sha256": "6ad3a436271cd8c6cbbea7cecec8d8ccd786f4387cb104e8bb1e4f53232a2c00",
+      "bytes": 10054
+    },
+    {
+      "file": "training/test_generic_transfer_template.py",
+      "sha256": "4f60af58509b276acd6afa765d12b61a60e9324b0009b88afc3f5291a519a54f",
+      "bytes": 16816
+    },
+    {
+      "file": "training/test_grasp_terminal_correction.py",
+      "sha256": "66f4f765474d2ba92eaf0c08d9460924522effcd6078e73b1f77017dcba2d497",
+      "bytes": 11690
+    },
+    {
+      "file": "training/test_held_can_appearance.py",
+      "sha256": "febc3c131dd504e5d0fa474c1f806f53a3ab399f889faeaf1b3b0fca9fe14284",
+      "bytes": 7534
+    },
+    {
+      "file": "training/test_lift_settled_window.py",
+      "sha256": "be7e18ad38566d2c9d377a28e6b6ba2d3e41f5434b6363558b8c24c3113afe05",
+      "bytes": 1845
+    },
+    {
+      "file": "training/test_motion_speed.py",
+      "sha256": "9ddd207b00664884d8a05c64bb70c7086d9666b36e4084f5f9ab87a2a205823e",
+      "bytes": 8819
+    },
+    {
+      "file": "training/test_navigation_feedback_gate.py",
+      "sha256": "f0ef479b7def58e20cf52602c5094f9d368156b4ef82ace30c1ff7b8fad509e4",
+      "bytes": 5164
+    },
+    {
+      "file": "training/test_navigation_feedback_recovery.py",
+      "sha256": "87ccf9acd64f49928a15c3f88318076d0e55b8a68a25c3b92f061b9b05e5964b",
+      "bytes": 2646
+    },
+    {
+      "file": "training/test_near_apple_geometry.py",
+      "sha256": "e4faf223ed9d5a85eda0d69775f681b80f6f8b6aebe12efee487eed0ef1ad2c8",
+      "bytes": 13181
+    },
+    {
+      "file": "training/test_parent_bound_lift_follow.py",
+      "sha256": "847a8a57ecbc2914f5f2b5036a89f73b9c41db66c603632f2d4c07d6290410ab",
+      "bytes": 7479
+    },
+    {
+      "file": "training/test_penguin_geometry.py",
+      "sha256": "927badf10b8e7f523aa0af4d32f07d478721f863897e02ed4070a15d0a54c1b7",
+      "bytes": 15087
+    },
+    {
+      "file": "training/test_penguin_hand_hold.py",
+      "sha256": "58b670b6ad9bd4e7b02884f22177ab8bf426ff12bc09c7f4c240ea2fa3b024a5",
+      "bytes": 8228
+    },
+    {
+      "file": "training/test_penguin_source_identity.py",
+      "sha256": "d282a3abc3e73d6b0f38bae5c6259dd368c4fd465fe27b244e5dc689fca1e408",
+      "bytes": 2650
+    },
+    {
+      "file": "training/test_pepper_geometry.py",
+      "sha256": "45cd599e458d22279173412e9675486b499c8ad3ab07d5eb3de7e75f7566ff0d",
+      "bytes": 12624
+    },
+    {
+      "file": "training/test_pepper_lifted_hold_resume.py",
+      "sha256": "66d31a6da05d2174a318b681e8438817c0653fd82a7a678cb28d1de27e87132d",
+      "bytes": 3071
+    },
+    {
+      "file": "training/test_pepper_navigation_resume.py",
+      "sha256": "48b281c8d5a79b4ca6d7fb28ef3ce64684f579420e057ffa6976c2a7b4bca8e9",
+      "bytes": 3277
+    },
+    {
+      "file": "training/test_pepper_partial_body_resume.py",
+      "sha256": "356fe014b0c7547fdcfab1a90564e613e031e47ae87c76e11f36998714cfe255",
+      "bytes": 3037
+    },
+    {
+      "file": "training/test_pepper_regression.py",
+      "sha256": "c634f8936c4c9fbf86672057fc71178f222477adafc7be13a0e44f95c46de721",
+      "bytes": 2130
+    },
+    {
+      "file": "training/test_pepper_source_observation.py",
+      "sha256": "d9fef4419d7482aa8ef4515410d9bc0065045c8d232fe0be91d266e5a4260e85",
+      "bytes": 3170
+    },
+    {
+      "file": "training/test_pepper_source_support.py",
+      "sha256": "8cf38538a19c69468932153c3da58048f753f05eee9bde93d59a72cc1bd554ea",
+      "bytes": 1722
+    },
+    {
+      "file": "training/test_pepper_tasks.py",
+      "sha256": "e9013801242d1b3c63857b42484ceec7fa8590439cfb6c41d62da3f052b10a77",
+      "bytes": 5450
+    },
+    {
+      "file": "training/test_pepper_transfer.py",
+      "sha256": "37a8a5eef1d55c9b3854c2a802458d02f1df07a34ed8e2f3c4bcc689262903a7",
+      "bytes": 19290
+    },
+    {
+      "file": "training/test_pepper_visual_motion.py",
+      "sha256": "7a62db0ac02b20123c97c3bf5091e49e6dcdcf438c6d9982019fa43cf8c472bc",
+      "bytes": 3228
+    },
+    {
+      "file": "training/test_resident_inference.py",
+      "sha256": "b2ee6bb9f7a8c185f7433a0f2e36d224b5c1cfd01339cf47c1e37dbc8a465b2c",
+      "bytes": 4410
+    },
+    {
+      "file": "training/test_reviewed_carry_adjustment.py",
+      "sha256": "f0900f1a8a254094fd5cb4fdc491bd739a1d7ebdabd64ad6efaf213b593f1b13",
+      "bytes": 2301
+    },
+    {
+      "file": "training/test_rgbd_pixel_window.py",
+      "sha256": "c757533d86effc6cbf7194003cb55c260c2ac4b588c14365d82dbf829f6a35e3",
+      "bytes": 1793
+    },
+    {
+      "file": "training/test_run_apple_close_lift_trial.py",
+      "sha256": "96e47559a7d8909cffcf73c90157a13048ead95924c98eec9dc846df618566ac",
+      "bytes": 2799
+    },
+    {
+      "file": "training/test_segmented_apple_placement.py",
+      "sha256": "1ed9c1e7b16d02831281ae6e7dfdd6a6b2da4236197e620ff659bb07dca77d7f",
+      "bytes": 6370
+    },
+    {
+      "file": "training/test_table_release_gate.py",
+      "sha256": "fc550de5e0eda4afa2140e5aea4ad6f2708e7751048ae30848e460b4a3ed533b",
+      "bytes": 4704
+    },
+    {
+      "file": "training/test_tabletop_support.py",
+      "sha256": "d2acc023dcd8cd4231a2b17d8ddcc4e0c664d4f9a8d92a51b5d17c0dccba365f",
+      "bytes": 8958
+    },
+    {
+      "file": "training/test_task_outcome_policy.py",
+      "sha256": "9784cc69964211bd389622bf4275e89e5d59d0571751855afb9d1f54cd90a1bb",
+      "bytes": 13389
+    },
+    {
+      "file": "training/test_tracked_can_cap_geometry.py",
+      "sha256": "f6974c5ec5d26f33f49c50e6888685b6d6d6222fb0cd98326cc0825b411f1b9f",
+      "bytes": 7667
+    },
+    {
+      "file": "training/test_transfer_efficiency.py",
+      "sha256": "35b91bbe7fa0fe361455a51bb67e00ac357bfe323bfc83b6655f94a15924e599",
+      "bytes": 8780
+    },
+    {
+      "file": "training/test_upright_cylinder_geometry.py",
+      "sha256": "bcf48c61eb6b5c3a3bd554564a287f4f0876d528a973fb8ff4bcefefc797ee6a",
+      "bytes": 10524
+    },
+    {
+      "file": "training/test_verify_apple_lift_sequence.py",
+      "sha256": "1729981aee4da0b1403ea1414c9ad2a3c01443a2d25ef09c60c27022f6a578ea",
+      "bytes": 2037
+    },
+    {
+      "file": "training/tracked_can_cap_geometry.py",
+      "sha256": "e3fff021adaa5f158ce9cfed87743473ded16680c472eb4d97f64161da7c3f16",
+      "bytes": 6317
+    },
+    {
+      "file": "training/transfer_efficiency.py",
+      "sha256": "50a596a041ced817fda9230ed8783013d9916818a58d4a6fbc407bcf0cc09a21",
+      "bytes": 2547
+    },
+    {
+      "file": "training/upright_cylinder_geometry.py",
+      "sha256": "1efcb450663f3d1d5fae484aaf2e5fdeb6524e41c6a38a24496b9a36fa053a16",
+      "bytes": 6433
+    },
+    {
+      "file": "training/verify_apple_lift_sequence.py",
+      "sha256": "704ce13be6b63a34e6c33191c445be26d61e985af4fb0e589eeaf2a343a0b7dc",
+      "bytes": 7661
+    },
+    {
+      "file": "training/verify_table_placement.py",
+      "sha256": "a4889628734c77fcd5454ae741624a533f2e595e4625cd261d13e1211e10c637",
+      "bytes": 4947
+    }
+  ],
+  "static_issues": [],
+  "physical_tests_run": false,
+  "excluded": [
+    ".map-backups/",
+    "training/validation/",
+    "external runtime/model/dataset directories"
+  ]
+}

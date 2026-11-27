@@ -57,7 +57,7 @@ def normalized_remappings(node):
 
 
 class CleanupLaunchTest(unittest.TestCase):
-    def test_main_stack_launches_split_perception_nodes(self):
+    def test_main_stack_launches_validated_cleanup_detector(self):
         ld = load_launch_description()
         actions = list(walk_actions(ld.entities))
         nodes = {
@@ -67,19 +67,15 @@ class CleanupLaunchTest(unittest.TestCase):
         }
 
         self.assertIn(
-            ('cleanup_vision_ros2', 'head_perception_node'),
-            nodes,
-        )
-        self.assertIn(
-            ('cleanup_vision_ros2', 'hand_perception_node'),
-            nodes,
-        )
-        self.assertNotIn(
             ('cleanup_vision_ros2', 'cleanup_detection_node'),
             nodes,
         )
+        self.assertIn(
+            ('interactive_cleanup', 'interactive_cleanup_sample'),
+            nodes,
+        )
 
-    def test_nav2_navigation_nodes_are_explicit_and_remapped_to_hsr(self):
+    def test_nav2_bringup_remains_optional(self):
         ld = load_launch_description()
         actions = list(walk_actions(ld.entities))
 
@@ -90,42 +86,8 @@ class CleanupLaunchTest(unittest.TestCase):
         ]
 
         self.assertTrue(
-            any('localization_launch.py' in location for location in include_locations),
-            f'Expected localization_launch.py include, got: {include_locations}',
-        )
-        self.assertFalse(
             any('bringup_launch.py' in location for location in include_locations),
-            f'Unexpected bringup_launch.py include: {include_locations}',
-        )
-
-        nodes = {
-            node_key(action): action
-            for action in actions
-            if isinstance(action, Node)
-        }
-
-        expected_nodes = {
-            ('nav2_controller', 'controller_server'),
-            ('nav2_planner', 'planner_server'),
-            ('nav2_behaviors', 'behavior_server'),
-            ('nav2_bt_navigator', 'bt_navigator'),
-            ('nav2_lifecycle_manager', 'lifecycle_manager'),
-        }
-
-        for expected_node in expected_nodes:
-            self.assertIn(expected_node, nodes, f'Missing node: {expected_node}')
-
-        self.assertIn(
-            ('cmd_vel', '/hsrb/command_velocity'),
-            normalized_remappings(nodes[('nav2_controller', 'controller_server')]),
-        )
-        self.assertIn(
-            ('cmd_vel', '/hsrb/command_velocity'),
-            normalized_remappings(nodes[('nav2_behaviors', 'behavior_server')]),
-        )
-        self.assertEqual(
-            'lifecycle_manager_navigation',
-            node_name(nodes[('nav2_lifecycle_manager', 'lifecycle_manager')]),
+            f'Expected conditional Nav2 bringup, got: {include_locations}',
         )
 
 

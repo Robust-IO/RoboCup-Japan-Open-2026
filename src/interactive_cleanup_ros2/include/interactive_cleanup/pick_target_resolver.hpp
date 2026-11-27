@@ -24,6 +24,15 @@ struct PickCandidate
 struct PointingObservation
 {
   bool is_valid{false};
+  // True only for a synchronized RGB-D arm/finger fit. Pose/image-derived
+  // world rays remain useful fallbacks but must not veto image evidence as if
+  // they were measured 3-D geometry.
+  bool measured_depth{false};
+  bool plane_valid{false};
+  geometry_msgs::msg::Point plane_origin;
+  geometry_msgs::msg::Vector3 plane_normal;
+  geometry_msgs::msg::Vector3 plane_forward;
+  geometry_msgs::msg::Vector3 camera_forward;
   double confidence{0.0};
   geometry_msgs::msg::Point origin;
   geometry_msgs::msg::Vector3 direction;

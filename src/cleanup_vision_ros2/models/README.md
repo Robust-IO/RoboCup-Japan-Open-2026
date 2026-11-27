@@ -4,7 +4,7 @@ Place Interactive Cleanup model assets here.
 
 YOLO object detection searches in order:
 
-1. `cleanup_model.pt` — custom-trained on competition objects
+1. `cleanup_model.pt` — bundled 13-class Interactive Cleanup model
 2. `last.pt` — any custom training output
 3. `yolo12n.pt` — COCO pretrained
 4. `src/vision_ros2/models/yolo12n.pt` — local fallback from the Handyman package
@@ -21,3 +21,12 @@ Avatar pointing uses MediaPipe Tasks and expects one of these files:
 
 No pose model is downloaded automatically. In offline competition setups,
 place the `.task` bundle here before launching the node.
+
+The bundled YOLO model contains these 13 classes:
+
+`bear_doll`, `canned_juice`, `dog_doll`, `filled_ketchup`,
+`filled_plastic_bottle`, `hourglass`, `rabbit_doll`, `sauce`, `soysauce`,
+`spray_bottle`, `sugar`, `toy_penguin`, and `tumbler`.
+
+SHA-256 of `cleanup_model.pt`:
+`e6c92ef0f3692c6260a3f97afbe7a6c72917db5c4742b41cf26baae824ada9a5`.

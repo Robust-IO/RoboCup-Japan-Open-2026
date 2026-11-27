@@ -25,6 +25,8 @@ install/*
 # 模型权重
 *.pt
 *.task
+# Interactive Cleanup runtime requires its compact 13-class detector.
+!src/cleanup_vision_ros2/models/cleanup_model.pt
 
 # Cursor 和Coding Agent本地配置
 .cursorignore
