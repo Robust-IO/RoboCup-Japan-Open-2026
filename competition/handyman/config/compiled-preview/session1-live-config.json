@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "profile": "session1_living_room_dog_to_square_table",
+  "layout": "LayoutA",
+  "motion_profile": "balanced_v1",
+  "task": {
+    "object": "dog_doll",
+    "source_room": "living_room",
+    "destination": "square_low_table"
+  },
+  "source_table_id": "white_side_table#living_room",
+  "destination_id": "square_low_table#living_room",
+  "destination_room": "living_room",
+  "source_staging_goal": [
+    5.205,
+    -0.617038,
+    -3.129189
+  ],
+  "destination_staging_goal": [
+    3.105,
+    3.982962,
+    3.10542
+  ],
+  "environment": "/__HANDYMAN_PACKAGE__/workspace/src/handyman_rebuild_ros2/config/environments/layout_a.yaml",
+  "environment_sha256": "fb739aa47ec13d450e5602c97383129e58ac9e20b5fd600c006f4b9d387181a2",
+  "semantic_map": "/__HANDYMAN_PACKAGE__/maps/export/LayoutA/semantic_map.json",
+  "registry": "/__HANDYMAN_PACKAGE__/runtime/active_detection_model.json",
+  "model_python": "/__HANDYMAN_PACKAGE__/project/.pixi/envs/default/bin/python",
+  "navigation_tolerances": [
+    0.06,
+    0.08,
+    0.06
+  ],
+  "execution": {
+    "auto_protocol_success": false,
+    "automatic_action_retry": false
+  },
+  "policy": {
+    "efficient_non_navigation": true,
+    "placement_approach_mode": "single",
+    "near_grasp_roi_confirmation": true,
+    "near_grasp_geometry_handoff": true,
+    "near_grasp_geometry_gap_m": 0.15,
+    "post_lift_rgbd_follow_verification": true,
+    "grasp_lift_range_m": [
+      0.24,
+      0.3
+    ],
+    "release_gap_m": 0.02,
+    "patch_radius_m": 0.09,
+    "edge_margin_m": 0.03,
+    "edge_uncertainty_m": 0.01,
+    "max_placement_step_m": null,
+    "retreat_m": 0.25,
+    "observer_duration_s": 300,
+    "carry_drop_recovery": false
+  },
+  "scope": "One simulated apple transfer in the reviewed LayoutA. Not a generic 30-object task executor, autonomous localization or a competition protocol client. Fixed staging goals are furniture approach points, never target-object observations.",
+  "navigation_motion_profile": "efficiency_v1",
+  "shared_behavior_rules": {
+    "schema": "handyman_six_session_rules_v2",
+    "sessions": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "search": {
+      "aspect_ratio_threshold": 1.35,
+      "head_tilts_rad": [
+        0.0,
+        -0.5235987755982988
+      ],
+      "suspect_action": "stop_near_observe_resume_remaining_angles",
+      "invalid_frame_counts_as_absent": false
+    },
+    "grasp": {
+      "current_pose_first": true,
+      "normal_to_furniture_first": true,
+      "max_obstacle_offset_degrees": 15,
+      "decreasing_offsets_degrees": [
+        15,
+        10,
+        5,
+        0
+      ],
+      "irregular_min_protrusion_m": 0.01
+    },
+    "furniture_reobservation": {
+      "lateral_offset_m": 0.2,
+      "same_source_only": true
+    },
+    "handover": {
+      "final_yaw_required": false,
+      "criterion": "held_object_inside_delivery_volume"
+    },
+    "container": {
+      "object_projection_inside_inner_opening": true,
+      "edge_margin_m": 0.005,
+      "inspect_rim_after_release": true
+    },
+    "deployment": {
+      "live_validation": "pending",
+      "unity_editor_compile": "pending"
+    }
+  },
+  "session_profile": {
+    "schema": "handyman_session_profile_v1",
+    "session_number": 1,
+    "layout": "LayoutA",
+    "destination": {
+      "room": "living_room",
+      "furniture_id": "square_low_table#living_room",
+      "mode": "table_place"
+    },
+    "expected_instruction": "Go to the living room, grasp the dog_doll and put it on the square_low_table.",
+    "target": "dog_doll",
+    "source": {
+      "room": "living_room",
+      "furniture_id": "white_side_table#living_room"
+    }
+  },
+  "task_configuration_schema": "handyman_configurable_tasks_v1"
+}

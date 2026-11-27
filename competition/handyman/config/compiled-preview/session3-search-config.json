@@ -1,0 +1,244 @@
+{
+  "version": 1,
+  "profile": "session3_search",
+  "layout": "LayoutA",
+  "motion_profile": "balanced_v1",
+  "task": {
+    "object": "dog_doll",
+    "source_room": "lobby",
+    "destination": "Moderator"
+  },
+  "source_table_id": "corner_sofa#lobby",
+  "destination_id": "Moderator",
+  "destination_room": "lobby",
+  "source_staging_goal": [
+    2.205,
+    -6.117038,
+    -2.721024
+  ],
+  "destination_staging_goal": [
+    3.105,
+    3.982962,
+    3.10542
+  ],
+  "environment": "/__HANDYMAN_PACKAGE__/workspace/src/handyman_rebuild_ros2/config/environments/layout_a.yaml",
+  "environment_sha256": "bda19dd8a8aed73d96a7a80b487b887147307b9c675a8ea5d1c8ec4086914708",
+  "semantic_map": "/__HANDYMAN_PACKAGE__/maps/export/LayoutA/semantic_map.json",
+  "registry": "/__HANDYMAN_PACKAGE__/runtime/active_detection_model.json",
+  "model_python": "/__HANDYMAN_PACKAGE__/project/.pixi/envs/default/bin/python",
+  "navigation_tolerances": [
+    0.06,
+    0.08,
+    0.06
+  ],
+  "execution": {
+    "auto_protocol_success": false,
+    "automatic_action_retry": false
+  },
+  "policy": {
+    "efficient_non_navigation": true,
+    "placement_approach_mode": "single",
+    "near_grasp_roi_confirmation": true,
+    "near_grasp_geometry_handoff": true,
+    "near_grasp_geometry_gap_m": 0.15,
+    "post_lift_rgbd_follow_verification": true,
+    "grasp_lift_range_m": [
+      0.24,
+      0.3
+    ],
+    "release_gap_m": 0.02,
+    "patch_radius_m": 0.09,
+    "edge_margin_m": 0.03,
+    "edge_uncertainty_m": 0.01,
+    "max_placement_step_m": null,
+    "retreat_m": 0.25,
+    "observer_duration_s": 300,
+    "carry_drop_recovery": false
+  },
+  "scope": "Search bear, wait for correction, then visually confirm and grasp dog at user-specified corner_sofa. Deliver while holding to Moderator using the separately prepared handover config.",
+  "navigation_motion_profile": "efficiency_v1",
+  "session_profile": {
+    "schema": "handyman_session3_search_v1",
+    "session_number": 3,
+    "layout": "LayoutA",
+    "target": "bear_doll",
+    "expected_instruction": "Go to the lobby, grasp the bear_doll and give it to me.",
+    "corrected_instruction": "Go to the lobby, grasp the dog_doll and give it to me.",
+    "destination": {
+      "mode": "avatar_handover",
+      "furniture_id": "Moderator",
+      "room": "lobby"
+    },
+    "search": {
+      "aspect_ratio_threshold": 1.35,
+      "head_tilts": [
+        0.0,
+        -0.5235987755982988
+      ],
+      "frames_per_view": 2,
+      "candidate_confidence": 0.15,
+      "confirmed_confidence": 0.8,
+      "mode": "continuous",
+      "continuous_speed_rad_s": 0.4,
+      "continuous_bins": 12
+    },
+    "corrected_source": {
+      "room": "lobby",
+      "furniture_id": "corner_sofa#lobby",
+      "source": "user_provided"
+    },
+    "scope": "Search bear; after actual correction, grasp dog on corner_sofa, tuck, navigate to Moderator and present while holding; await official result.",
+    "source_observation": {
+      "mode": "near_furniture_front",
+      "basis": "corrected furniture geometry; static footprint and sightline validation, then shortest route"
+    },
+    "corrected_target": "dog_doll"
+  },
+  "search_plan": {
+    "points": [
+      {
+        "x": 1.9050000000000002,
+        "y": -4.417038,
+        "yaw": 1.5202327489205418
+      }
+    ],
+    "aspect_ratio": 1.1964930348357838,
+    "room_dimensions_m": [
+      5.704466,
+      4.767655
+    ],
+    "aspect_ratio_threshold": 1.35,
+    "strategy": "main_only",
+    "coverage_basis": "configured_observation_views_not_visibility_proof",
+    "map_bundle_sha256": "141d5f57d51aea40b5e844d84c1147c711d89a875c55752bd4bb1cbfd64c73c8",
+    "map_yaml": "/__HANDYMAN_PACKAGE__/workspace/src/handyman_rebuild_ros2/maps/LayoutA/map.yaml",
+    "map_image": "/__HANDYMAN_PACKAGE__/workspace/src/handyman_rebuild_ros2/maps/LayoutA/map.pgm"
+  },
+  "handover": {
+    "schema": "handyman_fixed_sample_handover_v1",
+    "destination": "Moderator",
+    "delivery_point_map_m": [
+      0.2845366796146645,
+      -5.6389433558750104e-05,
+      0.9887467860207877
+    ],
+    "staging_candidates": [
+      {
+        "pose": [
+          1.3345366796146645,
+          -5.6389433558750104e-05,
+          3.141592653589793
+        ],
+        "room": "living_room"
+      },
+      {
+        "pose": [
+          1.4845366796146644,
+          -5.6389433558750104e-05,
+          3.141592653589793
+        ],
+        "room": "living_room"
+      },
+      {
+        "pose": [
+          1.2708780281044123,
+          -0.36009908726178264,
+          2.7915926535897935
+        ],
+        "room": "living_room"
+      },
+      {
+        "pose": [
+          1.411783935031519,
+          -0.4115337583801003,
+          2.7915926535897935
+        ],
+        "room": "living_room"
+      },
+      {
+        "pose": [
+          1.2708780281044123,
+          0.35998630839466517,
+          -2.7915926535897935
+        ],
+        "room": "living_room"
+      },
+      {
+        "pose": [
+          1.411783935031519,
+          0.41142097951298284,
+          -2.7915926535897935
+        ],
+        "room": "living_room"
+      }
+    ],
+    "official_distance_m": 0.3,
+    "estimated_center_tolerance_m": 0.2,
+    "center_basis": "measured_surface_bounds_center_not_rigidbody_com",
+    "sources": [
+      {
+        "path": "/__HANDYMAN_PACKAGE__/unity-reference/Assets/Competition/Handyman/Handyman.unity",
+        "sha256": "8cd2fce47fd4e3e091573076009ef576c4e917cfa2baf0131dcee0a98eef72bd"
+      },
+      {
+        "path": "/__HANDYMAN_PACKAGE__/unity-reference/SIGVerseConfig/Handyman/EnvironmentInfo03.json",
+        "sha256": "1091b88362387cb76c65a70abcebbf48a1b31c6c5663b5c980730d53a2ecff05"
+      },
+      {
+        "path": "/__HANDYMAN_PACKAGE__/unity-reference/SIGVerseConfig/Handyman/AvatarMotions03.dat",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "scope": "Fixed Session3 sample only; moving/repositioned Moderator requires live tracking or reconfiguration. Never release gripper."
+  },
+  "shared_behavior_rules": {
+    "schema": "handyman_six_session_rules_v2",
+    "sessions": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "search": {
+      "aspect_ratio_threshold": 1.35,
+      "head_tilts_rad": [
+        0.0,
+        -0.5235987755982988
+      ],
+      "suspect_action": "stop_near_observe_resume_remaining_angles",
+      "invalid_frame_counts_as_absent": false
+    },
+    "grasp": {
+      "current_pose_first": true,
+      "normal_to_furniture_first": true,
+      "max_obstacle_offset_degrees": 15,
+      "decreasing_offsets_degrees": [
+        15,
+        10,
+        5,
+        0
+      ],
+      "irregular_min_protrusion_m": 0.01
+    },
+    "furniture_reobservation": {
+      "lateral_offset_m": 0.2,
+      "same_source_only": true
+    },
+    "handover": {
+      "final_yaw_required": false,
+      "criterion": "held_object_inside_delivery_volume"
+    },
+    "container": {
+      "object_projection_inside_inner_opening": true,
+      "edge_margin_m": 0.005,
+      "inspect_rim_after_release": true
+    },
+    "deployment": {
+      "live_validation": "pending",
+      "unity_editor_compile": "pending"
+    }
+  },
+  "task_configuration_schema": "handyman_configurable_tasks_v1"
+}

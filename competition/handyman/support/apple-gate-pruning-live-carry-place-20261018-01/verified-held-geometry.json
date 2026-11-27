@@ -1,0 +1,12 @@
+{
+  "center_minus_palm_m": [
+    0.07669454806358234,
+    -7.265789227263453e-05,
+    0.009586732451696722
+  ],
+  "bottom_below_palm_m": 0.019773008965432253,
+  "radius_m": 0.029359741417128975,
+  "holding_opening_rad": 0.40312998148598567,
+  "verified_capture": "/__HANDYMAN_PACKAGE__/runtime/apple-gate-pruning-live-close-lift-20261018-01/observe/000060",
+  "new_identity_verified": false
+}

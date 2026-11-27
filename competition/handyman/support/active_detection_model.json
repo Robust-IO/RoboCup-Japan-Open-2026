@@ -1,0 +1,10 @@
+{
+  "weights": "/__HANDYMAN_PACKAGE__/runtime/handyman30-background-ft-v1/weights/best.pt",
+  "sha256": "83e6ceb9650e6da78d05404a5ead9654278d502ce06d812a6b2b70673c513763",
+  "previous_weights": "/__HANDYMAN_PACKAGE__/runtime/handyman30-pose6-ft-v1/weights/best.pt",
+  "previous_sha256": "5758ea9e11ad292ceaaffad146bb8c101940f44cb81addf42401bd86d7fe2dfc",
+  "imgsz": 640,
+  "conf": 0.1,
+  "device": 0,
+  "note": "Full-frame 30-class detector. No tiling or additional dedup enabled. Confidence 0.1 is a review threshold, not target confirmation."
+}

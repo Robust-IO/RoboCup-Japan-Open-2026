@@ -1,0 +1,9 @@
+{
+  "pid": 478,
+  "output": "/__HANDYMAN_PACKAGE__/runtime/pepper-bedroom-kitchen-20261107-153843",
+  "task": "/__HANDYMAN_PACKAGE__/runtime/pepper-bedroom-to-kitchen-20261107.json",
+  "started_ns": 1794037123720452834,
+  "object": "ground_pepper",
+  "source": "white_side_table#bedroom_1",
+  "destination": "dining_table#kitchen"
+}

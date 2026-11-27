@@ -1,9 +1,0 @@
-{
-  "status": "previous_transfer_stopped",
-  "pids": [
-    8548,
-    8551
-  ],
-  "root": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/cigarette-full-auto-20261101-200158",
-  "previous_stage": "grasp"
-}

@@ -1,0 +1,9 @@
+{
+  "pid": 1270,
+  "output": "/__HANDYMAN_PACKAGE__/runtime/pepper-kitchen-dynamic-continue-20261107-155837",
+  "predecessor": "/__HANDYMAN_PACKAGE__/runtime/pepper-bedroom-kitchen-20261107-153843",
+  "adapter": "/__HANDYMAN_PACKAGE__/runtime/pepper-dynamic-height-adapter-20261107-154949",
+  "started_ns": 1794038317082268727,
+  "grasp_replayed": false,
+  "navigation_replayed": false
+}

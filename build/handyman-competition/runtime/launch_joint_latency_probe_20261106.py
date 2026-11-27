@@ -1,3 +1,0 @@
-import subprocess
-cmd='source /opt/ros/humble/setup.bash; export ROS_LOG_DIR=/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/joint-latency-roslogs-20261106; exec /usr/bin/python3 /home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/project/training/scripts/cyclone_test_env.py --domain 71 --dds-config /home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/project/training/config/cyclone_search_stack.xml --run -- /usr/bin/python3 /home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/probe_joint_latency_20261106.py'
-raise SystemExit(subprocess.run(['bash','-lc',cmd]).returncode)

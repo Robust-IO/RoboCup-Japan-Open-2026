@@ -1,0 +1,36 @@
+{
+  "status": "waiting_for_unity_initial_scene_or_user_selected_automatic_restore",
+  "saved_ns": 1792990160523763697,
+  "official_repeat_not_started": true,
+  "restore_not_counted_as_success": true,
+  "previous_successful_timed_run": "penguin-resident-fast-transfer-20261026-01",
+  "interrupted_restore": "/__HANDYMAN_PACKAGE__/runtime/penguin-resident-repeat-20261026-01/restore-object",
+  "last_observed_state": {
+    "joints": [
+      0.3696591854095459,
+      -1.7000001065434844,
+      0.0,
+      0.1292036754032555,
+      0.0,
+      0.23367429099367065
+    ],
+    "poses": {
+      "map": [
+        1.8580528559650642,
+        2.851729804794889,
+        1.4978577941474047
+      ],
+      "odom": [
+        0.6741858124732971,
+        2.8510236740112305,
+        1.4978032031129682
+      ]
+    },
+    "stamp_ns": 1792989867020000000
+  },
+  "close_commands_sent": 1,
+  "release_commands_sent": 0,
+  "reason": "pepper_current_geometry_not_observed:noisy_pepper_surface",
+  "image_review": "object visibly held; two yellow components in projected head search region; not a formal verified transfer",
+  "next": "After Unity restart, confirm fresh initial pose and native bedroom object, then launch_penguin_resident_repeat_direct_20261026.py with unchanged code and profile."
+}

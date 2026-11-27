@@ -1,0 +1,23 @@
+Session1 主测试终端交接
+
+开发工作区：/__HANDYMAN_PACKAGE__/workspace
+分支：feat/session1-automation-20261114
+原运行仓库未切分支，未改共享抓取/搬运程序。
+任务：LayoutA 客厅 white_side_table 上的 dog_doll -> 客厅 square_low_table。
+跳过房间搜索，源位置来自用户指定；目标抓取坐标仍由现场 RGBD 测量。
+
+当前先执行预检，不直接执行整轮：
+1. Unity 进入 Session1，机器人空手；主终端其他动作任务已结束。保留原 ROS 桥接与导航服务。
+2. 在 ROS Ubuntu 主测试终端运行：
+cd /__HANDYMAN_PACKAGE__/workspace/training/session1
+bash start_session1.sh --preflight --output "/__HANDYMAN_PACKAGE__/runtime/session1-preflight-$(date +%Y%m%d-%H%M%S)"
+3. 查看新目录中的 preflight-result.json、preflight-detections.json 和 preflight-rgbd 采集产物。
+status=passed 只代表当前定位/关节/RGBD/模型可用，不代表抓取或搬运通过。
+初始视角没有 dog_doll 不阻止预检；模型推理响应和数据有效性才是本轮检查项。
+
+预检会显式初始化 ROS 和模型运行资源，但不发送比赛协议、不发布运动。
+本辅助终端没有执行这条现场命令；无需为了代码同步重启 Unity。
+输出始终使用新D盘目录；不要覆盖或恢复旧任务结果。
+
+已知待实测：收臂后持物可见性、有限轨迹停止时序、侧躺玩具狗抓取和整轮放置。
+完整启动入口已包含 --execute，但现场预检与输出复查前不把它视作已验收入口。

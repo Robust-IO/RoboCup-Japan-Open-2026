@@ -1,0 +1,48 @@
+{
+  "pid": 7075,
+  "task_id": "apple-r13c-auto-7b41c15900c6454d9c1db52e737310fc",
+  "command": [
+    "bash",
+    "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/run_apple_transfer_auto.sh",
+    "--run",
+    "--confirm-layout",
+    "LayoutA",
+    "--confirm-localization",
+    "--simulation-ignore-collision",
+    "--task-id",
+    "apple-r13c-auto-7b41c15900c6454d9c1db52e737310fc",
+    "--output",
+    "/__HANDYMAN_PACKAGE__/runtime/automatic-apple-r13c-20261018-01"
+  ],
+  "output": "/__HANDYMAN_PACKAGE__/runtime/automatic-apple-r13c-20261018-01",
+  "console": "/__HANDYMAN_PACKAGE__/runtime/automatic-apple-r13c-20261018-01.console.log",
+  "source_readonly_evidence": "/__HANDYMAN_PACKAGE__/runtime/apple-capture-budget-r13c-source-readonly-20261018-03-after-alignment/summary.json",
+  "precheck": "/__HANDYMAN_PACKAGE__/runtime/apple-r13c-live-precheck-20261018-02",
+  "laser_map_checks": [
+    {
+      "stamp_ns": 1792323066479691414,
+      "points": 321,
+      "within_10cm_fraction": 1.0,
+      "median_error_m": 0.0
+    },
+    {
+      "stamp_ns": 1792323066856063475,
+      "points": 321,
+      "within_10cm_fraction": 1.0,
+      "median_error_m": 0.0
+    },
+    {
+      "stamp_ns": 1792323067237351811,
+      "points": 321,
+      "within_10cm_fraction": 1.0,
+      "median_error_m": 0.0
+    }
+  ],
+  "current_scene_anchor_rechecked": true,
+  "new_anchor_published": false,
+  "old_numeric_anchor_restored": false,
+  "full_new_trial": true,
+  "old_journal_replayed": false,
+  "automatic_retry": false,
+  "success_not_yet_known": true
+}

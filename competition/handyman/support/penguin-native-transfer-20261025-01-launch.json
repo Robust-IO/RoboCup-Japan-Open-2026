@@ -1,0 +1,21 @@
+{
+  "pid": 22818,
+  "started_ns": 1792923924991848342,
+  "output": "/__HANDYMAN_PACKAGE__/runtime/penguin-native-transfer-20261025-01",
+  "console": "/__HANDYMAN_PACKAGE__/runtime/penguin-native-transfer-20261025-01-console.log",
+  "command": [
+    "bash",
+    "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/run_object_transfer.sh",
+    "--object",
+    "toy_penguin",
+    "--run",
+    "--confirm-layout",
+    "LayoutA",
+    "--confirm-localization",
+    "--simulation-ignore-collision",
+    "--output",
+    "/__HANDYMAN_PACKAGE__/runtime/penguin-native-transfer-20261025-01"
+  ],
+  "three_code_copies_verified": true,
+  "detached": true
+}

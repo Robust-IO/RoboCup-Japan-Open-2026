@@ -1,0 +1,69 @@
+{
+  "run": "/__HANDYMAN_PACKAGE__/runtime/session1-rotation-resume-20261115-005918",
+  "state": "stopped",
+  "reason": "ValueError:no_clear_placement_patch_reachable_from_current_side",
+  "grasp_result": {
+    "status": "grasp_verified",
+    "candidate": {
+      "id": "811c5caf988e77e8",
+      "strategy": "overhead",
+      "wrist_roll_rad": -0.7162926535897931,
+      "grasp_point_base_m": [
+        0.7126039191168992,
+        -0.01052338871913916,
+        0.5677008622450134
+      ],
+      "palm_base_m": [
+        0.7125710894697662,
+        -0.010485676462920276,
+        0.6298267282450134
+      ],
+      "arm_goal": [
+        0.4361740870450134,
+        -1.5707963267948966,
+        0.0,
+        -1.5707963267948966,
+        -0.7162926535897931,
+        0.65
+      ],
+      "observed_width_m": 0.046990849359880606,
+      "observed_contact_points": 790,
+      "contact_overlap_m": 0.02471370185450117,
+      "contact_extent_pad_xz_m": [
+        0.034957710940208234,
+        0.02471370185450117
+      ],
+      "score": 2.8152361403049952,
+      "minimum_palm_height_m": 0.6024817525466833,
+      "table_clearance_policy_m": 0.005,
+      "object_relative_grasp_m": [
+        0.005686171219529634,
+        -0.0464945086114352,
+        0.008047203953923554
+      ],
+      "observation_stamp_ns": 1794675579861842931,
+      "checks": {
+        "complete_physical_closing_sweep_table": true,
+        "open_approach_target": true,
+        "open_approach_environment": true,
+        "observed_contact_material": true
+      },
+      "geometry_is_partial_observation": true,
+      "motion_authorized": false
+    },
+    "corrections": 0,
+    "lift_evidence": {
+      "verified": true,
+      "object_followed": false,
+      "grip_retained": true,
+      "observations": 3,
+      "basis": "lift_and_reclose_joint_feedback",
+      "lift_distance_m": 0.07999998331069946,
+      "reclose_blocked": true
+    }
+  },
+  "release_sent": false,
+  "next_stage": "place",
+  "supervisor_stopped_for_same_round_recovery": true,
+  "requires_reanchor": false
+}

@@ -1,0 +1,31 @@
+{
+  "status": "car_restored_empty_robot_ready",
+  "setup_only": true,
+  "release_sent": true,
+  "root": "/__HANDYMAN_PACKAGE__/runtime/autograsp-car-reset-20261107-181901",
+  "lower_m": 0.0950000238418579,
+  "release_surface_residual_m": 0.005010973503842131,
+  "last_state": {
+    "joints": [
+      0.0,
+      0.0,
+      0.0,
+      -1.5707963146269321,
+      0.0,
+      0.6499999859074279
+    ],
+    "poses": {
+      "map": [
+        9.445831425454998,
+        1.1270294848169555,
+        0.06628556836160204
+      ],
+      "odom": [
+        8.261726379394531,
+        1.1274864673614502,
+        0.06644948307118186
+      ]
+    },
+    "stamp_ns": 1794046771190000000
+  }
+}

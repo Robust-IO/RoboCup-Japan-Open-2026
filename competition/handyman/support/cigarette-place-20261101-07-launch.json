@@ -1,0 +1,10 @@
+{
+  "pid": 9547,
+  "started_ns": 1793536141463945892,
+  "command": [
+    "bash",
+    "-lc",
+    "source /opt/ros/humble/setup.bash; source /__HANDYMAN_PACKAGE__/project/install/setup.bash; export HANDYMAN_RESIDENT_MODEL=1; export PYTHONPATH=/__HANDYMAN_PACKAGE__/runtime:/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1:$PYTHONPATH; export ROS_LOG_DIR=/__HANDYMAN_PACKAGE__/runtime/cigarette-place-20261101-07-roslogs; exec /usr/bin/python3 /__HANDYMAN_PACKAGE__/project/training/scripts/cyclone_test_env.py --domain 71 --dds-config /__HANDYMAN_PACKAGE__/project/training/config/cyclone_search_stack.xml --run -- /usr/bin/python3 /__HANDYMAN_PACKAGE__/runtime/flat_box_place.py --run --output /__HANDYMAN_PACKAGE__/runtime/cigarette-place-20261101-07 --held-run /__HANDYMAN_PACKAGE__/runtime/cigarette-carry-20261101-05 --gripper-geometry /__HANDYMAN_PACKAGE__/runtime/hsr-gripper-colliders-20261101-171937.json"
+  ],
+  "output": "/__HANDYMAN_PACKAGE__/runtime/cigarette-place-20261101-07"
+}

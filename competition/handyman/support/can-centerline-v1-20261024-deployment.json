@@ -1,0 +1,34 @@
+{
+  "status": "can_true_finger_midline_alignment_deployed_not_live_verified",
+  "tests": 602,
+  "hashes": {
+    "canned_grasp_geometry.py": "622ce86adc99d47ef3b44f8b171b00967d5e9422b1fb8b6ea91b0d1d50dc7dc1",
+    "can_approach_plan.py": "a5e75d6b08f7b9783ddda0ba7a463fc9c8b48bb05d97cde99c95472feb46cf36",
+    "test_canned_grasp_geometry.py": "b1751c44ddd707d2cfd11fe839eaa501a35aa77d6015d0ef49d3dc095e09c58c",
+    "test_can_approach_plan.py": "6e40ca3472c5edcefda2fa083712e2a71ccb51d167df37a488b8da7c4a746eaf",
+    "OBJECT_TRANSFER.txt": "57b662350c2b26075690e9b4bcd54aaf948bde36c879e2af7d27107a1f7b01e5"
+  },
+  "previous_hashes": {
+    "canned_grasp_geometry.py": "c9c4249f5cb1864fc38e284419f96b6b73afe993ffe10b73f01f0989f76b46f4",
+    "can_approach_plan.py": "e84ed5cc859bdc35e76dbf1bfffa5322ecfe4448d977a1cc657572237922d2e4",
+    "test_canned_grasp_geometry.py": "c51364e6dde484af93cad209ac206416436fdf1299dcc082f5f59e0a23c264e2",
+    "test_can_approach_plan.py": "3ac40689dda02815ea0dc5dc94ebb37dfdc04eb62e90ab98ebd0cd2b02701c9c",
+    "OBJECT_TRANSFER.txt": "255c22ccf6da7f60605deaf7d16a56f1145bc9dca1e822ffa7063ebfe188928f"
+  },
+  "experiment_extra_seat_m": 0.035,
+  "default_extra_seat_m": 0.0,
+  "side_calibration_changed": true,
+  "height_calibration_changed": false,
+  "finger_midline_base_y_offset_m": -4.999999999999449e-05,
+  "lateral_alignment_tolerance_m": 0.004,
+  "archived_offcenter_preclose_error_m": [
+    0.00877358805891515,
+    0.013432537779279385,
+    -0.0007596304557372369
+  ],
+  "actual_midline_audit": "/__HANDYMAN_PACKAGE__/runtime/can-centerline-stop-audit-20261024-01/result.json",
+  "record_postclose_pose_diagnostic_only": true,
+  "original_navigation_model_and_apple_unchanged": true,
+  "robot_commands_sent": false,
+  "live_trial_still_required": true
+}

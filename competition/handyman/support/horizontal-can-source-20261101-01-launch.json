@@ -1,0 +1,11 @@
+{
+  "pid": 31251,
+  "started_ns": 1793517735121677103,
+  "command": [
+    "bash",
+    "-lc",
+    "source /opt/ros/humble/setup.bash; source /__HANDYMAN_PACKAGE__/project/install/setup.bash; export HANDYMAN_RESIDENT_MODEL=1; export ROS_LOG_DIR=/__HANDYMAN_PACKAGE__/runtime/horizontal-can-source-20261101-01-roslogs; exec /usr/bin/python3 /__HANDYMAN_PACKAGE__/project/training/scripts/cyclone_test_env.py --domain 71 --dds-config /__HANDYMAN_PACKAGE__/project/training/config/cyclone_search_stack.xml --run -- /usr/bin/python3 /__HANDYMAN_PACKAGE__/runtime/observe_horizontal_can_20261101.py --output /__HANDYMAN_PACKAGE__/runtime/horizontal-can-source-20261101-01"
+  ],
+  "output": "/__HANDYMAN_PACKAGE__/runtime/horizontal-can-source-20261101-01",
+  "log": "/__HANDYMAN_PACKAGE__/runtime/horizontal-can-source-20261101-01-console.log"
+}

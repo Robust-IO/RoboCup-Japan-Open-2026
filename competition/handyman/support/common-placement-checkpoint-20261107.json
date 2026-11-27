@@ -1,0 +1,16 @@
+{
+  "status": "common_table_transfer_v1_installed_verified",
+  "created_ns": 1794041554105320609,
+  "candidate": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514",
+  "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-common-placement-20261107-160551",
+  "files_verified": 31,
+  "offline_tests": 149,
+  "recorded_replay": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/recorded-kitchen-replay.json",
+  "both_import_orders_passed": true,
+  "source_entry_hash_checks_passed": true,
+  "robot_commands_sent": false,
+  "full_live_transfer_validated": false,
+  "all_30_categories_physically_tested": false,
+  "previous_actual_dynamic_height_transfer": "/__HANDYMAN_PACKAGE__/runtime/pepper-kitchen-dynamic-continue-20261107-155837",
+  "next": "Uninterrupted physical regression from an explicitly observed current state, not an assumed spawn."
+}

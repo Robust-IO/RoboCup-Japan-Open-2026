@@ -1,0 +1,77 @@
+{
+  "status": "empty_arm_round_trip_validated",
+  "root": "/__HANDYMAN_PACKAGE__/runtime/navigation-efficiency-live-20261106-205624",
+  "created_ns": 1793970076469339376,
+  "elapsed_s": 270.3939092620003,
+  "legs": [
+    {
+      "stage": "outbound",
+      "elapsed_s": 135.29098990500097,
+      "final_pose": [
+        9.851928242159888,
+        -6.586529360226455,
+        -0.07873898567326566
+      ],
+      "position_error_m": 0.05803001302445968,
+      "feedback_recoveries": 0,
+      "nav2_retries": 0,
+      "passed_landmarks": 7,
+      "door_center_nearby_lateral_max_m": 0.009578860528309356,
+      "startup_ready_s": 1.3897095689990238,
+      "speeds_seen": [
+        [
+          0.2,
+          0.2,
+          0.8
+        ],
+        [
+          0.3,
+          0.3,
+          1.0
+        ]
+      ],
+      "joint_advisories": 0,
+      "parameters_restored": true
+    },
+    {
+      "stage": "return",
+      "elapsed_s": 134.7969648620001,
+      "final_pose": [
+        3.2302201749196193,
+        3.6639251240549333,
+        3.0035028084078768
+      ],
+      "position_error_m": 0.055357328379440525,
+      "feedback_recoveries": 0,
+      "nav2_retries": 0,
+      "passed_landmarks": 7,
+      "door_center_nearby_lateral_max_m": 0.013469054241999082,
+      "startup_ready_s": 1.7975816110010783,
+      "speeds_seen": [
+        [
+          0.2,
+          0.2,
+          0.8
+        ],
+        [
+          0.3,
+          0.3,
+          1.0
+        ]
+      ],
+      "joint_advisories": 0,
+      "parameters_restored": true
+    }
+  ],
+  "live_navigation_validated": true,
+  "full_live_transfer_validated": false,
+  "holding_transport_validated_this_revision": false,
+  "grasp_commands_sent": false,
+  "release_commands_sent": false,
+  "task_finished_sent": false,
+  "final_pose": [
+    3.2302201749196193,
+    3.6639251240549333,
+    3.0035028084078768
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "status": "outcome_r16b_policy_progress_synced",
+  "copies": 4,
+  "hashes": {
+    "apple-outcome-policy-progress-20261018.json": "1e47bd8a7dceb69209696e48bc6acf131329aab9194fef888f4c0697a79b152e",
+    "apple-carry-place-live-progress-20261018.json": "24deb26753a779e3ec58c9d7c41ffb4603bd9386903e3edec03abedd505c5b3a",
+    "phase5-restart-checkpoint-20261017.json": "c805fcb1672dc5261161a90a6c373a650b9ca118d1f7c0ddc2368d9a28a96611",
+    "apple-transfer-automation-progress-20261017.json": "262564812e2327c0ad6a8926ef69ee18db1b8bb5ecfa49e22a6a061f95479707",
+    "apple-transfer-live-progress-20261017.json": "fb3470cc2f21af7fdbfed5288cc5458ada9b211ad6a964a59ee7406474565b44"
+  },
+  "backup": "/__HANDYMAN_PACKAGE__/runtime/apple-before-outcome-r16b-20261018-checkpoints.tar.gz",
+  "physical_state_reobserved": false,
+  "robot_commands_sent": false
+}

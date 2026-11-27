@@ -1,0 +1,38 @@
+[
+  {
+    "session": 1,
+    "returncode": 0,
+    "stdout": "{\"mode\": \"configuration_check_only\", \"configuration_files_present\": true, \"ros_initialized\": false, \"robot_commands_sent\": false, \"live_validation_passed\": false}",
+    "stderr": ""
+  },
+  {
+    "session": 2,
+    "returncode": 0,
+    "stdout": "{\"mode\": \"configuration_check_only\", \"configuration_files_present\": true, \"ros_initialized\": false, \"robot_commands_sent\": false, \"live_validation_passed\": false}",
+    "stderr": ""
+  },
+  {
+    "session": 3,
+    "returncode": 0,
+    "stdout": "{\"points\": [{\"x\": 1.9050000000000002, \"y\": -4.417038, \"yaw\": 1.5202327489205418}], \"aspect_ratio\": 1.1964930348357838, \"room_dimensions_m\": [5.704466, 4.767655], \"aspect_ratio_threshold\": 1.35, \"strategy\": \"main_only\", \"coverage_basis\": \"configured_observation_views_not_visibility_proof\", \"map_bundle_sha256\": \"141d5f57d51aea40b5e844d84c1147c711d89a875c55752bd4bb1cbfd64c73c8\", \"map_yaml\": \"/__HANDYMAN_PACKAGE__/workspace/src/handyman_rebuild_ros2/maps/LayoutA/map.yaml\", \"map_image\": \"/__HANDYMAN_PACKAGE__/workspace/src/handyman_rebuild_ros2/maps/LayoutA/map.pgm\"}",
+    "stderr": ""
+  },
+  {
+    "session": 4,
+    "returncode": 0,
+    "stdout": "{\"mode\": \"configuration_check_only\", \"configuration_files_present\": true, \"ros_initialized\": false, \"robot_commands_sent\": false, \"live_validation_passed\": false}",
+    "stderr": ""
+  },
+  {
+    "session": 5,
+    "returncode": 0,
+    "stdout": "{\"mode\": \"configuration_check_only\", \"configuration_files_present\": true, \"ros_initialized\": false, \"robot_commands_sent\": false, \"live_validation_passed\": false}",
+    "stderr": ""
+  },
+  {
+    "session": 6,
+    "returncode": 0,
+    "stdout": "{\"mode\": \"configuration_check_only\", \"configuration_files_present\": true, \"ros_initialized\": false, \"robot_commands_sent\": false, \"live_validation_passed\": false}",
+    "stderr": ""
+  }
+]

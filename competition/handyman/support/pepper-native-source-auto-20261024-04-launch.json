@@ -1,0 +1,19 @@
+{
+  "command": [
+    "bash",
+    "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/run_object_transfer.sh",
+    "--object",
+    "ground_pepper",
+    "--run",
+    "--confirm-layout",
+    "LayoutA",
+    "--confirm-localization",
+    "--simulation-ignore-collision",
+    "--output",
+    "/__HANDYMAN_PACKAGE__/runtime/pepper-native-source-auto-20261024-04"
+  ],
+  "started_ns": 1792843506725280017,
+  "native_source_position": true,
+  "source_reposition_requested": false,
+  "automatic_action_retry": false
+}

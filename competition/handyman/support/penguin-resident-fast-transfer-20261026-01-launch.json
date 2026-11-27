@@ -1,0 +1,24 @@
+{
+  "pid": 27726,
+  "started_ns": 1792986866323042335,
+  "command": [
+    "bash",
+    "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/run_object_transfer.sh",
+    "--object",
+    "toy_penguin",
+    "--run",
+    "--confirm-layout",
+    "LayoutA",
+    "--confirm-localization",
+    "--simulation-ignore-collision",
+    "--navigation-profile",
+    "carry_fast_v1",
+    "--output",
+    "/__HANDYMAN_PACKAGE__/runtime/penguin-resident-fast-transfer-20261026-01"
+  ],
+  "output": "/__HANDYMAN_PACKAGE__/runtime/penguin-resident-fast-transfer-20261026-01",
+  "log": "/__HANDYMAN_PACKAGE__/runtime/penguin-resident-fast-transfer-20261026-01-console.log",
+  "detached": true,
+  "model_resident": true,
+  "navigation_profile": "carry_fast_v1"
+}

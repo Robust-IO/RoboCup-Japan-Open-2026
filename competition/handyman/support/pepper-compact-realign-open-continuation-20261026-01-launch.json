@@ -1,0 +1,26 @@
+{
+  "pid": 29592,
+  "started_ns": 1793010565066491413,
+  "command": [
+    "bash",
+    "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/run_object_transfer.sh",
+    "--object",
+    "ground_pepper",
+    "--run",
+    "--confirm-layout",
+    "LayoutA",
+    "--confirm-localization",
+    "--simulation-ignore-collision",
+    "--navigation-profile",
+    "carry_fast_v1",
+    "--continue-open-pregrasp",
+    "/__HANDYMAN_PACKAGE__/runtime/pepper-frozen-cross-object-transfer-20261026-01",
+    "--output",
+    "/__HANDYMAN_PACKAGE__/runtime/pepper-compact-realign-open-continuation-20261026-01"
+  ],
+  "output": "/__HANDYMAN_PACKAGE__/runtime/pepper-compact-realign-open-continuation-20261026-01",
+  "detached": true,
+  "continuation_not_uninterrupted_trial": true,
+  "old_close_commands": 0,
+  "old_motion_not_replayed": true
+}

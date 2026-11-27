@@ -1,0 +1,190 @@
+{
+  "status": "extra_35mm_grasp_lift_verified_tilt_not_improved",
+  "saved_ns": 1792834410216505642,
+  "run_root": "/__HANDYMAN_PACKAGE__/runtime/can-extra-seat35-live-20261024-03",
+  "class_name": "canned_juice",
+  "source": "LayoutA bedroom white_side_table",
+  "supersedes_robot_state_record": "canned-upright-calibrated-live-progress-20261024.json",
+  "unity_restarted_after_prior_attempt": true,
+  "old_held_context_not_reused": true,
+  "extra_seat_m": 0.035,
+  "extra_seat_default_m": 0.0,
+  "experiment_not_promoted_as_improvement": true,
+  "initial_base_map_pose": [
+    1.1836587241319556,
+    0.0006097723925156507,
+    0.00026953073308938876
+  ],
+  "initial_position_error_m": 0.0006987786407609163,
+  "navigation_verified": true,
+  "grasp_success_verified": true,
+  "upright_grasp_verified": false,
+  "preclose_tilt_deg": 5.929486500156268,
+  "postclose_before_lift": [
+    {
+      "pose_measured": true,
+      "diagnostic_only": true,
+      "motion_authorized": false,
+      "tilt_deg": 14.632241509675062,
+      "center_m": [
+        0.6836958192301944,
+        0.0811850634019603,
+        0.5602160351763715
+      ],
+      "capture": "/__HANDYMAN_PACKAGE__/runtime/can-extra-seat35-live-20261024-03/grasp/captures/postclose-before-lift-00"
+    },
+    {
+      "pose_measured": true,
+      "diagnostic_only": true,
+      "motion_authorized": false,
+      "tilt_deg": 14.62036497352157,
+      "center_m": [
+        0.6837360456230025,
+        0.08117996964668145,
+        0.5602164287958805
+      ],
+      "capture": "/__HANDYMAN_PACKAGE__/runtime/can-extra-seat35-live-20261024-03/grasp/captures/postclose-before-lift-01"
+    },
+    {
+      "pose_measured": true,
+      "diagnostic_only": true,
+      "motion_authorized": false,
+      "tilt_deg": 14.613745590264303,
+      "center_m": [
+        0.6836325470417263,
+        0.08117027605492165,
+        0.5602162557708233
+      ],
+      "capture": "/__HANDYMAN_PACKAGE__/runtime/can-extra-seat35-live-20261024-03/grasp/captures/postclose-before-lift-02"
+    }
+  ],
+  "afterlift_tilt_degrees": [
+    14.5378422120414,
+    14.538062108313365,
+    14.5378422120414
+  ],
+  "holding_opening_rad": 0.5432430465388904,
+  "observed_lift_m": [
+    0.10255394019466235,
+    0.10255814185509426,
+    0.10255784165185255
+  ],
+  "object_palm_follow_error_m": [
+    0.011053966269637923,
+    0.011058120071661025,
+    0.01104510644715499
+  ],
+  "new_close_commands": 1,
+  "lift_commands": 1,
+  "release_commands": 0,
+  "held_context": "/__HANDYMAN_PACKAGE__/runtime/can-extra-seat35-live-20261024-03/held-context.json",
+  "robot_state_at_verified_trial_end": {
+    "joints": [
+      0.38122349977493286,
+      -1.7000001065434844,
+      0.0,
+      0.1292036754032555,
+      0.0,
+      0.5432430465388904
+    ],
+    "poses": {
+      "map": [
+        10.082087836967359,
+        -6.48923232119386,
+        -0.08243051315319319
+      ],
+      "odom": [
+        8.897710800170898,
+        -6.490387439727783,
+        -0.08248510572273834
+      ]
+    },
+    "stamp_ns": 1792834257604000000
+  },
+  "can_remained_held_at_trial_end": true,
+  "arm_retracted": false,
+  "placement_verified": false,
+  "full_transfer_completed": false,
+  "navigation_parameters_changed": false,
+  "detector_changed": false,
+  "tests_passed": 600,
+  "finding": "Postclose RGBD already measured approximately 14.6 degrees before any lift; postlift was approximately 14.5 degrees. Additional seating alone did not remove tilt in this run.",
+  "causal_limit": "The object was manually repositioned and Unity restarted, so the old 11.3 degree result is not a controlled statistical comparison.",
+  "preceding_attempts": [
+    {
+      "root": "/__HANDYMAN_PACKAGE__/runtime/can-extra-seat35-live-20261024-01",
+      "reason": "far_local_support_not_measurable",
+      "robot_commands_sent": false
+    },
+    {
+      "root": "/__HANDYMAN_PACKAGE__/runtime/can-extra-seat35-live-20261024-02",
+      "reason": "adjacent_metal_plane_in_can_cap_fit",
+      "close_commands": 0,
+      "followed_by_unity_crash": true
+    }
+  ],
+  "prior_requested_reset": {
+    "root": "/__HANDYMAN_PACKAGE__/runtime/can-upright-putdown-retreat1m-20261024-01",
+    "measured_can_bottom_gap_before_release_m": 0.002170369293552299,
+    "actual_retreat_m": 0.9994154479463366,
+    "reset_complete_before_user_reposition": true
+  },
+  "historical_state_is_not_current_motion_authorization": true,
+  "next": [
+    "Audit new current RGBD and joints before any further motion; do not repeat closure while this can is held.",
+    "Inspect lateral finger centering and first contact during closure; deeper seating is configurable, not established as a successful tilt fix.",
+    "If releasing, measure the current tilted can bottom and actual tabletop support first; never assume the old upright bottom.",
+    "Only this run held-context is eligible for a reviewed carry continuation."
+  ],
+  "offline_source_pose_replay_before_any_arm_motion": {
+    "capture": "/__HANDYMAN_PACKAGE__/runtime/can-extra-seat35-live-20261024-03/grasp/captures/identity-02",
+    "measurement": {
+      "class_name": "canned_juice",
+      "shape": "upright_cylinder",
+      "model_pose": "measured_near_upright_axis",
+      "center_m": [
+        0.8929775172183847,
+        0.19607132253398135,
+        0.5552230691565425
+      ],
+      "footprint_radius_m": 0.03726331422073692,
+      "surface_radius_m": 0.03726331422073692,
+      "height_m": 0.1249262025423342,
+      "axis_base_m": [
+        0.003423277889055791,
+        0.0016610182588717715,
+        0.999992761067218
+      ],
+      "tilt_deg": 0.21800937216126987,
+      "cap_center_base_m": [
+        0.8931913457718481,
+        0.19617507488569852,
+        0.6176857182615182
+      ],
+      "observed_top_z_m": 0.6178275041348331,
+      "estimated_bottom_z_m": 0.4926186341782542,
+      "estimated_lowest_point_base_m": [
+        0.9262887056056575,
+        0.21223433761168473,
+        0.4926186341782542
+      ],
+      "bottom_vertical_extent_m": 0.06260443497829059,
+      "horizontal_support_radius_m": 0.037500984582294915,
+      "side_points": 836,
+      "top_points": 449,
+      "cylinder_side_residual_p95_m": 0.0018682620825477315,
+      "observed_side_arc_rad": 3.1842475629700235,
+      "nearby_plane_points_excluded": 0,
+      "cap_plane_residual_p95_m": 0.0011154644790133264,
+      "stamp_ns": 1792834223158802005,
+      "dimension_source": "precontact_rgbd",
+      "hidden_bottom_measured": false,
+      "position_source": "current_cap_plane_and_source_colored_side_depth",
+      "radius_range_relaxed": false,
+      "predicted_center_returned": false,
+      "detector_reran": false,
+      "identity_confirmed": false,
+      "motion_authorized": false
+    }
+  }
+}

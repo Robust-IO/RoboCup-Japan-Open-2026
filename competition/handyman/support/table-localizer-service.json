@@ -1,0 +1,51 @@
+{
+  "status": "single_map_owner_installed",
+  "pid": 457,
+  "output": "/__HANDYMAN_PACKAGE__/runtime/table-localizer-runtime-20261107-153816",
+  "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/table-localizer-handoff-20261107-153816",
+  "old_owner": {
+    "pid": 236,
+    "args": [
+      "/__HANDYMAN_PACKAGE__/project/install/handyman_rebuild_ros2/lib/handyman_rebuild_ros2/handyman_initial_pose_localizer",
+      "--ros-args",
+      "-p",
+      "map_frame:=map",
+      "-p",
+      "odom_frame:=odom",
+      "-p",
+      "base_frame:=base_footprint",
+      "-p",
+      "initial_pose.x:=1.184",
+      "-p",
+      "initial_pose.y:=0.0",
+      "-p",
+      "initial_pose.yaw:=0.0"
+    ]
+  },
+  "initial_anchor": {
+    "translation": [
+      1.183920352211118,
+      0.0008972531055230502,
+      -1.7403050553927873e-06
+    ],
+    "quaternion": [
+      7.973871986801777e-06,
+      2.3349517419739348e-05,
+      -8.195763045471011e-05,
+      0.9999999963370821
+    ]
+  },
+  "command": [
+    "/usr/bin/python3",
+    "/__HANDYMAN_PACKAGE__/runtime/table_localization_service.py",
+    "--initial-anchor",
+    "/__HANDYMAN_PACKAGE__/runtime/backups/table-localizer-handoff-20261107-153816/old-anchor.json",
+    "--activate-file",
+    "/__HANDYMAN_PACKAGE__/runtime/table-localizer-runtime-20261107-153816/activate",
+    "--map",
+    "/__HANDYMAN_PACKAGE__/project/install/handyman_rebuild_ros2/share/handyman_rebuild_ros2/maps/LayoutA/map.yaml",
+    "--output",
+    "/__HANDYMAN_PACKAGE__/runtime/table-localizer-runtime-20261107-153816"
+  ],
+  "robot_commands_sent": false
+}

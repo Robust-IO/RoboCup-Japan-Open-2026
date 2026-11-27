@@ -1,0 +1,12 @@
+{
+  "center_minus_palm_m": [
+    0.06326364218620162,
+    -0.0008753887659809084,
+    0.01185217867934829
+  ],
+  "bottom_below_palm_m": 0.017923447474640405,
+  "radius_m": 0.029775626153988696,
+  "holding_opening_rad": 0.3823018981045223,
+  "verified_capture": "/__HANDYMAN_PACKAGE__/runtime/automatic-apple-r18b-20261022-01/source-observe/000159",
+  "new_identity_verified": false
+}

@@ -1,9 +1,0 @@
-{
-  "status": "moderator_task_succeeded_after_development_resumes",
-  "full_uninterrupted_initial_regression_passed": false,
-  "success_report": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/session1-verify-20261114-214517/session-result.json",
-  "object_released": true,
-  "robot_holding": false,
-  "next": "User restart Unity to Session1 initial, then run start_session1_round.py --confirmed-session1-initial",
-  "do_not_replay_held_resume": true
-}

@@ -1,0 +1,201 @@
+{
+  "status": "fresh_initial_source_navigation_grasp_lift_verified_upright_quality_pending",
+  "saved_ns": 1792832855241062834,
+  "run_root": "/__HANDYMAN_PACKAGE__/runtime/can-upright-calibrated-live-20261024-01",
+  "navigation_run_root": "/__HANDYMAN_PACKAGE__/runtime/can-upright-calibrated-navigation-20261024-01",
+  "supersedes_robot_state_record": "canned-upright-reset-required-progress-20261024.json",
+  "source": "LayoutA bedroom white_side_table",
+  "class_name": "canned_juice",
+  "initial_start_error_m": 0.0006954311691146599,
+  "navigation_verified": true,
+  "grasp_success_verified": true,
+  "upright_grasp_verified": false,
+  "preclose_tilt_deg": 0.1017734712368034,
+  "afterlift_tilt_degrees": [
+    11.298606958045747,
+    11.298473538577907,
+    11.298473538577907
+  ],
+  "holding_opening_rad": 0.5171977973328623,
+  "observed_lift_m": [
+    0.1041236758657692,
+    0.10412444222594941,
+    0.10412411083808759
+  ],
+  "object_palm_follow_error_m": [
+    0.012639282273187545,
+    0.012662390474345439,
+    0.012661243295216371
+  ],
+  "close_command_count": 1,
+  "lift_command_count": 1,
+  "release_command_count": 0,
+  "approaches": [
+    {
+      "index": 0,
+      "command_sent": true,
+      "collision_warnings_only": true,
+      "automatic_retry": false,
+      "navigation_parameters_changed": false,
+      "max_translation_m": null,
+      "phase": "lateral_alignment",
+      "measured_contact_error_m": [
+        0.40631777187623075,
+        0.03817532461781101,
+        -0.0031101492044161017
+      ],
+      "diagonal_contact_motion": false,
+      "delta": [
+        0.0,
+        0.03817532461781101,
+        0.0
+      ],
+      "start_odom": [
+        8.674038887023926,
+        -6.582837104797363,
+        -0.08008612232498703
+      ],
+      "target_odom": [
+        8.677092933629144,
+        -6.544784138960146,
+        -0.08008612232498703
+      ],
+      "duration_s": 1.0,
+      "source_capture": "/__HANDYMAN_PACKAGE__/runtime/can-upright-calibrated-live-20261024-01/grasp/captures/approach-00-before",
+      "status": "completed_requires_new_can_measurement",
+      "final_state": {
+        "joints": [
+          0.28130388259887695,
+          -1.7000001065434844,
+          0.0,
+          0.1292036754032555,
+          0.0,
+          0.6499999859074279
+        ],
+        "poses": {
+          "map": [
+            9.860863173429381,
+            -6.543790274596529,
+            -0.08001057492646602
+          ],
+          "odom": [
+            8.676483154296875,
+            -6.544933319091797,
+            -0.08006516272742326
+          ]
+        },
+        "stamp_ns": 1792832736573000000
+      },
+      "spread_m": 0.002081976587325564,
+      "planned_endpoint_error_m": 0.0006277623322097517,
+      "planned_endpoint_is_success_gate": false,
+      "monitor_faults": [],
+      "completed_ns": 1792832736580266920
+    },
+    {
+      "index": 1,
+      "command_sent": true,
+      "collision_warnings_only": true,
+      "automatic_retry": false,
+      "navigation_parameters_changed": false,
+      "max_translation_m": null,
+      "phase": "straight_contact_approach",
+      "measured_contact_error_m": [
+        0.4055070676874786,
+        0.0006833786154364363,
+        -0.00296652965389399
+      ],
+      "diagonal_contact_motion": false,
+      "delta": [
+        0.4055070676874786,
+        0.0,
+        0.0
+      ],
+      "start_odom": [
+        8.677085876464844,
+        -6.545467376708984,
+        -0.08012438325021483
+      ],
+      "target_odom": [
+        9.081291979566423,
+        -6.577923626645365,
+        -0.08012438325021483
+      ],
+      "duration_s": 3.55,
+      "source_capture": "/__HANDYMAN_PACKAGE__/runtime/can-upright-calibrated-live-20261024-01/grasp/captures/approach-01-before",
+      "status": "completed_requires_new_can_measurement",
+      "final_state": {
+        "joints": [
+          0.28130388259887695,
+          -1.7000001065434844,
+          0.0,
+          0.1292036754032555,
+          0.0,
+          0.6499999859074279
+        ],
+        "poses": {
+          "map": [
+            10.265002573953584,
+            -6.576617525862205,
+            -0.07982868714800839
+          ],
+          "odom": [
+            9.080620765686035,
+            -6.57778263092041,
+            -0.07988327546429176
+          ]
+        },
+        "stamp_ns": 1792832741725000000
+      },
+      "spread_m": 0.0012140274047851562,
+      "planned_endpoint_error_m": 0.0006858628636110164,
+      "planned_endpoint_is_success_gate": false,
+      "monitor_faults": [],
+      "completed_ns": 1792832741807267190
+    }
+  ],
+  "held_context": "/__HANDYMAN_PACKAGE__/runtime/can-upright-calibrated-live-20261024-01/held-context.json",
+  "robot_state_at_verified_trial_end": {
+    "joints": [
+      0.38130390644073486,
+      -1.7000001065434844,
+      0.0,
+      0.1292036754032555,
+      0.0,
+      0.5171977973328623
+    ],
+    "poses": {
+      "map": [
+        10.265271495461766,
+        -6.576346667541565,
+        -0.08022252824317071
+      ],
+      "odom": [
+        9.080889701843262,
+        -6.577511787414551,
+        -0.08027711999838706
+      ]
+    },
+    "stamp_ns": 1792832753685000000
+  },
+  "can_remained_held_at_trial_end": true,
+  "arm_retracted": false,
+  "full_transfer_completed": false,
+  "placement_verified": false,
+  "navigation_parameters_changed": false,
+  "detector_changed": false,
+  "tests_passed": 594,
+  "evidence_images": {
+    "source": "/__HANDYMAN_PACKAGE__/runtime/can-upright-calibrated-live-20261024-01/grasp/captures/identity-02/rgb.png",
+    "preclose": "/__HANDYMAN_PACKAGE__/runtime/can-upright-calibrated-live-20261024-01/grasp/captures/preclose/rgb.png",
+    "afterlift": "/__HANDYMAN_PACKAGE__/runtime/can-upright-calibrated-live-20261024-01/grasp/captures/after-lift-02/rgb.png"
+  },
+  "finding": "Can was upright immediately before closure; the later verified lifted pose was tilted by about 11.3 degrees. No saved intermediate pose resolves closure versus lift as the exact onset.",
+  "historical_state_is_not_current_motion_authorization": true,
+  "next": [
+    "Read fresh RGBD, joints and held pose before any further motion; never repeat the grasp from this held state.",
+    "If continuing a transfer, use only this run held-context and a new current held-state audit.",
+    "For the next upright-quality experiment, record current can pose after closing and before lifting to distinguish the tilt onset.",
+    "Do not release over the source by assuming the old support position; measure actual support for the current object pose."
+  ]
+}

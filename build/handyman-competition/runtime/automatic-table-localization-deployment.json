@@ -1,7 +1,0 @@
-{
-  "status": "validated_backed_up_and_deployed",
-  "backup": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/backups/before-automatic-table-localization-20261101-195954",
-  "validation": "/mnt/d/handyman-tools/table-localization-validation-20261101-195954",
-  "robot_commands_sent": false,
-  "localizer_activated": false
-}

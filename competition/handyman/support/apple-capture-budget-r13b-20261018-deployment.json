@@ -1,0 +1,74 @@
+{
+  "status": "deployed_tests_passed",
+  "revision": "capture-budget-r13b",
+  "patch": "/__HANDYMAN_PACKAGE__/runtime/apple-capture-budget-r13b-20261018-patch.tar.gz",
+  "sha256": "f90ef53fbe6a2be2554c5fc9c09afae636dc69587aa31e280d81b8a915a89d3c",
+  "backup": "/__HANDYMAN_PACKAGE__/runtime/apple-before-capture-budget-r13b-20261018.tar.gz",
+  "copies_hash_verified": 3,
+  "hashes": {
+    "apple_inference_worker.py": "ca37182763e934c9881d7526dac8e872a641f6be7c09bab972e7deda9ff6273f",
+    "test_apple_inference_reuse.py": "b1f5ce1def087f4d7b54e3d60010f681bce8ef9f873473ed3608f0e5e36472ef",
+    "apple_rgbd_candidate.py": "b174b51e476b39e542115da26a2026ac136255dbf2163973414d589d3764545b",
+    "apple_support_surface.py": "26a91db2f9d6f83b76e432cf0b8019adb0e9bfd1116d5fae0a93e425e639352c",
+    "rgbd_pixel_window.py": "3ed9ee66c1fff45624761214648c11c20596af24d752f8276d1dbc255c5493e1",
+    "test_rgbd_pixel_window.py": "c757533d86effc6cbf7194003cb55c260c2ac4b588c14365d82dbf829f6a35e3",
+    "capture_file_writer.py": "a7cefebb0868541596dbd4bd7398c81071bd414d23bf7f037002dae0f8da7606",
+    "test_capture_file_writer.py": "806bc90b96e857ca8de3edafd9b07349e74e440cbf399d2797ee361230d674cd",
+    "capture_grasp_scene.py": "8e8f199beda61dd3fd96cbc5fff7f5a8e2a1a57f24ce39503cc4c4bdcb29c96a",
+    "APPLE_TRANSFER_AUTOMATION.txt": "26d823009d612ec33e8120530e7c935fc3b10f6e5a60e08c80330d8f0d20c6bd"
+  },
+  "original_code_hashes": {
+    "runtime": {
+      "apple_inference_worker.py": "1135dc67ecba48ec57aa30ee2e36b6f7e1ff32862ad1e073d56bee72ac14e259",
+      "capture_grasp_scene.py": "bf8a7d740cbdda540d4e97b75b810b6a3be51346ebf764fe2473c7942ee840af",
+      "capture_file_writer.py": null,
+      "rgbd_pixel_window.py": null,
+      "APPLE_TRANSFER_AUTOMATION.txt": "3055314703d2ea47b45ec9bc64a814eb5f636795fa0ba850f648c1ca6711e5f5",
+      "test_apple_inference_reuse.py": null,
+      "test_capture_file_writer.py": null,
+      "test_rgbd_pixel_window.py": null,
+      "apple_rgbd_candidate.py": "6610ee7b00487a9f7b0304529a1fe8d932b5e6e5bb8579874dc32c409bbd3d00",
+      "apple_support_surface.py": "c8d0d8e4ec8e73486bf084f80300ded49e180c1177311226bf3d6f0fb38bf183"
+    },
+    "training": {
+      "apple_inference_worker.py": "1135dc67ecba48ec57aa30ee2e36b6f7e1ff32862ad1e073d56bee72ac14e259",
+      "capture_grasp_scene.py": "bf8a7d740cbdda540d4e97b75b810b6a3be51346ebf764fe2473c7942ee840af",
+      "capture_file_writer.py": null,
+      "rgbd_pixel_window.py": null,
+      "APPLE_TRANSFER_AUTOMATION.txt": "3055314703d2ea47b45ec9bc64a814eb5f636795fa0ba850f648c1ca6711e5f5",
+      "test_apple_inference_reuse.py": null,
+      "test_capture_file_writer.py": null,
+      "test_rgbd_pixel_window.py": null,
+      "apple_rgbd_candidate.py": null,
+      "apple_support_surface.py": null
+    },
+    "module": {
+      "apple_inference_worker.py": "1135dc67ecba48ec57aa30ee2e36b6f7e1ff32862ad1e073d56bee72ac14e259",
+      "capture_grasp_scene.py": "bf8a7d740cbdda540d4e97b75b810b6a3be51346ebf764fe2473c7942ee840af",
+      "capture_file_writer.py": null,
+      "rgbd_pixel_window.py": null,
+      "APPLE_TRANSFER_AUTOMATION.txt": "3055314703d2ea47b45ec9bc64a814eb5f636795fa0ba850f648c1ca6711e5f5",
+      "test_apple_inference_reuse.py": null,
+      "test_capture_file_writer.py": null,
+      "test_rgbd_pixel_window.py": null,
+      "apple_rgbd_candidate.py": "6610ee7b00487a9f7b0304529a1fe8d932b5e6e5bb8579874dc32c409bbd3d00",
+      "apple_support_surface.py": "c8d0d8e4ec8e73486bf084f80300ded49e180c1177311226bf3d6f0fb38bf183"
+    }
+  },
+  "candidate_tests": {
+    "exit": 0,
+    "count": 320,
+    "log": "/__HANDYMAN_PACKAGE__/runtime/apple-capture-budget-r13b-20261018-candidate-tests.log"
+  },
+  "runtime_tests": {
+    "exit": 0,
+    "count": 320,
+    "log": "/__HANDYMAN_PACKAGE__/runtime/apple-capture-budget-r13b-20261018-runtime-tests.log"
+  },
+  "input_preflight_exit": 0,
+  "robot_commands_sent": false,
+  "new_live_observation_validated": false,
+  "final_freshness_max_s": 0.4,
+  "original_source_stamps_preserved": true,
+  "model_maps_navigation_grasp_placement_policy_changed": false
+}

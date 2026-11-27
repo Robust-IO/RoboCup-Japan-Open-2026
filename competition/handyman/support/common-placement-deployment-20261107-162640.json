@@ -1,0 +1,276 @@
+{
+  "status": "installed_offline_validated",
+  "candidate": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514",
+  "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-common-placement-20261107-160551",
+  "supplement": "/__HANDYMAN_PACKAGE__/runtime/backups/before-common-placement-20261107-160551/install-common-placement-20261107-162640.tar.gz",
+  "supplement_sha256": "acc3ed85161bcb8633c3ff823a3750e0482850da46b7697997a07b6951aceb5b",
+  "files": [
+    {
+      "relative": "frozen/apple_transfer_auto_plan.py",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/apple_transfer_auto_plan.py",
+      "sha256": "31be89da8112f00f8a68c7b2e4ea9d0e12640d4690d3ff859f73b0ef8b3ca489",
+      "before_sha256": "9f8db88b65bb1e4c069681a05c5112553affb00bcacc2bd0a9be07ddb7edf256",
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/frozen/apple_transfer_auto_plan.py",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-common-placement-20261107-160551/install-common-placement-20261107-162640/undo/frozen/apple_transfer_auto_plan.py"
+    },
+    {
+      "relative": "frozen/horizontal_can_grasp_plan.py",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/horizontal_can_grasp_plan.py",
+      "sha256": "d4fd3db69e45c8375d61ab54c9e12ccdefbe106aec5a57a3f128110cfb68ab4c",
+      "before_sha256": null,
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/frozen/horizontal_can_grasp_plan.py",
+      "backup": null
+    },
+    {
+      "relative": "frozen/inverse_table_place_plan.py",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/inverse_table_place_plan.py",
+      "sha256": "83106bd52e5ff19fe9e7a5cd2de9080439d14edefc8547cbeee99eba2635c6ec",
+      "before_sha256": "a4f3c7125cb87109104a119c3bf80343f888fcfe586e8dc9fddd121f384b6cce",
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/frozen/inverse_table_place_plan.py",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-common-placement-20261107-160551/install-common-placement-20261107-162640/undo/frozen/inverse_table_place_plan.py"
+    },
+    {
+      "relative": "frozen/observation_profiles.py",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/observation_profiles.py",
+      "sha256": "ca4f0d72d9d17bb1480d116f096ee9f620a1d211397230496778069d60505e2c",
+      "before_sha256": null,
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/frozen/observation_profiles.py",
+      "backup": null
+    },
+    {
+      "relative": "frozen/outcome_finite_adjustment.py",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/outcome_finite_adjustment.py",
+      "sha256": "fe9a81ef12bed996813158a774751680962d2b5d16cd36da832beac31dac84ca",
+      "before_sha256": null,
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/frozen/outcome_finite_adjustment.py",
+      "backup": null
+    },
+    {
+      "relative": "frozen/outcome_transfer_policy.json",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/outcome_transfer_policy.json",
+      "sha256": "619449bff281aab111163e355b12a11f8e4e40e96a5ec9361027677bb6ad402f",
+      "before_sha256": null,
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/frozen/outcome_transfer_policy.json",
+      "backup": null
+    },
+    {
+      "relative": "frozen/outcome_transfer_policy.py",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/outcome_transfer_policy.py",
+      "sha256": "c2bab6be06ab7cb7a9e18d950ce0d5bd59972551ced38941c3927ecfcc6cceff",
+      "before_sha256": null,
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/frozen/outcome_transfer_policy.py",
+      "backup": null
+    },
+    {
+      "relative": "frozen/outcome_transfer_runtime.py",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/outcome_transfer_runtime.py",
+      "sha256": "8a557472ea8b4e7ebcabf4c29c5ce68c04ca8935bff25585e4b1bccd6ad54ae1",
+      "before_sha256": null,
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/frozen/outcome_transfer_runtime.py",
+      "backup": null
+    },
+    {
+      "relative": "frozen/pepper_runtime.py",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/pepper_runtime.py",
+      "sha256": "e06376cca93ff0ee8ca6b97f9a99041eab34aee172f3b51001edaf541d53f721",
+      "before_sha256": "5a03c1ff7e1789a0ada6cac0389d39f51876a9d171750b35f8baa5edfb22fcc3",
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/frozen/pepper_runtime.py",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-common-placement-20261107-160551/install-common-placement-20261107-162640/undo/frozen/pepper_runtime.py"
+    },
+    {
+      "relative": "frozen/pepper_transfer_automation.py",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/pepper_transfer_automation.py",
+      "sha256": "b2222eca73d3e05ab0be9c1a77ddd4ab4c82b89648baa30e856ce266e9f4e721",
+      "before_sha256": "e56956098412278fae4d625df9b706348d0aae9e7ab91d71cdc7534c9935dc28",
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/frozen/pepper_transfer_automation.py",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-common-placement-20261107-160551/install-common-placement-20261107-162640/undo/frozen/pepper_transfer_automation.py"
+    },
+    {
+      "relative": "frozen/pregrasp_raised_trial.py",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/pregrasp_raised_trial.py",
+      "sha256": "78d99ce0a5334a8608b8d0993ffb52a54286aaf6b0849ecbf1f3109e8a965832",
+      "before_sha256": "9b2c48c882bc4a5d295fa93ebb7a1dc23239ae8ceb81cb50b0836a28abe63017",
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/frozen/pregrasp_raised_trial.py",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-common-placement-20261107-160551/install-common-placement-20261107-162640/undo/frozen/pregrasp_raised_trial.py"
+    },
+    {
+      "relative": "frozen/profiled_capture.py",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/profiled_capture.py",
+      "sha256": "ab4aa7e681166de5f8ab21ef2a9d12428c4d68a3b4dcc278b7c62c0601ed14d2",
+      "before_sha256": null,
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/frozen/profiled_capture.py",
+      "backup": null
+    },
+    {
+      "relative": "frozen/profiled_capture_writer.py",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/profiled_capture_writer.py",
+      "sha256": "3402b211617d4aa055333f9d993ece85532bd53850c0dff7e8f1a43fcaf9e275",
+      "before_sha256": null,
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/frozen/profiled_capture_writer.py",
+      "backup": null
+    },
+    {
+      "relative": "frozen/reviewed_carry_adjustment.py",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/reviewed_carry_adjustment.py",
+      "sha256": "529f3636fcfb4f2aa6160e7e027b6fc19ca07b873bb290b5e0225ade970a78e4",
+      "before_sha256": "1fcdefdb23fb208676e2beb2f53562e6609c2b8c5684ab5d860f50e7c6c1f065",
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/frozen/reviewed_carry_adjustment.py",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-common-placement-20261107-160551/install-common-placement-20261107-162640/undo/frozen/reviewed_carry_adjustment.py"
+    },
+    {
+      "relative": "frozen/source_table_front.py",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/source_table_front.py",
+      "sha256": "db7f2529082094057d97e9afbbc106031d45bfae700146090faf57a0b2a7f98d",
+      "before_sha256": null,
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/frozen/source_table_front.py",
+      "backup": null
+    },
+    {
+      "relative": "frozen/stop_observe_act.py",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/stop_observe_act.py",
+      "sha256": "6ac89c9eecd4ac6f768b5374ec71e1807d13cbaf832edbc62774f50f2ca2c1ba",
+      "before_sha256": null,
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/frozen/stop_observe_act.py",
+      "backup": null
+    },
+    {
+      "relative": "frozen/stopped_capture_runtime.py",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/stopped_capture_runtime.py",
+      "sha256": "a5f55afc867bc2295f617b9a93545c641ca52ca15e015f88801be770ef8cf792",
+      "before_sha256": null,
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/frozen/stopped_capture_runtime.py",
+      "backup": null
+    },
+    {
+      "relative": "frozen/table_transfer_core.py",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/table_transfer_core.py",
+      "sha256": "023a0e22c6592250e196325b9be296786e74bd0fc15eb4c7eac813ec81dc4cf9",
+      "before_sha256": null,
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/frozen/table_transfer_core.py",
+      "backup": null
+    },
+    {
+      "relative": "frozen/tabletop_support.py",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/tabletop_support.py",
+      "sha256": "f9549ad39574afcd3a48e578fa20fcd293f2b62aae2a38d6e027eec4f69ae236",
+      "before_sha256": "76fccce17a1a92f41bbe7346cf6b852248ec06a1ed473ba911832cb65006a9fd",
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/frozen/tabletop_support.py",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-common-placement-20261107-160551/install-common-placement-20261107-162640/undo/frozen/tabletop_support.py"
+    },
+    {
+      "relative": "frozen/test_inverse_table_place_plan.py",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/test_inverse_table_place_plan.py",
+      "sha256": "3f7bed8b2dcb271c935619a95f25d8f1eebc8900153ccf65b9077c846fe1ca6e",
+      "before_sha256": "efdb51b449a3493ff9abcba45eec988ae02fa4feb798d84c3b806af0ce0a7967",
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/frozen/test_inverse_table_place_plan.py",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-common-placement-20261107-160551/install-common-placement-20261107-162640/undo/frozen/test_inverse_table_place_plan.py"
+    },
+    {
+      "relative": "frozen/test_tabletop_support.py",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/test_tabletop_support.py",
+      "sha256": "8578d71ded6622724cadb82a433cf48a126d5196d308b4b161aa27a9622a93b0",
+      "before_sha256": "d2acc023dcd8cd4231a2b17d8ddcc4e0c664d4f9a8d92a51b5d17c0dccba365f",
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/frozen/test_tabletop_support.py",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-common-placement-20261107-160551/install-common-placement-20261107-162640/undo/frozen/test_tabletop_support.py"
+    },
+    {
+      "relative": "runtime/flat_box_place.py",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/flat_box_place.py",
+      "sha256": "2c2960c02e363e0391517160cce7f1ae8cef59b513e8e61e47638a3bb8abe2b8",
+      "before_sha256": "37ac28437e8d128dc07a394e768d293aa9233bf17d4e1dc180da269c779ccfce",
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/runtime/flat_box_place.py",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-common-placement-20261107-160551/install-common-placement-20261107-162640/undo/runtime/flat_box_place.py"
+    },
+    {
+      "relative": "runtime/horizontal_can_place.py",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/horizontal_can_place.py",
+      "sha256": "b09a51e8c477315b4e7a1e31a4a6df065352db4bc31e5147a3e6e082012a20fb",
+      "before_sha256": "556a7a70463d1976e819b74b1c8a1f519869738e35950cd4afae1a22e67eb6d5",
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/runtime/horizontal_can_place.py",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-common-placement-20261107-160551/install-common-placement-20261107-162640/undo/runtime/horizontal_can_place.py"
+    },
+    {
+      "relative": "runtime/outcome_finite_adjustment.py",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/outcome_finite_adjustment.py",
+      "sha256": "fe9a81ef12bed996813158a774751680962d2b5d16cd36da832beac31dac84ca",
+      "before_sha256": "a59009bdad507bd5c3e783cbccf850f57573f2dbf92f2afd383755bebd163d68",
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/runtime/outcome_finite_adjustment.py",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-common-placement-20261107-160551/install-common-placement-20261107-162640/undo/runtime/outcome_finite_adjustment.py"
+    },
+    {
+      "relative": "runtime/table_approach_reachability.py",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/table_approach_reachability.py",
+      "sha256": "5045d97538001802db417f15c0ebd72f53d8dd9a0b5e62809ac88356982c5b02",
+      "before_sha256": "34a4336668f42017fae325937d638a044d514ff3f0a48ebd9ad7705e6cf2bf63",
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/runtime/table_approach_reachability.py",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-common-placement-20261107-160551/install-common-placement-20261107-162640/undo/runtime/table_approach_reachability.py"
+    },
+    {
+      "relative": "runtime/tabletop_support.py",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/tabletop_support.py",
+      "sha256": "f9549ad39574afcd3a48e578fa20fcd293f2b62aae2a38d6e027eec4f69ae236",
+      "before_sha256": "84fc0204cb04b594aa0c78aa0c097919e65b936699d292ca27f71beb4b66eebd",
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/runtime/tabletop_support.py",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-common-placement-20261107-160551/install-common-placement-20261107-162640/undo/runtime/tabletop_support.py"
+    },
+    {
+      "relative": "runtime/test_tabletop_support.py",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/test_tabletop_support.py",
+      "sha256": "7f0a73f9b2a4fc1cf31e82616d874dabc5987b1a7a257fdf5d043d9fa3da5837",
+      "before_sha256": "d2acc023dcd8cd4231a2b17d8ddcc4e0c664d4f9a8d92a51b5d17c0dccba365f",
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/runtime/test_tabletop_support.py",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-common-placement-20261107-160551/install-common-placement-20261107-162640/undo/runtime/test_tabletop_support.py"
+    },
+    {
+      "relative": "COMMON_TABLE_TRANSFER.txt",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/COMMON_TABLE_TRANSFER.txt",
+      "sha256": "347d716451201abce2784c4df1df525be72743e367084d4281f9388e8b0b8c82",
+      "before_sha256": null,
+      "source": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/COMMON_TABLE_TRANSFER.txt",
+      "backup": null
+    },
+    {
+      "relative": "metadata/phase5-current-work-progress-20261026.json",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/phase5-current-work-progress-20261026.json",
+      "source": "/__HANDYMAN_PACKAGE__/runtime/backups/before-common-placement-20261107-160551/install-common-placement-20261107-162640/phase5-current-work-progress-20261026.json.new",
+      "sha256": "9fa522d511120e452a343975b24c15bba02bdf2feb02f8fc5ecafa447f15ac80",
+      "before_sha256": "412571f9fa27889f11bba8660382539098317881fa73adbfdc39e03de39563f6",
+      "metadata": true,
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-common-placement-20261107-160551/install-common-placement-20261107-162640/undo/metadata/phase5-current-work-progress-20261026.json"
+    },
+    {
+      "relative": "metadata/outcome-policy-deployment.json",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/outcome-policy-deployment.json",
+      "source": "/__HANDYMAN_PACKAGE__/runtime/backups/before-common-placement-20261107-160551/install-common-placement-20261107-162640/outcome-policy-deployment.json.new",
+      "sha256": "df6aebbe7f75de495d226047cc8867637a1a3fd225c5b7ca1e05a1db56bb5502",
+      "before_sha256": "8a54ec59ba1c4726f7af7b3e3a69ed614cdc5198dbc87754fd22be85d319db0e",
+      "metadata": true,
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-common-placement-20261107-160551/install-common-placement-20261107-162640/undo/metadata/outcome-policy-deployment.json"
+    }
+  ],
+  "validation": {
+    "status": "offline_validated_not_deployed",
+    "root": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514",
+    "checks": [
+      {
+        "name": "common-behavior",
+        "returncode": 0,
+        "tests": 14,
+        "log": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/common-behavior.log"
+      },
+      {
+        "name": "existing-regressions",
+        "returncode": 0,
+        "tests": 135,
+        "log": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/existing-regressions.log"
+      }
+    ],
+    "tests": 149,
+    "robot_commands_sent": false,
+    "ros_initialized": false,
+    "recorded_replay": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/recorded-kitchen-replay.json"
+  },
+  "robot_commands_sent": false,
+  "full_live_transfer_validated": false,
+  "all_30_categories_physically_tested": false
+}

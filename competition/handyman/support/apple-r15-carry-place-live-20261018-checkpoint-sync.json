@@ -1,0 +1,18 @@
+{
+  "status": "r15_carry_place_progress_synced",
+  "copies": 4,
+  "hashes": {
+    "apple-carry-place-live-progress-20261018.json": "74c6a4c217512ed16c215c88a1f04a416ca2981a62a0b69644a3fd2396685211",
+    "apple-close-lift-live-progress-20261018.json": "689d561a8fa8a8784d0a285977a15956c8f4a6db7772558b595d57b40330b7ec",
+    "apple-capture-budget-live-progress-20261018.json": "570f7a92892eea67cc52dc1fd3092444d10ecc3be73afcda0652b1754c1d1666",
+    "apple-near-geometry-live-progress-20261018.json": "a8a27f503c3073ef65de6789f280baa8a0f6fd75f062057e37a45d4357568439",
+    "apple-near-geometry-progress-20261018.json": "a056c72058066646f41185d04115b846bceb9caaa1b2d246f9cd6fc347c9f858",
+    "phase5-restart-checkpoint-20261017.json": "124beaba3edd75a99cc80f06414a94ca4921fcb16e9421d8c3a3906a1b7bca3e",
+    "apple-transfer-automation-progress-20261017.json": "c117d8311acfbf3de54a32425c3fb41b44ecded05ea4f282c70bde0ffd598246",
+    "apple-transfer-live-progress-20261017.json": "6690059817cbde317b2ede3cc501c81135eac4acc7fbee8d43a3369be358f226"
+  },
+  "backup": "/__HANDYMAN_PACKAGE__/runtime/apple-before-r15-carry-place-live-20261018-checkpoints.tar.gz",
+  "placement_verified": true,
+  "current_capture": "/__HANDYMAN_PACKAGE__/runtime/apple-r15-post-carry-place-20261018-01/cameras/000005",
+  "robot_commands_sent": false
+}

@@ -1,7 +1,0 @@
-import json,subprocess,time,shlex
-from pathlib import Path
-b=Path('/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime');a=json.loads((b/'penguin-contact-resume-adapter-latest.json').read_text());f=Path(a['adapter']);root=b/('penguin-contact-continue-'+time.strftime('%Y%m%d-%H%M%S'))
-args=['/usr/bin/python3',str(f/'run_object_transfer.py'),'--object','toy_penguin','--run','--confirm-layout','LayoutA','--confirm-localization','--simulation-ignore-collision','--source-imgsz','960','--task-config',a['task'],'--continue-closed-contact',a['predecessor'],'--output',str(root)]
-cmd='source /opt/ros/humble/setup.bash; source /home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/project/install/setup.bash; export PYTHONPATH='+str(f)+':/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime:$PYTHONPATH; export ROS_LOG_DIR='+str(root)+'-roslogs; exec /usr/bin/python3 /home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/project/training/scripts/cyclone_test_env.py --domain 71 --dds-config /home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/project/training/config/cyclone_search_stack.xml --run -- '+shlex.join(args)
-with root.with_suffix('.log').open('x') as log:p=subprocess.Popen(['bash','-lc',cmd],stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
-r=dict(pid=p.pid,output=str(root),adapter=str(f),predecessor=a['predecessor']);(b/'penguin-contact-continue-latest.json').write_text(json.dumps(r,indent=2));print(json.dumps(r))

@@ -1,0 +1,58 @@
+{
+  "output": "/__HANDYMAN_PACKAGE__/runtime/joint-latency-20261106-202002",
+  "report": {
+    "robot_commands_sent": false,
+    "robot_moving_commanded": false,
+    "duration_s": 12.013636129000588,
+    "streams": {
+      "joints": {
+        "messages": 107,
+        "timestamp_age_s": {
+          "median": 0.211907583,
+          "p95": 0.2520060479999999,
+          "maximum": 0.271977777
+        },
+        "arrival_gap_s": {
+          "median": 0.10832878449991767,
+          "p95": 0.16941598925041035,
+          "maximum": 0.2506510419998449
+        },
+        "source_stamp_gap_s": {
+          "median": 0.108,
+          "p95": 0.138,
+          "maximum": 0.23
+        },
+        "publisher_nodes": [
+          "rosbridge_websocket"
+        ]
+      },
+      "scan": {
+        "messages": 87,
+        "timestamp_age_s": {
+          "median": 0.00111213,
+          "p95": 0.0019768464,
+          "maximum": 0.004985631
+        },
+        "arrival_gap_s": {
+          "median": 0.1307732810005291,
+          "p95": 0.20857438724988242,
+          "maximum": 0.3654217349994724
+        },
+        "source_stamp_gap_s": {
+          "median": 0.129944054,
+          "p95": 0.20878713125,
+          "maximum": 0.36589626
+        },
+        "publisher_nodes": [
+          "sigverse_ros_bridge_265"
+        ]
+      }
+    },
+    "probe_executor_gap_s": {
+      "median": 0.020278068000152416,
+      "p95": 0.020463935599764227,
+      "maximum": 0.023109650000151305
+    },
+    "limitation": "Current stationary observation, not a reproduction of the earlier moving episode; timestamp age includes any clock offset."
+  }
+}

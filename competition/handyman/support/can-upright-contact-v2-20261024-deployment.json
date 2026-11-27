@@ -1,0 +1,35 @@
+{
+  "status": "can_upright_contact_calibration_deployed",
+  "tests": 594,
+  "hashes": {
+    "canned_grasp_geometry.py": "f3613fcd49b1c982533c5a7ade07e057b923934b817d296da22ec78715d21425",
+    "canned_grasp_runtime.py": "a9c7ce61332a7405c528d8a9c2874af0fcc0db3053c4b6e8a87e08939d5feac0",
+    "run_canned_grasp_trial.py": "d3805cc241458b3a8a5937ceae27062299ee7bc6a2cd9c4fcdc7789b6bcf74e4",
+    "test_canned_grasp_geometry.py": "07992234a58f708ca62c9265b8b991e4aee112d1887265e53d75e7d87454221c",
+    "OBJECT_TRANSFER.txt": "492c626b46f38b0efc7605cb8e5c19a7e36e4bacda99fc805364e89e0d363bfd"
+  },
+  "previous_hashes": {
+    "canned_grasp_geometry.py": "a7f620be97a08566df8161b4daa32019e633225f42ee06df024c8075810125d1",
+    "canned_grasp_runtime.py": "df65d65686c47f9c090e1f5825c41ae84165e778a7f181b937a7c7bdce8b489b",
+    "run_canned_grasp_trial.py": "cdc1ad89a754c1a04d258fd29a6fa7642dba3fa3489000304f3f52f8e4397632",
+    "test_canned_grasp_geometry.py": "6d4bfa93f053c562cb07b7f799a9892763dc7a5d1bbe2d1e1b417e1134c99305",
+    "OBJECT_TRANSFER.txt": "08508a26692bd9b8708a6bf7f00bf46791e94111f9d2bd4a2f62d14364a7b4ae"
+  },
+  "actual_success_source": "/__HANDYMAN_PACKAGE__/runtime/can-auto-live-20261023-05/grasp/captures/preclose",
+  "source_raw_sha256": {
+    "rgb.png": "abf2350be9219e65f4bb5c573efd35dc0b23417304090ac3768838bd664f5114",
+    "depth_m.npy": "e11a4b61225e9ef139ae3ad4c9a08b45a5a3e688270e25e345f29e0c5f089855",
+    "snapshot.json": "fe29b35d57cbfc5a530304f4b4e3dde49bc883292e187973cae468ce5348705d"
+  },
+  "measured_source_preclose_tilt_deg": 0.4600371457230806,
+  "calibrated_relative_offset_base_m": [
+    0.07948608136287283,
+    0.012144502421366304,
+    0.0
+  ],
+  "recorded_success_afterlift_tilt_deg": 10.10170161411464,
+  "world_coordinate_replay": false,
+  "original_navigation_model_and_apple_unchanged": true,
+  "robot_commands_sent": false,
+  "live_upright_regression_still_required": true
+}

@@ -1,0 +1,50 @@
+{
+  "status": "deployed_tests_passed",
+  "revision": "capture-budget-r13",
+  "patch": "/__HANDYMAN_PACKAGE__/runtime/apple-capture-budget-r13-20261018-patch.tar.gz",
+  "sha256": "407ac4cabc0c5d69d4da8415d72bd3828f4f9edbe24838592f250c742a575f5b",
+  "backup": "/__HANDYMAN_PACKAGE__/runtime/apple-before-capture-budget-r13-20261018.tar.gz",
+  "copies_hash_verified": 3,
+  "hashes": {
+    "capture_processing_budget.py": "ce93bb0c9f33a9dcfc011efdbdaf067c809e4ad281feb212a958bf115d589624",
+    "capture_grasp_scene.py": "bf8a7d740cbdda540d4e97b75b810b6a3be51346ebf764fe2473c7942ee840af",
+    "test_capture_processing_budget.py": "a387c2a2799887fc2d4988f5621b379ab0c8dcdae1d246fa3933927fe60edc06",
+    "APPLE_TRANSFER_AUTOMATION.txt": "3055314703d2ea47b45ec9bc64a814eb5f636795fa0ba850f648c1ca6711e5f5"
+  },
+  "original_code_hashes": {
+    "runtime": {
+      "test_capture_processing_budget.py": null,
+      "capture_grasp_scene.py": "7ff70043eb483b85be4a510e8bb4bc754e9601cc4eb63edc34fd326eae81a2d3",
+      "APPLE_TRANSFER_AUTOMATION.txt": "561f5ff9e9e597b2109d67f692f459aa6d9cf7df3a778f89aa561a662529a907",
+      "capture_processing_budget.py": null
+    },
+    "training": {
+      "test_capture_processing_budget.py": null,
+      "capture_grasp_scene.py": "7ff70043eb483b85be4a510e8bb4bc754e9601cc4eb63edc34fd326eae81a2d3",
+      "APPLE_TRANSFER_AUTOMATION.txt": "561f5ff9e9e597b2109d67f692f459aa6d9cf7df3a778f89aa561a662529a907",
+      "capture_processing_budget.py": null
+    },
+    "module": {
+      "test_capture_processing_budget.py": null,
+      "capture_grasp_scene.py": "7ff70043eb483b85be4a510e8bb4bc754e9601cc4eb63edc34fd326eae81a2d3",
+      "APPLE_TRANSFER_AUTOMATION.txt": "561f5ff9e9e597b2109d67f692f459aa6d9cf7df3a778f89aa561a662529a907",
+      "capture_processing_budget.py": null
+    }
+  },
+  "candidate_tests": {
+    "exit": 0,
+    "count": 309,
+    "log": "/__HANDYMAN_PACKAGE__/runtime/apple-capture-budget-r13-20261018-candidate-tests.log"
+  },
+  "runtime_tests": {
+    "exit": 0,
+    "count": 309,
+    "log": "/__HANDYMAN_PACKAGE__/runtime/apple-capture-budget-r13-20261018-runtime-tests.log"
+  },
+  "input_preflight_exit": 0,
+  "robot_commands_sent": false,
+  "new_live_observation_validated": false,
+  "final_freshness_max_s": 0.4,
+  "original_source_stamps_preserved": true,
+  "model_maps_navigation_grasp_placement_policy_changed": false
+}

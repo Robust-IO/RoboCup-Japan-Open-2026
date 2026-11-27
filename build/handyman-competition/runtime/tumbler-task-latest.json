@@ -1,7 +1,0 @@
-{
-  "output": "/home/crazylearner/RoboCup-Japan-Open-2026/build/handyman-competition/runtime/tumbler-kitchen-observe-20261107-165436",
-  "source": "white_side_table#kitchen",
-  "destination": "white_side_table#living_room",
-  "object": "tumbler",
-  "status": "source_observation_captured"
-}

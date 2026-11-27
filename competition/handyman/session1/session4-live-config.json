@@ -1,0 +1,245 @@
+{
+  "version": 1,
+  "profile": "session4_lobby_tumbler_to_container",
+  "layout": "LayoutC",
+  "motion_profile": "balanced_v1",
+  "task": {
+    "object": "tumbler",
+    "source_room": "lobby",
+    "destination": "trash_box_for_burnable"
+  },
+  "source_table_id": "white_side_table#lobby",
+  "destination_id": "trash_box_for_burnable#lobby",
+  "destination_room": "lobby",
+  "source_staging_goal": [
+    -4.254999,
+    -10.005,
+    -0.498302
+  ],
+  "destination_staging_goal": [
+    -3.740057022293679,
+    -9.16762608723934,
+    -1.7
+  ],
+  "environment": "/__HANDYMAN_PACKAGE__/workspace/src/handyman_rebuild_ros2/config/environments/layout_c_session4.yaml",
+  "environment_sha256": "4def97c4428ad5bc8ccf78372f94c8b7be26bef178e5af5ff38ab5135a6925b6",
+  "semantic_map": "/__HANDYMAN_PACKAGE__/workspace/training/session1/session4-semantic-map.json",
+  "registry": "/__HANDYMAN_PACKAGE__/runtime/active_detection_model.json",
+  "model_python": "/__HANDYMAN_PACKAGE__/project/.pixi/envs/default/bin/python",
+  "navigation_tolerances": [
+    0.06,
+    0.08,
+    0.06
+  ],
+  "execution": {
+    "auto_protocol_success": false,
+    "automatic_action_retry": false
+  },
+  "policy": {
+    "efficient_non_navigation": true,
+    "placement_approach_mode": "single",
+    "near_grasp_roi_confirmation": true,
+    "near_grasp_geometry_handoff": true,
+    "near_grasp_geometry_gap_m": 0.15,
+    "post_lift_rgbd_follow_verification": true,
+    "grasp_lift_range_m": [
+      0.24,
+      0.3
+    ],
+    "release_gap_m": 0.02,
+    "patch_radius_m": 0.09,
+    "edge_margin_m": 0.03,
+    "edge_uncertainty_m": 0.01,
+    "max_placement_step_m": null,
+    "retreat_m": 0.25,
+    "observer_duration_s": 300,
+    "carry_drop_recovery": false
+  },
+  "scope": "Session4 LayoutC known source furniture; RGBD target localization; shared container workflow.",
+  "navigation_motion_profile": "efficiency_v1",
+  "session_profile": {
+    "schema": "handyman_session_profile_v1",
+    "session_number": 4,
+    "layout": "LayoutC",
+    "target": "tumbler",
+    "source": {
+      "room": "lobby",
+      "furniture_id": "white_side_table#lobby"
+    },
+    "destination": {
+      "room": "lobby",
+      "furniture_id": "trash_box_for_burnable#lobby",
+      "mode": "container_drop",
+      "candidate_forward_shift_m": 0.0,
+      "release_approach_reduction_m": 0.07
+    },
+    "source_information": "user_provided_furniture_not_object_coordinates",
+    "expected_instruction": "Go to the lobby, grasp the tumbler and throw it in the trash_box_for_burnable close to the kettle.",
+    "execution_ready": false,
+    "pending": [
+      "measure_session4_container_opening",
+      "unattended_live_regression"
+    ]
+  },
+  "container_destination": {
+    "id": "trash_box_for_burnable#lobby",
+    "semantic_class": "trash_box_for_burnable",
+    "room": "lobby",
+    "pose": {
+      "x": -3.9,
+      "y": -10.4,
+      "yaw": 0.0
+    },
+    "axis_aligned_bounds": {
+      "center": {
+        "x": -3.9,
+        "y": -10.39998950958252
+      },
+      "size": {
+        "x": 0.5,
+        "y": 0.6000232696533203
+      }
+    },
+    "model_pose": {
+      "x": -3.9,
+      "y": -10.4,
+      "yaw": 0.0
+    },
+    "oriented_bounds": {
+      "center": {
+        "x": -3.9,
+        "y": -10.39998950958252
+      },
+      "size": {
+        "x": 0.5000000596046448,
+        "y": 0.6000232696533203
+      },
+      "yaw": 0.0
+    },
+    "front_yaw": 0.0,
+    "front_source": "model_transform_forward",
+    "marker_path": "LayoutC/DestinationCandidates/trash_box_for_burnable#lobby",
+    "model_path": "LayoutC/DestinationCandidates/trash_box_for_burnable#lobby/trashbox_c02.001",
+    "model_center_distance": 1.049041748046875e-05,
+    "prefab_guid": "",
+    "asset_path": "",
+    "runtime_furniture_correction": {
+      "source": "EnvironmentInfo04_destinationsPositions_confirmed_by_RGBD_mouth",
+      "translation_m": [
+        0.21299991607666025,
+        0.31299934387206996
+      ],
+      "previous_pose": {
+        "x": -4.11299991607666,
+        "y": -10.71299934387207,
+        "yaw": 0.0
+      },
+      "evidence_ref": "/__HANDYMAN_PACKAGE__/runtime/session4-bin-facing-20261115-145221/captures/bin-view-0"
+    }
+  },
+  "container_geometry_pending": false,
+  "container_opening": {
+    "destination_id": "trash_box_for_burnable#lobby",
+    "polygon_map_m": [
+      [
+        -4.047948497906325,
+        -10.182500000000001
+      ],
+      [
+        -4.047948497906325,
+        -10.481772623583675
+      ],
+      [
+        -3.7520515020936744,
+        -10.481772623583675
+      ],
+      [
+        -3.7520515020936744,
+        -10.182500000000001
+      ]
+    ],
+    "rim_height_m": 0.5817867392273158,
+    "source": "scene_collider_vertical_clear_opening_with_runtime_translation",
+    "runtime_furniture_correction": {
+      "source": "EnvironmentInfo04_destinationsPositions_confirmed_by_RGBD_mouth",
+      "translation_m": [
+        0.21299991607666025,
+        0.31299934387206996
+      ],
+      "previous_pose": {
+        "x": -4.11299991607666,
+        "y": -10.71299934387207,
+        "yaw": 0.0
+      },
+      "evidence_ref": "/__HANDYMAN_PACKAGE__/runtime/session4-bin-facing-20261115-145221/captures/bin-view-0"
+    },
+    "evidence_ref": "/__HANDYMAN_PACKAGE__/runtime/session4-collider-mouth-20261124-220036/calibration.json",
+    "object_truth_coordinates_used": false,
+    "autonomous_opening_detection": false
+  },
+  "session4_geometry_audit": {
+    "bin_translation_m": [
+      0.21299991607666025,
+      0.31299934387206996
+    ],
+    "bin_translation_norm_m": 0.3785994631705262,
+    "observation_goal": {
+      "room": "lobby",
+      "x": -3.740057022293679,
+      "y": -9.16762608723934,
+      "yaw": -1.7
+    },
+    "occupancy_map_changed": false,
+    "live_drop_verified": false
+  },
+  "shared_behavior_rules": {
+    "schema": "handyman_six_session_rules_v2",
+    "sessions": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "search": {
+      "aspect_ratio_threshold": 1.35,
+      "head_tilts_rad": [
+        0.0,
+        -0.5235987755982988
+      ],
+      "suspect_action": "stop_near_observe_resume_remaining_angles",
+      "invalid_frame_counts_as_absent": false
+    },
+    "grasp": {
+      "current_pose_first": true,
+      "normal_to_furniture_first": true,
+      "max_obstacle_offset_degrees": 15,
+      "decreasing_offsets_degrees": [
+        15,
+        10,
+        5,
+        0
+      ],
+      "irregular_min_protrusion_m": 0.01
+    },
+    "furniture_reobservation": {
+      "lateral_offset_m": 0.2,
+      "same_source_only": true
+    },
+    "handover": {
+      "final_yaw_required": false,
+      "criterion": "held_object_inside_delivery_volume"
+    },
+    "container": {
+      "object_projection_inside_inner_opening": true,
+      "edge_margin_m": 0.005,
+      "inspect_rim_after_release": true
+    },
+    "deployment": {
+      "live_validation": "pending",
+      "unity_editor_compile": "pending"
+    }
+  },
+  "task_configuration_schema": "handyman_configurable_tasks_v1"
+}

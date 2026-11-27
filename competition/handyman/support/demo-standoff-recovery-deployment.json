@@ -1,0 +1,11 @@
+{
+  "status": "narrow_standoff_recovery_deployed",
+  "target": "/__HANDYMAN_PACKAGE__/runtime/flat_box_place.py",
+  "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/demo-standoff-recovery-20261106-184920/flat_box_place.py",
+  "before_sha256": "ff2294473cf8a59d9f7a3f429b470dc637c36c7d513c48f0eb10c573999dcbfb",
+  "after_sha256": "ffc96a1d33daabcdf7981f29fe03dc7c849414c7db22e85b9cb4e5920ba3a52c",
+  "maximum_corrections": 5,
+  "clearance_threshold_changed": false,
+  "offline_package_activated": false,
+  "robot_commands_sent": false
+}

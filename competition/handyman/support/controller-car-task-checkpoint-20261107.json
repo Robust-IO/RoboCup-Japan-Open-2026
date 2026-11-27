@@ -1,0 +1,40 @@
+{
+  "controller_placed_on_kitchen_dining_table": true,
+  "controller_placement_evidence": "/__HANDYMAN_PACKAGE__/runtime/controller-verify-return-car-20261107-174802/result.json",
+  "toy_car_grasp_verified": true,
+  "toy_car_evidence": "/__HANDYMAN_PACKAGE__/runtime/generic-upper-body-grasp-20261107-175004/result.json",
+  "current_state": "holding_toy_car_at_source_no_transport",
+  "last_state": {
+    "joints": [
+      0.38063764572143555,
+      -1.7000001065434844,
+      0.0,
+      0.1292036754032555,
+      0.0,
+      0.0698241467560079
+    ],
+    "poses": {
+      "map": [
+        10.091592173649401,
+        1.1689953353666134,
+        0.0638421044520383
+      ],
+      "odom": [
+        8.907480239868164,
+        1.1695581674575806,
+        0.0640060169224043
+      ]
+    },
+    "stamp_ns": 1794045048448000000
+  },
+  "strategy_selection": "assistant_selected_upper_body_side_pinch",
+  "automatic_parts": [
+    "RGBD_measurement",
+    "grasp_point_computation",
+    "surface_tracking",
+    "approach",
+    "closure",
+    "three_frame_depth_lift_verification"
+  ],
+  "fully_autonomous_strategy_selection": false
+}

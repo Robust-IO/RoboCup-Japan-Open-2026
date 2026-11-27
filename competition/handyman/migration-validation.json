@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-27",
+  "source_files": 3086,
+  "source_roundtrip_identical": true,
+  "package_selfcheck": "passed",
+  "relocated_package_tests": 645,
+  "builder_tests": 3,
+  "tracked_build_files": 0,
+  "original_runtime_preserved": true,
+  "robot_commands_sent": false,
+  "external_dependencies": [
+    "model weights",
+    "Python environment",
+    "ROS installed packages",
+    "compiled clock bridge",
+    "geometry and map assets from runtime seed"
+  ]
+}

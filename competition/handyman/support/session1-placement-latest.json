@@ -1,0 +1,8 @@
+{
+  "run": "/__HANDYMAN_PACKAGE__/runtime/session1-tight-disk-place-20261115-012017",
+  "state": "succeeded",
+  "reason": null,
+  "resumed_placement": true,
+  "uninterrupted_two_session_success": false,
+  "release_center_and_full_disk_verified": true
+}

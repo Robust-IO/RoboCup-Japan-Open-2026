@@ -1,0 +1,27 @@
+{
+  "status": "offline_validated_not_deployed",
+  "root": "/__HANDYMAN_PACKAGE__/runtime/navigation-efficiency-v1-20261106-205358",
+  "tests": 124,
+  "checks": [
+    {
+      "name": "efficiency-and-v2-regressions",
+      "returncode": 0,
+      "tests": 45,
+      "log": "/__HANDYMAN_PACKAGE__/runtime/navigation-efficiency-v1-20261106-205358/efficiency-and-v2-regressions.log"
+    },
+    {
+      "name": "speed-feedback-regressions",
+      "returncode": 0,
+      "tests": 41,
+      "log": "/__HANDYMAN_PACKAGE__/runtime/navigation-efficiency-v1-20261106-205358/speed-feedback-regressions.log"
+    },
+    {
+      "name": "grasp-place-regressions",
+      "returncode": 0,
+      "tests": 38,
+      "log": "/__HANDYMAN_PACKAGE__/runtime/navigation-efficiency-v1-20261106-205358/grasp-place-regressions.log"
+    }
+  ],
+  "robot_commands_sent": false,
+  "ros_initialized": false
+}

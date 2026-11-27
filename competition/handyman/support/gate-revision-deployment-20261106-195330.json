@@ -1,0 +1,222 @@
+{
+  "status": "deployed_offline_validated",
+  "version": 2,
+  "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054",
+  "candidate": "/__HANDYMAN_PACKAGE__/runtime/gate-revision-v2-20261106-195223",
+  "validation": {
+    "status": "offline_validated_not_deployed",
+    "root": "/__HANDYMAN_PACKAGE__/runtime/gate-revision-v2-20261106-195223",
+    "robot_commands_sent": false,
+    "ros_initialized": false,
+    "deployed": false,
+    "checks": [
+      {
+        "name": "new-behavior-tests",
+        "returncode": 0,
+        "tests": 28,
+        "log": "/__HANDYMAN_PACKAGE__/runtime/gate-revision-v2-20261106-195223/new-behavior-tests.log"
+      },
+      {
+        "name": "existing-geometry-tests",
+        "returncode": 0,
+        "tests": 38,
+        "log": "/__HANDYMAN_PACKAGE__/runtime/gate-revision-v2-20261106-195223/existing-geometry-tests.log"
+      },
+      {
+        "name": "recorded-transfer-replay",
+        "returncode": 0,
+        "tests": null,
+        "log": "/__HANDYMAN_PACKAGE__/runtime/gate-revision-v2-20261106-195223/recorded-transfer-replay.log"
+      }
+    ]
+  },
+  "files": [
+    {
+      "relative": "runtime/current_task_entry.py",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/current_task_entry.py",
+      "before_sha256": null,
+      "sha256": "fbb4178c713c58193a89dc5950d8edbccb68980472a100f9ee154260f22780f9",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/runtime/current_task_entry.py"
+    },
+    {
+      "relative": "runtime/flat_box_carry.py",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/flat_box_carry.py",
+      "before_sha256": "166273f96ed1eaf672f4b2a3b8e4717a02b224a112b6a6803c85d0f985551770",
+      "sha256": "2cbf77097d16877c2b75fc6fc22b46b41777f2caf999989209537c5e8447b5a3",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/runtime/flat_box_carry.py"
+    },
+    {
+      "relative": "runtime/flat_box_geometry.py",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/flat_box_geometry.py",
+      "before_sha256": "24146c0f1ebcd8261a1b2e573d64520b52696dfc31b15b4ef0698302e157d053",
+      "sha256": "d1929ebddf2756b85f20347f7589ea6ee520388044bf55f09b1c318fe0a5a030",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/runtime/flat_box_geometry.py"
+    },
+    {
+      "relative": "runtime/flat_box_grasp.py",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/flat_box_grasp.py",
+      "before_sha256": "a2f43fb638c2118690490606784e80971a4b800b31d259679e1b7aaf22604b4c",
+      "sha256": "d2e316a19ee293e3a166e424f2232285ed1e981cdec060079548a0f9d100d0bd",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/runtime/flat_box_grasp.py"
+    },
+    {
+      "relative": "runtime/flat_box_place.py",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/flat_box_place.py",
+      "before_sha256": "ffc96a1d33daabcdf7981f29fe03dc7c849414c7db22e85b9cb4e5920ba3a52c",
+      "sha256": "37ac28437e8d128dc07a394e768d293aa9233bf17d4e1dc180da269c779ccfce",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/runtime/flat_box_place.py"
+    },
+    {
+      "relative": "runtime/flat_box_place_geometry.py",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/flat_box_place_geometry.py",
+      "before_sha256": "1bfd06023e693e7181e77bfc46fd9195c4139aa243bd910b3a4f73b3df828059",
+      "sha256": "42f48006ecb231835e470de8ee8c2226462c64209a9bb3163e980d86dc9d550c",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/runtime/flat_box_place_geometry.py"
+    },
+    {
+      "relative": "runtime/flat_box_transport.py",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/flat_box_transport.py",
+      "before_sha256": "2ab5ea0b7ea3088fabc1ce706cb8efde1332a3f4f2d4c04c9852adb0dc6af9e0",
+      "sha256": "c23e364606b310eddbaf1af765b2efcda67f2a13f1f47db65a64decb9c8b5acc",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/runtime/flat_box_transport.py"
+    },
+    {
+      "relative": "runtime/gate_recovery.py",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/gate_recovery.py",
+      "before_sha256": null,
+      "sha256": "6e77a423d0a4603440dcaedc9946ab4fb0584b9dbe042a327c7482d2b4dc8aca",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/runtime/gate_recovery.py"
+    },
+    {
+      "relative": "runtime/observation_profiles.py",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/observation_profiles.py",
+      "before_sha256": null,
+      "sha256": "ca4f0d72d9d17bb1480d116f096ee9f620a1d211397230496778069d60505e2c",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/runtime/observation_profiles.py"
+    },
+    {
+      "relative": "runtime/observe_grasp_object_20261101.py",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/observe_grasp_object_20261101.py",
+      "before_sha256": "5da60fa347ca7a8d5dfa35d3cd6cb3a790a88c11d7cb33ac15cc2e02d556539f",
+      "sha256": "5152a65e802e1d6ec12cc619b8e5db0005efed2ad1ab2977e54df5302a3e6dd4",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/runtime/observe_grasp_object_20261101.py"
+    },
+    {
+      "relative": "runtime/outcome_transfer_policy.json",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/outcome_transfer_policy.json",
+      "before_sha256": "bec9d57eced367d145ee9a90d517f069363479b24cfd1d93e198837f3bf6c1ae",
+      "sha256": "619449bff281aab111163e355b12a11f8e4e40e96a5ec9361027677bb6ad402f",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/runtime/outcome_transfer_policy.json"
+    },
+    {
+      "relative": "runtime/outcome_transfer_policy.py",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/outcome_transfer_policy.py",
+      "before_sha256": "e866be9f7630648b43ae499ada2dae37b72a9ac0a837005833a515bd6688ad84",
+      "sha256": "c2bab6be06ab7cb7a9e18d950ce0d5bd59972551ced38941c3927ecfcc6cceff",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/runtime/outcome_transfer_policy.py"
+    },
+    {
+      "relative": "runtime/outcome_transfer_runtime.py",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/outcome_transfer_runtime.py",
+      "before_sha256": "d8e4cb14a3a3037addf5d7d6a373060b73afec4e35d37bea2e770e125e377986",
+      "sha256": "8a557472ea8b4e7ebcabf4c29c5ce68c04ca8935bff25585e4b1bccd6ad54ae1",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/runtime/outcome_transfer_runtime.py"
+    },
+    {
+      "relative": "runtime/profiled_capture.py",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/profiled_capture.py",
+      "before_sha256": null,
+      "sha256": "ab4aa7e681166de5f8ab21ef2a9d12428c4d68a3b4dcc278b7c62c0601ed14d2",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/runtime/profiled_capture.py"
+    },
+    {
+      "relative": "runtime/profiled_capture_writer.py",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/profiled_capture_writer.py",
+      "before_sha256": null,
+      "sha256": "3402b211617d4aa055333f9d993ece85532bd53850c0dff7e8f1a43fcaf9e275",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/runtime/profiled_capture_writer.py"
+    },
+    {
+      "relative": "runtime/run_cigarette_transfer_20261101.py",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/run_cigarette_transfer_20261101.py",
+      "before_sha256": "a0c0f054a15324b98a6755c6bf8ff2a4c5ae2acae9ddafbe8ed4a9a6160839d1",
+      "sha256": "2a9cbbff37c1caa21fe797ade39b0391322087dab292f013d33357d3faf851c6",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/runtime/run_cigarette_transfer_20261101.py"
+    },
+    {
+      "relative": "runtime/start_fresh_cigarette_session_20261101.py",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/start_fresh_cigarette_session_20261101.py",
+      "before_sha256": "d1e18ed96f483fd0239749f4a0c131faf8da7237deb3e903710a189375a3eccd",
+      "sha256": "76704c22699638078c7f13fc2ba420e81c56977f2eb84bff8a7bac0545017f2c",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/runtime/start_fresh_cigarette_session_20261101.py"
+    },
+    {
+      "relative": "runtime/stop_observe_act.py",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/stop_observe_act.py",
+      "before_sha256": "03614e057ba4444d598061e3900a56a01c615c8dc1464ec55b9076037bb0fe91",
+      "sha256": "6ac89c9eecd4ac6f768b5374ec71e1807d13cbaf832edbc62774f50f2ca2c1ba",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/runtime/stop_observe_act.py"
+    },
+    {
+      "relative": "frozen/apple_transfer_auto_backend.py",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/apple_transfer_auto_backend.py",
+      "before_sha256": "0fe813f3db9de78a966ff5fb61406f123e77c551386cf9230729d2c0c589ed95",
+      "sha256": "79493563d7707debe9145d0bba93ca922f6bcaba63a06a0fa6ab04b64ccf5bc3",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/frozen/apple_transfer_auto_backend.py"
+    },
+    {
+      "relative": "frozen/gate_recovery.py",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/gate_recovery.py",
+      "before_sha256": null,
+      "sha256": "6e77a423d0a4603440dcaedc9946ab4fb0584b9dbe042a327c7482d2b4dc8aca",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/frozen/gate_recovery.py"
+    },
+    {
+      "relative": "frozen/inspect_transfer_ready.py",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/inspect_transfer_ready.py",
+      "before_sha256": "f158adf62ae5af7eb3faf8bef617ce72e71458bea73701439a4f789ee471b104",
+      "sha256": "210096665509f6159e5fe3b3f3944a3bf6a57ee21d125a080d101efc95f5dd62",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/frozen/inspect_transfer_ready.py"
+    },
+    {
+      "relative": "frozen/navigate_carry_trial.py",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/navigate_carry_trial.py",
+      "before_sha256": "ff98a7a1a78d8ff10f5b563d06bb07d142d35af8545735393fd263258a5eebab",
+      "sha256": "a5da3358bc1f8998b386c35ff6c143b8ccf2a60768301f37c3c0be70c9d775eb",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/frozen/navigate_carry_trial.py"
+    },
+    {
+      "relative": "frozen/navigation_entry.py",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/navigation_entry.py",
+      "before_sha256": null,
+      "sha256": "c319e68e1312ed83b6c1e6a742a0d8b2820d3e8f8d7034c0d23443c0f9bc2ef1",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/frozen/navigation_entry.py"
+    },
+    {
+      "relative": "frozen/navigation_feedback_recovery.py",
+      "target": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/navigation_feedback_recovery.py",
+      "before_sha256": "741a03b1d234257960c70fb56efbdd085e634d8e858db05595fabb4fbd4f868c",
+      "sha256": "812a3ccbe1f02b51cc717040dc2ca881cd20b18b42255da860ed119ec2dd16fa",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/frozen/navigation_feedback_recovery.py"
+    },
+    {
+      "relative": "metadata/phase5-current-work-progress-20261026.json",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/phase5-current-work-progress-20261026.json",
+      "sha256": "a408b4167ed1aa5515e0dee2fd8b145160b29e9cee64c8f3dcbfeb47d59ed691",
+      "before_sha256": "055faff2e95d880a096d8f5c76e45ee66ea5055aa6e8b5afd32d61e8afb96889",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/install-20261106-195330/phase5-current-work-progress-20261026.json",
+      "metadata_source": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/install-20261106-195330/phase5-current-work-progress-20261026.json.new"
+    },
+    {
+      "relative": "metadata/outcome-policy-deployment.json",
+      "target": "/__HANDYMAN_PACKAGE__/runtime/outcome-policy-deployment.json",
+      "sha256": "4d16fbeaf7c49d06db1a031e9f3408124de35d5fbf6851f91eb7bdee541aead4",
+      "before_sha256": "db2f82811ff73218777236f5caa86392febfa34bd3074ae8f0b438bc518caafa",
+      "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/install-20261106-195330/outcome-policy-deployment.json",
+      "metadata_source": "/__HANDYMAN_PACKAGE__/runtime/backups/before-gate-revision-20261106-193054/install-20261106-195330/outcome-policy-deployment.json.new"
+    }
+  ],
+  "robot_commands_sent": false,
+  "live_transfer_validated": false,
+  "rollback_script": "/__HANDYMAN_PACKAGE__/runtime/rollback_gate_revision_20261106.py"
+}

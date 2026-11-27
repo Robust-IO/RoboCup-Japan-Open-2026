@@ -1,0 +1,90 @@
+{
+  "status": "pepper_transfer_verified_common_base_installed",
+  "saved_ns": 1794040072520138174,
+  "task": {
+    "version": 1,
+    "name": "ground_pepper_bedroom_to_kitchen_20261107",
+    "layout": "LayoutA",
+    "object": "ground_pepper",
+    "source": {
+      "room": "bedroom",
+      "table_id": "white_side_table#bedroom_1",
+      "observation_pose": [
+        9.905,
+        -6.61,
+        0.0
+      ],
+      "head_pose": [
+        0.0,
+        -0.5
+      ]
+    },
+    "destination": {
+      "room": "kitchen",
+      "table_id": "dining_table#kitchen",
+      "observation_pose": [
+        9.562303161621093,
+        2.9079999923706055,
+        3.141592653589793
+      ]
+    }
+  },
+  "source_run": "/__HANDYMAN_PACKAGE__/runtime/pepper-bedroom-kitchen-20261107-153843",
+  "placement_run": "/__HANDYMAN_PACKAGE__/runtime/pepper-kitchen-dynamic-continue-20261107-155837",
+  "grasp_success_verified": true,
+  "placement_success_verified": true,
+  "physical_transfer_verified": true,
+  "uninterrupted_transfer_verified": false,
+  "repair_then_continuation": true,
+  "close_commands_total": 1,
+  "release_commands_total": 1,
+  "independent_actual_placement_frames": 3,
+  "placement_verification_file": "/__HANDYMAN_PACKAGE__/runtime/pepper-kitchen-dynamic-continue-20261107-155837/place/placement-verification.json",
+  "robot_ready_at_end_of_run": true,
+  "robot_state_at_end_of_run": {
+    "joints": [
+      0.0,
+      0.0,
+      0.0,
+      -1.5707963146269321,
+      0.0,
+      0.6499999859074279
+    ],
+    "poses": {
+      "map": [
+        9.515156044839854,
+        3.041943007061285,
+        -3.0608420122222797
+      ],
+      "odom": [
+        8.330737113952637,
+        3.0424113273620605,
+        -3.0606780970250447
+      ]
+    },
+    "stamp_ns": 1794038408470000000
+  },
+  "robot_state_is_historical": true,
+  "common_base": {
+    "status": "common_table_transfer_v1_installed_verified",
+    "created_ns": 1794040013405774471,
+    "candidate": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514",
+    "backup": "/__HANDYMAN_PACKAGE__/runtime/backups/before-common-placement-20261107-160551",
+    "files_verified": 30,
+    "offline_tests": 149,
+    "recorded_replay": "/__HANDYMAN_PACKAGE__/runtime/common-placement-v1-20261107-162514/recorded-kitchen-replay.json",
+    "both_import_orders_passed": true,
+    "source_entry_hash_checks_passed": true,
+    "robot_commands_sent": false,
+    "full_live_transfer_validated": false,
+    "all_30_categories_physically_tested": false,
+    "previous_actual_dynamic_height_transfer": "/__HANDYMAN_PACKAGE__/runtime/pepper-kitchen-dynamic-continue-20261107-155837",
+    "next": "Uninterrupted physical regression from an explicitly observed current state, not an assumed spawn."
+  },
+  "new_common_base_uninterrupted_live_test_passed": false,
+  "all_30_categories_physically_tested": false,
+  "current_robot_task_running": false,
+  "task_finished_sent": false,
+  "camera_viewer": "http://100.71.59.3:18766",
+  "next": "Read current actual state before the next task. Regress shared height logic in an uninterrupted full transfer; do not assume initial pose or replay the previous close/release."
+}

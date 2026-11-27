@@ -1,0 +1,589 @@
+{
+  "scope": "Nov1 cigarette workflow; repaired runs, not one uninterrupted benchmark",
+  "robot_commands_sent": false,
+  "files": {
+    "outcome_transfer_runtime.py": {
+      "path": "/__HANDYMAN_PACKAGE__/runtime/outcome_transfer_runtime.py",
+      "sha256": "d8e4cb14a3a3037addf5d7d6a373060b73afec4e35d37bea2e770e125e377986"
+    },
+    "canned_grasp_runtime.py": {
+      "path": "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/canned_grasp_runtime.py",
+      "sha256": "7017450d3a103033011480802d9a4054b395ffbce44f543362675c3910c5699a"
+    },
+    "flat_box_grasp.py": {
+      "path": "/__HANDYMAN_PACKAGE__/runtime/flat_box_grasp.py",
+      "sha256": "a2f43fb638c2118690490606784e80971a4b800b31d259679e1b7aaf22604b4c"
+    },
+    "flat_box_place.py": {
+      "path": "/__HANDYMAN_PACKAGE__/runtime/flat_box_place.py",
+      "sha256": "ff2294473cf8a59d9f7a3f429b470dc637c36c7d513c48f0eb10c573999dcbfb"
+    },
+    "flat_box_carry.py": {
+      "path": "/__HANDYMAN_PACKAGE__/runtime/flat_box_carry.py",
+      "sha256": "166273f96ed1eaf672f4b2a3b8e4717a02b224a112b6a6803c85d0f985551770"
+    },
+    "table_localization.py": {
+      "path": "/__HANDYMAN_PACKAGE__/runtime/table_localization.py",
+      "sha256": "6ddb696361161c43f99c5433cee8412e0341c961b54339a73fd0962457b4b7ff"
+    },
+    "table_localization_client.py": {
+      "path": "/__HANDYMAN_PACKAGE__/runtime/table_localization_client.py",
+      "sha256": "b35dfc12a29369818699c158f4b1524fb058053fe47b953e71229d5e2c5b2ac6"
+    },
+    "table_localization_service.py": {
+      "path": "/__HANDYMAN_PACKAGE__/runtime/table_localization_service.py",
+      "sha256": "85015da49118adf4659aed66824bfaf133f8a049fc5ac71fc83b233756a929de"
+    },
+    "stop_observe_act.py": {
+      "path": "/__HANDYMAN_PACKAGE__/runtime/stop_observe_act.py",
+      "sha256": "03614e057ba4444d598061e3900a56a01c615c8dc1464ec55b9076037bb0fe91"
+    },
+    "outcome_finite_adjustment.py": {
+      "path": "/__HANDYMAN_PACKAGE__/runtime/outcome_finite_adjustment.py",
+      "sha256": "a59009bdad507bd5c3e783cbccf850f57573f2dbf92f2afd383755bebd163d68"
+    }
+  },
+  "runs": [
+    {
+      "run": "cigarette-source-20261101-05",
+      "status": "source_navigation_and_three_rgbd_observations_complete",
+      "elapsed_s": 148.379321149,
+      "reason": null,
+      "event_counts": {
+        "command_intent": 3,
+        "command_confirmed": 3
+      },
+      "commands": [],
+      "journal_span_s": 146.794590935,
+      "child_commands": [
+        {
+          "arguments": [
+            "/usr/bin/python3",
+            "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/inspect_transfer_ready.py",
+            "--output",
+            "/__HANDYMAN_PACKAGE__/runtime/cigarette-source-20261101-05/preflight.json",
+            "--efficient-transfer",
+            "--joint-feedback-max-age-s",
+            ".6"
+          ],
+          "elapsed_to_confirmation_s": 1.271812334
+        },
+        {
+          "arguments": [
+            "/usr/bin/python3",
+            "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/navigate_carry_trial.py",
+            "--run",
+            "--goal",
+            "9.905",
+            "-6.61",
+            "0.0",
+            "--holding-opening",
+            "0.0",
+            "--verify-current-precision",
+            "--motion-profile",
+            "carry_fast_v1",
+            "--output",
+            "/__HANDYMAN_PACKAGE__/runtime/cigarette-source-20261101-05/source-navigation.json",
+            "--joint-feedback-max-age-s",
+            "0.85",
+            "--recover-feedback-interruption",
+            "--waypoint",
+            "5.33",
+            "-0.50856",
+            "-1.570796",
+            "--waypoint",
+            "5.33",
+            "-1.90856",
+            "-1.510891",
+            "--waypoint",
+            "5.59",
+            "-6.243535",
+            "0",
+            "--waypoint",
+            "6.99",
+            "-6.243535",
+            "0.372532"
+          ],
+          "elapsed_to_confirmation_s": 141.169645227
+        },
+        {
+          "arguments": [
+            "/usr/bin/python3",
+            "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/scripts/head_view_trial.py",
+            "--run",
+            "--confirm-head-motion",
+            "--pan",
+            "0",
+            "--tilt",
+            "-.5",
+            "--output",
+            "/__HANDYMAN_PACKAGE__/runtime/cigarette-source-20261101-05/head-view"
+          ],
+          "elapsed_to_confirmation_s": 4.281589994
+        }
+      ],
+      "localization": []
+    },
+    {
+      "run": "cigarette-grasp-20261101-15",
+      "status": "flat_box_grasp_and_lift_verified",
+      "elapsed_s": 45.113405404,
+      "reason": null,
+      "event_counts": {
+        "table_localization_verified": 1,
+        "head_pose_verified_from_own_joint_feedback": 2,
+        "actual_table_front_geometry": 6,
+        "horizontal_joint_intent": 4,
+        "horizontal_joint_sent": 4,
+        "task_head_goal_sent": 1,
+        "thin_box_table_clearance_checked": 5,
+        "actual_box_depth": 5,
+        "actual_finger_closure_region": 4,
+        "box_approach_base_reachability": 2,
+        "finite_can_approach_intent": 2,
+        "finite_can_approach_sent": 2,
+        "box_static_motion": 1,
+        "box_visual_motion_unavailable": 1,
+        "can_closure_intent": 1,
+        "can_closure_sent": 1
+      },
+      "commands": [
+        {
+          "event": "horizontal_joint_sent",
+          "label": "raise_before_thin_box_extension",
+          "duration_s": null,
+          "time_ns": 1793535922805079429,
+          "next_event": "horizontal_joint_sent",
+          "to_next_event_s": 4.777328131
+        },
+        {
+          "event": "horizontal_joint_sent",
+          "label": "extend_flat_open_arm",
+          "duration_s": null,
+          "time_ns": 1793535927582407560,
+          "next_event": "horizontal_joint_sent",
+          "to_next_event_s": 2.973055999
+        },
+        {
+          "event": "horizontal_joint_sent",
+          "label": "lower_flat_hand_to_physical_clearance_height",
+          "duration_s": null,
+          "time_ns": 1793535930555463559,
+          "next_event": "task_head_goal_sent",
+          "to_next_event_s": 2.359299056
+        },
+        {
+          "event": "task_head_goal_sent",
+          "label": null,
+          "duration_s": 2.0,
+          "time_ns": 1793535932914762615,
+          "next_event": "head_pose_verified_from_own_joint_feedback",
+          "to_next_event_s": 2.010660961
+        },
+        {
+          "event": "finite_can_approach_sent",
+          "label": null,
+          "duration_s": null,
+          "time_ns": 1793535936361784576,
+          "next_event": "actual_box_depth",
+          "to_next_event_s": 4.842894954
+        },
+        {
+          "event": "finite_can_approach_sent",
+          "label": null,
+          "duration_s": null,
+          "time_ns": 1793535941257338325,
+          "next_event": "actual_box_depth",
+          "to_next_event_s": 7.560919793
+        },
+        {
+          "event": "can_closure_sent",
+          "label": null,
+          "duration_s": 6.0,
+          "time_ns": 1793535949651340172,
+          "next_event": "actual_box_depth",
+          "to_next_event_s": 8.649557561
+        },
+        {
+          "event": "horizontal_joint_sent",
+          "label": "lift_flat_box",
+          "duration_s": null,
+          "time_ns": 1793535958353635203
+        }
+      ],
+      "journal_span_s": 38.315719479,
+      "child_commands": [],
+      "localization": [
+        {
+          "name": "source-localization.json",
+          "correction_applied": false,
+          "scan_span_s": 0.361868478
+        }
+      ]
+    },
+    {
+      "run": "cigarette-carry-20261101-05",
+      "status": "flat_box_destination_hold_verified",
+      "elapsed_s": 176.881608249,
+      "reason": null,
+      "event_counts": {
+        "horizontal_joint_intent": 2,
+        "horizontal_joint_sent": 2,
+        "task_head_goal_sent": 1,
+        "head_pose_verified_from_own_joint_feedback": 1,
+        "command_intent": 1,
+        "command_confirmed": 1
+      },
+      "commands": [
+        {
+          "event": "horizontal_joint_sent",
+          "label": "fold_flat_box_away_from_table",
+          "duration_s": null,
+          "time_ns": 1793535965452368041,
+          "next_event": "horizontal_joint_sent",
+          "to_next_event_s": 3.868645941
+        },
+        {
+          "event": "horizontal_joint_sent",
+          "label": "lower_tucked_box",
+          "duration_s": null,
+          "time_ns": 1793535969321013982,
+          "next_event": "task_head_goal_sent",
+          "to_next_event_s": 4.417319434
+        },
+        {
+          "event": "task_head_goal_sent",
+          "label": null,
+          "duration_s": 2.0,
+          "time_ns": 1793535973738333416,
+          "next_event": "head_pose_verified_from_own_joint_feedback",
+          "to_next_event_s": 2.007186014
+        }
+      ],
+      "journal_span_s": 169.442048192,
+      "child_commands": [
+        {
+          "arguments": [
+            "/usr/bin/python3",
+            "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/navigate_carry_trial.py",
+            "--run",
+            "--goal",
+            "3.1809998512268067",
+            "4.02400016784668",
+            "3.141592653589793",
+            "--holding-opening",
+            "0.29801051999051253",
+            "--verify-current-precision",
+            "--motion-profile",
+            "carry_fast_v1",
+            "--output",
+            "/__HANDYMAN_PACKAGE__/runtime/cigarette-carry-20261101-05/destination-navigation.json",
+            "--joint-feedback-max-age-s",
+            "0.85",
+            "--recover-feedback-interruption",
+            "--waypoint",
+            "6.99",
+            "-6.243535",
+            "3.141593",
+            "--waypoint",
+            "5.59",
+            "-6.243535",
+            "1.630702",
+            "--waypoint",
+            "5.33",
+            "-1.90856",
+            "1.570796",
+            "--waypoint",
+            "5.33",
+            "-0.50856",
+            "2.342665"
+          ],
+          "elapsed_to_confirmation_s": 159.092241767
+        }
+      ],
+      "localization": []
+    },
+    {
+      "run": "cigarette-place-20261101-07",
+      "status": "stopped_requires_actual_state_review",
+      "elapsed_s": 45.17007113,
+      "reason": "box_not_supported_on_destination",
+      "event_counts": {
+        "table_localization_verified": 1,
+        "actual_table_front_geometry": 4,
+        "horizontal_joint_intent": 7,
+        "horizontal_joint_sent": 7,
+        "thin_place_table_clearance_checked": 2,
+        "command_intent": 2,
+        "command_confirmed": 2,
+        "thin_release_table_clearance_checked": 1
+      },
+      "commands": [
+        {
+          "event": "horizontal_joint_sent",
+          "label": "raise_tucked_before_place",
+          "duration_s": null,
+          "time_ns": 1793536149537603760,
+          "next_event": "horizontal_joint_sent",
+          "to_next_event_s": 4.817590159
+        },
+        {
+          "event": "horizontal_joint_sent",
+          "label": "extend_held_box_above_table",
+          "duration_s": null,
+          "time_ns": 1793536154355193919,
+          "next_event": "horizontal_joint_sent",
+          "to_next_event_s": 3.734117154
+        },
+        {
+          "event": "horizontal_joint_sent",
+          "label": "set_measured_table_release_height",
+          "duration_s": null,
+          "time_ns": 1793536158089311073,
+          "next_event": "command_intent",
+          "to_next_event_s": 3.425507533
+        },
+        {
+          "event": "horizontal_joint_sent",
+          "label": "release_once",
+          "duration_s": null,
+          "time_ns": 1793536168738734914,
+          "next_event": "horizontal_joint_sent",
+          "to_next_event_s": 6.058065847
+        },
+        {
+          "event": "horizontal_joint_sent",
+          "label": "raise_open_hand",
+          "duration_s": null,
+          "time_ns": 1793536174796800761,
+          "next_event": "command_intent",
+          "to_next_event_s": 1.333112594
+        },
+        {
+          "event": "horizontal_joint_sent",
+          "label": "fold_empty_after_placement",
+          "duration_s": null,
+          "time_ns": 1793536181796717055,
+          "next_event": "horizontal_joint_sent",
+          "to_next_event_s": 3.014216211
+        },
+        {
+          "event": "horizontal_joint_sent",
+          "label": "lower_empty_after_placement",
+          "duration_s": null,
+          "time_ns": 1793536184810933266
+        }
+      ],
+      "journal_span_s": 36.964780062,
+      "child_commands": [
+        {
+          "arguments": [
+            "/usr/bin/python3",
+            "/__HANDYMAN_PACKAGE__/runtime/outcome_finite_adjustment.py",
+            "--run",
+            "--simulation-ignore-collision",
+            "--reviewed-map-pose",
+            "3.2554945434968845",
+            "4.07416324548625",
+            "3.115305673609721",
+            "--delta",
+            "0.26217583531403627",
+            "-0.03267902664454287",
+            "0.0",
+            "--expected-arm",
+            "0.22202599048614502",
+            "-1.7000001065434844",
+            "0.0",
+            "0.1292036754032555",
+            "0.0",
+            "--holding-opening",
+            "0.29801051999051253",
+            "--motion-profile",
+            "balanced_v1",
+            "--joint-feedback-max-age-s",
+            "0.6",
+            "--efficient-transfer",
+            "--output",
+            "/__HANDYMAN_PACKAGE__/runtime/cigarette-place-20261101-07/placement-approach-0.json"
+          ],
+          "elapsed_to_confirmation_s": 6.169361581
+        },
+        {
+          "arguments": [
+            "/usr/bin/python3",
+            "/__HANDYMAN_PACKAGE__/runtime/outcome_finite_adjustment.py",
+            "--run",
+            "--simulation-ignore-collision",
+            "--reviewed-map-pose",
+            "2.995828409334687",
+            "4.113480284123235",
+            "3.1166298783078896",
+            "--delta",
+            "-0.25",
+            "0.0",
+            "0.0",
+            "--expected-arm",
+            "0.30202603340148926",
+            "-1.7000001065434844",
+            "0.0",
+            "0.1292036754032555",
+            "0.0",
+            "--holding-opening",
+            "0.6499999859074279",
+            "--motion-profile",
+            "balanced_v1",
+            "--joint-feedback-max-age-s",
+            "0.6",
+            "--efficient-transfer",
+            "--output",
+            "/__HANDYMAN_PACKAGE__/runtime/cigarette-place-20261101-07/empty-retreat.json"
+          ],
+          "elapsed_to_confirmation_s": 5.584443675
+        }
+      ],
+      "localization": [
+        {
+          "name": "destination-localization.json",
+          "correction_applied": true,
+          "scan_span_s": 0.413464145
+        }
+      ]
+    }
+  ],
+  "localization": [
+    {
+      "file": "check-0001.json",
+      "status": "localization_verified",
+      "correction_applied": true,
+      "first_to_last_scan_s": 0.481054082,
+      "last_scan_to_report_file_s": 0.672261642,
+      "min_current_inlier": 0.09345794392523364,
+      "min_matched_inlier": 0.9532710280373832
+    },
+    {
+      "file": "check-0002.json",
+      "status": "localization_verified",
+      "correction_applied": false,
+      "first_to_last_scan_s": 0.421310089,
+      "last_scan_to_report_file_s": 0.78016441,
+      "min_current_inlier": 0.956386292834891,
+      "min_matched_inlier": 0.9532710280373832
+    },
+    {
+      "file": "check-0003.json",
+      "status": "localization_verified",
+      "correction_applied": false,
+      "first_to_last_scan_s": 0.611421212,
+      "last_scan_to_report_file_s": 0.700143192,
+      "min_current_inlier": 0.956386292834891,
+      "min_matched_inlier": 0.956386292834891
+    },
+    {
+      "file": "check-0004.json",
+      "status": "localization_verified",
+      "correction_applied": true,
+      "first_to_last_scan_s": 0.309355276,
+      "last_scan_to_report_file_s": 0.687125629,
+      "min_current_inlier": 0.2185430463576159,
+      "min_matched_inlier": 0.9900662251655629
+    },
+    {
+      "file": "check-0005.json",
+      "status": "localization_verified",
+      "correction_applied": true,
+      "first_to_last_scan_s": 0.318895428,
+      "last_scan_to_report_file_s": 0.687131,
+      "min_current_inlier": 0.6137071651090342,
+      "min_matched_inlier": 0.956386292834891
+    },
+    {
+      "file": "check-0006.json",
+      "status": "localization_verified",
+      "correction_applied": false,
+      "first_to_last_scan_s": 0.361868478,
+      "last_scan_to_report_file_s": 0.666320344,
+      "min_current_inlier": 0.9532710280373832,
+      "min_matched_inlier": 0.9532710280373832
+    },
+    {
+      "file": "check-0007.json",
+      "status": "localization_verified",
+      "correction_applied": true,
+      "first_to_last_scan_s": 0.413464145,
+      "last_scan_to_report_file_s": 0.730039755,
+      "min_current_inlier": 0.410828025477707,
+      "min_matched_inlier": 0.9777070063694268
+    }
+  ],
+  "configs": {
+    "outcome_transfer_policy.json": {
+      "version": 1,
+      "name": "outcome_v1",
+      "alignment": {
+        "forward_m": 0.015,
+        "lateral_m": 0.008,
+        "vertical_m": 0.008
+      },
+      "closure_region": {
+        "minimum_forward": 0.008,
+        "minimum_vertical": 0.003,
+        "side_clearance": 0.001
+      },
+      "hold": {
+        "opening_drift_rad": 0.08,
+        "iou": 0.25,
+        "area_ratio_min": 0.35,
+        "area_ratio_max": 2.5,
+        "center_shift_px": 45,
+        "confirmed_absence_frames": 2
+      },
+      "verification": {
+        "lift_frames": 2,
+        "minimum_lift_m": 0.02,
+        "follow_error_m": 0.04,
+        "placed_frames": 2,
+        "frame_separation_s": 0.2,
+        "placed_spread_m": 0.02
+      },
+      "placement": {
+        "outer_edge_gap_m": 0.02,
+        "position_uncertainty_m": 0.01,
+        "planning_reserve_m": 0.005,
+        "minimum_obstacle_points": 8
+      },
+      "feedback": {
+        "head_tolerance_rad": 0.04,
+        "head_confirmation_frames": 1,
+        "arm_settle_s": 0.12,
+        "observation_mode": "stop_observe_act_v1",
+        "stop_window_s": 0.2,
+        "stop_base_translation_m": 0.005,
+        "stop_base_yaw_rad": 0.01,
+        "stop_arm_lift_m": 0.003,
+        "stop_arm_angle_rad": 0.02,
+        "stop_head_angle_rad": 0.02
+      },
+      "closure": {
+        "stable_samples": 2,
+        "stable_s": 0.2,
+        "opening_range_rad": 0.01
+      },
+      "maximum_corrections": 5
+    },
+    "table_localization.json": {
+      "version": 1,
+      "enabled": true,
+      "scans": 3,
+      "search_radius_m": 0.8,
+      "search_yaw_rad": 0.25,
+      "minimum_inlier_fraction": 0.85,
+      "maximum_score_m": 0.025,
+      "consensus_translation_m": 0.05,
+      "consensus_yaw_rad": 0.03,
+      "correction_translation_m": 0.04,
+      "correction_yaw_rad": 0.025,
+      "maximum_stationary_translation_m": 0.005,
+      "maximum_stationary_yaw_rad": 0.01
+    }
+  }
+}

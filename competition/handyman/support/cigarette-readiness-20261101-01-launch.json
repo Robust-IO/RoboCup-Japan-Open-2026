@@ -1,0 +1,10 @@
+{
+  "pid": 3235,
+  "started_ns": 1793525879724803134,
+  "command": [
+    "bash",
+    "-lc",
+    "source /opt/ros/humble/setup.bash; source /__HANDYMAN_PACKAGE__/project/install/setup.bash; export PYTHONPATH=/__HANDYMAN_PACKAGE__/runtime:/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1:$PYTHONPATH; export ROS_LOG_DIR=/__HANDYMAN_PACKAGE__/runtime/cigarette-readiness-20261101-01-roslogs; exec /usr/bin/python3 /__HANDYMAN_PACKAGE__/project/training/scripts/cyclone_test_env.py --domain 71 --dds-config /__HANDYMAN_PACKAGE__/project/training/config/cyclone_search_stack.xml --run -- /usr/bin/python3 /__HANDYMAN_PACKAGE__/runtime/inspect_cigarette_room_task_20261101.py --run --output /__HANDYMAN_PACKAGE__/runtime/cigarette-readiness-20261101-01"
+  ],
+  "output": "/__HANDYMAN_PACKAGE__/runtime/cigarette-readiness-20261101-01"
+}

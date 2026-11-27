@@ -1,0 +1,42 @@
+{
+  "updated_ns": 1793525452441403438,
+  "stage": "thin_clearance_implemented_waiting_for_live_streams",
+  "geometry": "/__HANDYMAN_PACKAGE__/runtime/hsr-gripper-colliders-20261101-171937.json",
+  "geometry_replay": {
+    "source": "/__HANDYMAN_PACKAGE__/runtime/hsr-gripper-colliders-20261101-171937.json",
+    "physical_colliders": 24,
+    "attached_object_excluded": true,
+    "reference_transform_max_error": 3.314413143176709e-07,
+    "old_height_above_table_m": 0.0195,
+    "old_height_rejected": true,
+    "minimum_height_above_table_m": 0.03341923451942767,
+    "nominal_height_above_table_m": 0.03513519855045957,
+    "maximum_height_for_3mm_pad_overlap_m": 0.03685116258149147,
+    "full_open_close_samples": 66,
+    "all_openings_interval_bound_m": 0.0009152852143850468,
+    "contact_and_measurement_allowances_included": true,
+    "robot_commands_sent": false
+  },
+  "live_trial": "/__HANDYMAN_PACKAGE__/runtime/cigarette-place-20261101-04",
+  "live_trial_result": {
+    "status": "stopped_requires_actual_state_review",
+    "class_name": "cigarette",
+    "close_commands_sent": 0,
+    "release_commands_sent": 0,
+    "prior_close_commands_sent": 1,
+    "placement_success_verified": false,
+    "object_remains_held": true,
+    "grasp_success_source": "three_actual_rgbd_lift_frames_and_operator_confirmation",
+    "held_pose_source": "rigid_kinematic_estimate_with_current_hand_RGB",
+    "task_finished_sent": false,
+    "reason": "missing_streams",
+    "elapsed_s": 9.634122381
+  },
+  "last_known_hold": "cigarette",
+  "actual_current_hold_not_verified": true,
+  "robot_commands_this_trial": 0,
+  "requires_new_fresh_state_before_commands": true,
+  "navigation_precision_changed": false,
+  "model_changed": false,
+  "policy_tests_passed": 20
+}

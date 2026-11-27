@@ -1,0 +1,27 @@
+{
+  "pid": 3670,
+  "command": [
+    "bash",
+    "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/run_apple_transfer_auto.sh",
+    "--run",
+    "--confirm-layout",
+    "LayoutA",
+    "--confirm-localization",
+    "--simulation-ignore-collision",
+    "--task-id",
+    "apple-r11b-auto-c63d273d3d4c4fa5b0f5c2b4242a0269",
+    "--output",
+    "/__HANDYMAN_PACKAGE__/runtime/automatic-apple-r11b-20261018-01"
+  ],
+  "task_id": "apple-r11b-auto-c63d273d3d4c4fa5b0f5c2b4242a0269",
+  "output": "/__HANDYMAN_PACKAGE__/runtime/automatic-apple-r11b-20261018-01",
+  "console": "/__HANDYMAN_PACKAGE__/runtime/automatic-apple-r11b-20261018-01.console.log",
+  "new_initial_scene_localization": "/__HANDYMAN_PACKAGE__/runtime/apple-r11b-initial-readiness-20261018-01/completion.json",
+  "single_placement_translation_cap_m": null,
+  "edge_margin_m": 0.03,
+  "edge_uncertainty_m": 0.01,
+  "full_new_trial": true,
+  "automatic_retry": false,
+  "old_journal_replayed": false,
+  "success_not_yet_known": true
+}

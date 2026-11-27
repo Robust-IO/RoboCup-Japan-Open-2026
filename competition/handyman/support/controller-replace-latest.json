@@ -1,0 +1,28 @@
+{
+  "output": "/__HANDYMAN_PACKAGE__/runtime/controller-replace-20261107-173448",
+  "status": "released_and_open_hand_raised",
+  "capture": "/__HANDYMAN_PACKAGE__/runtime/controller-replace-20261107-173448/captures/released-and-raised",
+  "state": {
+    "joints": [
+      0.5584732890129089,
+      -1.5707963146269321,
+      0.0,
+      -1.5707963146269321,
+      0.0,
+      0.6499999859074279
+    ],
+    "poses": {
+      "map": [
+        10.379370093165521,
+        1.5123504350847585,
+        0.049563315968998246
+      ],
+      "odom": [
+        9.195201873779297,
+        1.512960433959961,
+        0.04972722623825171
+      ]
+    },
+    "stamp_ns": 1794044099351000000
+  }
+}

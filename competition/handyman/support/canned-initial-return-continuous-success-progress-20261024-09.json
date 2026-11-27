@@ -1,0 +1,404 @@
+{
+  "status": "returned_initial_pose_unified_automatic_can_transfer_verified",
+  "saved_ns": 1792838624881443210,
+  "run_root": "/__HANDYMAN_PACKAGE__/runtime/can-centered-initial-return-live-20261024-09",
+  "supersedes_robot_state_record": "canned-centered-continuous-success-progress-20261024-08.json",
+  "class_name": "canned_juice",
+  "source": "LayoutA bedroom white_side_table",
+  "destination": "living_room square_low_table",
+  "unified_entry": "run_object_transfer.sh --object canned_juice",
+  "one_parent_run_verified": true,
+  "uninterrupted_transfer_verified": true,
+  "physical_transfer_verified": true,
+  "navigation_grasp_carry_place_all_confirmed": [
+    "preflight",
+    "navigate_source",
+    "head_view",
+    "grasp_lift",
+    "carry_destination",
+    "place_verify"
+  ],
+  "initial_base_map_pose": [
+    1.1824857010365497,
+    0.0583529845884609,
+    0.06808511342062534
+  ],
+  "default_initial_pose_error_m": 0.05837262981682307,
+  "default_initial_yaw_error_rad": 0.06808511342062534,
+  "default_initial_pose_start_verified_within_original_navigation_tolerance": true,
+  "fresh_unmoved_unity_restart_verified": false,
+  "start_kind": "empty_robot_returned_to_reviewed_start_before_this_timed_unified_run",
+  "pretest_return_result": "/__HANDYMAN_PACKAGE__/runtime/can-empty-return-initial-20261024-09/result.json",
+  "pretest_return_excluded_from_transfer_elapsed_s": true,
+  "pretest_position_error_m": 0.05767962819252773,
+  "source_position_odom_m": [
+    9.61022256347657,
+    -6.449510294093758,
+    0.5305695440386026
+  ],
+  "source_delta_from_prior_odom_m": [
+    0.08073471382494724,
+    -0.24395991436003328,
+    -0.027868316544490734
+  ],
+  "source_xy_shift_from_prior_m": 0.2569718541610168,
+  "source_detection_confidences": [
+    0.9827529191970825,
+    0.9827529191970825,
+    0.9827529191970825
+  ],
+  "grasp_success_verified": true,
+  "afterlift_tilts_deg": [
+    2.0535441568196844,
+    1.977628423402073,
+    2.0543485094928764
+  ],
+  "object_palm_follow_error_m": [
+    0.0035137586269914545,
+    0.0035267029496610625,
+    0.003515063934942709
+  ],
+  "retraction_verified": true,
+  "destination_navigation_verified": true,
+  "placement_success_verified": true,
+  "release_commands_sent": 1,
+  "robot_holding_can": false,
+  "hand_released": true,
+  "cleanup_completed": true,
+  "robot_ready_for_next_task": true,
+  "robot_state_at_verified_completion": {
+    "joints": [
+      0.0,
+      0.0,
+      0.0,
+      -1.5707963146269321,
+      0.0,
+      0.6499999859074279
+    ],
+    "poses": {
+      "map": [
+        1.9638389282474897,
+        2.5997803094573912,
+        1.6445720049271968
+      ],
+      "odom": [
+        0.7799581289291382,
+        2.5990684032440186,
+        1.6445174033832395
+      ]
+    },
+    "stamp_ns": 1792838590162000000
+  },
+  "actual_placement_verification": {
+    "placement_success_verified": true,
+    "object": "canned_juice",
+    "destination_id": "square_low_table#living_room",
+    "checks": [
+      {
+        "ready": true,
+        "center_map_m": [
+          1.82929810789049,
+          3.5516858576080503,
+          0.502198391324576
+        ],
+        "bottom_map_m": [
+          1.830824131524553,
+          3.515464844599019,
+          0.43932881775746085
+        ],
+        "estimated_bottom_gap_m": -0.004015144254556846,
+        "table_height_map_m": 0.4433439620120177,
+        "table_edge_safety": {
+          "safe": true,
+          "center_to_unsupported_m": 0.08855928856490432,
+          "object_radius_m": 0.03745526924710102,
+          "outer_clearance_lower_estimate_m": 0.0511040193178033,
+          "minimum_outer_gap_m": 0.03,
+          "uncertainty_allowance_m": 0.01,
+          "basis": "observed_table_support_not_furniture_aabb"
+        },
+        "planned_xy_error_m": 0.014952435580567315,
+        "planned_xy_is_success_gate": false,
+        "bottom_from_cylinder_half_height": true,
+        "motion_authorized": false
+      },
+      {
+        "ready": true,
+        "center_map_m": [
+          1.829474341073408,
+          3.551533798077447,
+          0.5021983848515533
+        ],
+        "bottom_map_m": [
+          1.8309990171398278,
+          3.515312727821499,
+          0.439328811571236
+        ],
+        "estimated_bottom_gap_m": -0.004015199008807813,
+        "table_height_map_m": 0.4433440105800438,
+        "table_edge_safety": {
+          "safe": true,
+          "center_to_unsupported_m": 0.08855928856490432,
+          "object_radius_m": 0.03745526924710102,
+          "outer_clearance_lower_estimate_m": 0.0511040193178033,
+          "minimum_outer_gap_m": 0.03,
+          "uncertainty_allowance_m": 0.01,
+          "basis": "observed_table_support_not_furniture_aabb"
+        },
+        "planned_xy_error_m": 0.014999811727031307,
+        "planned_xy_is_success_gate": false,
+        "bottom_from_cylinder_half_height": true,
+        "motion_authorized": false
+      },
+      {
+        "ready": true,
+        "center_map_m": [
+          1.8294624764203027,
+          3.550968092560713,
+          0.5021984812307668
+        ],
+        "bottom_map_m": [
+          1.8309961521470677,
+          3.5147474055779835,
+          0.4393289060349117
+        ],
+        "estimated_bottom_gap_m": -0.004015531935532113,
+        "table_height_map_m": 0.4433444379704438,
+        "table_edge_safety": {
+          "safe": true,
+          "center_to_unsupported_m": 0.08855928856490432,
+          "object_radius_m": 0.03745526924710102,
+          "outer_clearance_lower_estimate_m": 0.0511040193178033,
+          "minimum_outer_gap_m": 0.03,
+          "uncertainty_allowance_m": 0.01,
+          "basis": "observed_table_support_not_furniture_aabb"
+        },
+        "planned_xy_error_m": 0.01465637860192954,
+        "planned_xy_is_success_gate": false,
+        "bottom_from_cylinder_half_height": true,
+        "motion_authorized": false
+      }
+    ],
+    "center_spread_m": 0.0004308330633074998,
+    "hand_open_verified": true,
+    "cleanup_completed": true,
+    "planned_xy_is_success_gate": false,
+    "task_finished_sent": false,
+    "full_uninterrupted_transfer_verified": false
+  },
+  "final_placement_rows": [
+    {
+      "capture": "/__HANDYMAN_PACKAGE__/runtime/can-centered-initial-return-live-20261024-09/place/captures/009-final-00",
+      "measurement": {
+        "class_name": "canned_juice",
+        "shape": "upright_cylinder",
+        "model_pose": "measured_near_upright_axis",
+        "center_m": [
+          0.9591194931811129,
+          0.06439464474055444,
+          0.5027695505841637
+        ],
+        "footprint_radius_m": 0.036851556196060085,
+        "surface_radius_m": 0.036851556196060085,
+        "height_m": 0.12504137903864768,
+        "axis_base_m": [
+          -0.00965144446173474,
+          0.0003034069112913263,
+          0.9999533776952045
+        ],
+        "tilt_deg": 0.5532688090292689,
+        "cap_center_base_m": [
+          0.9585160782185078,
+          0.0644136139498533,
+          0.5652873252448448
+        ],
+        "observed_top_z_m": 0.5656431716950003,
+        "estimated_bottom_z_m": 0.43989592947332756,
+        "estimated_lowest_point_base_m": [
+          0.9228912649720277,
+          0.06553353072451835,
+          0.43989592947332756
+        ],
+        "bottom_vertical_extent_m": 0.06287362111083662,
+        "horizontal_support_radius_m": 0.03745526924710102,
+        "side_points": 663,
+        "top_points": 415,
+        "cylinder_side_residual_p95_m": 0.00200331903830266,
+        "observed_side_arc_rad": 3.34635339542031,
+        "nearby_plane_points_excluded": 0,
+        "cap_plane_residual_p95_m": 0.0008925670604290416,
+        "stamp_ns": 1792838589160842336,
+        "dimension_source": "precontact_rgbd",
+        "hidden_bottom_measured": false,
+        "position_source": "current_cap_plane_and_source_colored_side_depth",
+        "radius_range_relaxed": false,
+        "predicted_center_returned": false,
+        "detector_reran": false,
+        "identity_confirmed": false,
+        "motion_authorized": false
+      }
+    },
+    {
+      "capture": "/__HANDYMAN_PACKAGE__/runtime/can-centered-initial-return-live-20261024-09/place/captures/010-final-01",
+      "measurement": {
+        "class_name": "canned_juice",
+        "shape": "upright_cylinder",
+        "model_pose": "measured_near_upright_axis",
+        "center_m": [
+          0.9591194931811129,
+          0.06439464474055444,
+          0.5027695505841637
+        ],
+        "footprint_radius_m": 0.036851556196060085,
+        "surface_radius_m": 0.036851556196060085,
+        "height_m": 0.12504137903864768,
+        "axis_base_m": [
+          -0.00965144446173474,
+          0.0003034069112913263,
+          0.9999533776952045
+        ],
+        "tilt_deg": 0.5532688090292689,
+        "cap_center_base_m": [
+          0.9585160782185078,
+          0.0644136139498533,
+          0.5652873252448448
+        ],
+        "observed_top_z_m": 0.5656431716950003,
+        "estimated_bottom_z_m": 0.43989592947332756,
+        "estimated_lowest_point_base_m": [
+          0.9228912649720277,
+          0.06553353072451835,
+          0.43989592947332756
+        ],
+        "bottom_vertical_extent_m": 0.06287362111083662,
+        "horizontal_support_radius_m": 0.03745526924710102,
+        "side_points": 663,
+        "top_points": 415,
+        "cylinder_side_residual_p95_m": 0.00200331903830266,
+        "observed_side_arc_rad": 3.34635339542031,
+        "nearby_plane_points_excluded": 0,
+        "cap_plane_residual_p95_m": 0.0008925670604290416,
+        "stamp_ns": 1792838589384448273,
+        "dimension_source": "precontact_rgbd",
+        "hidden_bottom_measured": false,
+        "position_source": "current_cap_plane_and_source_colored_side_depth",
+        "radius_range_relaxed": false,
+        "predicted_center_returned": false,
+        "detector_reran": false,
+        "identity_confirmed": false,
+        "motion_authorized": false
+      }
+    },
+    {
+      "capture": "/__HANDYMAN_PACKAGE__/runtime/can-centered-initial-return-live-20261024-09/place/captures/012-final-02",
+      "measurement": {
+        "class_name": "canned_juice",
+        "shape": "upright_cylinder",
+        "model_pose": "measured_near_upright_axis",
+        "center_m": [
+          0.9591194931811129,
+          0.06439464474055444,
+          0.5027695505841637
+        ],
+        "footprint_radius_m": 0.036851556196060085,
+        "surface_radius_m": 0.036851556196060085,
+        "height_m": 0.12504137903864768,
+        "axis_base_m": [
+          -0.00965144446173474,
+          0.0003034069112913263,
+          0.9999533776952045
+        ],
+        "tilt_deg": 0.5532688090292689,
+        "cap_center_base_m": [
+          0.9585160782185078,
+          0.0644136139498533,
+          0.5652873252448448
+        ],
+        "observed_top_z_m": 0.5656431716950003,
+        "estimated_bottom_z_m": 0.43989592947332756,
+        "estimated_lowest_point_base_m": [
+          0.9228912649720277,
+          0.06553353072451835,
+          0.43989592947332756
+        ],
+        "bottom_vertical_extent_m": 0.06287362111083662,
+        "horizontal_support_radius_m": 0.03745526924710102,
+        "side_points": 663,
+        "top_points": 415,
+        "cylinder_side_residual_p95_m": 0.00200331903830266,
+        "observed_side_arc_rad": 3.34635339542031,
+        "nearby_plane_points_excluded": 0,
+        "cap_plane_residual_p95_m": 0.0008925670604290416,
+        "stamp_ns": 1792838590034232089,
+        "dimension_source": "precontact_rgbd",
+        "hidden_bottom_measured": false,
+        "position_source": "current_cap_plane_and_source_colored_side_depth",
+        "radius_range_relaxed": false,
+        "predicted_center_returned": false,
+        "detector_reran": false,
+        "identity_confirmed": false,
+        "motion_authorized": false
+      }
+    }
+  ],
+  "final_object_tilt_deg": [
+    0.5532688090292689,
+    0.5532688090292689,
+    0.5532688090292689
+  ],
+  "elapsed_s": 415.062565641,
+  "stage_elapsed_s": {
+    "preflight": 1.378118583,
+    "navigate_source": 137.894014534,
+    "head_view": 3.296996903,
+    "grasp_lift": 43.136830797,
+    "carry_destination": 177.82753571,
+    "place_verify": 51.437346936
+  },
+  "extra_seat_m": 0.0,
+  "finger_midline_base_y_offset_m": -5e-05,
+  "lateral_alignment_tolerance_m": 0.004,
+  "tests_passed": 602,
+  "latest_expected_hashes": {
+    "run_canned_grasp_trial.py": "68f6e4be97c4f7e8e9b41b5701fdd91f1962d4835ea2b7e7e384be2e92c8da88",
+    "run_canned_carry_trial.py": "eaafdca975ac703b2b14e07a6be4a958f062de7996c6d44d9cb0029b22d757f8",
+    "run_canned_place_trial.py": "cdacc984f33272acc12cc08ef5e73e0ef7d7699d6ccf4f1eae0236c9de33bc84",
+    "can_transfer_context.py": "6fa7295ad35c788ab9143d338bc9bf745c143359aed8e308eb126f9ba678f900",
+    "can_transfer_automation.py": "171abbef8fcd610e89942069b5ba831cedd43f802d9021e86cca58b116850622",
+    "run_object_transfer.py": "6230e3f820297f104c3c167e421795c6f27c7469cb39c3588bdd39d226e536c5",
+    "test_can_transfer_automation.py": "d16de88a548b2e635962153bf12ca04d319557e5a33be7c58ee6c19f7a826329",
+    "run_object_transfer.sh": "4162cb1f2608e0f53aba557a244f7f3014667d440545fa994a81db17fe40ab48",
+    "OBJECT_TRANSFER.txt": "57b662350c2b26075690e9b4bcd54aaf948bde36c879e2af7d27107a1f7b01e5",
+    "canned_grasp_geometry.py": "622ce86adc99d47ef3b44f8b171b00967d5e9422b1fb8b6ea91b0d1d50dc7dc1",
+    "canned_carry_geometry.py": "ccd7b5b979a35067f8e97534bdf05e8fbd8f49a61b79b84a628fc9f600bb6ced",
+    "held_can_appearance.py": "c27828aff5de8e34f6190b30cb4f35c0549e0129c2bde42745ac2d86c2daac3f",
+    "canned_place_geometry.py": "b1d26edd861ff03ac8e4d802841d7ddc5ff2e1caa56870de98db43ed55fa2dd0",
+    "tracked_can_cap_geometry.py": "e3fff021adaa5f158ce9cfed87743473ded16680c472eb4d97f64161da7c3f16",
+    "test_tracked_can_cap_geometry.py": "f6974c5ec5d26f33f49c50e6888685b6d6d6222fb0cd98326cc0825b411f1b9f",
+    "can_release_timing.py": "da5fca38b57d092dd410bd9ea24a6bbd56682a8a0db3c486ceb973ef7b1d281a",
+    "test_can_release_timing.py": "f7895c16fd760ba74f50a574b5e8369a4cfd6ce8faafd95b2e7ffefd020fa34a",
+    "can_destination_surface.py": "2f64b65b3b0cabc3c2f21c1708bde6863380521073f40c4938f31a83337ad12a",
+    "test_can_destination_surface.py": "e5227acc86464c611cafb038d3ec3f199752dad6ea3132aeb5a04752166ef85c",
+    "can_identity_selection.py": "11f8df847fcc15e432d83285018abe6f10d83f411a89e0f12e995045fcb17bb1",
+    "test_can_identity_selection.py": "20595a2a3226bed9910b99861935492ab82d049c08e1eff52e9352a27cb335cd",
+    "canned_grasp_runtime.py": "6374c5a03b8a5b8a398156443f6681cd5d54dac72e58b15bab87ed76f4348196",
+    "test_canned_grasp_geometry.py": "b1751c44ddd707d2cfd11fe839eaa501a35aa77d6015d0ef49d3dc095e09c58c",
+    "pregrasp_raised_trial.py": "9b2c48c882bc4a5d295fa93ebb7a1dc23239ae8ceb81cb50b0836a28abe63017",
+    "can_arm_startup.py": "186d1ec0ce96098bc618f547c9ebdcea4f121a6032b93008f63db246ec6605c6",
+    "test_can_arm_startup.py": "8a29e5789e48c141f8f0207ac7722b22bab1cb953316d20cc9c093a4f309468d",
+    "can_approach_plan.py": "a5e75d6b08f7b9783ddda0ba7a463fc9c8b48bb05d97cde99c95472feb46cf36",
+    "test_can_approach_plan.py": "6e40ca3472c5edcefda2fa083712e2a71ccb51d167df37a488b8da7c4a746eaf"
+  },
+  "navigation_parameters_changed": false,
+  "model_changed": false,
+  "task_finished_sent": false,
+  "statistical_success_rate_established": false,
+  "historical_state_is_not_new_motion_authorization": true,
+  "next": [
+    "The robot is EMPTY after this new actual placement. Never resume any old held-can context.",
+    "Keep true finger-midline centering and original forward depth with zero extra seating.",
+    "For another new transfer, reacquire fresh current streams and use a new output directory.",
+    "Keep this successful configuration and regress further source poses or another object next.",
+    "The initial pose was reconstructed with navigation. This is not evidence of an untouched Unity restart or an 80% statistical success rate."
+  ]
+}

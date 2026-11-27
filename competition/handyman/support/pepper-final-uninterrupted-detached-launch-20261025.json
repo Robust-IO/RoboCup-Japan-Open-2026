@@ -1,0 +1,7 @@
+{
+  "pid": 21902,
+  "launched_ns": 1792919853366094008,
+  "output": "/__HANDYMAN_PACKAGE__/runtime/pepper-final-uninterrupted-round-20261025-01",
+  "stdout_file": "/__HANDYMAN_PACKAGE__/runtime/pepper-final-uninterrupted-round-20261025-01.console.log",
+  "independent_of_ssh_stdout": true
+}

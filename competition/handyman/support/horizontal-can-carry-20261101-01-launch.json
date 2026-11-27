@@ -1,0 +1,11 @@
+{
+  "pid": 757,
+  "started_ns": 1793520347585739493,
+  "command": [
+    "bash",
+    "-lc",
+    "source /opt/ros/humble/setup.bash; source /__HANDYMAN_PACKAGE__/project/install/setup.bash; export PYTHONPATH=/__HANDYMAN_PACKAGE__/runtime:/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1:$PYTHONPATH; export ROS_LOG_DIR=/__HANDYMAN_PACKAGE__/runtime/horizontal-can-carry-20261101-01-roslogs; exec /usr/bin/python3 /__HANDYMAN_PACKAGE__/project/training/scripts/cyclone_test_env.py --domain 71 --dds-config /__HANDYMAN_PACKAGE__/project/training/config/cyclone_search_stack.xml --run -- /usr/bin/python3 /__HANDYMAN_PACKAGE__/runtime/horizontal_can_carry.py --run --output /__HANDYMAN_PACKAGE__/runtime/horizontal-can-carry-20261101-01"
+  ],
+  "output": "/__HANDYMAN_PACKAGE__/runtime/horizontal-can-carry-20261101-01",
+  "tests_passed": 21
+}

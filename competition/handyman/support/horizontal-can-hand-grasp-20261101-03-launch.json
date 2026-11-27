@@ -1,0 +1,12 @@
+{
+  "pid": 32601,
+  "started_ns": 1793519854942127691,
+  "command": [
+    "bash",
+    "-lc",
+    "source /opt/ros/humble/setup.bash; source /__HANDYMAN_PACKAGE__/project/install/setup.bash; export PYTHONPATH=/__HANDYMAN_PACKAGE__/runtime:/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1:$PYTHONPATH; export ROS_LOG_DIR=/__HANDYMAN_PACKAGE__/runtime/horizontal-can-hand-grasp-20261101-03-roslogs; exec /usr/bin/python3 /__HANDYMAN_PACKAGE__/project/training/scripts/cyclone_test_env.py --domain 71 --dds-config /__HANDYMAN_PACKAGE__/project/training/config/cyclone_search_stack.xml --run -- /usr/bin/python3 /__HANDYMAN_PACKAGE__/runtime/horizontal_can_hand_trial.py --run --output /__HANDYMAN_PACKAGE__/runtime/horizontal-can-hand-grasp-20261101-03 --previous /__HANDYMAN_PACKAGE__/runtime/horizontal-can-grasp-20261101-02 --source /__HANDYMAN_PACKAGE__/runtime/horizontal-can-grasp-20261101-01"
+  ],
+  "output": "/__HANDYMAN_PACKAGE__/runtime/horizontal-can-hand-grasp-20261101-03",
+  "detached": true,
+  "branch": "feat/handyman-phase5-grasping"
+}

@@ -1,0 +1,22 @@
+{
+  "pid": 30260,
+  "started_ns": 1793012003751491427,
+  "command": [
+    "bash",
+    "/__HANDYMAN_PACKAGE__/tools/apple-transfer-auto-v1/run_object_transfer.sh",
+    "--object",
+    "ground_pepper",
+    "--run",
+    "--confirm-layout",
+    "LayoutA",
+    "--confirm-localization",
+    "--simulation-ignore-collision",
+    "--navigation-profile",
+    "carry_fast_v1",
+    "--output",
+    "/__HANDYMAN_PACKAGE__/runtime/pepper-motion-direction-full-transfer-20261026-01"
+  ],
+  "output": "/__HANDYMAN_PACKAGE__/runtime/pepper-motion-direction-full-transfer-20261026-01",
+  "detached": true,
+  "current_pose_start_not_spawn": true
+}

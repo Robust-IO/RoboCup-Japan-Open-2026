@@ -1,0 +1,433 @@
+{
+  "status": "recorded_preclose_identity_lift_follow_verified",
+  "grasp_success_verified": true,
+  "source_trial": "/__HANDYMAN_PACKAGE__/runtime/apple-roi-close-lift-20261017-01",
+  "original_trial_status_preserved": "visual_verification_inconclusive",
+  "accepted_after_frames": 10,
+  "after_span_s": 4.399658098,
+  "after_center_spread_m": 7.137274629415173e-06,
+  "before_capture": "/__HANDYMAN_PACKAGE__/runtime/apple-roi-close-lift-20261017-01/observe/000023",
+  "opening_rad": 0.40096183548032016,
+  "rows": [
+    {
+      "capture": "/__HANDYMAN_PACKAGE__/runtime/apple-roi-close-lift-20261017-01/observe/000055",
+      "object_delta_odom_m": [
+        -0.005693571421388821,
+        0.00432854868090099,
+        0.10058849745842302
+      ],
+      "palm_delta_odom_m": [
+        0.0004649176778457331,
+        -0.0006701653896631077,
+        0.10001725148020912
+      ],
+      "object_palm_follow_error_m": 0.00795238657965468,
+      "apple_center_base_m": [
+        0.7002970662900617,
+        0.077097826364929,
+        0.6397286527719059
+      ],
+      "radius_delta_m": 6.415636214473011e-05,
+      "stamp_ns": 1792237997449039654,
+      "confidence": null,
+      "measurement_method": "confirmed_preclose_identity_with_unique_current_rgbd_surface",
+      "center_measurement": {
+        "center_m": [
+          0.7002970662900617,
+          0.077097826364929,
+          0.6397286527719059
+        ],
+        "radius_m": 0.029919258241944306,
+        "stamp_ns": 1792237997449039654,
+        "fit_residual_p95_m": 0.008749363859953698,
+        "points": 1180,
+        "association_error_m": 0.007980409955927567,
+        "frame_id": "base_link",
+        "source": "fresh_rgbd_verification_association",
+        "geometry_proposal_only": true,
+        "identity_confirmed": false,
+        "detector_confidence": null,
+        "motion_authorized": false
+      }
+    },
+    {
+      "capture": "/__HANDYMAN_PACKAGE__/runtime/apple-roi-close-lift-20261017-01/observe/000056",
+      "object_delta_odom_m": [
+        -0.005405317619607608,
+        0.003602946670715257,
+        0.10058882351981946
+      ],
+      "palm_delta_odom_m": [
+        0.0007538322634204064,
+        -0.0014041432316964086,
+        0.10001761572066314
+      ],
+      "object_palm_follow_error_m": 0.007958162785609117,
+      "apple_center_base_m": [
+        0.7002970662900617,
+        0.077097826364929,
+        0.6397286527719062
+      ],
+      "radius_delta_m": 6.415636214473011e-05,
+      "stamp_ns": 1792237999480074461,
+      "confidence": null,
+      "measurement_method": "confirmed_preclose_identity_with_unique_current_rgbd_surface",
+      "center_measurement": {
+        "center_m": [
+          0.7002970662900617,
+          0.077097826364929,
+          0.6397286527719062
+        ],
+        "radius_m": 0.029919258241944306,
+        "stamp_ns": 1792237999480074461,
+        "fit_residual_p95_m": 0.008749363859953698,
+        "points": 1180,
+        "association_error_m": 0.007980409955927583,
+        "frame_id": "base_link",
+        "source": "fresh_rgbd_verification_association",
+        "geometry_proposal_only": true,
+        "identity_confirmed": false,
+        "detector_confidence": null,
+        "motion_authorized": false
+      }
+    },
+    {
+      "capture": "/__HANDYMAN_PACKAGE__/runtime/apple-roi-close-lift-20261017-01/observe/000057",
+      "object_delta_odom_m": [
+        -0.004761714020340868,
+        0.004046284423580487,
+        0.10059328395030331
+      ],
+      "palm_delta_odom_m": [
+        0.0013962476770426058,
+        -0.0009463257445636863,
+        0.10002234978033064
+      ],
+      "object_palm_follow_error_m": 0.007948120179258798,
+      "apple_center_base_m": [
+        0.7002970662900617,
+        0.077097826364929,
+        0.6397286527719059
+      ],
+      "radius_delta_m": 6.415636214473011e-05,
+      "stamp_ns": 1792237999754568681,
+      "confidence": null,
+      "measurement_method": "confirmed_preclose_identity_with_unique_current_rgbd_surface",
+      "center_measurement": {
+        "center_m": [
+          0.7002970662900617,
+          0.077097826364929,
+          0.6397286527719059
+        ],
+        "radius_m": 0.029919258241944306,
+        "stamp_ns": 1792237999754568681,
+        "fit_residual_p95_m": 0.008749363859953698,
+        "points": 1180,
+        "association_error_m": 0.007980409955927567,
+        "frame_id": "base_link",
+        "source": "fresh_rgbd_verification_association",
+        "geometry_proposal_only": true,
+        "identity_confirmed": false,
+        "detector_confidence": null,
+        "motion_authorized": false
+      }
+    },
+    {
+      "capture": "/__HANDYMAN_PACKAGE__/runtime/apple-roi-close-lift-20261017-01/observe/000058",
+      "object_delta_odom_m": [
+        -0.005271010840840695,
+        0.003979607806305269,
+        0.1005969118817257
+      ],
+      "palm_delta_odom_m": [
+        0.0008904828247420227,
+        -0.0010161034964041304,
+        0.10001871275037455
+      ],
+      "object_palm_follow_error_m": 0.007953329481828956,
+      "apple_center_base_m": [
+        0.7002938150437062,
+        0.077097705439683,
+        0.6397357288931784
+      ],
+      "radius_delta_m": 5.883714414113214e-05,
+      "stamp_ns": 1792238000355648168,
+      "confidence": null,
+      "measurement_method": "confirmed_preclose_identity_with_unique_current_rgbd_surface",
+      "center_measurement": {
+        "center_m": [
+          0.7002938150437062,
+          0.077097705439683,
+          0.6397357288931784
+        ],
+        "radius_m": 0.029913939023940708,
+        "stamp_ns": 1792238000355648168,
+        "fit_residual_p95_m": 0.008749260149758954,
+        "points": 1180,
+        "association_error_m": 0.00798314284154612,
+        "frame_id": "base_link",
+        "source": "fresh_rgbd_verification_association",
+        "geometry_proposal_only": true,
+        "identity_confirmed": false,
+        "detector_confidence": null,
+        "motion_authorized": false
+      }
+    },
+    {
+      "capture": "/__HANDYMAN_PACKAGE__/runtime/apple-roi-close-lift-20261017-01/observe/000059",
+      "object_delta_odom_m": [
+        -0.0053272616900787995,
+        0.003841863102544002,
+        0.10059138431251113
+      ],
+      "palm_delta_odom_m": [
+        0.000830841837652585,
+        -0.0011524521877854521,
+        0.10002040285525493
+      ],
+      "object_palm_follow_error_m": 0.00794930463009229,
+      "apple_center_base_m": [
+        0.7002970662900617,
+        0.077097826364929,
+        0.6397286527719059
+      ],
+      "radius_delta_m": 6.415636214473011e-05,
+      "stamp_ns": 1792238000492586230,
+      "confidence": null,
+      "measurement_method": "confirmed_preclose_identity_with_unique_current_rgbd_surface",
+      "center_measurement": {
+        "center_m": [
+          0.7002970662900617,
+          0.077097826364929,
+          0.6397286527719059
+        ],
+        "radius_m": 0.029919258241944306,
+        "stamp_ns": 1792238000492586230,
+        "fit_residual_p95_m": 0.008749363859953698,
+        "points": 1180,
+        "association_error_m": 0.007980409955927567,
+        "frame_id": "base_link",
+        "source": "fresh_rgbd_verification_association",
+        "geometry_proposal_only": true,
+        "identity_confirmed": false,
+        "detector_confidence": null,
+        "motion_authorized": false
+      }
+    },
+    {
+      "capture": "/__HANDYMAN_PACKAGE__/runtime/apple-roi-close-lift-20261017-01/observe/000060",
+      "object_delta_odom_m": [
+        -0.004693582916085237,
+        0.0040914396117325835,
+        0.10058825031392593
+      ],
+      "palm_delta_odom_m": [
+        0.001465561509826685,
+        -0.0009155965253248854,
+        0.10001705113139459
+      ],
+      "object_palm_follow_error_m": 0.00795812411584324,
+      "apple_center_base_m": [
+        0.7002970662900617,
+        0.077097826364929,
+        0.6397286527719059
+      ],
+      "radius_delta_m": 6.415636214473011e-05,
+      "stamp_ns": 1792238000735084384,
+      "confidence": null,
+      "measurement_method": "confirmed_preclose_identity_with_unique_current_rgbd_surface",
+      "center_measurement": {
+        "center_m": [
+          0.7002970662900617,
+          0.077097826364929,
+          0.6397286527719059
+        ],
+        "radius_m": 0.029919258241944306,
+        "stamp_ns": 1792238000735084384,
+        "fit_residual_p95_m": 0.008749363859953698,
+        "points": 1180,
+        "association_error_m": 0.007980409955927567,
+        "frame_id": "base_link",
+        "source": "fresh_rgbd_verification_association",
+        "geometry_proposal_only": true,
+        "identity_confirmed": false,
+        "detector_confidence": null,
+        "motion_authorized": false
+      }
+    },
+    {
+      "capture": "/__HANDYMAN_PACKAGE__/runtime/apple-roi-close-lift-20261017-01/observe/000061",
+      "object_delta_odom_m": [
+        -0.005269944879371824,
+        0.0041641496242365295,
+        0.10059025454706916
+      ],
+      "palm_delta_odom_m": [
+        0.0008901659606133094,
+        -0.0008490275837294281,
+        0.10001719994667113
+      ],
+      "object_palm_follow_error_m": 0.007962870264823422,
+      "apple_center_base_m": [
+        0.7002966015412587,
+        0.07709850889754967,
+        0.6397304876002736
+      ],
+      "radius_delta_m": 6.324521037250411e-05,
+      "stamp_ns": 1792238001360267418,
+      "confidence": null,
+      "measurement_method": "confirmed_preclose_identity_with_unique_current_rgbd_surface",
+      "center_measurement": {
+        "center_m": [
+          0.7002966015412587,
+          0.07709850889754967,
+          0.6397304876002736
+        ],
+        "radius_m": 0.02991834709017208,
+        "stamp_ns": 1792238001360267418,
+        "fit_residual_p95_m": 0.008750103877606288,
+        "points": 1180,
+        "association_error_m": 0.007981348773420214,
+        "frame_id": "base_link",
+        "source": "fresh_rgbd_verification_association",
+        "geometry_proposal_only": true,
+        "identity_confirmed": false,
+        "detector_confidence": null,
+        "motion_authorized": false
+      }
+    },
+    {
+      "capture": "/__HANDYMAN_PACKAGE__/runtime/apple-roi-close-lift-20261017-01/observe/000062",
+      "object_delta_odom_m": [
+        -0.005343704580779374,
+        0.004765911434022052,
+        0.10058823219437829
+      ],
+      "palm_delta_odom_m": [
+        0.0008162550815176139,
+        -0.000251364407367366,
+        0.10001703509637416
+      ],
+      "object_palm_follow_error_m": 0.007965200941249646,
+      "apple_center_base_m": [
+        0.7002970662900617,
+        0.077097826364929,
+        0.6397286527719059
+      ],
+      "radius_delta_m": 6.415636214473011e-05,
+      "stamp_ns": 1792238001500770824,
+      "confidence": null,
+      "measurement_method": "confirmed_preclose_identity_with_unique_current_rgbd_surface",
+      "center_measurement": {
+        "center_m": [
+          0.7002970662900617,
+          0.077097826364929,
+          0.6397286527719059
+        ],
+        "radius_m": 0.029919258241944306,
+        "stamp_ns": 1792238001500770824,
+        "fit_residual_p95_m": 0.008749363859953698,
+        "points": 1180,
+        "association_error_m": 0.007980409955927567,
+        "frame_id": "base_link",
+        "source": "fresh_rgbd_verification_association",
+        "geometry_proposal_only": true,
+        "identity_confirmed": false,
+        "detector_confidence": null,
+        "motion_authorized": false
+      }
+    },
+    {
+      "capture": "/__HANDYMAN_PACKAGE__/runtime/apple-roi-close-lift-20261017-01/observe/000063",
+      "object_delta_odom_m": [
+        -0.004276487107023996,
+        0.0038221140888883565,
+        0.10059015065005117
+      ],
+      "palm_delta_odom_m": [
+        0.0018813941557962455,
+        -0.0011630126732665447,
+        0.10001710024323596
+      ],
+      "object_palm_follow_error_m": 0.007943511644763711,
+      "apple_center_base_m": [
+        0.7002966015412587,
+        0.07709850889754967,
+        0.6397304876002736
+      ],
+      "radius_delta_m": 6.324521037250411e-05,
+      "stamp_ns": 1792238001607454886,
+      "confidence": null,
+      "measurement_method": "confirmed_preclose_identity_with_unique_current_rgbd_surface",
+      "center_measurement": {
+        "center_m": [
+          0.7002966015412587,
+          0.07709850889754967,
+          0.6397304876002736
+        ],
+        "radius_m": 0.02991834709017208,
+        "stamp_ns": 1792238001607454886,
+        "fit_residual_p95_m": 0.008750103877606288,
+        "points": 1180,
+        "association_error_m": 0.007981348773420214,
+        "frame_id": "base_link",
+        "source": "fresh_rgbd_verification_association",
+        "geometry_proposal_only": true,
+        "identity_confirmed": false,
+        "detector_confidence": null,
+        "motion_authorized": false
+      }
+    },
+    {
+      "capture": "/__HANDYMAN_PACKAGE__/runtime/apple-roi-close-lift-20261017-01/observe/000064",
+      "object_delta_odom_m": [
+        -0.004948213244637234,
+        0.0038430749261380015,
+        0.10059058875670523
+      ],
+      "palm_delta_odom_m": [
+        0.0012111665041047992,
+        -0.0011598705583379665,
+        0.10001898889230731
+      ],
+      "object_palm_follow_error_m": 0.007955761988322154,
+      "apple_center_base_m": [
+        0.7002964948286553,
+        0.07709751260220861,
+        0.6397291166125226
+      ],
+      "radius_delta_m": 6.365027867814149e-05,
+      "stamp_ns": 1792238001848697752,
+      "confidence": null,
+      "measurement_method": "confirmed_preclose_identity_with_unique_current_rgbd_surface",
+      "center_measurement": {
+        "center_m": [
+          0.7002964948286553,
+          0.07709751260220861,
+          0.6397291166125226
+        ],
+        "radius_m": 0.029918752158477717,
+        "stamp_ns": 1792238001848697752,
+        "fit_residual_p95_m": 0.008749005882209865,
+        "points": 1180,
+        "association_error_m": 0.007980629500055103,
+        "frame_id": "base_link",
+        "source": "fresh_rgbd_verification_association",
+        "geometry_proposal_only": true,
+        "identity_confirmed": false,
+        "detector_confidence": null,
+        "motion_authorized": false
+      }
+    }
+  ],
+  "rejected": [],
+  "recording": "/__HANDYMAN_PACKAGE__/runtime/apple-roi-close-lift-20261017-01/observe",
+  "bound_task_id": null,
+  "bound_epoch": null,
+  "detector_confidence_invented": false,
+  "identity_rediscovered_by_color": false,
+  "motion_authorized": false,
+  "robot_commands_sent": false,
+  "protocol_success_sent": false,
+  "limitation": "Recorded verification of this pre-identified apple/contact/lift only. NOT open-world color recognition, a live lease, broad success rate or uninterrupted trial05 completion. Query uses measured palm movement but every accepted center is fitted from current RGBD. Original detector-only failure is preserved."
+}

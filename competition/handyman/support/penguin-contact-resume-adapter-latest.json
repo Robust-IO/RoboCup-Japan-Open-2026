@@ -1,0 +1,36 @@
+{
+  "status": "contact_resume_adapter_offline_validated",
+  "adapter": "/__HANDYMAN_PACKAGE__/runtime/penguin-contact-resume-adapter-20261107-164327",
+  "predecessor": "/__HANDYMAN_PACKAGE__/runtime/penguin-bedroom-kitchen-960-20261107-163817",
+  "task": "/__HANDYMAN_PACKAGE__/runtime/penguin-bedroom-to-kitchen-20261107.json",
+  "prior_receipt": {
+    "pid": 1852,
+    "output": "/__HANDYMAN_PACKAGE__/runtime/penguin-bedroom-kitchen-960-20261107-163817",
+    "task": "/__HANDYMAN_PACKAGE__/runtime/penguin-bedroom-to-kitchen-20261107.json",
+    "started_ns": 1794040703747997326,
+    "object": "toy_penguin",
+    "source": "white_side_table#bedroom_1",
+    "destination": "dining_table#kitchen",
+    "source_imgsz": 960,
+    "source_adapter": "/__HANDYMAN_PACKAGE__/runtime/penguin-source-resolution-trial-20261107-163817",
+    "canonical_sources_changed": false,
+    "previous_source_observation_attempt": {
+      "pid": 1472,
+      "output": "/__HANDYMAN_PACKAGE__/runtime/penguin-bedroom-kitchen-20261107-163035",
+      "task": "/__HANDYMAN_PACKAGE__/runtime/penguin-bedroom-to-kitchen-20261107.json",
+      "started_ns": 1794040235088460630,
+      "object": "toy_penguin",
+      "source": "white_side_table#bedroom_1",
+      "destination": "dining_table#kitchen",
+      "uses_common_dynamic_table_height": true
+    },
+    "only_source_resolution_config_changed": true,
+    "source_before_sha256": "b2222eca73d3e05ab0be9c1a77ddd4ab4c82b89648baa30e856ce266e9f4e721",
+    "source_after_sha256": "9de66b448103669a7468186ef8570f1feac7750a9d51acad2412b73c635fb53b",
+    "offline_test_output": "----------------------------------------------------------------------\nRan 59 tests in 1.609s\n\nOK\n"
+  },
+  "tests": "----------------------------------------------------------------------\nRan 61 tests in 1.988s\n\nOK\n",
+  "recorded_preclose_hand_proof": true,
+  "canonical_sources_changed": false,
+  "robot_commands_sent": false
+}

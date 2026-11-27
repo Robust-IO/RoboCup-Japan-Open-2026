@@ -1,0 +1,104 @@
+{
+  "status": "two_task_resident_reuse_verified",
+  "rows": [
+    {
+      "ready": {
+        "status": "ready",
+        "model_sha256": "83e6ceb9650e6da78d05404a5ead9654278d502ce06d812a6b2b70673c513763",
+        "imgsz": 640,
+        "near_grasp_roi_enabled": false,
+        "model_pid": 27511,
+        "shared_model": true,
+        "resident_model": true,
+        "resident_reused": false,
+        "resident_key": "e53097461ba278512fed9821",
+        "attach_s": 26.66339103000064
+      },
+      "client_attach_wall_s": 26.722245306998957,
+      "request_wall_s": 0.10229309600254055,
+      "capture": "/__HANDYMAN_PACKAGE__/runtime/penguin-unified-transfer-20261025-03/grasp/captures/identity-01",
+      "detections": [
+        {
+          "name": "ground_pepper",
+          "confidence": 0.9839269518852234,
+          "box": [
+            552.61279296875,
+            195.51744079589844,
+            594.4961547851562,
+            244.0186767578125
+          ]
+        },
+        {
+          "name": "toy_penguin",
+          "confidence": 0.8302146792411804,
+          "box": [
+            277.2310485839844,
+            153.63540649414062,
+            355.3887939453125,
+            224.888427734375
+          ]
+        },
+        {
+          "name": "sauce",
+          "confidence": 0.1010216474533081,
+          "box": [
+            35.2806282043457,
+            117.40092468261719,
+            84.0856704711914,
+            199.65847778320312
+          ]
+        }
+      ],
+      "depth_stamp_ns": 1792943640007776419,
+      "worker_processing_s": 0.08669466699939221,
+      "archived_readonly_replay": true
+    },
+    {
+      "ready": {
+        "status": "ready",
+        "model_sha256": "83e6ceb9650e6da78d05404a5ead9654278d502ce06d812a6b2b70673c513763",
+        "imgsz": 640,
+        "near_grasp_roi_enabled": false,
+        "model_pid": 27511,
+        "shared_model": true,
+        "resident_model": true,
+        "resident_reused": true,
+        "resident_key": "e53097461ba278512fed9821",
+        "attach_s": 0.009001842001453042
+      },
+      "client_attach_wall_s": 0.07947974000126123,
+      "request_wall_s": 0.07107317799818702,
+      "capture": "/__HANDYMAN_PACKAGE__/runtime/penguin-unified-transfer-20261025-03/grasp/captures/identity-02",
+      "detections": [
+        {
+          "name": "ground_pepper",
+          "confidence": 0.9847517609596252,
+          "box": [
+            552.6009521484375,
+            195.49183654785156,
+            594.5216674804688,
+            244.14614868164062
+          ]
+        },
+        {
+          "name": "toy_penguin",
+          "confidence": 0.7977879643440247,
+          "box": [
+            277.46484375,
+            153.722900390625,
+            355.42626953125,
+            224.90823364257812
+          ]
+        }
+      ],
+      "depth_stamp_ns": 1792943640247935351,
+      "worker_processing_s": 0.051987364000524394,
+      "archived_readonly_replay": true
+    }
+  ],
+  "same_model_pid": true,
+  "robot_commands_sent": false,
+  "live_freshness_not_asserted": true,
+  "saved_ns": 1792944403607770152,
+  "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU, 2266 MiB, 8151 MiB"
+}

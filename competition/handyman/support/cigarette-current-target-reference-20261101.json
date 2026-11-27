@@ -1,0 +1,290 @@
+{
+  "snapshot": {
+    "tracking_epoch": "cigarette-lateral-f41a522a3c0b441a9c54386565af6f18",
+    "streams": {
+      "hand": {
+        "stamp_ns": 1793533221921861904,
+        "frame": "hand_camera_rgb_frame",
+        "width": 640,
+        "height": 480
+      },
+      "hand_info": {
+        "stamp_ns": 1793533221912813635,
+        "frame": "hand_camera_rgb_frame",
+        "width": 640,
+        "height": 480
+      },
+      "rgb_info": {
+        "stamp_ns": 1793533221974338000,
+        "frame": "head_rgbd_sensor_rgb_frame",
+        "width": 640,
+        "height": 480
+      },
+      "depth_info": {
+        "stamp_ns": 1793533221806913523,
+        "frame": "head_rgbd_sensor_depth_frame",
+        "width": 640,
+        "height": 480
+      },
+      "rgb": {
+        "stamp_ns": 1793533221784999881,
+        "frame": "head_rgbd_sensor_rgb_frame",
+        "width": 640,
+        "height": 480
+      },
+      "depth": {
+        "stamp_ns": 1793533221812803950,
+        "frame": "head_rgbd_sensor_depth_frame",
+        "width": 640,
+        "height": 480
+      }
+    },
+    "rgb_k": [
+      554.0,
+      0.0,
+      320.0,
+      0.0,
+      554.0,
+      240.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "rgb_d": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "depth_k": [
+      554.0,
+      0.0,
+      320.0,
+      0.0,
+      554.0,
+      240.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "depth_d": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "hand_k": [
+      205.47,
+      0.0,
+      320.0,
+      0.0,
+      205.47,
+      240.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "hand_d": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "joints": {
+      "arm_lift_joint": 0.0,
+      "arm_flex_joint": 0.0,
+      "arm_roll_joint": 0.0,
+      "wrist_flex_joint": -1.5707963146269321,
+      "wrist_roll_joint": 0.0,
+      "head_pan_joint": 0.0,
+      "head_tilt_joint": -0.49999996867370555,
+      "torso_lift_joint": 0.0,
+      "hand_motor_joint": 0.6499999859074279,
+      "hand_l_proximal_joint": 0.6499999859074279,
+      "hand_l_spring_proximal_joint": 0.0,
+      "hand_l_mimic_distal_joint": 0.0,
+      "hand_l_distal_joint": 5.633185405758354,
+      "hand_r_proximal_joint": -5.633185405758354,
+      "hand_r_spring_proximal_joint": 0.0,
+      "hand_r_mimic_distal_joint": 0.0,
+      "hand_r_distal_joint": -0.6499999859074279
+    },
+    "joint_stamp_ns": 1793533221725000000,
+    "depth_encoding": "16UC1",
+    "motion_authorized": false,
+    "palm_base_at_depth": [
+      0.28660203283652663,
+      0.07800000160932541,
+      0.6764923576265574
+    ],
+    "base_from_rgb": {
+      "translation": [
+        0.053131378122826284,
+        0.02199999988079071,
+        0.9790874165917528
+      ],
+      "quaternion": [
+        0.6081581921967667,
+        -0.6081581921967666,
+        0.3607542283382977,
+        -0.3607542283382977
+      ]
+    },
+    "rgb_from_depth": {
+      "translation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "quaternion": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    "base_from_hand": {
+      "translation": [
+        0.28210203303024173,
+        0.07800000160932541,
+        0.71549235843122
+      ],
+      "quaternion": [
+        0.5,
+        -0.4999999999999999,
+        0.5000000000000001,
+        -0.5
+      ]
+    },
+    "palm_from_hand": {
+      "translation": [
+        0.039000000804662704,
+        0.0,
+        -0.0044999998062849045
+      ],
+      "quaternion": [
+        0.0,
+        0.0,
+        0.7071067811865475,
+        0.7071067811865476
+      ]
+    },
+    "tracking_transforms": {
+      "odom_from_base_at_depth": {
+        "translation": [
+          8.686060774179321,
+          -6.566437794226167,
+          5.751848220825195e-06
+        ],
+        "quaternion": [
+          -2.8178158443984543e-05,
+          -7.1969947083952024e-06,
+          -0.03738281593519173,
+          0.9993010178254349
+        ],
+        "stamp_ns": 1793533221812803950,
+        "source_frame": "base_link",
+        "target_frame": "odom"
+      },
+      "base_from_odom_at_hand": {
+        "translation": [
+          -9.151308753398471,
+          5.9001148111706,
+          0.00047422055151584186
+        ],
+        "quaternion": [
+          2.8178510582901063e-05,
+          7.195613753901417e-06,
+          0.03733384493248297,
+          0.9993028485783236
+        ],
+        "stamp_ns": 1793533221921861904,
+        "source_frame": "odom",
+        "target_frame": "base_link"
+      },
+      "map_from_base_at_depth": {
+        "translation": [
+          9.870441966213818,
+          -6.565294227887648,
+          -0.0003501207949579255
+        ],
+        "quaternion": [
+          -0.00010346531122300207,
+          6.564467976494333e-05,
+          -0.03735553445420127,
+          0.9993020309352656
+        ],
+        "stamp_ns": 1793533221812803950,
+        "source_frame": "base_link",
+        "target_frame": "map"
+      }
+    },
+    "stop_observe_act": {
+      "policy": "stop_observe_act_v1",
+      "generation": 0,
+      "stop_verified_stamp_ns": 1793533221725000000,
+      "captured_after_stop": true
+    }
+  },
+  "model": {
+    "class_name": "cigarette",
+    "shape": "flat_cuboid",
+    "center_m": [
+      1.3198152780532837,
+      -0.26370885968208313,
+      0.5045668888720536
+    ],
+    "center_base_m": [
+      1.3198152780532837,
+      -0.26370885968208313,
+      0.5045668888720536
+    ],
+    "axis_base": [
+      -0.99924236536026,
+      0.03891902044415474,
+      -0.0
+    ],
+    "length_m": 0.07176782190799713,
+    "width_m": 0.05110267177224159,
+    "height_m": 0.01592843708565785,
+    "support_plane_base": [
+      0.0013961467249205912,
+      -0.0005697918650698353,
+      0.49460975538827673
+    ],
+    "support_height_m": 0.49660267032922467,
+    "support_plane_residual_p95_m": 0.00031469292127110355,
+    "grasp_point_base_m": [
+      1.3198152780532837,
+      -0.26370885968208313,
+      0.5161026703292246
+    ],
+    "grip_above_bottom_m": 0.019500000000000003,
+    "estimated_finger_side_overlap_m": 0.013928437085657847,
+    "finger_lower_clearance_m": 0.0020000000000000018,
+    "top_points": 260,
+    "source": "current_flat_top_and_independent_table_depth",
+    "hidden_faces_measured": false,
+    "motion_authorized": false,
+    "stamp_ns": 1793533221812803950,
+    "confidence": 0.9180717468261719,
+    "segmentation": {
+      "depth_component_count": 1,
+      "discarded_background_points": 0,
+      "max_neighbor_jump_m": 0.02,
+      "selection": "unique_depth_connected_surface_through_detector_center"
+    }
+  },
+  "appearance": {
+    "hue": 99,
+    "tolerance": 8.0,
+    "source_pixels": 398,
+    "new_identity_detector": false
+  },
+  "model_detection_verified": true,
+  "source_run": "cigarette-full-auto-20261101-193127",
+  "source_capture": "/__HANDYMAN_PACKAGE__/runtime/cigarette-right-shift-20261101-194019/captures/before-right-shift"
+}
