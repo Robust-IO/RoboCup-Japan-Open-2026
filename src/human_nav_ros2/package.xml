@@ -21,6 +21,10 @@
   <!-- sample_with_rviz_launch 会启动 rviz2，需声明执行依赖 -->
   <exec_depend>rviz2</exec_depend>
 
+  <test_depend>rclpy</test_depend>
+  <test_depend>launch_ros</test_depend>
+  <test_depend>ament_index_python</test_depend>
+
   <!-- 为了让 colcon 生成可执行文件信息 -->
   <export>
     <build_type>ament_cmake</build_type>

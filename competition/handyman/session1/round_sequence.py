@@ -33,3 +33,48 @@ class RoundSequence:
     def exited(self):
         self.done=True
         if self.index==len(self.layouts)-1:self.finished=True
+
+
+def session_limit(value):
+    """Use the same uint32 range as Interactive Cleanup's N."""
+    import argparse
+    if not value.isascii() or not value.isdecimal() or not 0 <= int(value) <= 4294967295:
+        raise argparse.ArgumentTypeError('N must be an unsigned 32-bit integer (0..4294967295)')
+    return int(value)
+
+
+class LimitedRound:
+    """Protocol-only rounds. Caller retires old motion before begin()."""
+    def __init__(self, limit):
+        self.limit = limit
+        self.cancel()
+
+    def cancel(self):
+        self.active = False
+        self.deadline = None
+        self.instruction_seen = False
+        self.sent = False
+
+    def begin(self, index):
+        self.cancel()
+        self.active = index >= self.limit
+        return 'I_am_ready' if self.active else None
+
+    def receive(self, message, now):
+        if message in ('Task_failed', 'Task_succeeded', 'Mission_complete'):
+            self.cancel()
+            return None
+        if not self.active:
+            return None
+        if message == 'Are_you_ready?' and not self.instruction_seen:
+            return 'I_am_ready'
+        if message == 'Instruction' and not self.instruction_seen:
+            self.instruction_seen = True
+            self.deadline = now + 5.0
+        return None
+
+    def tick(self, now):
+        if self.active and not self.sent and self.deadline is not None and now >= self.deadline:
+            self.sent = True
+            return 'Give_up'
+        return None

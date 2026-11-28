@@ -162,6 +162,18 @@ pixi shell
 ros2 launch handyman_ros2 hsr_nav.launch.py
 ```
 
+完整六轮 Handyman 比赛包使用独立调度入口（需先生成运行包），始终从 session1 开始：
+
+```bash
+cd build/handyman-competition
+./start_dynamic.sh N:=2
+# 固定模式：./start_fixed.sh N:=2
+```
+
+`N` 默认 6；前 N 轮正常执行，后续轮次收到首次 `Instruction` 后等待 5 秒发送 `Give_up`。
+`N:=0` 表示全部放弃，范围 0～4294967295。入口也接受 `--N 2`，不再接受起始轮次位置参数。
+详见 `competition/handyman/launch/使用说明.md`。
+
 `pixi` 只管理 Python 包本身，不会下载比赛所需的运行时模型资产。请手动准备以下文件：
 
 - `src/vision_ros2/models/last.pt` 或 `src/vision_ros2/models/yolo12n.pt`
@@ -275,3 +287,18 @@ ros2 launch interactive_cleanup cleanup.launch.py N:=2 use_nav2:=false use_rviz:
 如果ubuntu运行ros2时出现 **address already in use**，可以：
 - 关闭当前终端、关闭 Cursor ，打开后从source再来一遍，或
 - 重启电脑。
+
+
+### Human Navigation 提示开关
+
+两个入口 `sample_launch.py` 和 `sample_with_rviz_launch.py` 均支持布尔参数 `prompt`，默认 `true`：
+
+```bash
+ros2 launch human_nav_ros2 sample_launch.py prompt:=false
+# 启用提示（也可省略 prompt 参数）
+ros2 launch human_nav_ros2 sample_launch.py prompt:=true
+```
+
+`prompt:=false` 时不生成导航提示、不向 `/human_navigation/message/guidance_message` 发布任何提示，
+包括主动请求、错误纠正和任务完成提示，也不轮询语音播报状态。任务握手、状态更新和机器人控制流程保留。
+该开关在启动时读取。

@@ -170,6 +170,7 @@ private:
   /// 方位提示节流：上次发送时间(秒)、间隔秒数（规则要求≤15条，不再实时距离）
   double last_direction_hint_sec_{0.0};
   double direction_hint_interval_sec_{10.0};
+  bool prompt_enabled_{true};
   /// 抓取正确提示后，字幕保持到该时间点（秒）；期间禁止新字幕覆盖
   double subtitle_hold_until_sec_{0.0};
   std::string last_wrong_object_name_;
@@ -305,6 +306,7 @@ private:
     const std::string & message,
     const std::string & displayType)
   {
+    if (!prompt_enabled_) return;
     const std::string normalized_message = normalizeKnownFusionPhrase(message);
     const std::string safe_message = truncateUtf8(normalized_message, 400);
 
@@ -737,11 +739,13 @@ private:
       direction_target_direction = M_PI / 2.0;  // x=0时，默认90度
     }
 
-    final_location   = getFinalDestination(message);
-    initial_location = getInitialDestination(message);
+    if (prompt_enabled_) {
+      final_location   = getFinalDestination(message);
+      initial_location = getInitialDestination(message);
+    }
 
     // 在主循环中 polish（见 run()），避免在回调内嵌套 spin
-    pending_polish_ = true;
+    pending_polish_ = prompt_enabled_;
 
     isTaskInfoReceived = true;
   }
@@ -825,6 +829,9 @@ private:
 
       target_object_was_held_ = has_target_object;
     }
+
+    // Keep object/placement state updates above even when guidance is disabled.
+    if (!prompt_enabled_) return;
 
     // X 请求在最新状态回包到达的这一刻生成完整提示，距离不会沿用旧缓存。
     if (awaiting_requested_avatar_status_) {
@@ -925,7 +932,7 @@ private:
     GuidancePriority priority,
     const std::string & display_type = "All")
   {
-    if (isFinished || message.empty() || guidance_sent_count_ >= MAX_GUIDANCE_COUNT) {
+    if (!prompt_enabled_ || isFinished || message.empty() || guidance_sent_count_ >= MAX_GUIDANCE_COUNT) {
       return false;
     }
 
@@ -978,6 +985,7 @@ private:
 
   void processGuidanceQueue()
   {
+    if (!prompt_enabled_) return;
     if (isFinished && !completion_guidance_pending_) {
       guidance_queue_.clear();
       return;
@@ -1039,6 +1047,7 @@ private:
 
   std::string buildCurrentGuidance() const
   {
+    if (!prompt_enabled_) return "";
     if (step == GuideForPlacement && !placement_seeking_target_) {
       return polished_place_base_.empty() ? truncateUtf8(buildStrictPlaceTemplate(), 400)
                                           : polished_place_base_;
@@ -1049,6 +1058,7 @@ private:
 
   std::string buildCurrentGuidanceWithDistance() const
   {
+    if (!prompt_enabled_) return "";
     const double av_x = avatarStatus.body.position.x;
     const double av_y = avatarStatus.body.position.y;
     const bool placing = step == GuideForPlacement && !placement_seeking_target_;
@@ -1067,6 +1077,7 @@ private:
 
   std::string buildDirectionAndDistance(bool to_destination) const
   {
+    if (!prompt_enabled_) return "";
     const double av_x = avatarStatus.body.position.x;
     const double av_y = avatarStatus.body.position.y;
     const double target_x = to_destination ? taskInfo.destination.position.x
@@ -1099,6 +1110,11 @@ private:
     placement_check_state_ = PlacementCheckState::Idle;
     placement_prompt_locked_ = true;
     guidance_queue_.clear();
+    if (!prompt_enabled_) {
+      completion_guidance_pending_ = false;
+      isFinished = true;
+      return;
+    }
     completion_guidance_pending_ = true;
     if (!queueGuidance("Task completed.", GuidancePriority::Error)) {
       completion_guidance_pending_ = false;
@@ -1218,6 +1234,9 @@ public:
     pub_base_trajectory_ = nodeHandle->create_publisher<trajectory_msgs::msg::JointTrajectory>(
       "/hsrb/omni_base_controller/command",
       10);
+
+    prompt_enabled_ = nodeHandle->declare_parameter<bool>("prompt", true);
+    RCLCPP_INFO(nodeHandle->get_logger(), "VR prompts: %s", prompt_enabled_ ? "enabled" : "disabled");
 
     nodeHandle->declare_parameter("direction_hint_interval_sec", 10.0);
     direction_hint_interval_sec_ = nodeHandle->get_parameter("direction_hint_interval_sec").as_double();

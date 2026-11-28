@@ -83,4 +83,11 @@ install(DIRECTORY
   DESTINATION share/${PROJECT_NAME}/
 )
 
+if(BUILD_TESTING)
+  find_package(Python3 REQUIRED COMPONENTS Interpreter)
+  add_test(NAME human_navigation_prompt_test
+    COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/test/test_prompt.py)
+  set_tests_properties(human_navigation_prompt_test PROPERTIES TIMEOUT 120 RUN_SERIAL TRUE)
+endif()
+
 ament_package()

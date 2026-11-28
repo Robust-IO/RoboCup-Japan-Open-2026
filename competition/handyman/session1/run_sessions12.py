@@ -3,7 +3,7 @@ import argparse,datetime,json,os,signal,subprocess,time,sys
 from console_exit import ConsoleExit
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
-from round_sequence import RoundSequence
+from round_sequence import RoundSequence, LimitedRound, session_limit
 ROOT=Path(__file__).resolve().parent
 PROJECT=Path('/__HANDYMAN_PACKAGE__/project')
 RUNS=Path('/__HANDYMAN_PACKAGE__/runs')
@@ -117,6 +117,7 @@ def parse_args(argv=None):
     initial.add_argument('--resume-session2-initial',action='store_true',help='Wait for actual LayoutB readiness at the new-round initial pose')
     initial.add_argument('--resume-session3-search-from',type=Path,help='Same live round, resume stopped search without resetting localization')
     p.add_argument('--dynamic-instructions',action='store_true',help='Parse actual task and resolve source from inventory and live search')
+    p.add_argument('--N',type=session_limit,default=6,help='Run first N sessions normally; later sessions give up 5 seconds after Instruction')
     args=p.parse_args(argv)
     if args.dynamic_instructions and args.resume_session3_search_from:
         p.error('dynamic mode does not support the fixed-mode search checkpoint')
@@ -148,11 +149,21 @@ def main():
     (RUNS/'sessions123456-latest.txt').write_text(str(out))
     events=(out/'events.jsonl').open('x');seq=RoundSequence();task=None;future=None;round_dir=None;stopping=False;interrupted=False;retirement=None;startup_failures={};preparation_failures={}
     seq.index=initial_index(args)
+    limited=LimitedRound(args.N)
+    publisher=node.create_publisher(HandymanMsg,'/handyman/message/to_moderator',10)
     def record(**row):
         row['time']=time.time();events.write(json.dumps(row)+'\n');events.flush();print(json.dumps(row),flush=True)
+    def publish_limited(message):
+        if message is None:return
+        wire=HandymanMsg();wire.message=message;wire.detail=''
+        publisher.publish(wire)
+        record(event='session_limit_protocol',session=seq.index+1,N=args.N,message=message,detail='')
     def receive(msg):
         record(event='moderator',message=msg.message,detail=msg.detail)
-        seq.message(msg.message,msg.detail,time.monotonic())
+        now=time.monotonic()
+        seq.message(msg.message,msg.detail,now)
+        if seq.pending is None or msg.message in ('Task_failed','Task_succeeded','Mission_complete'):
+            publish_limited(limited.receive(msg.message,now))
         if msg.message in ('Task_failed','Mission_complete') and task is not None and task.poll() is None:
             os.killpg(task.pid,signal.SIGINT)
     node.create_subscription(HandymanMsg,'/handyman/message/to_robot',receive,10)
@@ -168,8 +179,9 @@ def main():
     try:
         from model_prewarm import start as start_prewarm
         try:
-            prewarm=start_prewarm(round_spec(seq.index)['config'],PROJECT.parent,out/'model-prewarm.log')
-            record(event='model_prewarm_started',pid=prewarm.pid,robot_commands_sent=False)
+            if seq.index < args.N:
+                prewarm=start_prewarm(round_spec(seq.index)['config'],PROJECT.parent,out/'model-prewarm.log')
+                record(event='model_prewarm_started',pid=prewarm.pid,robot_commands_sent=False)
         except OSError as exc:
             record(event='model_prewarm_deferred_to_task',reason=str(exc))
         if args.resume_session3_search_from:
@@ -183,6 +195,9 @@ def main():
             if console.poll():
                 record(event='console_exit_requested');interrupted=True
             if interrupted:seq.finished=True
+            if seq.finished:limited.cancel()
+            if not seq.finished and not seq.done and seq.pending is None:
+                publish_limited(limited.tick(time.monotonic()))
             transition=seq.pending is not None and seq.started and seq.pending!=seq.index
             if task is not None:
                 if (seq.finished or transition) and not stopping and task.poll() is None:
@@ -229,11 +244,20 @@ def main():
             if seq.pending is not None and task is None and future is None and not seq.finished:
                 index=seq.pending;seq.launch(index)
                 round_dir=out/f'session{index+1}';round_dir.mkdir()
-                record(event='preparing_round',session=index+1,layout=seq.layouts[index])
-                future=pool.submit(setup,index,round_dir)
+                if index >= args.N:
+                    # No navigation/localization/task process for abandoned rounds.
+                    # Retire previous services before acknowledging this new round.
+                    retire_services()
+                    record(event='limited_round_waiting_instruction',session=index+1,N=args.N,delay_seconds=5)
+                    publish_limited(limited.begin(index))
+                else:
+                    limited.cancel()
+                    record(event='preparing_round',session=index+1,layout=seq.layouts[index])
+                    future=pool.submit(setup,index,round_dir)
             (out/'supervisor-state.json').write_text(json.dumps(dict(session=seq.index+1,
                 waiting_for_handshake=not seq.started or seq.done,preparing=future is not None,
-                task_pid=None if task is None else task.pid,finished=seq.finished)))
+                task_pid=None if task is None else task.pid,finished=seq.finished,
+                N=args.N,limited_round=limited.active,give_up_deadline=limited.deadline,give_up_sent=limited.sent)))
         record(event='sequence_stopped',session=seq.index+1)
     finally:
         from model_prewarm import stop_waiter

@@ -8,6 +8,7 @@ from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, Opaq
 from launch.launch_description_sources import AnyLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
+from launch_ros.parameter_descriptions import ParameterValue
 from launch_ros.substitutions import FindPackageShare
 
 
@@ -55,6 +56,7 @@ def _launch_setup(context, *args, **kwargs):
             parameters=[
                 {
                     "direction_hint_interval_sec": direction_hint_interval,
+                    "prompt": ParameterValue(LaunchConfiguration("prompt"), value_type=bool),
                 }
             ],
         )
@@ -80,6 +82,11 @@ def generate_launch_description():
                 "direction_hint_interval_sec",
                 default_value="10.0",
                 description="Interval (seconds) between directional hints (Forward/Left/Right/Backward).",
+            ),
+            DeclareLaunchArgument(
+                "prompt",
+                default_value="true",
+                description="Enable VR guidance text and speech prompts.",
             ),
             OpaqueFunction(function=_launch_setup),
         ]

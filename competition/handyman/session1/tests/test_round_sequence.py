@@ -140,3 +140,146 @@ class Session3InitialStartTests(unittest.TestCase):
         seq.message('Instruction','Go to the lobby',1.)
         seq.message('Are_you_ready?','',2.);seq.message('Environment','LayoutC',2.1)
         self.assertEqual(seq.pending,3)
+
+
+class LimitedRoundTests(unittest.TestCase):
+    def test_boundary_and_default(self):
+        from round_sequence import LimitedRound
+        for limit in (0,2,6,4294967295):
+            s=LimitedRound(limit)
+            for index in range(6):
+                self.assertEqual(s.begin(index),'I_am_ready' if index>=limit else None)
+                s.receive('Instruction',10)
+                self.assertIsNone(s.tick(14.999))
+                self.assertEqual(s.tick(15),'Give_up' if index>=limit else None)
+                self.assertIsNone(s.tick(100))
+
+    def test_only_first_instruction_starts_timer(self):
+        from round_sequence import LimitedRound
+        s=LimitedRound(0)
+        self.assertIsNone(s.receive('Instruction',0))  # not yet begun
+        s.begin(0)
+        self.assertIsNone(s.tick(100))
+        s.receive('Corrected_instruction',100)
+        self.assertIsNone(s.tick(200))
+        s.receive('Instruction',201)
+        s.receive('Instruction',203)
+        self.assertIsNone(s.receive('Are_you_ready?',204))
+        self.assertIsNone(s.tick(205.999))
+        self.assertEqual(s.tick(206),'Give_up')
+        s.receive('Instruction',207)
+        self.assertIsNone(s.tick(300))
+
+    def test_terminal_events_cancel_delayed_give_up(self):
+        from round_sequence import LimitedRound
+        for message in ('Task_failed','Task_succeeded','Mission_complete'):
+            s=LimitedRound(0);s.begin(0);s.receive('Instruction',0)
+            s.receive(message,2)
+            self.assertIsNone(s.tick(10))
+            self.assertIsNone(s.receive('Are_you_ready?',11))
+        s=LimitedRound(0);s.begin(0);s.receive('Instruction',0);s.cancel()
+        self.assertIsNone(s.tick(10))
+
+    def test_next_round_does_not_inherit_old_timer(self):
+        from round_sequence import LimitedRound
+        s=LimitedRound(0);s.begin(4);s.receive('Instruction',0)
+        s.begin(5);self.assertIsNone(s.tick(10))
+        s.receive('Instruction',20)
+        self.assertEqual(s.tick(25),'Give_up')
+
+    def test_six_abandoned_rounds_follow_real_handshakes(self):
+        from round_sequence import LimitedRound
+        seq=RoundSequence();skip=LimitedRound(0)
+        for index,layout in enumerate(seq.layouts):
+            now=index*20
+            seq.message('Environment',layout,now)
+            seq.message('Are_you_ready?','',now+.1)
+            self.assertEqual(seq.pending,index)
+            seq.launch(index);self.assertEqual(skip.begin(index),'I_am_ready')
+            seq.message('Instruction','task',now+1)
+            skip.receive('Instruction',now+1)
+            self.assertIsNone(skip.tick(now+5.99))
+            self.assertEqual(skip.tick(now+6),'Give_up')
+            seq.message('Task_failed','Give_up',now+7)
+            skip.receive('Task_failed',now+7)
+            self.assertIsNone(skip.tick(now+8))
+        self.assertTrue(seq.finished)
+
+
+class SupervisorLimitIntegrationTests(unittest.TestCase):
+    def test_fixed_and_dynamic_supervisor_routes_normal_and_abandoned_rounds(self):
+        """Run main's real event loop with fake ROS/time/process boundaries."""
+        import contextlib,io,tempfile,types
+        from pathlib import Path
+        from unittest.mock import Mock,patch
+        import run_sessions12 as supervisor
+
+        for dynamic in (False,True):
+            for limit in (0,2,6):
+                with self.subTest(dynamic=dynamic,limit=limit),tempfile.TemporaryDirectory() as tmp:
+                    clock=[0.]
+                    wire=[]
+                    events=[]
+                    setups=[]
+                    commands=[]
+                    for index,layout in enumerate(RoundSequence.layouts):
+                        base=index*20.
+                        events.extend([(base,'Environment',layout),(base+.1,'Are_you_ready?',''),
+                                       (base+.2,None,''),(base+1,'Instruction','task'),
+                                       (base+3,'Instruction','duplicate'),
+                                       (base+5.999,None,''),(base+6,None,''),(base+7,None,''),
+                                       (base+8,'Task_failed','Give_up' if index>=limit else 'test end')])
+                    class Message:
+                        def __init__(self,message='',detail=''):
+                            self.message=message;self.detail=detail
+                    class Node:
+                        def create_publisher(self,*args):
+                            return types.SimpleNamespace(publish=lambda msg:wire.append((clock[0],msg.message,msg.detail)))
+                        def create_subscription(self,kind,topic,callback,qos):
+                            self.receive=callback
+                        def destroy_node(self):pass
+                    node=Node()
+                    def spin_once(node,timeout_sec):
+                        if not events:raise AssertionError('supervisor failed to finish six rounds')
+                        now,msg,detail=events.pop(0);clock[0]=now
+                        if msg:node.receive(Message(msg,detail))
+                    class Future:
+                        def __init__(self,value):self.value=value
+                        def done(self):return True
+                        def result(self):return self.value
+                    class Pool:
+                        def __init__(self,**kwargs):pass
+                        def submit(self,fn,*args):return Future(fn(*args))
+                        def shutdown(self,**kwargs):pass
+                    def setup(index,out):
+                        setups.append(index);return Path(tmp)/'config.json'
+                    class Task:
+                        pid=123456
+                        def __init__(self,index):self.index=index
+                        def poll(self):return 0 if clock[0]>=self.index*20+8 else None
+                        def wait(self):return 0
+                    def spawn(command,log):
+                        index=int(log.parent.name.removeprefix('session'))-1
+                        commands.append((index,command));return Task(index)
+                    ros=types.SimpleNamespace(init=lambda:None,create_node=lambda name:node,
+                                              spin_once=spin_once,shutdown=lambda:None)
+                    prewarm=Mock(return_value=types.SimpleNamespace(pid=999))
+                    modules={'rclpy':ros,'handyman_msgs':types.ModuleType('handyman_msgs'),
+                             'handyman_msgs.msg':types.SimpleNamespace(HandymanMsg=Message),
+                             'ensure_clock_bridge':types.SimpleNamespace(ensure=lambda:None),
+                             'model_prewarm':types.SimpleNamespace(start=prewarm,stop_waiter=lambda p:None)}
+                    argv=['run_sessions12.py','--execute','--from-session','1','--N',str(limit)]
+                    if dynamic:argv.append('--dynamic-instructions')
+                    with patch.dict('sys.modules',modules),patch.object(supervisor.sys,'argv',argv),                          patch.object(supervisor,'RUNS',Path(tmp)),patch.object(supervisor,'processes',return_value=[]),                          patch.object(supervisor,'setup',side_effect=setup),patch.object(supervisor,'spawn',side_effect=spawn),                          patch.object(supervisor,'retire_services') as retire,patch.object(supervisor,'ThreadPoolExecutor',Pool),                          patch.object(supervisor,'ConsoleExit',return_value=types.SimpleNamespace(poll=lambda:False)),                          patch.object(supervisor.time,'monotonic',side_effect=lambda:clock[0]),                          patch.object(supervisor.signal,'signal'),patch.object(supervisor.os,'killpg'),                          contextlib.redirect_stdout(io.StringIO()):
+                        supervisor.main()
+                    self.assertEqual(setups,list(range(limit)))
+                    self.assertEqual([i for i,_ in commands],list(range(limit)))
+                    for i,command in commands:
+                        expected='run_dynamic_session.py' if dynamic else ('run_session3_search.py' if i==2 else 'run_live_session1.py')
+                        self.assertEqual(Path(command[1]).name,expected)
+                    self.assertEqual([(t,m) for t,m,d in wire if m=='Give_up'],
+                                     [(i*20.+6,'Give_up') for i in range(limit,6)])
+                    self.assertEqual([m for _,m,_ in wire].count('I_am_ready'),6-limit)
+                    self.assertTrue(all(d=='' for _,_,d in wire))
+                    self.assertEqual(retire.call_count,6-limit)
+                    self.assertEqual(prewarm.call_count,int(limit>0))
