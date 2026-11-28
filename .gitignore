@@ -76,6 +76,7 @@ training/tests/__pycache__/
 
 #b本地输出日志
 log.txt
+test-logs/*
 
 # Canonical Handyman competition sources and documentation
 !competition/handyman/**/*.md
