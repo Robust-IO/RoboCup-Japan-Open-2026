@@ -14,6 +14,7 @@ from launch.substitutions import LaunchConfiguration, PythonExpression
 from launch.launch_description_sources import AnyLaunchDescriptionSource
 from launch.conditions import IfCondition
 from launch_ros.actions import Node
+from launch_ros.parameter_descriptions import ParameterValue
 from launch_ros.substitutions import FindPackageShare
 from launch.substitutions import PathJoinSubstitution
 
@@ -31,6 +32,9 @@ def generate_launch_description():
             'ros_bridge_port', default_value='9090'),
         DeclareLaunchArgument(
             'use_sim_time', default_value='false'),
+        DeclareLaunchArgument(
+            'N', default_value='4294967295',
+            description='Number of full sessions before giving up after Clean_up! (uint32)'),
         DeclareLaunchArgument(
             'timestamp_mode', default_value='source',
             description='Bridge source Unix stamps; receive is diagnostic compatibility mode'),
@@ -59,6 +63,7 @@ def generate_launch_description():
         parameters=[{
             'use_sim_time': LaunchConfiguration('use_sim_time'),
             'use_nav2': LaunchConfiguration('use_nav2'),
+            'N': ParameterValue(LaunchConfiguration('N'), value_type=int),
         }],
     )
 

@@ -216,6 +216,14 @@ ros2 launch handyman_ros2 hsr_nav.launch.py
 ros2 launch interactive_cleanup cleanup.launch.py use_nav2:=true use_rviz:=true
 ```
 
+可以通过 `N` 设置完整执行的 session 数量（无符号 32 位整数，范围 0～4294967295）。例如先完整执行两轮，从第三轮开始正常处理指令，收到 `Clean_up!` 后发送 `Give_up`：
+
+```bash
+ros2 launch interactive_cleanup cleanup.launch.py N:=2 use_nav2:=false use_rviz:=false
+```
+
+不传 `N` 时默认为 `4294967295`。`N:=0` 表示从第一轮开始在收到 `Clean_up!` 后放弃。计数从进程启动后的首个任务开始，每次重启进程重新计数。启动前需加载 ROS 和本工作区环境，并启用本仓库的 pixi Python 环境。
+
 更多 launch 与键盘遥控说明见 `src/handyman_ros2/README.md`。
 
 ## 参考链接

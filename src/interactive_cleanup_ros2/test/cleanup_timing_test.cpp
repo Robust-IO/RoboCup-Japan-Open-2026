@@ -6,6 +6,77 @@
 // connecting to the simulator. All command publishers use test-only topics.
 struct CleanupTimingAccess
 {
+  static void sessionLimit()
+  {
+    using Msg = interactive_cleanup_msgs::msg::InteractiveCleanupMsg;
+    auto n = make();
+    EXPECT_EQ(n->session_limit_, std::numeric_limits<uint32_t>::max());
+    n->session_limit_ = 2;
+    n->arm_joint_trajectory_.points.resize(1);
+    n->pub_arm_trajectory_ = n->create_publisher<trajectory_msgs::msg::JointTrajectory>("/cleanup_timing_test/arm", 10);
+    n->pub_msg_ = n->create_publisher<Msg>("/cleanup_timing_test/session_moderator", 10);
+    n->pub_msg_human_ = n->create_publisher<Msg>("/cleanup_timing_test/session_human", 10);
+    n->pub_hsr_msg_ = n->create_publisher<std_msgs::msg::String>("/cleanup_timing_test/session_hsr", 10);
+    std::vector<std::string> messages;
+    auto listener = std::make_shared<rclcpp::Node>("cleanup_session_listener");
+    auto sub = listener->create_subscription<Msg>("/cleanup_timing_test/session_moderator", 10,
+      [&](Msg::SharedPtr msg) { messages.push_back(msg->message); });
+    for (int i = 0; i < 100 && n->pub_msg_->get_subscription_count() == 0; ++i)
+      rclcpp::sleep_for(std::chrono::milliseconds(10));
+    ASSERT_GT(n->pub_msg_->get_subscription_count(), 0u);
+    for (int task = 1; task <= 3; ++task) {
+      n->step_ = n->Ready;
+      n->handleIncomingMessage("Are_you_ready?", "", "test");
+      n->handleIncomingMessage("Are_you_ready?", "", "test");
+      EXPECT_EQ(n->task_number_, task);
+      n->step_ = n->WaitForCleanCommand;
+      if (task < 3) {
+        n->handleIncomingMessage("Clean_up!", "", "test");
+        EXPECT_TRUE(n->received_clean_command_);
+        EXPECT_FALSE(n->session_give_up_pending_);
+      } else {
+        // Even an earlier observation timeout must wait for Clean_up!.
+        n->giveUp(); n->changeStep(n->WaitForResult);
+        EXPECT_EQ(n->step_, n->WaitForCleanBeforeGiveUp);
+        rclcpp::spin_some(listener);
+        EXPECT_EQ(std::count(messages.begin(), messages.end(), "Give_up"), 0);
+        n->handleIncomingMessage("Clean_up!", "", "test");
+        n->runStateMachine();
+        EXPECT_EQ(n->step_, n->WaitForResult);
+        n->handleIncomingMessage("Clean_up!", "", "test");
+        n->runStateMachine();
+      }
+      n->reset();
+    }
+    for (int i = 0; i < 100 && std::count(messages.begin(), messages.end(), "Give_up") < 1; ++i) {
+      rclcpp::spin_some(listener);
+      rclcpp::sleep_for(std::chrono::milliseconds(10));
+    }
+    EXPECT_EQ(std::count(messages.begin(), messages.end(), "Give_up"), 1);
+    n->session_limit_ = 0;
+    n->task_number_ = 1;
+    n->step_ = n->WaitForPickCommand;
+    n->handleIncomingMessage("Clean_up!", "", "test");
+    EXPECT_TRUE(n->session_give_up_pending_);
+    n->runStateMachine();
+    EXPECT_EQ(n->step_, n->WaitForResult);
+  }
+
+  static void invalidSessionLimit()
+  {
+    if (!rclcpp::ok()) rclcpp::init(0, nullptr);
+    for (int64_t value : {0LL, 2LL, 4294967295LL}) {
+      rclcpp::NodeOptions options;
+      options.parameter_overrides({rclcpp::Parameter("N", value)});
+      InteractiveCleanupSample node(options);
+      EXPECT_EQ(node.session_limit_, static_cast<uint32_t>(value));
+    }
+    for (int64_t value : {-1LL, 4294967296LL}) {
+      rclcpp::NodeOptions options;
+      options.parameter_overrides({rclcpp::Parameter("N", value)});
+      EXPECT_THROW((InteractiveCleanupSample(options)), std::invalid_argument);
+    }
+  }
   static void task4ExtraTurn()
   {
     auto n = make();
@@ -1050,6 +1121,12 @@ TEST(CleanupTiming, HeadTrackingUsesActuatorRangeAndMotionDuration)
   EXPECT_DOUBLE_EQ(limit.tilt,-1.570);
   EXPECT_GE(limit.duration,1.745);
 }
+
+TEST(CleanupTiming, SessionLimitHonorsCleanBoundaryAndTaskReset)
+{ CleanupTimingAccess::sessionLimit(); }
+
+TEST(CleanupTiming, SessionLimitRejectsOutOfRangeValues)
+{ CleanupTimingAccess::invalidSessionLimit(); }
 
 TEST(CleanupTiming, HandshakeWaitsForVisionAndReadinessSurvivesTaskReset)
 { CleanupTimingAccess::readinessHandshake(); }

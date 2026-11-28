@@ -37,6 +37,8 @@
 #include <cmath>
 #include <algorithm>
 #include <limits>
+#include <cstdint>
+#include <stdexcept>
 #include <sstream>
 
 using namespace std::chrono_literals;
@@ -54,6 +56,12 @@ public:
   : rclcpp::Node("interactive_cleanup_sample", options)
   {
     nav2_enabled_ = this->declare_parameter<bool>("use_nav2", true);
+    const auto limit = this->declare_parameter<int64_t>("N", std::numeric_limits<uint32_t>::max());
+    if (limit < 0 || limit > std::numeric_limits<uint32_t>::max()) {
+      throw std::invalid_argument("N must be an unsigned 32-bit integer (0..4294967295)");
+    }
+    session_limit_ = static_cast<uint32_t>(limit);
+    RCLCPP_INFO(this->get_logger(), "[SessionControl] Full sessions N=%u", session_limit_);
   }
 
   int run()
@@ -138,6 +146,7 @@ private:
   enum Step {
     Initialize,
     Ready,
+    WaitForCleanBeforeGiveUp,
     WaitForPickCommand,
     ObserveTarget,
     WaitForCleanCommand,
@@ -353,7 +362,11 @@ private:
   // State variables
   // =========================================================================
   int step_;
-  int task_number_ = 0;
+  int64_t task_number_ = 0;
+  uint32_t session_limit_ = std::numeric_limits<uint32_t>::max();
+  bool session_clean_seen_ = false;
+  bool session_give_up_pending_ = false;
+  bool session_give_up_deferred_ = false;
   bool task4_extra_turn_done_ = false;
   double task4_turn_start_yaw_ = 0.0;
   bool is_started_  = false;
@@ -553,7 +566,8 @@ private:
       if (step_ == Ready) {
         if (!is_started_) {
           ++task_number_;
-          RCLCPP_INFO(this->get_logger(), "[TaskCounter] Starting task %d", task_number_);
+          RCLCPP_INFO(this->get_logger(), "[TaskCounter] Starting task %lld (N=%u)",
+            static_cast<long long>(task_number_), session_limit_);
         }
         is_started_ = true;
         if (vision_ready_) sendReadyAck("initial handshake");
@@ -584,6 +598,12 @@ private:
       }
     }
     else if (message == MSG_CLEAN_UP) {
+      if (task_number_ > static_cast<int64_t>(session_limit_) &&
+          step_ != Initialize && step_ != Ready && step_ != WaitForResult) {
+        session_clean_seen_ = true;
+        session_give_up_pending_ = true;
+        return;
+      }
       // Clean_up! closes destination capture. A short drain may retain only
       // frames that continue the final pre-command world ray; it cannot start
       // a new gesture or change the selected direction.
@@ -1410,6 +1430,14 @@ private:
 
   void giveUp()
   {
+    if (task_number_ > static_cast<int64_t>(session_limit_) &&
+        !session_clean_seen_ &&
+        (step_ == WaitForPickCommand || step_ == ObserveTarget || step_ == WaitForCleanCommand)) {
+      RCLCPP_WARN(this->get_logger(), "[SessionControl] Waiting for Clean_up! before Give_up");
+      emergencyStop();
+      session_give_up_deferred_ = true;
+      return;
+    }
     RCLCPP_WARN(this->get_logger(), "Giving up");
     emergencyStop();
     sendMessage(MSG_GIVE_UP);
@@ -2971,6 +2999,9 @@ private:
   // =========================================================================
   void reset()
   {
+    session_clean_seen_ = false;
+    session_give_up_pending_ = false;
+    session_give_up_deferred_ = false;
     is_started_ = false;
     task4_extra_turn_done_ = false;
     is_finished_ = false;
@@ -3045,6 +3076,7 @@ private:
     switch (s) {
       case Initialize:       return "Initialize";
       case Ready:            return "Ready";
+      case WaitForCleanBeforeGiveUp: return "WaitForCleanBeforeGiveUp";
       case WaitForPickCommand:  return "WaitForPick";
       case ObserveTarget:    return "ObserveTarget";
       case WaitForCleanCommand: return "WaitForClean";
@@ -3081,6 +3113,9 @@ private:
 
   void changeStep(int next)
   {
+    if (next == WaitForResult && session_give_up_deferred_) {
+      next = WaitForCleanBeforeGiveUp;
+    }
     stopAvatarRetreat();
     RCLCPP_INFO(this->get_logger(), "[%s] -> [%s]",
                 stepName(step_).c_str(), stepName(next).c_str());
@@ -3122,6 +3157,16 @@ private:
       return;
     }
 
+    if (session_give_up_pending_) {
+      session_give_up_pending_ = false;
+      session_give_up_deferred_ = false;
+      RCLCPP_INFO(this->get_logger(), "[SessionControl] Clean_up! received in session %lld > N=%u; giving up",
+        static_cast<long long>(task_number_), session_limit_);
+      giveUp();
+      changeStep(WaitForResult);
+      return;
+    }
+
     const bool retreat_phase = step_ == WaitForPickCommand ||
       (step_ == ObserveTarget && !has_locked_pointing_ && (sub_step_ == 0 || sub_step_ == 4));
     if (!retreat_phase || received_clean_command_ ||
@@ -3132,6 +3177,9 @@ private:
     }
 
     switch (step_) {
+
+    case WaitForCleanBeforeGiveUp:
+      break;
 
     // -----------------------------------------------------------------
     case Initialize: {
